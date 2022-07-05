@@ -32,18 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRaceVisualPreset.RaceId"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRaceId(Action<Race> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RaceId);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRaceVisualPreset.MaleSkeleton"/>
     /// </summary>
     public TBuilder SetMaleSkeleton(Skeleton maleSkeleton)

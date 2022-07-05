@@ -601,18 +601,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomUIRoot.KingdomHistoryEntitisCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKingdomHistoryEntitisCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.KingdomHistoryEntitisCount);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.ExResourceStateTypeStrings"/>
     /// </summary>
     public TBuilder SetExResourceStateTypeStrings(KingdomUIRoot.ResourceStateTypeStrings exResourceStateTypeStrings)

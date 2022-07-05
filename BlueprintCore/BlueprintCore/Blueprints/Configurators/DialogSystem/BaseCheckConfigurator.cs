@@ -36,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCheck.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<StatType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.DC"/>
     /// </summary>
     public TBuilder SetDC(int dC)
@@ -60,18 +48,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCheck.DC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.Hidden"/>
     /// </summary>
     public TBuilder SetHidden(bool hidden = true)
@@ -80,18 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Hidden = hidden;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCheck.Hidden"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHidden(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Hidden);
         });
     }
 
@@ -283,18 +247,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Experience = experience;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCheck.Experience"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperience(Action<DialogExperience> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Experience);
         });
     }
 

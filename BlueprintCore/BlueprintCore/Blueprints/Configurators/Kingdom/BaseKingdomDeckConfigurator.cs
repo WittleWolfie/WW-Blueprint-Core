@@ -147,18 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomDeck.IsPriority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsPriority(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsPriority);
-        });
-    }
-
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

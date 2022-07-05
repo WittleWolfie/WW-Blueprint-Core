@@ -41,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.AdditionalBehaviour"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAdditionalBehaviour(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AdditionalBehaviour);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.MinDifficulty"/>
     /// </summary>
     public TBuilder SetMinDifficulty(GameDifficultyOption minDifficulty)
@@ -61,18 +49,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.MinDifficulty = minDifficulty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.MinDifficulty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinDifficulty(Action<GameDifficultyOption> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinDifficulty);
         });
     }
 
@@ -89,18 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.InvertDifficultyRequirements"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInvertDifficultyRequirements(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.InvertDifficultyRequirements);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.OncePerRound"/>
     /// </summary>
     public TBuilder SetOncePerRound(bool oncePerRound = true)
@@ -113,18 +77,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.OncePerRound"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOncePerRound(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OncePerRound);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.CooldownRounds"/>
     /// </summary>
     public TBuilder SetCooldownRounds(int cooldownRounds)
@@ -133,18 +85,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.CooldownRounds = cooldownRounds;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.CooldownRounds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCooldownRounds(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CooldownRounds);
         });
     }
 
@@ -185,18 +125,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.StartCooldownRounds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartCooldownRounds(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StartCooldownRounds);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.CombatCount"/>
     /// </summary>
     public TBuilder SetCombatCount(int combatCount)
@@ -205,18 +133,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.CombatCount = combatCount;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.CombatCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCombatCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CombatCount);
         });
     }
 
@@ -233,18 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.UseWhenAIDisabled"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseWhenAIDisabled(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseWhenAIDisabled);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.UseOnLimitedAI"/>
     /// </summary>
     public TBuilder SetUseOnLimitedAI(bool useOnLimitedAI = true)
@@ -257,18 +161,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.UseOnLimitedAI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseOnLimitedAI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseOnLimitedAI);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.BaseScore"/>
     /// </summary>
     public TBuilder SetBaseScore(float baseScore)
@@ -277,18 +169,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.BaseScore = baseScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiAction.BaseScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BaseScore);
         });
     }
 

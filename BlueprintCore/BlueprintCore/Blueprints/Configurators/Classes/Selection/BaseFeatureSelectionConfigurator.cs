@@ -38,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.IgnorePrerequisites"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIgnorePrerequisites(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IgnorePrerequisites);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.Obligatory"/>
     /// </summary>
     public TBuilder SetObligatory(bool obligatory = true)
@@ -58,18 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.Obligatory = obligatory;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.Obligatory"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyObligatory(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Obligatory);
         });
     }
 
@@ -86,18 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.Mode"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMode(Action<SelectionMode> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Mode);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.Group"/>
     /// </summary>
     public TBuilder SetGroup(FeatureGroup group)
@@ -110,18 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.Group"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGroup(Action<FeatureGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Group);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.Group2"/>
     /// </summary>
     public TBuilder SetGroup2(FeatureGroup group2)
@@ -130,18 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.Group2 = group2;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.Group2"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGroup2(Action<FeatureGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Group2);
         });
     }
 
@@ -269,18 +209,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.ShowThisSelection = showThisSelection;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureSelection.ShowThisSelection"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowThisSelection(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowThisSelection);
         });
     }
 

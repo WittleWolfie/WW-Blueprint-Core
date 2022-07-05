@@ -127,18 +127,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Gender"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGender(Action<Gender> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Gender);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Size"/>
     /// </summary>
     public TBuilder SetSize(Size size)
@@ -151,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Size"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySize(Action<Size> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Size);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.IsLeftHanded"/>
     /// </summary>
     public TBuilder SetIsLeftHanded(bool isLeftHanded = true)
@@ -171,18 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.IsLeftHanded = isLeftHanded;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.IsLeftHanded"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsLeftHanded(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsLeftHanded);
         });
     }
 
@@ -257,18 +221,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Alignment = alignment;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Alignment"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAlignment(Action<Alignment> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Alignment);
         });
     }
 
@@ -771,18 +723,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Strength"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStrength(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Strength);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Dexterity"/>
     /// </summary>
     public TBuilder SetDexterity(int dexterity)
@@ -791,18 +731,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Dexterity = dexterity;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Dexterity"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDexterity(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Dexterity);
         });
     }
 
@@ -819,18 +747,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Constitution"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyConstitution(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Constitution);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Intelligence"/>
     /// </summary>
     public TBuilder SetIntelligence(int intelligence)
@@ -839,18 +755,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Intelligence = intelligence;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Intelligence"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIntelligence(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Intelligence);
         });
     }
 
@@ -867,18 +771,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Wisdom"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWisdom(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Wisdom);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Charisma"/>
     /// </summary>
     public TBuilder SetCharisma(int charisma)
@@ -887,18 +779,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Charisma = charisma;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.Charisma"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCharisma(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Charisma);
         });
     }
 
@@ -939,18 +819,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.BaseAttackBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseAttackBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BaseAttackBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Skills"/>
     /// </summary>
     public TBuilder SetSkills(BlueprintUnit.UnitSkills skills)
@@ -985,18 +853,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.MaxHP = maxHP;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.MaxHP"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxHP(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxHP);
         });
     }
 
@@ -1249,18 +1105,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.IsCheater"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsCheater(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsCheater);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.IsFake"/>
     /// </summary>
     public TBuilder SetIsFake(bool isFake = true)
@@ -1269,18 +1113,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.IsFake = isFake;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.IsFake"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsFake(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsFake);
         });
     }
 
@@ -1297,18 +1129,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnit.m_PS4ChunkId"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPS4ChunkId(Action<PS4ChunkId> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_PS4ChunkId);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.m_HasAssignedChunkId"/>
     /// </summary>
     public TBuilder SetHasAssignedChunkId(bool hasAssignedChunkId = true)
@@ -1317,18 +1137,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_HasAssignedChunkId = hasAssignedChunkId;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnit.m_HasAssignedChunkId"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasAssignedChunkId(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_HasAssignedChunkId);
         });
     }
 

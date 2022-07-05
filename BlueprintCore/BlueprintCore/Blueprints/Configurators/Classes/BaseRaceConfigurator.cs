@@ -62,18 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRace.RaceId"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRaceId(Action<Race> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RaceId);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRace.SelectableRaceStat"/>
     /// </summary>
     public TBuilder SetSelectableRaceStat(bool selectableRaceStat = true)
@@ -86,18 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRace.SelectableRaceStat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySelectableRaceStat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SelectableRaceStat);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRace.Size"/>
     /// </summary>
     public TBuilder SetSize(Size size)
@@ -106,18 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.Size = size;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRace.Size"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySize(Action<Size> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Size);
         });
     }
 

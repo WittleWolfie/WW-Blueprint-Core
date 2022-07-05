@@ -394,18 +394,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
     /// <summary>
-    /// Modifies <see cref="HitSystemRoot.MaxHeightIncrease"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxHeightIncrease(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxHeightIncrease);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.EnergyResistance"/>
     /// </summary>
     public TBuilder SetEnergyResistance(GameObject energyResistance)
@@ -444,18 +432,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
     /// <summary>
-    /// Modifies <see cref="HitSystemRoot.RagdollDistanceForLootBag"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRagdollDistanceForLootBag(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RagdollDistanceForLootBag);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.BlowUpDismembermentChance"/>
     /// </summary>
     public TBuilder SetBlowUpDismembermentChance(float blowUpDismembermentChance)
@@ -464,18 +440,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           bp.BlowUpDismembermentChance = blowUpDismembermentChance;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HitSystemRoot.BlowUpDismembermentChance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBlowUpDismembermentChance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BlowUpDismembermentChance);
         });
     }
 
@@ -492,18 +456,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
     /// <summary>
-    /// Modifies <see cref="HitSystemRoot.LimbsApartDismembermentChance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLimbsApartDismembermentChance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LimbsApartDismembermentChance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.m_Initialized"/>
     /// </summary>
     public TBuilder SetInitialized(bool initialized = true)
@@ -512,18 +464,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           bp.m_Initialized = initialized;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HitSystemRoot.m_Initialized"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInitialized(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Initialized);
         });
     }
 

@@ -32,18 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintInteractionRoot.m_InteractionDCVariation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInteractionDCVariation(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_InteractionDCVariation);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/>
     /// </summary>
     ///
@@ -58,18 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
         bp =>
         {
           bp.m_MagicPowerCost = magicPowerCost;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintInteractionRoot.m_MagicPowerCost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMagicPowerCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MagicPowerCost);
         });
     }
 
@@ -154,18 +130,6 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
         bp =>
         {
           bp.m_FxDenominator = fxDenominator;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintInteractionRoot.m_FxDenominator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFxDenominator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_FxDenominator);
         });
     }
 

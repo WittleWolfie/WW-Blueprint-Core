@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -37,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemThiefTool.m_Consumable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyConsumable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Consumable);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemThiefTool.m_SkillCheckBonus"/>
     /// </summary>
     public TBuilder SetSkillCheckBonus(int skillCheckBonus)
@@ -57,18 +44,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_SkillCheckBonus = skillCheckBonus;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemThiefTool.m_SkillCheckBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySkillCheckBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SkillCheckBonus);
         });
     }
   }

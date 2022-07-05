@@ -36,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.ProjectType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyProjectType(Action<KingdomProjectType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ProjectType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.ProjectStartCost"/>
     /// </summary>
     public TBuilder SetProjectStartCost(KingdomResourcesAmount projectStartCost)
@@ -113,18 +101,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.SpendRulerTimeDays"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpendRulerTimeDays(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpendRulerTimeDays);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.Repeatable"/>
     /// </summary>
     public TBuilder SetRepeatable(bool repeatable = true)
@@ -133,18 +109,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.Repeatable = repeatable;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.Repeatable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRepeatable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Repeatable);
         });
     }
 
@@ -167,18 +131,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.Cooldown"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCooldown(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Cooldown);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.IsRankUpProject"/>
     /// </summary>
     public TBuilder SetIsRankUpProject(bool isRankUpProject = true)
@@ -187,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.IsRankUpProject = isRankUpProject;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.IsRankUpProject"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsRankUpProject(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsRankUpProject);
         });
     }
 
@@ -215,18 +155,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.RankupProjectFor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRankupProjectFor(Action<KingdomStats.Type> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RankupProjectFor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.AIPriority"/>
     /// </summary>
     public TBuilder SetAIPriority(int aIPriority)
@@ -235,18 +163,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.AIPriority = aIPriority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomProject.AIPriority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAIPriority(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AIPriority);
         });
     }
 

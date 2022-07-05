@@ -38,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.CR"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCR(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CR);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.m_Ability"/>
     /// </summary>
     ///
@@ -138,18 +126,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.SpendCharges"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpendCharges(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpendCharges);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.Charges"/>
     /// </summary>
     public TBuilder SetCharges(int charges)
@@ -158,18 +134,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.Charges = charges;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.Charges"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCharges(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Charges);
         });
     }
 
@@ -186,18 +150,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.RestoreChargesOnRest"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRestoreChargesOnRest(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RestoreChargesOnRest);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.CasterLevel"/>
     /// </summary>
     public TBuilder SetCasterLevel(int casterLevel)
@@ -206,18 +158,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.CasterLevel = casterLevel;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.CasterLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCasterLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CasterLevel);
         });
     }
 
@@ -234,18 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.SpellLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.DC"/>
     /// </summary>
     public TBuilder SetDC(int dC)
@@ -258,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.DC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.IsNonRemovable"/>
     /// </summary>
     public TBuilder SetIsNonRemovable(bool isNonRemovable = true)
@@ -278,18 +194,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.IsNonRemovable = isNonRemovable;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.IsNonRemovable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsNonRemovable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsNonRemovable);
         });
     }
 
@@ -455,18 +359,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.m_ForcedRampColorPresetIndex = forcedRampColorPresetIndex;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipment.m_ForcedRampColorPresetIndex"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForcedRampColorPresetIndex(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForcedRampColorPresetIndex);
         });
     }
 

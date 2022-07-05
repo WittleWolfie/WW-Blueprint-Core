@@ -148,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffConsideration.HasBuffScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasBuffScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasBuffScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BuffConsideration.NoBuffScore"/>
     /// </summary>
     public TBuilder SetNoBuffScore(float noBuffScore)
@@ -172,18 +160,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffConsideration.NoBuffScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoBuffScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoBuffScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BuffConsideration.FromCaster"/>
     /// </summary>
     public TBuilder SetFromCaster(bool fromCaster = true)
@@ -192,18 +168,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.FromCaster = fromCaster;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffConsideration.FromCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFromCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FromCaster);
         });
     }
 

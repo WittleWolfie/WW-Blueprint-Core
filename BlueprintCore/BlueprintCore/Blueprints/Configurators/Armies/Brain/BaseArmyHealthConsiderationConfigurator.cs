@@ -4,7 +4,6 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -38,18 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyHealthConsideration.FullBorder"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFullBorder(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FullBorder);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyHealthConsideration.DeadBorder"/>
     /// </summary>
     ///
@@ -64,18 +51,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.DeadBorder = deadBorder;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyHealthConsideration.DeadBorder"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeadBorder(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeadBorder);
         });
     }
 
@@ -98,18 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyHealthConsideration.FullScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFullScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FullScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyHealthConsideration.DeadScore"/>
     /// </summary>
     public TBuilder SetDeadScore(float deadScore)
@@ -118,18 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.DeadScore = deadScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyHealthConsideration.DeadScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeadScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeadScore);
         });
     }
   }

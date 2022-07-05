@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.IsMythic"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMythic(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsMythic);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.SpellsByLevel"/>
     /// </summary>
     public TBuilder SetSpellsByLevel(params SpellLevelList[] spellsByLevel)
@@ -172,18 +160,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.FilterByMaxLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilterByMaxLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FilterByMaxLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.FilterByDescriptor"/>
     /// </summary>
     public TBuilder SetFilterByDescriptor(bool filterByDescriptor = true)
@@ -192,18 +168,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.FilterByDescriptor = filterByDescriptor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.FilterByDescriptor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilterByDescriptor(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FilterByDescriptor);
         });
     }
 
@@ -250,18 +214,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.FilterBySchool"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilterBySchool(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FilterBySchool);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.ExcludeFilterSchool"/>
     /// </summary>
     public TBuilder SetExcludeFilterSchool(bool excludeFilterSchool = true)
@@ -270,18 +222,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.ExcludeFilterSchool = excludeFilterSchool;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.ExcludeFilterSchool"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExcludeFilterSchool(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExcludeFilterSchool);
         });
     }
 
@@ -298,18 +238,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.FilterSchool"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilterSchool(Action<SpellSchool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FilterSchool);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.FilterSchool2"/>
     /// </summary>
     public TBuilder SetFilterSchool2(SpellSchool filterSchool2)
@@ -322,18 +250,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.FilterSchool2"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilterSchool2(Action<SpellSchool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FilterSchool2);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.m_MaxLevel"/>
     /// </summary>
     public TBuilder SetMaxLevel(int maxLevel)
@@ -342,18 +258,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.m_MaxLevel = maxLevel;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellList.m_MaxLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxLevel);
         });
     }
 

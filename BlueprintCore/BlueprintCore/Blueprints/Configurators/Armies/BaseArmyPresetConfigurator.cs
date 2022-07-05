@@ -39,18 +39,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmyPreset.Morale"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMorale(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Morale);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPreset.Squads"/>
     /// </summary>
     public TBuilder SetSquads(params BlueprintArmyPreset.UnitAndCount[] squads)
@@ -180,18 +168,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_ArmyType = armyType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmyPreset.m_ArmyType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyType(Action<ArmyType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmyType);
         });
     }
 

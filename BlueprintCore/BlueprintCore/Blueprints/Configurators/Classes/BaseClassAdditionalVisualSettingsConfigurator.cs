@@ -149,18 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.OverrideFootprintType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideFootprintType(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideFootprintType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.FootprintType"/>
     /// </summary>
     public TBuilder SetFootprintType(FootprintType footprintType)
@@ -169,18 +157,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.FootprintType = footprintType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.FootprintType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFootprintType(Action<FootprintType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FootprintType);
         });
     }
 

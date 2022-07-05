@@ -561,18 +561,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.AutoFailDays"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoFailDays(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AutoFailDays);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintQuestObjective.IsFakeFail"/>
     /// </summary>
     public TBuilder SetIsFakeFail(bool isFakeFail = true)
@@ -581,18 +569,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.IsFakeFail = isFakeFail;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.IsFakeFail"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsFakeFail(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsFakeFail);
         });
     }
 
@@ -609,18 +585,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.StartOnKingdomTime"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartOnKingdomTime(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StartOnKingdomTime);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintQuestObjective.m_FinishParent"/>
     /// </summary>
     public TBuilder SetFinishParent(bool finishParent = true)
@@ -633,18 +597,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_FinishParent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFinishParent(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_FinishParent);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintQuestObjective.m_Hidden"/>
     /// </summary>
     public TBuilder SetHidden(bool hidden = true)
@@ -653,18 +605,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.m_Hidden = hidden;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Hidden"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHidden(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Hidden);
         });
     }
 
@@ -830,18 +770,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.m_Type = type;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuestObjective.m_Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<BlueprintQuestObjective.Type> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Type);
         });
     }
 

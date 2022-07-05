@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.m_SqrCustomRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySqrCustomRadius(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SqrCustomRadius);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.Filter"/>
     /// </summary>
     public TBuilder SetFilter(Kingmaker.AI.Blueprints.TargetType filter)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.Filter = filter;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.Filter"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFilter(Action<Kingmaker.AI.Blueprints.TargetType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Filter);
         });
     }
 
@@ -79,18 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.MinCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinCount);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.MaxCount"/>
     /// </summary>
     public TBuilder SetMaxCount(int maxCount)
@@ -99,18 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.MaxCount = maxCount;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.MaxCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxCount);
         });
     }
 
@@ -127,18 +78,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.IncludeUnconscious"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIncludeUnconscious(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IncludeUnconscious);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.BelowMinScore"/>
     /// </summary>
     public TBuilder SetBelowMinScore(float belowMinScore)
@@ -147,18 +86,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.BelowMinScore = belowMinScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.BelowMinScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBelowMinScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BelowMinScore);
         });
     }
 
@@ -175,18 +102,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.MinScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.MaxScore"/>
     /// </summary>
     public TBuilder SetMaxScore(float maxScore)
@@ -199,18 +114,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.MaxScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.ExtraTargetScore"/>
     /// </summary>
     public TBuilder SetExtraTargetScore(float extraTargetScore)
@@ -219,18 +122,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.ExtraTargetScore = extraTargetScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.ExtraTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExtraTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExtraTargetScore);
         });
     }
 
@@ -253,18 +144,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.UseAbilityShape"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseAbilityShape(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseAbilityShape);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.UseCustomRadius"/>
     /// </summary>
     ///
@@ -283,18 +162,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.UseCustomRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseCustomRadius(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseCustomRadius);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.CustomRadiusInMeters"/>
     /// </summary>
     public TBuilder SetCustomRadiusInMeters(float customRadiusInMeters)
@@ -307,18 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.CustomRadiusInMeters"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCustomRadiusInMeters(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CustomRadiusInMeters);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.CheckRadiusFromCaster"/>
     /// </summary>
     public TBuilder SetCheckRadiusFromCaster(bool checkRadiusFromCaster = true)
@@ -327,18 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.CheckRadiusFromCaster = checkRadiusFromCaster;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="UnitsAroundConsideration.CheckRadiusFromCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCheckRadiusFromCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CheckRadiusFromCaster);
         });
     }
   }

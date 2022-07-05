@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapEdge.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<GlobalMapEdgeType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapEdge.Priority"/>
     /// </summary>
     public TBuilder SetPriority(GlobalMapEdgePriority priority)
@@ -53,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Priority = priority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapEdge.Priority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPriority(Action<GlobalMapEdgePriority> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Priority);
         });
     }
 
@@ -178,18 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.Length = length;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapEdge.Length"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLength(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Length);
         });
     }
 

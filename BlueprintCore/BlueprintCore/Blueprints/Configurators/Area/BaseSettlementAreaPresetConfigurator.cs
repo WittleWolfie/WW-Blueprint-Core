@@ -108,18 +108,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlementAreaPreset.m_StartSettlementLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartSettlementLevel(Action<SettlementState.LevelType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_StartSettlementLevel);
-        });
-    }
-
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

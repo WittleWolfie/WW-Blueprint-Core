@@ -89,18 +89,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<AchievementType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="AchievementData.Steam"/>
     /// </summary>
     public TBuilder SetSteam(AchievementData.PlatformSettingsSteam steam)
@@ -239,18 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.Hidden"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHidden(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Hidden);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="AchievementData.OnlyMainCampaign"/>
     /// </summary>
     public TBuilder SetOnlyMainCampaign(bool onlyMainCampaign = true)
@@ -259,18 +235,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         bp =>
         {
           bp.OnlyMainCampaign = onlyMainCampaign;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="AchievementData.OnlyMainCampaign"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOnlyMainCampaign(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OnlyMainCampaign);
         });
     }
 
@@ -351,18 +315,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
     /// <summary>
-    /// Modifies <see cref="AchievementData.MinCrusadeDifficulty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinCrusadeDifficulty(Action<KingdomDifficulty> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinCrusadeDifficulty);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="AchievementData.IronMan"/>
     /// </summary>
     public TBuilder SetIronMan(bool ironMan = true)
@@ -371,18 +323,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         bp =>
         {
           bp.IronMan = ironMan;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="AchievementData.IronMan"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIronMan(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IronMan);
         });
     }
 
@@ -420,18 +360,6 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         bp =>
         {
           bp.EventsCountForUnlock = eventsCountForUnlock;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="AchievementData.EventsCountForUnlock"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEventsCountForUnlock(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EventsCountForUnlock);
         });
     }
 

@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFootprintType.FootprintType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFootprintType(Action<FootprintType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FootprintType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFootprintType.Footprints"/>
     /// </summary>
     public TBuilder SetFootprints(FootprintsEnumArray footprints)

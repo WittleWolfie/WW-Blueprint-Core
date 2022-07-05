@@ -65,18 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="MoraleRoot.m_DevineForNegative"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDevineForNegative(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DevineForNegative);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="MoraleRoot.m_DevineForPositive"/>
     /// </summary>
     ///
@@ -91,18 +79,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_DevineForPositive = devineForPositive;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="MoraleRoot.m_DevineForPositive"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDevineForPositive(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DevineForPositive);
         });
     }
 

@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBarkBanter.m_SpeakerType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpeakerType(Action<SpeakerType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SpeakerType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.m_Unit"/>
     /// </summary>
     ///
@@ -118,18 +106,6 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
         bp =>
         {
           bp.m_Weight = weight;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBarkBanter.m_Weight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Weight);
         });
     }
 

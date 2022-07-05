@@ -216,18 +216,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_Cost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Cost);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_Weight"/>
     /// </summary>
     public TBuilder SetWeight(float weight)
@@ -240,18 +228,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_Weight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Weight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_IsNotable"/>
     /// </summary>
     public TBuilder SetIsNotable(bool isNotable = true)
@@ -260,18 +236,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_IsNotable = isNotable;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_IsNotable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsNotable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsNotable);
         });
     }
 
@@ -294,18 +258,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_IsJunk"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsJunk(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsJunk);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_ForceStackable"/>
     /// </summary>
     public TBuilder SetForceStackable(bool forceStackable = true)
@@ -318,18 +270,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_ForceStackable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceStackable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForceStackable);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_Destructible"/>
     /// </summary>
     public TBuilder SetDestructible(bool destructible = true)
@@ -338,18 +278,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_Destructible = destructible;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_Destructible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDestructible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Destructible);
         });
     }
 
@@ -403,18 +331,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.m_MiscellaneousType = miscellaneousType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItem.m_MiscellaneousType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMiscellaneousType(Action<BlueprintItem.MiscellaneousItemType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MiscellaneousType);
         });
     }
 
@@ -477,18 +393,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.NeedSkinningForCollect = needSkinningForCollect;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItem.NeedSkinningForCollect"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeedSkinningForCollect(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NeedSkinningForCollect);
         });
     }
 

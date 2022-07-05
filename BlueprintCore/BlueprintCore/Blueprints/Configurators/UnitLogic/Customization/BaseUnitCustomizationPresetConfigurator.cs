@@ -110,18 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <summary>
-    /// Modifies <see cref="UnitCustomizationPreset.VariationsCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyVariationsCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.VariationsCount);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.m_Distribution"/>
     /// </summary>
     ///

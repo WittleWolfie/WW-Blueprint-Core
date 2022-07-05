@@ -69,18 +69,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetSelf"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceTargetSelf(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForceTargetSelf);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetEnemy"/>
     /// </summary>
     public TBuilder SetForceTargetEnemy(bool forceTargetEnemy = true)
@@ -89,18 +77,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.m_ForceTargetEnemy = forceTargetEnemy;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatAiCastSpell.m_ForceTargetEnemy"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceTargetEnemy(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForceTargetEnemy);
         });
     }
 

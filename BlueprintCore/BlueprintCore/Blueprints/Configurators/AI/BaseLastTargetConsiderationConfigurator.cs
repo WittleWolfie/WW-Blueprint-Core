@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="LastTargetConsideration.SameLastTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySameLastTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SameLastTargetScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LastTargetConsideration.OtherLastTargetScore"/>
     /// </summary>
     public TBuilder SetOtherLastTargetScore(float otherLastTargetScore)
@@ -55,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="LastTargetConsideration.OtherLastTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOtherLastTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OtherLastTargetScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LastTargetConsideration.NoLastTargetScore"/>
     /// </summary>
     public TBuilder SetNoLastTargetScore(float noLastTargetScore)
@@ -75,18 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.NoLastTargetScore = noLastTargetScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LastTargetConsideration.NoLastTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoLastTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoLastTargetScore);
         });
     }
   }

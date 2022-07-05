@@ -197,18 +197,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.RemoveSpellbook"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRemoveSpellbook(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RemoveSpellbook);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.BuildChanging"/>
     /// </summary>
     public TBuilder SetBuildChanging(bool buildChanging = true)
@@ -217,18 +205,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.BuildChanging = buildChanging;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.BuildChanging"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBuildChanging(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BuildChanging);
         });
     }
 
@@ -399,18 +375,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.ReplaceStartingEquipment"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyReplaceStartingEquipment(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ReplaceStartingEquipment);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.StartingGold"/>
     /// </summary>
     public TBuilder SetStartingGold(int startingGold)
@@ -419,18 +383,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.StartingGold = startingGold;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.StartingGold"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartingGold(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StartingGold);
         });
     }
 
@@ -562,18 +514,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.ReplaceClassSkills"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyReplaceClassSkills(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ReplaceClassSkills);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.ClassSkills"/>
     /// </summary>
     public TBuilder SetClassSkills(params StatType[] classSkills)
@@ -662,18 +602,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.ChangeCasterType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyChangeCasterType(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ChangeCasterType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.IsDivineCaster"/>
     /// </summary>
     ///
@@ -688,18 +616,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.IsDivineCaster = isDivineCaster;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.IsDivineCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsDivineCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsDivineCaster);
         });
     }
 
@@ -722,18 +638,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.IsArcaneCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsArcaneCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsArcaneCaster);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.AddSkillPoints"/>
     /// </summary>
     public TBuilder SetAddSkillPoints(int addSkillPoints)
@@ -746,18 +650,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.AddSkillPoints"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAddSkillPoints(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AddSkillPoints);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.OverrideAttributeRecommendations"/>
     /// </summary>
     public TBuilder SetOverrideAttributeRecommendations(bool overrideAttributeRecommendations = true)
@@ -766,18 +658,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.OverrideAttributeRecommendations = overrideAttributeRecommendations;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.OverrideAttributeRecommendations"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideAttributeRecommendations(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideAttributeRecommendations);
         });
     }
 
@@ -1235,18 +1115,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.m_Difficulty = difficulty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArchetype.m_Difficulty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDifficulty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Difficulty);
         });
     }
 

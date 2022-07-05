@@ -148,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="FactConsideration.HasFactScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasFactScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasFactScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FactConsideration.NoFactScore"/>
     /// </summary>
     public TBuilder SetNoFactScore(float noFactScore)
@@ -168,18 +156,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.NoFactScore = noFactScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FactConsideration.NoFactScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoFactScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoFactScore);
         });
     }
 

@@ -78,23 +78,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBuff.Stacking"/> by invoking the provided action.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Use <see cref="SetRanks(int)"/> for StackingType.Rank.
-    /// </para>
-    /// </remarks>
-    public TBuilder ModifyStacking(Action<StackingType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Stacking);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.IsClassFeature"/>
     /// </summary>
     public TBuilder SetIsClassFeature(bool isClassFeature = true)
@@ -103,18 +86,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         bp =>
         {
           bp.IsClassFeature = isClassFeature;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBuff.IsClassFeature"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsClassFeature(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsClassFeature);
         });
     }
 
@@ -167,18 +138,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBuff.Ranks"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRanks(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Ranks);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.TickEachSecond"/>
     /// </summary>
     public TBuilder SetTickEachSecond(bool tickEachSecond = true)
@@ -191,18 +150,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintBuff.TickEachSecond"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTickEachSecond(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TickEachSecond);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.Frequency"/>
     /// </summary>
     public TBuilder SetFrequency(DurationRate frequency)
@@ -211,18 +158,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         bp =>
         {
           bp.Frequency = frequency;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintBuff.Frequency"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFrequency(Action<DurationRate> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Frequency);
         });
     }
 

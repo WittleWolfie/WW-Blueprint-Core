@@ -82,18 +82,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintControllableProjectile.m_HeightOffset"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHeightOffset(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_HeightOffset);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_RotationLifetime"/>
     /// </summary>
     public TBuilder SetRotationLifetime(float rotationLifetime)
@@ -102,18 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_RotationLifetime = rotationLifetime;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintControllableProjectile.m_RotationLifetime"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRotationLifetime(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_RotationLifetime);
         });
     }
 

@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyApplyFromPlaceholder(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ApplyFromPlaceholder);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnitUpgrader.Actions"/>
     /// </summary>
     public TBuilder SetActions(ActionsBuilder actions)

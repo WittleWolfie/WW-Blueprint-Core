@@ -4,7 +4,6 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Enums;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -32,18 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="AlignmentConsideration.Alignment"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAlignment(Action<AlignmentComponent> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Alignment);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="AlignmentConsideration.SpecifiedAlignmentScore"/>
     /// </summary>
     public TBuilder SetSpecifiedAlignmentScore(float specifiedAlignmentScore)
@@ -56,18 +43,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="AlignmentConsideration.SpecifiedAlignmentScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpecifiedAlignmentScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpecifiedAlignmentScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="AlignmentConsideration.OtherAlignmentScore"/>
     /// </summary>
     public TBuilder SetOtherAlignmentScore(float otherAlignmentScore)
@@ -76,18 +51,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.OtherAlignmentScore = otherAlignmentScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="AlignmentConsideration.OtherAlignmentScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOtherAlignmentScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OtherAlignmentScore);
         });
     }
   }

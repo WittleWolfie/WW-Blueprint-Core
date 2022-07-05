@@ -4,7 +4,6 @@ using BlueprintCore.Blueprints.Configurators.Loot;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -28,18 +27,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           bp.AutoIdentifyAllItems = autoIdentifyAllItems;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoIdentifyAllItems(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AutoIdentifyAllItems);
         });
     }
   }

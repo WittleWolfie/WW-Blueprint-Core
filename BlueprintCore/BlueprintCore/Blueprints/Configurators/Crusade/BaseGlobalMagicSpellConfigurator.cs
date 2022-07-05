@@ -227,18 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
         });
     }
 
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMagicSpell.m_SetCooldownManually"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySetCooldownManually(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SetCooldownManually);
-        });
-    }
-
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

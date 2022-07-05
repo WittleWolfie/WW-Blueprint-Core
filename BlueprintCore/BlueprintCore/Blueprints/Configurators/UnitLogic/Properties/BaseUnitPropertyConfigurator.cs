@@ -7,7 +7,6 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitProperty.BaseValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BaseValue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnitProperty.OperationOnComponents"/>
     /// </summary>
     ///
@@ -63,18 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         bp =>
         {
           bp.OperationOnComponents = operationOnComponents;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintUnitProperty.OperationOnComponents"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOperationOnComponents(Action<BlueprintUnitProperty.MathOperation> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OperationOnComponents);
         });
     }
 

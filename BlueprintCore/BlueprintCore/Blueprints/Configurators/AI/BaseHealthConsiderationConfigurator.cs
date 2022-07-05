@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="HealthConsideration.FullBorder"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFullBorder(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FullBorder);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HealthConsideration.DeadBorder"/>
     /// </summary>
     public TBuilder SetDeadBorder(int deadBorder)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.DeadBorder = deadBorder;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HealthConsideration.DeadBorder"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeadBorder(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeadBorder);
         });
     }
 
@@ -79,18 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="HealthConsideration.AboveFullScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAboveFullScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AboveFullScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HealthConsideration.BelowDeadScore"/>
     /// </summary>
     public TBuilder SetBelowDeadScore(float belowDeadScore)
@@ -99,18 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.BelowDeadScore = belowDeadScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HealthConsideration.BelowDeadScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBelowDeadScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BelowDeadScore);
         });
     }
 
@@ -127,18 +78,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="HealthConsideration.FullScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFullScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FullScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HealthConsideration.DeadScore"/>
     /// </summary>
     public TBuilder SetDeadScore(float deadScore)
@@ -147,18 +86,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.DeadScore = deadScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HealthConsideration.DeadScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeadScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeadScore);
         });
     }
   }

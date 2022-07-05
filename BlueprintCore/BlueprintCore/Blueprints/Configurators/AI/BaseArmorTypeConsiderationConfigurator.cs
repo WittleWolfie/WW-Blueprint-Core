@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -37,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmorTypeConsideration.LightArmorScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLightArmorScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LightArmorScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmorTypeConsideration.HeavyArmorScore"/>
     /// </summary>
     ///
@@ -63,18 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.HeavyArmorScore = heavyArmorScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmorTypeConsideration.HeavyArmorScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHeavyArmorScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HeavyArmorScore);
         });
     }
   }

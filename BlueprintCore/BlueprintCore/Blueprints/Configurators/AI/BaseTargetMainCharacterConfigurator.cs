@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="TargetMainCharacter.IsMainCharacterScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMainCharacterScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsMainCharacterScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="TargetMainCharacter.OthersScore"/>
     /// </summary>
     public TBuilder SetOthersScore(float othersScore)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.OthersScore = othersScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TargetMainCharacter.OthersScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOthersScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OthersScore);
         });
     }
   }

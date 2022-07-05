@@ -140,18 +140,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.CookingDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCookingDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CookingDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.BuffDurationHours"/>
     /// </summary>
     public TBuilder SetBuffDurationHours(int buffDurationHours)
@@ -160,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         bp =>
         {
           bp.BuffDurationHours = buffDurationHours;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCookingRecipe.BuffDurationHours"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBuffDurationHours(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BuffDurationHours);
         });
     }
 

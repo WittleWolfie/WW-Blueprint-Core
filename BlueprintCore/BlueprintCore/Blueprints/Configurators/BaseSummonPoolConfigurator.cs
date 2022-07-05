@@ -2,7 +2,6 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -30,18 +29,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSummonPool.Limit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLimit(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Limit);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSummonPool.DoNotRemoveDeadUnits"/>
     /// </summary>
     public TBuilder SetDoNotRemoveDeadUnits(bool doNotRemoveDeadUnits = true)
@@ -50,18 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.DoNotRemoveDeadUnits = doNotRemoveDeadUnits;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSummonPool.DoNotRemoveDeadUnits"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDoNotRemoveDeadUnits(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DoNotRemoveDeadUnits);
         });
     }
   }

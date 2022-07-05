@@ -112,18 +112,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MaxTravelingArmiesOnMap"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxTravelingArmiesOnMap(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxTravelingArmiesOnMap);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.ResourceIcon"/>
     /// </summary>
     public TBuilder SetResourceIcon(ArmyRoot.ResourceIcons resourceIcon)
@@ -542,18 +530,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryFreeRerollsStart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryFreeRerollsStart(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryFreeRerollsStart);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_MercenaryStartSlots"/>
     /// </summary>
     public TBuilder SetMercenaryStartSlots(int mercenaryStartSlots)
@@ -562,18 +538,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_MercenaryStartSlots = mercenaryStartSlots;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryStartSlots"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryStartSlots(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryStartSlots);
         });
     }
 
@@ -638,18 +602,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryDefaultCountBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryDefaultCountBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryDefaultCountBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_MercenaryDefaultCountDivider"/>
     /// </summary>
     ///
@@ -668,18 +620,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryDefaultCountDivider"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryDefaultCountDivider(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryDefaultCountDivider);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_OverpricedMercenaryCountMultiplier"/>
     /// </summary>
     public TBuilder SetOverpricedMercenaryCountMultiplier(float overpricedMercenaryCountMultiplier)
@@ -692,18 +632,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_OverpricedMercenaryCountMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverpricedMercenaryCountMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverpricedMercenaryCountMultiplier);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_OverpricedMercenaryPriceMultiplier"/>
     /// </summary>
     public TBuilder SetOverpricedMercenaryPriceMultiplier(float overpricedMercenaryPriceMultiplier)
@@ -712,18 +640,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_OverpricedMercenaryPriceMultiplier = overpricedMercenaryPriceMultiplier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_OverpricedMercenaryPriceMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverpricedMercenaryPriceMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverpricedMercenaryPriceMultiplier);
         });
     }
 
@@ -746,18 +662,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryPriceMoraleModifierCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryPriceMoraleModifierCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryPriceMoraleModifierCoefficient);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_MercenaryFormulaMoraleCap"/>
     /// </summary>
     public TBuilder SetMercenaryFormulaMoraleCap(int mercenaryFormulaMoraleCap)
@@ -766,18 +670,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_MercenaryFormulaMoraleCap = mercenaryFormulaMoraleCap;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_MercenaryFormulaMoraleCap"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMercenaryFormulaMoraleCap(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MercenaryFormulaMoraleCap);
         });
     }
 
@@ -800,18 +692,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_ExperienceFinancesCoef"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperienceFinancesCoef(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ExperienceFinancesCoef);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_ExperienceMaterialsCoef"/>
     /// </summary>
     public TBuilder SetExperienceMaterialsCoef(float experienceMaterialsCoef)
@@ -824,18 +704,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_ExperienceMaterialsCoef"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperienceMaterialsCoef(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ExperienceMaterialsCoef);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_ExperienceFavorsCoef"/>
     /// </summary>
     public TBuilder SetExperienceFavorsCoef(float experienceFavorsCoef)
@@ -844,18 +712,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_ExperienceFavorsCoef = experienceFavorsCoef;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_ExperienceFavorsCoef"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperienceFavorsCoef(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ExperienceFavorsCoef);
         });
     }
 
@@ -878,18 +734,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_ArmyDangerBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyDangerBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmyDangerBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_ArmyDangerMultiplier"/>
     /// </summary>
     public TBuilder SetArmyDangerMultiplier(float armyDangerMultiplier)
@@ -898,18 +742,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_ArmyDangerMultiplier = armyDangerMultiplier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ArmyRoot.m_ArmyDangerMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyDangerMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmyDangerMultiplier);
         });
     }
 

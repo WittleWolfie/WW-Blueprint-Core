@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_StartLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartLevel(Action<SettlementState.LevelType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_StartLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_MaxSettlementLevel"/>
     /// </summary>
     public TBuilder SetMaxSettlementLevel(SettlementState.LevelType maxSettlementLevel)
@@ -58,18 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_MaxSettlementLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxSettlementLevel(Action<SettlementState.LevelType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxSettlementLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_HasWaterSlot"/>
     /// </summary>
     public TBuilder SetHasWaterSlot(bool hasWaterSlot = true)
@@ -78,18 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_HasWaterSlot = hasWaterSlot;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_HasWaterSlot"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasWaterSlot(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_HasWaterSlot);
         });
     }
 
@@ -214,18 +178,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_CustomSettlementEntrance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCustomSettlementEntrance(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CustomSettlementEntrance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_SettlementIsPrebuilt"/>
     /// </summary>
     public TBuilder SetSettlementIsPrebuilt(bool settlementIsPrebuilt = true)
@@ -234,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_SettlementIsPrebuilt = settlementIsPrebuilt;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_SettlementIsPrebuilt"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySettlementIsPrebuilt(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SettlementIsPrebuilt);
         });
     }
 
@@ -370,18 +310,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_NeedOwnMarker = needOwnMarker;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlement.m_NeedOwnMarker"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeedOwnMarker(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_NeedOwnMarker);
         });
     }
 

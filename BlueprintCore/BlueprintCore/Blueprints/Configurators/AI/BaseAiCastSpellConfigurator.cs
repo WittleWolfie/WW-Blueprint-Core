@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_MinCasterSqrDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinCasterSqrDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MinCasterSqrDistanceToLocator);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_MinPartySqrDistanceToLocator"/>
     /// </summary>
     public TBuilder SetMinPartySqrDistanceToLocator(float minPartySqrDistanceToLocator)
@@ -53,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.m_MinPartySqrDistanceToLocator = minPartySqrDistanceToLocator;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_MinPartySqrDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinPartySqrDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MinPartySqrDistanceToLocator);
         });
     }
 
@@ -81,18 +57,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_MaxPartySqrDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxPartySqrDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxPartySqrDistanceToLocator);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_AffectedByImpatience"/>
     /// </summary>
     public TBuilder SetAffectedByImpatience(bool affectedByImpatience = true)
@@ -101,18 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.m_AffectedByImpatience = affectedByImpatience;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_AffectedByImpatience"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAffectedByImpatience(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AffectedByImpatience);
         });
     }
 
@@ -167,18 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_ForceTargetSelf"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceTargetSelf(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForceTargetSelf);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_ForceTargetEnemy"/>
     /// </summary>
     public TBuilder SetForceTargetEnemy(bool forceTargetEnemy = true)
@@ -191,18 +131,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_ForceTargetEnemy"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceTargetEnemy(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForceTargetEnemy);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_RandomVariant"/>
     /// </summary>
     public TBuilder SetRandomVariant(bool randomVariant = true)
@@ -211,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.m_RandomVariant = randomVariant;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.m_RandomVariant"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRandomVariant(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_RandomVariant);
         });
     }
 
@@ -496,18 +412,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.CheckCasterDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCheckCasterDistance(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CheckCasterDistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.MinCasterDistanceToLocator"/>
     /// </summary>
     ///
@@ -526,18 +430,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.MinCasterDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinCasterDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinCasterDistanceToLocator);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.CheckPartyDistance"/>
     /// </summary>
     public TBuilder SetCheckPartyDistance(bool checkPartyDistance = true)
@@ -546,18 +438,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.CheckPartyDistance = checkPartyDistance;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.CheckPartyDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCheckPartyDistance(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CheckPartyDistance);
         });
     }
 
@@ -580,18 +460,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.MinPartyDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinPartyDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinPartyDistanceToLocator);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.MaxPartyDistanceToLocator"/>
     /// </summary>
     ///
@@ -606,18 +474,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.MaxPartyDistanceToLocator = maxPartyDistanceToLocator;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiCastSpell.MaxPartyDistanceToLocator"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxPartyDistanceToLocator(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxPartyDistanceToLocator);
         });
     }
 

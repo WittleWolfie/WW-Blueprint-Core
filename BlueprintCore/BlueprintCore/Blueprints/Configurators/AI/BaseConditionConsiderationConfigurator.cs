@@ -110,18 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="ConditionConsideration.HasCondition"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasCondition(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasCondition);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ConditionConsideration.NoCondition"/>
     /// </summary>
     public TBuilder SetNoCondition(float noCondition)
@@ -130,18 +118,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.NoCondition = noCondition;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ConditionConsideration.NoCondition"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoCondition(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoCondition);
         });
     }
 

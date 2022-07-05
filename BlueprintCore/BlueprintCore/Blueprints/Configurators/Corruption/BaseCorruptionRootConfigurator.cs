@@ -63,18 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_DefaultCorruptionGrowth"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDefaultCorruptionGrowth(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DefaultCorruptionGrowth);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCorruptionRoot.m_DSSuccessCoefficient"/>
     /// </summary>
     ///
@@ -93,18 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_DSSuccessCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDSSuccessCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DSSuccessCoefficient);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCorruptionRoot.m_DSCriticalFailCoefficient"/>
     /// </summary>
     ///
@@ -119,18 +95,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
         bp =>
         {
           bp.m_DSCriticalFailCoefficient = dSCriticalFailCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_DSCriticalFailCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDSCriticalFailCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DSCriticalFailCoefficient);
         });
     }
 
@@ -185,18 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_GlobalMapBuffDurationMinutes"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGlobalMapBuffDurationMinutes(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_GlobalMapBuffDurationMinutes);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCorruptionRoot.m_SpeedModifierDC"/>
     /// </summary>
     ///
@@ -215,18 +167,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_SpeedModifierDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpeedModifierDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SpeedModifierDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCorruptionRoot.m_SpeedModifierDCIncrement"/>
     /// </summary>
     public TBuilder SetSpeedModifierDCIncrement(int speedModifierDCIncrement)
@@ -235,18 +175,6 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
         bp =>
         {
           bp.m_SpeedModifierDCIncrement = speedModifierDCIncrement;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCorruptionRoot.m_SpeedModifierDCIncrement"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpeedModifierDCIncrement(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SpeedModifierDCIncrement);
         });
     }
 

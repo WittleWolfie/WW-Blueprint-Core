@@ -81,18 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.Group"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGroup(Action<ActivatableAbilityGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Group);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.WeightInGroup"/>
     /// </summary>
     public TBuilder SetWeightInGroup(int weightInGroup)
@@ -101,18 +89,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.WeightInGroup = weightInGroup;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.WeightInGroup"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeightInGroup(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.WeightInGroup);
         });
     }
 
@@ -129,18 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.IsOnByDefault"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsOnByDefault(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsOnByDefault);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/>
     /// </summary>
     public TBuilder SetDeactivateIfCombatEnded(bool deactivateIfCombatEnded = true)
@@ -149,18 +113,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.DeactivateIfCombatEnded = deactivateIfCombatEnded;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfCombatEnded"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeactivateIfCombatEnded(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeactivateIfCombatEnded);
         });
     }
 
@@ -177,18 +129,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateAfterFirstRound"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeactivateAfterFirstRound(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeactivateAfterFirstRound);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateImmediately"/>
     /// </summary>
     public TBuilder SetDeactivateImmediately(bool deactivateImmediately = true)
@@ -197,18 +137,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.DeactivateImmediately = deactivateImmediately;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateImmediately"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeactivateImmediately(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeactivateImmediately);
         });
     }
 
@@ -225,18 +153,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.IsTargeted"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsTargeted(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsTargeted);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/>
     /// </summary>
     public TBuilder SetDeactivateIfOwnerDisabled(bool deactivateIfOwnerDisabled = true)
@@ -245,18 +161,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.DeactivateIfOwnerDisabled = deactivateIfOwnerDisabled;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfOwnerDisabled"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeactivateIfOwnerDisabled(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeactivateIfOwnerDisabled);
         });
     }
 
@@ -273,18 +177,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DeactivateIfOwnerUnconscious"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeactivateIfOwnerUnconscious(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DeactivateIfOwnerUnconscious);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.OnlyInCombat"/>
     /// </summary>
     public TBuilder SetOnlyInCombat(bool onlyInCombat = true)
@@ -293,18 +185,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.OnlyInCombat = onlyInCombat;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.OnlyInCombat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOnlyInCombat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OnlyInCombat);
         });
     }
 
@@ -321,18 +201,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.DoNotTurnOffOnRest"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDoNotTurnOffOnRest(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DoNotTurnOffOnRest);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.ActivationType"/>
     /// </summary>
     public TBuilder SetActivationType(AbilityActivationType activationType)
@@ -341,18 +209,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.ActivationType = activationType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.ActivationType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActivationType(Action<AbilityActivationType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ActivationType);
         });
     }
 
@@ -369,18 +225,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.m_ActivateWithUnitCommand"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActivateWithUnitCommand(Action<UnitCommand.CommandType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ActivateWithUnitCommand);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/>
     /// </summary>
     public TBuilder SetActivateOnUnitAction(AbilityActivateOnUnitActionType activateOnUnitAction)
@@ -389,18 +233,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.m_ActivateOnUnitAction = activateOnUnitAction;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintActivatableAbility.m_ActivateOnUnitAction"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActivateOnUnitAction(Action<AbilityActivateOnUnitActionType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ActivateOnUnitAction);
         });
     }
 

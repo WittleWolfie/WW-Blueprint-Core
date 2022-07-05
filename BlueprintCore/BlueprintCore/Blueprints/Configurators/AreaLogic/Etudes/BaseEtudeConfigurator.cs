@@ -265,18 +265,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_AllowActionStart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowActionStart(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AllowActionStart);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintEtude.m_LinkedAreaPart"/>
     /// </summary>
     ///
@@ -438,18 +426,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           bp.m_IncludeAreaParts = includeAreaParts;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_IncludeAreaParts"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIncludeAreaParts(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IncludeAreaParts);
         });
     }
 
@@ -817,18 +793,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_StartsParent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartsParent(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_StartsParent);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintEtude.m_CompletesParent"/>
     /// </summary>
     public TBuilder SetCompletesParent(bool completesParent = true)
@@ -837,18 +801,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           bp.m_CompletesParent = completesParent;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.m_CompletesParent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCompletesParent(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CompletesParent);
         });
     }
 
@@ -976,18 +928,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           bp.Priority = priority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintEtude.Priority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPriority(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Priority);
         });
     }
 

@@ -86,18 +86,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitFact.m_AllowNonContextActions"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AllowNonContextActions);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_DisplayName"/>
     /// </summary>
     ///

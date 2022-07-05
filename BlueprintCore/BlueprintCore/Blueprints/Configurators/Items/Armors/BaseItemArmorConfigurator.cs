@@ -73,18 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemArmor.m_Size"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySize(Action<Size> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Size);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemArmor.m_VisualParameters"/>
     /// </summary>
     public TBuilder SetVisualParameters(ArmorVisualParameters visualParameters)
@@ -244,18 +232,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemArmor.m_OverrideShardItem"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideShardItem(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideShardItem);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemArmor.m_OverrideDestructible"/>
     /// </summary>
     ///
@@ -270,18 +246,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_OverrideDestructible = overrideDestructible;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemArmor.m_OverrideDestructible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideDestructible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideDestructible);
         });
     }
 

@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLeaderProgression.m_ProgressionType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyProgressionType(Action<LeaderProgressionType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ProgressionType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderProgression.m_ProgressionName"/>
     /// </summary>
     ///

@@ -41,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureBase.HideInUI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHideInUI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HideInUI);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/>
     /// </summary>
     ///
@@ -71,18 +59,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeatureBase.HideInCharacterSheetAndLevelUp"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHideInCharacterSheetAndLevelUp(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HideInCharacterSheetAndLevelUp);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/>
     /// </summary>
     ///
@@ -97,18 +73,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.HideNotAvailibleInUI = hideNotAvailibleInUI;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeatureBase.HideNotAvailibleInUI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHideNotAvailibleInUI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HideNotAvailibleInUI);
         });
     }
 

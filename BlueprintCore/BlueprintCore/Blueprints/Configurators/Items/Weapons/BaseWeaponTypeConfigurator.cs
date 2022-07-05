@@ -40,18 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.Category"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCategory(Action<WeaponCategory> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Category);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_TypeNameText"/>
     /// </summary>
     ///
@@ -261,18 +249,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_AttackType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAttackType(Action<AttackType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AttackType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_AttackRange"/>
     /// </summary>
     public TBuilder SetAttackRange(Feet attackRange)
@@ -359,18 +335,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_CriticalRollEdge"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCriticalRollEdge(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CriticalRollEdge);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_CriticalModifier"/>
     /// </summary>
     public TBuilder SetCriticalModifier(DamageCriticalModifierType criticalModifier)
@@ -379,18 +343,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_CriticalModifier = criticalModifier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_CriticalModifier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCriticalModifier(Action<DamageCriticalModifierType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CriticalModifier);
         });
     }
 
@@ -443,18 +395,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_Weight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Weight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_IsTwoHanded"/>
     /// </summary>
     public TBuilder SetIsTwoHanded(bool isTwoHanded = true)
@@ -463,18 +403,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_IsTwoHanded = isTwoHanded;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_IsTwoHanded"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsTwoHanded(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsTwoHanded);
         });
     }
 
@@ -491,18 +419,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_IsLight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsLight(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsLight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_IsMonk"/>
     /// </summary>
     public TBuilder SetIsMonk(bool isMonk = true)
@@ -511,18 +427,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_IsMonk = isMonk;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_IsMonk"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMonk(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsMonk);
         });
     }
 
@@ -539,18 +443,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_IsNatural"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsNatural(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsNatural);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_IsUnarmed"/>
     /// </summary>
     public TBuilder SetIsUnarmed(bool isUnarmed = true)
@@ -559,18 +451,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_IsUnarmed = isUnarmed;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_IsUnarmed"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsUnarmed(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsUnarmed);
         });
     }
 
@@ -587,18 +467,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_OverrideAttackBonusStat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideAttackBonusStat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideAttackBonusStat);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_AttackBonusStatOverride"/>
     /// </summary>
     public TBuilder SetAttackBonusStatOverride(StatType attackBonusStatOverride)
@@ -607,18 +475,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_AttackBonusStatOverride = attackBonusStatOverride;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_AttackBonusStatOverride"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAttackBonusStatOverride(Action<StatType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AttackBonusStatOverride);
         });
     }
 
@@ -752,18 +608,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_Destructible = destructible;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintWeaponType.m_Destructible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDestructible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Destructible);
         });
     }
 

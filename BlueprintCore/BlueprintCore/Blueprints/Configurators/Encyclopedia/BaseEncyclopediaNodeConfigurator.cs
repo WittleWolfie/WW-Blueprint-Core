@@ -63,18 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintEncyclopediaNode.m_Expanded"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExpanded(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Expanded);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaNode.ChildPages"/>
     /// </summary>
     ///

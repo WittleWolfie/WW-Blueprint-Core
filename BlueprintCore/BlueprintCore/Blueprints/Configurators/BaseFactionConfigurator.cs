@@ -262,18 +262,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFaction.m_AllyFactionsBehaviour"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllyFactionsBehaviour(Action<BlueprintFaction.EAllyFactions> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AllyFactionsBehaviour);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.Peaceful"/>
     /// </summary>
     ///
@@ -288,18 +276,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.Peaceful = peaceful;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFaction.Peaceful"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPeaceful(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Peaceful);
         });
     }
 
@@ -322,18 +298,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFaction.AlwaysEnemy"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAlwaysEnemy(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AlwaysEnemy);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.EnemyForEveryone"/>
     /// </summary>
     ///
@@ -348,18 +312,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.EnemyForEveryone = enemyForEveryone;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFaction.EnemyForEveryone"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEnemyForEveryone(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EnemyForEveryone);
         });
     }
 
@@ -382,18 +334,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFaction.Neutral"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeutral(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Neutral);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.IsDirectlyControllable"/>
     /// </summary>
     ///
@@ -412,18 +352,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFaction.IsDirectlyControllable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsDirectlyControllable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsDirectlyControllable);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.NeverJoinCombat"/>
     /// </summary>
     ///
@@ -438,18 +366,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.NeverJoinCombat = neverJoinCombat;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFaction.NeverJoinCombat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeverJoinCombat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NeverJoinCombat);
         });
     }
 

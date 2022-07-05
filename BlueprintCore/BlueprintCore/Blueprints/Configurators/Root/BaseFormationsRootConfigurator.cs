@@ -186,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="FormationsRoot.FormationsScale"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFormationsScale(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FormationsScale);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FormationsRoot.MinSpaceFactor"/>
     /// </summary>
     public TBuilder SetMinSpaceFactor(float minSpaceFactor)
@@ -206,18 +194,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.MinSpaceFactor = minSpaceFactor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FormationsRoot.MinSpaceFactor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinSpaceFactor(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinSpaceFactor);
         });
     }
 

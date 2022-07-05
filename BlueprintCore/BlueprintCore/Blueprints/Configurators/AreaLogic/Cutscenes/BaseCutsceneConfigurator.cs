@@ -37,18 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.Priority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPriority(Action<CutscenePriority> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Priority);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Cutscene.NonSkippable"/>
     /// </summary>
     public TBuilder SetNonSkippable(bool nonSkippable = true)
@@ -57,18 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.NonSkippable = nonSkippable;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Cutscene.NonSkippable"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNonSkippable(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NonSkippable);
         });
     }
 
@@ -91,18 +67,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.ForbidDialogs"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForbidDialogs(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ForbidDialogs);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Cutscene.ForbidRandomIdles"/>
     /// </summary>
     ///
@@ -117,18 +81,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.ForbidRandomIdles = forbidRandomIdles;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Cutscene.ForbidRandomIdles"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForbidRandomIdles(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ForbidRandomIdles);
         });
     }
 
@@ -151,18 +103,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.IsBackground"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsBackground(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsBackground);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Cutscene.Sleepless"/>
     /// </summary>
     ///
@@ -177,18 +117,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.Sleepless = sleepless;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Cutscene.Sleepless"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySleepless(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Sleepless);
         });
     }
 
@@ -211,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Cutscene.AllowCopies"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowCopies(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AllowCopies);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Cutscene.AwakeRange"/>
     /// </summary>
     public TBuilder SetAwakeRange(float awakeRange)
@@ -231,18 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.AwakeRange = awakeRange;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Cutscene.AwakeRange"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAwakeRange(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AwakeRange);
         });
     }
 
@@ -338,18 +242,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.MarkedUnitHandling = markedUnitHandling;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Cutscene.MarkedUnitHandling"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMarkedUnitHandling(Action<Cutscene.MarkedUnitHandlingType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MarkedUnitHandling);
         });
     }
 

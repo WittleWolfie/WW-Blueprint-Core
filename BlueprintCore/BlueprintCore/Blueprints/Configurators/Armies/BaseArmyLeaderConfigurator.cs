@@ -107,18 +107,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmyLeader.m_StartingLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartingLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_StartingLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmyLeader.m_LeaderProgression"/>
     /// </summary>
     ///

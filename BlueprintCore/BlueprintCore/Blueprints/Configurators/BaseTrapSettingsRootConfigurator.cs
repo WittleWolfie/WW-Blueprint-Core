@@ -32,18 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDefaultPerceptionRadius(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DefaultPerceptionRadius);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettingsRoot.m_DisableDCMargin"/>
     /// </summary>
     public TBuilder SetDisableDCMargin(int disableDCMargin)
@@ -52,18 +40,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_DisableDCMargin = disableDCMargin;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.m_DisableDCMargin"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableDCMargin(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DisableDCMargin);
         });
     }
 
@@ -195,18 +171,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.EasyDisableDCDelta"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEasyDisableDCDelta(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EasyDisableDCDelta);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettingsRoot.HardDisableDCDelta"/>
     /// </summary>
     public TBuilder SetHardDisableDCDelta(int hardDisableDCDelta)
@@ -215,18 +179,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.HardDisableDCDelta = hardDisableDCDelta;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettingsRoot.HardDisableDCDelta"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHardDisableDCDelta(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HardDisableDCDelta);
         });
     }
 

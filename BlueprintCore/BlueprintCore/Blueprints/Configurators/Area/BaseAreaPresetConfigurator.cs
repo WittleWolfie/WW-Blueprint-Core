@@ -268,18 +268,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.MakeAutosave"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMakeAutosave(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MakeAutosave);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.m_OverrideGameDifficulty"/>
     /// </summary>
     public TBuilder SetOverrideGameDifficulty(DifficultyPresetAsset overrideGameDifficulty)
@@ -356,18 +344,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.CharGen"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCharGen(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CharGen);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.Alignment"/>
     /// </summary>
     public TBuilder SetAlignment(Alignment alignment)
@@ -380,18 +356,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.Alignment"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAlignment(Action<Alignment> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Alignment);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.PartyXp"/>
     /// </summary>
     public TBuilder SetPartyXp(int partyXp)
@@ -400,18 +364,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.PartyXp = partyXp;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.PartyXp"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPartyXp(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PartyXp);
         });
     }
 
@@ -1833,18 +1785,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.HasKingdom"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasKingdom(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasKingdom);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.KingdomManagementIsVisible"/>
     /// </summary>
     public TBuilder SetKingdomManagementIsVisible(bool kingdomManagementIsVisible = true)
@@ -1853,18 +1793,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.KingdomManagementIsVisible = kingdomManagementIsVisible;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.KingdomManagementIsVisible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKingdomManagementIsVisible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.KingdomManagementIsVisible);
         });
     }
 
@@ -2020,18 +1948,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.AddConsumableEventBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAddConsumableEventBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AddConsumableEventBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.m_KingdomDay"/>
     /// </summary>
     public TBuilder SetKingdomDay(int kingdomDay)
@@ -2040,18 +1956,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.m_KingdomDay = kingdomDay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPreset.m_KingdomDay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKingdomDay(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_KingdomDay);
         });
     }
 

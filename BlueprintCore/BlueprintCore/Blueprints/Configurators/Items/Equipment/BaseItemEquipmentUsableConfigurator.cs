@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentUsable.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<UsableItemType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentUsable.m_IdentifyDC"/>
     /// </summary>
     public TBuilder SetIdentifyDC(int identifyDC)
@@ -54,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           bp.m_IdentifyDC = identifyDC;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEquipmentUsable.m_IdentifyDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIdentifyDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IdentifyDC);
         });
     }
 

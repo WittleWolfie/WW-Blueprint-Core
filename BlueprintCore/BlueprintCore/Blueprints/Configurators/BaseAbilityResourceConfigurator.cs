@@ -140,18 +140,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityResource.m_UseMax"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseMax(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_UseMax);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityResource.m_Max"/>
     /// </summary>
     public TBuilder SetMax(int max)
@@ -160,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_Max = max;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityResource.m_Max"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMax(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Max);
         });
     }
 
@@ -190,18 +166,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_Min = min;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityResource.m_Min"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMin(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Min);
         });
     }
 

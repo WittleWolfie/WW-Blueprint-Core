@@ -188,18 +188,6 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
     /// <summary>
-    /// Modifies <see cref="KingmakerEquipmentEntity.m_RaceDependent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRaceDependent(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_RaceDependent);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_RaceDependentArrays"/>
     /// </summary>
     public TBuilder SetRaceDependentArrays(params KingmakerEquipmentEntity.TwoLists[] raceDependentArrays)

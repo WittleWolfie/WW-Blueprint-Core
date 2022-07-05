@@ -83,18 +83,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<GlobalMapPointType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.IsHidden"/>
     /// </summary>
     public TBuilder SetIsHidden(bool isHidden = true)
@@ -103,18 +91,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.IsHidden = isHidden;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.IsHidden"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsHidden(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsHidden);
         });
     }
 
@@ -131,18 +107,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.RevealedOnStart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRevealedOnStart(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RevealedOnStart);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ExploreOnEnter"/>
     /// </summary>
     public TBuilder SetExploreOnEnter(bool exploreOnEnter = true)
@@ -155,18 +119,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.ExploreOnEnter"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExploreOnEnter(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExploreOnEnter);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ClosedOnStart"/>
     /// </summary>
     public TBuilder SetClosedOnStart(bool closedOnStart = true)
@@ -175,18 +127,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.ClosedOnStart = closedOnStart;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.ClosedOnStart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyClosedOnStart(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ClosedOnStart);
         });
     }
 
@@ -319,18 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.DcPerception"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDcPerception(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DcPerception);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.DCModifiers"/>
     /// </summary>
     public TBuilder SetDCModifiers(params DCModifier[] dCModifiers)
@@ -420,18 +348,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.OverrideRandomEncounterZoneSize"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideRandomEncounterZoneSize(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideRandomEncounterZoneSize);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.NoRandomEncounterZoneSize"/>
     /// </summary>
     public TBuilder SetNoRandomEncounterZoneSize(float noRandomEncounterZoneSize)
@@ -440,18 +356,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.NoRandomEncounterZoneSize = noRandomEncounterZoneSize;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.NoRandomEncounterZoneSize"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoRandomEncounterZoneSize(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoRandomEncounterZoneSize);
         });
     }
 
@@ -722,18 +626,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.HasKingdomResource"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasKingdomResource(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasKingdomResource);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ResourceStats"/>
     /// </summary>
     public TBuilder SetResourceStats(KingdomStats.Changes resourceStats)
@@ -797,18 +689,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.HasIngredients = hasIngredients;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.HasIngredients"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasIngredients(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasIngredients);
         });
     }
 
@@ -902,18 +782,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.HasLoot"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasLoot(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasLoot);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.Loot"/>
     /// </summary>
     public TBuilder SetLoot(params LootEntry[] loot)
@@ -1003,18 +871,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.AdditionalArmyExperience"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAdditionalArmyExperience(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AdditionalArmyExperience);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ResourceFoundDescription"/>
     /// </summary>
     ///
@@ -1094,18 +950,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.Region"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRegion(Action<RegionId> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Region);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.ForceShowNameInUI"/>
     /// </summary>
     public TBuilder SetForceShowNameInUI(bool forceShowNameInUI = true)
@@ -1118,18 +962,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.ForceShowNameInUI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceShowNameInUI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ForceShowNameInUI);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.OverrideEnterConfirmationText"/>
     /// </summary>
     public TBuilder SetOverrideEnterConfirmationText(bool overrideEnterConfirmationText = true)
@@ -1138,18 +970,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.OverrideEnterConfirmationText = overrideEnterConfirmationText;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.OverrideEnterConfirmationText"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideEnterConfirmationText(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideEnterConfirmationText);
         });
     }
 
@@ -1322,18 +1142,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.UseCustomClosedText"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseCustomClosedText(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseCustomClosedText);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.CustomClosedText"/>
     /// </summary>
     ///
@@ -1371,18 +1179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.GlobalMapZone = globalMapZone;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMapPoint.GlobalMapZone"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGlobalMapZone(Action<GlobalMapZone> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.GlobalMapZone);
         });
     }
 

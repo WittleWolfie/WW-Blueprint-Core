@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEvent.IsOpportunity"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsOpportunity(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsOpportunity);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEvent.ForceOneTimeOnly"/>
     /// </summary>
     public TBuilder SetForceOneTimeOnly(bool forceOneTimeOnly = true)
@@ -54,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ForceOneTimeOnly = forceOneTimeOnly;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEvent.ForceOneTimeOnly"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForceOneTimeOnly(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ForceOneTimeOnly);
         });
     }
 
@@ -219,18 +195,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.UnapplyTriggerOnResolve = unapplyTriggerOnResolve;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEvent.UnapplyTriggerOnResolve"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUnapplyTriggerOnResolve(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UnapplyTriggerOnResolve);
         });
     }
 

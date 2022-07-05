@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.EncountersEnabled"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEncountersEnabled(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EncountersEnabled);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.m_Chapters"/>
     /// </summary>
     public TBuilder SetChapters(params RandomEncounterChapterSettings[] chapters)
@@ -161,18 +149,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.EncounterPawnOffset"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEncounterPawnOffset(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EncounterPawnOffset);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.EncounterPawnDistanceFromLocation"/>
     /// </summary>
     public TBuilder SetEncounterPawnDistanceFromLocation(float encounterPawnDistanceFromLocation)
@@ -181,18 +157,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.EncounterPawnDistanceFromLocation = encounterPawnDistanceFromLocation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.EncounterPawnDistanceFromLocation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEncounterPawnDistanceFromLocation(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EncounterPawnDistanceFromLocation);
         });
     }
 
@@ -542,18 +506,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.MaxExperiencePerUnitDivisor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxExperiencePerUnitDivisor(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxExperiencePerUnitDivisor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.MinExperiencePerUnitDivisor"/>
     /// </summary>
     public TBuilder SetMinExperiencePerUnitDivisor(int minExperiencePerUnitDivisor)
@@ -566,18 +518,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.MinExperiencePerUnitDivisor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinExperiencePerUnitDivisor(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinExperiencePerUnitDivisor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.MaxTargetExperienceDivisor"/>
     /// </summary>
     public TBuilder SetMaxTargetExperienceDivisor(int maxTargetExperienceDivisor)
@@ -586,18 +526,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.MaxTargetExperienceDivisor = maxTargetExperienceDivisor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="RandomEncountersRoot.MaxTargetExperienceDivisor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxTargetExperienceDivisor(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxTargetExperienceDivisor);
         });
     }
 

@@ -157,18 +157,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffNotFromCasterConsideration.HasBuffNotFromCasterScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasBuffNotFromCasterScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasBuffNotFromCasterScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BuffNotFromCasterConsideration.ElseScore"/>
     /// </summary>
     ///
@@ -183,18 +171,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.ElseScore = elseScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffNotFromCasterConsideration.ElseScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyElseScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ElseScore);
         });
     }
 

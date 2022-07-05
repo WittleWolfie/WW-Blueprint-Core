@@ -4,7 +4,6 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -32,18 +31,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     }
 
     /// <summary>
-    /// Modifies <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanAttackScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanAttackScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="TacticalCombatCanAttackThisTurnConsideration.CanNotAttackScore"/>
     /// </summary>
     public TBuilder SetCanNotAttackScore(float canNotAttackScore)
@@ -52,18 +39,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.CanNotAttackScore = canNotAttackScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TacticalCombatCanAttackThisTurnConsideration.CanNotAttackScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanNotAttackScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanNotAttackScore);
         });
     }
   }

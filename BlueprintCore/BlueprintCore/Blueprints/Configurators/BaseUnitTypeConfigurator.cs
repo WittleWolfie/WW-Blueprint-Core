@@ -35,18 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintUnitType.KnowledgeStat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKnowledgeStat(Action<StatType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.KnowledgeStat);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintUnitType.Image"/>
     /// </summary>
     public TBuilder SetImage(Sprite image)

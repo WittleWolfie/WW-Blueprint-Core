@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLoot.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<LootType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintLoot.IsSuperTrash"/>
     /// </summary>
     public TBuilder SetIsSuperTrash(bool isSuperTrash = true)
@@ -54,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           bp.IsSuperTrash = isSuperTrash;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintLoot.IsSuperTrash"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsSuperTrash(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsSuperTrash);
         });
     }
 
@@ -82,18 +58,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLoot.Identify"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIdentify(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Identify);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintLoot.Setting"/>
     /// </summary>
     public TBuilder SetSetting(LootSetting setting)
@@ -102,18 +66,6 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           bp.Setting = setting;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintLoot.Setting"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySetting(Action<LootSetting> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Setting);
         });
     }
 

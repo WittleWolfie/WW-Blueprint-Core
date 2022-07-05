@@ -187,18 +187,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDialog.TurnPlayer"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTurnPlayer(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TurnPlayer);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintDialog.TurnFirstSpeaker"/>
     /// </summary>
     public TBuilder SetTurnFirstSpeaker(bool turnFirstSpeaker = true)
@@ -207,18 +195,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.TurnFirstSpeaker = turnFirstSpeaker;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDialog.TurnFirstSpeaker"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTurnFirstSpeaker(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TurnFirstSpeaker);
         });
     }
 
@@ -241,18 +217,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintDialog.IsLockCameraRotationButtons"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsLockCameraRotationButtons(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsLockCameraRotationButtons);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintDialog.Type"/>
     /// </summary>
     public TBuilder SetType(DialogType type)
@@ -261,18 +225,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Type = type;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDialog.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<DialogType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
         });
     }
 

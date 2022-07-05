@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMultiEntrance.Map"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMap(Action<BlueprintMultiEntrance.BlueprintMultiEntranceMap> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Map);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntrance.Name"/>
     /// </summary>
     ///

@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDepthMeters(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DepthMeters);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.HoleEdgeMeters"/>
     /// </summary>
     public TBuilder SetHoleEdgeMeters(float holeEdgeMeters)
@@ -53,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.HoleEdgeMeters = holeEdgeMeters;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaEffectPitVisualSettings.HoleEdgeMeters"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHoleEdgeMeters(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HoleEdgeMeters);
         });
     }
 

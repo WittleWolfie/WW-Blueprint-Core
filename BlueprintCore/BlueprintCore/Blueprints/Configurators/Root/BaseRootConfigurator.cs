@@ -241,18 +241,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRoot.CompanionsAI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCompanionsAI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CompanionsAI);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_KingFlag"/>
     /// </summary>
     ///
@@ -303,18 +291,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRoot.MinProjectileMissDeviation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinProjectileMissDeviation(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinProjectileMissDeviation);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.MaxProjectileMissDeviation"/>
     /// </summary>
     public TBuilder SetMaxProjectileMissDeviation(float maxProjectileMissDeviation)
@@ -323,18 +299,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.MaxProjectileMissDeviation = maxProjectileMissDeviation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRoot.MaxProjectileMissDeviation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxProjectileMissDeviation(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxProjectileMissDeviation);
         });
     }
 
@@ -1879,18 +1843,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRoot.CustomCompanionBaseCost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCustomCompanionBaseCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CustomCompanionBaseCost);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.StandartPerceptionRadius"/>
     /// </summary>
     public TBuilder SetStandartPerceptionRadius(int standartPerceptionRadius)
@@ -1899,18 +1851,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.StandartPerceptionRadius = standartPerceptionRadius;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRoot.StandartPerceptionRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStandartPerceptionRadius(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StandartPerceptionRadius);
         });
     }
 
@@ -1927,18 +1867,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRoot.AreaEffectAutoDestroySeconds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAreaEffectAutoDestroySeconds(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AreaEffectAutoDestroySeconds);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.AnnoyingConditionsAutoDestroySeconds"/>
     /// </summary>
     public TBuilder SetAnnoyingConditionsAutoDestroySeconds(int annoyingConditionsAutoDestroySeconds)
@@ -1947,18 +1875,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.AnnoyingConditionsAutoDestroySeconds = annoyingConditionsAutoDestroySeconds;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRoot.AnnoyingConditionsAutoDestroySeconds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAnnoyingConditionsAutoDestroySeconds(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AnnoyingConditionsAutoDestroySeconds);
         });
     }
 

@@ -36,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.ExcludeFromREList"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExcludeFromREList(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExcludeFromREList);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRandomEncounter.IsPeaceful"/>
     /// </summary>
     public TBuilder SetIsPeaceful(bool isPeaceful = true)
@@ -56,18 +44,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.IsPeaceful = isPeaceful;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.IsPeaceful"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsPeaceful(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsPeaceful);
         });
     }
 
@@ -142,18 +118,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.AvoidType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAvoidType(Action<EncounterAvoidType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AvoidType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRandomEncounter.AvoidDC"/>
     /// </summary>
     ///
@@ -172,18 +136,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.AvoidDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAvoidDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AvoidDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRandomEncounter.EncountersLimit"/>
     /// </summary>
     public TBuilder SetEncountersLimit(int encountersLimit)
@@ -192,18 +144,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.EncountersLimit = encountersLimit;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.EncountersLimit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEncountersLimit(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EncountersLimit);
         });
     }
 
@@ -271,18 +211,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<EncounterType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRandomEncounter.DisableAutoSave"/>
     /// </summary>
     public TBuilder SetDisableAutoSave(bool disableAutoSave = true)
@@ -291,18 +219,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.DisableAutoSave = disableAutoSave;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.DisableAutoSave"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableAutoSave(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisableAutoSave);
         });
     }
 
@@ -340,18 +256,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.CanBeCampingEncounter = canBeCampingEncounter;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRandomEncounter.CanBeCampingEncounter"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanBeCampingEncounter(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanBeCampingEncounter);
         });
     }
 

@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="CanMakeFullAttackConsideration.SuccessScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySuccessScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SuccessScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="CanMakeFullAttackConsideration.FailScore"/>
     /// </summary>
     public TBuilder SetFailScore(float failScore)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.FailScore = failScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="CanMakeFullAttackConsideration.FailScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFailScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FailScore);
         });
     }
   }

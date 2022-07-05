@@ -77,18 +77,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_Size"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySize(Action<Size> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Size);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_Enchantments"/>
     /// </summary>
     ///
@@ -216,18 +204,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDamageDice"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideDamageDice(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideDamageDice);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_DamageDice"/>
     /// </summary>
     public TBuilder SetDamageDice(DiceFormula damageDice)
@@ -260,18 +236,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_OverrideDamageType = overrideDamageType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDamageType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideDamageType(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideDamageType);
         });
     }
 
@@ -310,18 +274,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.Double = doubleValue;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.Double"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDoubleValue(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Double);
         });
     }
 
@@ -376,18 +328,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.KeepInPolymorph"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKeepInPolymorph(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.KeepInPolymorph);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_OverrideShardItem"/>
     /// </summary>
     ///
@@ -402,18 +342,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_OverrideShardItem = overrideShardItem;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideShardItem"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideShardItem(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideShardItem);
         });
     }
 
@@ -436,18 +364,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_OverrideDestructible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideDestructible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_OverrideDestructible);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/>
     /// </summary>
     public TBuilder SetAlwaysPrimary(bool alwaysPrimary = true)
@@ -456,18 +372,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_AlwaysPrimary = alwaysPrimary;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemWeapon.m_AlwaysPrimary"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAlwaysPrimary(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AlwaysPrimary);
         });
     }
 

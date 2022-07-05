@@ -226,18 +226,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaEnterPoint.m_CanBeOutsideNavmesh"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanBeOutsideNavmesh(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CanBeOutsideNavmesh);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.Icon"/>
     /// </summary>
     public TBuilder SetIcon(Sprite icon)

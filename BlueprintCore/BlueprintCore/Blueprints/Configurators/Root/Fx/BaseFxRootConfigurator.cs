@@ -443,18 +443,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.IntensityMultiplierMorning"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIntensityMultiplierMorning(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IntensityMultiplierMorning);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.IntensityMultiplierDay"/>
     /// </summary>
     public TBuilder SetIntensityMultiplierDay(float intensityMultiplierDay)
@@ -463,18 +451,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.IntensityMultiplierDay = intensityMultiplierDay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.IntensityMultiplierDay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIntensityMultiplierDay(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IntensityMultiplierDay);
         });
     }
 
@@ -491,18 +467,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.IntensityMultiplierEvening"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIntensityMultiplierEvening(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IntensityMultiplierEvening);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.IntensityMultiplierNight"/>
     /// </summary>
     public TBuilder SetIntensityMultiplierNight(float intensityMultiplierNight)
@@ -511,18 +475,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.IntensityMultiplierNight = intensityMultiplierNight;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.IntensityMultiplierNight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIntensityMultiplierNight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IntensityMultiplierNight);
         });
     }
 
@@ -539,18 +491,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.RangeMultiplierMorning"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRangeMultiplierMorning(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RangeMultiplierMorning);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.RangeMultiplierDay"/>
     /// </summary>
     public TBuilder SetRangeMultiplierDay(float rangeMultiplierDay)
@@ -559,18 +499,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.RangeMultiplierDay = rangeMultiplierDay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.RangeMultiplierDay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRangeMultiplierDay(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RangeMultiplierDay);
         });
     }
 
@@ -587,18 +515,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.RangeMultiplierEvening"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRangeMultiplierEvening(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RangeMultiplierEvening);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.RangeMultiplierNight"/>
     /// </summary>
     public TBuilder SetRangeMultiplierNight(float rangeMultiplierNight)
@@ -607,18 +523,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.RangeMultiplierNight = rangeMultiplierNight;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.RangeMultiplierNight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRangeMultiplierNight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RangeMultiplierNight);
         });
     }
 
@@ -713,18 +617,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.DefaultLifetimeSeconds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDefaultLifetimeSeconds(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DefaultLifetimeSeconds);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.FadeOutTimeSeconds"/>
     /// </summary>
     public TBuilder SetFadeOutTimeSeconds(float fadeOutTimeSeconds)
@@ -733,18 +625,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.FadeOutTimeSeconds = fadeOutTimeSeconds;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.FadeOutTimeSeconds"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFadeOutTimeSeconds(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FadeOutTimeSeconds);
         });
     }
 
@@ -761,18 +641,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     }
 
     /// <summary>
-    /// Modifies <see cref="FxRoot.MaxFootprintsCountPerUnit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxFootprintsCountPerUnit(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxFootprintsCountPerUnit);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FxRoot.MinDistanceBetweenFootprints"/>
     /// </summary>
     public TBuilder SetMinDistanceBetweenFootprints(float minDistanceBetweenFootprints)
@@ -781,18 +649,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.MinDistanceBetweenFootprints = minDistanceBetweenFootprints;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.MinDistanceBetweenFootprints"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinDistanceBetweenFootprints(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinDistanceBetweenFootprints);
         });
     }
 
@@ -997,18 +853,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           bp.m_DeathFxsInitialized = deathFxsInitialized;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FxRoot.m_DeathFxsInitialized"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDeathFxsInitialized(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DeathFxsInitialized);
         });
     }
 

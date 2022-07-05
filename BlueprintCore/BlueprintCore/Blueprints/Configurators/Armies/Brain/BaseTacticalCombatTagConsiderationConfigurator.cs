@@ -6,7 +6,6 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
-using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
@@ -35,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     }
 
     /// <summary>
-    /// Modifies <see cref="TacticalCombatTagConsideration.HasTagScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasTagScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasTagScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="TacticalCombatTagConsideration.DoesNotHaveTagScore"/>
     /// </summary>
     public TBuilder SetDoesNotHaveTagScore(float doesNotHaveTagScore)
@@ -55,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.DoesNotHaveTagScore = doesNotHaveTagScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TacticalCombatTagConsideration.DoesNotHaveTagScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDoesNotHaveTagScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DoesNotHaveTagScore);
         });
     }
 
@@ -115,18 +90,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.ShouldHaveAllTags = shouldHaveAllTags;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TacticalCombatTagConsideration.ShouldHaveAllTags"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShouldHaveAllTags(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShouldHaveAllTags);
         });
     }
   }

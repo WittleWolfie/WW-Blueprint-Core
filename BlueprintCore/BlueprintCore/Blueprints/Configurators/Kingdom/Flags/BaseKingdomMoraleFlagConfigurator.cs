@@ -91,18 +91,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_NeutralDuration"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeutralDuration(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_NeutralDuration);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_NegativeWarningDuration"/>
     /// </summary>
     public TBuilder SetNegativeWarningDuration(int negativeWarningDuration)
@@ -111,18 +99,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         bp =>
         {
           bp.m_NegativeWarningDuration = negativeWarningDuration;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_NegativeWarningDuration"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNegativeWarningDuration(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_NegativeWarningDuration);
         });
     }
 
@@ -139,18 +115,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_PerDayBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPerDayBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_PerDayBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_PerDayPenalty"/>
     /// </summary>
     public TBuilder SetPerDayPenalty(int perDayPenalty)
@@ -159,18 +123,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         bp =>
         {
           bp.m_PerDayPenalty = perDayPenalty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_PerDayPenalty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPerDayPenalty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_PerDayPenalty);
         });
     }
 
@@ -187,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_FlagType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFlagType(Action<BlueprintKingdomMoraleFlag.FlagType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_FlagType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomMoraleFlag.m_CounterDecrementPerDay"/>
     /// </summary>
     public TBuilder SetCounterDecrementPerDay(int counterDecrementPerDay)
@@ -207,18 +147,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
         bp =>
         {
           bp.m_CounterDecrementPerDay = counterDecrementPerDay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomMoraleFlag.m_CounterDecrementPerDay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCounterDecrementPerDay(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CounterDecrementPerDay);
         });
     }
 

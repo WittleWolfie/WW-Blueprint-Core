@@ -560,18 +560,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.UnrestDeckTrigger"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUnrestDeckTrigger(Action<KingdomStatusType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UnrestDeckTrigger);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.m_UnrestMitigationEvents"/>
     /// </summary>
     ///
@@ -1119,18 +1107,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.StatIncreaseOnEvent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStatIncreaseOnEvent(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StatIncreaseOnEvent);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.StatMaxRankInBarony"/>
     /// </summary>
     public TBuilder SetStatMaxRankInBarony(int statMaxRankInBarony)
@@ -1139,18 +1115,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.StatMaxRankInBarony = statMaxRankInBarony;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.StatMaxRankInBarony"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStatMaxRankInBarony(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StatMaxRankInBarony);
         });
     }
 
@@ -1215,18 +1179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.KingdomStatRankStep"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyKingdomStatRankStep(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.KingdomStatRankStep);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.BaronySubsidy"/>
     /// </summary>
     public TBuilder SetBaronySubsidy(KingdomResourcesAmount baronySubsidy)
@@ -1259,18 +1211,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.BaronyResourcesModifier = baronyResourcesModifier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.BaronyResourcesModifier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaronyResourcesModifier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BaronyResourcesModifier);
         });
     }
 
@@ -1335,18 +1275,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.ConsumableEventBonusAtStart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyConsumableEventBonusAtStart(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ConsumableEventBonusAtStart);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.ConsumableEventBonusPerRankUp"/>
     /// </summary>
     public TBuilder SetConsumableEventBonusPerRankUp(int consumableEventBonusPerRankUp)
@@ -1355,18 +1283,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ConsumableEventBonusPerRankUp = consumableEventBonusPerRankUp;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.ConsumableEventBonusPerRankUp"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyConsumableEventBonusPerRankUp(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ConsumableEventBonusPerRankUp);
         });
     }
 
@@ -1383,18 +1299,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.ConsumableEventBonusModifierValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyConsumableEventBonusModifierValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ConsumableEventBonusModifierValue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.CustomLeaderPenalty"/>
     /// </summary>
     public TBuilder SetCustomLeaderPenalty(int customLeaderPenalty)
@@ -1407,18 +1311,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.CustomLeaderPenalty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCustomLeaderPenalty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CustomLeaderPenalty);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.BuildingSequenceCostMultiplier"/>
     /// </summary>
     public TBuilder SetBuildingSequenceCostMultiplier(float buildingSequenceCostMultiplier)
@@ -1427,18 +1319,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.BuildingSequenceCostMultiplier = buildingSequenceCostMultiplier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.BuildingSequenceCostMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBuildingSequenceCostMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BuildingSequenceCostMultiplier);
         });
     }
 
@@ -1475,18 +1355,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.RavenVisitDelayDays = ravenVisitDelayDays;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.RavenVisitDelayDays"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRavenVisitDelayDays(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RavenVisitDelayDays);
         });
     }
 
@@ -1532,18 +1400,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.MoraleMaxValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMoraleMaxValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MoraleMaxValue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.MoraleDefaultMaxValue"/>
     /// </summary>
     public TBuilder SetMoraleDefaultMaxValue(int moraleDefaultMaxValue)
@@ -1552,18 +1408,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.MoraleDefaultMaxValue = moraleDefaultMaxValue;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.MoraleDefaultMaxValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMoraleDefaultMaxValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MoraleDefaultMaxValue);
         });
     }
 
@@ -1580,18 +1424,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.MoraleMinValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMoraleMinValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MoraleMinValue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.MoraleStartValue"/>
     /// </summary>
     public TBuilder SetMoraleStartValue(int moraleStartValue)
@@ -1604,18 +1436,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.MoraleStartValue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMoraleStartValue(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MoraleStartValue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.StartArmySquadsCount"/>
     /// </summary>
     public TBuilder SetStartArmySquadsCount(int startArmySquadsCount)
@@ -1624,18 +1444,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.StartArmySquadsCount = startArmySquadsCount;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.StartArmySquadsCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartArmySquadsCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StartArmySquadsCount);
         });
     }
 
@@ -1654,18 +1462,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.MaxArmySquadsCount = maxArmySquadsCount;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.MaxArmySquadsCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxArmySquadsCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxArmySquadsCount);
         });
     }
 
@@ -2333,18 +2129,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.ArtisanMasterpieceChance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArtisanMasterpieceChance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ArtisanMasterpieceChance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.DifficultyDCMod"/>
     /// </summary>
     public TBuilder SetDifficultyDCMod(params int[] difficultyDCMod)
@@ -2481,18 +2265,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="KingdomRoot.AviaryTimeReduction"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAviaryTimeReduction(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AviaryTimeReduction);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="KingdomRoot.ProjectRefundFactor"/>
     /// </summary>
     public TBuilder SetProjectRefundFactor(float projectRefundFactor)
@@ -2501,18 +2273,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ProjectRefundFactor = projectRefundFactor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.ProjectRefundFactor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyProjectRefundFactor(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ProjectRefundFactor);
         });
     }
 
@@ -2551,18 +2311,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.SiegeCooldownHours = siegeCooldownHours;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="KingdomRoot.SiegeCooldownHours"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySiegeCooldownHours(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SiegeCooldownHours);
         });
     }
 

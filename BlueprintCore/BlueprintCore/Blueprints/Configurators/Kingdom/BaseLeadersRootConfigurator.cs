@@ -263,18 +263,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="LeadersRoot.m_BaseManaRegen"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseManaRegen(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_BaseManaRegen);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LeadersRoot.FirstLeadCost"/>
     /// </summary>
     public TBuilder SetFirstLeadCost(int firstLeadCost)
@@ -283,18 +271,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.FirstLeadCost = firstLeadCost;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LeadersRoot.FirstLeadCost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFirstLeadCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FirstLeadCost);
         });
     }
 
@@ -311,18 +287,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="LeadersRoot.ReducedLeadCost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyReducedLeadCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ReducedLeadCost);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LeadersRoot.LeadCostMultiply"/>
     /// </summary>
     public TBuilder SetLeadCostMultiply(float leadCostMultiply)
@@ -335,18 +299,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="LeadersRoot.LeadCostMultiply"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLeadCostMultiply(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LeadCostMultiply);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LeadersRoot.m_ArmyLeaderAssignmentCooldownDays"/>
     /// </summary>
     public TBuilder SetArmyLeaderAssignmentCooldownDays(int armyLeaderAssignmentCooldownDays)
@@ -355,18 +307,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_ArmyLeaderAssignmentCooldownDays = armyLeaderAssignmentCooldownDays;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LeadersRoot.m_ArmyLeaderAssignmentCooldownDays"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyLeaderAssignmentCooldownDays(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmyLeaderAssignmentCooldownDays);
         });
     }
 

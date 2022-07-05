@@ -30,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrapSettings.ActorLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActorLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ActorLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettings.ActorStatMod"/>
     /// </summary>
     public TBuilder SetActorStatMod(BlueprintTrapSettings.IntRange actorStatMod)

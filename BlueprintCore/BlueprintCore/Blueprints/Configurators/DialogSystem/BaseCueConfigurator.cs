@@ -67,18 +67,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCue.Experience"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperience(Action<DialogExperience> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Experience);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Speaker"/>
     /// </summary>
     public TBuilder SetSpeaker(DialogSpeaker speaker)
@@ -117,18 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCue.TurnSpeaker"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTurnSpeaker(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TurnSpeaker);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Animation"/>
     /// </summary>
     public TBuilder SetAnimation(DialogAnimation animation)
@@ -137,18 +113,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.Animation = animation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCue.Animation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAnimation(Action<DialogAnimation> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Animation);
         });
     }
 

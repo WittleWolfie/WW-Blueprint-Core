@@ -32,18 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintMythicInfo._mythic"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder Modify_mythic(Action<Mythic> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp._mythic);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintMythicInfo._etudeReference"/>
     /// </summary>
     ///

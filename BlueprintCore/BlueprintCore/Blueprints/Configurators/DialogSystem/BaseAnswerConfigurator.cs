@@ -94,18 +94,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.ShowOnce"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowOnce(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowOnce);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.ShowOnceCurrentDialog"/>
     /// </summary>
     public TBuilder SetShowOnceCurrentDialog(bool showOnceCurrentDialog = true)
@@ -114,18 +102,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.ShowOnceCurrentDialog = showOnceCurrentDialog;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.ShowOnceCurrentDialog"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowOnceCurrentDialog(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowOnceCurrentDialog);
         });
     }
 
@@ -168,18 +144,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.Experience"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExperience(Action<DialogExperience> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Experience);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.DebugMode"/>
     /// </summary>
     public TBuilder SetDebugMode(bool debugMode = true)
@@ -188,18 +152,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.DebugMode = debugMode;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.DebugMode"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDebugMode(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DebugMode);
         });
     }
 
@@ -298,18 +250,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.RequireValidCue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRequireValidCue(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RequireValidCue);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.AddToHistory"/>
     /// </summary>
     public TBuilder SetAddToHistory(bool addToHistory = true)
@@ -318,18 +258,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.AddToHistory = addToHistory;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.AddToHistory"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAddToHistory(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AddToHistory);
         });
     }
 

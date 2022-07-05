@@ -35,18 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAnswersList.ShowOnce"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowOnce(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowOnce);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAnswersList.Conditions"/>
     /// </summary>
     public TBuilder SetConditions(ConditionsBuilder conditions)

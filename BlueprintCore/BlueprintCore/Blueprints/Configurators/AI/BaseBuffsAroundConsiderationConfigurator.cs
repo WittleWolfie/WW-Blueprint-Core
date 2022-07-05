@@ -157,18 +157,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BuffsAroundConsideration.CheckAbsence"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCheckAbsence(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CheckAbsence);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BuffsAroundConsideration.FromCaster"/>
     /// </summary>
     ///
@@ -183,18 +171,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.FromCaster = fromCaster;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BuffsAroundConsideration.FromCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFromCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FromCaster);
         });
     }
 

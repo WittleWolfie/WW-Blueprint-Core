@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -27,18 +26,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.SwitchTo = switchTo;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAiSwitchWeapon.SwitchTo"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySwitchTo(Action<SwitchMode> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SwitchTo);
         });
     }
   }

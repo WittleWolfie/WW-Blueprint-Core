@@ -216,18 +216,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AiSpellCastWeight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAiSpellCastWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AiSpellCastWeight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AiCanUseRituals"/>
     /// </summary>
     public TBuilder SetAiCanUseRituals(bool aiCanUseRituals = true)
@@ -236,18 +224,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_AiCanUseRituals = aiCanUseRituals;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AiCanUseRituals"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAiCanUseRituals(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AiCanUseRituals);
         });
     }
 
@@ -264,18 +240,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DelayBetweenTurns"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDelayBetweenTurns(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DelayBetweenTurns);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_DelayAfterMoraleEffect"/>
     /// </summary>
     public TBuilder SetDelayAfterMoraleEffect(float delayAfterMoraleEffect)
@@ -284,18 +248,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_DelayAfterMoraleEffect = delayAfterMoraleEffect;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DelayAfterMoraleEffect"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDelayAfterMoraleEffect(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DelayAfterMoraleEffect);
         });
     }
 
@@ -318,18 +270,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DelayBeforeBattleEnd"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDelayBeforeBattleEnd(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DelayBeforeBattleEnd);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_MaxTurnDuration"/>
     /// </summary>
     ///
@@ -348,18 +288,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_MaxTurnDuration"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxTurnDuration(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxTurnDuration);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_MoveSpeed"/>
     /// </summary>
     public TBuilder SetMoveSpeed(int moveSpeed)
@@ -372,18 +300,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_MoveSpeed"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMoveSpeed(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MoveSpeed);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_MaxSquadsCount"/>
     /// </summary>
     public TBuilder SetMaxSquadsCount(int maxSquadsCount)
@@ -392,18 +308,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_MaxSquadsCount = maxSquadsCount;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_MaxSquadsCount"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxSquadsCount(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxSquadsCount);
         });
     }
 
@@ -449,18 +353,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_ArmyLossesCoefOnRetreat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyLossesCoefOnRetreat(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmyLossesCoefOnRetreat);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/>
     /// </summary>
     ///
@@ -475,18 +367,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_AutoVictoryChanceCoefficient = autoVictoryChanceCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoVictoryChanceCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AutoVictoryChanceCoefficient);
         });
     }
 
@@ -509,18 +389,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceMinimum"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoVictoryChanceMinimum(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AutoVictoryChanceMinimum);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/>
     /// </summary>
     ///
@@ -539,18 +407,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoCombatLossesCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AutoCombatLossesCoefficient);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoCombatMinimumLossesCoefficient"/>
     /// </summary>
     public TBuilder SetAutoCombatMinimumLossesCoefficient(float autoCombatMinimumLossesCoefficient)
@@ -559,18 +415,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_AutoCombatMinimumLossesCoefficient = autoCombatMinimumLossesCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AutoCombatMinimumLossesCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoCombatMinimumLossesCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AutoCombatMinimumLossesCoefficient);
         });
     }
 
@@ -589,18 +433,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_DismembermentDamageCoefficient = dismembermentDamageCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDismembermentDamageCoefficient(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DismembermentDamageCoefficient);
         });
     }
 
@@ -754,18 +586,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_DefaultZone = defaultZone;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_DefaultZone"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDefaultZone(Action<TacticalCombatAreaZone> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DefaultZone);
         });
     }
 
@@ -981,18 +801,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_AudioScalingFactor = audioScalingFactor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_AudioScalingFactor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAudioScalingFactor(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AudioScalingFactor);
         });
     }
 

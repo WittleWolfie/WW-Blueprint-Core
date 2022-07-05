@@ -35,18 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.Speed"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpeed(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Speed);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.MinTime"/>
     /// </summary>
     public TBuilder SetMinTime(float minTime)
@@ -55,18 +43,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.MinTime = minTime;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.MinTime"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinTime(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinTime);
         });
     }
 
@@ -134,18 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.CastEffectDuration"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCastEffectDuration(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CastEffectDuration);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.LifetimeParticlesAfterHit"/>
     /// </summary>
     public TBuilder SetLifetimeParticlesAfterHit(float lifetimeParticlesAfterHit)
@@ -154,18 +118,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.LifetimeParticlesAfterHit = lifetimeParticlesAfterHit;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.LifetimeParticlesAfterHit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLifetimeParticlesAfterHit(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LifetimeParticlesAfterHit);
         });
     }
 
@@ -259,18 +211,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.SourceBoneOffsetAtTarget"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySourceBoneOffsetAtTarget(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SourceBoneOffsetAtTarget);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.UseSourceBoneScale"/>
     /// </summary>
     public TBuilder SetUseSourceBoneScale(bool useSourceBoneScale = true)
@@ -283,18 +223,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.UseSourceBoneScale"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUseSourceBoneScale(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.UseSourceBoneScale);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.SourceBoneCorpulenceOffset"/>
     /// </summary>
     public TBuilder SetSourceBoneCorpulenceOffset(float sourceBoneCorpulenceOffset)
@@ -303,18 +231,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.SourceBoneCorpulenceOffset = sourceBoneCorpulenceOffset;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.SourceBoneCorpulenceOffset"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySourceBoneCorpulenceOffset(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SourceBoneCorpulenceOffset);
         });
     }
 
@@ -381,18 +297,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.TargetBoneOffsetMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTargetBoneOffsetMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TargetBoneOffsetMultiplier);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.FallsOnMiss"/>
     /// </summary>
     public TBuilder SetFallsOnMiss(bool fallsOnMiss = true)
@@ -401,18 +305,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.FallsOnMiss = fallsOnMiss;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.FallsOnMiss"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFallsOnMiss(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FallsOnMiss);
         });
     }
 
@@ -429,18 +321,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.MissMinRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMissMinRadius(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MissMinRadius);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.MissMaxRadius"/>
     /// </summary>
     public TBuilder SetMissMaxRadius(float missMaxRadius)
@@ -449,18 +329,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.MissMaxRadius = missMaxRadius;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.MissMaxRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMissMaxRadius(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MissMaxRadius);
         });
     }
 
@@ -477,18 +345,6 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.MissRaycastDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMissRaycastDistance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MissRaycastDistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.AddRagdollImpulse"/>
     /// </summary>
     public TBuilder SetAddRagdollImpulse(float addRagdollImpulse)
@@ -497,18 +353,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.AddRagdollImpulse = addRagdollImpulse;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.AddRagdollImpulse"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAddRagdollImpulse(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AddRagdollImpulse);
         });
     }
 
@@ -559,18 +403,6 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.FollowTerrain = followTerrain;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProjectile.FollowTerrain"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFollowTerrain(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FollowTerrain);
         });
     }
 

@@ -126,18 +126,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_Group"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGroup(Action<QuestGroupId> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Group);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.m_DescriptionPriority"/>
     /// </summary>
     public TBuilder SetDescriptionPriority(int descriptionPriority)
@@ -146,18 +134,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.m_DescriptionPriority = descriptionPriority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_DescriptionPriority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDescriptionPriority(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_DescriptionPriority);
         });
     }
 
@@ -174,18 +150,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<QuestType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.m_LastChapter"/>
     /// </summary>
     public TBuilder SetLastChapter(int lastChapter)
@@ -194,18 +158,6 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.m_LastChapter = lastChapter;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintQuest.m_LastChapter"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLastChapter(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_LastChapter);
         });
     }
 

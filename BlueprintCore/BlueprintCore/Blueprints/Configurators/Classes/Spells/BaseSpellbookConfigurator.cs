@@ -63,18 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.IsMythic"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMythic(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsMythic);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.m_SpellsPerDay"/>
     /// </summary>
     ///
@@ -324,18 +312,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.CastingAttribute"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCastingAttribute(Action<StatType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CastingAttribute);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.Spontaneous"/>
     /// </summary>
     ///
@@ -350,18 +326,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.Spontaneous = spontaneous;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.Spontaneous"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpontaneous(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Spontaneous);
         });
     }
 
@@ -384,18 +348,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.SpellsPerLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellsPerLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellsPerLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.AllSpellsKnown"/>
     /// </summary>
     ///
@@ -410,18 +362,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.AllSpellsKnown = allSpellsKnown;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.AllSpellsKnown"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllSpellsKnown(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AllSpellsKnown);
         });
     }
 
@@ -444,18 +384,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.CantripsType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCantripsType(Action<CantripsType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CantripsType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.CasterLevelModifier"/>
     /// </summary>
     ///
@@ -474,18 +402,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.CasterLevelModifier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCasterLevelModifier(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CasterLevelModifier);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.CanCopyScrolls"/>
     /// </summary>
     public TBuilder SetCanCopyScrolls(bool canCopyScrolls = true)
@@ -494,18 +410,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.CanCopyScrolls = canCopyScrolls;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.CanCopyScrolls"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanCopyScrolls(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanCopyScrolls);
         });
     }
 
@@ -522,18 +426,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.IsArcane"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsArcane(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsArcane);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.IsArcanist"/>
     /// </summary>
     public TBuilder SetIsArcanist(bool isArcanist = true)
@@ -546,18 +438,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.IsArcanist"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsArcanist(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsArcanist);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.HasSpecialSpellList"/>
     /// </summary>
     public TBuilder SetHasSpecialSpellList(bool hasSpecialSpellList = true)
@@ -566,18 +446,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           bp.HasSpecialSpellList = hasSpecialSpellList;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSpellbook.HasSpecialSpellList"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasSpecialSpellList(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasSpecialSpellList);
         });
     }
 

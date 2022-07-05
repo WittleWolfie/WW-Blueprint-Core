@@ -162,18 +162,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.SkillPoints"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySkillPoints(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SkillPoints);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.HitDie"/>
     /// </summary>
     public TBuilder SetHitDie(DiceType hitDie)
@@ -182,18 +170,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.HitDie = hitDie;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.HitDie"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHitDie(Action<DiceType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HitDie);
         });
     }
 
@@ -210,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.HideIfRestricted"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHideIfRestricted(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HideIfRestricted);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.PrestigeClass"/>
     /// </summary>
     public TBuilder SetPrestigeClass(bool prestigeClass = true)
@@ -234,18 +198,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.PrestigeClass"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPrestigeClass(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PrestigeClass);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.IsMythic"/>
     /// </summary>
     public TBuilder SetIsMythic(bool isMythic = true)
@@ -254,18 +206,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.IsMythic = isMythic;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.IsMythic"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMythic(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsMythic);
         });
     }
 
@@ -284,18 +224,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.m_IsHigherMythic = isHigherMythic;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.m_IsHigherMythic"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsHigherMythic(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsHigherMythic);
         });
     }
 
@@ -622,18 +550,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.IsDivineCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsDivineCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsDivineCaster);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.IsArcaneCaster"/>
     /// </summary>
     ///
@@ -648,18 +564,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.IsArcaneCaster = isArcaneCaster;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.IsArcaneCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsArcaneCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsArcaneCaster);
         });
     }
 
@@ -791,18 +695,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.StartingGold"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStartingGold(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StartingGold);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.m_StartingItems"/>
     /// </summary>
     ///
@@ -930,18 +822,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.PrimaryColor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPrimaryColor(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PrimaryColor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.SecondaryColor"/>
     /// </summary>
     public TBuilder SetSecondaryColor(int secondaryColor)
@@ -950,18 +830,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.SecondaryColor = secondaryColor;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.SecondaryColor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySecondaryColor(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SecondaryColor);
         });
     }
 
@@ -1243,18 +1111,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.m_Difficulty = difficulty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.m_Difficulty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDifficulty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Difficulty);
         });
     }
 
@@ -1610,18 +1466,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.VisualSettingsPriority = visualSettingsPriority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCharacterClass.VisualSettingsPriority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyVisualSettingsPriority(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.VisualSettingsPriority);
         });
     }
 

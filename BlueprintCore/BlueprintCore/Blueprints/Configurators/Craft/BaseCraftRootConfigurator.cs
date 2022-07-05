@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     }
 
     /// <summary>
-    /// Modifies <see cref="CraftRoot.m_CraftCostMultiplyer"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCraftCostMultiplyer(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CraftCostMultiplyer);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_CostForCraftDay"/>
     /// </summary>
     public TBuilder SetCostForCraftDay(int costForCraftDay)
@@ -53,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           bp.m_CostForCraftDay = costForCraftDay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="CraftRoot.m_CostForCraftDay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCostForCraftDay(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_CostForCraftDay);
         });
     }
 
@@ -81,18 +57,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     }
 
     /// <summary>
-    /// Modifies <see cref="CraftRoot.m_BaseCraftedAbilityDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseCraftedAbilityDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_BaseCraftedAbilityDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_BaseCraftDC"/>
     /// </summary>
     public TBuilder SetBaseCraftDC(int baseCraftDC)
@@ -101,18 +65,6 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           bp.m_BaseCraftDC = baseCraftDC;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="CraftRoot.m_BaseCraftDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBaseCraftDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_BaseCraftDC);
         });
     }
 

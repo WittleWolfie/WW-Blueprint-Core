@@ -110,18 +110,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <summary>
-    /// Modifies <see cref="RaceGenderDistribution.LeftHandedChance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLeftHandedChance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LeftHandedChance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.MaleBaseWeight"/>
     /// </summary>
     public TBuilder SetMaleBaseWeight(float maleBaseWeight)
@@ -134,18 +122,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
     }
 
     /// <summary>
-    /// Modifies <see cref="RaceGenderDistribution.MaleBaseWeight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaleBaseWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaleBaseWeight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.FemaleBaseWeight"/>
     /// </summary>
     public TBuilder SetFemaleBaseWeight(float femaleBaseWeight)
@@ -154,18 +130,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           bp.FemaleBaseWeight = femaleBaseWeight;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="RaceGenderDistribution.FemaleBaseWeight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFemaleBaseWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FemaleBaseWeight);
         });
     }
 

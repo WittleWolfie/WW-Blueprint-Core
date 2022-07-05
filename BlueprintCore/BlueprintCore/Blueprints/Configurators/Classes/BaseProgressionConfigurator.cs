@@ -464,22 +464,435 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintProgression.ForAllOtherClasses"/> by invoking the provided action.
+    /// Sets the value of <see cref="BlueprintProgression.UIGroups"/>
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Half of all class levels not specified in m_Classes or m_Archetypes are summed when determining the character's level with respect to the progression.
-    /// </para>
-    /// <para>
-    /// If this is true m_AlternateProgressionClasses is ignored.
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
     /// </para>
     /// </remarks>
-    public TBuilder ModifyForAllOtherClasses(Action<bool> action)
+    ///
+    /// <param name="uIGroups">
+    /// <para>
+    /// Tooltip: Icons will be connected with line inside one group
+    /// </para>
+    /// </param>
+    public TBuilder SetUIGroups(params UIGroup[] uIGroups)
     {
       return OnConfigureInternal(
         bp =>
         {
-          action.Invoke(bp.ForAllOtherClasses);
+          Validate(uIGroups);
+          bp.UIGroups = uIGroups;
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintProgression.UIGroups"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="uIGroups">
+    /// <para>
+    /// Tooltip: Icons will be connected with line inside one group
+    /// </para>
+    /// </param>
+    public TBuilder AddToUIGroups(params UIGroup[] uIGroups)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UIGroups = bp.UIGroups ?? new UIGroup[0];
+          bp.UIGroups = CommonTool.Append(bp.UIGroups, uIGroups);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.UIGroups"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="uIGroups">
+    /// <para>
+    /// Tooltip: Icons will be connected with line inside one group
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromUIGroups(params UIGroup[] uIGroups)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UIGroups is null) { return; }
+          bp.UIGroups = bp.UIGroups.Where(val => !uIGroups.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.UIGroups"/> that match the provided predicate.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder RemoveFromUIGroups(Func<UIGroup, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UIGroups is null) { return; }
+          bp.UIGroups = bp.UIGroups.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintProgression.UIGroups"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ClearUIGroups()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UIGroups = new UIGroup[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintProgression.UIGroups"/> by invoking the provided action on each element.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyUIGroups(Action<UIGroup> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UIGroups is null) { return; }
+          bp.UIGroups.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="uIDeterminatorsGroup">
+    /// <para>
+    /// Tooltip: Icon will be shown in first column of class progression
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UIDeterminatorsGroup = uIDeterminatorsGroup.Select(bp => bp.Reference).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="uIDeterminatorsGroup">
+    /// <para>
+    /// Tooltip: Icon will be shown in first column of class progression
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup ?? new BlueprintFeatureBaseReference[0];
+          bp.m_UIDeterminatorsGroup = CommonTool.Append(bp.m_UIDeterminatorsGroup, uIDeterminatorsGroup.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="uIDeterminatorsGroup">
+    /// <para>
+    /// Tooltip: Icon will be shown in first column of class progression
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UIDeterminatorsGroup is null) { return; }
+          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(val => !uIDeterminatorsGroup.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> that match the provided predicate.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder RemoveFromUIDeterminatorsGroup(Func<BlueprintFeatureBaseReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UIDeterminatorsGroup is null) { return; }
+          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(predicate).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ClearUIDeterminatorsGroup()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UIDeterminatorsGroup = new BlueprintFeatureBaseReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> by invoking the provided action on each element.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyUIDeterminatorsGroup(Action<BlueprintFeatureBaseReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UIDeterminatorsGroup is null) { return; }
+          bp.m_UIDeterminatorsGroup.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="featuresRankIncrease">
+    /// <para>
+    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_FeaturesRankIncrease = featuresRankIncrease.Select(bp => bp.Reference).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="featuresRankIncrease">
+    /// <para>
+    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease ?? new();
+          bp.m_FeaturesRankIncrease.AddRange(featuresRankIncrease.Select(bp => bp.Reference));
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    ///
+    /// <param name="featuresRankIncrease">
+    /// <para>
+    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_FeaturesRankIncrease is null) { return; }
+          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(val => !featuresRankIncrease.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> that match the provided predicate.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    public TBuilder RemoveFromFeaturesRankIncrease(Func<BlueprintFeatureReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_FeaturesRankIncrease is null) { return; }
+          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(predicate).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    public TBuilder ClearFeaturesRankIncrease()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_FeaturesRankIncrease = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> by invoking the provided action on each element.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// Specified feature ranks are summed when determining the character's level with respect to the progression.
+    /// </para>
+    /// </remarks>
+    public TBuilder ModifyFeaturesRankIncrease(Action<BlueprintFeatureReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_FeaturesRankIncrease is null) { return; }
+          bp.m_FeaturesRankIncrease.ForEach(action);
         });
     }
 
@@ -561,225 +974,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintProgression.UIGroups"/>
-    /// </summary>
-    ///
-    /// <param name="uIGroups">
-    /// <para>
-    /// Tooltip: Icons will be connected with line inside one group
-    /// </para>
-    /// </param>
-    public TBuilder SetUIGroups(params UIGroup[] uIGroups)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(uIGroups);
-          bp.UIGroups = uIGroups;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintProgression.UIGroups"/>
-    /// </summary>
-    ///
-    /// <param name="uIGroups">
-    /// <para>
-    /// Tooltip: Icons will be connected with line inside one group
-    /// </para>
-    /// </param>
-    public TBuilder AddToUIGroups(params UIGroup[] uIGroups)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.UIGroups = bp.UIGroups ?? new UIGroup[0];
-          bp.UIGroups = CommonTool.Append(bp.UIGroups, uIGroups);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.UIGroups"/>
-    /// </summary>
-    ///
-    /// <param name="uIGroups">
-    /// <para>
-    /// Tooltip: Icons will be connected with line inside one group
-    /// </para>
-    /// </param>
-    public TBuilder RemoveFromUIGroups(params UIGroup[] uIGroups)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.UIGroups is null) { return; }
-          bp.UIGroups = bp.UIGroups.Where(val => !uIGroups.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.UIGroups"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromUIGroups(Func<UIGroup, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.UIGroups is null) { return; }
-          bp.UIGroups = bp.UIGroups.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintProgression.UIGroups"/>
-    /// </summary>
-    public TBuilder ClearUIGroups()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.UIGroups = new UIGroup[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.UIGroups"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyUIGroups(Action<UIGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.UIGroups is null) { return; }
-          bp.UIGroups.ForEach(action);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
-    /// </summary>
-    ///
-    /// <param name="uIDeterminatorsGroup">
-    /// <para>
-    /// Tooltip: Icon will be shown in first column of class progression
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder SetUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_UIDeterminatorsGroup = uIDeterminatorsGroup.Select(bp => bp.Reference).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
-    /// </summary>
-    ///
-    /// <param name="uIDeterminatorsGroup">
-    /// <para>
-    /// Tooltip: Icon will be shown in first column of class progression
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddToUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup ?? new BlueprintFeatureBaseReference[0];
-          bp.m_UIDeterminatorsGroup = CommonTool.Append(bp.m_UIDeterminatorsGroup, uIDeterminatorsGroup.Select(bp => bp.Reference).ToArray());
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
-    /// </summary>
-    ///
-    /// <param name="uIDeterminatorsGroup">
-    /// <para>
-    /// Tooltip: Icon will be shown in first column of class progression
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeatureBase. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder RemoveFromUIDeterminatorsGroup(params Blueprint<BlueprintFeatureBaseReference>[] uIDeterminatorsGroup)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_UIDeterminatorsGroup is null) { return; }
-          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(val => !uIDeterminatorsGroup.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromUIDeterminatorsGroup(Func<BlueprintFeatureBaseReference, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_UIDeterminatorsGroup is null) { return; }
-          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(predicate).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>
-    /// </summary>
-    public TBuilder ClearUIDeterminatorsGroup()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_UIDeterminatorsGroup = new BlueprintFeatureBaseReference[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyUIDeterminatorsGroup(Action<BlueprintFeatureBaseReference> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_UIDeterminatorsGroup is null) { return; }
-          bp.m_UIDeterminatorsGroup.ForEach(action);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_ExclusiveProgression"/>
     /// </summary>
     ///
@@ -829,142 +1023,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.GiveFeaturesForPreviousLevels"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGiveFeaturesForPreviousLevels(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.GiveFeaturesForPreviousLevels);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
-    /// </summary>
-    ///
-    /// <param name="featuresRankIncrease">
-    /// <para>
-    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder SetFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_FeaturesRankIncrease = featuresRankIncrease.Select(bp => bp.Reference).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
-    /// </summary>
-    ///
-    /// <param name="featuresRankIncrease">
-    /// <para>
-    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddToFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease ?? new();
-          bp.m_FeaturesRankIncrease.AddRange(featuresRankIncrease.Select(bp => bp.Reference));
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
-    /// </summary>
-    ///
-    /// <param name="featuresRankIncrease">
-    /// <para>
-    /// InfoBox: Result level = (All classes) + (all feature ranks) + ((alternative level) / 2)
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder RemoveFromFeaturesRankIncrease(params Blueprint<BlueprintFeatureReference>[] featuresRankIncrease)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_FeaturesRankIncrease is null) { return; }
-          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(val => !featuresRankIncrease.Contains(val)).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromFeaturesRankIncrease(Func<BlueprintFeatureReference, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_FeaturesRankIncrease is null) { return; }
-          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(predicate).ToList();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintProgression.m_FeaturesRankIncrease"/>
-    /// </summary>
-    public TBuilder ClearFeaturesRankIncrease()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_FeaturesRankIncrease = new();
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintProgression.m_FeaturesRankIncrease"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyFeaturesRankIncrease(Action<BlueprintFeatureReference> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_FeaturesRankIncrease is null) { return; }
-          bp.m_FeaturesRankIncrease.ForEach(action);
-        });
-    }
-
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -981,10 +1039,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         Blueprint.m_AlternateProgressionClasses = new BlueprintProgression.ClassWithLevel[0];
       }
-      if (Blueprint.LevelEntries is null)
-      {
-        Blueprint.LevelEntries = new LevelEntry[0];
-      }
       if (Blueprint.UIGroups is null)
       {
         Blueprint.UIGroups = new UIGroup[0];
@@ -993,13 +1047,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       {
         Blueprint.m_UIDeterminatorsGroup = new BlueprintFeatureBaseReference[0];
       }
-      if (Blueprint.m_ExclusiveProgression is null)
-      {
-        Blueprint.m_ExclusiveProgression = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
       if (Blueprint.m_FeaturesRankIncrease is null)
       {
         Blueprint.m_FeaturesRankIncrease = new();
+      }
+      if (Blueprint.LevelEntries is null)
+      {
+        Blueprint.LevelEntries = new LevelEntry[0];
+      }
+      if (Blueprint.m_ExclusiveProgression is null)
+      {
+        Blueprint.m_ExclusiveProgression = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
       }
     }
   }

@@ -136,18 +136,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Gate.m_Op"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOp(Action<Operation> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Op);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Gate.m_ActivationMode"/>
     /// </summary>
     public TBuilder SetActivationMode(Gate.ActivationModeType activationMode)
@@ -160,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     }
 
     /// <summary>
-    /// Modifies <see cref="Gate.m_ActivationMode"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActivationMode(Action<Gate.ActivationModeType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ActivationMode);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="Gate.WhenTrackIsSkipped"/>
     /// </summary>
     public TBuilder SetWhenTrackIsSkipped(Gate.SkipTracksModeType whenTrackIsSkipped)
@@ -180,18 +156,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.WhenTrackIsSkipped = whenTrackIsSkipped;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Gate.WhenTrackIsSkipped"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWhenTrackIsSkipped(Action<Gate.SkipTracksModeType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.WhenTrackIsSkipped);
         });
     }
 
@@ -210,18 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           bp.PauseForOneFrame = pauseForOneFrame;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="Gate.PauseForOneFrame"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPauseForOneFrame(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PauseForOneFrame);
         });
     }
 

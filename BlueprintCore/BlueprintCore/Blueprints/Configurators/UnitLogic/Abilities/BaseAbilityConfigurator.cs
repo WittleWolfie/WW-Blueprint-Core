@@ -124,23 +124,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.Range"/> by invoking the provided action.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// Use <see cref="SetCustomRange(Feet)"/> for AbilityRange.Custom.
-    /// </para>
-    /// </remarks>
-    public TBuilder ModifyRange(Action<AbilityRange> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Range);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_Parent"/>
     /// </summary>
     /// <remarks>
@@ -201,18 +184,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<AbilityType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.CustomRange"/>
     /// </summary>
     public TBuilder SetCustomRange(Feet customRange)
@@ -255,18 +226,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.ShowNameForVariant"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowNameForVariant(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowNameForVariant);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.OnlyForAllyCaster"/>
     /// </summary>
     ///
@@ -285,18 +244,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.OnlyForAllyCaster"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOnlyForAllyCaster(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OnlyForAllyCaster);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.CanTargetPoint"/>
     /// </summary>
     public TBuilder SetCanTargetPoint(bool canTargetPoint = true)
@@ -309,18 +256,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.CanTargetPoint"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanTargetPoint(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanTargetPoint);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.CanTargetEnemies"/>
     /// </summary>
     public TBuilder SetCanTargetEnemies(bool canTargetEnemies = true)
@@ -329,18 +264,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.CanTargetEnemies = canTargetEnemies;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.CanTargetEnemies"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanTargetEnemies(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanTargetEnemies);
         });
     }
 
@@ -363,18 +286,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.CanTargetFriends"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanTargetFriends(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanTargetFriends);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.CanTargetSelf"/>
     /// </summary>
     public TBuilder SetCanTargetSelf(bool canTargetSelf = true)
@@ -383,18 +294,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.CanTargetSelf = canTargetSelf;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.CanTargetSelf"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanTargetSelf(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanTargetSelf);
         });
     }
 
@@ -411,18 +310,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.SpellResistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellResistance(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellResistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.ActionBarAutoFillIgnored"/>
     /// </summary>
     public TBuilder SetActionBarAutoFillIgnored(bool actionBarAutoFillIgnored = true)
@@ -431,18 +318,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.ActionBarAutoFillIgnored = actionBarAutoFillIgnored;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.ActionBarAutoFillIgnored"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActionBarAutoFillIgnored(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ActionBarAutoFillIgnored);
         });
     }
 
@@ -459,18 +334,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.Hidden"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHidden(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Hidden);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.NeedEquipWeapons"/>
     /// </summary>
     public TBuilder SetNeedEquipWeapons(bool needEquipWeapons = true)
@@ -479,18 +342,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.NeedEquipWeapons = needEquipWeapons;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.NeedEquipWeapons"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeedEquipWeapons(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NeedEquipWeapons);
         });
     }
 
@@ -507,18 +358,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.NotOffensive"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNotOffensive(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NotOffensive);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.EffectOnAlly"/>
     /// </summary>
     public TBuilder SetEffectOnAlly(AbilityEffectOnUnit effectOnAlly)
@@ -527,18 +366,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.EffectOnAlly = effectOnAlly;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.EffectOnAlly"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEffectOnAlly(Action<AbilityEffectOnUnit> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EffectOnAlly);
         });
     }
 
@@ -555,18 +382,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.EffectOnEnemy"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEffectOnEnemy(Action<AbilityEffectOnUnit> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.EffectOnEnemy);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.Animation"/>
     /// </summary>
     public TBuilder SetAnimation(UnitAnimationActionCastSpell.CastAnimationStyle animation)
@@ -575,18 +390,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.Animation = animation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.Animation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAnimation(Action<UnitAnimationActionCastSpell.CastAnimationStyle> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Animation);
         });
     }
 
@@ -603,18 +406,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.HasFastAnimation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasFastAnimation(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasFastAnimation);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.AnimationStyle"/>
     /// </summary>
     public TBuilder SetAnimationStyle(CastAnimationStyle animationStyle)
@@ -623,18 +414,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.AnimationStyle = animationStyle;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.AnimationStyle"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAnimationStyle(Action<CastAnimationStyle> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AnimationStyle);
         });
     }
 
@@ -651,18 +430,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbility.m_TargetMapObjects"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTargetMapObjects(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_TargetMapObjects);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.ActionType"/>
     /// </summary>
     public TBuilder SetActionType(UnitCommand.CommandType actionType)
@@ -671,18 +438,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.ActionType = actionType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.ActionType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActionType(Action<UnitCommand.CommandType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ActionType);
         });
     }
 
@@ -731,18 +486,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.m_IsFullRoundAction = isFullRoundAction;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.m_IsFullRoundAction"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsFullRoundAction(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsFullRoundAction);
         });
     }
 
@@ -839,18 +582,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.DisableLog = disableLog;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbility.DisableLog"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableLog(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisableLog);
         });
     }
 

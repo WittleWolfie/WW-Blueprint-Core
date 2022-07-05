@@ -148,18 +148,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.FirstPriorityScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFirstPriorityScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.FirstPriorityScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="TargetClassConsideration.m_SecondPriorityClasses"/>
     /// </summary>
     ///
@@ -287,18 +275,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.SecondPriorityScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySecondPriorityScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SecondPriorityScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="TargetClassConsideration.NoPriorityScore"/>
     /// </summary>
     public TBuilder SetNoPriorityScore(float noPriorityScore)
@@ -307,18 +283,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.NoPriorityScore = noPriorityScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="TargetClassConsideration.NoPriorityScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoPriorityScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoPriorityScore);
         });
     }
 

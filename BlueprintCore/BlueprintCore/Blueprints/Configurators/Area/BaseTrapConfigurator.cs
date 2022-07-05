@@ -37,18 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrap.PerceptionDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPerceptionDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PerceptionDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrap.PerceptionRadius"/>
     /// </summary>
     public TBuilder SetPerceptionRadius(float perceptionRadius)
@@ -57,18 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.PerceptionRadius = perceptionRadius;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrap.PerceptionRadius"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPerceptionRadius(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PerceptionRadius);
         });
     }
 
@@ -85,18 +61,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrap.DisableDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisableDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrap.DisableTriggerMargin"/>
     /// </summary>
     public TBuilder SetDisableTriggerMargin(int disableTriggerMargin)
@@ -105,18 +69,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.DisableTriggerMargin = disableTriggerMargin;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrap.DisableTriggerMargin"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableTriggerMargin(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisableTriggerMargin);
         });
     }
 
@@ -133,18 +85,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrap.IsHiddenWhenInactive"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsHiddenWhenInactive(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsHiddenWhenInactive);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrap.AllowedForRandomEncounters"/>
     /// </summary>
     public TBuilder SetAllowedForRandomEncounters(bool allowedForRandomEncounters = true)
@@ -157,18 +97,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTrap.AllowedForRandomEncounters"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowedForRandomEncounters(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AllowedForRandomEncounters);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTrap.DisarmAnimation"/>
     /// </summary>
     public TBuilder SetDisarmAnimation(UnitAnimationInteractionType disarmAnimation)
@@ -177,18 +105,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.DisarmAnimation = disarmAnimation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTrap.DisarmAnimation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisarmAnimation(Action<UnitAnimationInteractionType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisarmAnimation);
         });
     }
 

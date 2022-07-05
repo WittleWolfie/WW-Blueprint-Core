@@ -122,18 +122,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCampaign.ComingSoon"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyComingSoon(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ComingSoon);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.HideInRelease"/>
     /// </summary>
     public TBuilder SetHideInRelease(bool hideInRelease = true)
@@ -146,18 +134,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCampaign.HideInRelease"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHideInRelease(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HideInRelease);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.ToBeContinued"/>
     /// </summary>
     public TBuilder SetToBeContinued(bool toBeContinued = true)
@@ -166,18 +142,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.ToBeContinued = toBeContinued;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCampaign.ToBeContinued"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyToBeContinued(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ToBeContinued);
         });
     }
 
@@ -343,18 +307,6 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.IsMainGameContent = isMainGameContent;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCampaign.IsMainGameContent"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsMainGameContent(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsMainGameContent);
         });
     }
 

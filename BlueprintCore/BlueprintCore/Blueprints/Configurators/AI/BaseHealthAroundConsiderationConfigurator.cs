@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="HealthAroundConsideration.RequiredMissingHealth"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRequiredMissingHealth(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RequiredMissingHealth);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="HealthAroundConsideration.RequiredHealthLeft"/>
     /// </summary>
     public TBuilder SetRequiredHealthLeft(int requiredHealthLeft)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.RequiredHealthLeft = requiredHealthLeft;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="HealthAroundConsideration.RequiredHealthLeft"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRequiredHealthLeft(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RequiredHealthLeft);
         });
     }
   }

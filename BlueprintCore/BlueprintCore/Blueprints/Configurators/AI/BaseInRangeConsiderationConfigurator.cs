@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="InRangeConsideration.InRangeScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInRangeScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.InRangeScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="InRangeConsideration.OutOfRangeScore"/>
     /// </summary>
     public TBuilder SetOutOfRangeScore(float outOfRangeScore)
@@ -55,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="InRangeConsideration.OutOfRangeScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOutOfRangeScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OutOfRangeScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="InRangeConsideration.OnlyIfThreated"/>
     /// </summary>
     public TBuilder SetOnlyIfThreated(bool onlyIfThreated = true)
@@ -75,18 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.OnlyIfThreated = onlyIfThreated;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="InRangeConsideration.OnlyIfThreated"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOnlyIfThreated(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OnlyIfThreated);
         });
     }
   }

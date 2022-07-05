@@ -231,18 +231,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlementBuilding.MinLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinLevel(Action<SettlementState.LevelType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.SlotSizeX"/>
     /// </summary>
     public TBuilder SetSlotSizeX(int slotSizeX)
@@ -251,18 +239,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.SlotSizeX = slotSizeX;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlementBuilding.SlotSizeX"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySlotSizeX(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SlotSizeX);
         });
     }
 
@@ -279,18 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlementBuilding.SlotSizeY"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySlotSizeY(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SlotSizeY);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.BuildTime"/>
     /// </summary>
     public TBuilder SetBuildTime(int buildTime)
@@ -303,18 +267,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintSettlementBuilding.BuildTime"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyBuildTime(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.BuildTime);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.SpecialSlot"/>
     /// </summary>
     public TBuilder SetSpecialSlot(SettlementState.SpecialSlotType specialSlot)
@@ -323,18 +275,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         bp =>
         {
           bp.SpecialSlot = specialSlot;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintSettlementBuilding.SpecialSlot"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpecialSlot(Action<SettlementState.SpecialSlotType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpecialSlot);
         });
     }
 

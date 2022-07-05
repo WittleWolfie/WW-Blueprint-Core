@@ -37,18 +37,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.ParameterType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyParameterType(Action<FeatureParameterType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ParameterType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/>
     /// </summary>
     public TBuilder SetWeaponSubCategory(WeaponSubCategory weaponSubCategory)
@@ -57,18 +45,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.WeaponSubCategory = weaponSubCategory;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.WeaponSubCategory"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeaponSubCategory(Action<WeaponSubCategory> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.WeaponSubCategory);
         });
     }
 
@@ -85,18 +61,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.SelectionFeatureGroup"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySelectionFeatureGroup(Action<FeatureGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SelectionFeatureGroup);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.RequireProficiency"/>
     /// </summary>
     public TBuilder SetRequireProficiency(bool requireProficiency = true)
@@ -105,18 +69,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.RequireProficiency = requireProficiency;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.RequireProficiency"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRequireProficiency(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RequireProficiency);
         });
     }
 
@@ -209,18 +161,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.SpecificSpellLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpecificSpellLevel(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpecificSpellLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/>
     /// </summary>
     public TBuilder SetSpellLevelPenalty(int spellLevelPenalty)
@@ -229,18 +169,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.SpellLevelPenalty = spellLevelPenalty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.SpellLevelPenalty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellLevelPenalty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellLevelPenalty);
         });
     }
 
@@ -257,18 +185,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.SpellLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellLevel);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/>
     /// </summary>
     public TBuilder SetDisallowSpellsInSpellList(bool disallowSpellsInSpellList = true)
@@ -277,18 +193,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.DisallowSpellsInSpellList = disallowSpellsInSpellList;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.DisallowSpellsInSpellList"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisallowSpellsInSpellList(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisallowSpellsInSpellList);
         });
     }
 
@@ -458,18 +362,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.HasNoSuchFeature"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasNoSuchFeature(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasNoSuchFeature);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/>
     /// </summary>
     public TBuilder SetIgnoreParameterFeaturePrerequisites(bool ignoreParameterFeaturePrerequisites = true)
@@ -478,18 +370,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.IgnoreParameterFeaturePrerequisites = ignoreParameterFeaturePrerequisites;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintParametrizedFeature.IgnoreParameterFeaturePrerequisites"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIgnoreParameterFeaturePrerequisites(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IgnoreParameterFeaturePrerequisites);
         });
     }
 

@@ -300,18 +300,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_ManageBanksSeparately"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyManageBanksSeparately(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ManageBanksSeparately);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_UnloadBanksDelay"/>
     /// </summary>
     ///
@@ -326,18 +314,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.m_UnloadBanksDelay = unloadBanksDelay;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_UnloadBanksDelay"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyUnloadBanksDelay(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_UnloadBanksDelay);
         });
     }
 
@@ -404,18 +380,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_IndoorType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIndoorType(Action<IndoorType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IndoorType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_WeatherProfile"/>
     /// </summary>
     public TBuilder SetWeatherProfile(WeatherProfileExtended weatherProfile)
@@ -454,18 +418,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_WeatherInclemencyMin"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeatherInclemencyMin(Action<InclemencyType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_WeatherInclemencyMin);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_WeatherInclemencyMax"/>
     /// </summary>
     public TBuilder SetWeatherInclemencyMax(InclemencyType weatherInclemencyMax)
@@ -474,18 +426,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.m_WeatherInclemencyMax = weatherInclemencyMax;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.m_WeatherInclemencyMax"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeatherInclemencyMax(Action<InclemencyType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_WeatherInclemencyMax);
         });
     }
 
@@ -502,18 +442,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.IsSingleLightScene"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsSingleLightScene(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsSingleLightScene);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.LocalMapRotation"/>
     /// </summary>
     public TBuilder SetLocalMapRotation(float localMapRotation)
@@ -526,18 +454,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.LocalMapRotation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLocalMapRotation(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LocalMapRotation);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.Setting"/>
     /// </summary>
     public TBuilder SetSetting(AreaSetting setting)
@@ -546,18 +462,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.Setting = setting;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAreaPart.Setting"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySetting(Action<AreaSetting> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Setting);
         });
     }
 

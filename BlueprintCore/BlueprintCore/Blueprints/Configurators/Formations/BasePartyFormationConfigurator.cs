@@ -111,18 +111,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintPartyFormation.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<PartyFormationType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintPartyFormation.Name"/>
     /// </summary>
     ///

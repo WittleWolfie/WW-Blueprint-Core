@@ -153,18 +153,6 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
-    /// <summary>
-    /// Modifies <see cref="BlueprintCompanionStory.Gender"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyGender(Action<Gender> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Gender);
-        });
-    }
-
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

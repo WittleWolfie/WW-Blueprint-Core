@@ -203,18 +203,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_ArmorBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmorBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmorBonus);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/>
     /// </summary>
     public TBuilder SetArmorChecksPenalty(int armorChecksPenalty)
@@ -223,18 +211,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_ArmorChecksPenalty = armorChecksPenalty;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_ArmorChecksPenalty"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmorChecksPenalty(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArmorChecksPenalty);
         });
     }
 
@@ -251,18 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_HasDexterityBonusLimit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasDexterityBonusLimit(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_HasDexterityBonusLimit);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_MaxDexterityBonus"/>
     /// </summary>
     public TBuilder SetMaxDexterityBonus(int maxDexterityBonus)
@@ -271,18 +235,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_MaxDexterityBonus = maxDexterityBonus;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_MaxDexterityBonus"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxDexterityBonus(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_MaxDexterityBonus);
         });
     }
 
@@ -299,18 +251,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_ProficiencyGroup"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyProficiencyGroup(Action<ArmorProficiencyGroup> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ProficiencyGroup);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/>
     /// </summary>
     public TBuilder SetArcaneSpellFailureChance(int arcaneSpellFailureChance)
@@ -319,18 +259,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_ArcaneSpellFailureChance = arcaneSpellFailureChance;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_ArcaneSpellFailureChance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArcaneSpellFailureChance(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ArcaneSpellFailureChance);
         });
     }
 
@@ -347,18 +275,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Weight"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWeight(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Weight);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_IsArmor"/>
     /// </summary>
     public TBuilder SetIsArmor(bool isArmor = true)
@@ -371,18 +287,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_IsArmor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsArmor(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsArmor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_IsShield"/>
     /// </summary>
     public TBuilder SetIsShield(bool isShield = true)
@@ -391,18 +295,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_IsShield = isShield;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_IsShield"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsShield(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IsShield);
         });
     }
 
@@ -687,18 +579,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_ForcedRampColorPresetIndex"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyForcedRampColorPresetIndex(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_ForcedRampColorPresetIndex);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_Destructible"/>
     /// </summary>
     ///
@@ -713,18 +593,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           bp.m_Destructible = destructible;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArmorType.m_Destructible"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDestructible(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Destructible);
         });
     }
 

@@ -136,18 +136,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomBuff.DurationDays"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDurationDays(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DurationDays);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.StatChanges"/>
     /// </summary>
     public TBuilder SetStatChanges(KingdomStats.Changes statChanges)

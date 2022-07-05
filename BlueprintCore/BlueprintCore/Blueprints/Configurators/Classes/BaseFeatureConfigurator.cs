@@ -62,23 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.IsClassFeature"/> by invoking the provided action.
-    /// </summary>
-    /// <remarks>
-    /// <para>
-    /// When set to true the feature is removed during respec.
-    /// </para>
-    /// </remarks>
-    public TBuilder ModifyIsClassFeature(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsClassFeature);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.m_NameModifiersCache"/>
     /// </summary>
     public TBuilder SetNameModifiersCache(params NameModifier[] nameModifiersCache)
@@ -321,18 +304,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintFeature.Ranks"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRanks(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Ranks);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.ReapplyOnLevelUp"/>
     /// </summary>
     public TBuilder SetReapplyOnLevelUp(bool reapplyOnLevelUp = true)
@@ -341,18 +312,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.ReapplyOnLevelUp = reapplyOnLevelUp;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeature.ReapplyOnLevelUp"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyReapplyOnLevelUp(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ReapplyOnLevelUp);
         });
     }
 

@@ -247,18 +247,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.Tag"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTag(Action<TutorialTag> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Tag);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.Priority"/>
     /// </summary>
     public TBuilder SetPriority(int priority)
@@ -267,18 +255,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.Priority = priority;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.Priority"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPriority(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Priority);
         });
     }
 
@@ -295,18 +271,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.Limit"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLimit(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Limit);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.Frequency"/>
     /// </summary>
     public TBuilder SetFrequency(int frequency)
@@ -315,18 +279,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.Frequency = frequency;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.Frequency"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyFrequency(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Frequency);
         });
     }
 
@@ -343,18 +295,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.SetCooldown"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySetCooldown(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SetCooldown);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.IgnoreCooldown"/>
     /// </summary>
     public TBuilder SetIgnoreCooldown(bool ignoreCooldown = true)
@@ -363,18 +303,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.IgnoreCooldown = ignoreCooldown;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.IgnoreCooldown"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIgnoreCooldown(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IgnoreCooldown);
         });
     }
 
@@ -391,18 +319,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.Windowed"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyWindowed(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Windowed);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.DisableAnalyticsTracking"/>
     /// </summary>
     public TBuilder SetDisableAnalyticsTracking(bool disableAnalyticsTracking = true)
@@ -411,18 +327,6 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         bp =>
         {
           bp.DisableAnalyticsTracking = disableAnalyticsTracking;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTutorial.DisableAnalyticsTracking"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDisableAnalyticsTracking(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DisableAnalyticsTracking);
         });
     }
 

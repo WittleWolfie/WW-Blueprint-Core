@@ -144,18 +144,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.VisualSpeedBase"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyVisualSpeedBase(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.VisualSpeedBase);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.MechanicsSpeedBase"/>
     /// </summary>
     ///
@@ -174,18 +162,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.MechanicsSpeedBase"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMechanicsSpeedBase(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MechanicsSpeedBase);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.ArmySpeedFactor"/>
     /// </summary>
     public TBuilder SetArmySpeedFactor(float armySpeedFactor)
@@ -198,18 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.ArmySpeedFactor"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmySpeedFactor(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ArmySpeedFactor);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.ArmyGoToPointSpeedMultiplier"/>
     /// </summary>
     public TBuilder SetArmyGoToPointSpeedMultiplier(float armyGoToPointSpeedMultiplier)
@@ -218,18 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.ArmyGoToPointSpeedMultiplier = armyGoToPointSpeedMultiplier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.ArmyGoToPointSpeedMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArmyGoToPointSpeedMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ArmyGoToPointSpeedMultiplier);
         });
     }
 
@@ -252,18 +204,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.RandomEncounterTimer"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRandomEncounterTimer(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RandomEncounterTimer);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.ExploreDistance"/>
     /// </summary>
     ///
@@ -282,18 +222,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.ExploreDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExploreDistance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExploreDistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.RestrictTravelingToClosedLocations"/>
     /// </summary>
     public TBuilder SetRestrictTravelingToClosedLocations(bool restrictTravelingToClosedLocations = true)
@@ -302,18 +230,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.RestrictTravelingToClosedLocations = restrictTravelingToClosedLocations;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.RestrictTravelingToClosedLocations"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRestrictTravelingToClosedLocations(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.RestrictTravelingToClosedLocations);
         });
     }
 
@@ -606,18 +522,6 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           bp.IsKenabres = isKenabres;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintGlobalMap.IsKenabres"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsKenabres(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsKenabres);
         });
     }
 

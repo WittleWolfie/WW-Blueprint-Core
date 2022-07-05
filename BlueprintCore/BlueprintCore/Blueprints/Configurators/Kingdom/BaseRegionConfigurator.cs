@@ -35,18 +35,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.m_Id"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyId(Action<RegionId> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_Id);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.LocalizedName"/>
     /// </summary>
     ///
@@ -488,18 +476,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.CR"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCR(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CR);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.HardEncountersDisabled"/>
     /// </summary>
     public TBuilder SetHardEncountersDisabled(bool hardEncountersDisabled = true)
@@ -508,18 +484,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.HardEncountersDisabled = hardEncountersDisabled;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRegion.HardEncountersDisabled"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHardEncountersDisabled(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HardEncountersDisabled);
         });
     }
 
@@ -536,18 +500,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRegion.OverrideCorruption"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideCorruption(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideCorruption);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.CorruptionGrowth"/>
     /// </summary>
     public TBuilder SetCorruptionGrowth(int corruptionGrowth)
@@ -556,18 +508,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.CorruptionGrowth = corruptionGrowth;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintRegion.CorruptionGrowth"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCorruptionGrowth(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CorruptionGrowth);
         });
     }
 

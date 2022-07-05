@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="ManualTargetConsideration.IsManualTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsManualTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsManualTargetScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ManualTargetConsideration.NotManualTargetScore"/>
     /// </summary>
     public TBuilder SetNotManualTargetScore(float notManualTargetScore)
@@ -55,18 +42,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="ManualTargetConsideration.NotManualTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNotManualTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NotManualTargetScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="ManualTargetConsideration.NoManualTargetScore"/>
     /// </summary>
     public TBuilder SetNoManualTargetScore(float noManualTargetScore)
@@ -75,18 +50,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.NoManualTargetScore = noManualTargetScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ManualTargetConsideration.NoManualTargetScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNoManualTargetScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NoManualTargetScore);
         });
     }
   }

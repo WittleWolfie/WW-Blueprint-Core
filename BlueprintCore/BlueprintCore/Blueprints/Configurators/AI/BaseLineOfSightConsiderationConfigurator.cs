@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="LineOfSightConsideration.HasNoLosScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasNoLosScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasNoLosScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="LineOfSightConsideration.HasLosScore"/>
     /// </summary>
     public TBuilder SetHasLosScore(float hasLosScore)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.HasLosScore = hasLosScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="LineOfSightConsideration.HasLosScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHasLosScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.HasLosScore);
         });
     }
   }

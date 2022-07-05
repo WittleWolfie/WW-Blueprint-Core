@@ -158,18 +158,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.IsGlobalMap"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIsGlobalMap(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IsGlobalMap);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.CameraScrollMultiplier"/>
     /// </summary>
     public TBuilder SetCameraScrollMultiplier(float cameraScrollMultiplier)
@@ -178,18 +166,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.CameraScrollMultiplier = cameraScrollMultiplier;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.CameraScrollMultiplier"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCameraScrollMultiplier(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CameraScrollMultiplier);
         });
     }
 
@@ -206,18 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.SetDefaultCameraRotation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySetDefaultCameraRotation(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SetDefaultCameraRotation);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.CameraRotation"/>
     /// </summary>
     public TBuilder SetCameraRotation(float cameraRotation)
@@ -226,18 +190,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.CameraRotation = cameraRotation;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.CameraRotation"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCameraRotation(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CameraRotation);
         });
     }
 
@@ -306,18 +258,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.Designer"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDesigner(Action<BlueprintArea.Designers> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Designer);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.ArtSetting"/>
     /// </summary>
     public TBuilder SetArtSetting(BlueprintArea.SettingType artSetting)
@@ -326,18 +266,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.ArtSetting = artSetting;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.ArtSetting"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyArtSetting(Action<BlueprintArea.SettingType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ArtSetting);
         });
     }
 
@@ -383,18 +311,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.ExcludeFromSave"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyExcludeFromSave(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ExcludeFromSave);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.PS4ChunkId"/>
     /// </summary>
     ///
@@ -409,18 +325,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.PS4ChunkId = pS4ChunkId;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.PS4ChunkId"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPS4ChunkId(Action<PS4ChunkId> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PS4ChunkId);
         });
     }
 
@@ -552,18 +456,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.CR"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCR(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CR);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.OverrideCorruption"/>
     /// </summary>
     public TBuilder SetOverrideCorruption(bool overrideCorruption = true)
@@ -572,18 +464,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.OverrideCorruption = overrideCorruption;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.OverrideCorruption"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyOverrideCorruption(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.OverrideCorruption);
         });
     }
 
@@ -600,18 +480,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintArea.CorruptionGrowth"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCorruptionGrowth(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CorruptionGrowth);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintArea.LootSetting"/>
     /// </summary>
     public TBuilder SetLootSetting(LootSetting lootSetting)
@@ -620,18 +488,6 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           bp.LootSetting = lootSetting;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintArea.LootSetting"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLootSetting(Action<LootSetting> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.LootSetting);
         });
     }
 

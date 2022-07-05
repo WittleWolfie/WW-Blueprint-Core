@@ -52,18 +52,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_AllowNonContextActions"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AllowNonContextActions);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_TargetType"/>
     /// </summary>
     public TBuilder SetTargetType(BlueprintAbilityAreaEffect.TargetType targetType)
@@ -72,18 +60,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.m_TargetType = targetType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_TargetType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTargetType(Action<BlueprintAbilityAreaEffect.TargetType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_TargetType);
         });
     }
 
@@ -154,18 +130,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.SpellResistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySpellResistance(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SpellResistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.AffectEnemies"/>
     /// </summary>
     public TBuilder SetAffectEnemies(bool affectEnemies = true)
@@ -174,18 +138,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.AffectEnemies = affectEnemies;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.AffectEnemies"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAffectEnemies(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AffectEnemies);
         });
     }
 
@@ -202,18 +154,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.AggroEnemies"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAggroEnemies(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AggroEnemies);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.AffectDead"/>
     /// </summary>
     public TBuilder SetAffectDead(bool affectDead = true)
@@ -222,18 +162,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.AffectDead = affectDead;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.AffectDead"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAffectDead(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AffectDead);
         });
     }
 
@@ -250,18 +178,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.IgnoreSleepingUnits"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIgnoreSleepingUnits(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.IgnoreSleepingUnits);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Shape"/>
     /// </summary>
     public TBuilder SetShape(AreaEffectShape shape)
@@ -270,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.Shape = shape;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.Shape"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShape(Action<AreaEffectShape> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Shape);
         });
     }
 
@@ -347,18 +251,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.CanBeUsedInTacticalCombat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanBeUsedInTacticalCombat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanBeUsedInTacticalCombat);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_SizeInCells"/>
     /// </summary>
     ///
@@ -377,18 +269,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_SizeInCells"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySizeInCells(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_SizeInCells);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_TickRoundAfterSpawn"/>
     /// </summary>
     public TBuilder SetTickRoundAfterSpawn(bool tickRoundAfterSpawn = true)
@@ -397,18 +277,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.m_TickRoundAfterSpawn = tickRoundAfterSpawn;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAbilityAreaEffect.m_TickRoundAfterSpawn"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTickRoundAfterSpawn(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_TickRoundAfterSpawn);
         });
     }
 

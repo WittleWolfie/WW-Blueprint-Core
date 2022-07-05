@@ -164,18 +164,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
     /// <summary>
-    /// Modifies <see cref="FollowersFormation.m_RepathDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRepathDistance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_RepathDistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FollowersFormation.m_RepathCooldownSec"/>
     /// </summary>
     ///
@@ -194,18 +182,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
     /// <summary>
-    /// Modifies <see cref="FollowersFormation.m_RepathCooldownSec"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyRepathCooldownSec(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_RepathCooldownSec);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="FollowersFormation.m_LookAngleRandomSpread"/>
     /// </summary>
     ///
@@ -220,18 +196,6 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         bp =>
         {
           bp.m_LookAngleRandomSpread = lookAngleRandomSpread;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="FollowersFormation.m_LookAngleRandomSpread"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyLookAngleRandomSpread(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_LookAngleRandomSpread);
         });
     }
 

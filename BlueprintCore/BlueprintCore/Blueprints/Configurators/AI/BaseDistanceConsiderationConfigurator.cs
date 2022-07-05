@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -31,18 +30,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="DistanceConsideration.MinDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinDistance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinDistance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="DistanceConsideration.MaxDistance"/>
     /// </summary>
     public TBuilder SetMaxDistance(float maxDistance)
@@ -51,18 +38,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.MaxDistance = maxDistance;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="DistanceConsideration.MaxDistance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxDistance(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxDistance);
         });
     }
 
@@ -79,18 +54,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="DistanceConsideration.MaxDistanceScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMaxDistanceScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MaxDistanceScore);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="DistanceConsideration.MinDistanceScore"/>
     /// </summary>
     public TBuilder SetMinDistanceScore(float minDistanceScore)
@@ -99,18 +62,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.MinDistanceScore = minDistanceScore;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="DistanceConsideration.MinDistanceScore"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMinDistanceScore(Action<float> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MinDistanceScore);
         });
     }
   }

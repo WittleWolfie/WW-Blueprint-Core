@@ -36,18 +36,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.InfoType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInfoType(Action<KingomEventInfoType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.InfoType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.LocalizedName"/>
     /// </summary>
     ///
@@ -143,18 +131,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.ResolutionTime"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyResolutionTime(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ResolutionTime);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.ResolveAutomatically"/>
     /// </summary>
     public TBuilder SetResolveAutomatically(bool resolveAutomatically = true)
@@ -163,18 +139,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.ResolveAutomatically = resolveAutomatically;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.ResolveAutomatically"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyResolveAutomatically(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ResolveAutomatically);
         });
     }
 
@@ -191,18 +155,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.NeedToVisitTheThroneRoom"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNeedToVisitTheThroneRoom(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NeedToVisitTheThroneRoom);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.AICanCheat"/>
     /// </summary>
     public TBuilder SetAICanCheat(bool aICanCheat = true)
@@ -211,18 +163,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.AICanCheat = aICanCheat;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.AICanCheat"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAICanCheat(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AICanCheat);
         });
     }
 
@@ -239,18 +179,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.SkipRoll"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifySkipRoll(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.SkipRoll);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.ResolutionDC"/>
     /// </summary>
     public TBuilder SetResolutionDC(int resolutionDC)
@@ -263,18 +191,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.ResolutionDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyResolutionDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ResolutionDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.AutoResolveResult"/>
     /// </summary>
     public TBuilder SetAutoResolveResult(EventResult.MarginType autoResolveResult)
@@ -283,18 +199,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.AutoResolveResult = autoResolveResult;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.AutoResolveResult"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAutoResolveResult(Action<EventResult.MarginType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AutoResolveResult);
         });
     }
 
@@ -333,18 +237,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.DefaultResolutionType = defaultResolutionType;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.DefaultResolutionType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyDefaultResolutionType(Action<LeaderType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.DefaultResolutionType);
         });
     }
 
@@ -392,18 +284,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.AIStopping = aIStopping;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintKingdomEventBase.AIStopping"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAIStopping(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.AIStopping);
         });
     }
 

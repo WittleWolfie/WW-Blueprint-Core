@@ -153,18 +153,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLeaderSkill.Type"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyType(Action<ArmyLeaderSkillType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Type);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.StackTag"/>
     /// </summary>
     public TBuilder SetStackTag(StackTag stackTag)
@@ -177,18 +165,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintLeaderSkill.StackTag"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyStackTag(Action<StackTag> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.StackTag);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/>
     /// </summary>
     public TBuilder SetPrerequisiteLevel(int prerequisiteLevel)
@@ -197,18 +173,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_PrerequisiteLevel = prerequisiteLevel;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintLeaderSkill.m_PrerequisiteLevel"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPrerequisiteLevel(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_PrerequisiteLevel);
         });
     }
 

@@ -34,18 +34,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCampingEncounter.Chance"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyChance(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.Chance);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.Conditions"/>
     /// </summary>
     public TBuilder SetConditions(ConditionsBuilder conditions)
@@ -114,18 +102,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCampingEncounter.InterruptsRest"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyInterruptsRest(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.InterruptsRest);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.PartyTired"/>
     /// </summary>
     ///
@@ -140,18 +116,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.PartyTired = partyTired;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCampingEncounter.PartyTired"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyPartyTired(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.PartyTired);
         });
     }
 
@@ -174,18 +138,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCampingEncounter.MainCharacterTired"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyMainCharacterTired(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.MainCharacterTired);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.NotOnGlobalMap"/>
     /// </summary>
     public TBuilder SetNotOnGlobalMap(bool notOnGlobalMap = true)
@@ -194,18 +146,6 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           bp.NotOnGlobalMap = notOnGlobalMap;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCampingEncounter.NotOnGlobalMap"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNotOnGlobalMap(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.NotOnGlobalMap);
         });
     }
 

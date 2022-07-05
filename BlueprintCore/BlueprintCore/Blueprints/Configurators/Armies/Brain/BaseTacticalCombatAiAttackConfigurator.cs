@@ -3,7 +3,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
-using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -27,18 +26,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           bp.CanAttackAllies = canAttackAllies;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyCanAttackAllies(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.CanAttackAllies);
         });
     }
   }

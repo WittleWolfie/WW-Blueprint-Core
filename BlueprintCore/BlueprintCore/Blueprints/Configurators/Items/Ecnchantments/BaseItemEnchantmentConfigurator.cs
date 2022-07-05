@@ -46,18 +46,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyAllowNonContextActions(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_AllowNonContextActions);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_EnchantName"/>
     /// </summary>
     ///
@@ -186,18 +174,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEnchantment.m_EnchantmentCost"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyEnchantmentCost(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_EnchantmentCost);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_IdentifyDC"/>
     /// </summary>
     public TBuilder SetIdentifyDC(int identifyDC)
@@ -210,18 +186,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintItemEnchantment.m_IdentifyDC"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyIdentifyDC(Action<int> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_IdentifyDC);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_HiddenInUI"/>
     /// </summary>
     public TBuilder SetHiddenInUI(bool hiddenInUI = true)
@@ -230,18 +194,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bp =>
         {
           bp.m_HiddenInUI = hiddenInUI;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintItemEnchantment.m_HiddenInUI"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyHiddenInUI(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.m_HiddenInUI);
         });
     }
 

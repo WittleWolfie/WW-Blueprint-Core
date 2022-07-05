@@ -33,18 +33,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintCueBase.ShowOnce"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowOnce(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowOnce);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintCueBase.ShowOnceCurrentDialog"/>
     /// </summary>
     public TBuilder SetShowOnceCurrentDialog(bool showOnceCurrentDialog = true)
@@ -53,18 +41,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           bp.ShowOnceCurrentDialog = showOnceCurrentDialog;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintCueBase.ShowOnceCurrentDialog"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyShowOnceCurrentDialog(Action<bool> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.ShowOnceCurrentDialog);
         });
     }
 

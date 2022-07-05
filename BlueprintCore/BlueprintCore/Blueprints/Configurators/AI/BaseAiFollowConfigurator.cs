@@ -32,18 +32,6 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintAiFollow.TargetType"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyTargetType(Action<Kingmaker.AI.Blueprints.TargetType> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          action.Invoke(bp.TargetType);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintAiFollow.ApproachRange"/>
     /// </summary>
     public TBuilder SetApproachRange(Feet approachRange)
