@@ -39,7 +39,7 @@ The null handling case is an important one: there are several types in the game 
 
 If you find other types that should never be null please file a [GitHub Issue](https://github.com/WittleWolfie/WW-Blueprint-Core/issues).
 
-Similarly you can file an issue if you think a given method should be implemented differently, usually requiring certain inputs. More details on providing this feedback are in [How to Contribute](contributing.md).
+Similarly you can file an issue if you think a given method should be implemented differently, usually requiring certain inputs. More details on providing this feedback are in [How to Contribute](~/articles/contributing.md).
 
 ## Limitations
 

@@ -55,7 +55,7 @@ FeatureSelectionConfigurator.For(FeatureSelectionRefs.BasicFeatSelection).AddToA
 ```
 
 > [!TIP]
-> BPCore includes static references to many game blueprints in [BlueprintCore.Blueprints.References](BlueprintCore.Blueprints.References).
+> BPCore includes static references to many game blueprints in [References](xref:BlueprintCore.Blueprints.References).
 
 When `For()` is called the `BlueprintFeatureSelection` for BasicFeatSelection is fetched and its FeatureSelectionConfigurator is returned.
 
