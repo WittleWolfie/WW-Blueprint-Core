@@ -21,6 +21,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
         typeof(BlueprintAbility),
         typeof(BlueprintAbilityAreaEffect),
         typeof(BlueprintAbilityResource),
+        typeof(BlueprintArchetype),
         typeof(BlueprintBuff),
         typeof(BlueprintFeature),
         typeof(BlueprintProgression),
