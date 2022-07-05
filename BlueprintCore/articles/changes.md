@@ -47,6 +47,8 @@
     * Use AddStatBonusIfHasFactFixed
 * Methods for BlueprintProgression.AlternateProgressionType are removed
     * It is always Div2, there is no other value
+* Methods for BlueprintAbility.animationStyle are removed
+    * It is unused and deprecated
 
 ## v2.0.4 Release
 
