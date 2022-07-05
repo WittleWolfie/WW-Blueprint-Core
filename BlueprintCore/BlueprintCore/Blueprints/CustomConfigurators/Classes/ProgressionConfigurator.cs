@@ -2,6 +2,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System.Collections.Generic;
 using System.Linq;
 using static Kingmaker.Blueprints.Classes.BlueprintProgression;
 
@@ -31,6 +32,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     {
       return new ProgressionConfigurator(blueprint);
     }
+
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
     /// </summary>
@@ -47,6 +49,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       BlueprintTool.Create<BlueprintProgression>(name, guid);
       return For(name);
     }
+
+    /** Start m_Classes */
 
     /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetClasses(ClassWithLevel[])"/>
     public ProgressionConfigurator SetClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
@@ -80,6 +84,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return RemoveFromClasses(c => classes.Contains(c.m_Class));
     }
 
+    /** End m_Classes */
+
+    /** Start m_AlternateProgressionClasses */
+
     /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetAlternateProgressionClasses(ClassWithLevel[])"/>
     public ProgressionConfigurator SetAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
     {
@@ -112,22 +120,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return RemoveFromAlternateProgressionClasses(c => classes.Contains(c.m_Class));
     }
 
-    private ClassWithLevel[] Convert(
-      params (Blueprint<BlueprintCharacterClassReference> clazz, int additionalLevel)[] classes)
-    {
-      return classes.Select(
-          c => new ClassWithLevel()
-          {
-            m_Class = c.clazz.Reference,
-            AdditionalLevel = c.additionalLevel
-          })
-        .ToArray();
-    }
+    /** End m_AlternateProgressionClasses */
 
-    private ClassWithLevel[] Convert(params Blueprint<BlueprintCharacterClassReference>[] classes)
-    {
-      return classes.Select(c => new ClassWithLevel() { m_Class = c.Reference }).ToArray();
-    }
+    /** Start m_Archetypes */
 
     /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.SetArchetypes(ArchetypeWithLevel[])"/>
     public ProgressionConfigurator SetArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
@@ -151,7 +146,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToArchetypes(ArchetypeWithLevel[])"/>
     public ProgressionConfigurator AddToArchetypes(
       params (Blueprint<BlueprintArchetypeReference> archetype, int additionalLevel)[] archetypes)
-{
+    {
       return AddToArchetypes(Convert(archetypes));
     }
 
@@ -159,6 +154,53 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     public ProgressionConfigurator RemoveFromArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return RemoveFromArchetypes(c => archetypes.Contains(c.m_Archetype));
+    }
+
+    // End m_Archetypes
+
+    // Start UIGroups
+
+    /// <summary>
+    /// Uses <see cref="UIGroupBuilder"/> to set <see cref="BlueprintProgression.UIGroups"/> and
+    /// <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>.
+    /// </summary>
+    public ProgressionConfigurator SetUIGroups(UIGroupBuilder uiGroup)
+    {
+      return SetUIGroups(uiGroup.GetGroups()).SetUIDeterminatorsGroup(uiGroup.GetUIDeterminators());
+    }
+
+    /// <param name="features">
+    /// A list of features to add as a single UIGroup
+    /// </param>
+    /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToUIGroups(UIGroup[])"/>
+    public ProgressionConfigurator AddToUIGroups(params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      return AddToUIGroups(
+        new UIGroup()
+        {
+          m_Features = features.Select(f => f.Reference).ToList()
+        });
+    }
+
+    // End UIGroups
+
+    // Start Converters
+
+    private ClassWithLevel[] Convert(
+      params (Blueprint<BlueprintCharacterClassReference> clazz, int additionalLevel)[] classes)
+    {
+      return classes.Select(
+          c => new ClassWithLevel()
+          {
+            m_Class = c.clazz.Reference,
+            AdditionalLevel = c.additionalLevel
+          })
+        .ToArray();
+    }
+
+    private ClassWithLevel[] Convert(params Blueprint<BlueprintCharacterClassReference>[] classes)
+    {
+      return classes.Select(c => new ClassWithLevel() { m_Class = c.Reference }).ToArray();
     }
 
     private ArchetypeWithLevel[] Convert(
@@ -176,6 +218,61 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     private ArchetypeWithLevel[] Convert(params Blueprint<BlueprintArchetypeReference>[] classes)
     {
       return classes.Select(c => new ArchetypeWithLevel() { m_Archetype = c.Reference }).ToArray();
+    }
+
+    // End Converters
+  }
+
+  /// <summary>
+  /// Builder utility for <see cref="UIGroup"/> arrays.
+  /// </summary>
+  public class UIGroupBuilder
+  {
+    private static readonly List<UIGroup> UIGroups = new();
+    private static readonly List<Blueprint<BlueprintFeatureBaseReference>> UIDeterminators = new();
+
+    public static UIGroupBuilder New()
+    {
+      return new();
+    }
+
+    /// <summary>
+    /// Adds a group of features as a <see cref="UIGroup"/>.
+    /// </summary>
+    public UIGroupBuilder AddGroup(params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      UIGroups.Add(
+        new UIGroup()
+        {
+          m_Features = features.Select(f => f.Reference).ToList()
+        });
+      return this;
+    }
+
+    /// <summary>
+    /// Adds a group of features used as the <see cref="BlueprintProgression.m_UIDeterminatorsGroup"/>.
+    /// </summary>
+    public UIGroupBuilder SetGroupDeterminators(params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      UIDeterminators.Clear();
+      UIDeterminators.AddRange(features);
+      return this;
+    }
+
+    /// <summary>
+    /// Returns a <see cref="UIGroup"/> array.
+    /// </summary>
+    public UIGroup[] GetGroups()
+    {
+      return UIGroups.ToArray();
+    }
+
+    /// <summary>
+    /// Returns a Blueprint feature array for use as UIDeterminators.
+    /// </summary>
+    public Blueprint<BlueprintFeatureBaseReference>[] GetUIDeterminators()
+    {
+      return UIDeterminators.ToArray();
     }
   }
 }
