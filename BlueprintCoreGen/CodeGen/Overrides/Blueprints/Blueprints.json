@@ -30,14 +30,14 @@
       {
         "FieldName": "AddFeatures",
         "Remarks": [
-          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetAddFeatures(LevelEntryBuilder)\"/>."
+          "Consider using <see cref=\"Utils.Types.LevelEntryBuilder\">LevelEntryBuilder</see> and <see cref=\"CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)\">SetAddFeatures</see>."
         ],
         "IgnoreRemoveFrom": "true"
       },
       {
         "FieldName": "RemoveFeatures",
         "Remarks": [
-          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetRemoveFeatures(LevelEntryBuilder)\"/>."
+          "Consider using <see cref=\"Utils.Types.LevelEntryBuilder\">LevelEntryBuilder</see> and <see cref=\"CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)\">SetRemoveFeatures</see>."
         ],
         "IgnoreRemoveFrom": "true"
       }
@@ -123,14 +123,14 @@
       {
         "FieldName": "UIGroups",
         "Remarks": [
-          "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
+          "Consider using <see cref=\"CustomConfigurators.Classes.UIGroupBuilder\">UIGroupBuilder</see> and <see cref=\"CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)\">SetUIGroups</see>."
         ],
         "IgnoreRemoveFrom": "true"
       },
       {
         "FieldName": "m_UIDeterminatorsGroup",
         "Remarks": [
-          "Consider using <see cref=\"UIGroupBuilder\"/> and <see cref=\"SetUIGroups(UIGroupBuilder)\"/>."
+          "Consider using <see cref=\"CustomConfigurators.Classes.UIGroupBuilder\">UIGroupBuilder</see> and <see cref=\"CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)\">SetUIGroups</see>."
         ]
       },
       {
@@ -142,7 +142,7 @@
       {
         "FieldName": "LevelEntries",
         "Remarks": [
-          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetLevelEntries(LevelEntryBuilder)\"/>."
+          "Consider using <see cref=\"Utils.Types.LevelEntryBuilder\">LevelEntryBuilder</see> and <see cref=\"CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)\">SetLevelEntries</see>."
         ],
         "IgnoreRemoveFrom": "true"
       }

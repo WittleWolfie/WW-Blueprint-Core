@@ -209,12 +209,6 @@ namespace BlueprintCoreGen.CodeGen.Params
     public string SourceTypeName { get; private set; } = string.Empty;
 
     /// <summary>
-    /// The name of the field.
-    /// </summary>
-    [JsonProperty]
-    public string FieldName { get; private set; } = string.Empty;
-
-    /// <summary>
     /// Specifies whether the field is nullable.
     /// </summary>
     [JsonProperty]
@@ -322,7 +316,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     public bool Required => string.IsNullOrEmpty(DefaultValue);
 
     [JsonProperty]
-    public string ParamName { get; private set; }
+    public string ParamName { get; private set; } = string.Empty;
 
     public string ParamsDeclaration => throw new NotImplementedException();
 
@@ -330,13 +324,13 @@ namespace BlueprintCoreGen.CodeGen.Params
     private readonly string? DefaultValue;
 
     [JsonProperty]
-    private readonly string TypeName;
+    private readonly string TypeName = string.Empty;
 
     /// <summary>
     /// Format string where {0} is the param name.
     /// </summary>
     [JsonProperty]
-    private readonly string CommentFmt;
+    private readonly string CommentFmt = string.Empty;
 
     /// <summary>
     /// Operation format string where {0} is the object name and {1} is the parameter name, and {2} is the

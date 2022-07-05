@@ -47,7 +47,7 @@ namespace BlueprintCore.Utils
     /// </item>
     /// <item>
     ///   <term><see cref="BlueprintComponent"/> types</term>
-    ///   <description><see cref="BlueprintComponent.ApplyValidation(ValidationContext)"/></description>
+    ///   <description><see cref="BlueprintComponent.ApplyValidation(ValidationContext, int)"/></description>
     /// </item>
     /// <item>
     ///   <term><see cref="IValidated"/> types</term>

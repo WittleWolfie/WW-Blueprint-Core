@@ -30,7 +30,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   /// <remarks>
   /// <para>
   /// Each supported blueprint type has a corresponding <c>Configurator</c> class to create and modify blueprints of
-  /// that type, e.g. <see cref="FeatureConfigurator"/> supports <c>BlueprintFeature</c>. Configurators exist for all
+  /// that type, e.g. <see cref="Classes.FeatureConfigurator"/> supports <c>BlueprintFeature</c>. Configurators exist for all
   /// blueprint types inheriting from <see cref="BlueprintScriptableObject"/>, excluding any that are not used in the
   /// base game.
   /// </para>
