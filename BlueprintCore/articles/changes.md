@@ -11,6 +11,8 @@
 * Removed Modify field methods for primitive and enum types
     * If you have a use case let me know but this API was not intended to exist
 * Specific Type Changes
+    * AbilityConfigurator
+        * Removed AnimationStyle which is deprecated and unused
     * FeatureConfigurator
         * Automatically adds features to the appropriate `BlueprintFeatureSelection`. See [FeatureConfigurator.New()](xref:BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.New(System.String,System.String,Kingmaker.Blueprints.Classes.FeatureGroup[])).
         * Automatically sets `IsClassFeature` to true for features with `FeatureGroup.Feat`
