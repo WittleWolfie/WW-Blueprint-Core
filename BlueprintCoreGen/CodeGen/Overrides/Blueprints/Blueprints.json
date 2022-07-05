@@ -15,12 +15,31 @@
           "Use <see cref=\"SetCustomRange(Feet)\"/> for AbilityRange.Custom."
         ]
       },
-
       {
         "FieldName": "m_Parent",
         "Remarks": [
           "Set this to the base ability for all ability variants. See <see cref=\"AbilityVariants\"/>."
         ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "BlueprintArchetype",
+    "Fields": [
+      {
+        "FieldName": "AddFeatures",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetAddFeatures(LevelEntryBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
+      },
+      {
+        "FieldName": "RemoveFeatures",
+        "Remarks": [
+          "Consider using <see cref=\"LevelEntryBuilder\"/> and <see cref=\"SetRemoveFeatures(LevelEntryBuilder)\"/>."
+        ],
+        "IgnoreRemoveFrom": "true"
       }
     ]
   },
