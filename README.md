@@ -129,6 +129,34 @@ Util classes provide type builders, constant references, tools, and more.
 
 Tool classes include methods for common operations. These vary from operations like `CommonTool#Append<>()` for concatening arrays to `BlueprintTool.GetRef<T>()` which creates a blueprint reference directly, without fetching the blueprint.
 
+#### Text
+
+`LocalizationTool` uses a JSON file to define in-game text with support for localization and encyclopedia tagging:
+
+```json
+{
+  "Key": "MagicalAptitude.Name",
+  // Don't process this since it is just a name. Without this it might create strange artifacts by trying to create
+  // links to encycolpedia pages.
+  "ProcessTemplates": false,
+  "enGB": "Magical Aptitude",
+  "deDE": "Magische Begabung"
+},
+{
+  "Key": "MagicalAptitude.Description",
+  "enGB": "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+}
+```
+
+In BPCore APIs you can reference the strings using the key:
+
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid)
+  .SetDisplayName("MagicalAptitude.Name")
+  .SetDescription("MagicalAptitude.Description")
+  .Configure();
+```
+
 #### Logging
 
 `LogWrapper` exposes the game's logger for mod usage. This logs output to the game logs which can be viewed using [Remote Console](https://github.com/OwlcatOpenSource/RemoteConsole/releases).
