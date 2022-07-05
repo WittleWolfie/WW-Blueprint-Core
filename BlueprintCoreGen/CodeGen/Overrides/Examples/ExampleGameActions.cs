@@ -2245,6 +2245,14 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
+          typeof(RecreateOnLoadVissariyRatimus),
+          new()
+          {
+            new Blueprint("PF-418068-RecreateVissariyRatimus", "761fd2604960453da5cbbd10e39d1abd"),
+          }
+        },
+
+        {
           typeof(SetHandsFromBlueprint),
           new()
           {

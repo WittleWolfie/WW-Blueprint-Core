@@ -191,6 +191,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(NaturalDamageStatReplacement),
         typeof(WeaponGroupAttackBonusEquipment),
         typeof(WeaponGroupDamageBonusEquipment),
+        typeof(ACTouchBonus),
         typeof(AddFactIfArchetype),
         typeof(AllSpellsParamsOverride),
         typeof(AttackDiceBonusOnce),

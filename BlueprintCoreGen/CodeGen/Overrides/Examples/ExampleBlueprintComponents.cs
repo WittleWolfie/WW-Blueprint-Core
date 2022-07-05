@@ -5238,6 +5238,14 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
+          typeof(ArmorWeightCoef),
+          new()
+          {
+            new Blueprint("PurifierCelestialArmorFeature", "7dc8d7dede2704640956f7bc4102760a"),
+          }
+        },
+
+        {
           typeof(WeaponMultipleCategoriesAttackBonus),
           new()
           {
@@ -9362,6 +9370,14 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           {
             new Blueprint("CoupDeGraceAgregatorProperty", "bd9224781e76429b92f0e60b13c079cc"),
             new Blueprint("MainWeaponDamageStatBonusProperty", "9955f9c72c350254daff5a029ee32712"),
+          }
+        },
+
+        {
+          typeof(BaseAtackGetter),
+          new()
+          {
+            new Blueprint("CoupDeGraceAgregatorProperty", "bd9224781e76429b92f0e60b13c079cc"),
           }
         },
 
