@@ -10449,10 +10449,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <remarks>
     ///
-    /// <para>
-    /// ComponentName: AC bonus against Attacks
-    /// </para>
-    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFogBuff</term><description>af76754540cacca45bfb1f0074bf3013</description></item>

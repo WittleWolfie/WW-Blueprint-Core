@@ -399,7 +399,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     ///
@@ -423,7 +423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     ///
@@ -447,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder RemoveFromUIGroups(Func<UIGroup, bool> predicate)
@@ -465,7 +465,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder ClearUIGroups()
@@ -482,7 +482,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder ModifyUIGroups(Action<UIGroup> action)
@@ -500,7 +500,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     ///
@@ -533,7 +533,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     ///
@@ -567,7 +567,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     ///
@@ -601,7 +601,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder RemoveFromUIDeterminatorsGroup(Func<BlueprintFeatureBaseReference, bool> predicate)
@@ -619,7 +619,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder ClearUIDeterminatorsGroup()
@@ -636,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="UIGroupBuilder"/> and <see cref="SetUIGroups(UIGroupBuilder)"/>.
+    /// Consider using <see cref="CustomConfigurators.Classes.UIGroupBuilder">UIGroupBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetUIGroups(CustomConfigurators.Classes.UIGroupBuilder)">SetUIGroups</see>.
     /// </para>
     /// </remarks>
     public TBuilder ModifyUIDeterminatorsGroup(Action<BlueprintFeatureBaseReference> action)
@@ -808,7 +808,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)">SetLevelEntries</see>.
     /// </para>
     /// </remarks>
     public TBuilder SetLevelEntries(params LevelEntry[] levelEntries)
@@ -826,7 +826,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)">SetLevelEntries</see>.
     /// </para>
     /// </remarks>
     public TBuilder AddToLevelEntries(params LevelEntry[] levelEntries)
@@ -844,7 +844,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)">SetLevelEntries</see>.
     /// </para>
     /// </remarks>
     public TBuilder RemoveFromLevelEntries(Func<LevelEntry, bool> predicate)
@@ -862,7 +862,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)">SetLevelEntries</see>.
     /// </para>
     /// </remarks>
     public TBuilder ClearLevelEntries()
@@ -879,7 +879,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetLevelEntries(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ProgressionConfigurator.SetLevelEntries(Utils.Types.LevelEntryBuilder)">SetLevelEntries</see>.
     /// </para>
     /// </remarks>
     public TBuilder ModifyLevelEntries(Action<LevelEntry> action)

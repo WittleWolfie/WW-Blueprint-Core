@@ -38,7 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)">SetAddFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder SetAddFeatures(params LevelEntry[] addFeatures)
@@ -56,7 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)">SetAddFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder AddToAddFeatures(params LevelEntry[] addFeatures)
@@ -74,7 +74,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)">SetAddFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder RemoveFromAddFeatures(Func<LevelEntry, bool> predicate)
@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)">SetAddFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder ClearAddFeatures()
@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetAddFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetAddFeatures(Utils.Types.LevelEntryBuilder)">SetAddFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder ModifyAddFeatures(Action<LevelEntry> action)
@@ -127,7 +127,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)">SetRemoveFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder SetRemoveFeatures(params LevelEntry[] removeFeatures)
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)">SetRemoveFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder AddToRemoveFeatures(params LevelEntry[] removeFeatures)
@@ -163,7 +163,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)">SetRemoveFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder RemoveFromRemoveFeatures(Func<LevelEntry, bool> predicate)
@@ -181,7 +181,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)">SetRemoveFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder ClearRemoveFeatures()
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </summary>
     /// <remarks>
     /// <para>
-    /// Consider using <see cref="LevelEntryBuilder"/> and <see cref="SetRemoveFeatures(LevelEntryBuilder)"/>.
+    /// Consider using <see cref="Utils.Types.LevelEntryBuilder">LevelEntryBuilder</see> and <see cref="CustomConfigurators.Classes.ArchetypeConfigurator.SetRemoveFeatures(Utils.Types.LevelEntryBuilder)">SetRemoveFeatures</see>.
     /// </para>
     /// </remarks>
     public TBuilder ModifyRemoveFeatures(Action<LevelEntry> action)

@@ -1,7 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.HitSystem;
-using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
 {

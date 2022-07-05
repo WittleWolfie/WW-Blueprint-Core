@@ -96,6 +96,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="BaseAtackGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CoupDeGraceAgregatorProperty</term><description>bd9224781e76429b92f0e60b13c079cc</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddBaseAtackGetter(
+        PropertySettings? settings = null)
+    {
+      var component = new BaseAtackGetter();
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="BaseAttackPropertyWithFeatureList"/>
     /// </summary>
     ///
