@@ -196,8 +196,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <summary>
-    /// Sets the LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the specified level to include the
-    /// provided features.
+    /// Sets the LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the specified level and features.
     /// </summary>
     /// 
     /// <remarks>Removes any existing LevelEntry with the specified level.</remarks>
