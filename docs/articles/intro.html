@@ -88,7 +88,7 @@
 <ul>
 <li>Publicized copy of <code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Assembly-CSharp-firstpass.dll</code></li>
-<li><code>%WrathPath%\Wrath_Data\Managed\0Harmony.dll</code></li>
+<li><code>%WrathPath%\Wrath_Data\Managed\Newtonsoft.Json.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Core.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.UI.dll</code></li>
 <li><code>%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll</code></li>
@@ -97,6 +97,11 @@
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityModManager\0Harmony.dll</code></li>
 <li><code>$WrathPath%\Wrath_Data\Managed\UnityModManager\UnityModManager.dll</code></li>
+<li><strong>Important:</strong>
+<ul>
+<li>Make sure your assembly references do not declare <code>&lt;Private&gt;false&lt;/Private&gt;</code> or DLL Merging will fail</li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Configure DLL Merging:
@@ -152,7 +157,7 @@
 </li>
 <li>You're ready to go!</li>
 </ol>
-<p>If you already have a project or are having trouble, take a look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial/BlueprintCore%20Tutorial.csproj">BlueprintCore Tutorial.csproj</a>.</p>
+<p>If you already have a project or are having trouble, take a look at <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCoreTutorial/BlueprintCoreTutorial/BlueprintCoreTutorial.csproj">BlueprintCore Tutorial.csproj</a>.</p>
 <p>Your project file should look almost identical to the tutorial project file, with the exception that you may have additional package and assembly references. In particular make sure:</p>
 <ul>
 <li>Your publicized assembly is called <code>Assembly-CSharp.dll</code></li>
@@ -166,9 +171,11 @@ writing.</p>
 <p>The impact of this isn't significant but if you want to keep your assembly small use <a href="https://brokenevent.com/projects/ilstrip">ILStrip</a>. ILStrip removes unreferenced classes from an assembly, significantly reducing the size of mods using BPCore. It reduced the tutorial assembly from to ~400KB from ~8MB.</p>
 <ol>
 <li>Download <a href="https://github.com/BrokenEvent/ILStrip/releases/latest">ILStrip.CLI.zip</a></li>
-<li>Extract the files into a folder in your project's solution directory. I recommend creating a <code>tools</code> directory next to the <code>lib</code> directory.
-~<a href="../images/ilstrip_dir.png">ILStrip Directory Setup</a></li>
-<li>Add an ILStrip target to your project
+<li>Extract the files into a folder in your project's solution directory. I recommend creating a <code>tools</code> directory next to the <code>lib</code> directory.</li>
+</ol>
+<p><img src="../images/ilstrip_dir.png" alt="ILStrip Directory Setup"></p>
+<ol start="3">
+<li>Add ILStrip to your project
 <ul>
 <li>Open your .csproj file and add a new target:</li>
 </ul>
@@ -198,7 +205,7 @@ writing.</p>
 </li>
 </ol>
 <h4 id="troubleshooting">Troubleshooting</h4>
-<p>As a sanity check consider opening your assembly in the decompiler of your choice and see if any of your code is obviously missing.</p>
+<p>You can open your assembly in the decompiler of your choice to sanity check. Make sure you see all the expected namespaces and classes.</p>
 <p><strong>ILStrip Removes Used Code</strong></p>
 <p>Chances are you are missing an entry point. Make sure every Harmony patch and every class referenced through reflection, such as the class with UMM's <code>Load</code> method, are listed as an <code>Entry</code> in the ILStrip target.</p>
 <p><strong>ILStrip Fails to Resolve Entry Point</strong></p>

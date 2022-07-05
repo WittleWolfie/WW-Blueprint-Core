@@ -72,7 +72,7 @@
 <p>The first feat is <a href="https://aonprd.com/FeatDisplay.aspx?ItemName=Magical%20Aptitude">Magical Aptitude</a>.</p>
 <p>Create a new folder in your project called <code>Feats</code>. Here is where you can add classes that create or modify feats.</p>
 <p>Inside the feats folder create a new class called <code>MagicalAptitude</code>.</p>
-<p>Mechanics in Wrath are usually represented by Blueprints. The wiki page on <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> goes into more detail, but for now just know that a feat is a <code>BlueprintFeature</code>. To create a feat we'll we'll use <a href="xref:BlueprintCore.Blueprints.Configurators.Classes.FeatureConfigurator">FeatureConfigurator</a>.</p>
+<p>Mechanics in Wrath are usually represented by Blueprints. The wiki page on <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/%5BWrath%5D-Blueprints">Blueprints</a> goes into more detail, but for now just know that a feat is a <code>BlueprintFeature</code>. To create a feat we'll we'll use <a class="xref" href="../../api/BlueprintCore.Blueprints.CustomConfigurators.Classes.FeatureConfigurator.html">FeatureConfigurator</a>.</p>
 <h3 id="creating-the-feat">Creating the Feat</h3>
 <p>Define a method, <code>Configure</code>, which will create the feat when called:</p>
 <pre><code class="lang-C#">public class MagicalAptitude
@@ -192,7 +192,7 @@ static class BlueprintsCaches_Patch
 <p>If the feat doesn't appear check the logs for any errors.</p>
 </div>
 <h4 id="automatic-mod-deployment">Automatic Mod Deployment</h4>
-<p>Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See <a href="../../intro.md#optional-automatic-mod-deployment">Getting Started#Optional: Automatic Mod Deployment</a> for instructions.</p>
+<p>Modding requires you to frequently build, deploy, and test changes. To simplify this, configure the project to automatically deploy the mod after it builds. See <a href="../intro.html#optional-automatic-mod-deployment">Getting Started#Optional: Automatic Mod Deployment</a> for instructions.</p>
 <h3 id="fixing-the-ui">Fixing the UI</h3>
 <p>If you click on it nothing works and you probably wante a name other than <c>null</c>. Open up your <code>LocalizedStrings.json</code> file and add new entries for the name and description:</p>
 <pre><code class="lang-json">[

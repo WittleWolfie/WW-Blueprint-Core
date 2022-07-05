@@ -171,6 +171,27 @@ ActionsBuilder.New()
 <p>Util classes provide type builders, constant references, tools, and more.</p>
 <h4 id="tools">Tools</h4>
 <p>Tool classes include methods for common operations. These vary from operations like <code>CommonTool#Append&lt;&gt;()</code> for concatening arrays to <code>BlueprintTool.GetRef&lt;T&gt;()</code> which creates a blueprint reference directly, without fetching the blueprint.</p>
+<h4 id="text">Text</h4>
+<p><code>LocalizationTool</code> uses a JSON file to define in-game text with support for localization and encyclopedia tagging:</p>
+<pre><code class="lang-json">{
+  &quot;Key&quot;: &quot;MagicalAptitude.Name&quot;,
+  // Don't process this since it is just a name. Without this it might create strange artifacts by trying to create
+  // links to encycolpedia pages.
+  &quot;ProcessTemplates&quot;: false,
+  &quot;enGB&quot;: &quot;Magical Aptitude&quot;,
+  &quot;deDE&quot;: &quot;Magische Begabung&quot;
+},
+{
+  &quot;Key&quot;: &quot;MagicalAptitude.Description&quot;,
+  &quot;enGB&quot;: &quot;You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill.&quot;
+}
+</code></pre>
+<p>In BPCore APIs you can reference the strings using the key:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
+  .SetDisplayName(&quot;MagicalAptitude.Name&quot;)
+  .SetDescription(&quot;MagicalAptitude.Description&quot;)
+  .Configure();
+</code></pre>
 <h4 id="logging">Logging</h4>
 <p><code>LogWrapper</code> exposes the game's logger for mod usage. This logs output to the game logs which can be viewed using <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">Remote Console</a>.</p>
 <p>It enables verbose logging for debugging and prefixes logs to filter log output to your mod or BlueprintCore logs.</p>
