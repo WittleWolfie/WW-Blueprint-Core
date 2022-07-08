@@ -84,7 +84,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// </summary>
     public ProgressionConfigurator RemoveFromClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
     {
-      return RemoveFromClasses(c => classes.Contains(c.m_Class));
+      return RemoveFromClasses(c => classes.Select(clazz => clazz.Reference).Contains(c.m_Class));
     }
 
     /** End m_Classes */
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// </summary>
     public ProgressionConfigurator RemoveFromAlternateProgressionClasses(params Blueprint<BlueprintCharacterClassReference>[] classes)
     {
-      return RemoveFromAlternateProgressionClasses(c => classes.Contains(c.m_Class));
+      return RemoveFromAlternateProgressionClasses(c => classes.Select(clazz => clazz.Reference).Contains(c.m_Class));
     }
 
     /** End m_AlternateProgressionClasses */
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <inheritdoc cref="BaseProgressionConfigurator{T, TBuilder}.AddToArchetypes(ArchetypeWithLevel[])"/>
-    public ProgressionConfigurator AddToClasses(params Blueprint<BlueprintArchetypeReference>[] archetypes)
+    public ProgressionConfigurator AddToArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
       return AddToArchetypes(Convert(archetypes));
     }
@@ -160,7 +160,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// </summary>
     public ProgressionConfigurator RemoveFromArchetypes(params Blueprint<BlueprintArchetypeReference>[] archetypes)
     {
-      return RemoveFromArchetypes(c => archetypes.Contains(c.m_Archetype));
+      return RemoveFromArchetypes(c => archetypes.Select(a => a.Reference).Contains(c.m_Archetype));
     }
 
     // End m_Archetypes
@@ -306,8 +306,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
   /// </summary>
   public class UIGroupBuilder
   {
-    private static readonly List<UIGroup> UIGroups = new();
-    private static readonly List<Blueprint<BlueprintFeatureBaseReference>> UIDeterminators = new();
+    private readonly List<UIGroup> UIGroups = new();
+    private readonly List<Blueprint<BlueprintFeatureBaseReference>> UIDeterminators = new();
 
     public static UIGroupBuilder New()
     {
