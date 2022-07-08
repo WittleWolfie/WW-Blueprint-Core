@@ -444,7 +444,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       {
         var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
         removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
-        removeOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name}.Where({{1}}).{toEnumerable};");
+        removeOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(e => !{{1}}(e)).{toEnumerable};");
       }
       return removeOperationFmt;
     }
