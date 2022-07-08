@@ -2623,6 +2623,65 @@ This is ignored if ForAllOtherClasses is true.
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToArchetypes(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintArchetypeReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/Classes/ProgressionConfigurator.cs/#L146">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToArchetypes*"></a>
+  <h4 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference____" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToArchetypes(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintArchetypeReference}[])">AddToArchetypes(Blueprint&lt;BlueprintArchetypeReference&gt;[])</h4>
+  <div class="markdown level1 summary"><p>Adds to the contents of <span class="xref">Kingmaker.Blueprints.Classes.BlueprintProgression.m_Archetypes</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ProgressionConfigurator AddToArchetypes(params Blueprint&lt;BlueprintArchetypeReference&gt;[] archetypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintArchetypeReference</span>&gt;[]</td>
+        <td><span class="parametername">archetypes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.html">ProgressionConfigurator</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference_____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+Specified archetype levels are summed when determining the character&apos;s level with respect to the progression.
+</p>
+<p>
+AdditionalLevel is a static bonus added if the character has any levels in the associated class.
+</p>
+<p>
+Note that you do not need to include the archetype&apos;s class in m_Classes. It will only check for the associated archetype.
+</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_System_ValueTuple_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference__System_Int32____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToArchetypes(System.ValueTuple%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintArchetypeReference%7D%2CSystem.Int32%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -2670,65 +2729,6 @@ This is ignored if ForAllOtherClasses is true.
     </tbody>
   </table>
   <h5 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToArchetypes_System_ValueTuple_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference__System_Int32_____remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>
-Specified archetype levels are summed when determining the character&apos;s level with respect to the progression.
-</p>
-<p>
-AdditionalLevel is a static bonus added if the character has any levels in the associated class.
-</p>
-<p>
-Note that you do not need to include the archetype&apos;s class in m_Classes. It will only check for the associated archetype.
-</p>
-</div>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToClasses_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToClasses(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintArchetypeReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/Classes/ProgressionConfigurator.cs/#L146">View Source</a>
-  </span>
-  <a id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToClasses_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToClasses*"></a>
-  <h4 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToClasses_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference____" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.AddToClasses(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintArchetypeReference}[])">AddToClasses(Blueprint&lt;BlueprintArchetypeReference&gt;[])</h4>
-  <div class="markdown level1 summary"><p>Adds to the contents of <span class="xref">Kingmaker.Blueprints.Classes.BlueprintProgression.m_Archetypes</span></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ProgressionConfigurator AddToClasses(params Blueprint&lt;BlueprintArchetypeReference&gt;[] archetypes)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintArchetypeReference</span>&gt;[]</td>
-        <td><span class="parametername">archetypes</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.html">ProgressionConfigurator</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_AddToClasses_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference_____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 Specified archetype levels are summed when determining the character&apos;s level with respect to the progression.
 </p>
@@ -3285,7 +3285,7 @@ specified level.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_RemoveLevelEntry_System_Int32_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.RemoveLevelEntry(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/Classes/ProgressionConfigurator.cs/#L256">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/Classes/ProgressionConfigurator.cs/#L257">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_RemoveLevelEntry_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.RemoveLevelEntry*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_Classes_ProgressionConfigurator_RemoveLevelEntry_System_Int32_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.Classes.ProgressionConfigurator.RemoveLevelEntry(System.Int32)">RemoveLevelEntry(Int32)</h4>
