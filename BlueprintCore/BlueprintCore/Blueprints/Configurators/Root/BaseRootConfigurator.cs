@@ -161,7 +161,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           if (bp.m_SelectablePlayerCharacters is null) { return; }
-          bp.m_SelectablePlayerCharacters = bp.m_SelectablePlayerCharacters.Where(predicate).ToArray();
+          bp.m_SelectablePlayerCharacters = bp.m_SelectablePlayerCharacters.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -2016,7 +2016,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           if (bp.m_UnitTypes is null) { return; }
-          bp.m_UnitTypes = bp.m_UnitTypes.Where(predicate).ToArray();
+          bp.m_UnitTypes = bp.m_UnitTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 

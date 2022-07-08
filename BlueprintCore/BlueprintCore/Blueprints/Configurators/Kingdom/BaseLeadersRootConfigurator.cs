@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Leaders is null) { return; }
-          bp.m_Leaders = bp.m_Leaders.Where(predicate).ToArray();
+          bp.m_Leaders = bp.m_Leaders.Where(e => !predicate(e)).ToArray();
         });
     }
 

@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         bp =>
         {
           if (bp.m_Formation is null) { return; }
-          bp.m_Formation = bp.m_Formation.Where(predicate).ToArray();
+          bp.m_Formation = bp.m_Formation.Where(e => !predicate(e)).ToArray();
         });
     }
 

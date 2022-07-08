@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           if (bp.m_AllFeatures is null) { return; }
-          bp.m_AllFeatures = bp.m_AllFeatures.Where(predicate).ToArray();
+          bp.m_AllFeatures = bp.m_AllFeatures.Where(e => !predicate(e)).ToArray();
         });
     }
 

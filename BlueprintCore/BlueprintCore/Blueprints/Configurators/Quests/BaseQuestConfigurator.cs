@@ -247,7 +247,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.m_Objectives is null) { return; }
-          bp.m_Objectives = bp.m_Objectives.Where(predicate).ToList();
+          bp.m_Objectives = bp.m_Objectives.Where(e => !predicate(e)).ToList();
         });
     }
 

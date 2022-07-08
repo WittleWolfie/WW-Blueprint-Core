@@ -321,7 +321,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         bp =>
         {
           if (bp.m_EquipmentEntityAlternatives is null) { return; }
-          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(predicate).ToArray();
+          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(e => !predicate(e)).ToArray();
         });
     }
 

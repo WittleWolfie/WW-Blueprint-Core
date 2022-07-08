@@ -320,7 +320,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           if (bp.CustomParameterVariants is null) { return; }
-          bp.CustomParameterVariants = bp.CustomParameterVariants.Where(predicate).ToArray();
+          bp.CustomParameterVariants = bp.CustomParameterVariants.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -459,7 +459,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           if (bp.BlueprintParameterVariants is null) { return; }
-          bp.BlueprintParameterVariants = bp.BlueprintParameterVariants.Where(predicate).ToArray();
+          bp.BlueprintParameterVariants = bp.BlueprintParameterVariants.Where(e => !predicate(e)).ToArray();
         });
     }
 

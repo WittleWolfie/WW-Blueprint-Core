@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.CRToCost is null) { return; }
-          bp.CRToCost = bp.CRToCost.Where(predicate).ToArray();
+          bp.CRToCost = bp.CRToCost.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -143,7 +143,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.ChanceToIncreaseItemsCount is null) { return; }
-          bp.ChanceToIncreaseItemsCount = bp.ChanceToIncreaseItemsCount.Where(predicate).ToArray();
+          bp.ChanceToIncreaseItemsCount = bp.ChanceToIncreaseItemsCount.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -220,7 +220,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.Types is null) { return; }
-          bp.Types = bp.Types.Where(predicate).ToList();
+          bp.Types = bp.Types.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.Table is null) { return; }
-          bp.Table = bp.Table.Where(predicate).ToArray();
+          bp.Table = bp.Table.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -374,7 +374,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.SuperTrashLoot is null) { return; }
-          bp.SuperTrashLoot = bp.SuperTrashLoot.Where(predicate).ToArray();
+          bp.SuperTrashLoot = bp.SuperTrashLoot.Where(e => !predicate(e)).ToArray();
         });
     }
 

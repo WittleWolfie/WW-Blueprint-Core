@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.Points is null) { return; }
-          bp.Points = bp.Points.Where(predicate).ToArray();
+          bp.Points = bp.Points.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -434,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.Edges is null) { return; }
-          bp.Edges = bp.Edges.Where(predicate).ToList();
+          bp.Edges = bp.Edges.Where(e => !predicate(e)).ToList();
         });
     }
 

@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Adjacent is null) { return; }
-          bp.m_Adjacent = bp.m_Adjacent.Where(predicate).ToList();
+          bp.m_Adjacent = bp.m_Adjacent.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -319,7 +319,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.UpgradeEvents is null) { return; }
-          bp.UpgradeEvents = bp.UpgradeEvents.Where(predicate).ToList();
+          bp.UpgradeEvents = bp.UpgradeEvents.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -434,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Artisans is null) { return; }
-          bp.Artisans = bp.Artisans.Where(predicate).ToList();
+          bp.Artisans = bp.Artisans.Where(e => !predicate(e)).ToList();
         });
     }
 

@@ -221,7 +221,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           if (bp.FallEventStrings is null) { return; }
-          bp.FallEventStrings = bp.FallEventStrings.Where(predicate).ToArray();
+          bp.FallEventStrings = bp.FallEventStrings.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -324,7 +324,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           if (bp.PoolEntries is null) { return; }
-          bp.PoolEntries = bp.PoolEntries.Where(predicate).ToArray();
+          bp.PoolEntries = bp.PoolEntries.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -401,7 +401,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           if (bp.OverrideDeathPrefabsFromEnergy is null) { return; }
-          bp.OverrideDeathPrefabsFromEnergy = bp.OverrideDeathPrefabsFromEnergy.Where(predicate).ToArray();
+          bp.OverrideDeathPrefabsFromEnergy = bp.OverrideDeathPrefabsFromEnergy.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -738,7 +738,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           if (bp.FootprintsReferences is null) { return; }
-          bp.FootprintsReferences = bp.FootprintsReferences.Where(predicate).ToArray();
+          bp.FootprintsReferences = bp.FootprintsReferences.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -815,7 +815,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         bp =>
         {
           if (bp.FootprintsLocators is null) { return; }
-          bp.FootprintsLocators = bp.FootprintsLocators.Where(predicate).ToArray();
+          bp.FootprintsLocators = bp.FootprintsLocators.Where(e => !predicate(e)).ToArray();
         });
     }
 

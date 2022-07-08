@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.ColorRamps is null) { return; }
-          bp.ColorRamps = bp.ColorRamps.Where(predicate).ToArray();
+          bp.ColorRamps = bp.ColorRamps.Where(e => !predicate(e)).ToArray();
         });
     }
 

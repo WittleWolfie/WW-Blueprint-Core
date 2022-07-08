@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Presets is null) { return; }
-          bp.m_Presets = bp.m_Presets.Where(predicate).ToArray();
+          bp.m_Presets = bp.m_Presets.Where(e => !predicate(e)).ToArray();
         });
     }
 

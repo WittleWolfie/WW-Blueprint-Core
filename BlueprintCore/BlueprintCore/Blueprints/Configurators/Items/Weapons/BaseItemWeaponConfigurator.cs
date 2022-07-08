@@ -162,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           if (bp.m_Enchantments is null) { return; }
-          bp.m_Enchantments = bp.m_Enchantments.Where(predicate).ToArray();
+          bp.m_Enchantments = bp.m_Enchantments.Where(e => !predicate(e)).ToArray();
         });
     }
 

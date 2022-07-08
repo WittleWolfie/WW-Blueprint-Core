@@ -157,7 +157,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
         bp =>
         {
           if (bp.FirstPhrase is null) { return; }
-          bp.FirstPhrase = bp.FirstPhrase.Where(predicate).ToArray();
+          bp.FirstPhrase = bp.FirstPhrase.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
         bp =>
         {
           if (bp.Responses is null) { return; }
-          bp.Responses = bp.Responses.Where(predicate).ToArray();
+          bp.Responses = bp.Responses.Where(e => !predicate(e)).ToArray();
         });
     }
 

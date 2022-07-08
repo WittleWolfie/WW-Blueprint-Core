@@ -275,7 +275,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_VariantsSet is null) { return; }
-          bp.m_VariantsSet = bp.m_VariantsSet.Where(predicate).ToArray();
+          bp.m_VariantsSet = bp.m_VariantsSet.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -370,7 +370,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.Locators is null) { return; }
-          bp.Locators = bp.Locators.Where(predicate).ToArray();
+          bp.Locators = bp.Locators.Where(e => !predicate(e)).ToArray();
         });
     }
 

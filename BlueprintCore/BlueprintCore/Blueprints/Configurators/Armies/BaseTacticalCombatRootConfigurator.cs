@@ -548,7 +548,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_BannedUnitFacts is null) { return; }
-          bp.m_BannedUnitFacts = bp.m_BannedUnitFacts.Where(predicate).ToList();
+          bp.m_BannedUnitFacts = bp.m_BannedUnitFacts.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -637,7 +637,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_ZoneSettings is null) { return; }
-          bp.m_ZoneSettings = bp.m_ZoneSettings.Where(predicate).ToList();
+          bp.m_ZoneSettings = bp.m_ZoneSettings.Where(e => !predicate(e)).ToList();
         });
     }
 

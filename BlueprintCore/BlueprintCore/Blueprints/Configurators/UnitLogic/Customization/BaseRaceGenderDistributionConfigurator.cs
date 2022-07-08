@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.Races is null) { return; }
-          bp.Races = bp.Races.Where(predicate).ToArray();
+          bp.Races = bp.Races.Where(e => !predicate(e)).ToArray();
         });
     }
 

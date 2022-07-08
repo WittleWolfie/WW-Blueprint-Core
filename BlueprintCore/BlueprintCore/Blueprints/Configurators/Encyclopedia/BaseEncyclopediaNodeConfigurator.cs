@@ -148,7 +148,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
         bp =>
         {
           if (bp.ChildPages is null) { return; }
-          bp.ChildPages = bp.ChildPages.Where(predicate).ToList();
+          bp.ChildPages = bp.ChildPages.Where(e => !predicate(e)).ToList();
         });
     }
 

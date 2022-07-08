@@ -321,7 +321,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           if (bp.ResourceAssetIds is null) { return; }
-          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(predicate).ToArray();
+          bp.ResourceAssetIds = bp.ResourceAssetIds.Where(e => !predicate(e)).ToArray();
         });
     }
 

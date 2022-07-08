@@ -67,7 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.Bonuses is null) { return; }
-          bp.Bonuses = bp.Bonuses.Where(predicate).ToArray();
+          bp.Bonuses = bp.Bonuses.Where(e => !predicate(e)).ToArray();
         });
     }
 

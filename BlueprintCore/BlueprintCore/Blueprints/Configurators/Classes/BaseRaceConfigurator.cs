@@ -171,7 +171,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_Features is null) { return; }
-          bp.m_Features = bp.m_Features.Where(predicate).ToArray();
+          bp.m_Features = bp.m_Features.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -286,7 +286,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_Presets is null) { return; }
-          bp.m_Presets = bp.m_Presets.Where(predicate).ToArray();
+          bp.m_Presets = bp.m_Presets.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -493,7 +493,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.SpecialDollTypes is null) { return; }
-          bp.SpecialDollTypes = bp.SpecialDollTypes.Where(predicate).ToArray();
+          bp.SpecialDollTypes = bp.SpecialDollTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 

@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.Groups is null) { return; }
-          bp.Groups = bp.Groups.Where(predicate).ToArray();
+          bp.Groups = bp.Groups.Where(e => !predicate(e)).ToArray();
         });
     }
 

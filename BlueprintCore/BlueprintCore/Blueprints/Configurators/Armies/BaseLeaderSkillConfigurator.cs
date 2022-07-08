@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_Prerequisites is null) { return; }
-          bp.m_Prerequisites = bp.m_Prerequisites.Where(predicate).ToArray();
+          bp.m_Prerequisites = bp.m_Prerequisites.Where(e => !predicate(e)).ToArray();
         });
     }
 

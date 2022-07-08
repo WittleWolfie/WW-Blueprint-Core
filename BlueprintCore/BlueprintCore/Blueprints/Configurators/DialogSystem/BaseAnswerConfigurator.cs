@@ -352,7 +352,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.FakeChecks is null) { return; }
-          bp.FakeChecks = bp.FakeChecks.Where(predicate).ToArray();
+          bp.FakeChecks = bp.FakeChecks.Where(e => !predicate(e)).ToArray();
         });
     }
 

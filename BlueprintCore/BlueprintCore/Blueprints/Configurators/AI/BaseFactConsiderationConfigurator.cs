@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_Fact is null) { return; }
-          bp.m_Fact = bp.m_Fact.Where(predicate).ToArray();
+          bp.m_Fact = bp.m_Fact.Where(e => !predicate(e)).ToArray();
         });
     }
 

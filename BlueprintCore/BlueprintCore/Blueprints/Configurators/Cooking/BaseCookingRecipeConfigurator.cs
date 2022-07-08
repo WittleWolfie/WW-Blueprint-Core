@@ -98,7 +98,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         bp =>
         {
           if (bp.Ingredients is null) { return; }
-          bp.Ingredients = bp.Ingredients.Where(predicate).ToArray();
+          bp.Ingredients = bp.Ingredients.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -237,7 +237,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         bp =>
         {
           if (bp.m_PartyBuffs is null) { return; }
-          bp.m_PartyBuffs = bp.m_PartyBuffs.Where(predicate).ToArray();
+          bp.m_PartyBuffs = bp.m_PartyBuffs.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -314,7 +314,7 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         bp =>
         {
           if (bp.UnitBuffs is null) { return; }
-          bp.UnitBuffs = bp.UnitBuffs.Where(predicate).ToArray();
+          bp.UnitBuffs = bp.UnitBuffs.Where(e => !predicate(e)).ToArray();
         });
     }
 

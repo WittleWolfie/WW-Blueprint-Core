@@ -180,7 +180,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         bp =>
         {
           if (bp.Items is null) { return; }
-          bp.Items = bp.Items.Where(predicate).ToArray();
+          bp.Items = bp.Items.Where(e => !predicate(e)).ToArray();
         });
     }
 

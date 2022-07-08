@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_StartingEventDecks is null) { return; }
-          bp.m_StartingEventDecks = bp.m_StartingEventDecks.Where(predicate).ToArray();
+          bp.m_StartingEventDecks = bp.m_StartingEventDecks.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -365,7 +365,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_KingdomProjectEvents is null) { return; }
-          bp.m_KingdomProjectEvents = bp.m_KingdomProjectEvents.Where(predicate).ToList();
+          bp.m_KingdomProjectEvents = bp.m_KingdomProjectEvents.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -480,7 +480,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Buildings is null) { return; }
-          bp.m_Buildings = bp.m_Buildings.Where(predicate).ToArray();
+          bp.m_Buildings = bp.m_Buildings.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -645,7 +645,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_UnrestMitigationEvents is null) { return; }
-          bp.m_UnrestMitigationEvents = bp.m_UnrestMitigationEvents.Where(predicate).ToArray();
+          bp.m_UnrestMitigationEvents = bp.m_UnrestMitigationEvents.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -760,7 +760,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.LeaderSlots is null) { return; }
-          bp.LeaderSlots = bp.LeaderSlots.Where(predicate).ToArray();
+          bp.LeaderSlots = bp.LeaderSlots.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -875,7 +875,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_StartingNPCLeaders is null) { return; }
-          bp.m_StartingNPCLeaders = bp.m_StartingNPCLeaders.Where(predicate).ToArray();
+          bp.m_StartingNPCLeaders = bp.m_StartingNPCLeaders.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1667,7 +1667,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Stats is null) { return; }
-          bp.Stats = bp.Stats.Where(predicate).ToArray();
+          bp.Stats = bp.Stats.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1820,7 +1820,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Regions is null) { return; }
-          bp.m_Regions = bp.m_Regions.Where(predicate).ToArray();
+          bp.m_Regions = bp.m_Regions.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1935,7 +1935,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_Locations is null) { return; }
-          bp.m_Locations = bp.m_Locations.Where(predicate).ToArray();
+          bp.m_Locations = bp.m_Locations.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -2011,7 +2011,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.ArtisanTierChances is null) { return; }
-          bp.ArtisanTierChances = bp.ArtisanTierChances.Where(predicate).ToArray();
+          bp.ArtisanTierChances = bp.ArtisanTierChances.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -2087,7 +2087,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.ArtisanTierChancesRequest is null) { return; }
-          bp.ArtisanTierChancesRequest = bp.ArtisanTierChancesRequest.Where(predicate).ToArray();
+          bp.ArtisanTierChancesRequest = bp.ArtisanTierChancesRequest.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -2175,7 +2175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.DifficultyDCMod is null) { return; }
-          bp.DifficultyDCMod = bp.DifficultyDCMod.Where(predicate).ToArray();
+          bp.DifficultyDCMod = bp.DifficultyDCMod.Where(e => !predicate(e)).ToArray();
         });
     }
 

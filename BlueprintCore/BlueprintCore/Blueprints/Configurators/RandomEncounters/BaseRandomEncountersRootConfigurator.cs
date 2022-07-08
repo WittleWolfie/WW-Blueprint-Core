@@ -81,7 +81,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           if (bp.m_Chapters is null) { return; }
-          bp.m_Chapters = bp.m_Chapters.Where(predicate).ToArray();
+          bp.m_Chapters = bp.m_Chapters.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -246,7 +246,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           if (bp.ZoneSettings is null) { return; }
-          bp.ZoneSettings = bp.ZoneSettings.Where(predicate).ToArray();
+          bp.ZoneSettings = bp.ZoneSettings.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -361,7 +361,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           if (bp.m_Encounters is null) { return; }
-          bp.m_Encounters = bp.m_Encounters.Where(predicate).ToList();
+          bp.m_Encounters = bp.m_Encounters.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -438,7 +438,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         bp =>
         {
           if (bp.Armies is null) { return; }
-          bp.Armies = bp.Armies.Where(predicate).ToArray();
+          bp.Armies = bp.Armies.Where(e => !predicate(e)).ToArray();
         });
     }
 

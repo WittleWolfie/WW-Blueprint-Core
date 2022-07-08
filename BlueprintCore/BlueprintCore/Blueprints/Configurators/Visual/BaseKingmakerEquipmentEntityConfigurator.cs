@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.m_MaleArray is null) { return; }
-          bp.m_MaleArray = bp.m_MaleArray.Where(predicate).ToArray();
+          bp.m_MaleArray = bp.m_MaleArray.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.m_FemaleArray is null) { return; }
-          bp.m_FemaleArray = bp.m_FemaleArray.Where(predicate).ToArray();
+          bp.m_FemaleArray = bp.m_FemaleArray.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -235,7 +235,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.m_RaceDependentArrays is null) { return; }
-          bp.m_RaceDependentArrays = bp.m_RaceDependentArrays.Where(predicate).ToArray();
+          bp.m_RaceDependentArrays = bp.m_RaceDependentArrays.Where(e => !predicate(e)).ToArray();
         });
     }
 

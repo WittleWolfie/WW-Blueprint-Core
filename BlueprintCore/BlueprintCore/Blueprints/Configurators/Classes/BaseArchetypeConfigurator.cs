@@ -83,7 +83,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.AddFeatures is null) { return; }
-          bp.AddFeatures = bp.AddFeatures.Where(predicate).ToArray();
+          bp.AddFeatures = bp.AddFeatures.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -172,7 +172,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.RemoveFeatures is null) { return; }
-          bp.RemoveFeatures = bp.RemoveFeatures.Where(predicate).ToArray();
+          bp.RemoveFeatures = bp.RemoveFeatures.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -496,7 +496,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_StartingItems is null) { return; }
-          bp.m_StartingItems = bp.m_StartingItems.Where(predicate).ToArray();
+          bp.m_StartingItems = bp.m_StartingItems.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -584,7 +584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.ClassSkills is null) { return; }
-          bp.ClassSkills = bp.ClassSkills.Where(predicate).ToArray();
+          bp.ClassSkills = bp.ClassSkills.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -732,7 +732,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.RecommendedAttributes is null) { return; }
-          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(predicate).ToArray();
+          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -808,7 +808,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.NotRecommendedAttributes is null) { return; }
-          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(predicate).ToArray();
+          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -923,7 +923,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_SignatureAbilities is null) { return; }
-          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(predicate).ToArray();
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(e => !predicate(e)).ToArray();
         });
     }
 

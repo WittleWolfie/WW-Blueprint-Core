@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           if (bp.m_PotionRequirements is null) { return; }
-          bp.m_PotionRequirements = bp.m_PotionRequirements.Where(predicate).ToArray();
+          bp.m_PotionRequirements = bp.m_PotionRequirements.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -193,7 +193,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           if (bp.m_ScrollsRequirements is null) { return; }
-          bp.m_ScrollsRequirements = bp.m_ScrollsRequirements.Where(predicate).ToArray();
+          bp.m_ScrollsRequirements = bp.m_ScrollsRequirements.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -308,7 +308,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           if (bp.m_PotionsItems is null) { return; }
-          bp.m_PotionsItems = bp.m_PotionsItems.Where(predicate).ToList();
+          bp.m_PotionsItems = bp.m_PotionsItems.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -423,7 +423,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
         bp =>
         {
           if (bp.m_ScrollsItems is null) { return; }
-          bp.m_ScrollsItems = bp.m_ScrollsItems.Where(predicate).ToList();
+          bp.m_ScrollsItems = bp.m_ScrollsItems.Where(e => !predicate(e)).ToList();
         });
     }
 

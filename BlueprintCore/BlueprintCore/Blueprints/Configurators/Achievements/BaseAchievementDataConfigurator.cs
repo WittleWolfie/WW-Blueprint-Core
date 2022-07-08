@@ -449,7 +449,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         bp =>
         {
           if (bp.Flags is null) { return; }
-          bp.Flags = bp.Flags.Where(predicate).ToArray();
+          bp.Flags = bp.Flags.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -526,7 +526,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         bp =>
         {
           if (bp.Etudes is null) { return; }
-          bp.Etudes = bp.Etudes.Where(predicate).ToArray();
+          bp.Etudes = bp.Etudes.Where(e => !predicate(e)).ToArray();
         });
     }
 

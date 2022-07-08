@@ -121,7 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Stats is null) { return; }
-          bp.Stats = bp.Stats.Where(predicate).ToList();
+          bp.Stats = bp.Stats.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Resources is null) { return; }
-          bp.Resources = bp.Resources.Where(predicate).ToList();
+          bp.Resources = bp.Resources.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -301,7 +301,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.LeaderDescriptions is null) { return; }
-          bp.LeaderDescriptions = bp.LeaderDescriptions.Where(predicate).ToList();
+          bp.LeaderDescriptions = bp.LeaderDescriptions.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -404,7 +404,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.EventResultMarginDescriptions is null) { return; }
-          bp.EventResultMarginDescriptions = bp.EventResultMarginDescriptions.Where(predicate).ToList();
+          bp.EventResultMarginDescriptions = bp.EventResultMarginDescriptions.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -559,7 +559,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.KingdomStatusChangeReasons is null) { return; }
-          bp.KingdomStatusChangeReasons = bp.KingdomStatusChangeReasons.Where(predicate).ToList();
+          bp.KingdomStatusChangeReasons = bp.KingdomStatusChangeReasons.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -674,7 +674,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.KingdomStautsDesriptions is null) { return; }
-          bp.KingdomStautsDesriptions = bp.KingdomStautsDesriptions.Where(predicate).ToList();
+          bp.KingdomStautsDesriptions = bp.KingdomStautsDesriptions.Where(e => !predicate(e)).ToList();
         });
     }
 

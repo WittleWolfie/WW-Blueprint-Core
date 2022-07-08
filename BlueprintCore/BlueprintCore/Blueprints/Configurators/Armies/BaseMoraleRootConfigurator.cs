@@ -168,7 +168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_NegativeFacts is null) { return; }
-          bp.m_NegativeFacts = bp.m_NegativeFacts.Where(predicate).ToArray();
+          bp.m_NegativeFacts = bp.m_NegativeFacts.Where(e => !predicate(e)).ToArray();
         });
     }
 

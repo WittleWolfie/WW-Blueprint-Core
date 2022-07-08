@@ -502,7 +502,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.ClassSkills is null) { return; }
-          bp.ClassSkills = bp.ClassSkills.Where(predicate).ToArray();
+          bp.ClassSkills = bp.ClassSkills.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -653,7 +653,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_Archetypes is null) { return; }
-          bp.m_Archetypes = bp.m_Archetypes.Where(predicate).ToArray();
+          bp.m_Archetypes = bp.m_Archetypes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -780,7 +780,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_StartingItems is null) { return; }
-          bp.m_StartingItems = bp.m_StartingItems.Where(predicate).ToArray();
+          bp.m_StartingItems = bp.m_StartingItems.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -919,7 +919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_EquipmentEntities is null) { return; }
-          bp.m_EquipmentEntities = bp.m_EquipmentEntities.Where(predicate).ToArray();
+          bp.m_EquipmentEntities = bp.m_EquipmentEntities.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -996,7 +996,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.MaleEquipmentEntities is null) { return; }
-          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(predicate).ToArray();
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1073,7 +1073,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.FemaleEquipmentEntities is null) { return; }
-          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(predicate).ToArray();
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1161,7 +1161,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.RecommendedAttributes is null) { return; }
-          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(predicate).ToArray();
+          bp.RecommendedAttributes = bp.RecommendedAttributes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1237,7 +1237,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.NotRecommendedAttributes is null) { return; }
-          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(predicate).ToArray();
+          bp.NotRecommendedAttributes = bp.NotRecommendedAttributes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1352,7 +1352,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_SignatureAbilities is null) { return; }
-          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(predicate).ToArray();
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(e => !predicate(e)).ToArray();
         });
     }
 

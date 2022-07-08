@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.Obstacles is null) { return; }
-          bp.Obstacles = bp.Obstacles.Where(predicate).ToArray();
+          bp.Obstacles = bp.Obstacles.Where(e => !predicate(e)).ToArray();
         });
     }
 

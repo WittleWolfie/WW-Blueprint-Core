@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.PresetObjects is null) { return; }
-          bp.PresetObjects = bp.PresetObjects.Where(predicate).ToList();
+          bp.PresetObjects = bp.PresetObjects.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.m_Units is null) { return; }
-          bp.m_Units = bp.m_Units.Where(predicate).ToArray();
+          bp.m_Units = bp.m_Units.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -310,7 +310,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.ClothesSelections is null) { return; }
-          bp.ClothesSelections = bp.ClothesSelections.Where(predicate).ToArray();
+          bp.ClothesSelections = bp.ClothesSelections.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -387,7 +387,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.UnitVariations is null) { return; }
-          bp.UnitVariations = bp.UnitVariations.Where(predicate).ToList();
+          bp.UnitVariations = bp.UnitVariations.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -502,7 +502,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.MaleVoices is null) { return; }
-          bp.MaleVoices = bp.MaleVoices.Where(predicate).ToList();
+          bp.MaleVoices = bp.MaleVoices.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -617,7 +617,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         bp =>
         {
           if (bp.FemaleVoices is null) { return; }
-          bp.FemaleVoices = bp.FemaleVoices.Where(predicate).ToList();
+          bp.FemaleVoices = bp.FemaleVoices.Where(e => !predicate(e)).ToList();
         });
     }
 

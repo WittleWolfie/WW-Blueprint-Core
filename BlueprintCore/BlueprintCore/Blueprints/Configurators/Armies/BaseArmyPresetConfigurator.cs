@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.Squads is null) { return; }
-          bp.Squads = bp.Squads.Where(predicate).ToArray();
+          bp.Squads = bp.Squads.Where(e => !predicate(e)).ToArray();
         });
     }
 
