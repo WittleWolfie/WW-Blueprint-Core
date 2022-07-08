@@ -1,12 +1,12 @@
-using BlueprintCore.Blueprints.Components;
-using Kingmaker.Blueprints;
+using BlueprintCore.Test.TestData;
+using BlueprintCore.Utils.Types;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Xunit;
-using static BlueprintCore.Test.TestData;
+using static BlueprintCore.Test.TestData.Blueprints;
 
-namespace BlueprintCore.Test.Blueprints.Components
+namespace BlueprintCore.Test.Utils.Types
 {
   public class ContextRankConfigsTest : TestBase
   {
@@ -220,13 +220,13 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void CustomProperty()
     {
-      var config = ContextRankConfigs.CustomProperty(PropertyGuid);
+      var config = ContextRankConfigs.CustomProperty(Guids.Property);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.CustomProperty, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Property.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomProperty);
+      Assert.Equal(Property.Reference, config.m_CustomProperty);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -235,7 +235,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void CustomProperty_WithCommonParams()
     {
-      var config = ContextRankConfigs.CustomProperty(PropertyGuid, type: AbilityRankType.StatBonus, max: 12, min: 3);
+      var config = ContextRankConfigs.CustomProperty(Guids.Property, type: AbilityRankType.StatBonus, max: 12, min: 3);
 
       Assert.Equal(AbilityRankType.StatBonus, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -247,17 +247,15 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void MaxCustomProperty()
     {
-      var config = ContextRankConfigs.MaxCustomProperty(new string[] { PropertyGuid, ExtraPropertyGuid });
+      var config = ContextRankConfigs.MaxCustomProperty(new string[] { Guids.Property, Guids.PropertyAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MaxCustomProperty, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_CustomPropertyList.Length);
-      Assert.Contains(
-          Property.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomPropertyList);
-      Assert.Contains(
-          ExtraProperty.ToReference<BlueprintUnitPropertyReference>(), config.m_CustomPropertyList);
+      Assert.Contains(Property.Reference, config.m_CustomPropertyList);
+      Assert.Contains(PropertyAlt.Reference, config.m_CustomPropertyList);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -268,7 +266,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.MaxCustomProperty(
-              new string[] { PropertyGuid, ExtraPropertyGuid }, type: AbilityRankType.DamageDice, max: 2, min: 3);
+              new string[] { Guids.Property, Guids.PropertyAlt }, type: AbilityRankType.DamageDice, max: 2, min: 3);
 
       Assert.Equal(AbilityRankType.DamageDice, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -280,15 +278,15 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void ClassLevel()
     {
-      var config = ContextRankConfigs.ClassLevel(new string[] { ClassGuid, ExtraClassGuid });
+      var config = ContextRankConfigs.ClassLevel(new string[] { Guids.Class, Guids.ClassAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.ClassLevel, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);;
       Assert.False(config.m_ExceptClasses);
 
       Assert.False(config.m_UseMax);
@@ -300,7 +298,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.ClassLevel(
-              new string[] { ClassGuid, ExtraClassGuid }, type: AbilityRankType.DamageBonus, max: 13, min: 10);
+              new string[] { Guids.Class, Guids.ClassAlt }, type: AbilityRankType.DamageBonus, max: 13, min: 10);
 
       Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -314,15 +312,15 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.ClassLevel(
-              new string[] { ClassGuid, ExtraClassGuid }, excludeClasses: true);
+              new string[] { Guids.Class, Guids.ClassAlt }, excludeClasses: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.ClassLevel, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.True(config.m_ExceptClasses);
     }
 
@@ -331,23 +329,21 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.MaxClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid });
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MaxClassLevelWithArchetype, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.False(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
-      Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
-      Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+      Assert.Contains(Archetype.Reference, config.m_AdditionalArchetypes);
+      Assert.Contains(ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -358,8 +354,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.MaxClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               type: AbilityRankType.ProjectilesCount,
               max: 16,
               min: 11);
@@ -376,8 +372,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.MaxClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               excludeClasses: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
@@ -385,15 +381,15 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.True(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
     }
 
     [Fact]
@@ -401,23 +397,23 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.SumClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid });
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.SummClassLevelWithArchetype, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.False(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -428,8 +424,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.SumClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               type: AbilityRankType.SpeedBonus,
               max: 4,
               min: 2);
@@ -446,8 +442,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.SumClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               excludeClasses: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
@@ -455,15 +451,15 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.True(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -474,8 +470,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.SumClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               useOwner: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
@@ -484,15 +480,15 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.False(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
     }
 
     [Fact]
@@ -500,8 +496,8 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.SumClassLevelWithArchetype(
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               excludeClasses: true,
               useOwner: true);
 
@@ -511,15 +507,15 @@ namespace BlueprintCore.Test.Blueprints.Components
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.True(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
     }
 
     [Fact]
@@ -527,26 +523,26 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.Bombs(
-              FeatureGuid,
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid });
+              Guids.Feature,
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.Bombs, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(Feature.Reference, config.m_Feature);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.False(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
       Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          Archetype.Reference, config.m_AdditionalArchetypes);
       Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+          ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -557,9 +553,9 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.Bombs(
-              FeatureGuid,
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              Guids.Feature,
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               type: AbilityRankType.StatBonus,
               max: 7,
               min: 6);
@@ -576,39 +572,37 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.Bombs(
-              FeatureGuid,
-              new string[] { ClassGuid, ExtraClassGuid },
-              new string[] { ArchetypeGuid, ExtraArchetypeGuid },
+              Guids.Feature,
+              new string[] { Guids.Class, Guids.ClassAlt },
+              new string[] { Guids.Archetype, Guids.ArchetypeAlt },
               excludeClasses: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.Bombs, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(Feature.Reference, config.m_Feature);
 
       Assert.Equal(2, config.m_Class.Length);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
-      Assert.Contains(ExtraClass.ToReference<BlueprintCharacterClassReference>(), config.m_Class);
+      Assert.Contains(Clazz.Reference, config.m_Class);
+      Assert.Contains(ClazzAlt.Reference, config.m_Class);
       Assert.True(config.m_ExceptClasses);
 
       Assert.Equal(2, config.m_AdditionalArchetypes.Length);
-      Assert.Contains(
-          Archetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
-      Assert.Contains(
-          ExtraArchetype.ToReference<BlueprintArchetypeReference>(), config.m_AdditionalArchetypes);
+      Assert.Contains(Archetype.Reference, config.m_AdditionalArchetypes);
+      Assert.Contains(ArchetypeAlt.Reference, config.m_AdditionalArchetypes);
     }
 
     [Fact]
     public void FeatureRank()
     {
-      var config = ContextRankConfigs.FeatureRank(FeatureGuid);
+      var config = ContextRankConfigs.FeatureRank(Guids.Feature);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.FeatureRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(Feature.Reference, config.m_Feature);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -618,7 +612,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     public void FeatureRank_WithCommonParams()
     {
       var config =
-          ContextRankConfigs.FeatureRank(FeatureGuid, type: AbilityRankType.DamageBonus, max: 11, min: 5);
+          ContextRankConfigs.FeatureRank(Guids.Feature, type: AbilityRankType.DamageBonus, max: 11, min: 5);
 
       Assert.Equal(AbilityRankType.DamageBonus, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -630,27 +624,27 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void FeatureRank_UseMaster()
     {
-      var config = ContextRankConfigs.FeatureRank(FeatureGuid, useMaster: true);
+      var config = ContextRankConfigs.FeatureRank(Guids.Feature, useMaster: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MasterFeatureRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_Feature);
+      Assert.Equal(Feature.Reference, config.m_Feature);
     }
 
     [Fact]
     public void FeatureList()
     {
-      var config = ContextRankConfigs.FeatureList(new string[] { FeatureGuid, ExtraFeatureGuid });
+      var config = ContextRankConfigs.FeatureList(new string[] { Guids.Feature, Guids.FeatureAlt });
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.FeatureList, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_FeatureList.Length);
-      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
-      Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
+      Assert.Contains(Feature.Reference, config.m_FeatureList);
+      Assert.Contains(FeatureAlt.Reference, config.m_FeatureList);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -661,7 +655,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.FeatureList(
-              new string[] { FeatureGuid, ExtraFeatureGuid }, type: AbilityRankType.DamageDice, max: 14, min: 2);
+              new string[] { Guids.Feature, Guids.FeatureAlt }, type: AbilityRankType.DamageDice, max: 14, min: 2);
 
       Assert.Equal(AbilityRankType.DamageDice, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -675,15 +669,15 @@ namespace BlueprintCore.Test.Blueprints.Components
     {
       var config =
           ContextRankConfigs.FeatureList(
-              new string[] { FeatureGuid, ExtraFeatureGuid }, useRanks: true);
+              new string[] { Guids.Feature, Guids.FeatureAlt }, useRanks: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.FeatureListRanks, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
       Assert.Equal(2, config.m_FeatureList.Length);
-      Assert.Contains(TestFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
-      Assert.Contains(ExtraFeature.ToReference<BlueprintFeatureReference>(), config.m_FeatureList);
+      Assert.Contains(Feature.Reference, config.m_FeatureList);
+      Assert.Contains(FeatureAlt.Reference, config.m_FeatureList);
     }
 
     [Fact]
@@ -724,13 +718,13 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void MythicLevelPlusBuffRank()
     {
-      var config = ContextRankConfigs.MythicLevelPlusBuffRank(BuffGuid);
+      var config = ContextRankConfigs.MythicLevelPlusBuffRank(Guids.Buff);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.MythicLevelPlusBuffRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), config.m_Buff);
+      Assert.Equal(Buff.Reference, config.m_Buff);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -739,13 +733,13 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void BuffRank()
     {
-      var config = ContextRankConfigs.BuffRank(BuffGuid);
+      var config = ContextRankConfigs.BuffRank(Guids.Buff);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.CasterBuffRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), config.m_Buff);
+      Assert.Equal(Buff.Reference, config.m_Buff);
 
       Assert.False(config.m_UseMax);
       Assert.False(config.m_UseMin);
@@ -754,7 +748,7 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void BuffRank_WithCommonParams()
     {
-      var config = ContextRankConfigs.BuffRank(BuffGuid, type: AbilityRankType.DamageDiceAlternative, max: 5, min: 1);
+      var config = ContextRankConfigs.BuffRank(Guids.Buff, type: AbilityRankType.DamageDiceAlternative, max: 5, min: 1);
 
       Assert.Equal(AbilityRankType.DamageDiceAlternative, config.m_Type);
       Assert.True(config.m_UseMax);
@@ -766,13 +760,13 @@ namespace BlueprintCore.Test.Blueprints.Components
     [Fact]
     public void BuffRank_UseTarget()
     {
-      var config = ContextRankConfigs.BuffRank(BuffGuid, useTarget: true);
+      var config = ContextRankConfigs.BuffRank(Guids.Buff, useTarget: true);
 
       Assert.Equal(AbilityRankType.Default, config.m_Type);
       Assert.Equal(ContextRankBaseValueType.TargetBuffRank, config.m_BaseValueType);
       Assert.Equal(ContextRankProgression.AsIs, config.m_Progression);
 
-      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), config.m_Buff);
+      Assert.Equal(Buff.Reference, config.m_Buff);
     }
 
     [Fact]

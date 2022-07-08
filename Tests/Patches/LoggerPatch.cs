@@ -3,16 +3,18 @@ using BlueprintCore.Utils;
 using HarmonyLib;
 using Owlcat.Runtime.Core.Logging;
 
-namespace BlueprintCore.Test
+namespace BlueprintCore.Test.Patches
 {
   public static class LoggerPatch
   {
-    public static readonly TestLogWrapper Logger = new TestLogWrapper(null);
+    public static readonly TestLogWrapper Logger = new(null);
 
-    [HarmonyPatch(typeof(LogWrapper), "Get")]
-    static class LogWrapper_Get_Patch
+    [HarmonyPatch(typeof(LogWrapper))]
+    static class LogWrapper_Patch
     {
       [HarmonyPriority(Priority.First)]
+      [HarmonyPatch(nameof(LogWrapper.Get)), HarmonyPrefix]
+
       static bool Prefix(ref LogWrapper __result)
       {
         __result = Logger;

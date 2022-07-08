@@ -1,104 +1,55 @@
-using BlueprintCore.Blueprints.Configurators.Abilities;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Test.Blueprints.Configurators;
+using BlueprintCore.Test.Patches;
+using BlueprintCore.Test.TestData;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
-using Kingmaker.Localization;
 using Xunit;
-using static BlueprintCore.Test.TestData;
+using static BlueprintCore.Test.TestData.Blueprints;
 
-namespace BlueprintCore.Test.Blueprints.Abilities
+namespace BlueprintCore.Test.Blueprints
 {
-  public class AbilityResourceConfiguratorTest
-      : BaseBlueprintConfiguratorTest<BlueprintAbilityResource, AbilityResourceConfigurator>
+  public class AbilityResourceConfiguratorTest :
+    RootConfiguratorTest<BlueprintAbilityResource, AbilityResourceConfigurator>
   {
     public AbilityResourceConfiguratorTest() : base()
     {
-      BlueprintPatch.Create<BlueprintAbilityResource>(Guid);
+      BlueprintPatch.Create<BlueprintAbilityResource>(Guids.AbilityResource);
     }
 
-    protected override AbilityResourceConfigurator GetConfigurator(string guid)
+    protected override AbilityResourceConfigurator GetConfigurator()
     {
-      return AbilityResourceConfigurator.For(guid);
+      return AbilityResourceConfigurator.For(Guids.AbilityResource);
     }
 
-    [Fact]
-    public void SetDisplayName()
+    protected override BlueprintAbilityResource GetBlueprint()
     {
-      GetConfigurator(Guid)
-          .SetDisplayName(new LocalizedString { m_Key = "name" })
-          .Configure();
-
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
-      Assert.Equal("name", resource.LocalizedName.m_Key);
-    }
-
-    [Fact]
-    public void SetDescription()
-    {
-      GetConfigurator(Guid)
-          .SetDescription(new LocalizedString { m_Key = "description" })
-          .Configure();
-
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
-      Assert.Equal("description", resource.LocalizedDescription.m_Key);
-    }
-
-    [Fact]
-    public void SetIcon()
-    {
-      GetConfigurator(Guid)
-          .SetIcon(TestSprite)
-          .Configure();
-
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
-      Assert.Equal(TestSprite, resource.m_Icon);
+      return BlueprintTool.Get<BlueprintAbilityResource>(Guids.AbilityResource);
     }
 
     [Fact]
     public void SetMaxAmount()
     {
-      GetConfigurator(Guid)
+      GetConfigurator()
           .SetMaxAmount(ResourceAmountBuilder.New(3))
           .Configure();
 
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
+      var resource = GetBlueprint();
       Assert.Equal(3, resource.m_MaxAmount.BaseValue);
     }
 
     [Fact]
     public void SetMax()
     {
-      GetConfigurator(Guid)
+      GetConfigurator()
           .SetMax(6)
           .Configure();
 
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
+      var resource = GetBlueprint();
 
       Assert.Equal(6, resource.m_Max);
       Assert.True(resource.m_UseMax);
-    }
-
-    [Fact]
-    public void DisableMax()
-    {
-      GetConfigurator(Guid)
-          .DisableMax()
-          .Configure();
-
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
-      Assert.False(resource.m_UseMax);
-    }
-
-    [Fact]
-    public void SetMin()
-    {
-      GetConfigurator(Guid)
-          .SetMin(2)
-          .Configure();
-
-      var resource = BlueprintTool.Get<BlueprintAbilityResource>(Guid);
-      Assert.Equal(2, resource.m_Min);
     }
 
     [Fact]
@@ -116,7 +67,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
     public void ResourceAmountBuilder_IncreaseByLevel()
     {
       BlueprintAbilityResource.Amount amount =
-          ResourceAmountBuilder.New(4).IncreaseByLevel(new string[] { ClassGuid }).Build();
+          ResourceAmountBuilder.New(4).IncreaseByLevel(new string[] { Guids.Class }).Build();
 
       Assert.Equal(4, amount.BaseValue);
       Assert.False(amount.IncreasedByLevelStartPlusDivStep);
@@ -124,14 +75,14 @@ namespace BlueprintCore.Test.Blueprints.Abilities
 
       Assert.True(amount.IncreasedByLevel);
       Assert.Single(amount.m_Class);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), amount.m_Class);
+      Assert.Contains(Clazz.Reference, amount.m_Class);
     }
 
     [Fact]
     public void ResourceAmountBuilder_IncreaseByLevel_WithBonusPerLevel()
     {
       BlueprintAbilityResource.Amount amount =
-          ResourceAmountBuilder.New(4).IncreaseByLevel(new string[] { ClassGuid }, bonusPerLevel: 2).Build();
+          ResourceAmountBuilder.New(4).IncreaseByLevel(new string[] { Guids.Class }, bonusPerLevel: 2).Build();
 
       Assert.Equal(4, amount.BaseValue);
       Assert.False(amount.IncreasedByLevelStartPlusDivStep);
@@ -140,7 +91,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       Assert.True(amount.IncreasedByLevel);
       Assert.Equal(2, amount.LevelIncrease);
       Assert.Single(amount.m_Class);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), amount.m_Class);
+      Assert.Contains(Clazz.Reference, amount.m_Class);
     }
 
     [Fact]
@@ -183,7 +134,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
       BlueprintAbilityResource.Amount amount =
           ResourceAmountBuilder.New(2)
               .IncreaseByLevelStartPlusDivStep(
-                  classes: new string[] { ClassGuid },
+                  classes: new string[] { Guids.Class },
                   otherClassLevelsMultiplier: 1f,
                   startingLevel: 3,
                   startingBonus: 2,
@@ -198,7 +149,7 @@ namespace BlueprintCore.Test.Blueprints.Abilities
 
       Assert.True(amount.IncreasedByLevelStartPlusDivStep);
       Assert.Single(amount.m_ClassDiv);
-      Assert.Contains(Clazz.ToReference<BlueprintCharacterClassReference>(), amount.m_ClassDiv);
+      Assert.Contains(Clazz.Reference, amount.m_ClassDiv);
       Assert.Equal(1f, amount.OtherClassesModifier);
       Assert.Equal(3, amount.StartingLevel);
       Assert.Equal(2, amount.StartingIncrease);

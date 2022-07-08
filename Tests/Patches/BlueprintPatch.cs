@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BlueprintCore.Test
+namespace BlueprintCore.Test.Patches
 {
   public static class BlueprintPatch
   {
@@ -31,22 +31,20 @@ namespace BlueprintCore.Test
       return blueprint;
     }
 
-    [HarmonyPatch(typeof(BlueprintsCache), "Load")]
-    static class BlueprintsCache_Load_Patch
+    [HarmonyPatch(typeof(BlueprintsCache))]
+    static class BlueprintsCache_Patch
     {
       [HarmonyPriority(Priority.First)]
+      [HarmonyPatch(nameof(BlueprintsCache.Load)), HarmonyPrefix]
       static bool Prefix(BlueprintGuid guid, ref SimpleBlueprint __result)
       {
         if (!BlueprintCache.ContainsKey(guid)) { __result = null; }
         else { __result = BlueprintCache[guid]; }
         return false;
       }
-    }
 
-    [HarmonyPatch(typeof(BlueprintsCache), "AddCachedBlueprint")]
-    static class BlueprintsCache_AddCachedBlueprint_Patch
-    {
       [HarmonyPriority(Priority.First)]
+      [HarmonyPatch(nameof(BlueprintsCache.AddCachedBlueprint)), HarmonyPrefix]
       static bool Prefix(BlueprintGuid guid, SimpleBlueprint bp)
       {
         BlueprintCache[guid] = bp;

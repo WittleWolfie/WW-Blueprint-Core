@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using BlueprintCore.Test.Patches;
+using Xunit;
 
 namespace BlueprintCore.Test
 {
@@ -7,7 +8,7 @@ namespace BlueprintCore.Test
   {
     public TestBase()
     {
-      TestData.Init();
+      BlueprintPatch.Init();
       LoggerPatch.Logger.Reset();
     }
   }
