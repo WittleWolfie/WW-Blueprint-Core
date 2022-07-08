@@ -10,7 +10,7 @@ namespace BlueprintCore.Utils.Types
   /// </summary>
   public class LevelEntryBuilder
   {
-    private static readonly List<LevelEntry> LevelEntries = new();
+    private readonly List<LevelEntry> LevelEntries = new();
 
     public static LevelEntryBuilder New()
     {
