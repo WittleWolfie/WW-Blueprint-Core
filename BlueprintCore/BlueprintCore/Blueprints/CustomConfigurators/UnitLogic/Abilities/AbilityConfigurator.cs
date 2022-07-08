@@ -58,6 +58,12 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       return OnConfigureInternal(bp => bp.Range = AbilityRange.Custom);
     }
 
+    /// <inheritdoc cref="SetCustomRange(Feet)"/>
+    public AbilityConfigurator SetCustomRange(int rangeInFeet)
+    {
+      return SetCustomRange(new Feet(rangeInFeet));
+    }
+
     /// <summary>
     /// Convenience function to set all targeting behaviors:
     /// <see cref="BlueprintAbility.CanTargetPoint"/>,
