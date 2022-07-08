@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## v2.1.1 Release
+
+* Bugfixes:
+    * ArchetypeConfigurator and ProgressionConfigurator `RemoveFromX` functions now function properly
+    * All `RemoveFromX` functions accepting a predicate now function as expected
+        * Previously the configurators were confused and were keeping everything matching the predicate, not removing
+    * UIGroupBuilder and LevelEntryBuilder now work properly
+        * Rumor has it they were using static fields so they collided with one another
+
+### Breaking Changes
+
+* If you were using any `RemoveFromX(Func<Blueprint,bool>)` functions the logic is now reversed. This matches the API design but not the function.
+
 ## v2.1.0 Release
 
 * Added new localization system for translation support and simplified text references. See [Text, Logging, and Utils](usage/utils.md) for more details.
