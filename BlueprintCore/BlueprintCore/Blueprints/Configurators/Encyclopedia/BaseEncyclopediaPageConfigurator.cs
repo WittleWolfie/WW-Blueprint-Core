@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
         bp =>
         {
           if (bp.Blocks is null) { return; }
-          bp.Blocks = bp.Blocks.Where(predicate).ToList();
+          bp.Blocks = bp.Blocks.Where(e => !predicate(e)).ToList();
         });
     }
 

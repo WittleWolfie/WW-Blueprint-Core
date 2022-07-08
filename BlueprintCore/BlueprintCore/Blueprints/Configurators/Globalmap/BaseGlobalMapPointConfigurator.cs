@@ -306,7 +306,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.DCModifiers is null) { return; }
-          bp.DCModifiers = bp.DCModifiers.Where(predicate).ToArray();
+          bp.DCModifiers = bp.DCModifiers.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -584,7 +584,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.LocationVariations is null) { return; }
-          bp.LocationVariations = bp.LocationVariations.Where(predicate).ToArray();
+          bp.LocationVariations = bp.LocationVariations.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -740,7 +740,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.Ingredients is null) { return; }
-          bp.Ingredients = bp.Ingredients.Where(predicate).ToArray();
+          bp.Ingredients = bp.Ingredients.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -829,7 +829,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.Loot is null) { return; }
-          bp.Loot = bp.Loot.Where(predicate).ToArray();
+          bp.Loot = bp.Loot.Where(e => !predicate(e)).ToArray();
         });
     }
 

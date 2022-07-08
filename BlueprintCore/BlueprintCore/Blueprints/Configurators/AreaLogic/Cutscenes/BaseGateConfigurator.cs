@@ -94,7 +94,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           if (bp.m_Tracks is null) { return; }
-          bp.m_Tracks = bp.m_Tracks.Where(predicate).ToList();
+          bp.m_Tracks = bp.m_Tracks.Where(e => !predicate(e)).ToList();
         });
     }
 

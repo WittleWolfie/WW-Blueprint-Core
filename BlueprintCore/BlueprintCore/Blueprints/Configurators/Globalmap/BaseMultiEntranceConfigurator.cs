@@ -148,7 +148,7 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         bp =>
         {
           if (bp.m_Entries is null) { return; }
-          bp.m_Entries = bp.m_Entries.Where(predicate).ToArray();
+          bp.m_Entries = bp.m_Entries.Where(e => !predicate(e)).ToArray();
         });
     }
 

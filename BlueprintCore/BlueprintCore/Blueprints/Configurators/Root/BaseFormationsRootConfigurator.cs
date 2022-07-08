@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           if (bp.m_PredefinedFormations is null) { return; }
-          bp.m_PredefinedFormations = bp.m_PredefinedFormations.Where(predicate).ToArray();
+          bp.m_PredefinedFormations = bp.m_PredefinedFormations.Where(e => !predicate(e)).ToArray();
         });
     }
 

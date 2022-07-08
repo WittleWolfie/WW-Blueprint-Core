@@ -198,7 +198,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         bp =>
         {
           if (bp.Anchors is null) { return; }
-          bp.Anchors = bp.Anchors.Where(predicate).ToArray();
+          bp.Anchors = bp.Anchors.Where(e => !predicate(e)).ToArray();
         });
     }
 

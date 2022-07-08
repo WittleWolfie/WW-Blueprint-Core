@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_CharacterClasses is null) { return; }
-          bp.m_CharacterClasses = bp.m_CharacterClasses.Where(predicate).ToArray();
+          bp.m_CharacterClasses = bp.m_CharacterClasses.Where(e => !predicate(e)).ToArray();
         });
     }
 

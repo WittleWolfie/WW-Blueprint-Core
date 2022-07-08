@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.m_MythicsInfos is null) { return; }
-          bp.m_MythicsInfos = bp.m_MythicsInfos.Where(predicate).ToArray();
+          bp.m_MythicsInfos = bp.m_MythicsInfos.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -184,7 +184,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.m_MythicAlignments is null) { return; }
-          bp.m_MythicAlignments = bp.m_MythicAlignments.Where(predicate).ToArray();
+          bp.m_MythicAlignments = bp.m_MythicAlignments.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -298,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.CharcaterLevelRestrictions is null) { return; }
-          bp.CharcaterLevelRestrictions = bp.CharcaterLevelRestrictions.Where(predicate).ToList();
+          bp.CharcaterLevelRestrictions = bp.CharcaterLevelRestrictions.Where(e => !predicate(e)).ToList();
         });
     }
 

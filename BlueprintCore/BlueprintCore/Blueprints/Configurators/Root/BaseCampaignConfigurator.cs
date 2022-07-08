@@ -269,7 +269,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           if (bp.m_Pregens is null) { return; }
-          bp.m_Pregens = bp.m_Pregens.Where(predicate).ToArray();
+          bp.m_Pregens = bp.m_Pregens.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -408,7 +408,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           if (bp.ImportSettings is null) { return; }
-          bp.ImportSettings = bp.ImportSettings.Where(predicate).ToArray();
+          bp.ImportSettings = bp.ImportSettings.Where(e => !predicate(e)).ToArray();
         });
     }
 

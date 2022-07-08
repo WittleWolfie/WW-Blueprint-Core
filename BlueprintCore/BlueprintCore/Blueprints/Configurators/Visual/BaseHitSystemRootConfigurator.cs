@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.DamageTypes is null) { return; }
-          bp.DamageTypes = bp.DamageTypes.Where(predicate).ToArray();
+          bp.DamageTypes = bp.DamageTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -146,7 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.EnergyTypes is null) { return; }
-          bp.EnergyTypes = bp.EnergyTypes.Where(predicate).ToArray();
+          bp.EnergyTypes = bp.EnergyTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.BloodTypes is null) { return; }
-          bp.BloodTypes = bp.BloodTypes.Where(predicate).ToArray();
+          bp.BloodTypes = bp.BloodTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -352,7 +352,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         bp =>
         {
           if (bp.OverrideHitDirectionPrefabFromAnimationStyle is null) { return; }
-          bp.OverrideHitDirectionPrefabFromAnimationStyle = bp.OverrideHitDirectionPrefabFromAnimationStyle.Where(predicate).ToArray();
+          bp.OverrideHitDirectionPrefabFromAnimationStyle = bp.OverrideHitDirectionPrefabFromAnimationStyle.Where(e => !predicate(e)).ToArray();
         });
     }
 

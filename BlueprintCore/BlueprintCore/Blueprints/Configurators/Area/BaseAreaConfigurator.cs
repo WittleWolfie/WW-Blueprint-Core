@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_Parts is null) { return; }
-          bp.m_Parts = bp.m_Parts.Where(predicate).ToList();
+          bp.m_Parts = bp.m_Parts.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -376,7 +376,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.LoadingScreenSprites is null) { return; }
-          bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(predicate).ToList();
+          bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -586,7 +586,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_HotAreas is null) { return; }
-          bp.m_HotAreas = bp.m_HotAreas.Where(predicate).ToArray();
+          bp.m_HotAreas = bp.m_HotAreas.Where(e => !predicate(e)).ToArray();
         });
     }
 

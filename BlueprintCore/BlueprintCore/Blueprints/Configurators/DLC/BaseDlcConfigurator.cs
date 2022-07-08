@@ -137,7 +137,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           if (bp.RewardReferences is null) { return; }
-          bp.RewardReferences = bp.RewardReferences.Where(predicate).ToArray();
+          bp.RewardReferences = bp.RewardReferences.Where(e => !predicate(e)).ToArray();
         });
     }
 

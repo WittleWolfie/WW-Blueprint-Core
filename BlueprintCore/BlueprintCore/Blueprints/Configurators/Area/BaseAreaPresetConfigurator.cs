@@ -226,7 +226,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.AlsoLoadMechanics is null) { return; }
-          bp.AlsoLoadMechanics = bp.AlsoLoadMechanics.Where(predicate).ToList();
+          bp.AlsoLoadMechanics = bp.AlsoLoadMechanics.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -453,7 +453,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.Companions is null) { return; }
-          bp.Companions = bp.Companions.Where(predicate).ToList();
+          bp.Companions = bp.Companions.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -568,7 +568,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.CompanionsRemote is null) { return; }
-          bp.CompanionsRemote = bp.CompanionsRemote.Where(predicate).ToList();
+          bp.CompanionsRemote = bp.CompanionsRemote.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -683,7 +683,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.ExCompanions is null) { return; }
-          bp.ExCompanions = bp.ExCompanions.Where(predicate).ToList();
+          bp.ExCompanions = bp.ExCompanions.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -823,7 +823,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.UnlockedFlags is null) { return; }
-          bp.UnlockedFlags = bp.UnlockedFlags.Where(predicate).ToList();
+          bp.UnlockedFlags = bp.UnlockedFlags.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -938,7 +938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.StartedQuests is null) { return; }
-          bp.StartedQuests = bp.StartedQuests.Where(predicate).ToList();
+          bp.StartedQuests = bp.StartedQuests.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1053,7 +1053,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.FinishedQuests is null) { return; }
-          bp.FinishedQuests = bp.FinishedQuests.Where(predicate).ToList();
+          bp.FinishedQuests = bp.FinishedQuests.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1168,7 +1168,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.FailedQuests is null) { return; }
-          bp.FailedQuests = bp.FailedQuests.Where(predicate).ToList();
+          bp.FailedQuests = bp.FailedQuests.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1283,7 +1283,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.StartEtudesNonRecursively is null) { return; }
-          bp.StartEtudesNonRecursively = bp.StartEtudesNonRecursively.Where(predicate).ToList();
+          bp.StartEtudesNonRecursively = bp.StartEtudesNonRecursively.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1398,7 +1398,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.StartEtudes is null) { return; }
-          bp.StartEtudes = bp.StartEtudes.Where(predicate).ToList();
+          bp.StartEtudes = bp.StartEtudes.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1513,7 +1513,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.ForceCompleteEtudes is null) { return; }
-          bp.ForceCompleteEtudes = bp.ForceCompleteEtudes.Where(predicate).ToList();
+          bp.ForceCompleteEtudes = bp.ForceCompleteEtudes.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1628,7 +1628,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.CuesSeen is null) { return; }
-          bp.CuesSeen = bp.CuesSeen.Where(predicate).ToList();
+          bp.CuesSeen = bp.CuesSeen.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1743,7 +1743,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.AnswersSelected is null) { return; }
-          bp.AnswersSelected = bp.AnswersSelected.Where(predicate).ToList();
+          bp.AnswersSelected = bp.AnswersSelected.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -1882,7 +1882,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.ActiveEvents is null) { return; }
-          bp.ActiveEvents = bp.ActiveEvents.Where(predicate).ToList();
+          bp.ActiveEvents = bp.ActiveEvents.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -2081,7 +2081,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_Regions is null) { return; }
-          bp.m_Regions = bp.m_Regions.Where(predicate).ToArray();
+          bp.m_Regions = bp.m_Regions.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -2158,7 +2158,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_History is null) { return; }
-          bp.m_History = bp.m_History.Where(predicate).ToArray();
+          bp.m_History = bp.m_History.Where(e => !predicate(e)).ToArray();
         });
     }
 

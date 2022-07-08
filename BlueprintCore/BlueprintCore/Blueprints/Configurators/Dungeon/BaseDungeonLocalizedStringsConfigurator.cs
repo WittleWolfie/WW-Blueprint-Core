@@ -101,7 +101,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         bp =>
         {
           if (bp.LeaderboardRecordValues is null) { return; }
-          bp.LeaderboardRecordValues = bp.LeaderboardRecordValues.Where(predicate).ToArray();
+          bp.LeaderboardRecordValues = bp.LeaderboardRecordValues.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         bp =>
         {
           if (bp.LeaderboardCharacterValues is null) { return; }
-          bp.LeaderboardCharacterValues = bp.LeaderboardCharacterValues.Where(predicate).ToArray();
+          bp.LeaderboardCharacterValues = bp.LeaderboardCharacterValues.Where(e => !predicate(e)).ToArray();
         });
     }
 

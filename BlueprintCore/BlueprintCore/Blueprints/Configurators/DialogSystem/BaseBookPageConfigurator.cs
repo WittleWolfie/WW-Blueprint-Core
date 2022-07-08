@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.Cues is null) { return; }
-          bp.Cues = bp.Cues.Where(predicate).ToList();
+          bp.Cues = bp.Cues.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.Answers is null) { return; }
-          bp.Answers = bp.Answers.Where(predicate).ToList();
+          bp.Answers = bp.Answers.Where(e => !predicate(e)).ToList();
         });
     }
 

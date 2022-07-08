@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_GenericSpritesLink is null) { return; }
-          bp.m_GenericSpritesLink = bp.m_GenericSpritesLink.Where(predicate).ToList();
+          bp.m_GenericSpritesLink = bp.m_GenericSpritesLink.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_SettingTypeScreensList is null) { return; }
-          bp.m_SettingTypeScreensList = bp.m_SettingTypeScreensList.Where(predicate).ToList();
+          bp.m_SettingTypeScreensList = bp.m_SettingTypeScreensList.Where(e => !predicate(e)).ToList();
         });
     }
 

@@ -223,7 +223,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_Synchronized is null) { return; }
-          bp.m_Synchronized = bp.m_Synchronized.Where(predicate).ToList();
+          bp.m_Synchronized = bp.m_Synchronized.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -388,7 +388,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_LinkedCampaigns is null) { return; }
-          bp.m_LinkedCampaigns = bp.m_LinkedCampaigns.Where(predicate).ToList();
+          bp.m_LinkedCampaigns = bp.m_LinkedCampaigns.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -515,7 +515,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_AddedAreaMechanics is null) { return; }
-          bp.m_AddedAreaMechanics = bp.m_AddedAreaMechanics.Where(predicate).ToList();
+          bp.m_AddedAreaMechanics = bp.m_AddedAreaMechanics.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -630,7 +630,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_StartsWith is null) { return; }
-          bp.m_StartsWith = bp.m_StartsWith.Where(predicate).ToList();
+          bp.m_StartsWith = bp.m_StartsWith.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -745,7 +745,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_StartsOnComplete is null) { return; }
-          bp.m_StartsOnComplete = bp.m_StartsOnComplete.Where(predicate).ToList();
+          bp.m_StartsOnComplete = bp.m_StartsOnComplete.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -890,7 +890,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
         bp =>
         {
           if (bp.m_ConflictingGroups is null) { return; }
-          bp.m_ConflictingGroups = bp.m_ConflictingGroups.Where(predicate).ToList();
+          bp.m_ConflictingGroups = bp.m_ConflictingGroups.Where(e => !predicate(e)).ToList();
         });
     }
 

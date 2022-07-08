@@ -443,7 +443,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           if (bp.TrashLootTypes is null) { return; }
-          bp.TrashLootTypes = bp.TrashLootTypes.Where(predicate).ToArray();
+          bp.TrashLootTypes = bp.TrashLootTypes.Where(e => !predicate(e)).ToArray();
         });
     }
 

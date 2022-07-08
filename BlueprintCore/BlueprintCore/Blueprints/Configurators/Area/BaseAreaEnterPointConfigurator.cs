@@ -149,7 +149,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_TooltipList is null) { return; }
-          bp.m_TooltipList = bp.m_TooltipList.Where(predicate).ToList();
+          bp.m_TooltipList = bp.m_TooltipList.Where(e => !predicate(e)).ToList();
         });
     }
 

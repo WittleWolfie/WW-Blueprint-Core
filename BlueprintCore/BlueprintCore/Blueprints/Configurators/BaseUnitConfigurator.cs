@@ -502,7 +502,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_StartingInventory is null) { return; }
-          bp.m_StartingInventory = bp.m_StartingInventory.Where(predicate).ToArray();
+          bp.m_StartingInventory = bp.m_StartingInventory.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -655,7 +655,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.AlternativeBrains is null) { return; }
-          bp.AlternativeBrains = bp.AlternativeBrains.Where(predicate).ToArray();
+          bp.AlternativeBrains = bp.AlternativeBrains.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -942,7 +942,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_AdditionalTemplates is null) { return; }
-          bp.m_AdditionalTemplates = bp.m_AdditionalTemplates.Where(predicate).ToArray();
+          bp.m_AdditionalTemplates = bp.m_AdditionalTemplates.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -1057,7 +1057,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_AddFacts is null) { return; }
-          bp.m_AddFacts = bp.m_AddFacts.Where(predicate).ToArray();
+          bp.m_AddFacts = bp.m_AddFacts.Where(e => !predicate(e)).ToArray();
         });
     }
 

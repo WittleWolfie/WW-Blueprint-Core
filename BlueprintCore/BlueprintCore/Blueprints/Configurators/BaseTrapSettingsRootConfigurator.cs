@@ -129,7 +129,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_Settings is null) { return; }
-          bp.m_Settings = bp.m_Settings.Where(predicate).ToArray();
+          bp.m_Settings = bp.m_Settings.Where(e => !predicate(e)).ToArray();
         });
     }
 

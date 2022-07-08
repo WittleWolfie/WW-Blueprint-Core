@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.Conditions is null) { return; }
-          bp.Conditions = bp.Conditions.Where(predicate).ToArray();
+          bp.Conditions = bp.Conditions.Where(e => !predicate(e)).ToArray();
         });
     }
 

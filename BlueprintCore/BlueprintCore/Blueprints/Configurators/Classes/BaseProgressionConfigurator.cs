@@ -79,7 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_Classes is null) { return; }
-          bp.m_Classes = bp.m_Classes.Where(predicate).ToArray();
+          bp.m_Classes = bp.m_Classes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -192,7 +192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_Archetypes is null) { return; }
-          bp.m_Archetypes = bp.m_Archetypes.Where(predicate).ToArray();
+          bp.m_Archetypes = bp.m_Archetypes.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_AlternateProgressionClasses is null) { return; }
-          bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses.Where(predicate).ToArray();
+          bp.m_AlternateProgressionClasses = bp.m_AlternateProgressionClasses.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -456,7 +456,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.UIGroups is null) { return; }
-          bp.UIGroups = bp.UIGroups.Where(predicate).ToArray();
+          bp.UIGroups = bp.UIGroups.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -610,7 +610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_UIDeterminatorsGroup is null) { return; }
-          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(predicate).ToArray();
+          bp.m_UIDeterminatorsGroup = bp.m_UIDeterminatorsGroup.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -764,7 +764,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_FeaturesRankIncrease is null) { return; }
-          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(predicate).ToList();
+          bp.m_FeaturesRankIncrease = bp.m_FeaturesRankIncrease.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -853,7 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.LevelEntries is null) { return; }
-          bp.LevelEntries = bp.LevelEntries.Where(predicate).ToArray();
+          bp.LevelEntries = bp.LevelEntries.Where(e => !predicate(e)).ToArray();
         });
     }
 

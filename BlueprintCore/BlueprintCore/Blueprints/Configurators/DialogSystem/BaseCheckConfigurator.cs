@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.DCModifiers is null) { return; }
-          bp.DCModifiers = bp.DCModifiers.Where(predicate).ToArray();
+          bp.DCModifiers = bp.DCModifiers.Where(e => !predicate(e)).ToArray();
         });
     }
 

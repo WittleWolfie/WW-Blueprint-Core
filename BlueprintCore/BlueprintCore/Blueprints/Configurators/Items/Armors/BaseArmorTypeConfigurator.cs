@@ -422,7 +422,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           if (bp.m_EquipmentEntityAlternatives is null) { return; }
-          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(predicate).ToArray();
+          bp.m_EquipmentEntityAlternatives = bp.m_EquipmentEntityAlternatives.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -537,7 +537,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         bp =>
         {
           if (bp.m_Enchantments is null) { return; }
-          bp.m_Enchantments = bp.m_Enchantments.Where(predicate).ToArray();
+          bp.m_Enchantments = bp.m_Enchantments.Where(e => !predicate(e)).ToArray();
         });
     }
 

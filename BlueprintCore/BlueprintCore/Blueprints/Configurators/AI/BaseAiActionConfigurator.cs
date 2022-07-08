@@ -267,7 +267,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_ActorConsiderations is null) { return; }
-          bp.m_ActorConsiderations = bp.m_ActorConsiderations.Where(predicate).ToArray();
+          bp.m_ActorConsiderations = bp.m_ActorConsiderations.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -391,7 +391,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_TargetConsiderations is null) { return; }
-          bp.m_TargetConsiderations = bp.m_TargetConsiderations.Where(predicate).ToArray();
+          bp.m_TargetConsiderations = bp.m_TargetConsiderations.Where(e => !predicate(e)).ToArray();
         });
     }
 

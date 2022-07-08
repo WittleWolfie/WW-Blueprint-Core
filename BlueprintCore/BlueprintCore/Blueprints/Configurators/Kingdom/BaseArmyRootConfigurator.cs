@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_TravelingArmiesByChapter is null) { return; }
-          bp.m_TravelingArmiesByChapter = bp.m_TravelingArmiesByChapter.Where(predicate).ToArray();
+          bp.m_TravelingArmiesByChapter = bp.m_TravelingArmiesByChapter.Where(e => !predicate(e)).ToArray();
         });
     }
 

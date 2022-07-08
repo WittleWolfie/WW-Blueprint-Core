@@ -92,7 +92,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.PlaneOffset is null) { return; }
-          bp.PlaneOffset = bp.PlaneOffset.Where(predicate).ToArray();
+          bp.PlaneOffset = bp.PlaneOffset.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -169,7 +169,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.UpOffset is null) { return; }
-          bp.UpOffset = bp.UpOffset.Where(predicate).ToArray();
+          bp.UpOffset = bp.UpOffset.Where(e => !predicate(e)).ToArray();
         });
     }
 

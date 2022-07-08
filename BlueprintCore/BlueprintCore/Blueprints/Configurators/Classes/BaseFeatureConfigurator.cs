@@ -109,7 +109,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_NameModifiersCache is null) { return; }
-          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(predicate).ToArray();
+          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -186,7 +186,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_DescriptionModifiersCache is null) { return; }
-          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(predicate).ToArray();
+          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -262,7 +262,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.Groups is null) { return; }
-          bp.Groups = bp.Groups.Where(predicate).ToArray();
+          bp.Groups = bp.Groups.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -401,7 +401,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.IsPrerequisiteFor is null) { return; }
-          bp.IsPrerequisiteFor = bp.IsPrerequisiteFor.Where(predicate).ToList();
+          bp.IsPrerequisiteFor = bp.IsPrerequisiteFor.Where(e => !predicate(e)).ToList();
         });
     }
 

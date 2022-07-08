@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.m_EventSolutions is null) { return; }
-          bp.m_EventSolutions = bp.m_EventSolutions.Where(predicate).ToArray();
+          bp.m_EventSolutions = bp.m_EventSolutions.Where(e => !predicate(e)).ToArray();
         });
     }
 

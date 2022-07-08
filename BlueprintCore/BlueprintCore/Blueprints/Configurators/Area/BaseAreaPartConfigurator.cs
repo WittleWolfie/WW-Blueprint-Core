@@ -176,7 +176,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_AudioTimeOfDayVariants is null) { return; }
-          bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(predicate).ToArray();
+          bp.m_AudioTimeOfDayVariants = bp.m_AudioTimeOfDayVariants.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -252,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         bp =>
         {
           if (bp.m_SoundBankNames is null) { return; }
-          bp.m_SoundBankNames = bp.m_SoundBankNames.Where(predicate).ToArray();
+          bp.m_SoundBankNames = bp.m_SoundBankNames.Where(e => !predicate(e)).ToArray();
         });
     }
 

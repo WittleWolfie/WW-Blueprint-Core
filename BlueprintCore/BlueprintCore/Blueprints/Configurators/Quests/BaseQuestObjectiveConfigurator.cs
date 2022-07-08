@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.m_Addendums is null) { return; }
-          bp.m_Addendums = bp.m_Addendums.Where(predicate).ToList();
+          bp.m_Addendums = bp.m_Addendums.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -231,7 +231,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.m_Areas is null) { return; }
-          bp.m_Areas = bp.m_Areas.Where(predicate).ToList();
+          bp.m_Areas = bp.m_Areas.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -375,7 +375,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.Locations is null) { return; }
-          bp.Locations = bp.Locations.Where(predicate).ToList();
+          bp.Locations = bp.Locations.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -490,7 +490,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.MultiEntranceEntries is null) { return; }
-          bp.MultiEntranceEntries = bp.MultiEntranceEntries.Where(predicate).ToList();
+          bp.MultiEntranceEntries = bp.MultiEntranceEntries.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -694,7 +694,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           if (bp.m_NextObjectives is null) { return; }
-          bp.m_NextObjectives = bp.m_NextObjectives.Where(predicate).ToList();
+          bp.m_NextObjectives = bp.m_NextObjectives.Where(e => !predicate(e)).ToList();
         });
     }
 

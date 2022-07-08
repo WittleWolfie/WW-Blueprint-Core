@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         bp =>
         {
           if (bp.Sounds is null) { return; }
-          bp.Sounds = bp.Sounds.Where(predicate).ToList();
+          bp.Sounds = bp.Sounds.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -145,7 +145,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         bp =>
         {
           if (bp.ArmyManagement is null) { return; }
-          bp.ArmyManagement = bp.ArmyManagement.Where(predicate).ToList();
+          bp.ArmyManagement = bp.ArmyManagement.Where(e => !predicate(e)).ToList();
         });
     }
 
@@ -222,7 +222,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         bp =>
         {
           if (bp.Tooltip is null) { return; }
-          bp.Tooltip = bp.Tooltip.Where(predicate).ToList();
+          bp.Tooltip = bp.Tooltip.Where(e => !predicate(e)).ToList();
         });
     }
 

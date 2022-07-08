@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Chapters is null) { return; }
-          bp.Chapters = bp.Chapters.Where(predicate).ToArray();
+          bp.Chapters = bp.Chapters.Where(e => !predicate(e)).ToArray();
         });
     }
 

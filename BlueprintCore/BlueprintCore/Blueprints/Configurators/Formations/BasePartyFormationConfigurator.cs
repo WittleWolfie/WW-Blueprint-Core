@@ -69,7 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         bp =>
         {
           if (bp.Positions is null) { return; }
-          bp.Positions = bp.Positions.Where(predicate).ToArray();
+          bp.Positions = bp.Positions.Where(e => !predicate(e)).ToArray();
         });
     }
 

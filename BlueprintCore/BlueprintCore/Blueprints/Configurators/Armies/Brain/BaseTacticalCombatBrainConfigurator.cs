@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         bp =>
         {
           if (bp.m_TacticalActions is null) { return; }
-          bp.m_TacticalActions = bp.m_TacticalActions.Where(predicate).ToArray();
+          bp.m_TacticalActions = bp.m_TacticalActions.Where(e => !predicate(e)).ToArray();
         });
     }
 

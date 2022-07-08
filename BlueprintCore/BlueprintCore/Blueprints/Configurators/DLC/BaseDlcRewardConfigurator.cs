@@ -97,7 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           if (bp.m_IncludeAssetPaths is null) { return; }
-          bp.m_IncludeAssetPaths = bp.m_IncludeAssetPaths.Where(predicate).ToArray();
+          bp.m_IncludeAssetPaths = bp.m_IncludeAssetPaths.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -174,7 +174,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           if (bp.m_IncludeObjects is null) { return; }
-          bp.m_IncludeObjects = bp.m_IncludeObjects.Where(predicate).ToArray();
+          bp.m_IncludeObjects = bp.m_IncludeObjects.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -251,7 +251,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bp =>
         {
           if (bp.m_Dlcs is null) { return; }
-          bp.m_Dlcs = bp.m_Dlcs.Where(predicate).ToList();
+          bp.m_Dlcs = bp.m_Dlcs.Where(e => !predicate(e)).ToList();
         });
     }
 

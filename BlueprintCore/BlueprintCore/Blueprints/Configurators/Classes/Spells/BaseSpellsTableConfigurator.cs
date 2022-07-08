@@ -86,7 +86,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         bp =>
         {
           if (bp.Levels is null) { return; }
-          bp.Levels = bp.Levels.Where(predicate).ToArray();
+          bp.Levels = bp.Levels.Where(e => !predicate(e)).ToArray();
         });
     }
 

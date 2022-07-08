@@ -115,7 +115,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_Buffs is null) { return; }
-          bp.m_Buffs = bp.m_Buffs.Where(predicate).ToArray();
+          bp.m_Buffs = bp.m_Buffs.Where(e => !predicate(e)).ToArray();
         });
     }
 

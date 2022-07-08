@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_RemoveFacts is null) { return; }
-          bp.m_RemoveFacts = bp.m_RemoveFacts.Where(predicate).ToArray();
+          bp.m_RemoveFacts = bp.m_RemoveFacts.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -220,7 +220,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_AddFacts is null) { return; }
-          bp.m_AddFacts = bp.m_AddFacts.Where(predicate).ToArray();
+          bp.m_AddFacts = bp.m_AddFacts.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -297,7 +297,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.StatAdjustments is null) { return; }
-          bp.StatAdjustments = bp.StatAdjustments.Where(predicate).ToArray();
+          bp.StatAdjustments = bp.StatAdjustments.Where(e => !predicate(e)).ToArray();
         });
     }
 

@@ -133,7 +133,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
         bp =>
         {
           if (bp.List is null) { return; }
-          bp.List = bp.List.Where(predicate).ToList();
+          bp.List = bp.List.Where(e => !predicate(e)).ToList();
         });
     }
 

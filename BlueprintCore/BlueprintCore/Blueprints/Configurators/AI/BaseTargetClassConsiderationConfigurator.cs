@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_FirstPriorityClasses is null) { return; }
-          bp.m_FirstPriorityClasses = bp.m_FirstPriorityClasses.Where(predicate).ToArray();
+          bp.m_FirstPriorityClasses = bp.m_FirstPriorityClasses.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -233,7 +233,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           if (bp.m_SecondPriorityClasses is null) { return; }
-          bp.m_SecondPriorityClasses = bp.m_SecondPriorityClasses.Where(predicate).ToArray();
+          bp.m_SecondPriorityClasses = bp.m_SecondPriorityClasses.Where(e => !predicate(e)).ToArray();
         });
     }
 

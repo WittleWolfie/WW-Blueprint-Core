@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.m_AllowedSpellbooks is null) { return; }
-          bp.m_AllowedSpellbooks = bp.m_AllowedSpellbooks.Where(predicate).ToArray();
+          bp.m_AllowedSpellbooks = bp.m_AllowedSpellbooks.Where(e => !predicate(e)).ToArray();
         });
     }
 

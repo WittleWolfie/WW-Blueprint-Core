@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_Skills is null) { return; }
-          bp.m_Skills = bp.m_Skills.Where(predicate).ToArray();
+          bp.m_Skills = bp.m_Skills.Where(e => !predicate(e)).ToArray();
         });
     }
 

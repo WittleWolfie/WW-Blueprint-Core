@@ -105,7 +105,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_AttackFactions is null) { return; }
-          bp.m_AttackFactions = bp.m_AttackFactions.Where(predicate).ToArray();
+          bp.m_AttackFactions = bp.m_AttackFactions.Where(e => !predicate(e)).ToArray();
         });
     }
 
@@ -220,7 +220,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_AllyFactions is null) { return; }
-          bp.m_AllyFactions = bp.m_AllyFactions.Where(predicate).ToArray();
+          bp.m_AllyFactions = bp.m_AllyFactions.Where(e => !predicate(e)).ToArray();
         });
     }
 

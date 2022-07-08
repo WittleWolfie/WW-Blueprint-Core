@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         bp =>
         {
           if (bp.m_Items is null) { return; }
-          bp.m_Items = bp.m_Items.Where(predicate).ToArray();
+          bp.m_Items = bp.m_Items.Where(e => !predicate(e)).ToArray();
         });
     }
 

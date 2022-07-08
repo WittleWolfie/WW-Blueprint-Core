@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           if (bp.Entries is null) { return; }
-          bp.Entries = bp.Entries.Where(predicate).ToArray();
+          bp.Entries = bp.Entries.Where(e => !predicate(e)).ToArray();
         });
     }
 

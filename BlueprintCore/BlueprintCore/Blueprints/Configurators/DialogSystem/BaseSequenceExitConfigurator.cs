@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.Answers is null) { return; }
-          bp.Answers = bp.Answers.Where(predicate).ToList();
+          bp.Answers = bp.Answers.Where(e => !predicate(e)).ToList();
         });
     }
 

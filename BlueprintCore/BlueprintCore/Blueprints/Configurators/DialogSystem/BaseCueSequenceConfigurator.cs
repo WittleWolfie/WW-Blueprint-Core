@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           if (bp.Cues is null) { return; }
-          bp.Cues = bp.Cues.Where(predicate).ToList();
+          bp.Cues = bp.Cues.Where(e => !predicate(e)).ToList();
         });
     }
 

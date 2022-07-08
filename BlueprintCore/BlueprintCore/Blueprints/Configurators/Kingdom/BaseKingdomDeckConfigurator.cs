@@ -106,7 +106,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           if (bp.Events is null) { return; }
-          bp.Events = bp.Events.Where(predicate).ToList();
+          bp.Events = bp.Events.Where(e => !predicate(e)).ToList();
         });
     }
 

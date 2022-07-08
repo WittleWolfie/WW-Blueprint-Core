@@ -68,7 +68,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           if (bp.Features is null) { return; }
-          bp.Features = bp.Features.Where(predicate).ToArray();
+          bp.Features = bp.Features.Where(e => !predicate(e)).ToArray();
         });
     }
 

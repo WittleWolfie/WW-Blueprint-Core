@@ -110,7 +110,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           if (bp.m_Levels is null) { return; }
-          bp.m_Levels = bp.m_Levels.Where(predicate).ToArray();
+          bp.m_Levels = bp.m_Levels.Where(e => !predicate(e)).ToArray();
         });
     }
 

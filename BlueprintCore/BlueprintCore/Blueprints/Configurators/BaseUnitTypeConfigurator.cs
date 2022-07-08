@@ -204,7 +204,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           if (bp.m_SignatureAbilities is null) { return; }
-          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(predicate).ToArray();
+          bp.m_SignatureAbilities = bp.m_SignatureAbilities.Where(e => !predicate(e)).ToArray();
         });
     }
 
