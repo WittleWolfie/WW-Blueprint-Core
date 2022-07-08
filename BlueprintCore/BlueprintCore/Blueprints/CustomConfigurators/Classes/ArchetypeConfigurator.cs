@@ -102,7 +102,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           {
             if (entry.Level == level)
             {
-              entry.m_Features.RemoveAll(e => features.Contains(e));
+              entry.m_Features =
+                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
             }
           }
         });
@@ -172,7 +173,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           {
             if (entry.Level == level)
             {
-              entry.m_Features.RemoveAll(e => features.Contains(e));
+              entry.m_Features =
+                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
             }
           }
         });
