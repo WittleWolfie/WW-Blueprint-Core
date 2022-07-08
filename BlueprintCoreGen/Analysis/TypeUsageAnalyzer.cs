@@ -13,6 +13,7 @@ using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Blueprints.Quests;
@@ -25,6 +26,7 @@ using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.QA.Arbiter;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Customization;
+using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
 using Newtonsoft.Json;
@@ -56,22 +58,13 @@ namespace BlueprintCoreGen.Analysis
 		private static readonly Dictionary<Type, HashSet<Blueprint>> BlueprintsByType = new();
 		private static readonly Dictionary<Type, HashSet<Blueprint>> ExamplesByType = new();
 
-		private static readonly bool RunSearch = false;
 		private static readonly List<SearchFilter> SearchFilters = new()
 		{
 			new()
 			{
-				Name = "ExclusiveProgression",
-				BlueprintFilter = typeof(BlueprintProgression),
-				FieldNameFilter = "m_ExclusiveProgression",
-				StringFieldValue = "",
-				InvertFieldValue = true,
-			},
-			new()
-			{
-				Name = "PreviousLevels",
-				BlueprintFilter = typeof(BlueprintProgression),
-				FieldNameFilter = "GiveFeaturesForPreviousLevels",
+				Name = "RunInReasonContext",
+				ComponentFilter = typeof(AddOutgoingDamageTrigger),
+				FieldNameFilter = "RunInReasonContext",
 				StringFieldValue = "True",
 			}
 		};
@@ -459,7 +452,7 @@ namespace BlueprintCoreGen.Analysis
 				var data = bp.GetValue("Data");
 				var bpType = GetType(data)!;
 
-				if (SearchFilters.Any() && RunSearch)
+				if (SearchFilters.Any())
         {
 					foreach (var search in SearchFilters)
           {
