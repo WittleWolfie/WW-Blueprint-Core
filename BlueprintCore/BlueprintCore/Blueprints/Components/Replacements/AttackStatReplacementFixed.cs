@@ -13,6 +13,16 @@ using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Components.Replacements
 {
+  /// <summary>
+  /// Working replacement for Owlcat's AttackStatReplacement.
+  /// Instantiate using <see cref="New(ActionsBuilder, bool, bool, bool, bool, bool, bool)"/> and configure using its
+  /// methods.
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// Based on AttackStatReplacementTTT from
+  /// <see href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</see>
+  /// </remarks>
   [ComponentName("Replace attack stat")]
   [TypeId("574986d1-510c-40d7-ba51-92dd3b6d057d")]
   public class AttackStatReplacementFixed : UnitFactComponentDelegate,

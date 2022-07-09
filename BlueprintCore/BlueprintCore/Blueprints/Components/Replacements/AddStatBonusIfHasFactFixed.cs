@@ -17,7 +17,7 @@ using UnityEngine;
 namespace BlueprintCore.Blueprints.Components.Replacements
 {
   /// <summary>
-  /// Working replacement for Owlcat's AddStatBonusIfHasFact.
+  /// Working replacement for Owlcat's AddStatBonusIfHasFact. Instantiate using constructors.
   /// </summary>
   /// 
   /// <remarks>
