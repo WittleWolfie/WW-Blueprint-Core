@@ -72,12 +72,14 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 
       if (TargetBuff is not null)
       {
+        Logger.Verbose($"Applying buff to target.");
         evt.Target.Descriptor.AddBuff(TargetBuff, Owner.Wielder.Unit, TargetDuration.Seconds);
         FxHelper.SpawnFxOnUnit(TargetFx.Load(), evt.Target.View);
       }
 
       if (WielderBuff is not null)
       {
+        Logger.Verbose($"Applying buff to Wielder.");
         evt.Initiator.Descriptor.AddBuff(WielderBuff, Owner.Wielder.Unit, WielderDuration.Seconds);
         FxHelper.SpawnFxOnUnit(WielderFx.Load(), evt.Initiator.View);
       }
@@ -113,16 +115,16 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 
     [SerializeField]
     [ValidateNotNull]
-    public BlueprintBuffReference m_TargetBuff;
+    public BlueprintBuffReference m_TargetBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
     [ValidateNotNull]
-    public PrefabLink TargetFx;
+    public PrefabLink TargetFx = Constants.Empty.PrefabLink;
     public Rounds TargetDuration;
 
     [SerializeField]
     [ValidateNotNull]
-    public BlueprintBuffReference m_WielderBuff;
+    public BlueprintBuffReference m_WielderBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
     [ValidateNotNull]
-    public PrefabLink WielderFx;
+    public PrefabLink WielderFx = Constants.Empty.PrefabLink;
     public Rounds WielderDuration;
 
     public bool RequireNatural20;
