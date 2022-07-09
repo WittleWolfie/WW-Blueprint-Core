@@ -413,15 +413,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTriggerFixed"/>
+    /// </summary>
+    public TBuilder AddOutgoingDamageTriggerFixed(AddOutgoingDamageTriggerFixed component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddStatBonusIfHasFactFixed"/>
     /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// </list>
-    /// </remarks>
     public TBuilder AddStatBonusIfHasFactFixed(AddStatBonusIfHasFactFixed component)
     {
       return AddComponent(component);

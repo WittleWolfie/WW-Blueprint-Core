@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
@@ -214,6 +215,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </list>
     /// </remarks>
     public TBuilder AddContextRankConfig(ContextRankConfig component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTriggerFixed"/>
+    /// </summary>
+    public TBuilder AddOutgoingDamageTriggerFixed(AddOutgoingDamageTriggerFixed component)
     {
       return AddComponent(component);
     }

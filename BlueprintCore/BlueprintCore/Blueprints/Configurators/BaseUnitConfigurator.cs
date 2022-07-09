@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
@@ -1138,6 +1139,14 @@ namespace BlueprintCore.Blueprints.Configurators
         {
           bp.m_HasAssignedChunkId = hasAssignedChunkId;
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTriggerFixed"/>
+    /// </summary>
+    public TBuilder AddOutgoingDamageTriggerFixed(AddOutgoingDamageTriggerFixed component)
+    {
+      return AddComponent(component);
     }
 
     /// <summary>

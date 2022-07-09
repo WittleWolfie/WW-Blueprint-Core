@@ -1205,13 +1205,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Adds <see cref="TargetHasBuffsFromCaster"/>
     /// </summary>
     ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// </list>
-    /// </remarks>
-    ///
     /// <param name="buffs">
     /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:

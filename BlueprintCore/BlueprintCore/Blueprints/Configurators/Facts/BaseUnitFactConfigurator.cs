@@ -290,6 +290,112 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
+    /// <item><term>DreadfulCarnage</term><description>fc37b70e3d064a147a3a99db4a86ee12</description></item>
+    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilityList">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="runInReasonContext">
+    /// <para>
+    /// InfoBox: To get access to initiator from spell or attack, or ability context
+    /// </para>
+    /// </param>
+    /// <param name="weaponType">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("Flagged for delete in the next release. Use AddOutgoingDamageTriggerFixed.")]
+    public TBuilder AddOutgoingDamageTrigger(
+        List<Blueprint<BlueprintAbilityReference>>? abilityList = null,
+        AbilityType? abilityType = null,
+        ActionsBuilder? actions = null,
+        bool? applyToAreaEffectDamage = null,
+        bool? checkAbilityType = null,
+        bool? checkDamageDealt = null,
+        bool? checkEnergyDamageType = null,
+        bool? checkSpellDescriptor = null,
+        bool? checkSpellParent = null,
+        bool? checkWeaponType = null,
+        CompareOperation.Type? compareType = null,
+        DamageEnergyType? energyType = null,
+        bool? ignoreDamageFromThisFact = null,
+        bool? notZeroDamage = null,
+        bool? runInReasonContext = null,
+        SpellDescriptorWrapper? spellDescriptorsList = null,
+        bool? targetKilledByThisDamage = null,
+        ContextValue? targetValue = null,
+        bool? triggerOnStatDamageOrEnergyDrain = null,
+        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
+    {
+      var component = new AddOutgoingDamageTrigger();
+      component.m_AbilityList = abilityList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AbilityList;
+      if (component.m_AbilityList is null)
+      {
+        component.m_AbilityList = new BlueprintAbilityReference[0];
+      }
+      component.m_AbilityType = abilityType ?? component.m_AbilityType;
+      component.Actions = actions?.Build() ?? component.Actions;
+      if (component.Actions is null)
+      {
+        component.Actions = Utils.Constants.Empty.Actions;
+      }
+      component.ApplyToAreaEffectDamage = applyToAreaEffectDamage ?? component.ApplyToAreaEffectDamage;
+      component.CheckAbilityType = checkAbilityType ?? component.CheckAbilityType;
+      component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
+      component.CheckEnergyDamageType = checkEnergyDamageType ?? component.CheckEnergyDamageType;
+      component.CheckSpellDescriptor = checkSpellDescriptor ?? component.CheckSpellDescriptor;
+      component.CheckSpellParent = checkSpellParent ?? component.CheckSpellParent;
+      component.CheckWeaponType = checkWeaponType ?? component.CheckWeaponType;
+      component.CompareType = compareType ?? component.CompareType;
+      component.EnergyType = energyType ?? component.EnergyType;
+      component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
+      component.NotZeroDamage = notZeroDamage ?? component.NotZeroDamage;
+      component.RunInReasonContext = runInReasonContext ?? component.RunInReasonContext;
+      component.SpellDescriptorsList = spellDescriptorsList ?? component.SpellDescriptorsList;
+      component.TargetKilledByThisDamage = targetKilledByThisDamage ?? component.TargetKilledByThisDamage;
+      component.TargetValue = targetValue ?? component.TargetValue;
+      if (component.TargetValue is null)
+      {
+        component.TargetValue = ContextValues.Constant(0);
+      }
+      component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain ?? component.TriggerOnStatDamageOrEnergyDrain;
+      component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
+      if (component.m_WeaponType is null)
+      {
+        component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="Blindsense"/>
     /// </summary>
     ///
@@ -8661,111 +8767,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddOutgoingDamageTrigger"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
-    /// <item><term>DreadfulCarnage</term><description>fc37b70e3d064a147a3a99db4a86ee12</description></item>
-    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="abilityList">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="runInReasonContext">
-    /// <para>
-    /// InfoBox: To get access to initiator from spell or attack, or ability context
-    /// </para>
-    /// </param>
-    /// <param name="weaponType">
-    /// <para>
-    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddOutgoingDamageTrigger(
-        List<Blueprint<BlueprintAbilityReference>>? abilityList = null,
-        AbilityType? abilityType = null,
-        ActionsBuilder? actions = null,
-        bool? applyToAreaEffectDamage = null,
-        bool? checkAbilityType = null,
-        bool? checkDamageDealt = null,
-        bool? checkEnergyDamageType = null,
-        bool? checkSpellDescriptor = null,
-        bool? checkSpellParent = null,
-        bool? checkWeaponType = null,
-        CompareOperation.Type? compareType = null,
-        DamageEnergyType? energyType = null,
-        bool? ignoreDamageFromThisFact = null,
-        bool? notZeroDamage = null,
-        bool? runInReasonContext = null,
-        SpellDescriptorWrapper? spellDescriptorsList = null,
-        bool? targetKilledByThisDamage = null,
-        ContextValue? targetValue = null,
-        bool? triggerOnStatDamageOrEnergyDrain = null,
-        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
-    {
-      var component = new AddOutgoingDamageTrigger();
-      component.m_AbilityList = abilityList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AbilityList;
-      if (component.m_AbilityList is null)
-      {
-        component.m_AbilityList = new BlueprintAbilityReference[0];
-      }
-      component.m_AbilityType = abilityType ?? component.m_AbilityType;
-      component.Actions = actions?.Build() ?? component.Actions;
-      if (component.Actions is null)
-      {
-        component.Actions = Utils.Constants.Empty.Actions;
-      }
-      component.ApplyToAreaEffectDamage = applyToAreaEffectDamage ?? component.ApplyToAreaEffectDamage;
-      component.CheckAbilityType = checkAbilityType ?? component.CheckAbilityType;
-      component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
-      component.CheckEnergyDamageType = checkEnergyDamageType ?? component.CheckEnergyDamageType;
-      component.CheckSpellDescriptor = checkSpellDescriptor ?? component.CheckSpellDescriptor;
-      component.CheckSpellParent = checkSpellParent ?? component.CheckSpellParent;
-      component.CheckWeaponType = checkWeaponType ?? component.CheckWeaponType;
-      component.CompareType = compareType ?? component.CompareType;
-      component.EnergyType = energyType ?? component.EnergyType;
-      component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
-      component.NotZeroDamage = notZeroDamage ?? component.NotZeroDamage;
-      component.RunInReasonContext = runInReasonContext ?? component.RunInReasonContext;
-      component.SpellDescriptorsList = spellDescriptorsList ?? component.SpellDescriptorsList;
-      component.TargetKilledByThisDamage = targetKilledByThisDamage ?? component.TargetKilledByThisDamage;
-      component.TargetValue = targetValue ?? component.TargetValue;
-      if (component.TargetValue is null)
-      {
-        component.TargetValue = ContextValues.Constant(0);
-      }
-      component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain ?? component.TriggerOnStatDamageOrEnergyDrain;
-      component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
-      if (component.m_WeaponType is null)
-      {
-        component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>

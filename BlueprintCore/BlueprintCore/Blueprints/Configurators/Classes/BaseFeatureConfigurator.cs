@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
@@ -1464,6 +1465,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       var component = new SpellDescriptorComponent();
       component.Descriptor = descriptor;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTriggerFixed"/>
+    /// </summary>
+    public TBuilder AddOutgoingDamageTriggerFixed(AddOutgoingDamageTriggerFixed component)
+    {
+      return AddComponent(component);
     }
 
     /// <summary>
