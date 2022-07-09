@@ -1,5 +1,12 @@
 ﻿# Changelog
 
+## v2.2.0 Release
+
+* Fixed and filled out unit test project
+    * Any future contributions must include unit tests for hand written code
+* ContextValues
+    * Added support for AbilityParameter
+
 ## v2.1.1 Release
 
 * Bugfixes:
