@@ -5,7 +5,8 @@
 * Fixed and filled out unit test project
     * Any future contributions must include unit tests for hand written code
 * ContextValues
-    * Added support for AbilityParameter
+    * Added support for `ContextValueType.AbilityParameter`
+    * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
 
 ## v2.1.1 Release
 
