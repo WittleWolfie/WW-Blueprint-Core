@@ -677,20 +677,23 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       public void AddRemarks(Type constructedType, List<string> remarks)
       {
+        var componentNameAttr = constructedType.GetCustomAttribute<ComponentNameAttribute>();
+        var examples = Examples.GetFor(constructedType);
+        if (!remarks.Any() && componentNameAttr is null && !examples.Any()) { return; }
+
         AddLine(@"///");
         AddLine(@"/// <remarks>");
         remarks.ForEach(paragraph => AddRemark(paragraph));
-        AddLine(@"///");
-        var componentNameAttr = constructedType.GetCustomAttribute<ComponentNameAttribute>();
+
         if (componentNameAttr is not null)
         {
-          AddRemark($"ComponentName: {componentNameAttr.Name}");
           AddLine(@"///");
+          AddRemark($"ComponentName: {componentNameAttr.Name}");
         }
 
-        var examples = Examples.GetFor(constructedType);
         if (examples.Any())
         {
+          AddLine(@"///");
           AddLine($"/// <list type=\"bullet\">");
           AddLine(@"/// <listheader>Used by</listheader>");
           Examples.GetFor(constructedType).ForEach(
