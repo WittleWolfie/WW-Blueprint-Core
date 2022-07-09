@@ -236,6 +236,9 @@ namespace BlueprintCore.Blueprints.Components.Replacements
       public RuleAttackRoll? LastAttack;
     }
 
+    // Enforce use of New()
+    private AddOutgoingDamageTriggerFixed() { }
+
     public static AddOutgoingDamageTriggerFixed New(
       ActionsBuilder actions,
       bool applyOncePerAttackRoll = false,
