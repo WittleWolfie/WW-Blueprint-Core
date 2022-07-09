@@ -69,6 +69,18 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v212-release">v2.1.2 Release</h2>
+<ul>
+<li>Bugfixes:
+<ul>
+<li>Restored pre 2.1 API for Randomize and SelectByValue</li>
+</ul>
+</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>If you updated code references you'll have to revert. This was an accidental / change introduced when params became a standard API.</li>
+</ul>
 <h2 id="v211-release">v2.1.1 Release</h2>
 <ul>
 <li>Bugfixes:
@@ -87,7 +99,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>If you were using any <code>RemoveFromX(Func&lt;Blueprint,bool&gt;)</code> functions the logic is now reversed. This matches the API design but not the function.</li>
 </ul>
@@ -132,7 +144,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>ProgressionConfigurator changed namespace
 <ul>
@@ -187,7 +199,7 @@
 <ul>
 <li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>Fixed a bug incorrectly identifying unique and non-unique components
 <ul>
@@ -196,7 +208,7 @@
 </li>
 </ul>
 <h2 id="v203-release">v2.0.3 Release</h2>
-<h3 id="breaking-changes-3">Breaking Changes</h3>
+<h3 id="breaking-changes-4">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -219,7 +231,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-4">Breaking Changes</h3>
+<h3 id="breaking-changes-5">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -275,7 +287,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-5">Breaking Changes</h3>
+<h3 id="breaking-changes-6">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>
