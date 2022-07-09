@@ -73,5 +73,21 @@ namespace BlueprintCore.Test.Utils.Types
       Assert.Equal(expected: ContextValueType.CasterProperty, actual: value.ValueType);
       Assert.Equal(expected: TestData.Blueprints.Property.Reference, actual: value.m_CustomProperty);
     }
+
+    [Fact]
+    public void SpellLevel()
+    {
+      var value = ContextValues.SpellLevel();
+      Assert.Equal(expected: ContextValueType.AbilityParameter, actual: value.ValueType);
+      Assert.Equal(expected: AbilityParameterType.Level, actual: value.m_AbilityParameter);
+    }
+
+    [Fact]
+    public void CasterStatBonus()
+    {
+      var value = ContextValues.CasterStatBonus();
+      Assert.Equal(expected: ContextValueType.AbilityParameter, actual: value.ValueType);
+      Assert.Equal(expected: AbilityParameterType.CasterStatBonus, actual: value.m_AbilityParameter);
+    }
   }
 }

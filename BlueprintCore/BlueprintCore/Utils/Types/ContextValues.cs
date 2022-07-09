@@ -62,5 +62,29 @@ namespace BlueprintCore.Utils.Types
         m_CustomProperty = property.Reference
       };
     }
+
+    /// <summary>
+    /// Uses <see cref="AbilityParameterType.Level"/>
+    /// </summary>
+    public static ContextValue SpellLevel()
+    {
+      return new ContextValue
+      {
+        ValueType = ContextValueType.AbilityParameter,
+        m_AbilityParameter = AbilityParameterType.Level
+      };
+    }
+
+    /// <summary>
+    /// Uses <see cref="AbilityParameterType.CasterStatBonus"/>
+    /// </summary>
+    public static ContextValue CasterStatBonus()
+    {
+      return new ContextValue
+      {
+        ValueType = ContextValueType.AbilityParameter,
+        m_AbilityParameter = AbilityParameterType.CasterStatBonus
+      };
+    }
   }
 }
