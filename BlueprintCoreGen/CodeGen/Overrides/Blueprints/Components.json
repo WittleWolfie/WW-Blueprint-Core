@@ -71,6 +71,11 @@
   },
 
   {
+    "TypeName": "AttackReplacementStat",
+    "ObsoleteComment": "Flagged for delete in the next release. Use AttackReplacementStatFixed."
+  },
+
+  {
     "TypeName": "Blindsense",
     "RequiredFields": [ "Range" ]
   },
@@ -261,6 +266,11 @@
 
   {
     "TypeName": "AddStatBonusIfHasFactFixed",
+    "Replace": "true"
+  },
+
+  {
+    "TypeName": "AttackStatReplacementFixed",
     "Replace": "true"
   },
 
