@@ -27,6 +27,8 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 {
   /// <summary>
   /// Working replacement for Owlcat's AddOutgoingDamageTrigger.
+  /// Instantiate using <see cref="New(ActionsBuilder, bool, bool, bool, bool, bool, bool)"/> and configure using its
+  /// methods.
   /// </summary>
   /// 
   /// <remarks>
@@ -76,6 +78,16 @@ namespace BlueprintCore.Blueprints.Components.Replacements
     {
       // Damage is from this fact and should be ignored
       if (!ApplyToDamageFromThisFact && e.Reason.Fact == Fact) { return; }
+
+      if (UseContextFromReason)
+      {
+        MechanicsContext context = e.Reason.Context;
+        using (context?.GetDataScope(target))
+        {
+          Actions.Run();
+          return;
+        }
+      }
 
       // If Fact is not a FactContextOwner then the actions have no context to run in
       if (Actions.HasActions && Fact is IFactContextOwner factContextOwner)
@@ -239,13 +251,18 @@ namespace BlueprintCore.Blueprints.Components.Replacements
     // Enforce use of New()
     private AddOutgoingDamageTriggerFixed() { }
 
+    /// <param name="useContextFromReason">
+    /// If set to true the actions run in the context of whatever triggered the damage event. For an example see
+    /// SithhudsRodBuff - 568b3b13328f4de192547bf145b7a3a4.
+    /// </param>
     public static AddOutgoingDamageTriggerFixed New(
       ActionsBuilder actions,
       bool applyOncePerAttackRoll = false,
       bool applyToAreaEffectDamage = false,
       bool applyToDamageFromThisFact = false,
       bool applyToDeadTarget = false,
-      bool applyToStatDamageAndEnergyDrain = false)
+      bool applyToStatDamageAndEnergyDrain = false,
+      bool useContextFromReason = false)
     {
       return new AddOutgoingDamageTriggerFixed
       {
@@ -254,7 +271,8 @@ namespace BlueprintCore.Blueprints.Components.Replacements
         ApplyToAreaEffectDamage = applyToAreaEffectDamage,
         ApplyToDamageFromThisFact = applyToDamageFromThisFact,
         ApplyToDeadTarget = applyToDeadTarget,
-        ApplyToStatDamageAndEnergyDrain = applyToStatDamageAndEnergyDrain
+        ApplyToStatDamageAndEnergyDrain = applyToStatDamageAndEnergyDrain,
+        UseContextFromReason = useContextFromReason
       };
     }
 
@@ -303,6 +321,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
     public bool ApplyToDamageFromThisFact;
     public bool ApplyToDeadTarget;
     public bool ApplyToStatDamageAndEnergyDrain;
+    public bool UseContextFromReason;
 
     public BlueprintWeaponTypeReference? m_WeaponType;
     public AbilityType? AbilityType;
