@@ -3,7 +3,9 @@
 ## v2.2.0 Release
 
 * Fixed and filled out unit test project
-    * Any future contributions must include unit tests for hand written code
+    * Future contributions must include unit tests as much as possible
+    * Types requiring extensive patching of the game library are exempt
+    * For example `AddOutgoingDamageTriggerFixed` has no tests because it requires extensive work to fake rule events and `TacticalCombatHelper`
 * ContextValues
     * Added support for `ContextValueType.AbilityParameter`
     * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
