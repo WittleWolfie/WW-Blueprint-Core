@@ -11,6 +11,7 @@
     <!-- Doc Config -->
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <BuildDocFx Condition=" '$(Configuration)'=='Debug' ">false</BuildDocFx>
+    <BuildDocFx Condition=" '$(Configuration)'=='Release' ">false</BuildDocFx>
 
     <!-- Package Config -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -27,6 +28,7 @@
     <Description>A library to simplify modifying Pathfinder: Wrath of the Righteous.</Description>
     <RepositoryUrl>https://github.com/WittleWolfie/WW-Blueprint-Core</RepositoryUrl>
     <PackageTags>pathfinder;wrath</PackageTags>
+    <Configurations>Debug;Release;DocRelease</Configurations>
   </PropertyGroup>
   
   <ItemGroup>
