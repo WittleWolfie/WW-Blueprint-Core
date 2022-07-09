@@ -270,6 +270,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
           ? GetFieldMethodName(methodPrefix, field.Name)
           : methodOverride.MethodName;
 
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+      }
+
       // Declaration
       method.AddLine($"public {returnType} {methodName}({parameterDeclaration})");
       method.AddLine($"{{");
