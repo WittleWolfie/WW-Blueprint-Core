@@ -84,6 +84,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
         MechanicsContext context = e.Reason.Context;
         using (context?.GetDataScope(target))
         {
+          Logger.Verbose($"Running actions in reason context.");
           Actions.Run();
           return;
         }
@@ -92,6 +93,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
       // If Fact is not a FactContextOwner then the actions have no context to run in
       if (Actions.HasActions && Fact is IFactContextOwner factContextOwner)
       {
+        Logger.Verbose($"Running actions in Fact context: {Fact.Name}");
         factContextOwner.RunActionInContext(Actions, target);
       }
       else
@@ -152,11 +154,13 @@ namespace BlueprintCore.Blueprints.Components.Replacements
     {
       if (ApplyOncePerAttackRoll && Data.LastAttack is not null && Data.LastAttack == evt.AttackRoll)
       {
+        Logger.Verbose($"Skipping: Apply only once per attack roll.");
         return;
       }
 
       if (WeaponType is not null && evt.DamageBundle.Weapon?.Blueprint?.Type != WeaponType)
       {
+        Logger.Verbose($"Skipping due to weapon type mismatch: {evt.DamageBundle.Weapon?.Blueprint?.Type?.name}");
         return;
       }
 
@@ -165,6 +169,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
         AbilityType? evtAbilityType = evt.Reason.Ability?.Blueprint?.Type ?? evt.Reason.Context?.SourceAbility?.Type;
         if (evtAbilityType == AbilityType)
         {
+          Logger.Verbose($"Skipping due to ability type mismatch: {evtAbilityType}");
           return;
         }
       }
@@ -173,6 +178,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
         && (evt.Reason.Ability is null
           || !evt.Reason.Ability.Blueprint.SpellDescriptor.HasFlag(SpellDescriptors.Value)))
       {
+        Logger.Verbose($"Skipping due to spell descriptor mismatch: {evt.Reason.Ability?.Blueprint?.SpellDescriptor}");
         return;
       }
 
@@ -189,12 +195,14 @@ namespace BlueprintCore.Blueprints.Components.Replacements
         }
         if (!energyTypeMatches)
         {
+          Logger.Verbose($"Skipping due to energy type mismatch.");
           return;
         }
       }
 
       if (!ApplyToAreaEffectDamage && evt.SourceArea)
       {
+        Logger.Verbose($"Skipping due to AoE.");
         return;
       }
 
@@ -211,6 +219,8 @@ namespace BlueprintCore.Blueprints.Components.Replacements
               || AbilityList.Contains(evt.SourceAbility.Parent));
         if (!abilityReasonMatches && !abilitySourceMatches)
         {
+          Logger.Verbose(
+            $"Skipping due ability mismatch: abilityReasonMatches - {abilityReasonMatches} abilitySourceMatches - {abilitySourceMatches}");
           return;
         }
       }
@@ -231,6 +241,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 
         if (!Data.WasTargetAlive || !isTargetAlive)
         {
+          Logger.Verbose($"Skipping due to dead target.");
           return;
         }
       }

@@ -29,6 +29,8 @@ namespace BlueprintCore.Blueprints.Components.Replacements
   public class AddStatBonusIfHasFactFixed :
     UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler
   {
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("AddStatBonusIfHasFactFixed");
+
     public ReferenceArrayProxy<BlueprintUnitFact, BlueprintUnitFactReference> RequiredFacts
     {
       get
@@ -61,6 +63,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
       {
         if (Owner.HasFact(blueprint))
         {
+          Logger.Verbose($"Bonus does not apply becuase of ExcludeFact: {blueprint.AssetGuid}");
           return false;
         }
       }
@@ -76,13 +79,19 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 
       bool allFacts = RequireAllFacts || m_RequiredFacts.Length == 1;
       var shouldApply = allFacts ? hasAllFacts : hasAnyFacts;
+
+      Logger.Verbose($"ShouldApplyBonus: hasAllFacts - {hasAllFacts} hasAnyFacts - {hasAnyFacts}");
       return InvertCondition ? !shouldApply : shouldApply;
     }
 
     private void Update()
     {
       ModifiableValue stat = Owner.Stats.GetStat(Stat);
-      if (stat == null) { return; }
+      if (stat == null)
+      {
+        Logger.Warn($"Owner is missing Stat: {Stat}");
+        return;
+      }
 
       if (ShouldApplyBonus())
       {
