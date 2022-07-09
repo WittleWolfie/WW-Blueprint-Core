@@ -12,8 +12,6 @@ using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
-using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Blueprints.Quests;
@@ -43,7 +41,7 @@ using System.Text.RegularExpressions;
 
 namespace BlueprintCoreGen.Analysis
 {
-	public static class TypeUsageAnalyzer
+  public static class TypeUsageAnalyzer
 	{
 		// When set to a positive number, limits the number of blueprints processed to allow for quicker iteration.
 		private static readonly int DebugLimit = -1;

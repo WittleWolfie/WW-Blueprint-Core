@@ -1,5 +1,4 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCore.Utils.Localization;
 using HarmonyLib;
 
 namespace BlueprintCore.Test.Patches
