@@ -55,6 +55,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
         }
       }
 
+      Logger.Verbose($"Matching buff count: {matchingBuffCount}");
       if (RequireAllBuffs)
       {
         return matchingBuffCount == CheckedBuffs.Length;
