@@ -13,7 +13,7 @@ namespace BlueprintCore.Conditions.New
   /// <summary>
   /// Checks if the target is in melee range.
   /// </summary>
-  [TypeId("6CD26AF1-B735-401E-9527-0E3661C2715E")]
+  [TypeId("6cd26af1-b735-401e-9527-0e3661c2715e")]
   public class TargetInMeleeRange : Condition
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetInMeleeRange");

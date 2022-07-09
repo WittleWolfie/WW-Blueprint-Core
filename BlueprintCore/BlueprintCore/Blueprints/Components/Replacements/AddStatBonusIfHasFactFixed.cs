@@ -25,7 +25,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
   /// <see href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</see>
   /// </remarks>
   [AllowMultipleComponents]
-  [TypeId("3DCFCE44-A7DD-48FE-9331-3681A43DBFA4")]
+  [TypeId("3dcfce44-a7dd-48fe-9331-3681a43dbfa4")]
   public class AddStatBonusIfHasFactFixed :
     UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler
   {

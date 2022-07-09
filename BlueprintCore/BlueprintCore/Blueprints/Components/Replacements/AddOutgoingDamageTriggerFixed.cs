@@ -39,7 +39,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
   [AllowedOn(typeof(BlueprintFeature))]
   [AllowedOn(typeof(BlueprintItemEnchantment))]
   [AllowedOn(typeof(BlueprintUnit))]
-  [TypeId("D085F1AF-4790-4597-A024-AE9AAD966A40")]
+  [TypeId("d085f1af-4790-4597-a024-ae9aad966a40")]
   public class AddOutgoingDamageTriggerFixed : UnitFactComponentDelegate<AddOutgoingDamageTriggerFixed.ComponentData>,
       IInitiatorRulebookHandler<RuleDealDamage>,
       IRulebookHandler<RuleDealDamage>,
