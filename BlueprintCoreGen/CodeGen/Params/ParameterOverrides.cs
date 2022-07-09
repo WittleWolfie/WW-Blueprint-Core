@@ -117,7 +117,11 @@ namespace BlueprintCoreGen.CodeGen.Params
 
       if (IsNullable is not null) { fieldParameter.SetIsNullable(IsNullable.Value); }
 
-      if (!string.IsNullOrEmpty(TypeName)) { fieldParameter.SetTypeName(TypeName); }
+      if (!string.IsNullOrEmpty(TypeName))
+      {
+        fieldParameter.SetTypeName(TypeName);
+        fieldParameter.SetParamsTypeName(TypeName);
+      }
 
       if (!string.IsNullOrEmpty(ParamName)) { fieldParameter.SetParamName(ParamName); }
 
@@ -134,7 +138,11 @@ namespace BlueprintCoreGen.CodeGen.Params
           });
       }
 
-      if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { fieldParameter.SetAssignmentFmtRhs(AssignmentFmtRhs); }
+      if (!string.IsNullOrEmpty(AssignmentFmtRhs))
+      {
+        fieldParameter.SetAssignmentFmtRhs(AssignmentFmtRhs);
+        fieldParameter.SetParamsAssignmentFmtRhs(AssignmentFmtRhs);
+      }
 
       if (ExtraAssignmentFmtLines.Any()) { fieldParameter.SetExtraAssignmentFmtLines(ExtraAssignmentFmtLines); }
     }

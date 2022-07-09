@@ -160,7 +160,7 @@ namespace BlueprintCoreGen.CodeGen.Params
     /// <summary>
     /// Type name used for ParamsDeclaration
     /// </summary>
-    private string ParamsTypeName { get; }
+    private string ParamsTypeName { get; set; }
 
     /// <summary>
     /// Comment format string where {0} is the parameter name
@@ -235,6 +235,11 @@ namespace BlueprintCoreGen.CodeGen.Params
       TypeName = typeName;
     }
 
+    public void SetParamsTypeName(string typeName)
+    {
+      ParamsTypeName = typeName;
+    }
+
     public void SetIsNullable(bool isNullable)
     {
       IsNullable = isNullable;
@@ -260,6 +265,11 @@ namespace BlueprintCoreGen.CodeGen.Params
     public void SetAssignmentFmtRhs(string assignmentFmtRhs)
     {
       AssignmentFmtRhs = assignmentFmtRhs;
+    }
+
+    public void SetParamsAssignmentFmtRhs(string assignmentFmtRhs)
+    {
+      ParamsAssignmentFmtRhs = assignmentFmtRhs;
     }
 
     public virtual void SetAssignmentIfNullRhs(string assignmentIfNullRhs)

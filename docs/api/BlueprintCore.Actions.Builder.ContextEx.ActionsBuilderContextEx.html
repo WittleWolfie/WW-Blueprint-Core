@@ -5151,19 +5151,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionRandomize_ActionWrapper___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Randomize(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize.ActionWrapper%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32____.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Randomize(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.ValueTuple%7BBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Int32%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L2057">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Randomize*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionRandomize_ActionWrapper___" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Randomize(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize.ActionWrapper[])">Randomize(ActionsBuilder, ContextActionRandomize.ActionWrapper[])</h4>
+  <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32____" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Randomize(BlueprintCore.Actions.Builder.ActionsBuilder,System.ValueTuple{BlueprintCore.Actions.Builder.ActionsBuilder,System.Int32}[])">Randomize(ActionsBuilder, (ActionsBuilder actions, Int32 weight)[])</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder Randomize(this ActionsBuilder builder, params ContextActionRandomize.ActionWrapper[] weightedActions)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder Randomize(this ActionsBuilder builder, params (ActionsBuilder actions, int weight)[] weightedActions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -5181,7 +5181,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionRandomize.ActionWrapper</span>[]</td>
+        <td><span class="xref">System.ValueTuple</span>&lt;<a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a>, <span class="xref">System.Int32</span>&gt;[]</td>
         <td><span class="parametername">weightedActions</span></td>
         <td><p>
 List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.
@@ -5205,7 +5205,7 @@ List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represent
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionRandomize_ActionWrapper____remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Randomize_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_BlueprintCore_Actions_Builder_ActionsBuilder_System_Int32_____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AmberLoveGlovesFeature12d49e8aa9ce501429f98c2ed564d94c</li><li>IncredibleMightMainBuff9a86d073d91f599439c8d4588cdb1fc8</li><li>Vrolikai_AreaEffect_DeathStealingGaze9fd8c97fa994e5b4da2ff5a9606faab5</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -6393,19 +6393,19 @@ InfoBox: If context already had saving throw use DC from it (for example if this
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionSelectByValue_ValueAndAction___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SelectByValue(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.Actions.ContextActionSelectByValue.ValueAndAction%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionsBuilder____.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SelectByValue(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.ValueTuple%7BKingmaker.UnitLogic.Mechanics.ContextValue%2CBlueprintCore.Actions.Builder.ActionsBuilder%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L2583">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SelectByValue*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionSelectByValue_ValueAndAction___" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SelectByValue(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSelectByValue.ValueAndAction[])">SelectByValue(ActionsBuilder, ContextActionSelectByValue.ValueAndAction[])</h4>
+  <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionsBuilder____" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SelectByValue(BlueprintCore.Actions.Builder.ActionsBuilder,System.ValueTuple{Kingmaker.UnitLogic.Mechanics.ContextValue,BlueprintCore.Actions.Builder.ActionsBuilder}[])">SelectByValue(ActionsBuilder, (ContextValue value, ActionsBuilder action)[])</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSelectByValue</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder SelectByValue(this ActionsBuilder builder, params ContextActionSelectByValue.ValueAndAction[] actionVariants)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder SelectByValue(this ActionsBuilder builder, params (ContextValue value, ActionsBuilder action)[] actionVariants)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -6423,7 +6423,7 @@ InfoBox: If context already had saving throw use DC from it (for example if this
         <td></td>
       </tr>
       <tr>
-        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionSelectByValue.ValueAndAction</span>[]</td>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span>, <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a>&gt;[]</td>
         <td><span class="parametername">actionVariants</span></td>
         <td><p>
 The action associated with the highest value is selected to run.
@@ -6447,7 +6447,7 @@ The action associated with the highest value is selected to run.
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionSelectByValue_ValueAndAction____remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SelectByValue_BlueprintCore_Actions_Builder_ActionsBuilder_System_ValueTuple_Kingmaker_UnitLogic_Mechanics_ContextValue_BlueprintCore_Actions_Builder_ActionsBuilder_____remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>ElementalAssessor6303b404df12b0f4793fa0763b21dd2c</li><li>FrigidTouchc83447189aabc72489164dfc246f3a36</li><li>SiroccoAreab21bc337e2beaa74b8823570cd45d6dd</li></ul>
 </div>
   <span class="small pull-right mobile-hide">

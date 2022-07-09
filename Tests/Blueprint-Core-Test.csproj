@@ -5,6 +5,7 @@
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>BlueprintCore.Test</RootNamespace>
     <IsPackable>false</IsPackable>
+    <Configurations>Debug;Release;DocRelease</Configurations>
   </PropertyGroup>
   
   <ItemGroup>

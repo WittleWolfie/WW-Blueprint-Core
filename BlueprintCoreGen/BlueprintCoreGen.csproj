@@ -3,6 +3,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <Configurations>Debug;Release;DocRelease</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
