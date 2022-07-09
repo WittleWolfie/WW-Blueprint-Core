@@ -66,6 +66,11 @@
   },
 
   {
+    "TypeName": "AddOutgoingDamageTrigger",
+    "ObsoleteComment": "Flagged for delete in the next release. Use AddOutgoingDamageTriggerFixed."
+  },
+
+  {
     "TypeName": "Blindsense",
     "RequiredFields": [ "Range" ]
   },
@@ -248,6 +253,11 @@
   },
 
   // ***** New Components ***** //
+
+  {
+    "TypeName": "AddOutgoingDamageTriggerFixed",
+    "Replace": "true"
+  },
 
   {
     "TypeName": "AddStatBonusIfHasFactFixed",
