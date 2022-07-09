@@ -341,6 +341,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
       // Parameter comments
       method.AddParameterComments(parameters);
 
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+      }
+
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
           ? GetComponentMethodName(componentTypeName)
@@ -494,6 +501,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       // Parameter comments
       method.AddParameterComments(parameters);
+
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+      }
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
@@ -673,14 +687,19 @@ namespace BlueprintCoreGen.CodeGen.Methods
           AddRemark($"ComponentName: {componentNameAttr.Name}");
           AddLine(@"///");
         }
-        AddLine($"/// <list type=\"bullet\">");
-        AddLine(@"/// <listheader>Used by</listheader>");
-        Examples.GetFor(constructedType).ForEach(
-          example =>
-            AddLine(
-              $"/// <item><term>{example.BlueprintName}</term>" +
-              $"<description>{example.BlueprintGuid}</description></item>"));
-        AddLine($"/// </list>");
+
+        var examples = Examples.GetFor(constructedType);
+        if (examples.Any())
+        {
+          AddLine($"/// <list type=\"bullet\">");
+          AddLine(@"/// <listheader>Used by</listheader>");
+          Examples.GetFor(constructedType).ForEach(
+            example =>
+              AddLine(
+                $"/// <item><term>{example.BlueprintName}</term>" +
+                $"<description>{example.BlueprintGuid}</description></item>"));
+          AddLine($"/// </list>");
+        }
         AddLine($"/// </remarks>");
       }
 
