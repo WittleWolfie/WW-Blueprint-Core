@@ -53,13 +53,13 @@ namespace BlueprintCore.Utils.Types
       };
     }
 
-    public static ContextValue CustomProperty(string property, bool toCaster = false)
+    public static ContextValue CustomProperty(
+      Blueprint<BlueprintUnitPropertyReference> property, bool toCaster = false)
     {
       return new ContextValue
       {
-        ValueType =
-            toCaster ? ContextValueType.CasterProperty : ContextValueType.TargetProperty,
-        m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property)
+        ValueType = toCaster ? ContextValueType.CasterProperty : ContextValueType.TargetProperty,
+        m_CustomProperty = property.Reference
       };
     }
   }
