@@ -1,5 +1,14 @@
 ﻿# Changelog
 
+## v2.1.2 Release
+
+* Bugfixes:
+    * Restored pre 2.1 API for Randomize and SelectByValue
+
+### Breaking Changes
+
+* If you updated code references you'll have to revert. This was an accidental / change introduced when params became a standard API.
+
 ## v2.1.1 Release
 
 * Bugfixes:
