@@ -342,10 +342,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddParameterComments(parameters);
 
       // Obsolete Attr
-      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      if (!string.IsNullOrEmpty(componentMethod.ObsoleteComment))
       {
         method.AddImport(typeof(ObsoleteAttribute));
-        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+        method.AddLine($"[Obsolete(\"{componentMethod.ObsoleteComment}\")]");
       }
 
       var methodName =
@@ -503,10 +503,10 @@ namespace BlueprintCoreGen.CodeGen.Methods
       method.AddParameterComments(parameters);
 
       // Obsolete Attr
-      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      if (!string.IsNullOrEmpty(builderMethod.ObsoleteComment))
       {
         method.AddImport(typeof(ObsoleteAttribute));
-        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+        method.AddLine($"[Obsolete(\"{builderMethod.ObsoleteComment}\")]");
       }
 
       var methodName =

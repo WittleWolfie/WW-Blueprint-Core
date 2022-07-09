@@ -52,7 +52,8 @@ namespace BlueprintCoreGen.CodeGen.Methods
     /// <summary>
     /// If true, flags the method as obsolete with the provided comment.
     /// </summary>
-    public string ObsoleteComment { get; } = string.Empty;
+    [JsonProperty]
+    public string ObsoleteComment { get; private set; } = string.Empty;
 
     /// <summary>
     /// List of fields (by name) required as method parameters.
