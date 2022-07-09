@@ -845,7 +845,7 @@
       {
         "FieldName": "m_Actions",
         "ParamName": "weightedActions",
-        "TypeName": "params (ActionsBuilder actions, int weight)[]",
+        "TypeName": "(ActionsBuilder actions, int weight)",
         "Required": "true",
         "CommentFmt": "List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.",
         "AssignmentFmtRhs": "{0}.Select(action => new ContextActionRandomize.ActionWrapper {{ Action = action.actions.Build(), Weight = action.weight }}).ToArray()"
@@ -1011,7 +1011,7 @@
     "CustomFields": [
       {
         "FieldName": "m_Variants",
-        "TypeName": "params (ContextValue value, ActionsBuilder action)[]",
+        "TypeName": "(ContextValue value, ActionsBuilder action)",
         "ParamName": "actionVariants",
         "CommentFmt": "The action associated with the highest value is selected to run.",
         "Required": "true",
