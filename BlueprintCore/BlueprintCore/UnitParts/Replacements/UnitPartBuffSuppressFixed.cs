@@ -313,7 +313,7 @@ namespace BlueprintCore.UnitParts.Replacements
       [HarmonyPostfix]
       static void Postfix(Buff __instance)
       {
-        var unitPartBuffSuppress = __instance.Owner.Get<UnitPartBuffSupressFixed>();
+        var unitPartBuffSuppress = __instance.Owner.Get<UnitPartBuffSuppressFixed>();
         if (unitPartBuffSuppress != null && !__instance.IsSuppressed)
         {
           __instance.IsSuppressed = unitPartBuffSuppress.IsSuppressedContinuously(__instance);
