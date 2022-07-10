@@ -1,10 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Kingmaker.UnitLogic.Mechanics.Conditions;
-using Kingmaker.Kingdom.Conditions;
-using Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions;
-using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
-using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 
 namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 {
@@ -14,38 +9,38 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
     public static readonly List<Type> Types =
       new()
       {
-        typeof(ContextConditionCasterIsPartyEnemy),
-        typeof(ContextConditionDungeonStage),
-        typeof(ContextConditionInContext),
-        typeof(ContextConditionStealth),
-        typeof(ContextConditionTargetIsEngaged),
-        typeof(BuildingHasNeighbours),
-        typeof(DaysTillNextMonth),
-        typeof(EventLifetime),
-        typeof(KingdomAlignmentIs),
-        typeof(KingdomAllArmiesInRegionDefeated),
-        typeof(KingdomArtisanState),
-        typeof(KingdomDay),
-        typeof(KingdomEventCanStart),
-        typeof(KingdomEventIsActive),
-        typeof(KingdomHasResolvableEvent),
-        typeof(KingdomHasUpgradeableSettlement),
-        typeof(KingdomIsVisible),
-        typeof(KingdomRegionIsUpgraded),
-        typeof(KingdomSettlementHasBuilding),
-        typeof(KingdomStatIsMaximum),
-        typeof(KingdomTaskResolvedBy),
-        typeof(KingdomUnrestCheck),
-        typeof(CheckUnitSeeUnit),
-        typeof(DualCompanionInactive),
-        typeof(Paused),
-        typeof(ChangeableDynamicIsLoaded),
-        typeof(CheckLos),
-        typeof(CompanionIsUnconscious),
-        typeof(CompanionStoryUnlocked),
-        typeof(CutsceneQueueState),
-        typeof(ItemFromCollectionCondition),
-        typeof(RomanceLocked),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDungeonStage),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionInContext),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStealth),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged),
+        typeof(Kingmaker.Kingdom.Conditions.BuildingHasNeighbours),
+        typeof(Kingmaker.Kingdom.Conditions.DaysTillNextMonth),
+        typeof(Kingmaker.Kingdom.Conditions.EventLifetime),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomAlignmentIs),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomAllArmiesInRegionDefeated),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomArtisanState),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomDay),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomEventCanStart),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomEventIsActive),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomHasResolvableEvent),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomHasUpgradeableSettlement),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomIsVisible),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomRegionIsUpgraded),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomSettlementHasBuilding),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomStatIsMaximum),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomTaskResolvedBy),
+        typeof(Kingmaker.Kingdom.Conditions.KingdomUnrestCheck),
+        typeof(Kingmaker.Assets.Code.Designers.EventConditionActionSystem.Conditions.CheckUnitSeeUnit),
+        typeof(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.DualCompanionInactive),
+        typeof(Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions.Paused),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.ChangeableDynamicIsLoaded),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.ItemFromCollectionCondition),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked),
       };
   }
 }
