@@ -1,6 +1,9 @@
 using BlueprintCore.Blueprints.Configurators;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
+using Kingmaker.UnitLogic.Mechanics.Components;
+using System.Linq;
 using Xunit;
 
 namespace BlueprintCore.Test.Blueprints.Configurators
@@ -45,6 +48,40 @@ namespace BlueprintCore.Test.Blueprints.Configurators
       Assert.NotNull(component);
 
       Assert.False(component.m_HideInstead);
+    }
+
+    [Fact]
+    public void EditComponents()
+    {
+      // First pass
+      GetConfigurator()
+        .AddComponent(ContextRankConfigs.BaseAttack(max: 5))
+        .AddComponent(ContextRankConfigs.MythicLevel(max: 6))
+        .AddComponent(ContextRankConfigs.BaseAttack(max: 6))
+        .AddComponent(ContextRankConfigs.BaseAttack(max: 10))
+        .Configure();
+
+      GetConfigurator()
+        .EditComponents<ContextRankConfig>(
+          c => c.m_Max = 20,
+          c => c.m_BaseValueType == ContextRankBaseValueType.BaseAttack && c.m_Max > 5)
+        .Configure();
+
+      T blueprint = GetBlueprint();
+      var components = blueprint.GetComponents<ContextRankConfig>();
+      Assert.Equal(expected: 4, actual: components.Count());
+
+      Assert.Equal(expected: ContextRankBaseValueType.BaseAttack, actual: components.ElementAt(0).m_BaseValueType);
+      Assert.Equal(expected: 5, actual: components.ElementAt(0).m_Max);
+
+      Assert.Equal(expected: ContextRankBaseValueType.MythicLevel, actual: components.ElementAt(1).m_BaseValueType);
+      Assert.Equal(expected: 6, actual: components.ElementAt(1).m_Max);
+
+      Assert.Equal(expected: ContextRankBaseValueType.BaseAttack, actual: components.ElementAt(2).m_BaseValueType);
+      Assert.Equal(expected: 20, actual: components.ElementAt(2).m_Max);
+
+      Assert.Equal(expected: ContextRankBaseValueType.BaseAttack, actual: components.ElementAt(3).m_BaseValueType);
+      Assert.Equal(expected: 20, actual: components.ElementAt(3).m_Max);
     }
   }
 }
