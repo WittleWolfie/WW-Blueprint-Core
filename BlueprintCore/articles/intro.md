@@ -107,6 +107,7 @@ The impact of this isn't significant but if you want to keep your assembly small
      
          <!-- BlueprintCore Entry Points -->
          <Entry Include="BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch" />
+         <Entry Include="BlueprintCore.UnitParts..Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch" />
      
          <!-- Replace with Your Mod Entry Points -->
          <Entry Include="BlueprintCoreTutorial.Main" />

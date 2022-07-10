@@ -8,6 +8,11 @@
     * Added support for `ContextValueType.AbilityParameter`
     * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
 
+### Breaking Changes
+
+* If you are using ILStrip there is a new patch, add the following entry point:
+    * `BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch`
+
 ## v2.1.2 Release
 
 * Bugfixes:
