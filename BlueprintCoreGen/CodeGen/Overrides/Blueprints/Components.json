@@ -67,12 +67,12 @@
 
   {
     "TypeName": "AddOutgoingDamageTrigger",
-    "ObsoleteComment": "Flagged for delete in the next release. Use AddOutgoingDamageTriggerFixed."
+    "ObsoleteComment": "Use AddOutgoingDamageTriggerFixed."
   },
 
   {
-    "TypeName": "AttackReplacementStat",
-    "ObsoleteComment": "Flagged for delete in the next release. Use AttackReplacementStatFixed."
+    "TypeName": "AttackStatReplacement",
+    "ObsoleteComment": "Use AttackReplacementStatFixed."
   },
 
   {
@@ -257,6 +257,16 @@
     "RequiredFields": [ "Descriptor" ]
   },
 
+  {
+    "TypeName": "SuppressBuffs",
+    "ObsoleteComment": "Use SuppressBuffsFixed."
+  },
+
+  {
+    "TypeName": "WeaponBuffOnConfirmedCrit",
+    "ObsoleteComment": "Use WeaponBuffOnConfirmedCritFixed."
+  },
+
   // ***** New Components ***** //
 
   {
@@ -275,7 +285,17 @@
   },
 
   {
+    "TypeName": "SuppressBuffsFixed",
+    "Replace": "true"
+  },
+
+  {
     "TypeName": "TargetHasBuffsFromCaster",
     "RequiredFields": [ "Buffs" ]
+  },
+
+  {
+    "TypeName": "WeaponBuffOnConfirmedCritFixed",
+    "Replace": "true"
   }
 ]
