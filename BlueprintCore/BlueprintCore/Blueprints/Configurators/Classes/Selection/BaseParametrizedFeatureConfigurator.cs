@@ -511,6 +511,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// InfoBox: Turn on to increase DC only for spells from spellbook
     /// </para>
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddAbilityFocusParametrized(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -518,63 +519,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     {
       var component = new AbilityFocusParametrized();
       component.SpellsOnly = spellsOnly ?? component.SpellsOnly;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFeatureParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterLoreReligionTier2Parametrized</term><description>3e006bc9bbf0b884a8d8853350bee846</description></item>
-    /// <item><term>TricksterLoreReligionTier3Parametrized</term><description>0466cdfa56f943608760952a6bf2a6fa</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddFeatureParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AddFeatureParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFeatureToPetParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>LichSkeletalCombatParametrized</term><description>b8a52bbe63e7d6b48b002ee474e90fdd</description></item>
-    /// <item><term>LichSkeletalRageParametrized</term><description>aaba9ebd2074e454aaed211698a34db0</description></item>
-    /// <item><term>LichSkeletalTeamworkParametrized</term><description>b042ff9901e7b104eac92c05aa39957a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddFeatureToPetParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        PetType? petType = null)
-    {
-      var component = new AddFeatureToPetParametrized();
-      component.PetType = petType ?? component.PetType;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -596,6 +540,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddExpandedArsenalMagicSchools(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -706,6 +651,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddFullWeaponMasterySkeletonParametrized(
         Blueprint<BlueprintParametrizedFeatureReference>? focus = null,
         Blueprint<BlueprintFeatureReference>? greaterFeature = null,
@@ -757,60 +703,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Adds <see cref="ImprovedCriticalEdgeParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterImprovedImprovedCritical</term><description>56f94badbba018b4b8277ce6e2e79e72</description></item>
-    /// <item><term>TricksterImprovedImprovedImprovedCritical</term><description>006a966007802a0478c9e21007207aac</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddImprovedCriticalEdgeParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new ImprovedCriticalEdgeParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ImprovedCriticalMythicParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ImprovedCriticalMythicFeat</term><description>8bc0190a4ec04bd489eec290aeaa6d07</description></item>
-    /// <item><term>TricksterImprovedImprovedImprovedCriticalImproved</term><description>319c882ab3cc51544ad2f3f43633d5b1</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddImprovedCriticalMythicParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new ImprovedCriticalMythicParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="ImprovedCriticalParametrized"/>
     /// </summary>
     ///
@@ -828,6 +720,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddImprovedCriticalParametrized(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -866,6 +759,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddKensaiChosenWeapon(
         Blueprint<BlueprintParametrizedFeatureReference>? focus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -877,6 +771,251 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       {
         component.m_Focus = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
       }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ImprovedCriticalEdgeParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterImprovedImprovedCritical</term><description>56f94badbba018b4b8277ce6e2e79e72</description></item>
+    /// <item><term>TricksterImprovedImprovedImprovedCritical</term><description>006a966007802a0478c9e21007207aac</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddImprovedCriticalEdgeParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ImprovedCriticalEdgeParametrized();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SchoolMasteryParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SchoolMasteryMythicFeat</term><description>ac830015569352b458efcdfae00a948c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddSchoolMasteryParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new SchoolMasteryParametrized();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponFocusParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// <item><term>WeaponFocusGreater</term><description>09c9e82965fb4334b984a1e9df3bd088</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="mythicFocus">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddWeaponFocusParametrized(
+        ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintUnitFactReference>? mythicFocus = null)
+    {
+      var component = new WeaponFocusParametrized();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.m_MythicFocus = mythicFocus?.Reference ?? component.m_MythicFocus;
+      if (component.m_MythicFocus is null)
+      {
+        component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponMasteryParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>WeaponMasteryParametrized</term><description>38ae5ac04463a8947b7c06a6c72dd6bb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddWeaponMasteryParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new WeaponMasteryParametrized();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponSpecializationParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>WeaponSpecialization</term><description>31470b17e8446ae4ea0dacd6c5817d86</description></item>
+    /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
+    /// <item><term>WeaponSpecializationMythicFeat</term><description>d84ac5b1931bc504a98bfefaa419e34f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddWeaponSpecializationParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? mythic = null)
+    {
+      var component = new WeaponSpecializationParametrized();
+      component.Mythic = mythic ?? component.Mythic;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddFeatureParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterLoreReligionTier2Parametrized</term><description>3e006bc9bbf0b884a8d8853350bee846</description></item>
+    /// <item><term>TricksterLoreReligionTier3Parametrized</term><description>0466cdfa56f943608760952a6bf2a6fa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddFeatureParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AddFeatureParametrized();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddFeatureToPetParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LichSkeletalCombatParametrized</term><description>b8a52bbe63e7d6b48b002ee474e90fdd</description></item>
+    /// <item><term>LichSkeletalRageParametrized</term><description>aaba9ebd2074e454aaed211698a34db0</description></item>
+    /// <item><term>LichSkeletalTeamworkParametrized</term><description>b042ff9901e7b104eac92c05aa39957a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddFeatureToPetParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        PetType? petType = null)
+    {
+      var component = new AddFeatureToPetParametrized();
+      component.PetType = petType ?? component.PetType;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ImprovedCriticalMythicParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ImprovedCriticalMythicFeat</term><description>8bc0190a4ec04bd489eec290aeaa6d07</description></item>
+    /// <item><term>TricksterImprovedImprovedImprovedCriticalImproved</term><description>319c882ab3cc51544ad2f3f43633d5b1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddImprovedCriticalMythicParametrized(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ImprovedCriticalMythicParametrized();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -977,32 +1116,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
     /// <summary>
-    /// Adds <see cref="SchoolMasteryParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SchoolMasteryMythicFeat</term><description>ac830015569352b458efcdfae00a948c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddSchoolMasteryParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new SchoolMasteryParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="SpellFocusParametrized"/>
     /// </summary>
     ///
@@ -1084,109 +1197,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SpellSpecializationParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="WeaponFocusParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
-    /// <item><term>WeaponFocusGreater</term><description>09c9e82965fb4334b984a1e9df3bd088</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    /// <param name="mythicFocus">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddWeaponFocusParametrized(
-        ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintUnitFactReference>? mythicFocus = null)
-    {
-      var component = new WeaponFocusParametrized();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.m_MythicFocus = mythicFocus?.Reference ?? component.m_MythicFocus;
-      if (component.m_MythicFocus is null)
-      {
-        component.m_MythicFocus = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="WeaponMasteryParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>WeaponMasteryParametrized</term><description>38ae5ac04463a8947b7c06a6c72dd6bb</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddWeaponMasteryParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new WeaponMasteryParametrized();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="WeaponSpecializationParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>WeaponSpecialization</term><description>31470b17e8446ae4ea0dacd6c5817d86</description></item>
-    /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
-    /// <item><term>WeaponSpecializationMythicFeat</term><description>d84ac5b1931bc504a98bfefaa419e34f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddWeaponSpecializationParametrized(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        bool? mythic = null)
-    {
-      var component = new WeaponSpecializationParametrized();
-      component.Mythic = mythic ?? component.Mythic;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

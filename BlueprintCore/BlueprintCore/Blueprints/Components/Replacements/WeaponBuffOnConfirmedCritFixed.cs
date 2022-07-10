@@ -10,9 +10,7 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Particles;
 using Owlcat.QA.Validation;
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BlueprintCore.Blueprints.Components.Replacements
 {

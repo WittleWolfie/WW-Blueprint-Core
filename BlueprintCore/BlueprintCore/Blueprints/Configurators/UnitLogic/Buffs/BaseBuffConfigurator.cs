@@ -429,6 +429,493 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="AddNocticulaBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add Nocticula gift
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ProfaneAscensionFeature</term><description>656e71ec777e495abc6845ff80204d96</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddNocticulaBonus(
+        ModifierDescriptor? descriptor = null,
+        StatType? highestStat = null,
+        ContextValue? highestStatBonus = null,
+        StatType? secondHighestStat = null,
+        ContextValue? secondHighestStatBonus = null)
+    {
+      var component = new AddNocticulaBonus();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.m_HighestStat = highestStat ?? component.m_HighestStat;
+      component.HighestStatBonus = highestStatBonus ?? component.HighestStatBonus;
+      if (component.HighestStatBonus is null)
+      {
+        component.HighestStatBonus = ContextValues.Constant(0);
+      }
+      component.m_SecondHighestStat = secondHighestStat ?? component.m_SecondHighestStat;
+      component.SecondHighestStatBonus = secondHighestStatBonus ?? component.SecondHighestStatBonus;
+      if (component.SecondHighestStatBonus is null)
+      {
+        component.SecondHighestStatBonus = ContextValues.Constant(0);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddTricksterAthleticBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add stat bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterAthleticsTier3Feature</term><description>e45bf795c4f84c3b8a83c011f8580491</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterAthleticBonus(
+        ModifierDescriptor? descriptor = null,
+        bool? isAdded = null)
+    {
+      var component = new AddTricksterAthleticBonus();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.m_IsAdded = isAdded ?? component.m_IsAdded;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BodyguardACBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: AC bonus against Attacks
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DivineGuardianTrothBuff</term><description>16dd5c27118a51b4f986f484ee388127</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="checkBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBodyguardACBonus(
+        Blueprint<BlueprintBuffReference>? checkBuff = null,
+        ModifierDescriptor? descriptor = null,
+        ContextValue? value = null)
+    {
+      var component = new BodyguardACBonus();
+      component.m_CheckBuff = checkBuff?.Reference ?? component.m_CheckBuff;
+      if (component.m_CheckBuff is null)
+      {
+        component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Value = value ?? component.Value;
+      if (component.Value is null)
+      {
+        component.Value = ContextValues.Constant(0);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Bugurt"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBugurt(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new Bugurt();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EqualForce"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EqualForceBuff</term><description>53d481a622caaf447abf6bcefb52f3c4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddEqualForce(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new EqualForce();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IndomitableMount"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Mobility check instead of AC
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>IndomitableMountBuff</term><description>616f994a244c44039fccbc1b03e6fba9</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="cooldownBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddIndomitableMount(
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
+    {
+      var component = new IndomitableMount();
+      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
+      if (component.m_CooldownBuff is null)
+      {
+        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="InHarmsWay"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: AC bonus against Attacks
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DivineGuardianTrothBuff</term><description>16dd5c27118a51b4f986f484ee388127</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="checkBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cooldownBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddInHarmsWay(
+        Blueprint<BlueprintBuffReference>? checkBuff = null,
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
+    {
+      var component = new InHarmsWay();
+      component.m_CheckBuff = checkBuff?.Reference ?? component.m_CheckBuff;
+      if (component.m_CheckBuff is null)
+      {
+        component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
+      if (component.m_CooldownBuff is null)
+      {
+        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MountedCombat"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Mobility check instead of AC
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MountedCombatBuff</term><description>5008df9965da43c593c98ed7e6cacfc6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="cooldownBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddMountedCombat(
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
+    {
+      var component = new MountedCombat();
+      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
+      if (component.m_CooldownBuff is null)
+      {
+        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MountedShield"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add stat bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MountedShieldBuff</term><description>7514ebdb264362544a4fe104cd4637de</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddMountedShield(
+        ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        StatType? stat = null)
+    {
+      var component = new MountedShield();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Stat = stat ?? component.Stat;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShroudOfWater"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Shroud of Water
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShroudOfWaterArmorEffectFeature</term><description>1ff803cb49f63ea4185490fae2c43ca7</description></item>
+    /// <item><term>ShroudOfWaterShieldEffectFeature</term><description>4d8feca11d6e29a499ae761b90eacdba</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="upgradeFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShroudOfWater(
+        ContextValue? baseValue = null,
+        ModifierDescriptor? descriptor = null,
+        StatType? stat = null,
+        Blueprint<BlueprintFeatureReference>? upgradeFeature = null)
+    {
+      var component = new ShroudOfWater();
+      component.BaseValue = baseValue ?? component.BaseValue;
+      if (component.BaseValue is null)
+      {
+        component.BaseValue = ContextValues.Constant(0);
+      }
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Stat = stat ?? component.Stat;
+      component.m_UpgradeFeature = upgradeFeature?.Reference ?? component.m_UpgradeFeature;
+      if (component.m_UpgradeFeature is null)
+      {
+        component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnwillingShield"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BindingsOfThePrinceBuffCaster</term><description>4459c5a498df0604b9cef7aa63d17584</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="masterAbility">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddUnwillingShield(
+        Blueprint<BlueprintAbilityReference>? masterAbility = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new UnwillingShield();
+      component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
+      if (component.m_MasterAbility is null)
+      {
+        component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnwillingShieldTarget"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BindingsOfThePrinceBuffTarget</term><description>27fd890432419db4ea8d803dcd1ddde9</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="masterAbility">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddUnwillingShieldTarget(
+        Blueprint<BlueprintAbilityReference>? masterAbility = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new UnwillingShieldTarget();
+      component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
+      if (component.m_MasterAbility is null)
+      {
+        component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="GlobalMapSpeedModifier"/>
     /// </summary>
     ///
@@ -514,45 +1001,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         component.FeetPerRound = ContextValues.Constant(0);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddNocticulaBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add Nocticula gift
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ProfaneAscensionFeature</term><description>656e71ec777e495abc6845ff80204d96</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddNocticulaBonus(
-        ModifierDescriptor? descriptor = null,
-        StatType? highestStat = null,
-        ContextValue? highestStatBonus = null,
-        StatType? secondHighestStat = null,
-        ContextValue? secondHighestStatBonus = null)
-    {
-      var component = new AddNocticulaBonus();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.m_HighestStat = highestStat ?? component.m_HighestStat;
-      component.HighestStatBonus = highestStatBonus ?? component.HighestStatBonus;
-      if (component.HighestStatBonus is null)
-      {
-        component.HighestStatBonus = ContextValues.Constant(0);
-      }
-      component.m_SecondHighestStat = secondHighestStat ?? component.m_SecondHighestStat;
-      component.SecondHighestStatBonus = secondHighestStatBonus ?? component.SecondHighestStatBonus;
-      if (component.SecondHighestStatBonus is null)
-      {
-        component.SecondHighestStatBonus = ContextValues.Constant(0);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -650,31 +1098,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_Feat = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
       }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddTricksterAthleticBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add stat bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterAthleticsTier3Feature</term><description>e45bf795c4f84c3b8a83c011f8580491</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTricksterAthleticBonus(
-        ModifierDescriptor? descriptor = null,
-        bool? isAdded = null)
-    {
-      var component = new AddTricksterAthleticBonus();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.m_IsAdded = isAdded ?? component.m_IsAdded;
       return AddComponent(component);
     }
 
@@ -808,32 +1231,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="Bugurt"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddBugurt(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new Bugurt();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="DropLootAndDestroyOnDeactivate"/>
     /// </summary>
     ///
@@ -859,40 +1256,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       var component = new DropLootAndDestroyOnDeactivate();
       Validate(coroutine);
       component.m_Coroutine = coroutine ?? component.m_Coroutine;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="MountedShield"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add stat bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>MountedShieldBuff</term><description>7514ebdb264362544a4fe104cd4637de</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddMountedShield(
-        ModifierDescriptor? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        StatType? stat = null)
-    {
-      var component = new MountedShield();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.Stat = stat ?? component.Stat;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -951,57 +1314,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       var component = new SetMagusFeatureActive();
       component.m_Feature = feature ?? component.m_Feature;
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShroudOfWater"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Shroud of Water
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShroudOfWaterArmorEffectFeature</term><description>1ff803cb49f63ea4185490fae2c43ca7</description></item>
-    /// <item><term>ShroudOfWaterShieldEffectFeature</term><description>4d8feca11d6e29a499ae761b90eacdba</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="upgradeFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddShroudOfWater(
-        ContextValue? baseValue = null,
-        ModifierDescriptor? descriptor = null,
-        StatType? stat = null,
-        Blueprint<BlueprintFeatureReference>? upgradeFeature = null)
-    {
-      var component = new ShroudOfWater();
-      component.BaseValue = baseValue ?? component.BaseValue;
-      if (component.BaseValue is null)
-      {
-        component.BaseValue = ContextValues.Constant(0);
-      }
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.Stat = stat ?? component.Stat;
-      component.m_UpgradeFeature = upgradeFeature?.Reference ?? component.m_UpgradeFeature;
-      if (component.m_UpgradeFeature is null)
-      {
-        component.m_UpgradeFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -2388,54 +2700,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="BodyguardACBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: AC bonus against Attacks
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DivineGuardianTrothBuff</term><description>16dd5c27118a51b4f986f484ee388127</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="checkBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddBodyguardACBonus(
-        Blueprint<BlueprintBuffReference>? checkBuff = null,
-        ModifierDescriptor? descriptor = null,
-        ContextValue? value = null)
-    {
-      var component = new BodyguardACBonus();
-      component.m_CheckBuff = checkBuff?.Reference ?? component.m_CheckBuff;
-      if (component.m_CheckBuff is null)
-      {
-        component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.Value = value ?? component.Value;
-      if (component.Value is null)
-      {
-        component.Value = ContextValues.Constant(0);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="BuffExtraEffects"/>
     /// </summary>
     ///
@@ -2509,104 +2773,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       if (component.m_ExtraEffectBuff is null)
       {
         component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="InHarmsWay"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: AC bonus against Attacks
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DivineGuardianTrothBuff</term><description>16dd5c27118a51b4f986f484ee388127</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="checkBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="cooldownBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddInHarmsWay(
-        Blueprint<BlueprintBuffReference>? checkBuff = null,
-        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
-    {
-      var component = new InHarmsWay();
-      component.m_CheckBuff = checkBuff?.Reference ?? component.m_CheckBuff;
-      if (component.m_CheckBuff is null)
-      {
-        component.m_CheckBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
-      if (component.m_CooldownBuff is null)
-      {
-        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="IndomitableMount"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Mobility check instead of AC
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>IndomitableMountBuff</term><description>616f994a244c44039fccbc1b03e6fba9</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="cooldownBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddIndomitableMount(
-        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
-    {
-      var component = new IndomitableMount();
-      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
-      if (component.m_CooldownBuff is null)
-      {
-        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       return AddComponent(component);
     }
@@ -2711,46 +2877,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
-    /// Adds <see cref="MountedCombat"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Mobility check instead of AC
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>MountedCombatBuff</term><description>5008df9965da43c593c98ed7e6cacfc6</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="cooldownBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddMountedCombat(
-        Blueprint<BlueprintBuffReference>? cooldownBuff = null)
-    {
-      var component = new MountedCombat();
-      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
-      if (component.m_CooldownBuff is null)
-      {
-        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="NeutralToFaction"/>
     /// </summary>
     ///
@@ -2836,94 +2962,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       if (component.m_Spell is null)
       {
         component.m_Spell = new BlueprintAbilityReference[0];
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="UnwillingShield"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BindingsOfThePrinceBuffCaster</term><description>4459c5a498df0604b9cef7aa63d17584</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="masterAbility">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddUnwillingShield(
-        Blueprint<BlueprintAbilityReference>? masterAbility = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new UnwillingShield();
-      component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
-      if (component.m_MasterAbility is null)
-      {
-        component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="UnwillingShieldTarget"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BindingsOfThePrinceBuffTarget</term><description>27fd890432419db4ea8d803dcd1ddde9</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="masterAbility">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddUnwillingShieldTarget(
-        Blueprint<BlueprintAbilityReference>? masterAbility = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new UnwillingShieldTarget();
-      component.m_MasterAbility = masterAbility?.Reference ?? component.m_MasterAbility;
-      if (component.m_MasterAbility is null)
-      {
-        component.m_MasterAbility = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -3401,32 +3439,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.Value = ContextValues.Constant(0);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="EqualForce"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>EqualForceBuff</term><description>53d481a622caaf447abf6bcefb52f3c4</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddEqualForce(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new EqualForce();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

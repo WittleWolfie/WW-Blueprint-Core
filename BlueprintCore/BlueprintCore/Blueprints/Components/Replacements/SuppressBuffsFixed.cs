@@ -7,7 +7,7 @@ using Kingmaker.UnitLogic;
 using System.Linq;
 using UnityEngine;
 
-namespace TabletopTweaks.Core.NewComponents.OwlcatReplacements
+namespace BlueprintCore.Blueprints.Components.Replacements
 {
   /// <summary>
   /// Working replacement for Owlcat's SuppressBuffs. Instantiate using the constructor and configure with its methods.
