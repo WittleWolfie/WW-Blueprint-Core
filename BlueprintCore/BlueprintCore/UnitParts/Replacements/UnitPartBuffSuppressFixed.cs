@@ -20,7 +20,7 @@ namespace BlueprintCore.UnitParts.Replacements
   /// Based on UnitPartBuffSuppress from
   /// <see href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</see>
   /// </remarks>
-  public class UnitPartBuffSupressFixed : OldStyleUnitPart
+  public class UnitPartBuffSuppressFixed : OldStyleUnitPart
   {
     public override void OnTurnOn()
     {
@@ -308,7 +308,7 @@ namespace BlueprintCore.UnitParts.Replacements
 
     // Suppress new buffs on attach if they are flagged
     [HarmonyPatch(typeof(Buff), nameof(Buff.OnAttach))]
-    private static class Buff_OnAttach_Suppression_Patch
+    static class Buff_OnAttach_Suppression_Patch
     {
       [HarmonyPostfix]
       static void Postfix(Buff __instance)

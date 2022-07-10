@@ -27,7 +27,7 @@ namespace TabletopTweaks.Core.NewComponents.OwlcatReplacements
 
     public override void OnActivate()
     {
-      var unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSupressFixed>();
+      var unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSuppressFixed>();
       if (ApplyToNewBuffs)
       {
         unitPartBuffSuppress.AddContinuousEntry(Fact, m_Buffs, Schools, Descriptor);
@@ -38,7 +38,7 @@ namespace TabletopTweaks.Core.NewComponents.OwlcatReplacements
 
     public override void OnDeactivate()
     {
-      var unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSupressFixed>();
+      var unitPartBuffSuppress = Owner.Ensure<UnitPartBuffSuppressFixed>();
       unitPartBuffSuppress.RemoveEntry(Fact);
     }
 
