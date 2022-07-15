@@ -232,5 +232,10 @@ namespace BlueprintCore.Utils
     {
       return new Blueprint<TRef>(BlueprintTool.GetRef<TRef>(guid.ToString()));
     }
+
+    public override string ToString()
+    {
+      return Reference.deserializedGuid.ToString();
+    }
   }
 }

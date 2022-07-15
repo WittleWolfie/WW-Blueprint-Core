@@ -2,11 +2,13 @@
 
 ## v2.2.0 Release
 
-* Fixed and filled out unit test project
-    * Future contributions should include unit tests to the extent possible
+* Added `ToString()` override to `Blueprint<>`
+    * This makes it easier to cast between types
 * ContextValues
     * Added support for `ContextValueType.AbilityParameter`
     * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
+* Fixed and filled out unit test project
+    * Future contributions should include unit tests to the extent possible
 
 ### Breaking Changes
 
