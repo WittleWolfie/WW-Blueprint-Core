@@ -98,3 +98,59 @@ It works! There are two problems now: there is no buff icon and if you have the 
 
 ### Handling Lingering Performance
 
+First we need to understand how Lingering Performance is implemented using BubblePrints:
+
+![Lingering Performance components](~/images/advanced_feat/lingering_performance.png)
+
+The only component with any mechanical effect is `AddMechanicsFeature`, and it's basically empty. To find out more you'll need to look up the component in a decompiler. It takes a bit of digging to find anything useful, so here's the overview:
+
+* `AddMechanicsFeature` declares the `MechanicsFeatureType` enum which has `LingeringPerformance` as a value
+* Following the enum doesn't turn up much, but notice that `GetFeature()` is used to look up a `CountableFlag` in the component's `OnTurnOn()` and `OnTurnOff()` methods
+* Looking for usages of the `UnitMechanicsFeatures.LingeringPerformance` flag leads to `ActivatableAbility.Stop()`
+
+Here you can see the logic:
+
+![Activatable Ability stop implementation](~/images/advanced_feat/activatable_ability_stop.png)
+
+This doesn't look good. `ActivatableAbility` is the "concrete" representation of `BlueprintActivatableAbility` and `m_AppliedBuff` is the associated buff. From this code you can see that `InspiredRageBuff` isn't removed when Raging Song is deactivated, so using `FactsChangeTrigger` won't work.
+
+If you can't use the buff then you need to trigger when the ability deactivates. There isn't a component to do this but there is an event that triggers, as seen in `ActivatableAbility.Stop()`: `IActivatableAbilityWillStopHandler`.
+
+Create a class which implements `IActivatableAbilityWillStopHandler`:
+
+```C#
+private class InspiredRageDeactivationHandler : IActivatableAbilityWillStopHandler
+{
+  public void HandleActivatableAbilityWillStop(ActivatableAbility ability)
+  {
+    // TODO
+  }
+}
+```
+
+Once registered an event handler will trigger on all applicable events. That means `HandleActivatableAbilityWillStop()` is called every time *any* activatable ability is turned off. The first thing the method should do is filter out unrelated events:
+
+```C#
+if (ability?.Blueprint != ActivatableAbilityRefs.InspiredRageAbility.Reference.Get())
+{
+  return;
+}
+```
+
+> ![NOTE]
+> Blueprints can be directly compared because there is only a single cached instance of any given game blueprint.
+
+Now it just needs to remove the Skald's Vigor buff. To get an idea of how to remove a buff look at the decompiled code for `ContextActionRemoveBuff`, the same action we're already using to remove the buff:
+
+```C#
+Buff skaldsVigor = ability.Owner.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BuffGuid));
+skaldsVigor?.Remove();
+```
+
+The last thing to do is register the handler inside of `Configure()`:
+
+```C#
+EventBus.Subscribe(new InspiredRageDeactivationHandler());
+```
+
+Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.
