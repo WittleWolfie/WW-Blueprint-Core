@@ -52,4 +52,49 @@ and unavailable to characters without it:
 
 ![Skald's Vigor showing prerequisite is missing](~/images/advanced_feat/missing_prereq.png)
 
-### 
+### Fast Healing
+
+Applying fast healing is done by creating a new buff:
+
+```C#
+BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(FeatureName)
+  .SetDescription(FeatureDescription)
+  .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
+  .AddContextRankConfig(ContextRankConfigs.StatBonus(StatType.Strength))
+  .Configure();
+```
+
+Now we'll need to apply the buff when Raging Song is active. To do that we'll need to have some way to trigger applying the buff. If you look at the `RagingSong` blueprint in BubblePrints it isn't very helpful. However, it is referenced in `SkaldProgression` and searching that reveals another feature, `InspiredRage`, which grants `InspiredRageAbility` which is the activatable ability for Raging Song.
+
+Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is `InspiredRageBuff`.
+
+> ![NOTE]
+> You could instead modify `InspiredRageBuff` or its downstream buff, `InspiredRageEffectBuff`, to add the fast healing effect. The tutorial doesn't use this approach because changes to game blueprints are more likely to conflict with game patches or other mods.
+
+There are multiple ways to trigger applying our buff. We'll use `FactsChangeTrigger` which provides a way to remove the buff as soon Raging Song ends as well.
+
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatName)
+  .SetDescription(FeatureDescription)
+  .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
+  .AddFactsChangeTrigger(
+    checkedFacts: new() { BuffRefs.InspiredRageBuff.ToString() },
+    onFactGainedActions:
+      ActionsBuilder.New().ApplyBuffPermanent(BuffName),
+    onFactLostActions:
+      ActionsBuilder.New().RemoveBuff(BuffName))
+  .Configure();
+```
+
+A permanent buff is appropriate because the buff is explicitly removed.
+
+Test it out and you should see something similar to this:
+
+![Skald's Vigor healing demo](~/images/advanced_feat/fast_healing.png)
+
+It works! There are two problems now: there is no buff icon and if you have the Lingering Performance feat the healing is not removed immediately.
+
+### Handling Lingering Performance
+
