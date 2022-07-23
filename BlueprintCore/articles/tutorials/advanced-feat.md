@@ -154,3 +154,76 @@ EventBus.Subscribe(new InspiredRageDeactivationHandler());
 ```
 
 Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.
+
+### Adding a Buff Icon
+
+#### Select an Icon
+
+This tutorial doesn't walk through creating an icon. You can use the [Unity Asset Store](https://assetstore.unity.com/) to find an icon, paid or free.
+
+My icons are edited composites of existing in-game icons:
+
+1. Download [AssetStudio](https://github.com/Perfare/AssetStudio)
+2. Extract game assets
+    * Most icons are in `%WrathPath%\Bundles\icons`
+3. Open icons in your photo editor of choice, I use [GIMP](https://www.gimp.org/)
+4. Combine, edit, and tweak the icon to your heart's content
+
+If you're creating new icons they should be 64x64.
+
+Here are the icons we'll use for Skald's Vigor: ![Skald's Vigor icon](~/images/advanced_feat/SkaldVigor.png) ![Skald's Vigor icon](~/images/advanced_feat/GreaterSkaldVigor.png)
+
+#### Create an AssetBundle
+
+It is common for mods to import PNG files directly, see [TabletopTweaks-Core's](https://github.com/Vek17/TabletopTweaks-Core/tree/master/TabletopTweaks-Core) `AssetLoader` for an example. This works but is not efficient and doesn't work if you want to import other assets such as models, textures, and shaders.
+
+1. Download [Unity](https://unity3d.com/get-unity/download/archive) version `2019.4.26f1`
+2. Create a new project with the 3D template
+3. Create a script to build an AssetBundle using [Unity's Tutorial](https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4)
+4. Create a new folder in Assets called **BundledAssets**
+5. Create a new folder in BundledAssets called **icons**
+
+Your Unity project should look similar to this:
+
+![Unity project bundle setup](~/images/advanced_feat/unity_bundle_setup.png)
+
+Select the icons folder, then **Assets > Import New Asset** and choose your icon image file.
+
+![Import unity asset](~/images/advanced_feat/import_asset.png)
+
+Your icon should be displayed in the folder contents. Select it and in the Inspector tab set **Texture Type** to **Sprite (2D and UI)** and click Apply.
+
+With the icon still selected, click the **AssetBundle** dropdown at the bottom of the Inspector tab, select **New** and enter **icons**. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:
+
+![Icon inspector tab](~/images/advanced_feat/unity_sprite_config.png)
+
+Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: icons and StreamingAssets. You can ignore StreamingAssets.
+
+#### Deploy the AssetBundle
+
+In your mod project create a new **Assets** folder, right click it, and select **Add > Existing Item**. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to **All Files** at the bottom right. Ignore `icons.manifest`, `icons.meta`, and `icons.manifest.meta`.
+
+Right click the AssetBundle, select **Properties**, then set **Copy to Output Directory** to **Copy if newer**:
+
+![AssetBundle properties in visual studio](~/images/advanced_feat/bundle_properties.png)
+
+Open your project file and update your deployment target:
+
+```xml
+<Target Name="Deploy" AfterTargets="ILStrip">
+<ItemGroup>
+  <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
+  <ModConfig Include="$(OutputPath)\Info.json" />
+  <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+  <Icons Include="$(OutputPath)\Assets\icons" />
+</ItemGroup>
+
+<Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+<Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+<Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+<Copy SourceFiles="@(Icons)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+</Target>
+```
+
+#### Load the AssetBundle
+
