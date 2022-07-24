@@ -283,6 +283,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.ImageLink"/>
     /// </summary>
+    ///
+    /// <param name="imageLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetImageLink(AssetLink<SpriteLink> imageLink)
     {
       return OnConfigureInternal(
@@ -308,6 +312,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.ForeImageLink"/>
     /// </summary>
+    ///
+    /// <param name="foreImageLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetForeImageLink(AssetLink<SpriteLink> foreImageLink)
     {
       return OnConfigureInternal(

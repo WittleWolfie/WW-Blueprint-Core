@@ -469,6 +469,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.GraphCache"/>
     /// </summary>
+    ///
+    /// <param name="graphCache">
+    /// You can pass in the animation using a TextAssetLink or it's AssetId.
+    /// </param>
     public TBuilder SetGraphCache(AssetLink<TextAssetLink> graphCache)
     {
       return OnConfigureInternal(

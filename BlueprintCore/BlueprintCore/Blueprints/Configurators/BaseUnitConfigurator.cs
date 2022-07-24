@@ -267,6 +267,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Prefab"/>
     /// </summary>
+    ///
+    /// <param name="prefab">
+    /// You can pass in the animation using a UnitViewLink or it's AssetId.
+    /// </param>
     public TBuilder SetPrefab(AssetLink<UnitViewLink> prefab)
     {
       return OnConfigureInternal(
@@ -2509,6 +2513,9 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <param name="description">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
     /// </param>
     /// <param name="maxExtraActions">
     /// <para>

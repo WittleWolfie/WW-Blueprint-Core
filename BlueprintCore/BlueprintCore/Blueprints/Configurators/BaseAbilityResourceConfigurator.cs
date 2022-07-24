@@ -81,6 +81,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityResource.m_Icon"/>
     /// </summary>
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(

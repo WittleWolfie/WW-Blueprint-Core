@@ -41,6 +41,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
     /// </summary>
+    ///
+    /// <param name="weaponFxPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetWeaponFxPrefab(AssetLink<PrefabLink> weaponFxPrefab)
     {
       return OnConfigureInternal(
@@ -669,6 +673,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -874,6 +881,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.

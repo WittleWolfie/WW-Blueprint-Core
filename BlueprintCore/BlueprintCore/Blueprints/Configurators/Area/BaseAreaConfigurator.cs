@@ -332,6 +332,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(
@@ -344,6 +348,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder AddToLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(
@@ -357,6 +365,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Removes elements from <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(

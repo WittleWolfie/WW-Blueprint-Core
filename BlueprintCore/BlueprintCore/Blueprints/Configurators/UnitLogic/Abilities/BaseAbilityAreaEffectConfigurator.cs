@@ -217,6 +217,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Fx"/>
     /// </summary>
+    ///
+    /// <param name="fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetFx(AssetLink<PrefabLink> fx)
     {
       return OnConfigureInternal(
@@ -860,6 +864,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     public TBuilder AddAbillityAreaEffectRoundFX(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,

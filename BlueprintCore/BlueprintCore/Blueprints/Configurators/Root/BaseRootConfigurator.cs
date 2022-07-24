@@ -913,6 +913,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.OptimizationDummyUnit"/>
     /// </summary>
+    ///
+    /// <param name="optimizationDummyUnit">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetOptimizationDummyUnit(AssetLink<PrefabLink> optimizationDummyUnit)
     {
       return OnConfigureInternal(
@@ -1080,6 +1084,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.StealthEffectPrefab"/>
     /// </summary>
+    ///
+    /// <param name="stealthEffectPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetStealthEffectPrefab(Asset<GameObject> stealthEffectPrefab)
     {
       return OnConfigureInternal(
@@ -1105,6 +1113,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.ExitStealthEffectPrefab"/>
     /// </summary>
+    ///
+    /// <param name="exitStealthEffectPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetExitStealthEffectPrefab(Asset<GameObject> exitStealthEffectPrefab)
     {
       return OnConfigureInternal(
@@ -1880,6 +1892,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.DefaultDissolveTexture"/>
     /// </summary>
+    ///
+    /// <param name="defaultDissolveTexture">
+    /// You can pass in the animation using a Texture2D or it's AssetId.
+    /// </param>
     public TBuilder SetDefaultDissolveTexture(Asset<Texture2D> defaultDissolveTexture)
     {
       return OnConfigureInternal(

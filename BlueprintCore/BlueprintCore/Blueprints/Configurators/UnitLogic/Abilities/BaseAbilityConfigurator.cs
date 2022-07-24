@@ -1447,6 +1447,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="appearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -1458,6 +1461,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
     /// </param>
     /// <param name="disappearProjectile">
     /// <para>
@@ -1476,6 +1482,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portalPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
     /// </param>
     [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddAbilitySwitchDualCompanion(
@@ -2275,6 +2284,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2286,6 +2298,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2305,6 +2320,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2316,6 +2340,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2713,6 +2740,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2724,6 +2754,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2743,6 +2776,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2754,6 +2796,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2855,6 +2900,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="appearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2866,6 +2914,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="disappearProjectile">
     /// <para>
@@ -2884,6 +2935,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorSwap(
         AssetLink<PrefabLink>? appearFx = null,
@@ -2941,6 +2995,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2952,6 +3009,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2971,6 +3031,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2982,6 +3051,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -3091,6 +3163,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -3102,6 +3177,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -3121,6 +3199,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -3132,6 +3219,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -3233,6 +3323,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -3244,6 +3337,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -3275,6 +3371,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -3286,6 +3391,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -3537,6 +3645,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -6064,6 +6178,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddAbilitySpawnFx(
         AbilitySpawnFxAnchor? anchor = null,
         float? delay = null,

@@ -23,6 +23,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/>
     /// </summary>
+    ///
+    /// <param name="onCreatureCastPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetOnCreatureCastPrefab(AssetLink<PrefabLink> onCreatureCastPrefab)
     {
       return OnConfigureInternal(
@@ -48,6 +52,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/>
     /// </summary>
+    ///
+    /// <param name="onCreaturePrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetOnCreaturePrefab(AssetLink<PrefabLink> onCreaturePrefab)
     {
       return OnConfigureInternal(

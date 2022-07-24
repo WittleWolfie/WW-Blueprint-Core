@@ -254,6 +254,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.DustOnFallPrefab"/>
     /// </summary>
+    ///
+    /// <param name="dustOnFallPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetDustOnFallPrefab(Asset<GameObject> dustOnFallPrefab)
     {
       return OnConfigureInternal(

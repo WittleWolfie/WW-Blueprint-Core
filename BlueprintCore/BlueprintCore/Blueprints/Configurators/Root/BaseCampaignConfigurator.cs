@@ -87,6 +87,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.KeyArtLink"/>
     /// </summary>
+    ///
+    /// <param name="keyArtLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetKeyArtLink(AssetLink<SpriteLink> keyArtLink)
     {
       return OnConfigureInternal(

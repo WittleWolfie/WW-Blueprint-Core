@@ -48,6 +48,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/>
     /// </summary>
+    ///
+    /// <param name="unitDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetUnitDisappearFx(AssetLink<PrefabLink> unitDisappearFx)
     {
       return OnConfigureInternal(
@@ -73,6 +77,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/>
     /// </summary>
+    ///
+    /// <param name="unitAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetUnitAppearFx(AssetLink<PrefabLink> unitAppearFx)
     {
       return OnConfigureInternal(

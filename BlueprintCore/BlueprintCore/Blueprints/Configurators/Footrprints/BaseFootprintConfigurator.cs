@@ -23,6 +23,10 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
     /// </summary>
+    ///
+    /// <param name="leftFootPrint">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetLeftFootPrint(AssetLink<PrefabLink> leftFootPrint)
     {
       return OnConfigureInternal(
@@ -48,6 +52,10 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.RightFootPrint"/>
     /// </summary>
+    ///
+    /// <param name="rightFootPrint">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetRightFootPrint(AssetLink<PrefabLink> rightFootPrint)
     {
       return OnConfigureInternal(

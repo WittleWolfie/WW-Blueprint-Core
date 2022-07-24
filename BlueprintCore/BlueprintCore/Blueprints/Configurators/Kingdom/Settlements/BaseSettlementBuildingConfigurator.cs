@@ -122,6 +122,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.CompletedPrefab"/>
     /// </summary>
+    ///
+    /// <param name="completedPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetCompletedPrefab(AssetLink<PrefabLink> completedPrefab)
     {
       return OnConfigureInternal(
@@ -147,6 +151,10 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/>
     /// </summary>
+    ///
+    /// <param name="unfinishedPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetUnfinishedPrefab(AssetLink<PrefabLink> unfinishedPrefab)
     {
       return OnConfigureInternal(

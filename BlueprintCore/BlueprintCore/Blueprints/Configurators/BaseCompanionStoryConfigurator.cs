@@ -119,6 +119,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintCompanionStory.m_ImageLink"/>
     /// </summary>
+    ///
+    /// <param name="imageLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetImageLink(AssetLink<SpriteLink> imageLink)
     {
       return OnConfigureInternal(

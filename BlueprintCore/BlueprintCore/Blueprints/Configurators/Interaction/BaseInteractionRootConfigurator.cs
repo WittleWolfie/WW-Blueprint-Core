@@ -94,6 +94,10 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets the value of <see cref="BlueprintInteractionRoot.m_DestructionFx"/>
     /// </summary>
+    ///
+    /// <param name="destructionFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetDestructionFx(AssetLink<PrefabLink> destructionFx)
     {
       return OnConfigureInternal(

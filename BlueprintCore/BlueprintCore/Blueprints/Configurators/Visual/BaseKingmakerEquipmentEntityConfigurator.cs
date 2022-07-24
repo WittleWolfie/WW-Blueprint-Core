@@ -25,6 +25,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
+    ///
+    /// <param name="maleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder SetMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
@@ -37,6 +41,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to the contents of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
+    ///
+    /// <param name="maleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder AddToMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
@@ -50,6 +58,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes elements from <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
+    ///
+    /// <param name="maleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
@@ -102,6 +114,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
+    ///
+    /// <param name="femaleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder SetFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(
@@ -114,6 +130,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Adds to the contents of <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
+    ///
+    /// <param name="femaleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder AddToFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(
@@ -127,6 +147,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Removes elements from <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
+    ///
+    /// <param name="femaleArray">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(

@@ -23,6 +23,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Morning"/>
     /// </summary>
+    ///
+    /// <param name="morning">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetMorning(Asset<GameObject> morning)
     {
       return OnConfigureInternal(
@@ -48,6 +52,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Day"/>
     /// </summary>
+    ///
+    /// <param name="day">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetDay(Asset<GameObject> day)
     {
       return OnConfigureInternal(
@@ -73,6 +81,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Evening"/>
     /// </summary>
+    ///
+    /// <param name="evening">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetEvening(Asset<GameObject> evening)
     {
       return OnConfigureInternal(
@@ -98,6 +110,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Night"/>
     /// </summary>
+    ///
+    /// <param name="night">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetNight(Asset<GameObject> night)
     {
       return OnConfigureInternal(

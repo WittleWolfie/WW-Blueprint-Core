@@ -41,6 +41,10 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Picture"/>
     /// </summary>
+    ///
+    /// <param name="picture">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetPicture(AssetLink<SpriteLink> picture)
     {
       return OnConfigureInternal(
@@ -66,6 +70,10 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Video"/>
     /// </summary>
+    ///
+    /// <param name="video">
+    /// You can pass in the animation using a VideoLink or it's AssetId.
+    /// </param>
     public TBuilder SetVideo(AssetLink<VideoLink> video)
     {
       return OnConfigureInternal(
@@ -384,6 +392,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <param name="descriptionText">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
+    /// <param name="picture">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     /// <param name="solutionFoundText">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
@@ -395,6 +406,9 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     /// <param name="triggerText">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="video">
+    /// You can pass in the animation using a VideoLink or it's AssetId.
     /// </param>
     public TBuilder AddTutorialPage(
         LocalString? descriptionText = null,

@@ -28,6 +28,10 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_UnlockedIcon"/>
     /// </summary>
+    ///
+    /// <param name="unlockedIcon">
+    /// You can pass in the animation using a Texture2D or it's AssetId.
+    /// </param>
     public TBuilder SetUnlockedIcon(Asset<Texture2D> unlockedIcon)
     {
       return OnConfigureInternal(
@@ -53,6 +57,10 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_LockedIcon"/>
     /// </summary>
+    ///
+    /// <param name="lockedIcon">
+    /// You can pass in the animation using a Texture2D or it's AssetId.
+    /// </param>
     public TBuilder SetLockedIcon(Asset<Texture2D> lockedIcon)
     {
       return OnConfigureInternal(

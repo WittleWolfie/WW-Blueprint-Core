@@ -100,6 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <para>
     /// InfoBox: Set to null to hide in UI
     /// </para>
+    /// You can pass in the animation using a Sprite or it's AssetId.
     /// </param>
     public TBuilder SetIcon(Asset<Sprite> icon)
     {

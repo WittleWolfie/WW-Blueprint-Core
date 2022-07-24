@@ -23,6 +23,10 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpawnableObject.Prefab"/>
     /// </summary>
+    ///
+    /// <param name="prefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetPrefab(AssetLink<PrefabLink> prefab)
     {
       return OnConfigureInternal(

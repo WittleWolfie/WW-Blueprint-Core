@@ -74,6 +74,10 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/>
     /// </summary>
+    ///
+    /// <param name="beltItemPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetBeltItemPrefab(AssetLink<PrefabLink> beltItemPrefab)
     {
       return OnConfigureInternal(

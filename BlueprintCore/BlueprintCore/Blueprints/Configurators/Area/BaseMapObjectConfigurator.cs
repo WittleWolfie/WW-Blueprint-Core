@@ -23,6 +23,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintMapObject.Prefab"/>
     /// </summary>
+    ///
+    /// <param name="prefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetPrefab(Asset<GameObject> prefab)
     {
       return OnConfigureInternal(

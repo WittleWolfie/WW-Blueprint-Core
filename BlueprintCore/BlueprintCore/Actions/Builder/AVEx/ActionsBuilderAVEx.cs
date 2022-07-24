@@ -35,6 +35,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>Cue_0539</term><description>b53a2cc59cf1715488cc23e729a04ab3</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="image">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public static ActionsBuilder ChangeBookEventImage(
         this ActionsBuilder builder,
         AssetLink<SpriteLink> image)
@@ -85,6 +89,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>TigerOfSin_SpawnActions</term><description>d8416de51062a1a43af32df8764870a2</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="clipWrapper">
+    /// You can pass in the animation using an AnimationClipWrapperLink or it's AssetId.
+    /// </param>
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
         AssetLink<AnimationClipWrapperLink> clipWrapper,
@@ -151,6 +159,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
         AssetLink<PrefabLink> prefabLink)
@@ -302,6 +314,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="clipWrapper">
+    /// You can pass in the animation using an AnimationClipWrapperLink or it's AssetId.
+    /// </param>
     public static ActionsBuilder PlayAnimationOneShot(
         this ActionsBuilder builder,
         AssetLink<AnimationClipWrapperLink>? clipWrapper = null,
@@ -510,6 +526,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="fxPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
         AssetLink<PrefabLink>? fxPrefab = null,

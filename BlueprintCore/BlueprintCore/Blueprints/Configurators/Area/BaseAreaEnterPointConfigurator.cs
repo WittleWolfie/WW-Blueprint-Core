@@ -241,6 +241,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.Icon"/>
     /// </summary>
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
@@ -266,6 +270,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.HoverIcon"/>
     /// </summary>
+    ///
+    /// <param name="hoverIcon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetHoverIcon(Asset<Sprite> hoverIcon)
     {
       return OnConfigureInternal(

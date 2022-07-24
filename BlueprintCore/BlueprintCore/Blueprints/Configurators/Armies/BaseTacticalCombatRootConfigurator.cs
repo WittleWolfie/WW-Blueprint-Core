@@ -746,6 +746,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_PositiveMoraleFx"/>
     /// </summary>
+    ///
+    /// <param name="positiveMoraleFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetPositiveMoraleFx(AssetLink<PrefabLink> positiveMoraleFx)
     {
       return OnConfigureInternal(
@@ -771,6 +775,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_NegativeMoraleFx"/>
     /// </summary>
+    ///
+    /// <param name="negativeMoraleFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetNegativeMoraleFx(AssetLink<PrefabLink> negativeMoraleFx)
     {
       return OnConfigureInternal(

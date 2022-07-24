@@ -177,6 +177,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_Icon"/>
     /// </summary>
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
@@ -629,10 +633,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="delaySeconds">
     /// <para>
     /// InfoBox: Delay before unit translocation and spawn of appear fx
     /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="invulnerabilityBuff">
     /// <para>
@@ -788,6 +798,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="damagePrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="healingPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="maximizeFact">
     /// <para>
@@ -3883,6 +3899,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="prefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddReplaceUnitPrefab(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -4556,6 +4575,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>ScapegoatAbilityEnemyBuff</term><description>9261f8040c97eab458010defa54cb594</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder AddAttackerSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
@@ -4807,6 +4830,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>ScapegoatAbilityEnemyBuff</term><description>9261f8040c97eab458010defa54cb594</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder AddCasterSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
@@ -5439,6 +5466,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="equipmentEntity">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -5620,6 +5650,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a FamiliarLink or it's AssetId.
     /// </param>
     public TBuilder AddFamiliar(
         bool? hideInCapital = null,
@@ -7058,6 +7091,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -7261,6 +7297,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -8138,6 +8177,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="fakeDeathMessage">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
@@ -22539,6 +22581,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>StandartRageBuff</term><description>da8ce41ac3cd74742b80984ccc3c9613</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="activateFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="deactivateFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="eachRoundFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddBuffParticleEffectPlay(
         AssetLink<PrefabLink>? activateFx = null,
         AssetLink<PrefabLink>? deactivateFx = null,

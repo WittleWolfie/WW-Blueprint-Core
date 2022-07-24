@@ -397,6 +397,10 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.EnergyResistance"/>
     /// </summary>
+    ///
+    /// <param name="energyResistance">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder SetEnergyResistance(Asset<GameObject> energyResistance)
     {
       return OnConfigureInternal(

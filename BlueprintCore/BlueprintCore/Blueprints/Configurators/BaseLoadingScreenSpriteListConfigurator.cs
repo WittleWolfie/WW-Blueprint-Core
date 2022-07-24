@@ -24,6 +24,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
+    ///
+    /// <param name="genericSpritesLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder SetGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(
@@ -36,6 +40,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
+    ///
+    /// <param name="genericSpritesLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder AddToGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(
@@ -49,6 +57,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Removes elements from <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
+    ///
+    /// <param name="genericSpritesLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(

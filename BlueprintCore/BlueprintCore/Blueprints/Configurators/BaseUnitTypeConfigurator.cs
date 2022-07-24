@@ -38,6 +38,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitType.Image"/>
     /// </summary>
+    ///
+    /// <param name="image">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetImage(Asset<Sprite> image)
     {
       return OnConfigureInternal(

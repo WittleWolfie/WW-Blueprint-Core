@@ -127,6 +127,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.m_Icon"/>
     /// </summary>
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
@@ -951,6 +955,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder SetMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -963,6 +971,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder AddToMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -976,6 +988,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -1028,6 +1044,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder SetFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -1040,6 +1060,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder AddToFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -1053,6 +1077,10 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     public TBuilder RemoveFromFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
@@ -2492,11 +2520,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="abilityFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrameDecor">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="emblem">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portraitFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
     /// </param>
     /// <param name="portraits">
     /// <para>
@@ -2509,6 +2552,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="selectorFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortrait">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortraitLineart">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
     /// </param>
     public TBuilder AddMythicClassArtComponent(
         AssetLink<SpriteLink>? abilityFrame = null,

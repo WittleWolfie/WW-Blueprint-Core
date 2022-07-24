@@ -22,6 +22,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Main"/>
     /// </summary>
+    ///
+    /// <param name="main">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetMain(Asset<Sprite> main)
     {
       return OnConfigureInternal(
@@ -47,6 +51,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Active"/>
     /// </summary>
+    ///
+    /// <param name="active">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetActive(Asset<Sprite> active)
     {
       return OnConfigureInternal(
@@ -72,6 +80,10 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Hover"/>
     /// </summary>
+    ///
+    /// <param name="hover">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     public TBuilder SetHover(Asset<Sprite> hover)
     {
       return OnConfigureInternal(

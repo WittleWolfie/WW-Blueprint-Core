@@ -165,6 +165,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.FxOnStart"/>
     /// </summary>
+    ///
+    /// <param name="fxOnStart">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetFxOnStart(AssetLink<PrefabLink> fxOnStart)
     {
       return OnConfigureInternal(
@@ -190,6 +194,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.FxOnRemove"/>
     /// </summary>
+    ///
+    /// <param name="fxOnRemove">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder SetFxOnRemove(AssetLink<PrefabLink> fxOnRemove)
     {
       return OnConfigureInternal(
@@ -1471,6 +1479,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="prefab">
+    /// You can pass in the animation using a UnitViewLink or it's AssetId.
+    /// </param>
+    /// <param name="prefabFemale">
+    /// You can pass in the animation using a UnitViewLink or it's AssetId.
+    /// </param>
     /// <param name="race">
     /// <para>
     /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
@@ -2085,11 +2099,17 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// </list>
     /// </remarks>
     ///
+    /// <param name="firstFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="secondFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
     /// </param>
     public TBuilder AddResurrectionLogic(
         Asset<GameObject>? firstFx = null,
