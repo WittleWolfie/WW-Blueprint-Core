@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -36,11 +37,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     public static ActionsBuilder ChangeBookEventImage(
         this ActionsBuilder builder,
-        SpriteLink image)
+        AssetLink<SpriteLink> image)
     {
       var element = ElementTool.Create<ChangeBookEventImage>();
-      builder.Validate(image);
-      element.m_Image = image;
+      element.m_Image = image?.Get();
       return builder.Add(element);
     }
 
@@ -87,14 +87,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     public static ActionsBuilder RunAnimationClip(
         this ActionsBuilder builder,
-        AnimationClipWrapperLink clipWrapper,
+        AssetLink<AnimationClipWrapperLink> clipWrapper,
         ExecutionMode mode = ExecutionMode.Interrupted,
         float? transitionIn = null,
         float? transitionOut = null)
     {
       var element = ElementTool.Create<ContextActionRunAnimationClip>();
-      builder.Validate(clipWrapper);
-      element.ClipWrapper = clipWrapper;
+      element.ClipWrapper = clipWrapper?.Get();
       element.Mode = mode;
       element.TransitionIn = transitionIn ?? element.TransitionIn;
       element.TransitionOut = transitionOut ?? element.TransitionOut;
@@ -154,10 +153,10 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
-        PrefabLink prefabLink)
+        AssetLink<PrefabLink> prefabLink)
     {
       var element = ElementTool.Create<ContextActionSpawnFx>();
-      element.PrefabLink = prefabLink;
+      element.PrefabLink = prefabLink?.Get();
       return builder.Add(element);
     }
 
@@ -305,14 +304,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     public static ActionsBuilder PlayAnimationOneShot(
         this ActionsBuilder builder,
-        AnimationClipWrapperLink? clipWrapper = null,
+        AssetLink<AnimationClipWrapperLink>? clipWrapper = null,
         float? transitionIn = null,
         float? transitionOut = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<PlayAnimationOneShot>();
-      builder.Validate(clipWrapper);
-      element.m_ClipWrapper = clipWrapper ?? element.m_ClipWrapper;
+      element.m_ClipWrapper = clipWrapper?.Get() ?? element.m_ClipWrapper;
       element.TransitionIn = transitionIn ?? element.TransitionIn;
       element.TransitionOut = transitionOut ?? element.TransitionOut;
       builder.Validate(unit);
@@ -514,11 +512,11 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </remarks>
     public static ActionsBuilder SpawnFx(
         this ActionsBuilder builder,
-        PrefabLink? fxPrefab = null,
+        AssetLink<PrefabLink>? fxPrefab = null,
         TransformEvaluator? target = null)
     {
       var element = ElementTool.Create<SpawnFx>();
-      element.FxPrefab = fxPrefab ?? element.FxPrefab;
+      element.FxPrefab = fxPrefab?.Get() ?? element.FxPrefab;
       if (element.FxPrefab is null)
       {
         element.FxPrefab = Utils.Constants.Empty.PrefabLink;

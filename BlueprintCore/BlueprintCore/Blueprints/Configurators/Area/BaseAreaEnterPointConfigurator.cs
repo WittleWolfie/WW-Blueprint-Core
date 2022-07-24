@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
@@ -104,39 +105,51 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.m_TooltipList"/>
     /// </summary>
-    public TBuilder SetTooltipList(params LocalizedString[] tooltipList)
+    ///
+    /// <param name="tooltipList">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetTooltipList(params LocalString[] tooltipList)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(tooltipList);
-          bp.m_TooltipList = tooltipList.ToList();
+          bp.m_TooltipList = tooltipList?.Select(entry => entry?.LocalizedString)?.ToList();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintAreaEnterPoint.m_TooltipList"/>
     /// </summary>
-    public TBuilder AddToTooltipList(params LocalizedString[] tooltipList)
+    ///
+    /// <param name="tooltipList">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder AddToTooltipList(params LocalString[] tooltipList)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.m_TooltipList = bp.m_TooltipList ?? new();
-          bp.m_TooltipList.AddRange(tooltipList);
+          bp.m_TooltipList.AddRange(tooltipList?.Select(entry => entry?.LocalizedString));
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintAreaEnterPoint.m_TooltipList"/>
     /// </summary>
-    public TBuilder RemoveFromTooltipList(params LocalizedString[] tooltipList)
+    ///
+    /// <param name="tooltipList">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder RemoveFromTooltipList(params LocalString[] tooltipList)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.m_TooltipList is null) { return; }
-          bp.m_TooltipList = bp.m_TooltipList.Where(val => !tooltipList.Contains(val)).ToList();
+          var convertedParams = tooltipList.Select(entry => entry?.LocalizedString);
+          bp.m_TooltipList = bp.m_TooltipList.Where(val => !convertedParams.Contains(val)).ToList();
         });
     }
 
@@ -228,13 +241,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.Icon = icon;
+          bp.Icon = icon?.Get();
         });
     }
 
@@ -254,13 +266,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.HoverIcon"/>
     /// </summary>
-    public TBuilder SetHoverIcon(Sprite hoverIcon)
+    public TBuilder SetHoverIcon(Asset<Sprite> hoverIcon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(hoverIcon);
-          bp.HoverIcon = hoverIcon;
+          bp.HoverIcon = hoverIcon?.Get();
         });
     }
 

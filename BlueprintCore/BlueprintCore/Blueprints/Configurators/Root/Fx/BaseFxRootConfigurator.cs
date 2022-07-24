@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.Blueprints.Root.Fx;
@@ -253,13 +254,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
     /// <summary>
     /// Sets the value of <see cref="FxRoot.DustOnFallPrefab"/>
     /// </summary>
-    public TBuilder SetDustOnFallPrefab(GameObject dustOnFallPrefab)
+    public TBuilder SetDustOnFallPrefab(Asset<GameObject> dustOnFallPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(dustOnFallPrefab);
-          bp.DustOnFallPrefab = dustOnFallPrefab;
+          bp.DustOnFallPrefab = dustOnFallPrefab?.Get();
         });
     }
 

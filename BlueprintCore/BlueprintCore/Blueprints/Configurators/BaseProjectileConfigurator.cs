@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
@@ -49,13 +50,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.View"/>
     /// </summary>
-    public TBuilder SetView(ProjectileLink view)
+    public TBuilder SetView(AssetLink<ProjectileLink> view)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(view);
-          bp.View = view;
+          bp.View = view?.Get();
         });
     }
 
@@ -75,12 +75,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.CastFx"/>
     /// </summary>
-    public TBuilder SetCastFx(PrefabLink castFx)
+    public TBuilder SetCastFx(AssetLink<PrefabLink> castFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CastFx = castFx;
+          bp.CastFx = castFx?.Get();
         });
     }
 
@@ -409,13 +409,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.StuckArrowPrefab"/>
     /// </summary>
-    public TBuilder SetStuckArrowPrefab(GameObject stuckArrowPrefab)
+    public TBuilder SetStuckArrowPrefab(Asset<GameObject> stuckArrowPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(stuckArrowPrefab);
-          bp.StuckArrowPrefab = stuckArrowPrefab;
+          bp.StuckArrowPrefab = stuckArrowPrefab?.Get();
         });
     }
 
@@ -435,13 +434,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.DeflectedArrowPrefab"/>
     /// </summary>
-    public TBuilder SetDeflectedArrowPrefab(GameObject deflectedArrowPrefab)
+    public TBuilder SetDeflectedArrowPrefab(Asset<GameObject> deflectedArrowPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(deflectedArrowPrefab);
-          bp.DeflectedArrowPrefab = deflectedArrowPrefab;
+          bp.DeflectedArrowPrefab = deflectedArrowPrefab?.Get();
         });
     }
 

@@ -4,6 +4,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
@@ -216,12 +217,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.Fx"/>
     /// </summary>
-    public TBuilder SetFx(PrefabLink fx)
+    public TBuilder SetFx(AssetLink<PrefabLink> fx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Fx = fx;
+          bp.Fx = fx?.Get();
         });
     }
 
@@ -863,10 +864,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     public TBuilder AddAbillityAreaEffectRoundFX(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        PrefabLink? prefabLink = null)
+        AssetLink<PrefabLink>? prefabLink = null)
     {
       var component = new AbillityAreaEffectRoundFX();
-      component.PrefabLink = prefabLink ?? component.PrefabLink;
+      component.PrefabLink = prefabLink?.Get() ?? component.PrefabLink;
       if (component.PrefabLink is null)
       {
         component.PrefabLink = Utils.Constants.Empty.PrefabLink;

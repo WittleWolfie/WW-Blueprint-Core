@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.ResourceLinks;
@@ -22,12 +23,12 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
     /// </summary>
-    public TBuilder SetLeftFootPrint(PrefabLink leftFootPrint)
+    public TBuilder SetLeftFootPrint(AssetLink<PrefabLink> leftFootPrint)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LeftFootPrint = leftFootPrint;
+          bp.LeftFootPrint = leftFootPrint?.Get();
         });
     }
 
@@ -47,12 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.RightFootPrint"/>
     /// </summary>
-    public TBuilder SetRightFootPrint(PrefabLink rightFootPrint)
+    public TBuilder SetRightFootPrint(AssetLink<PrefabLink> rightFootPrint)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.RightFootPrint = rightFootPrint;
+          bp.RightFootPrint = rightFootPrint?.Get();
         });
     }
 

@@ -3,6 +3,7 @@
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.Components;
@@ -33,13 +34,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.Icon = icon;
+          bp.Icon = icon?.Get();
         });
     }
 

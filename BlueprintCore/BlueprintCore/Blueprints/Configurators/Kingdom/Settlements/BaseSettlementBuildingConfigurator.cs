@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
@@ -121,12 +122,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.CompletedPrefab"/>
     /// </summary>
-    public TBuilder SetCompletedPrefab(PrefabLink completedPrefab)
+    public TBuilder SetCompletedPrefab(AssetLink<PrefabLink> completedPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CompletedPrefab = completedPrefab;
+          bp.CompletedPrefab = completedPrefab?.Get();
         });
     }
 
@@ -146,12 +147,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/>
     /// </summary>
-    public TBuilder SetUnfinishedPrefab(PrefabLink unfinishedPrefab)
+    public TBuilder SetUnfinishedPrefab(AssetLink<PrefabLink> unfinishedPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.UnfinishedPrefab = unfinishedPrefab;
+          bp.UnfinishedPrefab = unfinishedPrefab?.Get();
         });
     }
 

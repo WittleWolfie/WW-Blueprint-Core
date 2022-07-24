@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Entities;
@@ -40,13 +41,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Picture"/>
     /// </summary>
-    public TBuilder SetPicture(SpriteLink picture)
+    public TBuilder SetPicture(AssetLink<SpriteLink> picture)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(picture);
-          bp.m_Picture = picture;
+          bp.m_Picture = picture?.Get();
         });
     }
 
@@ -66,13 +66,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Video"/>
     /// </summary>
-    public TBuilder SetVideo(VideoLink video)
+    public TBuilder SetVideo(AssetLink<VideoLink> video)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(video);
-          bp.m_Video = video;
+          bp.m_Video = video?.Get();
         });
     }
 
@@ -399,12 +398,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialPage(
         LocalString? descriptionText = null,
-        SpriteLink? picture = null,
+        AssetLink<SpriteLink>? picture = null,
         LocalString? solutionFoundText = null,
         LocalString? solutionNotFoundText = null,
         LocalString? titleText = null,
         LocalString? triggerText = null,
-        VideoLink? video = null)
+        AssetLink<VideoLink>? video = null)
     {
       var component = new TutorialPage();
       component.m_DescriptionText = descriptionText?.LocalizedString ?? component.m_DescriptionText;
@@ -412,8 +411,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_DescriptionText = Utils.Constants.Empty.String;
       }
-      Validate(picture);
-      component.m_Picture = picture ?? component.m_Picture;
+      component.m_Picture = picture?.Get() ?? component.m_Picture;
       component.m_SolutionFoundText = solutionFoundText?.LocalizedString ?? component.m_SolutionFoundText;
       if (component.m_SolutionFoundText is null)
       {
@@ -434,8 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_TriggerText = Utils.Constants.Empty.String;
       }
-      Validate(video);
-      component.m_Video = video ?? component.m_Video;
+      component.m_Video = video?.Get() ?? component.m_Video;
       return AddComponent(component);
     }
 

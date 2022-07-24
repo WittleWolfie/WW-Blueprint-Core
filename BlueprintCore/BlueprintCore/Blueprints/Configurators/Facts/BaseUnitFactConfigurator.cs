@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
@@ -176,13 +177,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 
@@ -681,9 +681,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddAeonSavedStateFeature(
-        PrefabLink? appearFx = null,
+        AssetLink<PrefabLink>? appearFx = null,
         float? delaySeconds = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         Blueprint<BlueprintBuffReference>? invulnerabilityBuff = null,
         float? invulnerabilitySeconds = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
@@ -692,13 +692,13 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintAbilityResourceReference>? resource = null)
     {
       var component = new AeonSavedStateFeature();
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       if (component.AppearFx is null)
       {
         component.AppearFx = Utils.Constants.Empty.PrefabLink;
       }
       component.DelaySeconds = delaySeconds ?? component.DelaySeconds;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -810,8 +810,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddAngelSwordAdditionalDamageAndHeal(
         Blueprint<BlueprintUnitFactReference>? cloakFact = null,
-        PrefabLink? damagePrefab = null,
-        PrefabLink? healingPrefab = null,
+        AssetLink<PrefabLink>? damagePrefab = null,
+        AssetLink<PrefabLink>? healingPrefab = null,
         Blueprint<BlueprintUnitFactReference>? maximizeFact = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -822,12 +822,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.m_CloakFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      component.DamagePrefab = damagePrefab ?? component.DamagePrefab;
+      component.DamagePrefab = damagePrefab?.Get() ?? component.DamagePrefab;
       if (component.DamagePrefab is null)
       {
         component.DamagePrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.HealingPrefab = healingPrefab ?? component.HealingPrefab;
+      component.HealingPrefab = healingPrefab?.Get() ?? component.HealingPrefab;
       if (component.HealingPrefab is null)
       {
         component.HealingPrefab = Utils.Constants.Empty.PrefabLink;
@@ -3886,10 +3886,10 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddReplaceUnitPrefab(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        PrefabLink? prefab = null)
+        AssetLink<PrefabLink>? prefab = null)
     {
       var component = new ReplaceUnitPrefab();
-      component.m_Prefab = prefab ?? component.m_Prefab;
+      component.m_Prefab = prefab?.Get() ?? component.m_Prefab;
       if (component.m_Prefab is null)
       {
         component.m_Prefab = Utils.Constants.Empty.PrefabLink;
@@ -4559,7 +4559,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddAttackerSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
-        GameObject? failFx = null)
+        Asset<GameObject>? failFx = null)
     {
       var component = new AddAttackerSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -4568,8 +4568,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddComponent(component);
     }
 
@@ -4811,7 +4810,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCasterSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
-        GameObject? failFx = null)
+        Asset<GameObject>? failFx = null)
     {
       var component = new AddCasterSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -4820,8 +4819,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddComponent(component);
     }
 
@@ -5448,13 +5446,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEquipmentEntity(
-        EquipmentEntityLink? equipmentEntity = null,
+        AssetLink<EquipmentEntityLink>? equipmentEntity = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddEquipmentEntity();
-      Validate(equipmentEntity);
-      component.EquipmentEntity = equipmentEntity ?? component.EquipmentEntity;
+      component.EquipmentEntity = equipmentEntity?.Get() ?? component.EquipmentEntity;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -5628,12 +5625,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? hideInCapital = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        FamiliarLink? prefabLink = null)
+        AssetLink<FamiliarLink>? prefabLink = null)
     {
       var component = new AddFamiliar();
       component.HideInCapital = hideInCapital ?? component.HideInCapital;
-      Validate(prefabLink);
-      component.PrefabLink = prefabLink ?? component.PrefabLink;
+      component.PrefabLink = prefabLink?.Get() ?? component.PrefabLink;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -7070,14 +7066,13 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSpellFailureChance(
         int? chance = null,
-        GameObject? failFx = null,
+        Asset<GameObject>? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddSpellFailureChance();
       component.Chance = chance ?? component.Chance;
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -7277,7 +7272,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? arcane = null,
         int? chance = null,
         bool? divine = null,
-        GameObject? failFx = null,
+        Asset<GameObject>? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -7286,8 +7281,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Arcane = arcane ?? component.Arcane;
       component.Chance = chance ?? component.Chance;
       component.Divine = divine ?? component.Divine;
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -8156,7 +8150,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCompanionImmortality(
         ActionsBuilder? actions = null,
         float? disappearDelay = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         LocalString? fakeDeathMessage = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -8168,7 +8162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.Actions = Utils.Constants.Empty.Actions;
       }
       component.DisappearDelay = disappearDelay ?? component.DisappearDelay;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -22546,25 +22540,25 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     public TBuilder AddBuffParticleEffectPlay(
-        PrefabLink? activateFx = null,
-        PrefabLink? deactivateFx = null,
-        PrefabLink? eachRoundFx = null,
+        AssetLink<PrefabLink>? activateFx = null,
+        AssetLink<PrefabLink>? deactivateFx = null,
+        AssetLink<PrefabLink>? eachRoundFx = null,
         bool? playEachRound = null,
         bool? playOnActivate = null,
         bool? playOnDeactivate = null)
     {
       var component = new BuffParticleEffectPlay();
-      component.ActivateFx = activateFx ?? component.ActivateFx;
+      component.ActivateFx = activateFx?.Get() ?? component.ActivateFx;
       if (component.ActivateFx is null)
       {
         component.ActivateFx = Utils.Constants.Empty.PrefabLink;
       }
-      component.DeactivateFx = deactivateFx ?? component.DeactivateFx;
+      component.DeactivateFx = deactivateFx?.Get() ?? component.DeactivateFx;
       if (component.DeactivateFx is null)
       {
         component.DeactivateFx = Utils.Constants.Empty.PrefabLink;
       }
-      component.EachRoundFx = eachRoundFx ?? component.EachRoundFx;
+      component.EachRoundFx = eachRoundFx?.Get() ?? component.EachRoundFx;
       if (component.EachRoundFx is null)
       {
         component.EachRoundFx = Utils.Constants.Empty.PrefabLink;

@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -164,12 +165,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.FxOnStart"/>
     /// </summary>
-    public TBuilder SetFxOnStart(PrefabLink fxOnStart)
+    public TBuilder SetFxOnStart(AssetLink<PrefabLink> fxOnStart)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FxOnStart = fxOnStart;
+          bp.FxOnStart = fxOnStart?.Get();
         });
     }
 
@@ -189,12 +190,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.FxOnRemove"/>
     /// </summary>
-    public TBuilder SetFxOnRemove(PrefabLink fxOnRemove)
+    public TBuilder SetFxOnRemove(AssetLink<PrefabLink> fxOnRemove)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.FxOnRemove = fxOnRemove;
+          bp.FxOnRemove = fxOnRemove?.Get();
         });
     }
 
@@ -1520,8 +1521,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         int? naturalArmor = null,
         Blueprint<BlueprintItemWeaponReference>? offHand = null,
         Blueprint<BlueprintPortraitReference>? portrait = null,
-        UnitViewLink? prefab = null,
-        UnitViewLink? prefabFemale = null,
+        AssetLink<UnitViewLink>? prefab = null,
+        AssetLink<UnitViewLink>? prefabFemale = null,
         Blueprint<BlueprintRaceReference>? race = null,
         Blueprint<BlueprintUnitReference>? replaceUnitForInspection = null,
         List<Blueprint<BlueprintItemWeaponReference>>? secondaryAdditionalLimbs = null,
@@ -1565,10 +1566,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
       }
-      Validate(prefab);
-      component.m_Prefab = prefab ?? component.m_Prefab;
-      Validate(prefabFemale);
-      component.m_PrefabFemale = prefabFemale ?? component.m_PrefabFemale;
+      component.m_Prefab = prefab?.Get() ?? component.m_Prefab;
+      component.m_PrefabFemale = prefabFemale?.Get() ?? component.m_PrefabFemale;
       component.m_Race = race?.Reference ?? component.m_Race;
       if (component.m_Race is null)
       {
@@ -2093,19 +2092,17 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddResurrectionLogic(
-        GameObject? firstFx = null,
+        Asset<GameObject>? firstFx = null,
         float? firstFxDelay = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        GameObject? secondFx = null,
+        Asset<GameObject>? secondFx = null,
         float? secondFxDelay = null)
     {
       var component = new ResurrectionLogic();
-      Validate(firstFx);
-      component.FirstFx = firstFx ?? component.FirstFx;
+      component.FirstFx = firstFx?.Get() ?? component.FirstFx;
       component.FirstFxDelay = firstFxDelay ?? component.FirstFxDelay;
-      Validate(secondFx);
-      component.SecondFx = secondFx ?? component.SecondFx;
+      component.SecondFx = secondFx?.Get() ?? component.SecondFx;
       component.SecondFxDelay = secondFxDelay ?? component.SecondFxDelay;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }

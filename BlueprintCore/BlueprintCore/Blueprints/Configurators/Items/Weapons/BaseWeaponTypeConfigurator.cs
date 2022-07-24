@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.EntitySystem.Stats;
@@ -187,13 +188,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 

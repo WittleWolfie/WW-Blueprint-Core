@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
@@ -40,12 +41,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
     /// </summary>
-    public TBuilder SetWeaponFxPrefab(PrefabLink weaponFxPrefab)
+    public TBuilder SetWeaponFxPrefab(AssetLink<PrefabLink> weaponFxPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.WeaponFxPrefab = weaponFxPrefab;
+          bp.WeaponFxPrefab = weaponFxPrefab?.Get();
         });
     }
 
@@ -677,7 +678,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddWeaponBuffOnAttack(
         Blueprint<BlueprintBuffReference>? buff = null,
         Rounds? duration = null,
-        PrefabLink? fx = null,
+        AssetLink<PrefabLink>? fx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -688,7 +689,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       component.Duration = duration ?? component.Duration;
-      component.Fx = fx ?? component.Fx;
+      component.Fx = fx?.Get() ?? component.Fx;
       if (component.Fx is null)
       {
         component.Fx = Utils.Constants.Empty.PrefabLink;
@@ -884,7 +885,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Blueprint<BlueprintBuffReference>? buff = null,
         int? dC = null,
         Rounds? duration = null,
-        PrefabLink? fx = null,
+        AssetLink<PrefabLink>? fx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? saveType = null)
@@ -897,7 +898,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       }
       component.DC = dC ?? component.DC;
       component.Duration = duration ?? component.Duration;
-      component.Fx = fx ?? component.Fx;
+      component.Fx = fx?.Get() ?? component.Fx;
       if (component.Fx is null)
       {
         component.Fx = Utils.Constants.Empty.PrefabLink;

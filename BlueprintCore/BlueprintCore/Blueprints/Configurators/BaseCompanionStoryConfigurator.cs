@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
@@ -118,13 +119,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintCompanionStory.m_ImageLink"/>
     /// </summary>
-    public TBuilder SetImageLink(SpriteLink imageLink)
+    public TBuilder SetImageLink(AssetLink<SpriteLink> imageLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(imageLink);
-          bp.m_ImageLink = imageLink;
+          bp.m_ImageLink = imageLink?.Get();
         });
     }
 

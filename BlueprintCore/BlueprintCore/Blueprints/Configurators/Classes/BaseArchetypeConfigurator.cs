@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
@@ -301,13 +302,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 

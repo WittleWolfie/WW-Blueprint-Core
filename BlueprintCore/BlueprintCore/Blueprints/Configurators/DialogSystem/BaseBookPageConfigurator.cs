@@ -2,6 +2,7 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
@@ -282,13 +283,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.ImageLink"/>
     /// </summary>
-    public TBuilder SetImageLink(SpriteLink imageLink)
+    public TBuilder SetImageLink(AssetLink<SpriteLink> imageLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(imageLink);
-          bp.ImageLink = imageLink;
+          bp.ImageLink = imageLink?.Get();
         });
     }
 
@@ -308,13 +308,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.ForeImageLink"/>
     /// </summary>
-    public TBuilder SetForeImageLink(SpriteLink foreImageLink)
+    public TBuilder SetForeImageLink(AssetLink<SpriteLink> foreImageLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(foreImageLink);
-          bp.ForeImageLink = foreImageLink;
+          bp.ForeImageLink = foreImageLink?.Get();
         });
     }
 

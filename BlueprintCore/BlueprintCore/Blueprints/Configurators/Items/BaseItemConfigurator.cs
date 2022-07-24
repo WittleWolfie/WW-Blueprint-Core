@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Components;
@@ -180,13 +181,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 

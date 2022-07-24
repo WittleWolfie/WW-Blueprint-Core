@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
@@ -24,39 +25,39 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
-    public TBuilder SetMaleArray(params EquipmentEntityLink[] maleArray)
+    public TBuilder SetMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(maleArray);
-          bp.m_MaleArray = maleArray;
+          bp.m_MaleArray = maleArray?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
-    public TBuilder AddToMaleArray(params EquipmentEntityLink[] maleArray)
+    public TBuilder AddToMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.m_MaleArray = bp.m_MaleArray ?? new EquipmentEntityLink[0];
-          bp.m_MaleArray = CommonTool.Append(bp.m_MaleArray, maleArray);
+          bp.m_MaleArray = CommonTool.Append(bp.m_MaleArray, maleArray?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>
-    public TBuilder RemoveFromMaleArray(params EquipmentEntityLink[] maleArray)
+    public TBuilder RemoveFromMaleArray(params AssetLink<EquipmentEntityLink>[] maleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.m_MaleArray is null) { return; }
-          bp.m_MaleArray = bp.m_MaleArray.Where(val => !maleArray.Contains(val)).ToArray();
+          var convertedParams = maleArray.Select(entry => entry?.Get());
+          bp.m_MaleArray = bp.m_MaleArray.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
@@ -101,39 +102,39 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
-    public TBuilder SetFemaleArray(params EquipmentEntityLink[] femaleArray)
+    public TBuilder SetFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(femaleArray);
-          bp.m_FemaleArray = femaleArray;
+          bp.m_FemaleArray = femaleArray?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
-    public TBuilder AddToFemaleArray(params EquipmentEntityLink[] femaleArray)
+    public TBuilder AddToFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.m_FemaleArray = bp.m_FemaleArray ?? new EquipmentEntityLink[0];
-          bp.m_FemaleArray = CommonTool.Append(bp.m_FemaleArray, femaleArray);
+          bp.m_FemaleArray = CommonTool.Append(bp.m_FemaleArray, femaleArray?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="KingmakerEquipmentEntity.m_FemaleArray"/>
     /// </summary>
-    public TBuilder RemoveFromFemaleArray(params EquipmentEntityLink[] femaleArray)
+    public TBuilder RemoveFromFemaleArray(params AssetLink<EquipmentEntityLink>[] femaleArray)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.m_FemaleArray is null) { return; }
-          bp.m_FemaleArray = bp.m_FemaleArray.Where(val => !femaleArray.Contains(val)).ToArray();
+          var convertedParams = femaleArray.Select(entry => entry?.Get());
+          bp.m_FemaleArray = bp.m_FemaleArray.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 

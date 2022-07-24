@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Interaction;
 using Kingmaker.ResourceLinks;
@@ -93,12 +94,12 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
     /// <summary>
     /// Sets the value of <see cref="BlueprintInteractionRoot.m_DestructionFx"/>
     /// </summary>
-    public TBuilder SetDestructionFx(PrefabLink destructionFx)
+    public TBuilder SetDestructionFx(AssetLink<PrefabLink> destructionFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_DestructionFx = destructionFx;
+          bp.m_DestructionFx = destructionFx?.Get();
         });
     }
 

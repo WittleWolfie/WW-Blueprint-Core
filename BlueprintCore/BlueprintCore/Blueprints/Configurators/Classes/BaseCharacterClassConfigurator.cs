@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
@@ -126,13 +127,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 
@@ -951,39 +951,39 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    public TBuilder SetMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(maleEquipmentEntities);
-          bp.MaleEquipmentEntities = maleEquipmentEntities;
+          bp.MaleEquipmentEntities = maleEquipmentEntities?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder AddToMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    public TBuilder AddToMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.MaleEquipmentEntities = bp.MaleEquipmentEntities ?? new EquipmentEntityLink[0];
-          bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, maleEquipmentEntities);
+          bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, maleEquipmentEntities?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder RemoveFromMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    public TBuilder RemoveFromMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.MaleEquipmentEntities is null) { return; }
-          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(val => !maleEquipmentEntities.Contains(val)).ToArray();
+          var convertedParams = maleEquipmentEntities.Select(entry => entry?.Get());
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
@@ -1028,39 +1028,39 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    public TBuilder SetFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(femaleEquipmentEntities);
-          bp.FemaleEquipmentEntities = femaleEquipmentEntities;
+          bp.FemaleEquipmentEntities = femaleEquipmentEntities?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder AddToFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    public TBuilder AddToFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities ?? new EquipmentEntityLink[0];
-          bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, femaleEquipmentEntities);
+          bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, femaleEquipmentEntities?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder RemoveFromFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    public TBuilder RemoveFromFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.FemaleEquipmentEntities is null) { return; }
-          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(val => !femaleEquipmentEntities.Contains(val)).ToArray();
+          var convertedParams = femaleEquipmentEntities.Select(entry => entry?.Get());
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
@@ -2511,40 +2511,32 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </para>
     /// </param>
     public TBuilder AddMythicClassArtComponent(
-        SpriteLink? abilityFrame = null,
-        SpriteLink? commonFrame = null,
-        SpriteLink? commonFrameDecor = null,
-        SpriteLink? emblem = null,
+        AssetLink<SpriteLink>? abilityFrame = null,
+        AssetLink<SpriteLink>? commonFrame = null,
+        AssetLink<SpriteLink>? commonFrameDecor = null,
+        AssetLink<SpriteLink>? emblem = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        SpriteLink? portraitFrame = null,
+        AssetLink<SpriteLink>? portraitFrame = null,
         List<Blueprint<BlueprintPortraitReference>>? portraits = null,
-        SpriteLink? selectorFrame = null,
-        SpriteLink? selectorPortrait = null,
-        SpriteLink? selectorPortraitLineart = null)
+        AssetLink<SpriteLink>? selectorFrame = null,
+        AssetLink<SpriteLink>? selectorPortrait = null,
+        AssetLink<SpriteLink>? selectorPortraitLineart = null)
     {
       var component = new MythicClassArtComponent();
-      Validate(abilityFrame);
-      component.m_AbilityFrame = abilityFrame ?? component.m_AbilityFrame;
-      Validate(commonFrame);
-      component.m_CommonFrame = commonFrame ?? component.m_CommonFrame;
-      Validate(commonFrameDecor);
-      component.m_CommonFrameDecor = commonFrameDecor ?? component.m_CommonFrameDecor;
-      Validate(emblem);
-      component.m_Emblem = emblem ?? component.m_Emblem;
-      Validate(portraitFrame);
-      component.m_PortraitFrame = portraitFrame ?? component.m_PortraitFrame;
+      component.m_AbilityFrame = abilityFrame?.Get() ?? component.m_AbilityFrame;
+      component.m_CommonFrame = commonFrame?.Get() ?? component.m_CommonFrame;
+      component.m_CommonFrameDecor = commonFrameDecor?.Get() ?? component.m_CommonFrameDecor;
+      component.m_Emblem = emblem?.Get() ?? component.m_Emblem;
+      component.m_PortraitFrame = portraitFrame?.Get() ?? component.m_PortraitFrame;
       component.m_Portraits = portraits?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Portraits;
       if (component.m_Portraits is null)
       {
         component.m_Portraits = new BlueprintPortraitReference[0];
       }
-      Validate(selectorFrame);
-      component.m_SelectorFrame = selectorFrame ?? component.m_SelectorFrame;
-      Validate(selectorPortrait);
-      component.m_SelectorPortrait = selectorPortrait ?? component.m_SelectorPortrait;
-      Validate(selectorPortraitLineart);
-      component.m_SelectorPortraitLineart = selectorPortraitLineart ?? component.m_SelectorPortraitLineart;
+      component.m_SelectorFrame = selectorFrame?.Get() ?? component.m_SelectorFrame;
+      component.m_SelectorPortrait = selectorPortrait?.Get() ?? component.m_SelectorPortrait;
+      component.m_SelectorPortraitLineart = selectorPortraitLineart?.Get() ?? component.m_SelectorPortraitLineart;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

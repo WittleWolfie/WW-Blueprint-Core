@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
@@ -22,12 +23,12 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpawnableObject.Prefab"/>
     /// </summary>
-    public TBuilder SetPrefab(PrefabLink prefab)
+    public TBuilder SetPrefab(AssetLink<PrefabLink> prefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Prefab = prefab;
+          bp.Prefab = prefab?.Get();
         });
     }
 

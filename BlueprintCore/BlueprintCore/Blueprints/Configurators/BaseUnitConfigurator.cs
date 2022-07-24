@@ -6,6 +6,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -266,13 +267,12 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Prefab"/>
     /// </summary>
-    public TBuilder SetPrefab(UnitViewLink prefab)
+    public TBuilder SetPrefab(AssetLink<UnitViewLink> prefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(prefab);
-          bp.Prefab = prefab;
+          bp.Prefab = prefab?.Get();
         });
     }
 
@@ -2523,7 +2523,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddArmyUnitComponent(
         LocalString? description = null,
-        Sprite? icon = null,
+        Asset<Sprite>? icon = null,
         bool? isHaveMorale = null,
         int? maxExtraActions = null,
         int? mercenariesBaseGrowths = null,
@@ -2540,8 +2540,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         component.Description = Utils.Constants.Empty.String;
       }
-      Validate(icon);
-      component.Icon = icon ?? component.Icon;
+      component.Icon = icon?.Get() ?? component.Icon;
       component.IsHaveMorale = isHaveMorale ?? component.IsHaveMorale;
       component.MaxExtraActions = maxExtraActions ?? component.MaxExtraActions;
       component.MercenariesBaseGrowths = mercenariesBaseGrowths ?? component.MercenariesBaseGrowths;

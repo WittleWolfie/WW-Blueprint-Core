@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Achievements;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
@@ -27,13 +28,12 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_UnlockedIcon"/>
     /// </summary>
-    public TBuilder SetUnlockedIcon(Texture2D unlockedIcon)
+    public TBuilder SetUnlockedIcon(Asset<Texture2D> unlockedIcon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(unlockedIcon);
-          bp.m_UnlockedIcon = unlockedIcon;
+          bp.m_UnlockedIcon = unlockedIcon?.Get();
         });
     }
 
@@ -53,13 +53,12 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_LockedIcon"/>
     /// </summary>
-    public TBuilder SetLockedIcon(Texture2D lockedIcon)
+    public TBuilder SetLockedIcon(Asset<Texture2D> lockedIcon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(lockedIcon);
-          bp.m_LockedIcon = lockedIcon;
+          bp.m_LockedIcon = lockedIcon?.Get();
         });
     }
 

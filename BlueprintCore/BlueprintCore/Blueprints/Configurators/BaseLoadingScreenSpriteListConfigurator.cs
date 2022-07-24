@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
@@ -23,39 +24,39 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
-    public TBuilder SetGenericSpritesLink(params SpriteLink[] genericSpritesLink)
+    public TBuilder SetGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(genericSpritesLink);
-          bp.m_GenericSpritesLink = genericSpritesLink.ToList();
+          bp.m_GenericSpritesLink = genericSpritesLink?.Select(entry => entry?.Get())?.ToList();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
-    public TBuilder AddToGenericSpritesLink(params SpriteLink[] genericSpritesLink)
+    public TBuilder AddToGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.m_GenericSpritesLink = bp.m_GenericSpritesLink ?? new();
-          bp.m_GenericSpritesLink.AddRange(genericSpritesLink);
+          bp.m_GenericSpritesLink.AddRange(genericSpritesLink?.Select(entry => entry?.Get()));
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>
-    public TBuilder RemoveFromGenericSpritesLink(params SpriteLink[] genericSpritesLink)
+    public TBuilder RemoveFromGenericSpritesLink(params AssetLink<SpriteLink>[] genericSpritesLink)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.m_GenericSpritesLink is null) { return; }
-          bp.m_GenericSpritesLink = bp.m_GenericSpritesLink.Where(val => !genericSpritesLink.Contains(val)).ToList();
+          var convertedParams = genericSpritesLink.Select(entry => entry?.Get());
+          bp.m_GenericSpritesLink = bp.m_GenericSpritesLink.Where(val => !convertedParams.Contains(val)).ToList();
         });
     }
 

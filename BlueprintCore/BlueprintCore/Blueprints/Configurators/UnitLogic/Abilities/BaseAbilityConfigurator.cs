@@ -6,6 +6,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -1479,27 +1480,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddAbilitySwitchDualCompanion(
         float? appearDelay = null,
-        GameObject? appearFx = null,
+        Asset<GameObject>? appearFx = null,
         Blueprint<BlueprintProjectileReference>? appearProjectile = null,
-        GameObject? disappearFx = null,
+        Asset<GameObject>? disappearFx = null,
         Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        GameObject? portalPrefab = null)
+        Asset<GameObject>? portalPrefab = null)
     {
       var component = new AbilitySwitchDualCompanion();
       component.AppearDelay = appearDelay ?? component.AppearDelay;
-      Validate(appearFx);
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       component.m_AppearProjectile = appearProjectile?.Reference ?? component.m_AppearProjectile;
       if (component.m_AppearProjectile is null)
       {
         component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      Validate(disappearFx);
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       component.m_DisappearProjectile = disappearProjectile?.Reference ?? component.m_DisappearProjectile;
       if (component.m_DisappearProjectile is null)
       {
@@ -1507,8 +1506,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      Validate(portalPrefab);
-      component.PortalPrefab = portalPrefab ?? component.PortalPrefab;
+      component.PortalPrefab = portalPrefab?.Get() ?? component.PortalPrefab;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2333,25 +2331,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddArmyAbilityTeleportation(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new ArmyAbilityTeleportation();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2361,7 +2359,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2373,18 +2371,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2394,7 +2392,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2771,25 +2769,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoor(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDimensionDoor();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2799,7 +2797,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2811,18 +2809,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2832,7 +2830,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2888,18 +2886,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorSwap(
-        PrefabLink? appearFx = null,
+        AssetLink<PrefabLink>? appearFx = null,
         Blueprint<BlueprintProjectileReference>? appearProjectile = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null)
+        AssetLink<PrefabLink>? portalFromPrefab = null)
     {
       var component = new AbilityCustomDimensionDoorSwap();
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       if (component.AppearFx is null)
       {
         component.AppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2909,7 +2907,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2921,7 +2919,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
@@ -2999,26 +2997,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorTargets(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
         UnitEvaluator[]? targets = null)
     {
       var component = new AbilityCustomDimensionDoorTargets();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3028,7 +3026,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3040,18 +3038,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3061,7 +3059,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3149,25 +3147,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDweomerLeap(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDweomerLeap();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3177,7 +3175,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3189,18 +3187,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3210,7 +3208,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3303,26 +3301,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomFlashStep(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         Blueprint<BlueprintUnitFactReference>? flashShot = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomFlashStep();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3332,7 +3330,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3349,18 +3347,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3370,7 +3368,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3559,9 +3557,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomTeleportation(
         float? appearDuration = null,
-        PrefabLink? appearFx = null,
+        AssetLink<PrefabLink>? appearFx = null,
         float? disappearDuration = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -3569,13 +3567,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     {
       var component = new AbilityCustomTeleportation();
       component.AppearDuration = appearDuration ?? component.AppearDuration;
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       if (component.AppearFx is null)
       {
         component.AppearFx = Utils.Constants.Empty.PrefabLink;
       }
       component.DisappearDuration = disappearDuration ?? component.DisappearDuration;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -6073,7 +6071,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AbilitySpawnFxAnchor? orientationAnchor = null,
         AbilitySpawnFxOrientation? orientationMode = null,
         AbilitySpawnFxAnchor? positionAnchor = null,
-        PrefabLink? prefabLink = null,
+        AssetLink<PrefabLink>? prefabLink = null,
         AbilitySpawnFxTime? time = null,
         AbilitySpawnFxWeaponTarget? weaponTarget = null)
     {
@@ -6084,7 +6082,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.OrientationAnchor = orientationAnchor ?? component.OrientationAnchor;
       component.OrientationMode = orientationMode ?? component.OrientationMode;
       component.PositionAnchor = positionAnchor ?? component.PositionAnchor;
-      component.PrefabLink = prefabLink ?? component.PrefabLink;
+      component.PrefabLink = prefabLink?.Get() ?? component.PrefabLink;
       if (component.PrefabLink is null)
       {
         component.PrefabLink = Utils.Constants.Empty.PrefabLink;

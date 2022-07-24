@@ -2,6 +2,7 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
@@ -912,12 +913,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.OptimizationDummyUnit"/>
     /// </summary>
-    public TBuilder SetOptimizationDummyUnit(PrefabLink optimizationDummyUnit)
+    public TBuilder SetOptimizationDummyUnit(AssetLink<PrefabLink> optimizationDummyUnit)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.OptimizationDummyUnit = optimizationDummyUnit;
+          bp.OptimizationDummyUnit = optimizationDummyUnit?.Get();
         });
     }
 
@@ -1079,13 +1080,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.StealthEffectPrefab"/>
     /// </summary>
-    public TBuilder SetStealthEffectPrefab(GameObject stealthEffectPrefab)
+    public TBuilder SetStealthEffectPrefab(Asset<GameObject> stealthEffectPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(stealthEffectPrefab);
-          bp.StealthEffectPrefab = stealthEffectPrefab;
+          bp.StealthEffectPrefab = stealthEffectPrefab?.Get();
         });
     }
 
@@ -1105,13 +1105,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.ExitStealthEffectPrefab"/>
     /// </summary>
-    public TBuilder SetExitStealthEffectPrefab(GameObject exitStealthEffectPrefab)
+    public TBuilder SetExitStealthEffectPrefab(Asset<GameObject> exitStealthEffectPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(exitStealthEffectPrefab);
-          bp.ExitStealthEffectPrefab = exitStealthEffectPrefab;
+          bp.ExitStealthEffectPrefab = exitStealthEffectPrefab?.Get();
         });
     }
 
@@ -1881,13 +1880,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.DefaultDissolveTexture"/>
     /// </summary>
-    public TBuilder SetDefaultDissolveTexture(Texture2D defaultDissolveTexture)
+    public TBuilder SetDefaultDissolveTexture(Asset<Texture2D> defaultDissolveTexture)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(defaultDissolveTexture);
-          bp.DefaultDissolveTexture = defaultDissolveTexture;
+          bp.DefaultDissolveTexture = defaultDissolveTexture?.Get();
         });
     }
 

@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
@@ -100,13 +101,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// InfoBox: Set to null to hide in UI
     /// </para>
     /// </param>
-    public TBuilder SetIcon(Sprite icon)
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.Icon = icon;
+          bp.Icon = icon?.Get();
         });
     }
 

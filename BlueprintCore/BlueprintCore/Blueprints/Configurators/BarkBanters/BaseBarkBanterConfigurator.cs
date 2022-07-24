@@ -112,39 +112,51 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
     /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.FirstPhrase"/>
     /// </summary>
-    public TBuilder SetFirstPhrase(params LocalizedString[] firstPhrase)
+    ///
+    /// <param name="firstPhrase">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetFirstPhrase(params LocalString[] firstPhrase)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(firstPhrase);
-          bp.FirstPhrase = firstPhrase;
+          bp.FirstPhrase = firstPhrase?.Select(entry => entry?.LocalizedString)?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintBarkBanter.FirstPhrase"/>
     /// </summary>
-    public TBuilder AddToFirstPhrase(params LocalizedString[] firstPhrase)
+    ///
+    /// <param name="firstPhrase">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder AddToFirstPhrase(params LocalString[] firstPhrase)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.FirstPhrase = bp.FirstPhrase ?? new LocalizedString[0];
-          bp.FirstPhrase = CommonTool.Append(bp.FirstPhrase, firstPhrase);
+          bp.FirstPhrase = CommonTool.Append(bp.FirstPhrase, firstPhrase?.Select(entry => entry?.LocalizedString).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintBarkBanter.FirstPhrase"/>
     /// </summary>
-    public TBuilder RemoveFromFirstPhrase(params LocalizedString[] firstPhrase)
+    ///
+    /// <param name="firstPhrase">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder RemoveFromFirstPhrase(params LocalString[] firstPhrase)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.FirstPhrase is null) { return; }
-          bp.FirstPhrase = bp.FirstPhrase.Where(val => !firstPhrase.Contains(val)).ToArray();
+          var convertedParams = firstPhrase.Select(entry => entry?.LocalizedString);
+          bp.FirstPhrase = bp.FirstPhrase.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
