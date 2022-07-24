@@ -225,5 +225,5 @@ Open your project file and update your deployment target:
 </Target>
 ```
 
-#### Load the AssetBundle
+#### Load the Asset
 
