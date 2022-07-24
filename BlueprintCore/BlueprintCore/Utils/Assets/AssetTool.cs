@@ -1,9 +1,7 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
 using Kingmaker.BundlesLoading;
-using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
-using Kingmaker.Visual.Animation;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,7 +39,7 @@ namespace BlueprintCore.Utils.Assets
     static class BundlesLoadService_Patch
     {
       private static readonly string BundleName =
-        Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetLoader)).Location), "assets");
+        Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetTool)).Location), "assets");
 
       [HarmonyPatch(nameof(BundlesLoadService.GetBundleNameForAsset)), HarmonyPrefix]
       static bool Prefix(string assetId, ref string __result)
