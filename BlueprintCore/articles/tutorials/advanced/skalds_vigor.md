@@ -1,10 +1,8 @@
-﻿# Adding More Feats
+﻿# Advanced Feat: Skald's Vigor
 
 This tutorial assumes you've gone through [Adding a Feat](feat.md) or are otherwise familiar with the basics of adding a feat.
 
-We'll be adding three new feats, each of which poses a different challenge: [Skald's Vigor](https://www.d20pfsrd.com/feats/general-feats/skald-s-vigor/), [Furious Focus](https://www.d20pfsrd.com/feats/combat-feats/furious-focus-combat/), and [Hurtful](https://www.d20pfsrd.com/feats/combat-feats/hurtful-combat/).
-
-## Skald's Vigor
+We'll be adding [Skald's Vigor](https://www.d20pfsrd.com/feats/general-feats/skald-s-vigor/).
 
 Go through the basic setup steps:
 
