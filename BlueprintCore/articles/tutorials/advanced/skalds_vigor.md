@@ -23,7 +23,7 @@ public class SkaldsVigor
 }
 ```
 
-### Adding a Prerequisite
+## Adding a Prerequisite
 
 First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature preqrequisites. You can find them by searching `Prerequisite` in the `FeatureConfigurator` API or the decompiler.
 
@@ -50,7 +50,7 @@ and unavailable to characters without it:
 
 ![Skald's Vigor showing prerequisite is missing](~/images/advanced_feat/missing_prereq.png)
 
-### Fast Healing
+## Fast Healing
 
 Applying fast healing is done by creating a new buff:
 
@@ -94,7 +94,7 @@ Test it out and you should see something similar to this:
 
 It works! There are two problems now: there is no buff icon and if you have the Lingering Performance feat the healing is not removed immediately.
 
-### Handling Lingering Performance
+## Handling Lingering Performance
 
 First we need to understand how Lingering Performance is implemented using BubblePrints:
 
@@ -153,9 +153,9 @@ EventBus.Subscribe(new InspiredRageDeactivationHandler());
 
 Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.
 
-### Adding a Buff Icon
+## Adding a Buff Icon
 
-#### Select an Icon
+### Select an Icon
 
 This tutorial doesn't walk through creating an icon. You can use the [Unity Asset Store](https://assetstore.unity.com/) to find an icon, paid or free.
 
@@ -171,7 +171,7 @@ If you're creating new icons they should be 64x64.
 
 Here are the icons we'll use for Skald's Vigor: ![Skald's Vigor icon](~/images/advanced_feat/SkaldVigor.png) ![Skald's Vigor icon](~/images/advanced_feat/GreaterSkaldVigor.png)
 
-#### Create an AssetBundle
+### Create an AssetBundle
 
 It is common for mods to import PNG files directly, see [TabletopTweaks-Core's](https://github.com/Vek17/TabletopTweaks-Core/tree/master/TabletopTweaks-Core) `AssetLoader` for an example. This works but is not efficient and doesn't work if you want to import other assets such as models, textures, and shaders.
 
@@ -191,15 +191,18 @@ Select the icons folder, then **Assets > Import New Asset** and choose your icon
 
 Your icon should be displayed in the folder contents. Select it and in the Inspector tab set **Texture Type** to **Sprite (2D and UI)** and click Apply.
 
-With the icon still selected, click the **AssetBundle** dropdown at the bottom of the Inspector tab, select **New** and enter **icons**. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:
+With the icon still selected, click the **AssetBundle** dropdown at the bottom of the Inspector tab, select **New** and enter **assets**. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:
 
 ![Icon inspector tab](~/images/advanced_feat/unity_sprite_config.png)
 
-Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: icons and StreamingAssets. You can ignore StreamingAssets.
+> ![NOTE]
+> Currently BPCore only supports a single AssetBundle called "assets". The icons folder is for organization but everything should go to the assets bundle.
 
-#### Deploy the AssetBundle
+Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: assets and StreamingAssets. You can ignore StreamingAssets.
 
-In your mod project create a new **Assets** folder, right click it, and select **Add > Existing Item**. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to **All Files** at the bottom right. Ignore `icons.manifest`, `icons.meta`, and `icons.manifest.meta`.
+### Deploy the AssetBundle
+
+Back in your mod right click your project and select **Add > Existing Item**. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to **All Files** at the bottom right. Ignore `assets.manifest`, `assets.meta`, and `assets.manifest.meta`.
 
 Right click the AssetBundle, select **Properties**, then set **Copy to Output Directory** to **Copy if newer**:
 
@@ -213,15 +216,15 @@ Open your project file and update your deployment target:
   <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
   <ModConfig Include="$(OutputPath)\Info.json" />
   <Strings Include="$(OutputPath)\LocalizedStrings.json" />
-  <Icons Include="$(OutputPath)\Assets\icons" />
+  <Assets Include="$(OutputPath)\assets" />
 </ItemGroup>
 
 <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-<Copy SourceFiles="@(Icons)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+<Copy SourceFiles="@(Assets)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 </Target>
 ```
 
-#### Load the Asset
+### Load the Asset
 
