@@ -80,7 +80,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetParamsAssignmentFmt(info.FieldType, blueprintType, enumerableType));
 
       // Apply type specific, then field specific, then method specific overrides (priority order).
-      GetTypeOverride(info.FieldType)?.ApplyTo(param);
+      GetTypeOverride(info.FieldType)?.ApplyTo(param, enumerableType, info.FieldType.IsArray);
       GetFieldOverride(info.Name, sourceType)?.ApplyTo(param);
       methodOverride.ApplyTo(info, param);
 
@@ -98,6 +98,7 @@ namespace BlueprintCoreGen.CodeGen.Params
       if (blueprintType is not null) { imports.Add(blueprintType); }
       if (enumerableType is not null) { imports.Add(enumerableType); }
 
+      var typeOverride = GetTypeOverride(enumerableType ?? info.FieldType);
       BlueprintFieldParameter param =
         new(
           info.Name,
@@ -111,9 +112,9 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetSetComment(info),
           GetAssignmentFmtForBlueprintField(info.FieldType, blueprintType, enumerableType),
           GetAddComment(info),
-          GetAddOperationFmt(info, blueprintType, enumerableType),
+          GetAddOperationFmt(info, blueprintType, enumerableType, typeOverride),
           GetRemoveComment(info),
-          GetRemoveOperationFmt(info, enumerableType),
+          GetRemoveOperationFmt(info, enumerableType, typeOverride),
           GetRemovePredicateComment(info),
           GetRemovePredicateFmt(info, enumerableType),
           GetClearComment(info),
@@ -122,7 +123,7 @@ namespace BlueprintCoreGen.CodeGen.Params
           GetModifyOperationFmt(info, enumerableType),
           GetAssignmentFmtIfNull(info.FieldType, blueprintType, enumerableType));
 
-      GetTypeOverride(info.FieldType)?.ApplyTo(param);
+      typeOverride?.ApplyTo(param, enumerableType, info.FieldType.IsArray);
       return param;
     }
 
@@ -398,7 +399,8 @@ namespace BlueprintCoreGen.CodeGen.Params
       return string.Empty;
     }
 
-    private static List<string> GetAddOperationFmt(FieldInfo field, Type? blueprintType, Type? enumerableType)
+    private static List<string> GetAddOperationFmt(
+      FieldInfo field, Type? blueprintType, Type? enumerableType, FieldTypeOverride? typeOverride)
     {
       List<string> addOperationFmt = new();
       if (TypeTool.IsBitFlag(field.FieldType))
@@ -408,19 +410,30 @@ namespace BlueprintCoreGen.CodeGen.Params
       else if (field.FieldType.IsArray)
       {
         var paramRef = blueprintType is null ? $"{{1}}" : $"{{1}}.Select(bp => bp.Reference).ToArray()";
+        if (!string.IsNullOrEmpty(typeOverride?.AssignmentFmtRhs))
+        {
+          var paramMod = string.Format(typeOverride.AssignmentFmtRhs, "entry");
+          paramRef = $"{{1}}?.Select(entry => {paramMod}).ToArray()";
+        }
         addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new {TypeTool.GetName(enumerableType!)}[0];");
         addOperationFmt.Add($"{{0}}.{field.Name} = CommonTool.Append({{0}}.{field.Name}, {paramRef});");
       }
       else if (enumerableType is not null)
       {
         var paramRef = blueprintType is null ? $"{{1}}" : $"{{1}}.Select(bp => bp.Reference)";
+        if (!string.IsNullOrEmpty(typeOverride?.AssignmentFmtRhs))
+        {
+          var paramMod = string.Format(typeOverride.AssignmentFmtRhs, "entry");
+          paramRef = $"{{1}}?.Select(entry => {paramMod})";
+        }
         addOperationFmt.Add($"{{0}}.{field.Name} = {{0}}.{field.Name} ?? new();");
         addOperationFmt.Add($"{{0}}.{field.Name}.AddRange({paramRef});");
       }
       return addOperationFmt;
     }
 
-    private static List<string> GetRemoveOperationFmt(FieldInfo field, Type? enumerableType)
+    private static List<string> GetRemoveOperationFmt(
+      FieldInfo field, Type? enumerableType, FieldTypeOverride? typeOverride)
     {
       List<string> removeOperationFmt = new();
       if (TypeTool.IsBitFlag(field.FieldType))
@@ -431,8 +444,19 @@ namespace BlueprintCoreGen.CodeGen.Params
       {
         var toEnumerable = field.FieldType.IsArray ? "ToArray()" : "ToList()";
         removeOperationFmt.Add($"if ({{0}}.{field.Name} is null) {{{{ return; }}}}");
-        removeOperationFmt.Add(
-          $"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(val => !{{1}}.Contains(val)).{toEnumerable};");
+
+        if (string.IsNullOrEmpty(typeOverride?.TypeNameOverride))
+        {
+          removeOperationFmt.Add(
+            $"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(val => !{{1}}.Contains(val)).{toEnumerable};");
+        }
+        else
+        {
+          var paramMod = string.Format(typeOverride.AssignmentFmtRhs, "entry");
+          removeOperationFmt.Add($"var convertedParams = {{1}}.Select(entry => {paramMod});");
+          removeOperationFmt.Add(
+            $"{{0}}.{field.Name} = {{0}}.{field.Name}.Where(val => !convertedParams.Contains(val)).{toEnumerable};");
+        }
       }
       return removeOperationFmt;
     }

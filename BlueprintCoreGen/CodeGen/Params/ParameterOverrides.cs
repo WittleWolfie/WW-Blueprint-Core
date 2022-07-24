@@ -196,12 +196,47 @@ namespace BlueprintCoreGen.CodeGen.Params
 
     public override void ApplyTo(FieldParameter param)
     {
-      if (!string.IsNullOrEmpty(TypeNameOverride)) { param.SetTypeName(TypeNameOverride); }
+      ApplyTo(param, null, false);
+    }
+
+    public void ApplyTo(FieldParameter param, Type? enumerableType, bool isArray)
+    {
+      if (!string.IsNullOrEmpty(TypeNameOverride))
+      {
+        param.SetTypeName(TypeNameOverride);
+        if (enumerableType is not null)
+        {
+          param.SetParamsTypeName(TypeNameOverride);
+        }
+      }
       if (SkipValidation) { param.SkipValidation(); }
       param.Imports.AddRange(Imports.Select(type => TypeTool.TypeByName(type)!));
       if (Comment.Any()) { param.AddCommentFmt(Comment); }
-      if (!string.IsNullOrEmpty(AssignmentFmtRhs)) { param.SetAssignmentFmtRhs(AssignmentFmtRhs); }
-      if (!string.IsNullOrEmpty(AssignmentIfNullRhs)) { param.SetAssignmentIfNullRhs(AssignmentIfNullRhs); }
+      if (!string.IsNullOrEmpty(AssignmentFmtRhs))
+      {
+        if (enumerableType is not null)
+        {
+          var assignment = $"{{0}}?.Select(entry => {string.Format(AssignmentFmtRhs, "entry")})";
+          if (isArray)
+          {
+            assignment = $"{assignment}?.ToArray()";
+          }
+          else
+          {
+            assignment = $"{assignment}?.ToList()";
+          }
+          param.SetAssignmentFmtRhs(assignment);
+          param.SetParamsAssignmentFmtRhs(assignment);
+        }
+        else
+        {
+          param.SetAssignmentFmtRhs(AssignmentFmtRhs);
+        }
+      }
+      if (!string.IsNullOrEmpty(AssignmentIfNullRhs) && enumerableType is null)
+      {
+        param.SetAssignmentIfNullRhs(AssignmentIfNullRhs);
+      }
     }
   }
 
