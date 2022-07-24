@@ -12,7 +12,7 @@ using UnityEngine;
 
 namespace BlueprintCore.Utils.Assets
 {
-  internal class AssetLoader
+  public class AssetTool
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("AssetLoader");
 
@@ -66,80 +66,78 @@ namespace BlueprintCore.Utils.Assets
         return true;
       }
     }
+  }
 
-    /// <summary>
-    /// Wrapper for flexible reference of WeakResourceLink types.
-    /// </summary>
-    public class AssetLink<T, TLink>
-      where T : UnityEngine.Object
-      where TLink : WeakResourceLink<T>, new()
+  /// <summary>
+  /// Wrapper for flexible reference of WeakResourceLink types.
+  /// </summary>
+  public class AssetLink<TLink> where TLink : WeakResourceLink, new()
+  {
+    private readonly TLink Link;
+
+    private AssetLink(string assetId)
     {
-      private readonly TLink Link;
-
-      private AssetLink(string assetId)
-      {
-        Link = new() { AssetId = assetId };
-      }
-
-      private AssetLink(TLink link)
-      {
-        Link = link;
-      }
-
-      public TLink Get()
-      {
-        return Link;
-      }
-
-      public static implicit operator AssetLink<T, TLink>(TLink link)
-      {
-        return new(link);
-      }
-
-      public static implicit operator AssetLink<T, TLink>(string assetId)
-      {
-        return new(assetId);
-      }
+      Link = new() { AssetId = assetId };
     }
 
-    /// <summary>
-    /// Wrapper for flexible reference of asset types.
-    /// </summary>
-    public class Asset<T> where T : UnityEngine.Object
+    private AssetLink(TLink link)
     {
-      private readonly T? Value;
-      private readonly string AssetId;
+      Link = link;
+    }
 
-      private Asset(string assetId)
-      {
-        AssetId = assetId;
-        Value = ResourcesLibrary.TryGetResource<T>(assetId);
-      }
+    public TLink Get()
+    {
+      return Link;
+    }
 
-      private Asset(T asset)
-      {
-        AssetId = asset.name;
-        Value = asset;
-      }
+    public static implicit operator AssetLink<TLink>(TLink link)
+    {
+      return new(link);
+    }
 
-      public T Get()
-      {
-        if (Value is null)
-        {
-          throw new InvalidOperationException($"Unable to fetch asset w/ ID {AssetId}");
-        }
-        return Value;
-      }
+    public static implicit operator AssetLink<TLink>(string assetId)
+    {
+      return new(assetId);
+    }
+  }
 
-      public static implicit operator Asset<T>(T asset)
-      {
-        return new(asset);
-      }
+  /// <summary>
+  /// Wrapper for flexible reference of asset types.
+  /// </summary>
+  public class Asset<T> where T : UnityEngine.Object
+  {
+    private readonly T? Value;
+    private readonly string AssetId;
 
-      public static implicit operator Asset<T>(string assetId)
+    private Asset(string assetId)
+    {
+      AssetId = assetId;
+      Value = ResourcesLibrary.TryGetResource<T>(assetId);
+    }
+
+    private Asset(T asset)
+    {
+      AssetId = asset.name;
+      Value = asset;
+    }
+
+    public T Get()
+    {
+      if (Value is null)
       {
-        return new(assetId);
+        throw new InvalidOperationException($"Unable to fetch asset w/ ID {AssetId}");
       }
+      return Value;
+    }
+
+    public static implicit operator Asset<T>(T asset)
+    {
+      return new(asset);
+    }
+
+    public static implicit operator Asset<T>(string assetId)
+    {
+      return new(assetId);
     }
   }
 }
