@@ -33,12 +33,148 @@
     "Comment": [
       "You can pass in the string using a LocalizedString or the Key to a LocalizedString."
     ],
-    "AssignmentFmtRhs":  "{0}?.LocalizedString",
+    "AssignmentFmtRhs": "{0}?.LocalizedString",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.String"
   },
 
   {
+    "TypeName": "AnimationClipWrapperLink",
+    "TypeNameOverride": "AssetLink<AnimationClipWrapperLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "AnimationClipWrapper",
+    "TypeNameOverride": "Asset<AnimationClipWrapper>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "EquipmentEntityLink",
+    "TypeNameOverride": "AssetLink<EquipmentEntityLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "EquipmentEntity",
+    "TypeNameOverride": "Asset<EquipmentEntity>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "FamiliarLink",
+    "TypeNameOverride": "AssetLink<FamiliarLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Familiar",
+    "TypeNameOverride": "Asset<Familiar>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
     "TypeName": "PrefabLink",
+    "TypeNameOverride": "AssetLink<PrefabLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.PrefabLink"
+  },
+
+  {
+    "TypeName": "GameObject",
+    "TypeNameOverride": "Asset<GameObject>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "ProjectileLink",
+    "TypeNameOverride": "AssetLink<ProjectileLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Projectile",
+    "TypeNameOverride": "Asset<Projectile>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "SpriteLink",
+    "TypeNameOverride": "AssetLink<SpriteLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Sprite",
+    "TypeNameOverride": "Asset<Sprite>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "TextAssetLink",
+    "TypeNameOverride": "AssetLink<TextAssetLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "TextAsset",
+    "TypeNameOverride": "Asset<TextAsset>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Texture2DLink",
+    "TypeNameOverride": "AssetLink<Texture2DLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Texture2D",
+    "TypeNameOverride": "Asset<Texture2D>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "UnitViewLink",
+    "TypeNameOverride": "AssetLink<UnitViewLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "UnitEntityView",
+    "TypeNameOverride": "Asset<UnitEntityView>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "VideoLink",
+    "TypeNameOverride": "AssetLink<VideoLink>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "VideoClip",
+    "TypeNameOverride": "Asset<VideoClip>",
+    "Imports": [ "AssetTool" ],
+    "AssignmentFmtRhs": "{0}?.Get()"
   }
 ]
