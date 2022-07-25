@@ -225,5 +225,35 @@ Open your project file and update your deployment target:
 </Target>
 ```
 
-### Load the Asset
+### Use the Asset
 
+When a method parameter maps to an asset, BPCore request an [Asset<T>]() or [AssetLink<TLink>](). These allow passing in assets directly if you already have a reference or by their Asset ID. For your own AssetBundle the Asset ID is the name as defined by Unity, typically the file path relative to the Unity project directory. In this case: `assets/icons/skaldvigor.png`. If you're ever unsure, look in the `assets.manifest` file under "Assets".
+
+Now you can set the icon on the feat and buff:
+
+```C#
+BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(FeatureName)
+  .SetDescription(FeatureDescription)
+  .SetIcon("assets/icons/skaldvigor.png")
+  .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
+  .AddContextRankConfig(ContextRankConfigs.StatBonus(StatType.Strength))
+  .Configure();
+
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatName)
+  .SetDescription(FeatureDescription)
+  .SetIcon("assets/icons/skaldvigor.png")
+  .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
+  .AddFactsChangeTrigger(
+    checkedFacts: new() { BuffRefs.InspiredRageBuff.ToString() },
+    onFactGainedActions:
+      ActionsBuilder.New().ApplyBuffPermanent(BuffName),
+    onFactLostActions:
+      ActionsBuilder.New().RemoveBuff(BuffName))
+  .Configure();
+```
+
+Test it out and you should see the icon:
+
+![Skald's Vigor buff icon](~/images/advanced_feat/buff_icon.png) ![Skald's Vigor feat icon](~/images/advanced_feat/feat_icon.png)
