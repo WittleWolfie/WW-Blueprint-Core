@@ -23,6 +23,8 @@ public class SkaldsVigor
 }
 ```
 
+Make sure to add "SkaldsVigor.Name" and "SkaldsVigor.Description" to your `LocalizedStrings.json` file.
+
 ## Adding a Prerequisite
 
 First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature preqrequisites. You can find them by searching `Prerequisite` in the `FeatureConfigurator` API or the decompiler.
@@ -59,34 +61,39 @@ BuffConfigurator.New(BuffName, BuffGuid)
   .SetDisplayName(FeatureName)
   .SetDescription(FeatureDescription)
   .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
-  .AddContextRankConfig(ContextRankConfigs.StatBonus(StatType.Strength))
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
   .Configure();
 ```
 
+The custom progression results in 2 fast healing until level 8, then 4 until level 16 where it caps out at 6.
+
 Now we'll need to apply the buff when Raging Song is active. To do that we'll need to have some way to trigger applying the buff. If you look at the `RagingSong` blueprint in BubblePrints it isn't very helpful. However, it is referenced in `SkaldProgression` and searching that reveals another feature, `InspiredRage`, which grants `InspiredRageAbility` which is the activatable ability for Raging Song.
 
-Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is `InspiredRageBuff`.
+Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is `InspiredRageBuff` which spawns `InspiredRageArea` which applies the actual effects using `InspiredRageEffectBuff`.
 
 > ![NOTE]
-> You could instead modify `InspiredRageBuff` or its downstream buff, `InspiredRageEffectBuff`, to add the fast healing effect. The tutorial doesn't use this approach because changes to game blueprints are more likely to conflict with game patches or other mods.
+> You could avoid modifying existing blueprints by adding a `FactsChangeTrigger` component to the feat itself, which allows you to execute actions in response to a fact, such as the `InspiredRageBuff`, being applied or removed. The tutorial avoids this approach because it only works for Skald's Vigor, not Greater Skald's Vigor.
 
-There are multiple ways to trigger applying our buff. We'll use `FactsChangeTrigger` which provides a way to remove the buff as soon Raging Song ends as well.
+There are multiple ways to apply the buff, we'll add an `AddFactContextActions` component to `InspiredRageEffectBuff`:
 
 ```C#
-FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
-  .SetDisplayName(FeatName)
-  .SetDescription(FeatureDescription)
-  .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
-  .AddFactsChangeTrigger(
-    checkedFacts: new() { BuffRefs.InspiredRageBuff.ToString() },
-    onFactGainedActions:
-      ActionsBuilder.New().ApplyBuffPermanent(BuffName),
-    onFactLostActions:
+BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
+  .AddFactContextActions(
+    activated:
+      ActionsBuilder.New()
+        .Conditional(
+          ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+    deactivated:
       ActionsBuilder.New().RemoveBuff(BuffName))
   .Configure();
 ```
 
-A permanent buff is appropriate because the buff is explicitly removed.
+Since the existing buff is modified it effects every application. The conditional check ensures it only applies to characters with the feat.
+
+The buff is permanent and non-dispellable since it is a rider effect on Inspired Rage, not an individual buff.
 
 Test it out and you should see something similar to this:
 
@@ -153,7 +160,7 @@ EventBus.Subscribe(new InspiredRageDeactivationHandler());
 
 Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.
 
-## Adding a Buff Icon
+## Adding an Icon
 
 ### Select an Icon
 
@@ -239,23 +246,72 @@ BuffConfigurator.New(BuffName, BuffGuid)
   .SetDescription(FeatureDescription)
   .SetIcon("assets/icons/skaldvigor.png")
   .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
-  .AddContextRankConfig(ContextRankConfigs.StatBonus(StatType.Strength))
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
   .Configure();
-
+  
 FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
-  .SetDisplayName(FeatName)
+  .SetDisplayName(FeatureDisplayName)
   .SetDescription(FeatureDescription)
   .SetIcon("assets/icons/skaldvigor.png")
   .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
-  .AddFactsChangeTrigger(
-    checkedFacts: new() { BuffRefs.InspiredRageBuff.ToString() },
-    onFactGainedActions:
-      ActionsBuilder.New().ApplyBuffPermanent(BuffName),
-    onFactLostActions:
-      ActionsBuilder.New().RemoveBuff(BuffName))
   .Configure();
 ```
 
 Test it out and you should see the icon:
 
 ![Skald's Vigor buff icon](~/images/advanced_feat/buff_icon.png) ![Skald's Vigor feat icon](~/images/advanced_feat/feat_icon.png)
+
+## Greater Skald's Vigor
+
+With Skald's Vigor done the next step is implementing [Greater Skald's Vigor](https://www.d20pfsrd.com/feats/general-feats/greater-skald-s-vigor/).
+
+The asset bundle should already have the new icon, so just add the new strings and create the feat:
+
+```C#
+FeatureConfigurator.New(GreaterFeatName, GreaterFeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(GreaterFeatDisplayName)
+  .SetDescription(GreaterFeatDescription)
+  .SetIcon("assets/icons/greaterskaldvigor.png")
+  .AddPrerequisiteFeature(FeatName)
+  .Configure();
+```
+
+Update the buff configuration changes applied to `InspiredRageEffectBuff`:
+
+```C#
+var applyBuff = ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true);
+AddFactContextActions(
+  activated:
+    ActionsBuilder.New()
+      .Conditional(
+        ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+        ifTrue: applyBuff)
+      .Conditional(
+        ConditionsBuilder.New().CasterHasFact(GreaterFeatName),
+        ifTrue: applyBuff),
+  deactivated:
+    ActionsBuilder.New().RemoveBuff(BuffName))
+```
+
+Technically this results in applying the buff to the caster twice if they have Greater Skald's Vigor, but the default behavior for buffs is replace so only a single instance is applied.
+
+Test it out and it should apply to your party:
+
+TODO: Image
+
+### Completing the Feat
+
+There are two more changes needed to finish Greater Skald's Vigor:
+
+1. Require 10 ranks in Performance (song)
+2. Add support for Lingering Performance
+
+These are left as an exercise. One solution is available in the "Solutions" folder if you're stuck or want to compare.
+
+Tips:
+
+* Performance isn't a skill in Wrath so you'll need to decide on an appropriate equivalent requirement
+* `InspiredRageDeactivationHandler` triggers once on the unit using Inspired Rage, so you need to find everyone affected and remove the buff
+    * Remember that `InspiredRageEffectBuff` is applied by `InspiredRageArea` and look at the `SourceAreaEffectId` field of the `Buff` class
