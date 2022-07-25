@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.BundlesLoading;
 using Kingmaker.ResourceLinks;
 using System;
@@ -14,7 +15,9 @@ namespace BlueprintCore.Utils.Assets
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("AssetLoader");
 
-    private static bool Initialized = false;
+    private static readonly string BundleName =
+      Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetTool)).Location), "assets");
+
     private static readonly HashSet<string> AssetIds = new();
 
     private static void LoadAssets(string assetFile)
@@ -25,12 +28,16 @@ namespace BlueprintCore.Utils.Assets
         return;
       }
 
-      var bundle = AssetBundle.LoadFromFile(assetFile);
+      var bundle = BundlesLoadService.Instance.RequestBundle(assetFile);
       foreach (var assetId in bundle.GetAllAssetNames())
       {
         if (!AssetIds.Add(assetId))
         {
           Logger.Warn($"Duplicate asset found: {assetId}");
+        }
+        else
+        {
+          Logger.Verbose($"Loaded asset: {assetId}");
         }
       }
     }
@@ -38,19 +45,11 @@ namespace BlueprintCore.Utils.Assets
     [HarmonyPatch(typeof(BundlesLoadService))]
     static class BundlesLoadService_Patch
     {
-      private static readonly string BundleName =
-        Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetTool)).Location), "assets");
-
       [HarmonyPatch(nameof(BundlesLoadService.GetBundleNameForAsset)), HarmonyPrefix]
       static bool Prefix(string assetId, ref string __result)
       {
         try
         {
-          if (!Initialized)
-          {
-            LoadAssets(BundleName);
-            Initialized = true;
-          }
           if (AssetIds.Contains(assetId))
           {
             __result = BundleName;
@@ -59,9 +58,36 @@ namespace BlueprintCore.Utils.Assets
         }
         catch (Exception e)
         {
-          Logger.Error($"Failed fetch bundle name for {assetId}.", e);
+          Logger.Error($"Failed to fetch bundle name for {assetId}.", e);
         }
         return true;
+      }
+    }
+
+    [HarmonyPatch(typeof(BlueprintsCache))]
+    static class BlueprintsCaches_Patch
+    {
+      private static bool Initialized = false;
+
+      [HarmonyPriority(Priority.First)]
+      [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPrefix]
+      static void Prefix()
+      {
+        try
+        {
+          if (Initialized)
+          {
+            Logger.Info("Already initialized assets.");
+            return;
+          }
+          Initialized = true;
+
+          LoadAssets(BundleName);
+        }
+        catch (Exception e)
+        {
+          Logger.Error("Failed to load assets.", e);
+        }
       }
     }
   }
