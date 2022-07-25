@@ -178,8 +178,7 @@ It is common for mods to import PNG files directly, see [TabletopTweaks-Core's](
 1. Download [Unity](https://unity3d.com/get-unity/download/archive) version `2019.4.26f1`
 2. Create a new project with the 3D template
 3. Create a script to build an AssetBundle using [Unity's Tutorial](https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4)
-4. Create a new folder in Assets called **BundledAssets**
-5. Create a new folder in BundledAssets called **icons**
+4. Create a new folder in Assets called **Icons**
 
 Your Unity project should look similar to this:
 
