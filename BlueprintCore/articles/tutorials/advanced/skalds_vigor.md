@@ -227,7 +227,9 @@ Open your project file and update your deployment target:
 
 ### Use the Asset
 
-When a method parameter maps to an asset, BPCore request an [Asset<T>]() or [AssetLink<TLink>](). These allow passing in assets directly if you already have a reference or by their Asset ID. For your own AssetBundle the Asset ID is the name as defined by Unity, typically the file path relative to the Unity project directory. In this case: `assets/icons/skaldvigor.png`. If you're ever unsure, look in the `assets.manifest` file under "Assets".
+When a method parameter maps to an asset, BPCore request an [Asset<T>](xref:BlueprintCore.Utils.Assets.Asset`1) or [AssetLink<TLink>](xref:BlueprintCore.Utils.Assets.AssetLink`1). These allow passing in assets directly if you already have a reference or by their Asset ID.
+
+For your own AssetBundle the Asset ID is the name as defined by Unity, typically the file path relative to the Unity project directory. In this case: `assets/icons/skaldvigor.png`. If you're ever unsure, look in the `assets.manifest` file under "Assets". It is also shown at the bottom of the inspector tab in Unity.
 
 Now you can set the icon on the feat and buff:
 
