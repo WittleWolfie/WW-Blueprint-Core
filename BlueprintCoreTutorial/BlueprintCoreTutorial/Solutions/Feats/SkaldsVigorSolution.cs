@@ -21,24 +21,24 @@ namespace BlueprintCoreTutorial.Solutions.Feats
 {
   public class SkaldsVigorSolution
   {
-    internal const string FeatureName = "SkaldsVigor";
-    internal const string FeatureDisplayName = "SkaldsVigor.Name";
-    internal const string FeatureDescription = "SkaldsVigor.Description";
+    private const string FeatureName = "SkaldsVigor";
+    private const string FeatureDisplayName = "SkaldsVigor.Name";
+    private const string FeatureDescription = "SkaldsVigor.Description";
 
-    internal const string FeatName = "SkaldsVigor.Feat";
-    internal const string FeatGuid = "55dd527b-8721-426b-aaa2-036ccc9a0458";
+    private const string FeatName = "SkaldsVigor.Feat";
+    private const string FeatGuid = "55dd527b-8721-426b-aaa2-036ccc9a0458";
 
-    internal const string GreaterFeatName = "GreaterSkaldsVigor.Feat";
-    internal const string GreaterFeatGuid = "ee4756c6-797f-4848-a814-4a27a159641d";
-    internal const string GreaterFeatDisplayName = "GreaterSkaldsVigor.Name";
-    internal const string GreaterFeatDescription = "GreaterSkaldsVigor.Description";
+    private const string GreaterFeatName = "GreaterSkaldsVigor.Feat";
+    private const string GreaterFeatGuid = "ee4756c6-797f-4848-a814-4a27a159641d";
+    private const string GreaterFeatDisplayName = "GreaterSkaldsVigor.Name";
+    private const string GreaterFeatDescription = "GreaterSkaldsVigor.Description";
 
-    internal const string BuffName = "SkaldsVigor.Buff";
-    internal const string BuffGuid = "9e67121d-0433-4706-a107-7796187df3e1";
+    private const string BuffName = "SkaldsVigor.Buff";
+    private const string BuffGuid = "9e67121d-0433-4706-a107-7796187df3e1";
 
-    internal const string IconPrefix = "assets/icons/";
-    internal const string IconName = IconPrefix + "skaldvigor.png";
-    internal const string GreaterIconName = IconPrefix + "greaterskaldvigor.png";
+    private const string IconPrefix = "assets/icons/";
+    private const string IconName = IconPrefix + "skaldvigor.png";
+    private const string GreaterIconName = IconPrefix + "greaterskaldvigor.png";
 
     private static readonly LogWrapper Logger = LogWrapper.Get(FeatureName);
 
@@ -65,6 +65,9 @@ namespace BlueprintCoreTutorial.Solutions.Feats
         .SetDescription(FeatureDescription)
         .SetIcon(IconName)
         .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
+        // Adds a UI hint that Skald's Vigor leads to Greater Skald's Vigor. Use the GUID since it hasn't been created
+        // yet.
+        .AddToIsPrerequisiteFor(GreaterFeatGuid)
         .Configure();
 
       // Greater Skald's Vigor

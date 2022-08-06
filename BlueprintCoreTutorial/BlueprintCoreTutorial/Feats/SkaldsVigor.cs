@@ -40,6 +40,9 @@ namespace BlueprintCoreTutorial.Feats
 
     private static readonly LogWrapper Logger = LogWrapper.Get(FeatureName);
 
+    /// <summary>
+    /// Adds the Skald's Vigor and Greater Skald's Vigor feats.
+    /// </summary>
     internal static void Configure()
     {
       Logger.Info($"Configuring {FeatureName}");
