@@ -54,6 +54,7 @@ namespace BlueprintCoreTutorial
 
           Logger.Info("Patching blueprints.");
           MagicalAptitude.Configure();
+          SkaldsVigor.Configure();
         }
         catch (Exception e)
         {

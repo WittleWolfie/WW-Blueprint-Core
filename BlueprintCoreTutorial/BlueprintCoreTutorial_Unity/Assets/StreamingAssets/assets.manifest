@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 1947658705
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: de7b31082367ce30ae564c72a99d66c7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c90fc19e2679e5295d10bd00f33cb4c3
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Icons/GreaterSkaldVigor.png
+- Assets/Icons/SkaldVigor.png
+Dependencies: []

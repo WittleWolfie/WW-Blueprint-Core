@@ -11,5 +11,27 @@
   {
     "Key": "MagicalAptitude.Description",
     "enGB": "You get a +2 bonus on all Spellcraft and Use Magic Device skill checks. If you have 10 or more ranks in one of these skills, the bonus increases to +4 for that skill."
+  },
+
+  {
+    "Key": "SkaldsVigor.Name",
+    "ProcessTemplates": false,
+    "enGB": "Skald's Vigor"
+  },
+
+  {
+    "Key": "SkaldsVigor.Description",
+    "enGB": "While maintaining a raging song, you gain fast healing equal to the twice the damage bonus your song provides, starting in the round after you begin the song. If you stop maintaining your song, the fast healing ends, even if the effects of your song persist."
+  },
+
+  {
+    "Key": "GreaterSkaldsVigor.Name",
+    "ProcessTemplates": false,
+    "enGB": "Greater Skald's Vigor"
+  },
+
+  {
+    "Key": "GreaterSkaldsVigor.Description",
+    "enGB": "Your allies share in the fast healing granted by your Skald’s Vigor, starting in the round when you begin your performance. They must be able to hear the performance. If you stop maintaining the song, the fast healing ends immediately, even if other effects of your song linger."
   }
 ]
