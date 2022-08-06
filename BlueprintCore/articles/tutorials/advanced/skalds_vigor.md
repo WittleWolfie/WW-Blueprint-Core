@@ -60,7 +60,7 @@ Applying fast healing is done by creating a new buff:
 BuffConfigurator.New(BuffName, BuffGuid)
   .SetDisplayName(FeatureName)
   .SetDescription(FeatureDescription)
-  .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
   .AddContextRankConfig(
     ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
       .WithCustomProgression((7, 2), (15, 4), (16, 6)))
@@ -86,20 +86,146 @@ BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
         .Conditional(
           ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
           ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
-    deactivated:
-      ActionsBuilder.New().RemoveBuff(BuffName))
   .Configure();
 ```
 
 Since the existing buff is modified it effects every application. The conditional check ensures it only applies to characters with the feat.
 
-The buff is permanent and non-dispellable since it is a rider effect on Inspired Rage, not an individual buff.
+The buff is permanent and non-dispellable since it is a rider effect on Inspired Rage, not an individual buff. Note that by default `ContextActionApplyBuff` sets `asChild` to `true`. This means Skald's Vigor is removed when Inspired Rage is removed, no need to explicitly remove it.
 
 Test it out and you should see something similar to this:
 
 ![Skald's Vigor healing demo](~/images/advanced_feat/fast_healing.png)
 
-It works! There are two problems now: there is no buff icon and if you have the Lingering Performance feat the healing is not removed immediately.
+It works! ... or does it? Keep testing and the fast healing does not apply every round. Something is wrong, but what?
+
+> ![NOTE]
+> If it works consistently you may have a mod that accidentally fixes the issue. Otherwise test in turn based combat; in my testing this was the most reliable way to trigger fast healing failures.
+
+### Troubleshooting
+
+There are two ways to investigate further: [Wrath2Debug](https://github.com/thehambeard/Wrath2Debug/releases/latest) or method patching.
+
+I used both techniques but I'm not going to walk through Wrath2Debug as it''s complicated to setup and use. Instead read the game code and try patching methods to log details.
+
+First look up the `AddEffectContextFastHealing` component in the decompiler. It triggers each round by implementing `ITickEachRound.OnNewRound()`. Search for uses of this method:
+
+![OnNewRound uses](~/images/advanced_feat/on_new_round.png)
+
+> ![TIP]
+> When searching for uses of interface methods in dnSpy, go to the interface definition and search from there. Searching from an implementation usually returns nothing.
+
+Ignore `TacticalCombatUnitTicksController` which is used for army combat. Check `UnitTicksController.TickNextRound()`; it explicitly doesn't handle buffs. This means `Buff.TickMechanics()` is responsible for triggering fast healing.
+
+Now you could try patching `Buff.TickMechanics()` but there's a patch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is just tied to the blueprint; it''s either always there or not. Nothing changes that.
+
+Fortunately `Buff.TickMechanics()` is only called by `BuffCollection.TickBuff()` which is called by `BuffCollection.Tick()`. `BuffCollection` represents all the buffs on a unit, so `Tick()` is responsible for triggering new round effects on all buffs.
+
+You can patch `Tick()` and log data; I ended up patching `UpdateNextEvent()` which selects the buff which should trigger next. Either way start by logging what buff is ticking:
+
+```C#
+[HarmonyPatch(typeof(BuffCollection))]
+static class BuffCollection_Patch
+{
+  // Store the Skald's Vigor buff for quick reference
+  static BlueprintBuff Buff;
+
+  [HarmonyPatch(nameof(BuffCollection.UpdateNextEvent)), HarmonyPrefix]
+  static void Prefix(BuffCollection __instance)
+  {
+    try
+    {
+      if (!Buff)
+      {
+        Buff = BlueprintTool.Get<BlueprintBuff>(BuffName);
+      }
+
+      // Limit to MC to reduce log spam (remove if you are not testing with the main character)
+      if (__instance.Owner.Unit.IsMainCharacter)
+      {
+        Logger.Info($"UpdateNextEvent Prefix: {Game.Instance.TimeController.GameTime}");
+        // Check each buff on the unit to find Skald's Vigor
+        foreach (Buff buff in __instance.RawFacts)
+        {
+          if (buff.Blueprint == Buff)
+          {
+            // Log the next tick time and the current game time
+            Logger.Info($"{buff.Name}: {buff.NextEventTime} vs {Game.Instance.TimeController.GameTime}");
+          }
+        }
+      }
+    }
+    catch (Exception e)
+    {
+      Logger.Error("Failed to prefix UpdateNextEvent.", e);
+    }
+  }
+}
+```
+
+> ![TIP]
+> Always wrap your patches in try/catch statements and log exceptions. If you don't the exception may not be logged resulting in silent failures.
+
+The purpose of this patch is to look for discrepencies in the buff trigger timing. If the buff works correctly `buff.NextEventTime` should increment by 6 seconds every 6 seconds of game time, since 6 seconds is one round.
+
+Test it in and out of combat and look at the log (I added the numbers for reference):
+
+```
+[143.6401 - Mods]: SkaldsVigor: UpdateNextEvent(1) Prefix: 12:11:40.7940000
+[143.6401 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:40.7940000 vs 12:11:40.7940000
+[147.4715 - Mods]: SkaldsVigor: UpdateNextEvent(2) Prefix: 12:11:42.2940000
+[147.4715 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:40.7940000 vs 12:11:42.2940000
+[147.4715 - Mods]: SkaldsVigor: UpdateNextEvent(3) Prefix: 12:11:42.2940000
+[147.4724 - Mods]: SkaldsVigor: UpdateNextEvent(4) Prefix: 12:11:42.2940000
+[147.4724 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:46.7940000 vs 12:11:42.2940000
+```
+
+A few things are wrong:
+
+1. UpdateNextEvent(1) should trigger Skald's Vigor, but if it did trigger then the next tick time of UpdateNextEvent(2) should be `12:11:46.794`.
+2. When UpdateNextEvent(3) is called Skald's Vigor is not present.
+
+If you pay careful attention to the buff UI in game you might spot the problem. Look at the blueprints for `InspiredRageEffectBuff` and `InspiredRageArea` again. Anything stand out?
+
+`InspiredRageArea` applies `InspiredRageEffectBuff` if either:
+
+* A valid target enters the area
+* A valid target is in the area *each round*
+
+In other words: `InspiredRageEffectBuff` is reapplied every round. Since its stacking type is `StackingType.Replace` it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.
+
+There are a few ways to fix this but the simplest is to change the stacking behavior of Inspired Rage:
+
+```C#
+BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
+  .AddFactContextActions(
+    activated:
+      ActionsBuilder.New()
+        .Conditional(
+          ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+  .SetStacking(StackingType.Ignore)
+  .Configure();
+```
+
+Now Inspired Rage is not removed every round and Skald's Vigor works! This has side effects:
+
+1. If other abilities were relying on Inspired Rage being re-applied every round they will break.
+2. If two characters activate Inspired Rage the first character's ability applies instead of the second.
+
+It's up to you to determine if these side effects are acceptable. One way to avoid them: create a new `Condition` that checks `ActivatableAbility.IsOn` and use it in the `Conditional`:
+
+```C#
+ConditionsBuilder.New()
+  .TargetIsYourself()
+  // Only apply the buff if Inspired Rage is active
+  .Add(new ActivatableAbilityIsOn(ActivatableAbilityRefs.InspiredRageAbility, negate: true))
+  // Prevent the buff from being re-applied
+  .HasFact(BuffName, negate: true)
+  .HasFact(FeatName)
+```
+
+There are two problems now: there is no buff icon and if you have Lingering Performance the healing is not removed immediately.
 
 ## Handling Lingering Performance
 
@@ -245,10 +371,11 @@ BuffConfigurator.New(BuffName, BuffGuid)
   .SetDisplayName(FeatureName)
   .SetDescription(FeatureDescription)
   .SetIcon("assets/icons/skaldvigor.png")
-  .AddEffectFastHealing(heal: 0, bonus: ContextValues.Rank())
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
   .AddContextRankConfig(
     ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
       .WithCustomProgression((7, 2), (15, 4), (16, 6)))
+  .SetStacking(StackingType.Ignore)
   .Configure();
   
 FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
@@ -281,7 +408,7 @@ FeatureConfigurator.New(GreaterFeatName, GreaterFeatGuid, FeatureGroup.Feat, Fea
 Update the buff configuration changes applied to `InspiredRageEffectBuff`:
 
 ```C#
-var applyBuff = ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true);
+var applyBuff = ActionsBuilder.New().ApplyBuffPermanent(BuffName, asChild: false, isNotDispelable: true);
 AddFactContextActions(
   activated:
     ActionsBuilder.New()
@@ -291,15 +418,13 @@ AddFactContextActions(
       .Conditional(
         ConditionsBuilder.New().CasterHasFact(GreaterFeatName),
         ifTrue: applyBuff),
-  deactivated:
-    ActionsBuilder.New().RemoveBuff(BuffName))
 ```
 
 Technically this results in applying the buff to the caster twice if they have Greater Skald's Vigor, but the default behavior for buffs is replace so only a single instance is applied.
 
 Test it out and it should apply to your party:
 
-TODO: Image
+![Greater Skald's Vigor party healing](~/images/advanced_feat/group_fast_healing.png)
 
 ### Completing the Feat
 
@@ -313,5 +438,6 @@ These are left as an exercise. One solution is available in the "Solutions" fold
 Tips:
 
 * Performance isn't a skill in Wrath so you'll need to decide on an appropriate equivalent requirement
-* `InspiredRageDeactivationHandler` triggers once on the unit using Inspired Rage, so you need to find everyone affected and remove the buff
-    * Remember that `InspiredRageEffectBuff` is applied by `InspiredRageArea` and look at the `SourceAreaEffectId` field of the `Buff` class
+* `InspiredRageDeactivationHandler` triggers once on the unit using Inspired Rage, so you need to find every affected unit and remove the buff
+    * Remember that `InspiredRageEffectBuff` is applied by `InspiredRageArea`
+    * Look at the `SourceAreaEffectId` field of the `Buff` class
