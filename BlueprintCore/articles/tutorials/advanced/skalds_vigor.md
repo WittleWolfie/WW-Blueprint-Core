@@ -1,6 +1,6 @@
 ﻿# Advanced Feat: Skald's Vigor
 
-This tutorial assumes you've gone through [Adding a Feat](feat.md) or are otherwise familiar with the basics of adding a feat.
+This tutorial assumes you've gone through [Adding a Feat](~/tutorials/feat.md) or are otherwise familiar with the basics of adding a feat.
 
 We'll be adding [Skald's Vigor](https://www.d20pfsrd.com/feats/general-feats/skald-s-vigor/).
 
@@ -58,8 +58,8 @@ Applying fast healing is done by creating a new buff:
 
 ```C#
 BuffConfigurator.New(BuffName, BuffGuid)
-  .SetDisplayName(FeatureName)
-  .SetDescription(FeatureDescription)
+  .SetDisplayName("SkaldsVigor.Name")
+  .SetDescription("SkaldsVigor.Description")
   .AddEffectContextFastHealing(bonus: ContextValues.Rank())
   .AddContextRankConfig(
     ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
@@ -371,8 +371,8 @@ Now you can set the icon on the feat and buff:
 
 ```C#
 BuffConfigurator.New(BuffName, BuffGuid)
-  .SetDisplayName(FeatureName)
-  .SetDescription(FeatureDescription)
+  .SetDisplayName("SkaldsVigor.Name")
+  .SetDescription("SkaldsVigor.Description")
   .SetIcon("assets/icons/skaldvigor.png")
   .AddEffectContextFastHealing(bonus: ContextValues.Rank())
   .AddContextRankConfig(
@@ -382,8 +382,8 @@ BuffConfigurator.New(BuffName, BuffGuid)
   .Configure();
   
 FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
-  .SetDisplayName(FeatureDisplayName)
-  .SetDescription(FeatureDescription)
+  .SetDisplayName("SkaldsVigor.Name")
+  .SetDescription("SkaldsVigor.Description")
   .SetIcon("assets/icons/skaldvigor.png")
   .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
   .Configure();
