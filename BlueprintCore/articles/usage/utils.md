@@ -1,4 +1,4 @@
-﻿# Text, Logging, and Utils
+﻿# Text, Logging, Unity Assets, and Utils
 
 While the bulk of the functionality of BPCore is implemented in [Blueprint Configurators](blueprints.md) and [Builders](builders.md), there are many utility classes that provide additional functionality.
 
@@ -157,6 +157,28 @@ BlueprintCore.Feats: Mod initialized.
 Log output is available locally in `%APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt` or in [Remote Console](https://github.com/OwlcatOpenSource/RemoteConsole/releases).
 
 Log output uses the `Mods` channel currently.
+
+## Unity Assets
+
+BPCore supports importing assets from a Unity AssetBundle included in your mod. Using [Unity](https://unity3d.com/get-unity/download/archive) (version `2019.4.26f1`), create an AssetBundle called `assets` and place it in the same diretory as your assembly. For a walkthrough of generating an AssetBundle see the [Skald's Vigor Tutorial](~/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
+
+When a BPCore API needs an asset it requests an [Asset<T>](xref:BlueprintCore.Utils.Assets.Asset`1) or [AssetLink<TLink>](xref:BlueprintCore.Utils.Assets.AssetLink`1. You can provide these directly or by Asset ID. Unity usually defines the Asset ID using the file path relative to the Unity project directory, e.g. `MyUnityProject/assets/icons/myicon.png` is referenced using `assets/icons/myicon.png`. If you're ever unsure, look in the `assets.manifest` file in the same directory as the `assets` bundle or the bottom of the inspector tab in Unity.
+
+```C#
+BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(BuffDisplayName)
+  .SetDescription(BuffDescription)
+  .SetIcon("assets/icons/myicon.png")
+  .Configure();
+```
+
+This works regardless of whether an asset or an asset link, e.g. `SpriteLink`, is required.
+
+If you want to directly load the resource call `ResourcesLibrary.TryGetResource<Sprite>()`:
+
+```C#
+var myIconSprite = ResourcesLibraryTryGetResource<Sprite>("assets/icons/myicon.png");
+```
 
 ## Tools
 

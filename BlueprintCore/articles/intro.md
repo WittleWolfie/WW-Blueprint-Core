@@ -22,6 +22,7 @@
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Validation.dll`
     * `%WrathPath%\Wrath_Data\Managed\Owlcat.Runtime.Visual.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.dll`
+    * `$WrathPath%\Wrath_Data\Managed\UnityEngine.AssetBundleModule.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityEngine.CoreModule.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityModManager\0Harmony.dll`
     * `$WrathPath%\Wrath_Data\Managed\UnityModManager\UnityModManager.dll`
@@ -70,7 +71,10 @@
     </Target>
     ```
 7. (Optional) Create a new text file called `LocalizedStrings.json`
-    * Use this to define text used in your mod, see [Text, Logging, and Utils Usage](usage/utils.md) for more details
+    * Use this to define text used in your mod, see [Text](usage/utils.md#text) for more details
+    * Be sure to distribute this file with your mod assembly
+8. (Optional) Create a Unity AssetBundle called `assets`
+    * Use this to import Unity assets, see [Unity Assets](usage/utils.md#unity-assets) for more details
     * Be sure to distribute this file with your mod assembly
 8. You're ready to go!
 
@@ -106,8 +110,10 @@ The impact of this isn't significant but if you want to keep your assembly small
          <ILStrip Include="&quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&quot;" />
      
          <!-- BlueprintCore Entry Points -->
+         <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch" />
+         <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch" />
          <Entry Include="BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch" />
-         <Entry Include="BlueprintCore.UnitParts..Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch" />
+         <Entry Include="BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch" />
      
          <!-- Replace with Your Mod Entry Points -->
          <Entry Include="BlueprintCoreTutorial.Main" />
@@ -121,6 +127,7 @@ The impact of this isn't significant but if you want to keep your assembly small
      ```
      * Each `Entry` item is an entry point for your code. This includes any class called through reflection and any Harmony patches.
      * BPCore Patch Notes will call out any new entry points needed
+     * ILStrip breaks debugging symbols; disable it when using [Wrath2Debug](https://github.com/thehambeard/Wrath2Debug/releases/latest)
 
 #### Troubleshooting
 
@@ -156,11 +163,13 @@ Add a DeployMod target to your .csproj file, using your mod's name in place of `
     <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
     <ModConfig Include="$(OutputPath)\Info.json" />
     <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+    <Assets Include="$(OutputPath)\assets" />
   </ItemGroup>
 
   <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
   <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />
   <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <Copy SourceFiles="@(Assets)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 </Target>
 ```
 

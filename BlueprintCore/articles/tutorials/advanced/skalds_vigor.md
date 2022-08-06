@@ -180,6 +180,9 @@ Test it in and out of combat and look at the log (I added the numbers for refere
 [147.4724 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:46.7940000 vs 12:11:42.2940000
 ```
 
+> ![TIP]
+> Make sure to disable ILStrip or add your patch to the Entry Points in your .csproj file. I recommend disabling ILStrip for Debug builds.
+
 A few things are wrong:
 
 1. UpdateNextEvent(1) should trigger Skald's Vigor, but if it did trigger then the next tick time of UpdateNextEvent(2) should be `12:11:46.794`.
