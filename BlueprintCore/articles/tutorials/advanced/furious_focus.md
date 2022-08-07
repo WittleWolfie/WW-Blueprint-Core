@@ -73,7 +73,7 @@ The implementation goes in `OnEventDidTrigger` because the penalty from power at
 ```C#
 var powerAttackModifier =
   evt.m_ModifiableBonus?.Modifiers?
-    .Where(m => m.Fact?.Blueprint == PowerAttackBuff)
+    .Where(m => m.Fact?.Blueprint == BuffRefs.PowerAttackBuff.Reference.Get())
     .Select(m => (Modifier?)m) // Cast to avoid getting a default struct
     .FirstOrDefault();
 if (powerAttackModifier is null)
