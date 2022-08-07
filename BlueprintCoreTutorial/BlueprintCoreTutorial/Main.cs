@@ -57,6 +57,7 @@ namespace BlueprintCoreTutorial
           MagicalAptitude.Configure();
           SkaldsVigor.Configure();
           FuriousFocus.Configure();
+          Solutions.Feats.HurtfulSolution.Configure();
         }
         catch (Exception e)
         {

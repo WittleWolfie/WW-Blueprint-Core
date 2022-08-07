@@ -110,27 +110,9 @@
 	</Target>
   
   <!-- Minimizes the assembly size -->
-  <Target Name="ILStrip" AfterTargets="ILRepack">
-    <ItemGroup>
-      <LocalAssembly Include="$(AssemblyName).dll" />
-      <ILStrip Include="&quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&quot;" />
-      
-      <!-- BlueprintCore Entry Points -->
-      <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch" />
-      <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch" />
-      <Entry Include="BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch" />
-      <Entry Include="BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch" />
-      
-      <!-- BlueprintCore Tutorial Entry Points -->
-      <Entry Include="BlueprintCoreTutorial.Main" />
-      <Entry Include="BlueprintCoreTutorial.Main/BlueprintsCaches_Patch" />
-    </ItemGroup>
-
-    <Exec WorkingDirectory="$(OutputPath)" Command="@(ILStrip) @(LocalAssembly) @(LocalAssembly) -e @(Entry, ' -e ')" />
-  </Target>
 
 	<!-- Automatically deploys the mod on build -->
-	<Target Name="Deploy" AfterTargets="ILStrip">
+	<Target Name="Deploy" AfterTargets="ILRepack">
 		<ItemGroup>
 			<Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
 			<ModConfig Include="$(OutputPath)\Info.json" />
