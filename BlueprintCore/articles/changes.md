@@ -7,6 +7,8 @@
 * Added `Asset<>` and `AssetLink<>` types to allow referencing assets by Asset Id
 * Added `ToString()` override to `Blueprint<>`
     * This makes it easier to cast between types
+* Added `AddToFeatureSelection()` and `AddToRangerStyles()` methods to `FeatureConfigurator`
+    * Convenience methods for adding to `BlueprintFeatureSelection` if the `FeatureGroup` logic doesn't handle it
 * ContextValues
     * Added support for `ContextValueType.AbilityParameter`
     * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
@@ -18,7 +20,8 @@
 
 * If you are using ILStrip there are new patches, add the following entry points:
     * `BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch`
-    * 
+    * `BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch`
+    * `BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch`
 * Lists and arrays of the following types have been replaced by their BPCore version, which may require updates:
     * `LocalizedString` => `LocalString`
     * `AnimationClipWrapperLink` => `AssetLink<AnimationClipWrapperLink>`
