@@ -13,9 +13,9 @@ using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
 using System.Linq;
 
-namespace BlueprintCoreTutorial.Feats
+namespace BlueprintCoreTutorial.Solutions.Feats
 {
-  public class FuriousFocus
+  public class FuriousFocusSolution
   {
     private const string FeatName = "FuriousFocus";
     private const string FeatGuid = "f71ea407-f8ae-46dc-8315-b9c6a7819969";
@@ -65,6 +65,19 @@ namespace BlueprintCoreTutorial.Feats
       {
         try
         {
+          if (evt.Weapon is null || !evt.Weapon.Blueprint.IsTwoHanded)
+          {
+            Logger.Verbose("Skipped: not a 2H weapon attack.");
+            return;
+          }
+
+          var rule = evt.Reason.Rule;
+          if (rule is RuleAttackWithWeapon attackRule && !attackRule.IsFirstAttack)
+          {
+            Logger.Verbose("Skipped: not first attack");
+            return;
+          }
+
           var powerAttackModifier =
             evt.m_ModifiableBonus?.Modifiers?
               .Where(m => m.Fact?.Blueprint == PowerAttackBuff)
