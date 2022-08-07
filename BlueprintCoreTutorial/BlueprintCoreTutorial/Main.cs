@@ -53,8 +53,10 @@ namespace BlueprintCoreTutorial
           Initialized = true;
 
           Logger.Info("Patching blueprints.");
+
           MagicalAptitude.Configure();
           SkaldsVigor.Configure();
+          FuriousFocus.Configure();
         }
         catch (Exception e)
         {

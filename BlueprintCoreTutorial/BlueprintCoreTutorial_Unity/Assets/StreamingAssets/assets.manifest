@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1947658705
+CRC: 4018046653
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: de7b31082367ce30ae564c72a99d66c7
+    Hash: b65427a3f1dffe1400bc741e42bf577e
   TypeTreeHash:
     serializedVersion: 2
     Hash: c90fc19e2679e5295d10bd00f33cb4c3
@@ -16,5 +16,6 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/Icons/GreaterSkaldVigor.png
+- Assets/Icons/FuriousFocus.png
 - Assets/Icons/SkaldVigor.png
 Dependencies: []
