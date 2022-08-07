@@ -35,7 +35,7 @@ namespace BlueprintCoreTutorial.Solutions.Feats
     {
       Logger.Info($"Configuring {FeatName}");
 
-      FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+      FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat, FeatureGroup.RangerStyle)
         .SetDisplayName(FeatDisplayName)
         .SetDescription(FeatDescription)
         .SetIcon(IconName)
@@ -49,6 +49,8 @@ namespace BlueprintCoreTutorial.Solutions.Feats
         .AddPrerequisiteStatValue(StatType.BaseAttackBonus, 1)
         .AddPrerequisiteFeature(FeatureRefs.PowerAttackFeature.ToString())
         .AddComponent<FuriousFocusBonus>()
+        // FeatureGroup.RangerStyle isn't associated with a selection, this adds it to the appropriate selections.
+        .AddToRangerStyles(RangerStyle.TwoHanded6)
         .Configure();
     }
 
