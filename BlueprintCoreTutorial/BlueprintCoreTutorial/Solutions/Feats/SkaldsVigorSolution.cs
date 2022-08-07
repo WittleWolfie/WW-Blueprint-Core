@@ -16,6 +16,7 @@ using Kingmaker.Blueprints.Classes;
 using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using Kingmaker.UnitLogic;
+using Kingmaker.Blueprints.Classes.Selection;
 
 namespace BlueprintCoreTutorial.Solutions.Feats
 {
@@ -68,17 +69,21 @@ namespace BlueprintCoreTutorial.Solutions.Feats
         // Adds a UI hint that Skald's Vigor leads to Greater Skald's Vigor. Use the GUID since it hasn't been created
         // yet.
         .AddToIsPrerequisiteFor(GreaterFeatGuid)
+        // Adds a UI tag that can be used when searching.
+        .AddFeatureTagsComponent(featureTags: FeatureTag.ClassSpecific)
         .Configure();
 
       // Greater Skald's Vigor
       FeatureConfigurator.New(GreaterFeatName, GreaterFeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
-         .SetDisplayName(GreaterFeatDisplayName)
-         .SetDescription(GreaterFeatDescription)
-         .SetIcon(GreaterIconName)
-         .AddPrerequisiteFeature(FeatName)
-         // Since Performance isn't a skill in Wrath and there's not a great equivalent just make level 10 the pre-req.
-         .AddPrerequisiteCharacterLevel(10)
-         .Configure();
+        .SetDisplayName(GreaterFeatDisplayName)
+        .SetDescription(GreaterFeatDescription)
+        .SetIcon(GreaterIconName)
+        .AddPrerequisiteFeature(FeatName)
+        // Since Performance isn't a skill in Wrath and there's not a great equivalent just make level 10 the pre-req.
+        .AddPrerequisiteCharacterLevel(10)
+        // Adds a UI tag that can be used when searching.
+        .AddFeatureTagsComponent(featureTags: FeatureTag.ClassSpecific)
+        .Configure();
 
       var applyBuff = ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true);
       BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
