@@ -73,38 +73,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <summary>
-    /// Use with <see cref="AddToRangerStyleFeats"/> to add to the appropriate ranger style feat selection. 
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// The ending number indicates the level it becomes available. It is automatically added to higher level lists.
-    /// e.g. <c>AddToRangerStyles(RangerStyle.Archery2)</c> adds the feature to RangerStyleArcherySelection2,
-    /// RangerStyleArcherySelection6, and RangerStyleArcherySelection10.
-    /// </remarks>
-    public enum RangerStyle
-    {
-      Archery2,
-      Archery6,
-      Archery10,
-
-      Menacing2,
-      Menacing6,
-      Menacing10,
-
-      Shield2,
-      Shield6,
-      Shield10,
-
-      TwoHanded2,
-      TwoHanded6,
-      TwoHanded10,
-
-      TwoWeapon2,
-      TwoWeapon6,
-      TwoWeapon10,
-    }
-
-    /// <summary>
     /// Adds the feature to specified ranger styles. Note that you only need to specify the minimum level for each
     /// category.
     /// </summary>
@@ -205,5 +173,38 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
     }
+  }
+
+  /// <summary>
+  /// Use with <see cref="FeatureConfigurator.AddToRangerStyles(RangerStyle[])"/> to add to the appropriate ranger
+  /// style feat selection. 
+  /// </summary>
+  /// 
+  /// <remarks>
+  /// The ending number indicates the level it becomes available. It is automatically added to higher level lists.
+  /// e.g. <c>AddToRangerStyles(RangerStyle.Archery2)</c> adds the feature to RangerStyleArcherySelection2,
+  /// RangerStyleArcherySelection6, and RangerStyleArcherySelection10.
+  /// </remarks>
+  public enum RangerStyle
+  {
+    Archery2,
+    Archery6,
+    Archery10,
+
+    Menacing2,
+    Menacing6,
+    Menacing10,
+
+    Shield2,
+    Shield6,
+    Shield10,
+
+    TwoHanded2,
+    TwoHanded6,
+    TwoHanded10,
+
+    TwoWeapon2,
+    TwoWeapon6,
+    TwoWeapon10,
   }
 }
