@@ -72,18 +72,137 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return configurator;
     }
 
+    /// <summary>
+    /// Use with <see cref="AddToRangerStyleFeats"/> to add to the appropriate ranger style feat selection. 
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// The ending number indicates the level it becomes available. It is automatically added to higher level lists.
+    /// e.g. <c>AddToRangerStyles(RangerStyle.Archery2)</c> adds the feature to RangerStyleArcherySelection2,
+    /// RangerStyleArcherySelection6, and RangerStyleArcherySelection10.
+    /// </remarks>
+    public enum RangerStyle
+    {
+      Archery2,
+      Archery6,
+      Archery10,
+
+      Menacing2,
+      Menacing6,
+      Menacing10,
+
+      Shield2,
+      Shield6,
+      Shield10,
+
+      TwoHanded2,
+      TwoHanded6,
+      TwoHanded10,
+
+      TwoWeapon2,
+      TwoWeapon6,
+      TwoWeapon10,
+    }
+
+    /// <summary>
+    /// Adds the feature to specified ranger styles. Note that you only need to specify the minimum level for each
+    /// category.
+    /// </summary>
+    public FeatureConfigurator AddToRangerStyles(params RangerStyle[] styles)
+    {
+      foreach (var style in styles)
+      {
+        switch (style)
+        {
+          case RangerStyle.Archery10:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection10.Reference.Get());
+            goto case RangerStyle.Archery6;
+          case RangerStyle.Archery6:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection6.Reference.Get());
+            goto case RangerStyle.Archery2;
+          case RangerStyle.Archery2:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection2.Reference.Get());
+            break;
+
+          case RangerStyle.Menacing10:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection10.Reference.Get());
+            goto case RangerStyle.Menacing6;
+          case RangerStyle.Menacing6:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection6.Reference.Get());
+            goto case RangerStyle.Menacing2;
+          case RangerStyle.Menacing2:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection2.Reference.Get());
+            break;
+
+          case RangerStyle.Shield10:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection10.Reference.Get());
+            goto case RangerStyle.Shield6;
+          case RangerStyle.Shield6:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection6.Reference.Get());
+            goto case RangerStyle.Shield2;
+          case RangerStyle.Shield2:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection2.Reference.Get());
+            break;
+
+          case RangerStyle.TwoHanded10:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection10.Reference.Get());
+            goto case RangerStyle.TwoHanded6;
+          case RangerStyle.TwoHanded6:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection6.Reference.Get());
+            goto case RangerStyle.TwoHanded2;
+          case RangerStyle.TwoHanded2:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection2.Reference.Get());
+            break;
+
+          case RangerStyle.TwoWeapon10:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection10.Reference.Get());
+            goto case RangerStyle.TwoWeapon6;
+          case RangerStyle.TwoWeapon6:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection6.Reference.Get());
+            goto case RangerStyle.TwoWeapon2;
+          case RangerStyle.TwoWeapon2:
+            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection2.Reference.Get());
+            break;
+        }
+      }
+      return this;
+    }
+
+    /// <summary>
+    /// Adds the feature to the specified selections. 
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Most selections should be automatically populated based on the FeatureGroup values you specify in
+    /// <see cref="New(string, string, FeatureGroup[])"/>.
+    /// </remarks>
+    public FeatureConfigurator AddToFeatureSelection(params Blueprint<BlueprintFeatureSelectionReference>[] selections)
+    {
+      foreach (var selection in selections)
+      {
+        AdditionalFeatureSelections.Add(selection.Reference.Get());
+      }
+      return this;
+    }
+
+    private static readonly HashSet<BlueprintFeatureSelection> AdditionalFeatureSelections = new();
     private static readonly IEnumerable<BlueprintFeatureSelection> FeatureSelections =
       FeatureSelectionRefs.All.Select(selectionRef => selectionRef.Reference.Get());
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
 
-      foreach (var selection in FeatureSelections)
+      foreach (var selection in FeatureSelections.Except(AdditionalFeatureSelections))
       {
         if (Blueprint.HasGroup(selection.Group) || Blueprint.HasGroup(selection.Group2))
         {
           FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
         }
+      }
+
+      foreach (var selection in AdditionalFeatureSelections)
+      {
+        FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
     }
   }
