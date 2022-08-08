@@ -60,12 +60,12 @@ namespace BlueprintCoreTutorial
         try
         {
           var code = new List<CodeInstruction>(instructions);
+          Label newJumpTarget = il.DefineLabel();
 
           // Search back to front for OpCodes.Leave_S which is where the new code is inserted. In the next loop the
           // any code before Leave_S and after the skill check that jumps to either Leave_S or Ret will be redirected
-          // to the newly inserted code.
+          // to newJumpTarget.
           var index = code.Count - 1;
-          var retLabel = code[index].labels;
           var insertIndex = 0;
           List<Label> leaveLabel = new();
           for (; index >= 0; index--)
@@ -85,9 +85,8 @@ namespace BlueprintCoreTutorial
 
           // Keep searching backwards replacing all jumps to retLabel / leaveLable, until TriggerSkillCheck is found.
           // Capture the operand for referencing the result which will be passed to NotifySubscribers.
-          Label newJumpTarget = il.DefineLabel();
           object skillCheckResult = null;
-          index--;
+          index--; // Make sure we don't redirect Leave_S or there's an infinite loop
           for (; index >= 0; index--)
           {
             if (code[index].Calls(AccessTools.Method(typeof(GameHelper), nameof(GameHelper.TriggerSkillCheck))))
@@ -97,6 +96,7 @@ namespace BlueprintCoreTutorial
               break; // Don't mess w/ jumps before the skill check result is generated
             }
 
+            // Doesn't matter what the operation is, if the operand is a Label it's some kind of jump
             if (code[index].operand is Label jumpTarget)
             {
               if (leaveLabel.Contains(jumpTarget))
