@@ -46,64 +46,81 @@ namespace BlueprintCoreTutorial
       Subscribers.Remove(subscriber);
     }
 
-    public static void NotifySubscribers()//Demoralize demoralize, RuleSkillCheck intimidateCheck)
+    public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck intimidateCheck)
     {
-      Logger.Info($"Notifying Demoralize Subscribers:");
+      Logger.Info($"Notifying Demoralize Subscribers: {demoralize.Owner.name}, {intimidateCheck.RollResult}");
     }
 
     [HarmonyPatch(typeof(Demoralize))]
     static class Demoralize_Patch
     {
       [HarmonyPatch(nameof(Demoralize.RunAction)), HarmonyTranspiler]
-      static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+      static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator il)
       {
         try
         {
           var code = new List<CodeInstruction>(instructions);
 
-          // To call NotifySubscribers requires the current object and the result of TriggerSkillCheck. First loop
-          // through the code and find the operand for the skill check (the next operation after TriggerSkillCheck).
-          object intimidateCheck = null;
-          var index = 0;
-          for (; index < code.Count - 1; index++)
-          {
-            if (code[index].Calls(AccessTools.Method(typeof(GameHelper), nameof(GameHelper.TriggerSkillCheck))))
-            {
-              Logger.Info($"Found intimidate skill check at {index + 1}: {code[index + 1]}");
-              intimidateCheck = code[index + 1].operand;
-              break;
-            }
-          }
-          if (intimidateCheck is null)
-          {
-            throw new InvalidOperationException("Unable to find intimidate skill check.");
-          }
-
-          // The Leave_S opcode is used twice, once in the foreach loop early in the method and again at the end of the
-          // try block. Our code should be inserted just before the second Leave_S.
-          for (; index < code.Count; index++)
+          // Search back to front for OpCodes.Leave_S which is where the new code is inserted. In the next loop the
+          // any code before Leave_S and after the skill check that jumps to either Leave_S or Ret will be redirected
+          // to the newly inserted code.
+          var index = code.Count - 1;
+          var retLabel = code[index].labels;
+          var insertIndex = 0;
+          List<Label> leaveLabel = new();
+          for (; index >= 0; index--)
           {
             if (code[index].opcode == OpCodes.Leave_S)
             {
-              Logger.Info($"Found OpCodes.Leave_S at {index}");
+              Logger.Info($"Found OpCodes.Leave_S at {index}: {code[index]}");
+              insertIndex = index;
+              leaveLabel = code[index].labels;
               break;
             }
           }
-          if (index == code.Count)
+          if (insertIndex == 0)
           {
-            throw new InvalidOperationException("Unable to find leave statement.");
+            throw new InvalidOperationException("Unable to find the insertion index.");
           }
 
-          // More or less copied from dnSpy. Load the intimidate check, then this, then call NotifySubscribers.
+          // Keep searching backwards replacing all jumps to retLabel / leaveLable, until TriggerSkillCheck is found.
+          // Capture the operand for referencing the result which will be passed to NotifySubscribers.
+          Label newJumpTarget = il.DefineLabel();
+          object skillCheckResult = null;
+          index--;
+          for (; index >= 0; index--)
+          {
+            if (code[index].Calls(AccessTools.Method(typeof(GameHelper), nameof(GameHelper.TriggerSkillCheck))))
+            {
+              Logger.Info($"Found skill check result at {index + 1}: {code[index + 1]}");
+              skillCheckResult = code[index + 1].operand;
+              break; // Don't mess w/ jumps before the skill check result is generated
+            }
+
+            if (code[index].operand is Label jumpTarget)
+            {
+              if (leaveLabel.Contains(jumpTarget))
+              {
+                Logger.Info($"Found jump to OpCodes.Leave_S at {index}: {code[index]}");
+                code[index].operand = newJumpTarget;
+              }
+              if (retLabel.Contains(jumpTarget))
+              {
+                Logger.Info($"Found jump to OpCodes.Ret at {index}: {code[index]}");
+                code[index].operand = newJumpTarget;
+              }
+            }
+          }
+
+          // More or less copied from dnSpy
           var newCode =
             new List<CodeInstruction>()
             {
-              CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
+              new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget), // Load Demoralize instance, jumps redirect here
+              new CodeInstruction(OpCodes.Ldloc_S, skillCheckResult), // Load the resulting RuleSkillCheck
+              CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)), // Call NotifySubscribers
             };
-
-          // Insert the new call into the instructions just before the leave statement, which is the exit for the try
-          // statement.
-          code.InsertRange(0, newCode);
+          code.InsertRange(insertIndex, newCode);
           return code;
         }
         catch (Exception e)
