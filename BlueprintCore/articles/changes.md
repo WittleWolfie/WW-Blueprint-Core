@@ -2,6 +2,8 @@
 
 ## v2.2.0 Release
 
+* Expanded tutorials to cover more advanced modding
+    * Activatable Abilities, Transpilers, Assets, and more
 * Added several replacement components from TTT-Core
     * Existing methods are flagged as obsolete and will be removed in the next major release, so consider migrating
 * Added `Asset<>` and `AssetLink<>` types to allow referencing assets by Asset Id
@@ -12,7 +14,7 @@
 * ContextValues
     * Added support for `ContextValueType.AbilityParameter`
     * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
-* Expanded tutorials to cover more advanced modding
+* Added new `HasActionsAvailable` Condition
 * Fixed and filled out unit test project
     * Future contributions should include unit tests to the extent possible
 * Fixed type specific overrides to apply to Lists and Arrays
