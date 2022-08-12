@@ -8,7 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 
-namespace BlueprintCoreTutorial
+namespace BlueprintCoreTutorial.Feats
 {
   /// <summary>
   /// Event subscriber for events related to use of the Demoralize action.
