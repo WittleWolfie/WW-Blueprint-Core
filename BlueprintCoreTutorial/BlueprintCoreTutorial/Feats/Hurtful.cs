@@ -8,11 +8,13 @@ using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.JsonSystem;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 
@@ -71,7 +73,8 @@ namespace BlueprintCoreTutorial.Feats
         .AddFacts(new() { ability })
         .Configure();
     }
-
+    
+    [TypeId("7101a98f-2620-4e1f-a2aa-9b564e3d919f")]
     private class HurtfulComponent : UnitFactComponentDelegate, IDemoralizeHandler
     {
       private readonly ConditionsChecker Conditions;
@@ -121,6 +124,7 @@ namespace BlueprintCoreTutorial.Feats
             return;
           }
 
+          caster.SpendAction(UnitCommand.CommandType.Swift, isFullRound: False, timeSinceCommandStart: 0);
           var attack =
             Context.TriggerRule<RuleAttackWithWeapon>(
               new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
