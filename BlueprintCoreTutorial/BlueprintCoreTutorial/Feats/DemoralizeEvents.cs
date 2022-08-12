@@ -1,5 +1,4 @@
 ﻿using BlueprintCore.Utils;
-using BlueprintCoreTutorial.Solutions.Feats;
 using HarmonyLib;
 using Kingmaker.Designers;
 using Kingmaker.PubSubSystem;
@@ -7,48 +6,33 @@ using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BlueprintCoreTutorial
 {
   /// <summary>
   /// Event subscriber for events related to use of the Demoralize action.
   /// </summary>
-  public interface IDemoralizeSubscriber : IGlobalSubscriber
+  public interface IDemoralizeHandler : IGlobalSubscriber
   {
     /// <summary>
-    /// Triggers when Demoralize finishes.
+    /// Triggers when Demoralize finishes resolving.
     /// </summary>
     /// <param name="demoralize">The component executing demoralize</param>
     /// <param name="intimidateCheck">The intimidate skill check</param>
-    void OnDemoralizeCompleted(Demoralize demoralize, RuleSkillCheck intimidateCheck);
+    void OnDemoralizeResolved(Demoralize demoralize, RuleSkillCheck intimidateCheck);
   }
 
   /// <summary>
-  /// Event handler for IDemoralizeSubscriber. Register IDemoralizerSubscribers using
-  /// <see cref="Subscribe(IDemoralizeSubscriber)"/>.
+  /// Event system for IDemoralizeHandler.
   /// </summary>
   public class DemoralizeEvents
   {
     private static readonly LogWrapper Logger = LogWrapper.Get("DemoralizeEvents");
-    private static readonly List<IDemoralizeSubscriber> Subscribers = new();
-
-    public static void Subscribe(IDemoralizeSubscriber subscriber)
-    {
-      Subscribers.Add(subscriber);
-    }
-
-    public static void Unsubscribe(IDemoralizeSubscriber subscriber)
-    {
-      Subscribers.Remove(subscriber);
-    }
-
     public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck intimidateCheck)
     {
-      Logger.Info($"Notifying Demoralize Subscribers: {demoralize.Owner.name}, {intimidateCheck.RollResult}");
+      Logger.Verbose($"Notifying Demoralize Subscribers: {demoralize.Owner.name}, {intimidateCheck.RollResult}");
+      EventBus.RaiseEvent<IDemoralizeHandler>(h => h.OnDemoralizeResolved(demoralize, intimidateCheck));
     }
 
     [HarmonyPatch(typeof(Demoralize))]
@@ -68,6 +52,7 @@ namespace BlueprintCoreTutorial
           var index = code.Count - 1;
           var insertIndex = 0;
           List<Label> leaveLabel = new();
+          var retLabel = code[index].labels;
           for (; index >= 0; index--)
           {
             if (code[index].opcode == OpCodes.Leave_S)
@@ -116,9 +101,12 @@ namespace BlueprintCoreTutorial
           var newCode =
             new List<CodeInstruction>()
             {
-              new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget), // Load Demoralize instance, jumps redirect here
-              new CodeInstruction(OpCodes.Ldloc_S, skillCheckResult), // Load the resulting RuleSkillCheck
-              CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)), // Call NotifySubscribers
+              // Load Demoralize instance, jumps redirect here
+              new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget),
+              // Load the resulting RuleSkillCheck
+              new CodeInstruction(OpCodes.Ldloc_S, skillCheckResult),
+              // Call NotifySubscribers
+              CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
             };
           code.InsertRange(insertIndex, newCode);
           return code;
