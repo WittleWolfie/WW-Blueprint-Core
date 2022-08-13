@@ -1,0 +1,1339 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AddOutgoingDamageTriggerFixed
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AddOutgoingDamageTriggerFixed
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed" class="text-break">Class AddOutgoingDamageTriggerFixed
+  </h1>
+  <div class="markdown level0 summary"><p>Working replacement for Owlcat's AddOutgoingDamageTrigger.
+Instantiate using <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html#BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_New_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_">New(ActionsBuilder, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)</a> and configure using its
+methods.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></div>
+    <div class="level2"><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.Entities.UnitEntityData</span>, <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData.html">AddOutgoingDamageTriggerFixed.ComponentData</a>&gt;</div>
+    <div class="level3"><span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate</span>&lt;<a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData.html">AddOutgoingDamageTriggerFixed.ComponentData</a>&gt;</div>
+    <div class="level4"><span class="xref">AddOutgoingDamageTriggerFixed</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span></div>
+    <div><span class="xref">Kingmaker.Blueprints.IHavePrototype</span></div>
+    <div><span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleDealStatDamage</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleDealStatDamage</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleDrainEnergy</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleDrainEnergy</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.ISubscriber</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Param</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.ClearData()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.GetSubscribingUnit()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.CreateRuntimeFactComponent()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnFactAttached()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnInitialize()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnActivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnDeactivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnTurnOn()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnTurnOff()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnPreSave()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnPostLoad()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnApplyPostLoadFixes()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnViewDidAttach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnViewWillDetach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnDispose()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.OnRecalculate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Runtime</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Owner</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Context</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.Data</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.MaybeData</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ComponentData&gt;.IsReapplying</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.&lt;OwnerBlueprint&gt;k__BackingField</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_Flags</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.name</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_PrototypeLink</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ApplyValidation(Owlcat.QA.Validation.ValidationContext, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OnDeserialized(System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.False</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OwnerBlueprint</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Disabled</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.PrototypeLink</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.html">BlueprintCore.Blueprints.Components.Replacements</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AllowMultipleComponents]
+[AllowedOn(typeof(BlueprintBuff), false)]
+[AllowedOn(typeof(BlueprintFeature), false)]
+[AllowedOn(typeof(BlueprintItemEnchantment), false)]
+[AllowedOn(typeof(BlueprintUnit), false)]
+[TypeId(&quot;d085f1af-4790-4597-a024-ae9aad966a40&quot;)]
+public class AddOutgoingDamageTriggerFixed : UnitFactComponentDelegate&lt;AddOutgoingDamageTriggerFixed.ComponentData&gt;, ICanBeLogContext, IHavePrototype, IRuntimeEntityFactComponentProvider, IInitiatorRulebookHandler&lt;RuleDealDamage&gt;, IRulebookHandler&lt;RuleDealDamage&gt;, IInitiatorRulebookHandler&lt;RuleDealStatDamage&gt;, IRulebookHandler&lt;RuleDealStatDamage&gt;, IInitiatorRulebookHandler&lt;RuleDrainEnergy&gt;, IRulebookHandler&lt;RuleDrainEnergy&gt;, ISubscriber, IInitiatorRulebookSubscriber</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Based on AddOutgoingDamageTriggerTTT from
+<a href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</a></p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_AbilityType.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.AbilityType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L338">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_AbilityType" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.AbilityType">AbilityType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AbilityType? AbilityType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_Actions.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.Actions%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L328">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_Actions" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.Actions">Actions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionList Actions</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ActionList</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyOncePerAttackRoll.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyOncePerAttackRoll%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L330">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyOncePerAttackRoll" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyOncePerAttackRoll">ApplyOncePerAttackRoll</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ApplyOncePerAttackRoll</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToAreaEffectDamage.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToAreaEffectDamage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L331">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToAreaEffectDamage" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToAreaEffectDamage">ApplyToAreaEffectDamage</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ApplyToAreaEffectDamage</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToDamageFromThisFact.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToDamageFromThisFact%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L332">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToDamageFromThisFact" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToDamageFromThisFact">ApplyToDamageFromThisFact</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ApplyToDamageFromThisFact</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToDeadTarget.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToDeadTarget%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L333">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToDeadTarget" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToDeadTarget">ApplyToDeadTarget</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ApplyToDeadTarget</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToStatDamageAndEnergyDrain.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToStatDamageAndEnergyDrain%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L334">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_ApplyToStatDamageAndEnergyDrain" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.ApplyToStatDamageAndEnergyDrain">ApplyToStatDamageAndEnergyDrain</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ApplyToStatDamageAndEnergyDrain</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_CompareType.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.CompareType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L344">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_CompareType" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.CompareType">CompareType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CompareOperation.Type CompareType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.CompareOperation.Type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_EnergyType.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.EnergyType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L340">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_EnergyType" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.EnergyType">EnergyType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DamageEnergyType? EnergyType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Enums.Damage.DamageEnergyType</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_m_AbilityList.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.m_AbilityList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L339">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_m_AbilityList" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.m_AbilityList">m_AbilityList</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintAbilityReference[] m_AbilityList</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintAbilityReference</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_m_WeaponType.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.m_WeaponType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L337">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_m_WeaponType" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.m_WeaponType">m_WeaponType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintWeaponTypeReference m_WeaponType</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintWeaponTypeReference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_SpellDescriptors.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.SpellDescriptors%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L341">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_SpellDescriptors" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.SpellDescriptors">SpellDescriptors</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SpellDescriptorWrapper? SpellDescriptors</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptorWrapper</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_TargetValue.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.TargetValue%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L343">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_TargetValue" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.TargetValue">TargetValue</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ContextValue TargetValue</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_UseContextFromReason.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.UseContextFromReason%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L335">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_UseContextFromReason" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.UseContextFromReason">UseContextFromReason</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UseContextFromReason</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_AbilityList.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.AbilityList%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L69">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_AbilityList_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.AbilityList*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_AbilityList" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.AbilityList">AbilityList</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceArrayProxy&lt;BlueprintAbility, BlueprintAbilityReference&gt; AbilityList { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.ReferenceArrayProxy</span>&lt;<span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.BlueprintAbility</span>, <span class="xref">Kingmaker.Blueprints.BlueprintAbilityReference</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_WeaponType.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.WeaponType%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L56">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_WeaponType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.WeaponType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_WeaponType" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.WeaponType">WeaponType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintWeaponType WeaponType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_New_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.New(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L269">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_New_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_New_BlueprintCore_Actions_Builder_ActionsBuilder_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.New(BlueprintCore.Actions.Builder.ActionsBuilder,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">New(ActionsBuilder, Boolean, Boolean, Boolean, Boolean, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static AddOutgoingDamageTriggerFixed New(ActionsBuilder actions, bool applyOncePerAttackRoll = false, bool applyToAreaEffectDamage = false, bool applyToDamageFromThisFact = false, bool applyToDeadTarget = false, bool applyToStatDamageAndEnergyDrain = false, bool useContextFromReason = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">actions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyOncePerAttackRoll</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToAreaEffectDamage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToDamageFromThisFact</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToDeadTarget</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">applyToStatDamageAndEnergyDrain</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">useContextFromReason</span></td>
+        <td><p>If set to true the actions run in the context of whatever triggered the damage event. For an example see
+SithhudsRodBuff - 568b3b13328f4de192547bf145b7a3a4.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_Damage_RuleDealDamage_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L107">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_Damage_RuleDealDamage_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage)">OnEventAboutToTrigger(RuleDealDamage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventAboutToTrigger(RuleDealDamage evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleDealStatDamage_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleDealStatDamage)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L120">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleDealStatDamage_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleDealStatDamage)">OnEventAboutToTrigger(RuleDealStatDamage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventAboutToTrigger(RuleDealStatDamage evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleDealStatDamage</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleDrainEnergy_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleDrainEnergy)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L124">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleDrainEnergy_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleDrainEnergy)">OnEventAboutToTrigger(RuleDrainEnergy)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventAboutToTrigger(RuleDrainEnergy evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleDrainEnergy</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_Damage_RuleDealDamage_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L128">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_Damage_RuleDealDamage_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage)">OnEventDidTrigger(RuleDealDamage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventDidTrigger(RuleDealDamage evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.Damage.RuleDealDamage</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleDealStatDamage_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleDealStatDamage)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L137">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleDealStatDamage_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleDealStatDamage)">OnEventDidTrigger(RuleDealStatDamage)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventDidTrigger(RuleDealStatDamage evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleDealStatDamage</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleDrainEnergy_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleDrainEnergy)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L145">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleDrainEnergy_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleDrainEnergy)">OnEventDidTrigger(RuleDrainEnergy)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventDidTrigger(RuleDrainEnergy evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleDrainEnergy</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilities_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilities(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAbilityReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L302">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilities_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilities*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilities_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference____" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilities(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAbilityReference}[])">RestrictToAbilities(Blueprint&lt;BlueprintAbilityReference&gt;[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToAbilities(params Blueprint&lt;BlueprintAbilityReference&gt;[] abilities)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintAbilityReference</span>&gt;[]</td>
+        <td><span class="parametername">abilities</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilityType_Kingmaker_UnitLogic_Abilities_Blueprints_AbilityType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilityType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L296">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilityType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilityType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToAbilityType_Kingmaker_UnitLogic_Abilities_Blueprints_AbilityType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToAbilityType(Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType)">RestrictToAbilityType(AbilityType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToAbilityType(AbilityType abilityType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Abilities.Blueprints.AbilityType</span></td>
+        <td><span class="parametername">abilityType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToDamageValue_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_CompareOperation_Type_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToDamageValue(Kingmaker.UnitLogic.Mechanics.ContextValue%2CKingmaker.UnitLogic.Mechanics.CompareOperation.Type)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L320">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToDamageValue_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToDamageValue*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToDamageValue_Kingmaker_UnitLogic_Mechanics_ContextValue_Kingmaker_UnitLogic_Mechanics_CompareOperation_Type_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToDamageValue(Kingmaker.UnitLogic.Mechanics.ContextValue,Kingmaker.UnitLogic.Mechanics.CompareOperation.Type)">RestrictToDamageValue(ContextValue, CompareOperation.Type)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToDamageValue(ContextValue damageValue, CompareOperation.Type comparisonType = CompareOperation.Type.Equal)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.ContextValue</span></td>
+        <td><span class="parametername">damageValue</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Mechanics.CompareOperation.Type</span></td>
+        <td><span class="parametername">comparisonType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToEnergyType_Kingmaker_Enums_Damage_DamageEnergyType_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToEnergyType(Kingmaker.Enums.Damage.DamageEnergyType)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L308">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToEnergyType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToEnergyType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToEnergyType_Kingmaker_Enums_Damage_DamageEnergyType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToEnergyType(Kingmaker.Enums.Damage.DamageEnergyType)">RestrictToEnergyType(DamageEnergyType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToEnergyType(DamageEnergyType energyType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.Damage.DamageEnergyType</span></td>
+        <td><span class="parametername">energyType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L314">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToSpellDescriptors_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToSpellDescriptors*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToSpellDescriptors_Kingmaker_Blueprints_Classes_Spells_SpellDescriptor___" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToSpellDescriptors(Kingmaker.Blueprints.Classes.Spells.SpellDescriptor[])">RestrictToSpellDescriptors(SpellDescriptor[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToSpellDescriptors(params SpellDescriptor[] spellDescriptors)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.Classes.Spells.SpellDescriptor</span>[]</td>
+        <td><span class="parametername">spellDescriptors</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToWeaponType_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintWeaponTypeReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToWeaponType(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintWeaponTypeReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L290">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToWeaponType_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToWeaponType*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed_RestrictToWeaponType_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintWeaponTypeReference__" data-uid="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.RestrictToWeaponType(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintWeaponTypeReference})">RestrictToWeaponType(Blueprint&lt;BlueprintWeaponTypeReference&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AddOutgoingDamageTriggerFixed RestrictToWeaponType(Blueprint&lt;BlueprintWeaponTypeReference&gt; weaponType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintWeaponTypeReference</span>&gt;</td>
+        <td><span class="parametername">weaponType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed.html">AddOutgoingDamageTriggerFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.Blueprints.IHavePrototype</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.ISubscriber</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AddOutgoingDamageTriggerFixed.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AddOutgoingDamageTriggerFixed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AddOutgoingDamageTriggerFixed.cs/#L38" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

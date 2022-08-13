@@ -69,6 +69,80 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v220-release">v2.2.0 Release</h2>
+<ul>
+<li>New Quick Start setup using a project template, no more editing .csproj files!</li>
+<li>Expanded tutorials to cover more advanced modding
+<ul>
+<li>Activatable Abilities, Transpilers, Assets, and more</li>
+</ul>
+</li>
+<li>Added several replacement components from TTT-Core
+<ul>
+<li>Existing methods are flagged as obsolete and will be removed in the next major release, so consider migrating</li>
+</ul>
+</li>
+<li>Added <code>Asset&lt;&gt;</code> and <code>AssetLink&lt;&gt;</code> types to allow referencing assets by Asset Id</li>
+<li>Added <code>ToString()</code> override to <code>Blueprint&lt;&gt;</code>
+<ul>
+<li>This makes it easier to cast between types</li>
+</ul>
+</li>
+<li>Added <code>AddToFeatureSelection()</code> and <code>AddToRangerStyles()</code> methods to <code>FeatureConfigurator</code>
+<ul>
+<li>Convenience methods for adding to <code>BlueprintFeatureSelection</code> if the <code>FeatureGroup</code> logic doesn't handle it</li>
+</ul>
+</li>
+<li>ContextValues
+<ul>
+<li>Added support for <code>ContextValueType.AbilityParameter</code></li>
+<li>Updated <code>CustomProperty</code> to accept <code>Blueprint&lt;&gt;</code> instead of <code>string</code></li>
+</ul>
+</li>
+<li>Added new <code>HasActionsAvailable</code> Condition</li>
+<li>Fixed and filled out unit test project
+<ul>
+<li>Future contributions should include unit tests to the extent possible</li>
+</ul>
+</li>
+<li>Fixed type specific overrides to apply to Lists and Arrays</li>
+<li>Fixed LogWrapper to respect <code>EnableInternalVerboseLogs</code></li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>If you are using ILStrip there are new patches, add the following entry points:
+<ul>
+<li><code>BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch</code></li>
+<li><code>BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch</code></li>
+<li><code>BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch</code></li>
+</ul>
+</li>
+<li>Lists and arrays of the following types have been replaced by their BPCore version, which may require updates:
+<ul>
+<li><code>LocalizedString</code> =&gt; <code>LocalString</code></li>
+<li><code>AnimationClipWrapperLink</code> =&gt; <code>AssetLink&lt;AnimationClipWrapperLink&gt;</code></li>
+<li><code>AnimationClipWrapper</code> =&gt; <code>Asset&lt;AnimationClipWrapper&gt;</code></li>
+<li><code>EquipmentEntityLink</code> =&gt; <code>AssetLink&lt;EquipmentEntityLink&gt;</code></li>
+<li><code>EquipmentEntity</code> =&gt; <code>Asset&lt;EquipmentEntity&gt;</code></li>
+<li><code>FamiliarLink</code> =&gt; <code>AssetLink&lt;FamiliarLink&gt;</code></li>
+<li><code>Familiar</code> =&gt; <code>Asset&lt;Familiar&gt;</code></li>
+<li><code>PrefabLink</code> =&gt; <code>AssetLink&lt;PrefabLink&gt;</code></li>
+<li><code>GameObject</code> =&gt; <code>Asset&lt;GameObject&gt;</code></li>
+<li><code>ProjectileLink</code> =&gt; <code>AssetLink&lt;ProjectileLink&gt;</code></li>
+<li><code>Projectile</code> =&gt; <code>Asset&lt;Projectile&gt;</code></li>
+<li><code>SpriteLink</code> =&gt; <code>AssetLink&lt;SpriteLink&gt;</code></li>
+<li><code>Sprite</code> =&gt; <code>Asset&lt;Sprite&gt;</code></li>
+<li><code>TextAssetLink</code> =&gt; <code>AssetLink&lt;TextAssetLink&gt;</code></li>
+<li><code>TextAsset</code> =&gt; <code>Asset&lt;TextAsset&gt;</code></li>
+<li><code>Texture2DLink</code> =&gt; <code>AssetLink&lt;Texture2DLink&gt;</code></li>
+<li><code>Texture2D</code> =&gt; <code>Asset&lt;Texture2D&gt;</code></li>
+<li><code>UnitViewLink</code> =&gt; <code>AssetLink&lt;UnitViewLink&gt;</code></li>
+<li><code>UnitEntityView</code> =&gt; <code>Asset&lt;UnitEntityView&gt;</code></li>
+<li><code>VideoLink</code> =&gt; <code>AssetLink&lt;VideoLink&gt;</code></li>
+<li><code>VideoClip</code> =&gt; <code>Asset&lt;VideoClip&gt;</code></li>
+</ul>
+</li>
+</ul>
 <h2 id="v212-release">v2.1.2 Release</h2>
 <ul>
 <li>Bugfixes:
@@ -77,7 +151,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li>If you updated code references you'll have to revert. This was an accidental / change introduced when params became a standard API.</li>
 </ul>
@@ -99,7 +173,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>If you were using any <code>RemoveFromX(Func&lt;Blueprint,bool&gt;)</code> functions the logic is now reversed. This matches the API design but not the function.</li>
 </ul>
@@ -144,7 +218,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>ProgressionConfigurator changed namespace
 <ul>
@@ -199,7 +273,7 @@
 <ul>
 <li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
 </ul>
-<h3 id="breaking-changes-3">Breaking Changes</h3>
+<h3 id="breaking-changes-4">Breaking Changes</h3>
 <ul>
 <li>Fixed a bug incorrectly identifying unique and non-unique components
 <ul>
@@ -208,7 +282,7 @@
 </li>
 </ul>
 <h2 id="v203-release">v2.0.3 Release</h2>
-<h3 id="breaking-changes-4">Breaking Changes</h3>
+<h3 id="breaking-changes-5">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -231,7 +305,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-5">Breaking Changes</h3>
+<h3 id="breaking-changes-6">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -287,7 +361,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-6">Breaking Changes</h3>
+<h3 id="breaking-changes-7">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>

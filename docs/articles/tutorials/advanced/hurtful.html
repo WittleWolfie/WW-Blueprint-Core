@@ -1,0 +1,579 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Advanced Feat: Hurtful </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Advanced Feat: Hurtful ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="advanced-feat-hurtful">Advanced Feat: Hurtful</h1>
+
+<p>This tutorial assumes you've gone through <a href="../feat.html">Adding a Feat</a> and <a href="skalds_vigor.html">Skald's Vigor</a>, or are familiar with the basics of adding a feat and using BPCore.</p>
+<p>We'll be adding <a href="https://www.d20pfsrd.com/feats/combat-feats/hurtful-combat/">Hurtful</a>.</p>
+<p>Go through the basic setup steps:</p>
+<ol>
+<li>Create the <code>Hurtful</code> class</li>
+<li>Create the <code>Configure</code> method</li>
+<li>Create the feat, setting the name and description</li>
+</ol>
+<pre><code class="lang-C#">public class Hurtful
+{
+  public static void Configure()
+  {
+    FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+      .SetDisplayName(FeatDisplayName)
+      .SetDescription(FeatDescription)
+      .Configure();
+  }
+}
+</code></pre>
+<p>Go ahead and configure the prerequisites and feature tags as well:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatDisplayName)
+  .SetDescription(FeatDescription)
+  .SetIcon(IconName)
+  .AddFeatureTagsComponent(featureTags: FeatureTag.Melee | FeatureTag.Attack | FeatureTag.Skills)
+  .AddPrerequisiteStatValue(StatType.Strength, 13)
+  .AddPrerequisiteFeature(FeatureRefs.PowerAttackFeature.ToString())
+  .Configure();
+</code></pre>
+<h2 id="adding-a-demoralize-trigger-transpilers-101">Adding a Demoralize Trigger (Transpilers 101)</h2>
+<p>Searching the game blueprints for a &quot;Demoralize&quot; blueprint doesn't return anything, but searching the assembly returns the <code>Demoralize</code> class. If you use BubblePrints to find usages, search &quot;?Demoralize&quot;, you'll find <code>PersuasionUseAbility</code> which is the standard way to demoralize.</p>
+<p>This doesn't look good: all demoralize logic is implemented in a special component and there are no events. You <em>could</em> use <code>AddInitiatorSkillRollTrigger</code> and handle <code>StatType.CheckIntimidate</code> but it will trigger out of combat and potentially for other abilities. Also, <code>RuleSkillCheck</code> event doesn't indicate whether the target is affected by demoralize, just whether the roll was successful.</p>
+<p>To solve this we're going to have to write a <a href="https://harmony.pardeike.net/articles/patching-transpiler.html">Transpiler</a>. A transpiler is a Harmony patch that actually edits the assembly code, changing the behavior of existing methods.</p>
+<p>First let's define the API: hurtful triggers on a successful demoralize. We'll define a successful demoralize as a successful skill check where a debuff is applied, specifically either <code>Demoralize.Buff</code> or <code>Demoralize.GreaterBuff</code>. Whenever <code>Demoralize</code> runs this data needs to be passed to our code which will trigger the attack.</p>
+<p>This can be done using the game's event system, but we need to define an interface which implements <code>IGlobalSubscriber</code>. Create a new class file called <code>DemoralizeEvents</code> and define an interface:</p>
+<pre><code class="lang-C#">public interface IDemoralizeHandler : IGlobalSubscriber
+{
+    /// &lt;summary&gt;
+    /// Triggers when Demoralize finishes resolving.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;demoralize&quot;&gt;The component executing demoralize&lt;/param&gt;
+    /// &lt;param name=&quot;intimidateCheck&quot;&gt;The intimidate skill check&lt;/param&gt;
+    void OnDemoralizeResolved(Demoralize demoralize, RuleSkillCheck intimidateCheck);
+}
+
+public class DemoralizeEvents
+{
+  private static readonly LogWrapper Logger = LogWrapper.Get(&quot;DemoralizeEvents&quot;);
+
+  // TODO
+}
+</code></pre>
+<p>Transpilers require editing the code in the form of <a href="https://en.wikipedia.org/wiki/Common_Intermediate_Language">CIL</a> which reads more like assembly than C#. This makes it tricky to work with so you want to avoid writing a lot of code in transpilers. Add a method to <code>DemoralizeEvents</code> to raise the event:</p>
+<pre><code class="lang-C#">public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck intimidateCheck)
+{
+  Logger.Verbose($&quot;Notifying Demoralize Subscribers: {demoralize.Owner.name}, {intimidateCheck.RollResult}&quot;);
+  EventBus.RaiseEvent&lt;IDemoralizeHandler&gt;(h =&gt; h.OnDemoralizeResolved(demoralize, intimidateCheck));
+}
+</code></pre>
+<p>Now we just need the transpiler to call <code>NotifySubscribers</code> when run.</p>
+<p>The basic definition of a transpiler is the same as a Harmony postfix or prefix:</p>
+<pre><code class="lang-C#">[HarmonyPatch(typeof(Demoralize))]
+static class Demoralize_Patch
+{
+  [HarmonyPatch(nameof(Demoralize.RunAction)), HarmonyTranspiler]
+  static IEnumerable&lt;CodeInstruction&gt; Transpiler(IEnumerable&lt;CodeInstruction&gt; instructions)
+  {
+    try
+    {
+      var code = new List&lt;CodeInstruction&gt;(instructions);
+      // TODO
+      return code;
+    }
+    catch (Exception e)
+    {
+      Logger.Error(&quot;Transpiler failed.&quot;, e);
+      return instructions;
+    }
+  }
+}
+</code></pre>
+<h3 id="reading-il">Reading IL</h3>
+<p>Now open up <code>Demoralize.RunAction()</code> in dnSpy. If you're using another decompiler you'll need to figure out the equivalent steps. In the top bar you'll see a dropdown showing &quot;C#&quot;. Click it and select &quot;IL&quot; and you should see something like this:</p>
+<p><img src="../../../images/advanced_feat/run_il.png" alt="Switch view to IL"></p>
+<p>The top section is the method declaration and defines a list of local variables. Starting at <code>IL_0000: call</code> each line is an instruction, represented by a <code>CodeInstruction</code> in the transpiler. An instruction consists of a label, opcode, and operand.</p>
+<p>Take the first line:</p>
+<pre><code>IL_0000: call !0 class Kingmaker.ElementsSystem.ContextData`1&lt;class Kingmaker.UnitLogic.Mechanics.MechanicsContext/Data&gt;::get_Current()
+</code></pre>
+<p>The label is <code>IL_0000</code>, the opcode is <code>call</code>, and everything else is the operand. The label is a reference to a specific instruction which can be used in branching operations for control flow, think <code>goto</code>. The opcode indicates the operation to perform, and the operand the argument used by the operation.</p>
+<p>The operand is stored as a list of objects and can be just about anything. In this case it is a method reference to <code>ContextData&lt;MechanicsContext.Data&gt;.getCurrent()</code>. Put simply the first line calls that method.</p>
+<p>Look at the next few lines:</p>
+<pre><code>IL_0000: call     !0 class Kingmaker.ElementsSystem.ContextData`1&lt;class Kingmaker.UnitLogic.Mechanics.MechanicsContext/Data&gt;::get_Current()
+IL_0005: dup
+IL_0006: brtrue.s IL_000C
+IL_0008: pop
+IL_0009: ldnull
+IL_000A: br.s     IL_0011
+IL_000C: call     instance class Kingmaker.UnitLogic.Mechanics.MechanicsContext Kingmaker.UnitLogic.Mechanics.MechanicsContext/Data::get_Context()
+IL_0011: stloc.0
+</code></pre>
+<p>Execution goes in order so after <code>IL_0000</code>, <code>IL_0005</code> and then <code>IL_0006</code> are executed. In dnSpy you can mouse over each instruction to get an explanation of what it does. For <code>dup</code> it says: &quot;Copies the current topmost value on the evaluation stack, and then pushes the copy onto the evaluation stack&quot;.</p>
+<p>IL is stack based so generally operations read from values on top of the evaluation stack and store results on top of the evaluation stack. After <code>IL_0000</code> the top of the stack contains the current <code>MechanicsContext.Data</code>. <code>dup</code> duplicates this and pushes it onto the stack.</p>
+<p>The next line, <code>brtrue.s</code>, checks the value on top of the stack and if it is not null moves execution to the instruction with label <code>IL_000C</code>. This means <code>IL_0008</code> and <code>IL_000A</code> will not execute.  If it is null then the reference is removed and replaced with a null reference by <code>ldnull</code>. I don't know exactly why the compiler chose to do the operations this way, so don't ask.</p>
+<p>The last line, <code>stloc.0</code>, removes the value at the top of the stack and stores it in the local variable with index 0:</p>
+<pre><code>[0] class Kingmaker.UnitLogic.Mechanics.MechanicsContext,
+</code></pre>
+<p>In C# this is all two lines:</p>
+<pre><code class="lang-C#">MechanicsContext.Data data = ContextData&lt;MechanicsContext.Data&gt;.Current;
+MechanicsContext mechanicsContext = (data != null) ? data.Context : null;
+</code></pre>
+<h3 id="writing-il">Writing IL</h3>
+<p>Now that you've read some IL, let's figure out what the new IL looks like.</p>
+<p>Switch the view in dnSpy back to C#, right click, and select <code>Edit Class</code>. Looking through the entire function the intimidate skill check is triggered here:</p>
+<pre><code class="lang-C#">RuleSkillCheck ruleSkillCheck2 = GameHelper.TriggerSkillCheck(ruleSkillCheck, mechanicsContext, true);
+</code></pre>
+<p>After the skill check there's a big <code>if</code> block which executes on success before closing out the <code>try</code> block. Our event should fire as the last step in the <code>try</code> block to make sure any state changes from demoralize are applied when it triggers.</p>
+<p>In the editor below <code>RunAction()</code> add a new method, then call it from within <code>RunAction()</code>:</p>
+<pre><code class="lang-C#">public override void RunAction()
+{
+  try
+  {
+    // ...
+    if (ruleSkillCheck2.Success)
+    {
+      // ...
+	  }
+    NotifySubscribers(this, ruleSkillCheck2);
+  }
+	finally
+	{
+    // ...
+	}
+}
+
+public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck initimidateCheck) {}
+</code></pre>
+<p>When you're done select <code>Compile</code> and you should see the new code. Switch back to IL and scroll to the bottom of the method and you should see something similar:</p>
+<p><img src="../../../images/advanced_feat/new_il.png" alt="New IL code"></p>
+<p>Using dnSpy this way makes it easier to figure out what the new IL should be. The three new lines are:</p>
+<pre><code>IL_0411: ldarg.0
+IL_0412: ldloc.s   ruleSkillCheck2
+IL_0414: call      void Kingmaker.UnitLogic.Mechanics.Actions.Demoralize::NotifySubscribers(class Kingmaker.UnitLogic.Mechanics.Actions.Demoralize, class Kingmaker.RuleSystem.Rules.RuleSkillCheck)
+</code></pre>
+<p>Back in your transpiler create a new <code>CodeInstruction</code> list and add three entries:</p>
+<pre><code class="lang-C#">var newCode =
+  new List&lt;CodeInstruction&gt;()
+  {
+    new CodeInstruction(OpCodes.Ldarg_0),
+    new CodeInstruction(OpCodes.Ldloc_S),
+    CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
+  };
+</code></pre>
+<p>You can also use <code>AccessTools</code> to reference <code>NotifySubscribers</code> but I find Harmony's <code>CodeInstruction</code> extension methods easier to use.</p>
+<h3 id="inserting-new-code">Inserting New Code</h3>
+<p>Now that we have new instructions they need to be inserted into the existing instructions, but where?</p>
+<p>One option is to count the number of instructions before our new instructions and just insert there. However, if the assembly changes because of a game update or another transpiler, this is likely to break. For this reason choosing where to insert new code is critical.</p>
+<p>The goal is to minimize the chance your transpiler breaks, and you do that by anchoring to instructions. In our case we always want the event to be the last statement in the <code>try</code> block, so the new code should go just before the corresponding statement.</p>
+<p>There is a problem with our <code>Ldloc_S</code>. In dnSpy it included an operand <code>skillCheckResult</code> but that doesn't mean anything in our C# code.</p>
+<p>How do we know what operand to use? Find an existing instruction that uses the operand, and copy it. In dnSpy's IL view it's called out clearly in the comments: <code>} // end .try</code>. So the line before that is the last statement:</p>
+<pre><code>IL_0419: leave.s   IL_0428
+</code></pre>
+<p>To find the insertion point, find this <em>specific</em> <code>leave.s</code> instruction. If you search the IL you'll see another <code>leave.s</code> instruction so checking the opcode is not sufficient. Thankfully we know that we always want to be called near the end of the method, so just search for last <code>leave.s</code> instruction:</p>
+<pre><code class="lang-C#">var insertIndex = 0;
+for (int index = code.Count - 1; index &gt;= 0; index--)
+{
+  if (code[index].opcode == OpCodes.Leave_S)
+  {
+    insertIndex = index;
+    break;
+  }
+}
+if (insertIndex == 0)
+{
+  throw new InvalidOperationException(&quot;Unable to find the insertion index.&quot;);
+}
+</code></pre>
+<p>Searching backwards is not required but it will make sense further on. With the insertion index available you can insert the new code:</p>
+<pre><code class="lang-C#">code.InsertRange(insertIndex, newCode);
+</code></pre>
+<h3 id="handling-labels">Handling Labels</h3>
+<p>Unfortunately there is still a problem. Remember how branching operations jump to specific instructions, potentially skipping some? That is going to skip our newly inserted code.</p>
+<p>First figure out which statements <em>after</em> the new code are jump targets. In dnSpy just search for the labels of each instruction starting with the <code>leave.s</code> used as the insertion point. <strong>Important</strong>: make sure you do this in the <em>unedited</em> assembly. You can reload or undo your changes; nothing is saved to disk unless you did so explicitly.</p>
+<p>You should see two statements used as jump targets:</p>
+<pre><code>IL_0403: leave.s   IL_0410
+IL_0410: ret
+</code></pre>
+<p>Anything that jumps to these skips our code! We should redirect those jumps to the first line of our code instead. To do that we'll first need to capture the labels for those instructions, then redirect any jumps. Update our search loop to store the labels:</p>
+<pre><code class="lang-C#">var insertIndex = 0;
+List&lt;Label&gt; leaveLabel = new();
+var retLabel = code[index].labels;
+for (var index = code.Count - 1; index &gt;= 0; index--)
+{
+  if (code[index].opcode == OpCodes.Leave_S)
+  {
+    insertIndex = index;
+    leaveLabel = code[index].labels;
+    break;
+  }
+}
+if (insertIndex == 0)
+{
+  throw new InvalidOperationException(&quot;Unable to find the insertion index.&quot;);
+}
+</code></pre>
+<p>Since the return instruction is always last you just take the label of the last instruction. Now we have our two labels that need redirection, but we don't have a label to redirect to.</p>
+<p>When you create a new <code>CodeInstruction</code> Harmony dynamically handles generating and updating labels. If you want to jump to a new instruction you have to explicitly generate a label. This is done by adding a new parameter to the transpiler, <code>ILGenerator il</code>, and using it to create a new label:</p>
+<pre><code class="lang-C#">[HarmonyPatch(nameof(Demoralize.RunAction)), HarmonyTranspiler]
+static IEnumerable&lt;CodeInstruction&gt; Transpiler(IEnumerable&lt;CodeInstruction&gt; instructions, ILGenerator il)
+{
+  try
+  {
+    var code = new List&lt;CodeInstruction&gt;(instructions);
+    Label newJumpTarget = il.DefineLabel();
+
+    // Insertion logic here
+
+    var newCode =
+      new List&lt;CodeInstruction&gt;()
+      {
+        new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget),
+        new CodeInstruction(OpCodes.Ldloc_S, skillCheckResult),
+        CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
+      };
+    code.InsertRange(insertIndex, newCode);
+    return code;
+  }
+  catch (Exception e)
+  {
+    Logger.Error(&quot;Transpiler failed.&quot;, e);
+    return instructions;
+  }
+}
+</code></pre>
+<p>Now you need to find update the operands of instructions using <code>retLabel</code> or <code>leaveLabel</code> to use <code>newJumpTarget</code> instead. Except there's a problem: if you update <em>all</em> operands using <code>retLabel</code> it includes early returns before <code>TriggerSkillCheck</code> is called, so <code>ruleSkillCheck2</code> doesn't exist.</p>
+<p>Rather than updating all operands using <code>retLabel</code> or <code>leaveLabel</code>, search backwards and update only until <code>TriggerSkillCheck</code> is called:</p>
+<pre><code class="lang-C#">var code = new List&lt;CodeInstruction&gt;(instructions);
+Label newJumpTarget = il.DefineLabel();
+
+// Search back to front for OpCodes.Leave_S which is where the new code is inserted. In the next loop the
+// any code before Leave_S and after the skill check that jumps to either Leave_S or Ret will be redirected
+// to newJumpTarget.
+var index = code.Count - 1;
+var insertIndex = 0;
+List&lt;Label&gt; leaveLabel = new();
+var retLabel = code[index].labels;
+for (; index &gt;= 0; index--)
+{
+  if (code[index].opcode == OpCodes.Leave_S)
+  {
+    Logger.Info($&quot;Found OpCodes.Leave_S at {index}: {code[index]}&quot;);
+    insertIndex = index;
+    leaveLabel = code[index].labels;
+    break;
+  }
+}
+if (insertIndex == 0)
+{
+  throw new InvalidOperationException(&quot;Unable to find the insertion index.&quot;);
+}
+
+// Keep searching backwards replacing all jumps to retLabel / leaveLable, until TriggerSkillCheck is found.
+index--; // Make sure we don't redirect Leave_S or there's an infinite loop
+for (; index &gt;= 0; index--)
+{
+  if (code[index].Calls(AccessTools.Method(typeof(GameHelper), nameof(GameHelper.TriggerSkillCheck))))
+  {
+    break; // Don't mess w/ jumps before the skill check result is generated
+  }
+
+  // Doesn't matter what the operation is, if the operand is a Label it's some kind of jump
+  if (code[index].operand is Label jumpTarget)
+  {
+    if (leaveLabel.Contains(jumpTarget))
+    {
+      Logger.Info($&quot;Found jump to OpCodes.Leave_S at {index}: {code[index]}&quot;);
+      code[index].operand = newJumpTarget;
+    }
+    if (retLabel.Contains(jumpTarget))
+    {
+      Logger.Info($&quot;Found jump to OpCodes.Ret at {index}: {code[index]}&quot;);
+      code[index].operand = newJumpTarget;
+    }
+  }
+}
+
+var newCode =
+  new List&lt;CodeInstruction&gt;()
+  {
+    new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget),
+    new CodeInstruction(OpCodes.Ldloc_S),
+    CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
+  };
+code.InsertRange(insertIndex, newCode);
+return code;
+</code></pre>
+<h3 id="finding-the-operand">Finding the Operand</h3>
+<p>The last step to finish the transpiler is to populate the operand for <code>Ldloc_S</code>. When we looked at the edited IL in dnSpy it had an operand <code>ruleSkillCheck2</code> but that doesn't exist in our C# method. Instead we need to find the operand in the existing code and copy it over to our new code.</p>
+<p>Looking in dnSpy the skill check is stored just after <code>TriggerSkillCheck</code> is called:</p>
+<pre><code>IL_0158: call      class Kingmaker.RuleSystem.Rules.RuleSkillCheck Kingmaker.Designers.GameHelper::TriggerSkillCheck(class Kingmaker.RuleSystem.Rules.RuleSkillCheck, class Kingmaker.UnitLogic.Mechanics.MechanicsContext, bool)
+IL_015D: stloc.s   V_4
+</code></pre>
+<p>As long as the skill check result is being used this should always be true, because the result of <code>TriggerSkillCheck</code> is on the stack and needs to be stored for reference.</p>
+<p>Now update the transpiler to capture and use the operand:</p>
+<pre><code class="lang-C#">// Keep searching backwards replacing all jumps to retLabel / leaveLable, until TriggerSkillCheck is found.
+// Capture the operand for referencing the result which will be passed to NotifySubscribers.
+object skillCheckResult = null;
+index--; // Make sure we don't redirect Leave_S or there's an infinite loop
+for (; index &gt;= 0; index--)
+{
+  if (code[index].Calls(AccessTools.Method(typeof(GameHelper), nameof(GameHelper.TriggerSkillCheck))))
+  {
+    Logger.Info($&quot;Found skill check result at {index + 1}: {code[index + 1]}&quot;);
+    skillCheckResult = code[index + 1].operand;
+    break; // Don't mess w/ jumps before the skill check result is generated
+  }
+
+  // Doesn't matter what the operation is, if the operand is a Label it's some kind of jump
+  if (code[index].operand is Label jumpTarget)
+  {
+    if (leaveLabel.Contains(jumpTarget))
+    {
+      Logger.Info($&quot;Found jump to OpCodes.Leave_S at {index}: {code[index]}&quot;);
+      code[index].operand = newJumpTarget;
+    }
+    if (retLabel.Contains(jumpTarget))
+    {
+      Logger.Info($&quot;Found jump to OpCodes.Ret at {index}: {code[index]}&quot;);
+      code[index].operand = newJumpTarget;
+    }
+  }
+}
+
+var newCode =
+  new List&lt;CodeInstruction&gt;()
+  {
+    new CodeInstruction(OpCodes.Ldarg_0).WithLabels(newJumpTarget),
+    new CodeInstruction(OpCodes.Ldloc_S, skillCheckResult),
+    CodeInstruction.Call(typeof(DemoralizeEvents), nameof(DemoralizeEvents.NotifySubscribers)),
+  };
+code.InsertRange(insertIndex, newCode);
+return code;
+</code></pre>
+<p>The transpiler is done and ready for use! To test it you can enable verbose logging and make sure the log statement in <code>NotifySubscribers()</code> triggers when you use the demoralize action in game.</p>
+<h3 id="transpilers-summary">Transpilers Summary</h3>
+<p>To write a transpiler:</p>
+<ol>
+<li>Write as much code as possible in your own C# methods and call them from the transpiler</li>
+<li>Use a decompiler to view and edit IL</li>
+<li>Identify anchor instructions in the code that are unlikely to change</li>
+<li>Use anchor instructions to find insertion points and any operands you need to copy</li>
+<li>Define new labels for your instructions</li>
+<li>Redirect existing labels to use your new labels, if necessary</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Use transpilers sparingly. If it's useful for other modders consider contributing to a common mod such as <a href="https://github.com/Vek17/TabletopTweaks-Core">TabletopTweaks-Core</a>. Transpilers are a good use case for centralized code.</p>
+</div>
+<h2 id="implementing-idemoralizehandler">Implementing IDemoralizeHandler</h2>
+<p>Now that we have a demoralize event it's time to write a handler. Since Hurtful triggers an attack that has a miss effect, the logic cannot be easily reproduced using <code>GameAction</code> and <code>Condition</code>. As a result the handler will be a component unique to Hurtful. Go back to Hurtful and add a private class <code>HurtfulComponent</code>:</p>
+<pre><code class="lang-C#">private class HurtfulComponent : UnitFactComponentDelegate, IDemoralizeHandler
+{
+  private readonly ConditionsChecker Conditions;
+
+  public HurtfulComponent(ConditionsBuilder conditions)
+  {
+    Conditions = conditions.Build();
+  }
+
+  public void OnDemoralizeResolved(Demoralize demoralize, RuleSkillCheck intimidateCheck)
+  {
+    if (intimidateCheck.Success)
+    {
+      if (!Conditions.Check())
+      {
+        Logger.Verbose($&quot;Conditions not met&quot;);
+        return;
+      }
+
+      var target = ContextData&lt;MechanicsContext.Data&gt;.Current?.CurrentTarget?.Unit;
+      if (target is null)
+      {
+        Logger.Warn($&quot;No target for demoralize.&quot;);
+        return;
+      }
+
+      // Make sure target is not immune to demoralize, indicated by the presence of either Buff or GreaterBuff
+      if (!(target.HasFact(demoralize.Buff) || target.HasFact(demoralize.GreaterBuff)))
+      {
+        Logger.Verbose($&quot;{target.CharacterName} immune to demoralize&quot;);
+        return;
+      }
+
+      Logger.Verbose($&quot;{target.CharacterName} demoralized&quot;);
+
+      // TODO: Attack!
+    }
+    else
+    {
+      Logger.Verbose($&quot;Intimidate check failed&quot;);
+    }
+  }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Finding the target was copied from Demoralize. Originally I tried using the <code>Context</code> but it didn't work so I looked for existing references.</p>
+</div>
+<p>I chose to accept a <code>ConditionsBuilder</code> because triggering hurtful requires the target to be in melee range and uses a swift action. While you could add that logic here I thought it was easier to re-use the existing conditions in BPCore, <a class="xref" href="../../../api/BlueprintCore.Conditions.New.TargetInMeleeRange.html">TargetInMeleeRange</a> and <a class="xref" href="../../../api/BlueprintCore.Conditions.New.HasActionsAvailable.html">HasActionsAvailable</a>.</p>
+<p>In addition to any specified conditions this obviously doesn't work if there is no target and there is a check to see if demoralize applied any buff. If the target is immune to demoralize then they should not be a valid target. If you see problems with this implementation, you're not alone! This is discussed further at the end of the tutorial.</p>
+<p>For the attack itself look at <code>ContextActionMeleeAttack</code> for pointers. If there were no miss effect you could just take an <code>ActionsBuilder</code> and use it directly, but we need to check the result of the attack and take an action:</p>
+<pre><code class="lang-C#">var attack =
+  Context.TriggerRule&lt;RuleAttackWithWeapon&gt;(
+    new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
+
+if (!attack.AttackRoll.IsHit)
+{
+  Logger.Verbose($&quot;Attack missed, removing demoralize effects&quot;);
+  target.RemoveFact(demoralize.Buff);
+  target.RemoveFact(demoralize.GreaterBuff);
+}
+</code></pre>
+<p>Finally the attack itself consumes a swift:</p>
+<pre><code class="lang-C#">caster.SpendAction(UnitCommand.CommandType.Swift, isFullRound: False, timeSinceCommandStart: 0);
+  var attack =
+    Context.TriggerRule&lt;RuleAttackWithWeapon&gt;(
+      new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
+</code></pre>
+<h2 id="adding-a-toggle">Adding a Toggle</h2>
+<p>Since Wrath can be played in either turn-based or real-time mode, triggered abilities typically have a toggle which can disable them. This is particularly important because Hurtful uses a resource, a swift action, that the player may not want to spend.</p>
+<p>This is done using <code>BlueprintActivatableAbility</code>. Activatable abilities are generally simple blueprints without components that specify a <code>BlueprintBuff</code> which is applied when toggled on and removed when toggled off. Create a buff with the <code>HurtfulComponent</code> to trigger the attack and an activatable ability using that buff:</p>
+<pre><code class="lang-C#">var buff =
+  BuffConfigurator.New(BuffName, BuffGuid)
+    .SetFlags(BlueprintBuff.Flags.HiddenInUi)
+    .AddComponent(
+      new HurtfulComponent(ConditionsBuilder.New().TargetInMeleeRange().HasActionsAvailable(requireSwift: true)))
+    .Configure();
+
+var ability =
+  ActivatableAbilityConfigurator.New(AbilityName, AbilityGuid)
+    .SetDisplayName(FeatDisplayName)
+    .SetDescription(FeatDescription)
+    .SetIcon(IconName)
+    .SetBuff(buff)
+    .Configure();
+</code></pre>
+<p>There's no need to have a buff icon so just skip all of that and set <code>BlueprintBuff.Flags.HiddenInUi</code>. The same icon, name, and description used for the feat can apply to the activatable ability.</p>
+<p>Finally update the feature to grant the activatable ability using <code>AddFacts()</code>:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatDisplayName)
+  .SetDescription(FeatDescription)
+  .SetIcon(IconName)
+  .AddFeatureTagsComponent(featureTags: FeatureTag.Melee | FeatureTag.Attack | FeatureTag.Skills)
+  .AddPrerequisiteStatValue(StatType.Strength, 13)
+  .AddPrerequisiteFeature(FeatureRefs.PowerAttackFeature.ToString())
+  .AddFacts(new() { ability })
+  .Configure();
+</code></pre>
+<p>It was a long road to get here thanks to the transpiler, but everything should be ready for testing:</p>
+<p><img src="../../../images/advanced_feat/hurtful_attack.png" alt="Smacking Camellia with hurtful"></p>
+<h2 id="finishing-touches">Finishing Touches</h2>
+<p>There is no solution for this feat. Functionally the feat is complete but there are a variety of changes you might consider for your own implementation such as recommendations for intimidate related feats.</p>
+<p>In particular you might want to address the elephant in the room: the way Hurtful detects immunity to demoralize and removes buffs is up for debate.</p>
+<p>Maybe a creature is specifically immune to Shaken but not Frightened, but the character's demoralize only applies Shaken. Is the creature immune to demoralize? According to this implementation it is.</p>
+<p>As written Hurtful only makes mention of Shaken. By that definition a missed attack should have no impact on other conditions applied. In fact, if a blueprint used <code>Demoralize</code> with a buff other than Shaken, Hurtful should have no effect on miss. While we're at it, the rules actually say if Hurtful fails to cause damage, not if the attack misses.</p>
+<p>Also, Hurtful should only remove effects caused by Hurtful. The current implementation will remove them even if they were caused by something else.</p>
+<p>I chose the implementation based on my interpretation of Hurtful's intent, and because I didn't want to spend too much time trying to perfectly implement the functionality. It was a feat created early in Pathfinder 1e at a time when there weren't many things that could change the effect caused by demoralize.</p>
+<p>I did not include any of the myriad of other effects like Shatter Confidence and Swordlord Prowess either. I felt the main features were the Buff and Greater Buff, and those should be removed on a miss. Everything else is its own rider effect that has no interaction with Hurtful.</p>
+<p>You may feel differently and can implement it the way you want in your mod.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/advanced/hurtful.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Advanced Feat: Furious Focus </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Advanced Feat: Furious Focus ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="advanced-feat-furious-focus">Advanced Feat: Furious Focus</h1>
+
+<p>This tutorial assumes you've gone through <a href="../feat.html">Adding a Feat</a> and <a href="skalds_vigor.html">Skald's Vigor</a>, or are familiar with the basics of adding a feat and using BPCore.</p>
+<p>We'll be adding <a href="https://www.d20pfsrd.com/feats/combat-feats/furious-focus-combat/">Furious Focus</a>.</p>
+<p>Go through the basic setup steps:</p>
+<ol>
+<li>Create the <code>FuriousFocus</code> class</li>
+<li>Create the <code>Configure</code> method</li>
+<li>Create the feat, setting the name and description</li>
+</ol>
+<pre><code class="lang-C#">public class FuriousFocus
+{
+  public static void Configure()
+  {
+    FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+      .SetDisplayName(FeatDisplayName)
+      .SetDescription(FeatDescription)
+      .Configure();
+  }
+}
+</code></pre>
+<p>Make sure to add <code>FeatDisplayName</code> and <code>FeatDescription</code> to your <code>LocalizedStrings.json</code> file.</p>
+<h2 id="add-the-prerequisites">Add the Prerequisites</h2>
+<p>Furious Focus requires Strength 13, Power Attack, and BAB +1. You might be tempted to just make Power Attack a prerequisite since it requires Strength 13 and BAB +1, but this doesn't guarantee a character meets the requirements since Power Attack may be granted as a bonus that bypasses prerequisites:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatDisplayName)
+  .SetDescription(FeatDescription)
+  .AddPrerequisiteStatValue(StatType.Strength, 13)
+  .AddPrerequisiteStatValue(StatType.BaseAttackBonus, 1)
+  .AddPrerequisiteFeature(FeatureRefs.PowerAttackFeature.ToString())
+  .Configure();
+</code></pre>
+<h2 id="add-the-attack-bonus">Add the Attack Bonus</h2>
+<p>Furious Focus only modifies the character's attack bonus when Power Attack is active. If you look at Power Attack's blueprint it adds the <code>PowerAttackToggleAbility</code> which applies <code>PowerAttackBuff</code>, which applies a penalty using <code>WeaponParametersAttackBonus</code>.</p>
+<p>Unfortunately <code>WeaponParametersAttackBonus</code> cannot implement Furious Focus. In fact, there are no components that support the necessary configuration to apply the bonus:</p>
+<ul>
+<li>Power Attack is active</li>
+<li>First attack of the turn</li>
+<li>Two-handed weapons only</li>
+</ul>
+<p>This means we need a custom component:</p>
+<pre><code class="lang-C#">[TypeId(&quot;5767d0d5-d84c-4949-94aa-e654febc3b0f&quot;)]
+private class FuriousFocusBonus :
+  UnitFactComponentDelegate,
+  IInitiatorRulebookHandler&lt;RuleCalculateAttackBonusWithoutTarget&gt;
+{
+  public void OnEventAboutToTrigger(RuleCalculateAttackBonusWithoutTarget evt) { }
+
+  public void OnEventDidTrigger(RuleCalculateAttackBonusWithoutTarget evt)
+  {
+
+  }
+}
+</code></pre>
+<p>The <code>TypeId</code> attribute is not strictly necessary but is good practice. It ensures a unique type ID for your component, used when serialized to JSON. The component inherits from <code>UnitFactComponentDelegate</code> and <code>IInitiatorRulebookHandler&lt;RuleCalculateAttackBonusWithoutTarget&gt;</code> to mimic <code>WeaponParametersAttackBonus</code>.</p>
+<p>The implementation goes in <code>OnEventDidTrigger</code> because the penalty from power attack is applied in <code>OnEventAboutToTrigger</code>. This enables applying a bonus only if power attack applies a penalty:</p>
+<pre><code class="lang-C#">var powerAttackModifier =
+  evt.m_ModifiableBonus?.Modifiers?
+    .Where(m =&gt; m.Fact?.Blueprint == BuffRefs.PowerAttackBuff.Reference.Get())
+    .Select(m =&gt; (Modifier?)m) // Cast to avoid getting a default struct
+    .FirstOrDefault();
+if (powerAttackModifier is null)
+{
+  Logger.Verbose(&quot;Skipped: power attack not applied&quot;);
+  return;
+}
+
+Logger.Info($&quot;Adding attack bonus to {Owner.CharacterName}'s attack&quot;);
+evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable));
+</code></pre>
+<p>To understand where this code comes from just look at how <code>WeaponParametersAttackBonus</code> applies its penalty. Each modifier is added to <code>m_ModifiableBonus</code> and includes a value and a <code>Fact</code> which points to the fact providing the bonus. When adding the Furious Focus bonus the <code>Fact</code> from <code>UnitFactComponentDelegate</code> is provided to ensure it shows up in the tooltips.</p>
+<p>Add the component to the feature:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(FeatDisplayName)
+  .SetDescription(FeatDescription)
+  .AddPrerequisiteStatValue(StatType.Strength, 13)
+  .AddPrerequisiteStatValue(StatType.BaseAttackBonus, 1)
+  .AddPrerequisiteFeature(FeatureRefs.PowerAttackFeature.ToString())
+  .AddComponent&lt;FuriousFocusBonus&gt;()
+  .Configure();
+</code></pre>
+<p>Test it out and you should see something like this:</p>
+<p><img src="../../../images/advanced_feat/furious_focus_tooltip.png" alt="Furious Focus attack bonus tooltip"></p>
+<h2 id="completing-the-feat">Completing the Feat</h2>
+<p>Right now the attack bonus eliminates the penalty from Power Attack at all times. Finishing the feat requires adding some restrictions to the bonus:</p>
+<ol>
+<li>Two-handed weapons only</li>
+<li>First attack only</li>
+</ol>
+<p>These are left as an exercise. One solution is available in the &quot;Solutions&quot; folder if you're stuck or want to compare.</p>
+<p>Tips:</p>
+<ul>
+<li>Look at how <code>WeaponParametersAttackBonus</code> supports <code>OnlyTwoHanded</code></li>
+<li>Look at <code>RuleAttackWithWeapon</code></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/advanced/furious_focus.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,454 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Advanced Feat: Skald's Vigor </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Advanced Feat: Skald's Vigor ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="advanced-feat-skalds-vigor">Advanced Feat: Skald's Vigor</h1>
+
+<p>This tutorial assumes you've gone through <a href="../feat.html">Adding a Feat</a> or are otherwise familiar with the basics of adding a feat.</p>
+<p>We'll be adding <a href="https://www.d20pfsrd.com/feats/general-feats/skald-s-vigor/">Skald's Vigor</a>.</p>
+<p>Go through the basic setup steps:</p>
+<ol>
+<li>Create the <code>SkaldsVigor</code> class</li>
+<li>Create the <code>Configure</code> method</li>
+<li>Create the feat, setting the name and description</li>
+</ol>
+<pre><code class="lang-C#">public class SkaldsVigor
+{
+  public static void Configure()
+  {
+    FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+      .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+      .SetDescription(&quot;SkaldsVigor.Description&quot;)
+      .Configure();
+  }
+}
+</code></pre>
+<p>Make sure to add &quot;SkaldsVigor.Name&quot; and &quot;SkaldsVigor.Description&quot; to your <code>LocalizedStrings.json</code> file.</p>
+<h2 id="adding-a-prerequisite">Adding a Prerequisite</h2>
+<p>First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature preqrequisites. You can find them by searching <code>Prerequisite</code> in the <code>FeatureConfigurator</code> API or the decompiler.</p>
+<p>For this use <code>AddPrerequisiteFeature</code> and pass in the Raging Song feature. You can find the Raging Song feature using <a href="https://github.com/factubsio/BubblePrints">BubblePrints</a> or by searching <code>FeatureRefs</code>:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+  .SetDescription(&quot;SkaldsVigor.Description&quot;)
+  .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
+  .Configure();
+</code></pre>
+<p>Unfortunately <code>FeatureRefs.RagingSong</code> provides <code>Blueprint&lt;BlueprintReference&lt;BlueprintFeature&gt;&gt;</code> but <code>AddPrerequisiteFeature</code> expects <code>Blueprint&lt;BlueprintFeatureReference&gt;</code>. There's no way to automatically convert but you can call <code>ToString()</code> to get the GUID directly. You can also use the cast method: <code>FeatureRefs.RagingSong.Cast&lt;BlueprintFeatureReference&gt;()</code>.</p>
+<blockquote>
+<p>![TIP]
+In this example there is only a single version of Raging Song. Some features have multiple versions such as a Magus's Spell Combat. You can require one of a set of features using PrerequisiteFeaturesFromList.</p>
+</blockquote>
+<p>Go ahead and test it out. It should be available to characters with Raging Song:</p>
+<p><img src="../../../images/advanced_feat/present_prereq.png" alt="Skald's Vigor showing prerequisite is present"></p>
+<p>and unavailable to characters without it:</p>
+<p><img src="../../../images/advanced_feat/missing_prereq.png" alt="Skald's Vigor showing prerequisite is missing"></p>
+<h2 id="fast-healing">Fast Healing</h2>
+<p>Applying fast healing is done by creating a new buff:</p>
+<pre><code class="lang-C#">BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+  .SetDescription(&quot;SkaldsVigor.Description&quot;)
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
+  .Configure();
+</code></pre>
+<p>The custom progression results in 2 fast healing until level 8, then 4 until level 16 where it caps out at 6.</p>
+<p>Now we'll need to apply the buff when Raging Song is active. To do that we'll need to have some way to trigger applying the buff. If you look at the <code>RagingSong</code> blueprint in BubblePrints it isn't very helpful. However, it is referenced in <code>SkaldProgression</code> and searching that reveals another feature, <code>InspiredRage</code>, which grants <code>InspiredRageAbility</code> which is the activatable ability for Raging Song.</p>
+<p>Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is <code>InspiredRageBuff</code> which spawns <code>InspiredRageArea</code> which applies the actual effects using <code>InspiredRageEffectBuff</code>.</p>
+<blockquote>
+<p>![NOTE]
+You could avoid modifying existing blueprints by adding a <code>FactsChangeTrigger</code> component to the feat itself, which allows you to execute actions in response to a fact, such as the <code>InspiredRageBuff</code>, being applied or removed. The tutorial avoids this approach because it only works for Skald's Vigor, not Greater Skald's Vigor.</p>
+</blockquote>
+<p>There are multiple ways to apply the buff, we'll add an <code>AddFactContextActions</code> component to <code>InspiredRageEffectBuff</code>:</p>
+<pre><code class="lang-C#">BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
+  .AddFactContextActions(
+    activated:
+      ActionsBuilder.New()
+        .Conditional(
+          ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+  .Configure();
+</code></pre>
+<p>Since the existing buff is modified it effects every application. The conditional check ensures it only applies to characters with the feat.</p>
+<p>The buff is permanent and non-dispellable since it is a rider effect on Inspired Rage, not an individual buff. Note that by default <code>ContextActionApplyBuff</code> sets <code>asChild</code> to <code>true</code>. This means Skald's Vigor is removed when Inspired Rage is removed, no need to explicitly remove it.</p>
+<p>Test it out and you should see something similar to this:</p>
+<p><img src="../../../images/advanced_feat/fast_healing.png" alt="Skald's Vigor healing demo"></p>
+<p>It works! ... or does it? Keep testing and the fast healing does not apply every round. Something is wrong, but what?</p>
+<blockquote>
+<p>![NOTE]
+If it works consistently you may have a mod that accidentally fixes the issue. Otherwise test in turn based combat; in my testing this was the most reliable way to trigger fast healing failures.</p>
+</blockquote>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<p>There are two ways to investigate further: <a href="https://github.com/thehambeard/Wrath2Debug/releases/latest">Wrath2Debug</a> or method patching.</p>
+<p>I used both techniques but I'm not going to walk through Wrath2Debug as it''s complicated to setup and use. Instead read the game code and try patching methods to log details.</p>
+<p>First look up the <code>AddEffectContextFastHealing</code> component in the decompiler. It triggers each round by implementing <code>ITickEachRound.OnNewRound()</code>. Search for uses of this method:</p>
+<p><img src="../../../images/advanced_feat/on_new_round.png" alt="OnNewRound uses"></p>
+<blockquote>
+<p>![TIP]
+When searching for uses of interface methods in dnSpy, go to the interface definition and search from there. Searching from an implementation usually returns nothing.</p>
+</blockquote>
+<p>Ignore <code>TacticalCombatUnitTicksController</code> which is used for army combat. Check <code>UnitTicksController.TickNextRound()</code>; it explicitly doesn't handle buffs. This means <code>Buff.TickMechanics()</code> is responsible for triggering fast healing.</p>
+<p>Now you could try patching <code>Buff.TickMechanics()</code> but there's a patch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is just tied to the blueprint; it''s either always there or not. Nothing changes that.</p>
+<p>Fortunately <code>Buff.TickMechanics()</code> is only called by <code>BuffCollection.TickBuff()</code> which is called by <code>BuffCollection.Tick()</code>. <code>BuffCollection</code> represents all the buffs on a unit, so <code>Tick()</code> is responsible for triggering new round effects on all buffs.</p>
+<p>You can patch <code>Tick()</code> and log data; I ended up patching <code>UpdateNextEvent()</code> which selects the buff which should trigger next. Either way start by logging what buff is ticking:</p>
+<pre><code class="lang-C#">[HarmonyPatch(typeof(BuffCollection))]
+static class BuffCollection_Patch
+{
+  // Store the Skald's Vigor buff for quick reference
+  static BlueprintBuff Buff;
+
+  [HarmonyPatch(nameof(BuffCollection.UpdateNextEvent)), HarmonyPrefix]
+  static void Prefix(BuffCollection __instance)
+  {
+    try
+    {
+      if (!Buff)
+      {
+        Buff = BlueprintTool.Get&lt;BlueprintBuff&gt;(BuffName);
+      }
+
+      // Limit to MC to reduce log spam (remove if you are not testing with the main character)
+      if (__instance.Owner.Unit.IsMainCharacter)
+      {
+        Logger.Info($&quot;UpdateNextEvent Prefix: {Game.Instance.TimeController.GameTime}&quot;);
+        // Check each buff on the unit to find Skald's Vigor
+        foreach (Buff buff in __instance.RawFacts)
+        {
+          if (buff.Blueprint == Buff)
+          {
+            // Log the next tick time and the current game time
+            Logger.Info($&quot;{buff.Name}: {buff.NextEventTime} vs {Game.Instance.TimeController.GameTime}&quot;);
+          }
+        }
+      }
+    }
+    catch (Exception e)
+    {
+      Logger.Error(&quot;Failed to prefix UpdateNextEvent.&quot;, e);
+    }
+  }
+}
+</code></pre>
+<blockquote>
+<p>![TIP]
+Always wrap your patches in try/catch statements and log exceptions. If you don't the exception may not be logged resulting in silent failures.</p>
+</blockquote>
+<p>The purpose of this patch is to look for discrepencies in the buff trigger timing. If the buff works correctly <code>buff.NextEventTime</code> should increment by 6 seconds every 6 seconds of game time, since 6 seconds is one round.</p>
+<p>Test it in and out of combat and look at the log (I added the numbers for reference):</p>
+<pre><code>[143.6401 - Mods]: SkaldsVigor: UpdateNextEvent(1) Prefix: 12:11:40.7940000
+[143.6401 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:40.7940000 vs 12:11:40.7940000
+[147.4715 - Mods]: SkaldsVigor: UpdateNextEvent(2) Prefix: 12:11:42.2940000
+[147.4715 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:40.7940000 vs 12:11:42.2940000
+[147.4715 - Mods]: SkaldsVigor: UpdateNextEvent(3) Prefix: 12:11:42.2940000
+[147.4724 - Mods]: SkaldsVigor: UpdateNextEvent(4) Prefix: 12:11:42.2940000
+[147.4724 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:46.7940000 vs 12:11:42.2940000
+</code></pre>
+<blockquote>
+<p>![TIP]
+Make sure to disable ILStrip or add your patch to the Entry Points in your .csproj file. I recommend disabling ILStrip for Debug builds.</p>
+</blockquote>
+<p>A few things are wrong:</p>
+<ol>
+<li>UpdateNextEvent(1) should trigger Skald's Vigor, but if it did trigger then the next tick time of UpdateNextEvent(2) should be <code>12:11:46.794</code>.</li>
+<li>When UpdateNextEvent(3) is called Skald's Vigor is not present.</li>
+</ol>
+<p>If you pay careful attention to the buff UI in game you might spot the problem. Look at the blueprints for <code>InspiredRageEffectBuff</code> and <code>InspiredRageArea</code> again. Anything stand out?</p>
+<p><code>InspiredRageArea</code> applies <code>InspiredRageEffectBuff</code> if either:</p>
+<ul>
+<li>A valid target enters the area</li>
+<li>A valid target is in the area <em>each round</em></li>
+</ul>
+<p>In other words: <code>InspiredRageEffectBuff</code> is reapplied every round. Since its stacking type is <code>StackingType.Replace</code> it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.</p>
+<p>There are a few ways to fix this but the simplest is to change the stacking behavior of Inspired Rage:</p>
+<pre><code class="lang-C#">BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
+  .AddFactContextActions(
+    activated:
+      ActionsBuilder.New()
+        .Conditional(
+          ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+  .SetStacking(StackingType.Ignore)
+  .Configure();
+</code></pre>
+<p>Now Inspired Rage is not removed every round and Skald's Vigor works! This has side effects:</p>
+<ol>
+<li>If other abilities were relying on Inspired Rage being re-applied every round they will break.</li>
+<li>If two characters activate Inspired Rage the first character's ability applies instead of the second.</li>
+</ol>
+<p>It's up to you to determine if these side effects are acceptable. One way to avoid them: create a new <code>Condition</code> that checks <code>ActivatableAbility.IsOn</code> and use it in the <code>Conditional</code>:</p>
+<pre><code class="lang-C#">ConditionsBuilder.New()
+  .TargetIsYourself()
+  // Only apply the buff if Inspired Rage is active
+  .Add(new ActivatableAbilityIsOn(ActivatableAbilityRefs.InspiredRageAbility, negate: true))
+  // Prevent the buff from being re-applied
+  .HasFact(BuffName, negate: true)
+  .HasFact(FeatName)
+</code></pre>
+<p>There are two problems now: there is no buff icon and if you have Lingering Performance the healing is not removed immediately.</p>
+<h2 id="handling-lingering-performance">Handling Lingering Performance</h2>
+<p>First we need to understand how Lingering Performance is implemented using BubblePrints:</p>
+<p><img src="../../../images/advanced_feat/lingering_performance.png" alt="Lingering Performance components"></p>
+<p>The only component with any mechanical effect is <code>AddMechanicsFeature</code>, and it's basically empty. To find out more you'll need to look up the component in a decompiler. It takes a bit of digging to find anything useful, so here's the overview:</p>
+<ul>
+<li><code>AddMechanicsFeature</code> declares the <code>MechanicsFeatureType</code> enum which has <code>LingeringPerformance</code> as a value</li>
+<li>Following the enum doesn't turn up much, but notice that <code>GetFeature()</code> is used to look up a <code>CountableFlag</code> in the component's <code>OnTurnOn()</code> and <code>OnTurnOff()</code> methods</li>
+<li>Looking for usages of the <code>UnitMechanicsFeatures.LingeringPerformance</code> flag leads to <code>ActivatableAbility.Stop()</code></li>
+</ul>
+<p>Here you can see the logic:</p>
+<p><img src="../../../images/advanced_feat/activatable_ability_stop.png" alt="Activatable Ability stop implementation"></p>
+<p>This doesn't look good. <code>ActivatableAbility</code> is the &quot;concrete&quot; representation of <code>BlueprintActivatableAbility</code> and <code>m_AppliedBuff</code> is the associated buff. From this code you can see that <code>InspiredRageBuff</code> isn't removed when Raging Song is deactivated, so using <code>FactsChangeTrigger</code> won't work.</p>
+<p>If you can't use the buff then you need to trigger when the ability deactivates. There isn't a component to do this but there is an event that triggers, as seen in <code>ActivatableAbility.Stop()</code>: <code>IActivatableAbilityWillStopHandler</code>.</p>
+<p>Create a class which implements <code>IActivatableAbilityWillStopHandler</code>:</p>
+<pre><code class="lang-C#">private class InspiredRageDeactivationHandler : IActivatableAbilityWillStopHandler
+{
+  public void HandleActivatableAbilityWillStop(ActivatableAbility ability)
+  {
+    // TODO
+  }
+}
+</code></pre>
+<p>Once registered an event handler will trigger on all applicable events. That means <code>HandleActivatableAbilityWillStop()</code> is called every time <em>any</em> activatable ability is turned off. The first thing the method should do is filter out unrelated events:</p>
+<pre><code class="lang-C#">if (ability?.Blueprint != ActivatableAbilityRefs.InspiredRageAbility.Reference.Get())
+{
+  return;
+}
+</code></pre>
+<blockquote>
+<p>![NOTE]
+Blueprints can be directly compared because there is only a single cached instance of any given game blueprint.</p>
+</blockquote>
+<p>Now it just needs to remove the Skald's Vigor buff. To get an idea of how to remove a buff look at the decompiled code for <code>ContextActionRemoveBuff</code>, the same action we're already using to remove the buff:</p>
+<pre><code class="lang-C#">Buff skaldsVigor = ability.Owner.Buffs.GetBuff(BlueprintTool.Get&lt;BlueprintBuff&gt;(BuffGuid));
+skaldsVigor?.Remove();
+</code></pre>
+<p>The last thing to do is register the handler inside of <code>Configure()</code>:</p>
+<pre><code class="lang-C#">EventBus.Subscribe(new InspiredRageDeactivationHandler());
+</code></pre>
+<p>Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.</p>
+<h2 id="adding-an-icon">Adding an Icon</h2>
+<h3 id="select-an-icon">Select an Icon</h3>
+<p>This tutorial doesn't walk through creating an icon. You can use the <a href="https://assetstore.unity.com/">Unity Asset Store</a> to find an icon, paid or free.</p>
+<p>My icons are edited composites of existing in-game icons:</p>
+<ol>
+<li>Download <a href="https://github.com/Perfare/AssetStudio">AssetStudio</a></li>
+<li>Extract game assets
+<ul>
+<li>Most icons are in <code>%WrathPath%\Bundles\icons</code></li>
+</ul>
+</li>
+<li>Open icons in your photo editor of choice, I use <a href="https://www.gimp.org/">GIMP</a></li>
+<li>Combine, edit, and tweak the icon to your heart's content</li>
+</ol>
+<p>If you're creating new icons they should be 64x64.</p>
+<p>Here are the icons we'll use for Skald's Vigor: <img src="../../../images/advanced_feat/SkaldVigor.png" alt="Skald's Vigor icon"> <img src="../../../images/advanced_feat/GreaterSkaldVigor.png" alt="Skald's Vigor icon"></p>
+<h3 id="create-an-assetbundle">Create an AssetBundle</h3>
+<p>It is common for mods to import PNG files directly, see <a href="https://github.com/Vek17/TabletopTweaks-Core/tree/master/TabletopTweaks-Core">TabletopTweaks-Core's</a> <code>AssetLoader</code> for an example. This works but is not efficient and doesn't work if you want to import other assets such as models, textures, and shaders.</p>
+<ol>
+<li>Download <a href="https://unity3d.com/get-unity/download/archive">Unity</a> version <code>2019.4.26f1</code></li>
+<li>Create a new project with the 3D template</li>
+<li>Create a script to build an AssetBundle using <a href="https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4">Unity's Tutorial</a></li>
+<li>Create a new folder in Assets called <strong>Icons</strong></li>
+</ol>
+<p>Your Unity project should look similar to this:</p>
+<p><img src="../../../images/advanced_feat/unity_bundle_setup.png" alt="Unity project bundle setup"></p>
+<p>Select the icons folder, then <strong>Assets &gt; Import New Asset</strong> and choose your icon image file.</p>
+<p><img src="../../../images/advanced_feat/import_asset.png" alt="Import unity asset"></p>
+<p>Your icon should be displayed in the folder contents. Select it and in the Inspector tab set <strong>Texture Type</strong> to <strong>Sprite (2D and UI)</strong> and click Apply.</p>
+<p>With the icon still selected, click the <strong>AssetBundle</strong> dropdown at the bottom of the Inspector tab, select <strong>New</strong> and enter <strong>blueprintcoretutorial_assets</strong>. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:</p>
+<p><img src="../../../images/advanced_feat/unity_sprite_config.png" alt="Icon inspector tab"></p>
+<blockquote>
+<p>![NOTE]
+Currently BPCore only supports a single AssetBundle called <code>assemblyname_assets</code>. The icons folder is for organization but everything should go to the assets bundle. If your mod was called TabletopStuff it would be <code>tabletopstuff_assets</code>.</p>
+</blockquote>
+<p>Create the AssetBundle by selecting <strong>Assets &gt; Build AssetBundles</strong>. Unity generates the <strong>StreamingAssets</strong> folder which should contain two AssetBundles: blueprintcoretutorial_assets and StreamingAssets. You can ignore StreamingAssets.</p>
+<h3 id="deploy-the-assetbundle">Deploy the AssetBundle</h3>
+<p>Back in your mod right click your project and select <strong>Add &gt; Existing Item</strong>. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to <strong>All Files</strong> at the bottom right. Ignore <code>*.manifest</code>, <code>*.meta</code>, and <code>*.manifest.meta</code>.</p>
+<p>Right click the AssetBundle, select <strong>Properties</strong>, then set <strong>Copy to Output Directory</strong> to <strong>Copy if newer</strong>:</p>
+<p><img src="../../../images/advanced_feat/bundle_properties.png" alt="AssetBundle properties in visual studio"></p>
+<p>Open your project file and update your deployment target:</p>
+<pre><code class="lang-xml">&lt;Target Name=&quot;Deploy&quot; AfterTargets=&quot;ILStrip&quot;&gt;
+&lt;ItemGroup&gt;
+  &lt;Assembly Include=&quot;$(OutputPath)\$(AssemblyName).dll&quot; /&gt;
+  &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
+  &lt;Strings Include=&quot;$(OutputPath)\LocalizedStrings.json&quot; /&gt;
+  &lt;Assets Include=&quot;$(OutputPath)\assets&quot; /&gt;
+&lt;/ItemGroup&gt;
+
+&lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+&lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+&lt;Copy SourceFiles=&quot;@(Strings)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+&lt;Copy SourceFiles=&quot;@(Assets)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+&lt;/Target&gt;
+</code></pre>
+<h3 id="use-the-asset">Use the Asset</h3>
+<p>When a method parameter maps to an asset, BPCore request an <a class="xref" href="../../../api/BlueprintCore.Utils.Assets.Asset-1.html">Asset<t></t></a> or <a class="xref" href="../../../api/BlueprintCore.Utils.Assets.AssetLink-1.html">AssetLink<tlink></tlink></a>. These allow passing in assets directly if you already have a reference or by their Asset ID.</p>
+<p>For your own AssetBundle the Asset ID is the name as defined by Unity, typically the file path relative to the Unity project directory. In this case: <code>assets/icons/skaldvigor.png</code>. If you're ever unsure, look in the <code>assets.manifest</code> file under &quot;Assets&quot;. It is also shown at the bottom of the inspector tab in Unity.</p>
+<p>Now you can set the icon on the feat and buff:</p>
+<pre><code class="lang-C#">BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+  .SetDescription(&quot;SkaldsVigor.Description&quot;)
+  .SetIcon(&quot;assets/icons/skaldvigor.png&quot;)
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
+  .SetStacking(StackingType.Ignore)
+  .Configure();
+  
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+  .SetDescription(&quot;SkaldsVigor.Description&quot;)
+  .SetIcon(&quot;assets/icons/skaldvigor.png&quot;)
+  .AddPrerequisiteFeature(FeatureRefs.RagingSong.ToString())
+  .Configure();
+</code></pre>
+<p>Test it out and you should see the icon:</p>
+<p><img src="../../../images/advanced_feat/buff_icon.png" alt="Skald's Vigor buff icon"> <img src="../../../images/advanced_feat/feat_icon.png" alt="Skald's Vigor feat icon"></p>
+<h2 id="greater-skalds-vigor">Greater Skald's Vigor</h2>
+<p>With Skald's Vigor done the next step is implementing <a href="https://www.d20pfsrd.com/feats/general-feats/greater-skald-s-vigor/">Greater Skald's Vigor</a>.</p>
+<p>The asset bundle should already have the new icon, so just add the new strings and create the feat:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(GreaterFeatName, GreaterFeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+  .SetDisplayName(GreaterFeatDisplayName)
+  .SetDescription(GreaterFeatDescription)
+  .SetIcon(&quot;assets/icons/greaterskaldvigor.png&quot;)
+  .AddPrerequisiteFeature(FeatName)
+  .Configure();
+</code></pre>
+<p>Update the buff configuration changes applied to <code>InspiredRageEffectBuff</code>:</p>
+<pre><code class="lang-C#">var applyBuff = ActionsBuilder.New().ApplyBuffPermanent(BuffName, asChild: false, isNotDispelable: true);
+AddFactContextActions(
+  activated:
+    ActionsBuilder.New()
+      .Conditional(
+        ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
+        ifTrue: applyBuff)
+      .Conditional(
+        ConditionsBuilder.New().CasterHasFact(GreaterFeatName),
+        ifTrue: applyBuff),
+</code></pre>
+<p>Technically this results in applying the buff to the caster twice if they have Greater Skald's Vigor, but the default behavior for buffs is replace so only a single instance is applied.</p>
+<p>Test it out and it should apply to your party:</p>
+<p><img src="../../../images/advanced_feat/group_fast_healing.png" alt="Greater Skald's Vigor party healing"></p>
+<h3 id="completing-the-feat">Completing the Feat</h3>
+<p>There are two more changes needed to finish Greater Skald's Vigor:</p>
+<ol>
+<li>Require 10 ranks in Performance (song)</li>
+<li>Add support for Lingering Performance</li>
+</ol>
+<p>These are left as an exercise. One solution is available in the &quot;Solutions&quot; folder if you're stuck or want to compare.</p>
+<p>Tips:</p>
+<ul>
+<li>Performance isn't a skill in Wrath so you'll need to decide on an appropriate equivalent requirement</li>
+<li><code>InspiredRageDeactivationHandler</code> triggers once on the unit using Inspired Rage, so you need to find every affected unit and remove the buff
+<ul>
+<li>Remember that <code>InspiredRageEffectBuff</code> is applied by <code>InspiredRageArea</code></li>
+<li>Look at the <code>SourceAreaEffectId</code> field of the <code>Buff</code> class</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/articles/tutorials/advanced/skalds_vigor.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class WeaponBuffOnConfirmedCritFixed
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class WeaponBuffOnConfirmedCritFixed
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed" class="text-break">Class WeaponBuffOnConfirmedCritFixed
+  </h1>
+  <div class="markdown level0 summary"><p>Working replacement for Owlcat's WeaponBuffOnConfirmedCrit. Instantiate using <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.html#BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_New_System_Boolean_">New(Boolean)</a> and
+configure using its methods.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></div>
+    <div class="level2"><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.Items.ItemEntityWeapon</span>, <span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level3"><span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate</span>&lt;<span class="xref">Kingmaker.Items.ItemEntityWeapon</span>, <span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level4"><span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate</span>&lt;<span class="xref">Kingmaker.Items.ItemEntityWeapon</span>&gt;</div>
+    <div class="level5"><span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.WeaponEnchantmentLogic</span></div>
+    <div class="level6"><span class="xref">WeaponBuffOnConfirmedCritFixed</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span></div>
+    <div><span class="xref">Kingmaker.Blueprints.IHavePrototype</span></div>
+    <div><span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.ISubscriber</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span></div>
+    <div><span class="xref">Kingmaker.ResourceLinks.IResourcesHolder</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Enchantment</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Wielder</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.Items.Ecnchantments.ItemEnchantmentComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Owner</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.ClearData()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.GetSubscribingUnit()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.CreateRuntimeFactComponent()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnFactAttached()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnInitialize()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnActivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDeactivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOn()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOff()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPreSave()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPostLoad()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnApplyPostLoadFixes()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewDidAttach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewWillDetach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDispose()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnRecalculate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Runtime</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Context</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.Data</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.MaybeData</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.Items.ItemEntityWeapon, Kingmaker.EntitySystem.EmptyComponentData&gt;.IsReapplying</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.&lt;OwnerBlueprint&gt;k__BackingField</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_Flags</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.name</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_PrototypeLink</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ApplyValidation(Owlcat.QA.Validation.ValidationContext, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OnDeserialized(System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.False</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OwnerBlueprint</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Disabled</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.PrototypeLink</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.html">BlueprintCore.Blueprints.Components.Replacements</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[AllowMultipleComponents]
+[TypeId(&quot;91b77a2e-a14d-4593-99eb-13a82128d21f&quot;)]
+public class WeaponBuffOnConfirmedCritFixed : WeaponEnchantmentLogic, ICanBeLogContext, IHavePrototype, IRuntimeEntityFactComponentProvider, IInitiatorRulebookHandler&lt;RuleAttackWithWeapon&gt;, IRulebookHandler&lt;RuleAttackWithWeapon&gt;, ISubscriber, IInitiatorRulebookSubscriber, IResourcesHolder</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Based on WeaponBuffOnConfirmedCritTTT from
+<a href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</a></p>
+</div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_m_TargetBuff.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.m_TargetBuff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L116">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_m_TargetBuff" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.m_TargetBuff">m_TargetBuff</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[ValidateNotNull]
+public BlueprintBuffReference m_TargetBuff</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_m_WielderBuff.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.m_WielderBuff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L123">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_m_WielderBuff" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.m_WielderBuff">m_WielderBuff</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+[ValidateNotNull]
+public BlueprintBuffReference m_WielderBuff</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_RequireNatural20.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.RequireNatural20%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L128">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_RequireNatural20" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.RequireNatural20">RequireNatural20</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool RequireNatural20</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetDuration.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetDuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L119">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetDuration" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetDuration">TargetDuration</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rounds TargetDuration</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Utility.Rounds</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetFx.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetFx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L118">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetFx" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetFx">TargetFx</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ValidateNotNull]
+public PrefabLink TargetFx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ResourceLinks.PrefabLink</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderDuration.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderDuration%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L126">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderDuration" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderDuration">WielderDuration</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Rounds WielderDuration</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Utility.Rounds</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderFx.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderFx%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L125">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderFx" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderFx">WielderFx</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ValidateNotNull]
+public PrefabLink WielderFx</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ResourceLinks.PrefabLink</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetBuff.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetBuff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L35">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetBuff_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetBuff*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_TargetBuff" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.TargetBuff">TargetBuff</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintBuff TargetBuff { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderBuff.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderBuff%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L47">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderBuff_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderBuff*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_WielderBuff" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.WielderBuff">WielderBuff</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BlueprintBuff WielderBuff { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.UnitLogic.Buffs.Blueprints.BlueprintBuff</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToTarget_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__Kingmaker_Utility_Rounds_Kingmaker_ResourceLinks_PrefabLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToTarget(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CKingmaker.Utility.Rounds%2CKingmaker.ResourceLinks.PrefabLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L96">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToTarget_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToTarget*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToTarget_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__Kingmaker_Utility_Rounds_Kingmaker_ResourceLinks_PrefabLink_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToTarget(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},Kingmaker.Utility.Rounds,Kingmaker.ResourceLinks.PrefabLink)">ApplyBuffToTarget(Blueprint&lt;BlueprintBuffReference&gt;, Rounds, PrefabLink)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponBuffOnConfirmedCritFixed ApplyBuffToTarget(Blueprint&lt;BlueprintBuffReference&gt; buff, Rounds duration, PrefabLink fx = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><span class="parametername">buff</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Utility.Rounds</span></td>
+        <td><span class="parametername">duration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ResourceLinks.PrefabLink</span></td>
+        <td><span class="parametername">fx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.html">WeaponBuffOnConfirmedCritFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToWielder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__Kingmaker_Utility_Rounds_Kingmaker_ResourceLinks_PrefabLink_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToWielder(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D%2CKingmaker.Utility.Rounds%2CKingmaker.ResourceLinks.PrefabLink)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L105">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToWielder_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToWielder*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_ApplyBuffToWielder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__Kingmaker_Utility_Rounds_Kingmaker_ResourceLinks_PrefabLink_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.ApplyBuffToWielder(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference},Kingmaker.Utility.Rounds,Kingmaker.ResourceLinks.PrefabLink)">ApplyBuffToWielder(Blueprint&lt;BlueprintBuffReference&gt;, Rounds, PrefabLink)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponBuffOnConfirmedCritFixed ApplyBuffToWielder(Blueprint&lt;BlueprintBuffReference&gt; buff, Rounds duration, PrefabLink fx = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintBuffReference</span>&gt;</td>
+        <td><span class="parametername">buff</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Utility.Rounds</span></td>
+        <td><span class="parametername">duration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ResourceLinks.PrefabLink</span></td>
+        <td><span class="parametername">fx</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.html">WeaponBuffOnConfirmedCritFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_New_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.New(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L88">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_New_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.New*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_New_System_Boolean_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.New(System.Boolean)">New(Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WeaponBuffOnConfirmedCritFixed New(bool requireNatural20 = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">requireNatural20</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.html">WeaponBuffOnConfirmedCritFixed</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleAttackWithWeapon_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L60">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventAboutToTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventAboutToTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleAttackWithWeapon_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon)">OnEventAboutToTrigger(RuleAttackWithWeapon)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventAboutToTrigger(RuleAttackWithWeapon evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleAttackWithWeapon_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L64">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventDidTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventDidTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleAttackWithWeapon_" data-uid="BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon)">OnEventDidTrigger(RuleAttackWithWeapon)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventDidTrigger(RuleAttackWithWeapon evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleAttackWithWeapon</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.Blueprints.IHavePrototype</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.ISubscriber</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.ResourceLinks.IResourcesHolder</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_WeaponBuffOnConfirmedCritFixed.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.WeaponBuffOnConfirmedCritFixed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/WeaponBuffOnConfirmedCritFixed.cs/#L26" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

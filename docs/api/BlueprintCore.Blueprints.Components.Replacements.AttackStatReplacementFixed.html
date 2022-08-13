@@ -1,0 +1,552 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AttackStatReplacementFixed
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AttackStatReplacementFixed
+   ">
+    <meta name="generator" content="docfx 2.59.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed">
+  
+  
+  <h1 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed" class="text-break">Class AttackStatReplacementFixed
+  </h1>
+  <div class="markdown level0 summary"><p>Working replacement for Owlcat's AttackStatReplacement.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Kingmaker.Blueprints.BlueprintComponent</span></div>
+    <div class="level2"><span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.Entities.UnitEntityData</span>, <span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level3"><span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate</span>&lt;<span class="xref">Kingmaker.EntitySystem.EmptyComponentData</span>&gt;</div>
+    <div class="level4"><span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate</span></div>
+    <div class="level5"><span class="xref">AttackStatReplacementFixed</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span></div>
+    <div><span class="xref">Kingmaker.Blueprints.IHavePrototype</span></div>
+    <div><span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IRulebookHandler</span>&lt;<span class="xref">Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget</span>&gt;</div>
+    <div><span class="xref">Kingmaker.PubSubSystem.ISubscriber</span></div>
+    <div><span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.UnitLogic.UnitFactComponentDelegate&lt;Kingmaker.EntitySystem.EmptyComponentData&gt;.Param</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.ClearData()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.GetSubscribingUnit()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.CreateRuntimeFactComponent()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnFactAttached()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnInitialize()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnActivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDeactivate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOn()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnTurnOff()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPreSave()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnPostLoad()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnApplyPostLoadFixes()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewDidAttach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnViewWillDetach()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnDispose()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.OnRecalculate()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Runtime</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Owner</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Fact</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Context</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.Data</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.MaybeData</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.EntitySystem.EntityFactComponentDelegate&lt;Kingmaker.EntitySystem.Entities.UnitEntityData, Kingmaker.EntitySystem.EmptyComponentData&gt;.IsReapplying</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.&lt;OwnerBlueprint&gt;k__BackingField</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_Flags</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.name</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.m_PrototypeLink</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ApplyValidation(Owlcat.QA.Validation.ValidationContext, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Instantiate&lt;T&gt;(T)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OnDeserialized(System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.False</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.OwnerBlueprint</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.Disabled</span>
+    </div>
+    <div>
+      <span class="xref">Kingmaker.Blueprints.BlueprintComponent.PrototypeLink</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="BlueprintCore.Blueprints.Components.Replacements.html">BlueprintCore.Blueprints.Components.Replacements</a></h6>
+  <h6><strong>Assembly</strong>: BlueprintCore.dll</h6>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComponentName(&quot;Replace attack stat&quot;)]
+[TypeId(&quot;574986d1-510c-40d7-ba51-92dd3b6d057d&quot;)]
+public class AttackStatReplacementFixed : UnitFactComponentDelegate, ICanBeLogContext, IHavePrototype, IRuntimeEntityFactComponentProvider, IInitiatorRulebookHandler&lt;RuleCalculateAttackBonusWithoutTarget&gt;, IRulebookHandler&lt;RuleCalculateAttackBonusWithoutTarget&gt;, ISubscriber, IInitiatorRulebookSubscriber</code></pre>
+  </div>
+  <h5 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Based on AttackStatReplacementTTT from
+<a href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</a></p>
+</div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintWeaponTypeReference____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.%23ctor(Kingmaker.EntitySystem.Stats.StatType%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintWeaponTypeReference%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L79">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintWeaponTypeReference____" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.#ctor(Kingmaker.EntitySystem.Stats.StatType,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintWeaponTypeReference}[])">AttackStatReplacementFixed(StatType, Blueprint&lt;BlueprintWeaponTypeReference&gt;[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AttackStatReplacementFixed(StatType replacementStat, params Blueprint&lt;BlueprintWeaponTypeReference&gt;[] weaponTypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">replacementStat</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintWeaponTypeReference</span>&gt;[]</td>
+        <td><span class="parametername">weaponTypes</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_WeaponSubCategory_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.%23ctor(Kingmaker.EntitySystem.Stats.StatType%2CKingmaker.Enums.WeaponSubCategory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L86">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.#ctor*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed__ctor_Kingmaker_EntitySystem_Stats_StatType_Kingmaker_Enums_WeaponSubCategory_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.#ctor(Kingmaker.EntitySystem.Stats.StatType,Kingmaker.Enums.WeaponSubCategory)">AttackStatReplacementFixed(StatType, WeaponSubCategory)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public AttackStatReplacementFixed(StatType replacementStat, WeaponSubCategory weaponSubcategory)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td><span class="parametername">replacementStat</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponSubCategory</span></td>
+        <td><span class="parametername">weaponSubcategory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_m_WeaponTypes.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.m_WeaponTypes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L77">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_m_WeaponTypes" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.m_WeaponTypes">m_WeaponTypes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[SerializeField]
+public BlueprintWeaponTypeReference[] m_WeaponTypes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.BlueprintWeaponTypeReference</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_ReplacementStat.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.ReplacementStat%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L72">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_ReplacementStat" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.ReplacementStat">ReplacementStat</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StatType ReplacementStat</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.EntitySystem.Stats.StatType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_SubCategory.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.SubCategory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L74">View Source</a>
+  </span>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_SubCategory" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.SubCategory">SubCategory</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public WeaponSubCategory SubCategory</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Enums.WeaponSubCategory</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_WeaponTypes.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.WeaponTypes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L33">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_WeaponTypes_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.WeaponTypes*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_WeaponTypes" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.WeaponTypes">WeaponTypes</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceArrayProxy&lt;BlueprintWeaponType, BlueprintWeaponTypeReference&gt; WeaponTypes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.Blueprints.ReferenceArrayProxy</span>&lt;<span class="xref">Kingmaker.Blueprints.Items.Weapons.BlueprintWeaponType</span>, <span class="xref">Kingmaker.Blueprints.BlueprintWeaponTypeReference</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleCalculateAttackBonusWithoutTarget_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L41">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventAboutToTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventAboutToTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventAboutToTrigger_Kingmaker_RuleSystem_Rules_RuleCalculateAttackBonusWithoutTarget_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventAboutToTrigger(Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget)">OnEventAboutToTrigger(RuleCalculateAttackBonusWithoutTarget)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventAboutToTrigger(RuleCalculateAttackBonusWithoutTarget evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleCalculateAttackBonusWithoutTarget_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L68">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventDidTrigger_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventDidTrigger*"></a>
+  <h4 id="BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed_OnEventDidTrigger_Kingmaker_RuleSystem_Rules_RuleCalculateAttackBonusWithoutTarget_" data-uid="BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed.OnEventDidTrigger(Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget)">OnEventDidTrigger(RuleCalculateAttackBonusWithoutTarget)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void OnEventDidTrigger(RuleCalculateAttackBonusWithoutTarget evt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.RuleSystem.Rules.RuleCalculateAttackBonusWithoutTarget</span></td>
+        <td><span class="parametername">evt</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">Owlcat.Runtime.Core.Logging.ICanBeLogContext</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.Blueprints.IHavePrototype</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.EntitySystem.IRuntimeEntityFactComponentProvider</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IRulebookHandler&lt;T&gt;</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.ISubscriber</span>
+  </div>
+  <div>
+      <span class="xref">Kingmaker.PubSubSystem.IInitiatorRulebookSubscriber</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Components_Replacements_AttackStatReplacementFixed.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Components.Replacements.AttackStatReplacementFixed%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Components/Replacements/AttackStatReplacementFixed.cs/#L24" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

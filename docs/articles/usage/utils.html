@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Text, Logging, and Utils </title>
+    <title>Text, Logging, Unity Assets, and Utils </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Text, Logging, and Utils ">
+    <meta name="title" content="Text, Logging, Unity Assets, and Utils ">
     <meta name="generator" content="docfx 2.59.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -67,7 +67,7 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="text-logging-and-utils">Text, Logging, and Utils</h1>
+<h1 id="text-logging-unity-assets-and-utils">Text, Logging, Unity Assets, and Utils</h1>
 
 <p>While the bulk of the functionality of BPCore is implemented in <a href="blueprints.html">Blueprint Configurators</a> and <a href="builders.html">Builders</a>, there are many utility classes that provide additional functionality.</p>
 <h2 id="text">Text</h2>
@@ -203,6 +203,19 @@ BlueprintCore.Feats: Mod initialized.
 </code></pre>
 <p>Log output is available locally in <code>%APPDATA%\..\LocalLow\Owlcat Games\Pathfinder Wrath Of The Righteous\GameLogFull.txt</code> or in <a href="https://github.com/OwlcatOpenSource/RemoteConsole/releases">Remote Console</a>.</p>
 <p>Log output uses the <code>Mods</code> channel currently.</p>
+<h2 id="unity-assets">Unity Assets</h2>
+<p>BPCore supports importing assets from a Unity AssetBundle included in your mod. Using <a href="https://unity3d.com/get-unity/download/archive">Unity</a> (version <code>2019.4.26f1</code>), create an AssetBundle called <code>&lt;assemblyname&gt;_assets</code> and place it in the same diretory as your assembly. For a walkthrough of generating an AssetBundle see the <a href="../tutorials/advanced/skalds_vigor.html#create-an-assetbundle">Skald's Vigor Tutorial</a>.</p>
+<p>When a BPCore API needs an asset it requests an <a class="xref" href="../../api/BlueprintCore.Utils.Assets.Asset-1.html">Asset<t></t></a> or [AssetLink<tlink>](xref:BlueprintCore.Utils.Assets.AssetLink<code>1. You can provide these directly or by Asset ID. Unity usually defines the Asset ID using the file path relative to the Unity project directory, e.g. </code>MyUnityProject/assets/icons/myicon.png<code>is referenced using</code>assets/icons/myicon.png<code>. If you're ever unsure, look in the </code>assets.manifest<code>file in the same directory as the</code>assets` bundle or the bottom of the inspector tab in Unity.<p>
+<pre><code class="lang-C#">BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(BuffDisplayName)
+  .SetDescription(BuffDescription)
+  .SetIcon(&quot;assets/icons/myicon.png&quot;)
+  .Configure();
+</code></pre>
+<p>This works regardless of whether an asset or an asset link, e.g. <code>SpriteLink</code>, is required.</p>
+<p>If you want to directly load the resource call <code>ResourcesLibrary.TryGetResource&lt;Sprite&gt;()</code>:</p>
+<pre><code class="lang-C#">var myIconSprite = ResourcesLibraryTryGetResource&lt;Sprite&gt;(&quot;assets/icons/myicon.png&quot;);
+</code></pre>
 <h2 id="tools">Tools</h2>
 <p>Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:</p>
 <ul>
@@ -258,7 +271,7 @@ if (validator.HasErrors())
 }
 </code></pre>
 <p>Once you create a <code>Validator</code>, you can call <code>Check()</code> for any objects related to it and they will all be bundled into the same error validation string.</p>
-</article>
+</tlink></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

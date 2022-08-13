@@ -554,10 +554,80 @@ Throws <span class="xref">System.InvalidOperationException</span> if called twic
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponents__1_System_Action___0__System_Func___0_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.EditComponents%60%601(System.Action%7B%60%600%7D%2CSystem.Func%7B%60%600%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L193">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponents_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.EditComponents*"></a>
+  <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponents__1_System_Action___0__System_Func___0_System_Boolean__" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.EditComponents``1(System.Action{``0},System.Func{``0,System.Boolean})">EditComponents&lt;C&gt;(Action&lt;C&gt;, Func&lt;C, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Edits all <span class="xref">Kingmaker.Blueprints.BlueprintComponent</span> matching the predicate.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder EditComponents&lt;C&gt;(Action&lt;C&gt; edit, Func&lt;C, bool&gt; predicate)
+    where C : BlueprintComponent</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;C&gt;</td>
+        <td><span class="parametername">edit</span></td>
+        <td><p>Action invoked with the component as an input argument. Run when <a class="xref" href="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator-2.html#BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Configure">Configure()</a> is called.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;C, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">predicate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">C</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_System_Action__0____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.OnConfigure(System.Action%7B%600%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L202">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L220">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigure*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigure_System_Action__0____" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigure(System.Action{`0}[])">OnConfigure(Action&lt;T&gt;[])</h4>
@@ -608,7 +678,7 @@ Throws <span class="xref">System.InvalidOperationException</span> if called twic
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L223">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L241">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureCompleted*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
@@ -623,7 +693,7 @@ Throws <span class="xref">System.InvalidOperationException</span> if called twic
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.OnConfigureInternal(System.Action%7B%600%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L214">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L232">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureInternal*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureInternal(System.Action{`0}[])">OnConfigureInternal(Action&lt;T&gt;[])</h4>
@@ -675,7 +745,7 @@ should use this to ensure the blueprint is configured before user configuration 
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.RemoveComponents(System.Func%7BKingmaker.Blueprints.BlueprintComponent%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L191">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L209">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.RemoveComponents*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_RemoveComponents_System_Func_Kingmaker_Blueprints_BlueprintComponent_System_Boolean__" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.RemoveComponents(System.Func{Kingmaker.Blueprints.BlueprintComponent,System.Boolean})">RemoveComponents(Func&lt;BlueprintComponent, Boolean&gt;)</h4>
@@ -726,7 +796,7 @@ should use this to ensure the blueprint is configured before user configuration 
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.Validate(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L225">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L243">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validate*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validate(System.Object)">Validate(Object)</h4>
