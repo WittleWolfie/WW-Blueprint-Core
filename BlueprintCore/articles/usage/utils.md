@@ -162,7 +162,9 @@ Log output uses the `Mods` channel currently.
 
 BPCore supports importing assets from a Unity AssetBundle included in your mod. Using [Unity](https://unity3d.com/get-unity/download/archive) (version `2019.4.26f1`), create an AssetBundle called `<assemblyname>_assets` and place it in the same diretory as your assembly. For a walkthrough of generating an AssetBundle see the [Skald's Vigor Tutorial](~/articles/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
 
-When a BPCore API needs an asset it requests an [Asset<T>](xref:BlueprintCore.Utils.Assets.Asset`1) or [AssetLink<TLink>](xref:BlueprintCore.Utils.Assets.AssetLink`1. You can provide these directly or by Asset ID. Unity usually defines the Asset ID using the file path relative to the Unity project directory, e.g. `MyUnityProject/assets/icons/myicon.png` is referenced using `assets/icons/myicon.png`. If you're ever unsure, look in the `assets.manifest` file in the same directory as the `assets` bundle or the bottom of the inspector tab in Unity.
+When a BPCore API needs an asset it requests an [Asset<T>](xref:BlueprintCore.Utils.Assets.Asset`1) or [AssetLink<TLink>](xref:BlueprintCore.Utils.Assets.AssetLink`1). You can provide these directly or by Asset ID.
+
+Unity usually defines the Asset ID using the file path relative to the Unity project directory, e.g. `MyUnityProject/assets/icons/myicon.png` is referenced using `assets/icons/myicon.png`. If you're ever unsure, look in the `assets.manifest` file in the same directory as the `assets` bundle or the bottom of the inspector tab in Unity.
 
 ```C#
 BuffConfigurator.New(BuffName, BuffGuid)
