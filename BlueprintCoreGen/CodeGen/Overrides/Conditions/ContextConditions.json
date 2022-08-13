@@ -1,17 +1,22 @@
 [
   {
-    "TypeName": "ContextConditionHasBuffFromCaster",
-    "RequiredFields": [ "m_Buff" ]
-  },
-
-  {
     "TypeName": "ContextConditionCasterHasFact",
     "RequiredFields": [ "m_Fact" ]
   },
 
   {
+    "TypeName": "ContextConditionHasBuffFromCaster",
+    "RequiredFields": [ "m_Buff" ]
+  },
+
+  {
     "TypeName": "ContextConditionHasFact",
     "RequiredFields": [ "m_Fact" ]
+  },
+
+  {
+    "TypeName": "ContextConditionInContext",
+    "RequiredFields": [ "ConditionsChecker" ]
   },
 
   { "TypeName": "ContextConditionDistanceToTarget" },
