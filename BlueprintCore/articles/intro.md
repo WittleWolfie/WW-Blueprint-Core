@@ -247,7 +247,7 @@ Add a DeployMod target to your .csproj file, using your mod's name in place of `
     <Assembly Include="$(OutputPath)\BlueprintCoreTutorial.dll" />
     <ModConfig Include="$(OutputPath)\Info.json" />
     <Strings Include="$(OutputPath)\LocalizedStrings.json" />
-    <Assets Include="$(OutputPath)\assets" />
+    <Assets Include="$(OutputPath)\*_assets" />
   </ItemGroup>
 
   <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\BlueprintCoreTutorial" />

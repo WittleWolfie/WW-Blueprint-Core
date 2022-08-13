@@ -136,7 +136,7 @@
 			<Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
 			<ModConfig Include="$(OutputPath)\Info.json" />
       <Strings Include="$(OutputPath)\LocalizedStrings.json" />
-      <Assets Include="$(OutputPath)\assets" />
+      <Assets Include="$(OutputPath)\*_assets" />
 		</ItemGroup>
 
 		<Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
