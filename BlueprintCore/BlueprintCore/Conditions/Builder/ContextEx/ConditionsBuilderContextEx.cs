@@ -22,43 +22,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
   {
 
     /// <summary>
-    /// Adds <see cref="ContextConditionHasBuffFromCaster"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AnomalyDistortionBuff</term><description>599b46d94d454526bf5893a4724d4fbe</description></item>
-    /// <item><term>Gibrileth_StenchAreaEffect</term><description>d7a38ef5bd1fffa4aa85a69ff6fe23d4</description></item>
-    /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public static ConditionsBuilder HasBuffFromCaster(
-        this ConditionsBuilder builder,
-        Blueprint<BlueprintBuffReference> buff,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<ContextConditionHasBuffFromCaster>();
-      element.m_Buff = buff?.Reference;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextConditionCasterHasFact"/>
     /// </summary>
     ///
@@ -96,6 +59,43 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextConditionHasBuffFromCaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AnomalyDistortionBuff</term><description>599b46d94d454526bf5893a4724d4fbe</description></item>
+    /// <item><term>Gibrileth_StenchAreaEffect</term><description>d7a38ef5bd1fffa4aa85a69ff6fe23d4</description></item>
+    /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder HasBuffFromCaster(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintBuffReference> buff,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionHasBuffFromCaster>();
+      element.m_Buff = buff?.Reference;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextConditionHasFact"/>
     /// </summary>
     ///
@@ -128,6 +128,31 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextConditionHasFact>();
       element.m_Fact = fact?.Reference;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionInContext"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierCallingSkillCheckBuff</term><description>41f68e5c879e440991740a03f5ed7541</description></item>
+    /// <item><term>HellsSealVariantFireExplosionBuff</term><description>905a43b9f088b33498fcf5d3569711fa</description></item>
+    /// </list>
+    /// </remarks>
+    public static ConditionsBuilder InContext(
+        this ConditionsBuilder builder,
+        ConditionsBuilder conditionsChecker,
+        ContextConditionInContext.ContextTargetType? contextTarget = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionInContext>();
+      element.ConditionsChecker = conditionsChecker?.Build();
+      element.ContextTarget = contextTarget ?? element.ContextTarget;
       element.Not = negate;
       return builder.Add(element);
     }
