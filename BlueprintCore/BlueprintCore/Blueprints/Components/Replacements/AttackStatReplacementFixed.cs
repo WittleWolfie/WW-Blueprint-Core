@@ -15,8 +15,6 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 {
   /// <summary>
   /// Working replacement for Owlcat's AttackStatReplacement.
-  /// Instantiate using <see cref="New(ActionsBuilder, bool, bool, bool, bool, bool, bool)"/> and configure using its
-  /// methods.
   /// </summary>
   /// 
   /// <remarks>
