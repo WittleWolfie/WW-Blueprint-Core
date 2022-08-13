@@ -13,9 +13,9 @@ namespace BlueprintCore.Utils.Assets
   public class AssetTool
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("AssetLoader");
-
+    private static readonly string AssemblyName = Assembly.GetAssembly(typeof(AssetTool)).GetName().Name.ToLower();
     private static readonly string BundleName =
-      Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetTool)).Location), "assets");
+      Path.Combine(Path.GetDirectoryName(Assembly.GetAssembly(typeof(AssetTool)).Location), $"{AssemblyName}_assets");
 
     private static readonly HashSet<string> AssetIds = new();
 

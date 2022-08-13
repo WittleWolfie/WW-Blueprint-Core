@@ -326,18 +326,18 @@ Select the icons folder, then **Assets > Import New Asset** and choose your icon
 
 Your icon should be displayed in the folder contents. Select it and in the Inspector tab set **Texture Type** to **Sprite (2D and UI)** and click Apply.
 
-With the icon still selected, click the **AssetBundle** dropdown at the bottom of the Inspector tab, select **New** and enter **assets**. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:
+With the icon still selected, click the **AssetBundle** dropdown at the bottom of the Inspector tab, select **New** and enter **blueprintcoretutorial_assets**. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:
 
 ![Icon inspector tab](~/images/advanced_feat/unity_sprite_config.png)
 
 > ![NOTE]
-> Currently BPCore only supports a single AssetBundle called "assets". The icons folder is for organization but everything should go to the assets bundle.
+> Currently BPCore only supports a single AssetBundle called `assemblyname_assets`. The icons folder is for organization but everything should go to the assets bundle. If your mod was called TabletopStuff it would be `tabletopstuff_assets`.
 
-Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: assets and StreamingAssets. You can ignore StreamingAssets.
+Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: blueprintcoretutorial_assets and StreamingAssets. You can ignore StreamingAssets.
 
 ### Deploy the AssetBundle
 
-Back in your mod right click your project and select **Add > Existing Item**. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to **All Files** at the bottom right. Ignore `assets.manifest`, `assets.meta`, and `assets.manifest.meta`.
+Back in your mod right click your project and select **Add > Existing Item**. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to **All Files** at the bottom right. Ignore `*.manifest`, `*.meta`, and `*.manifest.meta`.
 
 Right click the AssetBundle, select **Properties**, then set **Copy to Output Directory** to **Copy if newer**:
 
