@@ -1,6 +1,6 @@
 ﻿# Advanced Feat: Skald's Vigor
 
-This tutorial assumes you've gone through [Adding a Feat](~/tutorials/feat.md) or are otherwise familiar with the basics of adding a feat.
+This tutorial assumes you've gone through [Adding a Feat](~/articles/tutorials/feat.md) or are otherwise familiar with the basics of adding a feat.
 
 We'll be adding [Skald's Vigor](https://www.d20pfsrd.com/feats/general-feats/skald-s-vigor/).
 

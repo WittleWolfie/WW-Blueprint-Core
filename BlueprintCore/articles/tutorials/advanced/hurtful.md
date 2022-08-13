@@ -1,6 +1,6 @@
 ﻿# Advanced Feat: Hurtful
 
-This tutorial assumes you've gone through [Adding a Feat](~/tutorials/feat.md) and [Skald's Vigor](skalds_vigor.md), or are familiar with the basics of adding a feat and using BPCore.
+This tutorial assumes you've gone through [Adding a Feat](~/articles/tutorials/feat.md) and [Skald's Vigor](skalds_vigor.md), or are familiar with the basics of adding a feat and using BPCore.
 
 We'll be adding [Hurtful](https://www.d20pfsrd.com/feats/combat-feats/hurtful-combat/).
 
