@@ -2,6 +2,7 @@
 
 ## v2.2.0 Release
 
+* New Quick Start setup using a project template, no more editing .csproj files!
 * Expanded tutorials to cover more advanced modding
     * Activatable Abilities, Transpilers, Assets, and more
 * Added several replacement components from TTT-Core
@@ -18,6 +19,7 @@
 * Fixed and filled out unit test project
     * Future contributions should include unit tests to the extent possible
 * Fixed type specific overrides to apply to Lists and Arrays
+* Fixed LogWrapper to respect `EnableInternalVerboseLogs`
 
 ### Breaking Changes
 
