@@ -22,3 +22,10 @@
     href: tutorials/overview.md
   - name: Adding a Feat
     href: tutorials/feat.md
+    items:
+      - name: Skalds Vigor
+        href: tutorials/advanced/skalds_vigor.md
+      - name: Furious Focus
+        href: tutorials/advanced/furious_focus.md
+      - name: Hurtful
+        href: tutorials/advanced/hurtful.md
