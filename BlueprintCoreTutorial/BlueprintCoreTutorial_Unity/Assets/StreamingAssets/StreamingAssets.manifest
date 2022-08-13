@@ -1,7 +1,7 @@
 ManifestFileVersion: 0
-CRC: 1312974311
+CRC: 1765657130
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: assets
+      Name: blueprintcoretutorial_assets
       Dependencies: {}

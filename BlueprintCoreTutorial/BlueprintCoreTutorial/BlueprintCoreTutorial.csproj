@@ -72,7 +72,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="assets">
+		<None Update="blueprintcoretutorial_assets">
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</None>
 		<None Update="Info.json">
