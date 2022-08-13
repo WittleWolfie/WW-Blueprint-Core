@@ -46,7 +46,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArcanistExploitArmoredMaskAbility", "2d7d510c6e2e3e54ab9eee84a41fa2cf"),
-            new Blueprint("EnlargeSelf", "549e9fcaadc861348b05bf01624387aa"),
+            new Blueprint("EnlargePerson", "c60969e7f264e6d4b84a1499fdcf9039"),
             new Blueprint("Valmallos_Area_Gaze", "d031e701dee3487f8a8b7da39e722267"),
           }
         },
@@ -66,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("GreaterCognatogenIntelligenceCharismaBuff", "1c2fdba3b33dacd41afd5b74d84c7332"),
+            new Blueprint("GreaterCognatogenIntelligenceWisdomBuff", "34fde71198d30094aa133546e8cf8733"),
             new Blueprint("WrathOfAncestorEnchantment", "4dbc03bd6223b484d8cd9afc3e0369b0"),
           }
         },
@@ -86,7 +86,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AngelSwordEffectBuff", "f5f500d6a2a39fc4181af32ad79af488"),
-            new Blueprint("JoltingPortentBuff", "27fa15e9738aee1499aed308cdef7084"),
+            new Blueprint("HuntersSurprise", "6209197fed619cf41910f9aaceaf7d51"),
             new Blueprint("ZeorisDaggerRing_BetrayalFeature", "1f6fabee66d54992bc912236d36b50f8"),
           }
         },
@@ -106,7 +106,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AmiriCampBuff", "f04177fdba7bb324589b7f2b0fd67604"),
-            new Blueprint("ShamanBonesSpiritWanderingFeature", "a3862152ae6010445bc25915ac58fc8e"),
+            new Blueprint("ShamanFlameSpiritWanderingFeature", "d12c230082825b945b92574df6f3caf1"),
             new Blueprint("WitchHexMajorHealingAbility", "3408c351753aa9049af25af31ebef624"),
           }
         },
@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0005", "ef16f026e72107d4492aa6861b66739f"),
+            new Blueprint("Cue_0005", "1044dda3e3c04fb1adea83a8d0531935"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -315,7 +315,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0068", "9a7eb4e4d7ff1d345bdb299aa65d46c6"),
+            new Blueprint("Cue_0073", "69419c73bc31e714f9616b84602049e5"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -337,6 +337,16 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
             new Blueprint("AnimalInsightArea", "d3c9117d43833df49a253df19377bbfe"),
             new Blueprint("FightDefensivelyToggleAbility", "09d742e8b50b0214fb71acfc99cc00b3"),
             new Blueprint("ScapegoatAbilityAlly", "b9c07dc0df2977c479d19735d956284a"),
+          }
+        },
+
+        {
+          // Flag for review
+          typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionInContext),
+          new()
+          {
+            new Blueprint("CavalierCallingSkillCheckBuff", "41f68e5c879e440991740a03f5ed7541"),
+            new Blueprint("HellsSealVariantFireExplosionBuff", "905a43b9f088b33498fcf5d3569711fa"),
           }
         },
 
@@ -630,7 +640,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Kerz]_BarkCondition", "59c232c2fa5e7c54baa235fee0e049d6"),
-            new Blueprint("BookPage_Room4Clean", "cb81c6ea661a49f44b68e809127cc7d3"),
+            new Blueprint("BookPage_Room3Clean", "68eaac50f8c3027479e00ec614f0b4c0"),
             new Blueprint("ZanedraInTemple", "0d22fd186d557a049b46c0fb3d623f04"),
           }
         },
@@ -856,7 +866,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("10State_0", "1f815765df0d4d7ba19f731dfa064081"),
-            new Blueprint("Cue_0056", "193c2bbab2da4f24bb401c42986aa021"),
+            new Blueprint("Cue_0057", "f29d673291599d9428af5d77c32b1bc4"),
             new Blueprint("Zacharius_FinalBetrayal_dialogue", "5ec3e47a05de18c46b36f08c8dfbeafb"),
           }
         },

@@ -741,6 +741,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CauseFear = "bd81a3931aa285a4f9844585b5d97e51";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CausticEruption = "8c29e953190cc67429dc9c701b16b7c2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierCallingAbility = "36db7807451714043894c1ccbbed0db4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierCallingAbilityAttackRoll = "206ce2ab899449b9b23e73654588251d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierCallingAbilitySavingThrow = "e53754efdf844a62a989e5098059b8c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierCallingAbilitySkillCheck = "6c9c621ceb044543aa782515ed334798";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierChallengeAbility = "9d5d58ff40e39ff4681670463abe99c9";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierForTheFaithAbility = "2129617f43e056d4db8992139489c345";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CavalierForTheKingAbility = "e35e2ea6a3b638949baf78959ef5c5fd";
@@ -4178,6 +4181,9 @@ namespace BlueprintCore.Blueprints.References
           CauseFear,
           CausticEruption,
           CavalierCallingAbility,
+          CavalierCallingAbilityAttackRoll,
+          CavalierCallingAbilitySavingThrow,
+          CavalierCallingAbilitySkillCheck,
           CavalierChallengeAbility,
           CavalierForTheFaithAbility,
           CavalierForTheKingAbility,

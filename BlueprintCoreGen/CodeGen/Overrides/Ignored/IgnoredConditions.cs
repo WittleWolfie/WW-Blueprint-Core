@@ -11,7 +11,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
       {
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDungeonStage),
-        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionInContext),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStealth),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged),
         typeof(Kingmaker.Kingdom.Conditions.BuildingHasNeighbours),

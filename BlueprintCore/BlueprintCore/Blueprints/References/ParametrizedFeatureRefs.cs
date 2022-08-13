@@ -28,6 +28,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LichSkeletalRageParametrized = "aaba9ebd2074e454aaed211698a34db0";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LichSkeletalTeamworkParametrized = "b042ff9901e7b104eac92c05aa39957a";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LichSkeletalWeaponParametrized = "90f171fadf81f164d9828ce05441e617";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LichSkeletalWeaponTrainingtParametrized = "bc4cc2147809483fbb195841b8567127";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretArcanist = "cd3058b460930a5418f3811ec9be9ebb";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretBard = "0fcb8e80d559ee942bbf6e9761513cdf";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretBloodrager = "bbd1ce5be15155f49b99be31a0ab99f4";
@@ -40,6 +41,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretRanger = "b061858883c5f2c489b8991fc02e8f15";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretRogue = "82c78af6a0e3ff740b9015bd42f20d53";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretShaman = "2da160af99f21704282628acf0c50aae";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretSkald = "a1d9a5a1ab5e47e29f3ea583b60db50b";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretSorcerer = "c7586f526d72d474ba5442c4e6bcb46b";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretWitch = "d6d21b17d77e5d14ea15ce9bd22c80aa";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterClericSecretWizard = "58f5725a418383f418489cf330b737d5";
@@ -55,6 +57,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretRanger = "9450f60e975a7d24fa9d3bbd04321132";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretRogue = "d24ac0184a8562347a2bae1b086b8253";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretShaman = "b2979afd344255140aebfe7bf7b0181a";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretSkald = "1d777f19d9c74a1e991f081c762cbff0";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretSorcerer = "c7466e5b4e32a124b87d4b2cc155a57c";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretWitch = "32392efe253dffa43b34fd9d1185eb59";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterDruidSecretWizard = "7d43568733326b547928e1ba1e0c8f14";
@@ -71,6 +74,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretRanger = "d445a062f980b8746a27c6c9490c6584";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretRogue = "66286a8fc619a3847a5a446b334544ad";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretShaman = "291b1cabaa3405c4991c892204546bcb";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretSkald = "69a6f42e00464198a36b3d300c04bb6e";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretSorcerer = "a26834acd0f797c4e948660f4eb6ccd9";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretWitch = "6d7d4acede258984b8633d9b00d53877";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretWizard = "d0e31ebe24d95694a804e84d4d02bf25";
@@ -146,6 +150,7 @@ namespace BlueprintCore.Blueprints.References
           LichSkeletalRageParametrized,
           LichSkeletalTeamworkParametrized,
           LichSkeletalWeaponParametrized,
+          LichSkeletalWeaponTrainingtParametrized,
           LoremasterClericSecretArcanist,
           LoremasterClericSecretBard,
           LoremasterClericSecretBloodrager,
@@ -158,6 +163,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterClericSecretRanger,
           LoremasterClericSecretRogue,
           LoremasterClericSecretShaman,
+          LoremasterClericSecretSkald,
           LoremasterClericSecretSorcerer,
           LoremasterClericSecretWitch,
           LoremasterClericSecretWizard,
@@ -173,6 +179,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterDruidSecretRanger,
           LoremasterDruidSecretRogue,
           LoremasterDruidSecretShaman,
+          LoremasterDruidSecretSkald,
           LoremasterDruidSecretSorcerer,
           LoremasterDruidSecretWitch,
           LoremasterDruidSecretWizard,
@@ -189,6 +196,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterWizardSecretRanger,
           LoremasterWizardSecretRogue,
           LoremasterWizardSecretShaman,
+          LoremasterWizardSecretSkald,
           LoremasterWizardSecretSorcerer,
           LoremasterWizardSecretWitch,
           LoremasterWizardSecretWizard,

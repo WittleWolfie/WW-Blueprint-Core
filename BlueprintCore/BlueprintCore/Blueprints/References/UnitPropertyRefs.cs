@@ -25,6 +25,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnomalyTemplateCasterHPProperty = "1ef5e66978714c9ba7d0134255e6fdb8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnomalyTemplateMeleeHPProperty = "39c48c78d15c46ebbefb4c0f2c7f01e2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ArmyAeon3ACBuffProperty = "6663b6b9d36248e6bbe055b43c46c738";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AshLeprosyProperty = "2d7ced269b8d46a18104ed567c603687";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AssassinCreatePoisonAbilityProperty = "0482fffc039d46fc86a86bda03e00f1a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AssassinDeathAttackAbilityProperty = "857ddbe8d4a742c49a933b893653649f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AzataSongOfSecondBreathHPProperty = "84a51dc89557463791164b49ae338ae9";
@@ -55,6 +56,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> FighterPetDrakeAbilityProperty = "b36e659eeef4450dab4be7bc7447ab1d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> FightingDefensivelyACBonusProperty = "fdf1a37b3173b4c41a6062515f754202";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> FightingDefensivelyAttackPenaltyProperty = "21a3e92a7b0f37d4e8581f7992864f30";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> FilthFeverProperty = "b214d78bef9f462ea360c7e7debe71cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> GhoulFeverProperty = "23aed5e41d9b4509a99ba23ea2bddca0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> GlobalSpellAmplifyResistanceProperty = "743f422f549441ce8cc0abedb63a410d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> GoldenDragonCRProperty = "dfd1546d8545429a948365a5690f77ab";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> HatOfHearteningSongCasterProperty = "8b74de9ae6a049dea2060250c0cce307";
@@ -73,6 +76,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MainWeaponCriticalModifierProperty = "6ac8613eca0083d438b48f9e1391f09b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MainWeaponDamageStatBonusProperty = "9955f9c72c350254daff5a029ee32712";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MarvelousEnduranceFastHealingProperty = "ca1b4b40b9f5407f904738b575bac1ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MummyRotProperty = "64fce1577bec426793c44ae09d71c61f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MutationWarriorSpontaneousHealingResourceProperty = "7ca6ae35171a429bbcfb375ab657776f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MythicChannelProperty = "152e61de154108d489ff34b98066c25c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkCurrentHPProperty = "2d73d0816ab3440d9602b7c964fb7b0f";
@@ -204,6 +208,7 @@ namespace BlueprintCore.Blueprints.References
           AnomalyTemplateCasterHPProperty,
           AnomalyTemplateMeleeHPProperty,
           ArmyAeon3ACBuffProperty,
+          AshLeprosyProperty,
           AssassinCreatePoisonAbilityProperty,
           AssassinDeathAttackAbilityProperty,
           AzataSongOfSecondBreathHPProperty,
@@ -234,6 +239,8 @@ namespace BlueprintCore.Blueprints.References
           FighterPetDrakeAbilityProperty,
           FightingDefensivelyACBonusProperty,
           FightingDefensivelyAttackPenaltyProperty,
+          FilthFeverProperty,
+          GhoulFeverProperty,
           GlobalSpellAmplifyResistanceProperty,
           GoldenDragonCRProperty,
           HatOfHearteningSongCasterProperty,
@@ -252,6 +259,7 @@ namespace BlueprintCore.Blueprints.References
           MainWeaponCriticalModifierProperty,
           MainWeaponDamageStatBonusProperty,
           MarvelousEnduranceFastHealingProperty,
+          MummyRotProperty,
           MutationWarriorSpontaneousHealingResourceProperty,
           MythicChannelProperty,
           OracleRevelationLifeLinkCurrentHPProperty,

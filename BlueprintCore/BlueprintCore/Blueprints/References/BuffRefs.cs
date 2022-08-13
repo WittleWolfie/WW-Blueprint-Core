@@ -1043,6 +1043,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BookWormPoisonBuff = "de864b0540a166a4897532885cc9f35c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfArcanePersistanceBuff = "9e5ac3ffc3d151148ac74355c088d624";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfFreereinBuff = "e24e9c0d77144663815c69e969ac4fdb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfFreeReinBuff = "7ac8effd6341443d98da735b965b0176";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfMagicalWhirlBuff = "0620f0578c3e4d0dbfaeb9065469b25b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfMagicalWhirlCountBuff = "815fa1c6d2dc4c56859bfa84eee96107";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Boulder_Feature = "1648f11327bdbc24f98d0df5a7a6381f";
@@ -1188,7 +1189,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierByMyHonorBuffForitude = "5f508b6472ae38944a84eb181dcb5e66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierByMyHonorBuffReflex = "4a7c4ffb060e66848923c379f676547f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierByMyHonorBuffWill = "9ca9b35f6fb9069478cc17370e105c02";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierCallingAttackRollBuff = "61477e5901524671b2cd8401b82d8878";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierCallingBuff = "6074c0e8bd593024c9866c7b99c6d826";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierCallingSavingThrowBuff = "86260f0689844d5db053a95b4be11ddb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierCallingSkillCheckBuff = "41f68e5c879e440991740a03f5ed7541";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierChallengeBuffSelf = "0529edfc06abe58439f36a7b0f933359";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierChallengeBuffTarget = "4f0218323ad379248b69de8a9501159f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierChargeBuff = "61179501dfdfaa84d970d9ad2957b680";
@@ -2827,6 +2831,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JeweledRiceBuff = "9977b05f6d9c2544a8916606e0a6ae03";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JeweledRiseBuffCompanion = "79ada0e0ded42b6488a2a35ef877fbcc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JoCat_ShirtBuff = "d262dae4ea0d47b8a45811f3f817bb8f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JoCat_ShirtBuffEffect = "93cd1894b4fb4aaba92434e1ee802385";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JokeOfFateBuff = "e131adfe445f6ed4e8cca37b1cb17573";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JokeOfNatureArrowsQuiverBuff = "59d82657b1aa53e43a7a44b1a8cbaf8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> JokeOfNatureArrowsQuiverOnEnemyBuff = "e1c8467e6acca5e4ba1dc5854bc1b41f";
@@ -6074,6 +6079,7 @@ namespace BlueprintCore.Blueprints.References
           BookWormPoisonBuff,
           BootsOfArcanePersistanceBuff,
           BootsOfFreereinBuff,
+          BootsOfFreeReinBuff,
           BootsOfMagicalWhirlBuff,
           BootsOfMagicalWhirlCountBuff,
           Boulder_Feature,
@@ -6219,7 +6225,10 @@ namespace BlueprintCore.Blueprints.References
           CavalierByMyHonorBuffForitude,
           CavalierByMyHonorBuffReflex,
           CavalierByMyHonorBuffWill,
+          CavalierCallingAttackRollBuff,
           CavalierCallingBuff,
+          CavalierCallingSavingThrowBuff,
+          CavalierCallingSkillCheckBuff,
           CavalierChallengeBuffSelf,
           CavalierChallengeBuffTarget,
           CavalierChargeBuff,
@@ -7858,6 +7867,7 @@ namespace BlueprintCore.Blueprints.References
           JeweledRiceBuff,
           JeweledRiseBuffCompanion,
           JoCat_ShirtBuff,
+          JoCat_ShirtBuffEffect,
           JokeOfFateBuff,
           JokeOfNatureArrowsQuiverBuff,
           JokeOfNatureArrowsQuiverOnEnemyBuff,

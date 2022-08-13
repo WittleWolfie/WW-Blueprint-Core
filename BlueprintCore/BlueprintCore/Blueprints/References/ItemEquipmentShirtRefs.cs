@@ -39,6 +39,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeElementalImbuementItem = "672327dcb5731f74a85ae23697cd7b26";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfAir_CorrectItem = "75f2d4bf94a14398ad1ca9db8e3a579f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfAngelicPrudenceItem = "1c2fc5c3b82e428ab6b06dab81ef01dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfArcaneAnnihilationItemCorrect = "f389db9e641c45a2b3f7ab9cca0f76ce";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfDeterminationItem = "ee26e7fdc05725f48abae2db22ada906";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfFire_CorrectItem = "2055779fa05642a7a069b2d958e3be97";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMaliceItem = "2e78284d218c51643bc3e1f0a530a5fc";
@@ -83,6 +84,7 @@ namespace BlueprintCore.Blueprints.References
           RobeElementalImbuementItem,
           RobeOfAir_CorrectItem,
           RobeOfAngelicPrudenceItem,
+          RobeOfArcaneAnnihilationItemCorrect,
           RobeOfDeterminationItem,
           RobeOfFire_CorrectItem,
           RobeOfMaliceItem,

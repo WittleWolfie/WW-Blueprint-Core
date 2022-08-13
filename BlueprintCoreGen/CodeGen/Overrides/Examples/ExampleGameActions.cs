@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("HellKnightOrderOfTheGodclawTier2Ability", "dadd940dc654196409ccfc5a131761c9"),
+            new Blueprint("HellKnightOrderOfTheGodclawTier1Ability", "a16c18d7cdd320340986b7da211f7e01"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("FailBattleblissGladiatorsQuest", "5dbb2a97763cd204f8bc50927feb9774"),
+            new Blueprint("FaerieDragon_CheckAlignment", "1f0e965084fa2154e9e244c6b061b426"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -66,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GeniekindEfreetiBuff", "d47f45f29c4cfc0469f3734d02545e0b"),
+            new Blueprint("GeniekindMaridBuff", "4f37fc07fe2cf7f4f8076e79a0a3bfe9"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -86,7 +86,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("Gallu_Ability_RainOfBlood", "2a39f99077de8004cbda6d89dd3b219f"),
+            new Blueprint("Gallu_AreaEffect_AuraOfHavoc", "a2f0adf9e5004894cb070f4f37d2fa1e"),
             new Blueprint("ZachariusFearAuraArea", "d363527fe31581149b2d53686075c14d"),
           }
         },
@@ -166,7 +166,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HellAngelSwordDepersonalizeAbility", "5f99f802d4ff52a4e9538e6bb7f66270"),
+            new Blueprint("HellAngelSwordAntiUndeadAbility", "e6a496f6d58d99b45a716e5e5915b47d"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -1851,7 +1851,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ALR_TE_Lock_Actions", "418531c6ee69d6c4ebb9f181f7d6e7a4"),
-            new Blueprint("DLC2_Sv_Back_to_Camp", "a5d1dcfc715243c98e4f958435c52be4"),
+            new Blueprint("DLC2_Survive_RQ_RstIn_4", "56b6d7b013134f7c952b86a748822783"),
             new Blueprint("Wintersun_Default", "87839550c801db944b102f61084fd245"),
           }
         },
