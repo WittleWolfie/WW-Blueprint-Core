@@ -971,8 +971,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>LichSkeletalCombatParametrized</term><description>b8a52bbe63e7d6b48b002ee474e90fdd</description></item>
-    /// <item><term>LichSkeletalRageParametrized</term><description>aaba9ebd2074e454aaed211698a34db0</description></item>
     /// <item><term>LichSkeletalTeamworkParametrized</term><description>b042ff9901e7b104eac92c05aa39957a</description></item>
+    /// <item><term>LichSkeletalWeaponTrainingtParametrized</term><description>bc4cc2147809483fbb195841b8567127</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1028,7 +1028,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodlineArcaneNewArcanaFeature</term><description>4a2e8388c2f0dd3478811d9c947bebfb</description></item>
-    /// <item><term>LoremasterDruidSecretWizard</term><description>7d43568733326b547928e1ba1e0c8f14</description></item>
+    /// <item><term>LoremasterDruidSecretWitch</term><description>32392efe253dffa43b34fd9d1185eb59</description></item>
     /// <item><term>MysticTheurgeOracleLevelParametrized9</term><description>4a2fa8146d6263649bd91a0a2006ebad</description></item>
     /// </list>
     /// </remarks>

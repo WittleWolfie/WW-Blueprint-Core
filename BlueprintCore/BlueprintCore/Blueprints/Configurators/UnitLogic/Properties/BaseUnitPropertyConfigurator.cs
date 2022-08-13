@@ -636,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeProperty</term><description>f363c368c37546c3a4793b348963dc28</description></item>
-    /// <item><term>PerfectFormCharismaToWisdomProperty</term><description>cb21d3aa6b4d4d9dbc5a17745645067d</description></item>
+    /// <item><term>PerfectFormCharismaToIntelligenceProperty</term><description>acb6b0eb73d64dc4a5d645f27af39df5</description></item>
     /// <item><term>TricksterUseMagicDeviceTier3CLProperty</term><description>d533bfb6b6304ea3a0f8ce9d159704e9</description></item>
     /// </list>
     /// </remarks>
@@ -846,7 +846,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Angel4WardFromWeaknessProperty</term><description>077e52a62381442099143b51d9838d42</description></item>
-    /// <item><term>RitualCauseFearMoraleProperty</term><description>f2e735840531c9e4dba5569dd673cc87</description></item>
+    /// <item><term>RitualBullsStrengthBonusProperty</term><description>3c2a8b7d6e45313429b50cbdc34f2ac0</description></item>
     /// <item><term>WeakeningTrapAttackReductionProperty</term><description>6d5c72e8c0334621b1e6b4098ccc4750</description></item>
     /// </list>
     /// </remarks>

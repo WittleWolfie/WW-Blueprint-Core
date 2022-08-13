@@ -273,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>GloryDomainBaseBuff</term><description>55edcfff497a1e04a963f72c485da5cb</description></item>
+    /// <item><term>CavalierCallingSkillCheckBuff</term><description>41f68e5c879e440991740a03f5ed7541</description></item>
     /// <item><term>GuidanceBuff</term><description>ec931b882e806ce42906597e5585c13f</description></item>
     /// <item><term>RangedLegerdemainUntargetable</term><description>5f632e786b68d8d4c8bb66275fc600a7</description></item>
     /// </list>
@@ -3975,7 +3975,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>CR5_NightmareStandard</term><description>a97b1875eae857d479c64543590f6ccb</description></item>
+    /// <item><term>CR5_SchirAdvanced_RE_high</term><description>e94fa2ce83bb4b442996079dded134d7</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -4409,7 +4409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
+    /// <item><term>LivingFlameFeature</term><description>01276815beaf1c44bbfb842bc1bcb899</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -6225,7 +6225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobatsFootwearFeature</term><description>bb115b9d89d7b4b48814d059ecd29164</description></item>
-    /// <item><term>FormOfTheDragonIRedBuff</term><description>294cbb3e1d547f341a5d7ec8500ffa44</description></item>
+    /// <item><term>FormOfTheDragonISilverBuff</term><description>feb2ab7613e563e45bcf9f7ffe4e05c6</description></item>
     /// <item><term>XantirWithoutSwarm_MidnightFaneInThePast</term><description>a44bf782e3a95194493874cf122c4f99</description></item>
     /// </list>
     /// </remarks>
@@ -7419,7 +7419,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>EritriceInspiringSongEffectBuff</term><description>ce99c5bd16ce4e243939d945fd38d8d5</description></item>
+    /// <item><term>EverlastingLightBuff</term><description>88bc343b94e545abbb5a33dba6eda85d</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEffectBuff</term><description>252279901e3644ce8b5b3275bea8f7bd</description></item>
     /// </list>
     /// </remarks>
@@ -7919,7 +7919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyDominateBuff</term><description>2ab491a0101344bc8ad3e62ba6a6dac6</description></item>
-    /// <item><term>CR4_Marauder_Human_RogueMelee_MaleRichQuater</term><description>db59e733b90f41ddaaabdc67b784a6e8</description></item>
+    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -7969,7 +7969,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR21_ZombieLordFighter_DLC1</term><description>a356271a621747158164fcb22c5f7935</description></item>
+    /// <item><term>CR23_SkeletalChampion_Melee_DLC1</term><description>c4dddee9f3c64f6faab89ac8b28b0d97</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -9661,7 +9661,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodragerFeyBlurringMovementBuff</term><description>0d4dc6eea3f13d6488c21bc3fd3f119e</description></item>
-    /// <item><term>JoCat_ShirtFeature</term><description>706edd2eaa8c4c9dbf731085e0397333</description></item>
+    /// <item><term>JoCat_ShirtBuffEffect</term><description>93cd1894b4fb4aaba92434e1ee802385</description></item>
     /// <item><term>LongbowOfLeechingStrikeBuff</term><description>dd7722a46f520b4429cedbc8515cab2d</description></item>
     /// </list>
     /// </remarks>
@@ -11312,7 +11312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmuletOfUnforgivingElementsAcidBuff</term><description>e6e363e8bd8074047bef3b286f159fe8</description></item>
-    /// <item><term>DLC3_RageConfusionIsland</term><description>6401e7d62cf6424a95a858bff65b2000</description></item>
+    /// <item><term>DLC3_IllusionIslandWillPenaltyBuff</term><description>b1279883b1d04bc3a4ce88052dd7b74d</description></item>
     /// <item><term>SongOfHeroicResolveEffectBuff</term><description>4eafdc4608d89f84b82089953bc54e59</description></item>
     /// </list>
     /// </remarks>
@@ -12844,7 +12844,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyACAgainstRangeAuraFeature</term><description>e44e483c864349cf8eda2ac753ef0171</description></item>
-    /// <item><term>ArmyGainAttackWhenHitFeature</term><description>054665fdee674a5cac99b194b50af349</description></item>
+    /// <item><term>ArmyGhoulParalysisFeature</term><description>0ff98740c64f4d948e783f6e0dcd4bd7</description></item>
     /// <item><term>SubtypeExtraplanar</term><description>136fa0343d5b4b348bdaa05d83408db3</description></item>
     /// </list>
     /// </remarks>
@@ -13767,7 +13767,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensive_ImagesOfChaosBuff</term><description>29894ea708974f13ba02eb90bebfc90b</description></item>
-    /// <item><term>ArmyTrickster6EquipmentFeature4</term><description>7970cc7ee3c047c8a2d9ca8f02c88c95</description></item>
+    /// <item><term>ArmyTrickster6EquipmentFeature5</term><description>e59a71062b7549e4a017e79d71f21bb7</description></item>
     /// <item><term>ZachariusFearAuraFeature</term><description>4427c26e51a3dff4a9ef2ed7541876ee</description></item>
     /// </list>
     /// </remarks>
@@ -16205,7 +16205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_CombatTrigger</term><description>05898d8c986546fe850462aa71c65589</description></item>
-    /// <item><term>HellsDecreeAbilityRageAllyBonusBuff</term><description>3e4ab56c5f87ee04e85fe0eb9bb894cb</description></item>
+    /// <item><term>HellsDecreeAbilityRageAllyBuff</term><description>86fa611413abbcb48aee999d89a0bd8b</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>
@@ -17986,8 +17986,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonCLGazeAllyBuff</term><description>b26ce61b589a4c34b878a67dc1059f12</description></item>
-    /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
-    /// <item><term>Valmallos_Buff_AeonGazeEnemy_Core</term><description>217c83b902de44ffa2602d52bafe3d2e</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
+    /// <item><term>NabasuGrowthPoint</term><description>1cf11bcb4b3a3de4195730d567a40df0</description></item>
     /// </list>
     /// </remarks>
     ///

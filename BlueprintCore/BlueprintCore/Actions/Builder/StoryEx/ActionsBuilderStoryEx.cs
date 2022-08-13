@@ -354,7 +354,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ALR_TE_Lock_Actions</term><description>418531c6ee69d6c4ebb9f181f7d6e7a4</description></item>
-    /// <item><term>DLC2_Sv_Back_to_Camp</term><description>a5d1dcfc715243c98e4f958435c52be4</description></item>
+    /// <item><term>DLC2_Survive_RQ_RstIn_4</term><description>56b6d7b013134f7c952b86a748822783</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>

@@ -234,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HodagHideFeature</term><description>b1f7df692d479e1469b99177a3212f80</description></item>
+    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -1190,8 +1190,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>DLC2_Sv_Bureaucrat_DeadBody</term><description>fbb763a4fb6c4df99b79b48b8c5682ef</description></item>
-    /// <item><term>InvitedToWedding</term><description>d239b8b2e21331942a1a042b97d0082d</description></item>
+    /// <item><term>DLC2_Sv_Healer_DeadBody</term><description>36dac84675c846bbb6bfe11343a84eba</description></item>
+    /// <item><term>MilitaryWenduagRankUp_Hide</term><description>44247994f44e4e5d88f3f739616af1dc</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAreaDidLoadTrigger(

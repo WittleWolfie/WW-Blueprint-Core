@@ -163,7 +163,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HellKnightOrderOfTheGodclawTier2Ability</term><description>dadd940dc654196409ccfc5a131761c9</description></item>
+    /// <item><term>HellKnightOrderOfTheGodclawTier1Ability</term><description>a16c18d7cdd320340986b7da211f7e01</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -210,7 +210,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HellKnightOrderOfTheGodclawTier2Ability</term><description>dadd940dc654196409ccfc5a131761c9</description></item>
+    /// <item><term>HellKnightOrderOfTheGodclawTier1Ability</term><description>a16c18d7cdd320340986b7da211f7e01</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -259,7 +259,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HellKnightOrderOfTheGodclawTier2Ability</term><description>dadd940dc654196409ccfc5a131761c9</description></item>
+    /// <item><term>HellKnightOrderOfTheGodclawTier1Ability</term><description>a16c18d7cdd320340986b7da211f7e01</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -1006,7 +1006,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1076,7 +1076,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1147,7 +1147,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1207,7 +1207,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1268,7 +1268,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GeniekindEfreetiBuff</term><description>d47f45f29c4cfc0469f3734d02545e0b</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -2188,7 +2188,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellAngelSwordDepersonalizeAbility</term><description>5f99f802d4ff52a4e9538e6bb7f66270</description></item>
+    /// <item><term>HellAngelSwordAntiUndeadAbility</term><description>e6a496f6d58d99b45a716e5e5915b47d</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2511,7 +2511,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>Gallu_Ability_RainOfBlood</term><description>2a39f99077de8004cbda6d89dd3b219f</description></item>
+    /// <item><term>Gallu_AreaEffect_AuraOfHavoc</term><description>a2f0adf9e5004894cb070f4f37d2fa1e</description></item>
     /// <item><term>ZachariusFearAuraArea</term><description>d363527fe31581149b2d53686075c14d</description></item>
     /// </list>
     /// </remarks>
