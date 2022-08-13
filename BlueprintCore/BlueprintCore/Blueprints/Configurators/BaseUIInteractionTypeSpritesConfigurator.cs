@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using System;
 using UnityEngine;
@@ -21,13 +22,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Main"/>
     /// </summary>
-    public TBuilder SetMain(Sprite main)
+    ///
+    /// <param name="main">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetMain(Asset<Sprite> main)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(main);
-          bp.Main = main;
+          bp.Main = main?.Get();
         });
     }
 
@@ -47,13 +51,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Active"/>
     /// </summary>
-    public TBuilder SetActive(Sprite active)
+    ///
+    /// <param name="active">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetActive(Asset<Sprite> active)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(active);
-          bp.Active = active;
+          bp.Active = active?.Get();
         });
     }
 
@@ -73,13 +80,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Hover"/>
     /// </summary>
-    public TBuilder SetHover(Sprite hover)
+    ///
+    /// <param name="hover">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetHover(Asset<Sprite> hover)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(hover);
-          bp.Hover = hover;
+          bp.Hover = hover?.Get();
         });
     }
 

@@ -53,7 +53,7 @@ FeatureConfigurator.For(FeatGuid)
   .Configure();
 ```
 
-### Modifing Fields
+### Modifying Fields
 
 Fields are implemented through several methods. Note that for the purpose of naming, internal prefixes are removed so m_Spell is treated as Spell.
 

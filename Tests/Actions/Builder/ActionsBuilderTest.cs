@@ -3,14 +3,14 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Test.Asserts;
-using Kingmaker.Blueprints;
+using BlueprintCore.Test.TestData;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 using System;
 using Xunit;
-using static BlueprintCore.Test.TestData;
+using static BlueprintCore.Test.TestData.Blueprints;
 
 namespace BlueprintCore.Test.Actions.Builder
 {
@@ -30,20 +30,20 @@ namespace BlueprintCore.Test.Actions.Builder
     {
       var actions =
         ActionsBuilder.New()
-            .Add<ContextActionApplyBuff>(a => a.m_Buff = Buff.ToReference<BlueprintBuffReference>())
+            .Add<ContextActionApplyBuff>(a => a.m_Buff = Buff.Reference)
             .Build();
 
       Assert.Single(actions.Actions);
       var action = (ContextActionApplyBuff)actions.Actions[0];
       ElementAsserts.IsValid(action);
 
-      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), action.m_Buff);
+      Assert.Equal(Buff.Reference, action.m_Buff);
     }
 
     [Fact]
     public void MultipleActions()
     {
-      var actions = ActionsBuilder.New().ApplyBuffPermanent(BuffGuid).MeleeAttack().RemoveBuff(BuffGuid).Build();
+      var actions = ActionsBuilder.New().ApplyBuffPermanent(Guids.Buff).MeleeAttack().RemoveBuff(Guids.Buff).Build();
 
       Assert.Equal(3, actions.Actions.Length);
       foreach (Element element in actions.Actions)

@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -51,6 +52,140 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         {
           bp.OperationOnComponents = operationOnComponents;
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="FightingDefensivelyACBonusProperty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FightingDefensivelyACBonusProperty</term><description>fdf1a37b3173b4c41a6062515f754202</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="duelingFeatures">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="features">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddFightingDefensivelyACBonusProperty(
+        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
+        List<Blueprint<BlueprintUnitFactReference>>? features = null,
+        PropertySettings? settings = null)
+    {
+      var component = new FightingDefensivelyACBonusProperty();
+      component.m_DuelingFeatures = duelingFeatures?.Select(bp => bp.Reference)?.ToArray() ?? component.m_DuelingFeatures;
+      if (component.m_DuelingFeatures is null)
+      {
+        component.m_DuelingFeatures = new BlueprintUnitFactReference[0];
+      }
+      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
+      if (component.m_Features is null)
+      {
+        component.m_Features = new BlueprintUnitFactReference[0];
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FightingDefensivelyAttackPenaltyProperty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FightingDefensivelyAttackPenaltyProperty</term><description>21a3e92a7b0f37d4e8581f7992864f30</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="duelingFeatures">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="features">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="halfBuff">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddFightingDefensivelyAttackPenaltyProperty(
+        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
+        List<Blueprint<BlueprintUnitFactReference>>? features = null,
+        Blueprint<BlueprintUnitFactReference>? halfBuff = null,
+        PropertySettings? settings = null)
+    {
+      var component = new FightingDefensivelyAttackPenaltyProperty();
+      component.m_DuelingFeatures = duelingFeatures?.Select(bp => bp.Reference)?.ToArray() ?? component.m_DuelingFeatures;
+      if (component.m_DuelingFeatures is null)
+      {
+        component.m_DuelingFeatures = new BlueprintUnitFactReference[0];
+      }
+      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
+      if (component.m_Features is null)
+      {
+        component.m_Features = new BlueprintUnitFactReference[0];
+      }
+      component.m_HalfBuff = halfBuff?.Reference ?? component.m_HalfBuff;
+      if (component.m_HalfBuff is null)
+      {
+        component.m_HalfBuff = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -199,138 +334,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         PropertySettings? settings = null)
     {
       var component = new CurrentWeaponCriticalMultiplierGetter();
-      Validate(settings);
-      component.Settings = settings ?? component.Settings;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="FightingDefensivelyACBonusProperty"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FightingDefensivelyACBonusProperty</term><description>fdf1a37b3173b4c41a6062515f754202</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="duelingFeatures">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="features">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddFightingDefensivelyACBonusProperty(
-        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
-        List<Blueprint<BlueprintUnitFactReference>>? features = null,
-        PropertySettings? settings = null)
-    {
-      var component = new FightingDefensivelyACBonusProperty();
-      component.m_DuelingFeatures = duelingFeatures?.Select(bp => bp.Reference)?.ToArray() ?? component.m_DuelingFeatures;
-      if (component.m_DuelingFeatures is null)
-      {
-        component.m_DuelingFeatures = new BlueprintUnitFactReference[0];
-      }
-      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
-      if (component.m_Features is null)
-      {
-        component.m_Features = new BlueprintUnitFactReference[0];
-      }
-      Validate(settings);
-      component.Settings = settings ?? component.Settings;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="FightingDefensivelyAttackPenaltyProperty"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FightingDefensivelyAttackPenaltyProperty</term><description>21a3e92a7b0f37d4e8581f7992864f30</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="duelingFeatures">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="features">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="halfBuff">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddFightingDefensivelyAttackPenaltyProperty(
-        List<Blueprint<BlueprintUnitFactReference>>? duelingFeatures = null,
-        List<Blueprint<BlueprintUnitFactReference>>? features = null,
-        Blueprint<BlueprintUnitFactReference>? halfBuff = null,
-        PropertySettings? settings = null)
-    {
-      var component = new FightingDefensivelyAttackPenaltyProperty();
-      component.m_DuelingFeatures = duelingFeatures?.Select(bp => bp.Reference)?.ToArray() ?? component.m_DuelingFeatures;
-      if (component.m_DuelingFeatures is null)
-      {
-        component.m_DuelingFeatures = new BlueprintUnitFactReference[0];
-      }
-      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
-      if (component.m_Features is null)
-      {
-        component.m_Features = new BlueprintUnitFactReference[0];
-      }
-      component.m_HalfBuff = halfBuff?.Reference ?? component.m_HalfBuff;
-      if (component.m_HalfBuff is null)
-      {
-        component.m_HalfBuff = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
       Validate(settings);
       component.Settings = settings ?? component.Settings;
       return AddComponent(component);
@@ -633,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeProperty</term><description>f363c368c37546c3a4793b348963dc28</description></item>
-    /// <item><term>PerfectFormCharismaToWisdomProperty</term><description>cb21d3aa6b4d4d9dbc5a17745645067d</description></item>
+    /// <item><term>PerfectFormCharismaToIntelligenceProperty</term><description>acb6b0eb73d64dc4a5d645f27af39df5</description></item>
     /// <item><term>TricksterUseMagicDeviceTier3CLProperty</term><description>d533bfb6b6304ea3a0f8ce9d159704e9</description></item>
     /// </list>
     /// </remarks>
@@ -843,7 +846,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Angel4WardFromWeaknessProperty</term><description>077e52a62381442099143b51d9838d42</description></item>
-    /// <item><term>RitualCauseFearMoraleProperty</term><description>f2e735840531c9e4dba5569dd673cc87</description></item>
+    /// <item><term>RitualBullsStrengthBonusProperty</term><description>3c2a8b7d6e45313429b50cbdc34f2ac0</description></item>
     /// <item><term>WeakeningTrapAttackReductionProperty</term><description>6d5c72e8c0334621b1e6b4098ccc4750</description></item>
     /// </list>
     /// </remarks>

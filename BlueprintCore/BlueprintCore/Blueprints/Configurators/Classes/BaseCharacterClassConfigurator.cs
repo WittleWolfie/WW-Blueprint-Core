@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
@@ -126,13 +127,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 
@@ -951,39 +955,51 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder SetMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(maleEquipmentEntities);
-          bp.MaleEquipmentEntities = maleEquipmentEntities;
+          bp.MaleEquipmentEntities = maleEquipmentEntities?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder AddToMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder AddToMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.MaleEquipmentEntities = bp.MaleEquipmentEntities ?? new EquipmentEntityLink[0];
-          bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, maleEquipmentEntities);
+          bp.MaleEquipmentEntities = CommonTool.Append(bp.MaleEquipmentEntities, maleEquipmentEntities?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.MaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder RemoveFromMaleEquipmentEntities(params EquipmentEntityLink[] maleEquipmentEntities)
+    ///
+    /// <param name="maleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder RemoveFromMaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] maleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.MaleEquipmentEntities is null) { return; }
-          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(val => !maleEquipmentEntities.Contains(val)).ToArray();
+          var convertedParams = maleEquipmentEntities.Select(entry => entry?.Get());
+          bp.MaleEquipmentEntities = bp.MaleEquipmentEntities.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
@@ -1028,39 +1044,51 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder SetFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder SetFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(femaleEquipmentEntities);
-          bp.FemaleEquipmentEntities = femaleEquipmentEntities;
+          bp.FemaleEquipmentEntities = femaleEquipmentEntities?.Select(entry => entry?.Get())?.ToArray();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder AddToFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder AddToFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities ?? new EquipmentEntityLink[0];
-          bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, femaleEquipmentEntities);
+          bp.FemaleEquipmentEntities = CommonTool.Append(bp.FemaleEquipmentEntities, femaleEquipmentEntities?.Select(entry => entry?.Get()).ToArray());
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintCharacterClass.FemaleEquipmentEntities"/>
     /// </summary>
-    public TBuilder RemoveFromFemaleEquipmentEntities(params EquipmentEntityLink[] femaleEquipmentEntities)
+    ///
+    /// <param name="femaleEquipmentEntities">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
+    public TBuilder RemoveFromFemaleEquipmentEntities(params AssetLink<EquipmentEntityLink>[] femaleEquipmentEntities)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.FemaleEquipmentEntities is null) { return; }
-          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(val => !femaleEquipmentEntities.Contains(val)).ToArray();
+          var convertedParams = femaleEquipmentEntities.Select(entry => entry?.Get());
+          bp.FemaleEquipmentEntities = bp.FemaleEquipmentEntities.Where(val => !convertedParams.Contains(val)).ToArray();
         });
     }
 
@@ -1862,7 +1890,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AerialAdaptationFeature</term><description>c8719b3c5c0d4694cb13abcc3b7e893b</description></item>
-    /// <item><term>LoremasterWizardSecretShaman</term><description>291b1cabaa3405c4991c892204546bcb</description></item>
+    /// <item><term>LoremasterWizardSecretRogue</term><description>66286a8fc619a3847a5a446b334544ad</description></item>
     /// <item><term>WinterWitchWitchHexSelection</term><description>b921af3627142bd4d9cf3aefb5e2610a</description></item>
     /// </list>
     /// </remarks>
@@ -2492,11 +2520,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="abilityFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrameDecor">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="emblem">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portraitFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
     /// </param>
     /// <param name="portraits">
     /// <para>
@@ -2510,41 +2553,42 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="selectorFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortrait">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortraitLineart">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
     public TBuilder AddMythicClassArtComponent(
-        SpriteLink? abilityFrame = null,
-        SpriteLink? commonFrame = null,
-        SpriteLink? commonFrameDecor = null,
-        SpriteLink? emblem = null,
+        AssetLink<SpriteLink>? abilityFrame = null,
+        AssetLink<SpriteLink>? commonFrame = null,
+        AssetLink<SpriteLink>? commonFrameDecor = null,
+        AssetLink<SpriteLink>? emblem = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        SpriteLink? portraitFrame = null,
+        AssetLink<SpriteLink>? portraitFrame = null,
         List<Blueprint<BlueprintPortraitReference>>? portraits = null,
-        SpriteLink? selectorFrame = null,
-        SpriteLink? selectorPortrait = null,
-        SpriteLink? selectorPortraitLineart = null)
+        AssetLink<SpriteLink>? selectorFrame = null,
+        AssetLink<SpriteLink>? selectorPortrait = null,
+        AssetLink<SpriteLink>? selectorPortraitLineart = null)
     {
       var component = new MythicClassArtComponent();
-      Validate(abilityFrame);
-      component.m_AbilityFrame = abilityFrame ?? component.m_AbilityFrame;
-      Validate(commonFrame);
-      component.m_CommonFrame = commonFrame ?? component.m_CommonFrame;
-      Validate(commonFrameDecor);
-      component.m_CommonFrameDecor = commonFrameDecor ?? component.m_CommonFrameDecor;
-      Validate(emblem);
-      component.m_Emblem = emblem ?? component.m_Emblem;
-      Validate(portraitFrame);
-      component.m_PortraitFrame = portraitFrame ?? component.m_PortraitFrame;
+      component.m_AbilityFrame = abilityFrame?.Get() ?? component.m_AbilityFrame;
+      component.m_CommonFrame = commonFrame?.Get() ?? component.m_CommonFrame;
+      component.m_CommonFrameDecor = commonFrameDecor?.Get() ?? component.m_CommonFrameDecor;
+      component.m_Emblem = emblem?.Get() ?? component.m_Emblem;
+      component.m_PortraitFrame = portraitFrame?.Get() ?? component.m_PortraitFrame;
       component.m_Portraits = portraits?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Portraits;
       if (component.m_Portraits is null)
       {
         component.m_Portraits = new BlueprintPortraitReference[0];
       }
-      Validate(selectorFrame);
-      component.m_SelectorFrame = selectorFrame ?? component.m_SelectorFrame;
-      Validate(selectorPortrait);
-      component.m_SelectorPortrait = selectorPortrait ?? component.m_SelectorPortrait;
-      Validate(selectorPortraitLineart);
-      component.m_SelectorPortraitLineart = selectorPortraitLineart ?? component.m_SelectorPortraitLineart;
+      component.m_SelectorFrame = selectorFrame?.Get() ?? component.m_SelectorFrame;
+      component.m_SelectorPortrait = selectorPortrait?.Get() ?? component.m_SelectorPortrait;
+      component.m_SelectorPortraitLineart = selectorPortraitLineart?.Get() ?? component.m_SelectorPortraitLineart;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

@@ -22,6 +22,43 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
   {
 
     /// <summary>
+    /// Adds <see cref="ContextConditionCasterHasFact"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
+    /// <item><term>GreaterCognatogenIntelligenceWisdomBuff</term><description>34fde71198d30094aa133546e8cf8733</description></item>
+    /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="fact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder CasterHasFact(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintUnitFactReference> fact,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionCasterHasFact>();
+      element.m_Fact = fact?.Reference;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextConditionHasBuffFromCaster"/>
     /// </summary>
     ///
@@ -59,43 +96,6 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     }
 
     /// <summary>
-    /// Adds <see cref="ContextConditionCasterHasFact"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GreaterCognatogenIntelligenceCharismaBuff</term><description>1c2fdba3b33dacd41afd5b74d84c7332</description></item>
-    /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="fact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public static ConditionsBuilder CasterHasFact(
-        this ConditionsBuilder builder,
-        Blueprint<BlueprintUnitFactReference> fact,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<ContextConditionCasterHasFact>();
-      element.m_Fact = fact?.Reference;
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="ContextConditionHasFact"/>
     /// </summary>
     ///
@@ -128,6 +128,31 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextConditionHasFact>();
       element.m_Fact = fact?.Reference;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextConditionInContext"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierCallingSkillCheckBuff</term><description>41f68e5c879e440991740a03f5ed7541</description></item>
+    /// <item><term>HellsSealVariantFireExplosionBuff</term><description>905a43b9f088b33498fcf5d3569711fa</description></item>
+    /// </list>
+    /// </remarks>
+    public static ConditionsBuilder InContext(
+        this ConditionsBuilder builder,
+        ConditionsBuilder conditionsChecker,
+        ContextConditionInContext.ContextTargetType? contextTarget = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionInContext>();
+      element.ConditionsChecker = conditionsChecker?.Build();
+      element.ContextTarget = contextTarget ?? element.ContextTarget;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -511,7 +536,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>JoltingPortentBuff</term><description>27fa15e9738aee1499aed308cdef7084</description></item>
+    /// <item><term>HuntersSurprise</term><description>6209197fed619cf41910f9aaceaf7d51</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -1236,7 +1261,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>ShamanBonesSpiritWanderingFeature</term><description>a3862152ae6010445bc25915ac58fc8e</description></item>
+    /// <item><term>ShamanFlameSpiritWanderingFeature</term><description>d12c230082825b945b92574df6f3caf1</description></item>
     /// <item><term>WitchHexMajorHealingAbility</term><description>3408c351753aa9049af25af31ebef624</description></item>
     /// </list>
     /// </remarks>
@@ -1445,7 +1470,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitArmoredMaskAbility</term><description>2d7d510c6e2e3e54ab9eee84a41fa2cf</description></item>
-    /// <item><term>EnlargeSelf</term><description>549e9fcaadc861348b05bf01624387aa</description></item>
+    /// <item><term>EnlargePerson</term><description>c60969e7f264e6d4b84a1499fdcf9039</description></item>
     /// <item><term>Valmallos_Area_Gaze</term><description>d031e701dee3487f8a8b7da39e722267</description></item>
     /// </list>
     /// </remarks>

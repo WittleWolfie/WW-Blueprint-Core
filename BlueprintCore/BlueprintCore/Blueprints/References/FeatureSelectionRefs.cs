@@ -204,6 +204,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LichSkeletalTeamworkSelection = "03168a77717179c43bcddb71d52f6167";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LichSkeletalUpgradeSelection = "a434dddab8026e947bc16eb36d18a783";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LichSkeletalWeaponSelection = "f832862da7f07dd4eba342a27451c3a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LichSkeletalWeaponTrainingSelection = "ce56b6dce7ea48d08eb30a6d345d953a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LichUniqueAbilitiesSelection = "1f646b820a37d3d4a8ab116a24ee0022";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LifeBondingFriendshipSelection = "cfad18f581584ac4ba066df067956477";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LifeBondingFriendshipSelection1 = "69a33d6ced23446e819667149d088898";
@@ -606,6 +607,7 @@ namespace BlueprintCore.Blueprints.References
           LichSkeletalTeamworkSelection,
           LichSkeletalUpgradeSelection,
           LichSkeletalWeaponSelection,
+          LichSkeletalWeaponTrainingSelection,
           LichUniqueAbilitiesSelection,
           LifeBondingFriendshipSelection,
           LifeBondingFriendshipSelection1,

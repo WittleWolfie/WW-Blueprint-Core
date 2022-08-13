@@ -1,8 +1,10 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
@@ -39,12 +41,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
     /// </summary>
-    public TBuilder SetWeaponFxPrefab(PrefabLink weaponFxPrefab)
+    ///
+    /// <param name="weaponFxPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetWeaponFxPrefab(AssetLink<PrefabLink> weaponFxPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.WeaponFxPrefab = weaponFxPrefab;
+          bp.WeaponFxPrefab = weaponFxPrefab?.Get();
         });
     }
 
@@ -62,19 +68,42 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Adds <see cref="TwoWeaponCriticalAdditionalAttackEnchant"/>
+    /// Adds <see cref="WeaponBuffOnConfirmedCritFixed"/>
+    /// </summary>
+    public TBuilder AddWeaponBuffOnConfirmedCritFixed(WeaponBuffOnConfirmedCritFixed component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BrilliantEnergy"/>
     /// </summary>
     ///
     /// <remarks>
     ///
+    /// <para>
+    /// ComponentName: Attacks ignore armor and shields
+    /// </para>
+    ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>RelentlessAssaultEnchantment</term><description>c13a9d829a31f7c4d9d242dd2aa330d3</description></item>
+    /// <item><term>BrilliantEnergy</term><description>66e9e299c9002ea4bb65b6f300e43770</description></item>
     /// </list>
     /// </remarks>
-    public TBuilder AddTwoWeaponCriticalAdditionalAttackEnchant()
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBrilliantEnergy(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
-      return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
+      var component = new BrilliantEnergy();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -96,11 +125,82 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
     public TBuilder AddSuppressBane(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new SuppressBane();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TwoWeaponCriticalAdditionalAttackEnchant"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RelentlessAssaultEnchantment</term><description>c13a9d829a31f7c4d9d242dd2aa330d3</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTwoWeaponCriticalAdditionalAttackEnchant()
+    {
+      return AddComponent(new TwoWeaponCriticalAdditionalAttackEnchant());
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponAngelDamageDice"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Weapon Energy Dice Bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AngelSwordEnchantment</term><description>8a24f0fa51f3a2843be5aec58befefb6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="maximizeFeature">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("Use WeaponBuffOnConfirmedCritFixed.")]
+    public TBuilder AddWeaponAngelDamageDice(
+        DamageEnergyType? element = null,
+        DiceFormula? energyDamageDice = null,
+        Blueprint<BlueprintUnitFactReference>? maximizeFeature = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new WeaponAngelDamageDice();
+      component.Element = element ?? component.Element;
+      component.EnergyDamageDice = energyDamageDice ?? component.EnergyDamageDice;
+      component.m_MaximizeFeature = maximizeFeature?.Reference ?? component.m_MaximizeFeature;
+      if (component.m_MaximizeFeature is null)
+      {
+        component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -425,36 +525,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Adds <see cref="BrilliantEnergy"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Attacks ignore armor and shields
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BrilliantEnergy</term><description>66e9e299c9002ea4bb65b6f300e43770</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddBrilliantEnergy(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new BrilliantEnergy();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="IncreaseWeaponEnhancementBonusOnTargetFocus"/>
     /// </summary>
     ///
@@ -576,58 +646,6 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
-    /// Adds <see cref="WeaponAngelDamageDice"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Weapon Energy Dice Bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AngelSwordEnchantment</term><description>8a24f0fa51f3a2843be5aec58befefb6</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="maximizeFeature">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddWeaponAngelDamageDice(
-        DamageEnergyType? element = null,
-        DiceFormula? energyDamageDice = null,
-        Blueprint<BlueprintUnitFactReference>? maximizeFeature = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new WeaponAngelDamageDice();
-      component.Element = element ?? component.Element;
-      component.EnergyDamageDice = energyDamageDice ?? component.EnergyDamageDice;
-      component.m_MaximizeFeature = maximizeFeature?.Reference ?? component.m_MaximizeFeature;
-      if (component.m_MaximizeFeature is null)
-      {
-        component.m_MaximizeFeature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="WeaponBuffOnAttack"/>
     /// </summary>
     ///
@@ -655,6 +673,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -664,7 +685,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     public TBuilder AddWeaponBuffOnAttack(
         Blueprint<BlueprintBuffReference>? buff = null,
         Rounds? duration = null,
-        PrefabLink? fx = null,
+        AssetLink<PrefabLink>? fx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -675,7 +696,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       component.Duration = duration ?? component.Duration;
-      component.Fx = fx ?? component.Fx;
+      component.Fx = fx?.Get() ?? component.Fx;
       if (component.Fx is null)
       {
         component.Fx = Utils.Constants.Empty.PrefabLink;
@@ -861,6 +882,9 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -871,7 +895,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         Blueprint<BlueprintBuffReference>? buff = null,
         int? dC = null,
         Rounds? duration = null,
-        PrefabLink? fx = null,
+        AssetLink<PrefabLink>? fx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? saveType = null)
@@ -884,7 +908,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       }
       component.DC = dC ?? component.DC;
       component.Duration = duration ?? component.Duration;
-      component.Fx = fx ?? component.Fx;
+      component.Fx = fx?.Get() ?? component.Fx;
       if (component.Fx is null)
       {
         component.Fx = Utils.Constants.Empty.PrefabLink;

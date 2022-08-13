@@ -17,6 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> BandedType = "da1b160cd13f16a429499b96636f6ed9";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> BreastplateType = "d326c3c61a84c6f40977c84fab41503d";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> BreastplateTypeLight = "fc833429a7064e499b5177e04a032a72";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> ChainmailBardingType = "bdcce0ac4c930b84a849f935a4bdd93e";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> ChainmailType = "cd4a47c5bacbff3498e960eec3a83485";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorType>> ChainshirtBardingType = "7b9bb0bc92bb7414d8ba44bcdd55ece6";
@@ -41,6 +42,7 @@ namespace BlueprintCore.Blueprints.References
       {
           BandedType,
           BreastplateType,
+          BreastplateTypeLight,
           ChainmailBardingType,
           ChainmailType,
           ChainshirtBardingType,

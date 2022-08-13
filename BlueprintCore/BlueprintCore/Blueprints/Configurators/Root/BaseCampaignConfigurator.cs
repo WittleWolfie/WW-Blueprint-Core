@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.DLC;
@@ -86,13 +87,16 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.KeyArtLink"/>
     /// </summary>
-    public TBuilder SetKeyArtLink(SpriteLink keyArtLink)
+    ///
+    /// <param name="keyArtLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder SetKeyArtLink(AssetLink<SpriteLink> keyArtLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(keyArtLink);
-          bp.KeyArtLink = keyArtLink;
+          bp.KeyArtLink = keyArtLink?.Get();
         });
     }
 

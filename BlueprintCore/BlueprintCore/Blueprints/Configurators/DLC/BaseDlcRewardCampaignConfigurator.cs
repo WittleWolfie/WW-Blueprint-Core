@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using System;
@@ -22,13 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/>
     /// </summary>
-    public TBuilder SetScreenshotForImportSave(Texture2D screenshotForImportSave)
+    ///
+    /// <param name="screenshotForImportSave">
+    /// You can pass in the animation using a Texture2D or it's AssetId.
+    /// </param>
+    public TBuilder SetScreenshotForImportSave(Asset<Texture2D> screenshotForImportSave)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(screenshotForImportSave);
-          bp.ScreenshotForImportSave = screenshotForImportSave;
+          bp.ScreenshotForImportSave = screenshotForImportSave?.Get();
         });
     }
 

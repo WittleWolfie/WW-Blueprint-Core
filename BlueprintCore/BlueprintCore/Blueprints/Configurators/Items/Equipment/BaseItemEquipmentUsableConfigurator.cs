@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.ResourceLinks;
@@ -73,12 +74,16 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentUsable.m_BeltItemPrefab"/>
     /// </summary>
-    public TBuilder SetBeltItemPrefab(PrefabLink beltItemPrefab)
+    ///
+    /// <param name="beltItemPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetBeltItemPrefab(AssetLink<PrefabLink> beltItemPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_BeltItemPrefab = beltItemPrefab;
+          bp.m_BeltItemPrefab = beltItemPrefab?.Get();
         });
     }
 

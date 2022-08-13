@@ -52,8 +52,12 @@ namespace BlueprintCoreTutorial
           }
           Initialized = true;
 
-          Logger.Info("Patching blueprints.");
+          Logger.Info("Configuring blueprints.");
+
           MagicalAptitude.Configure();
+          SkaldsVigor.Configure();
+          FuriousFocus.Configure();
+          Hurtful.Configure();
         }
         catch (Exception e)
         {

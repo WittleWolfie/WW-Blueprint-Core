@@ -185,6 +185,24 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
           });
     }
 
+    /// <summary>
+    /// Edits all <see cref="BlueprintComponent"/> matching the predicate.
+    /// </summary>
+    /// 
+    /// <param name="edit">Action invoked with the component as an input argument. Run when <see cref="Configure"/> is called.</param>
+    public TBuilder EditComponents<C>(Action<C> edit, Func<C, bool> predicate) where C : BlueprintComponent
+    {
+      return OnConfigureInternal(
+          bp =>
+          {
+            var components = bp.GetComponents<C>();
+            foreach (var component in components)
+            {
+              if (predicate(component)) { edit.Invoke(component); }
+            }
+          });
+    }
+
     /// <summary>Removed components from the blueprint matching the specified predicate.</summary>
     /// 
     /// <remarks>Has no effect on components added with the configurator.</remarks>

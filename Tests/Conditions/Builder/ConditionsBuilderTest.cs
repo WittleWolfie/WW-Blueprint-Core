@@ -2,11 +2,12 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Conditions.Builder.NewEx;
 using BlueprintCore.Test.Asserts;
-using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.ElementsSystem;
 using Xunit;
-using static BlueprintCore.Test.TestData;
+using static BlueprintCore.Test.TestData.Blueprints;
+using static BlueprintCore.Test.TestData.Elements;
 
 namespace BlueprintCore.Test.Conditions.Builder
 {
@@ -25,13 +26,20 @@ namespace BlueprintCore.Test.Conditions.Builder
     public void Add_WithInit()
     {
       var conditions =
-        ConditionsBuilder.New().Add<HasBuff>(c => c.m_Buff = Buff.ToReference<BlueprintBuffReference>()).Build();
+        ConditionsBuilder.New()
+          .Add<HasBuff>(
+            c =>
+            {
+              c.m_Buff = Buff.Reference;
+              c.Target = new ClickedUnit();
+            })
+          .Build();
 
       Assert.Single(conditions.Conditions);
       var condition = (HasBuff)conditions.Conditions[0];
       ElementAsserts.IsValid(condition);
 
-      Assert.Equal(Buff.ToReference<BlueprintBuffReference>(), condition.m_Buff);
+      Assert.Equal(Buff.Reference, condition.m_Buff);
     }
 
     [Fact]
@@ -77,7 +85,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddGreaterThan(TestInt, ExtraTestInt)
+              .AddGreaterThan(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -86,8 +94,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.False(condition.Not);
 
       Assert.False(condition.FloatValues);
-      Assert.Equal(TestInt, condition.Value);
-      Assert.Equal(ExtraTestInt, condition.MinValue);
+      Assert.Equal(IntConst, condition.Value);
+      Assert.Equal(IntConstAlt, condition.MinValue);
     }
 
     [Fact]
@@ -95,7 +103,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddGreaterThan(TestFloat, ExtraTestFloat)
+              .AddGreaterThan(FloatConst, FloatConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -104,8 +112,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.False(condition.Not);
 
       Assert.True(condition.FloatValues);
-      Assert.Equal(TestFloat, condition.FloatValue);
-      Assert.Equal(ExtraTestFloat, condition.FloatMinValue);
+      Assert.Equal(FloatConst, condition.FloatValue);
+      Assert.Equal(FloatConstAlt, condition.FloatMinValue);
     }
 
     [Fact]
@@ -113,7 +121,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddLessThanOrEqualTo(TestInt, ExtraTestInt)
+              .AddLessThanOrEqualTo(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -122,8 +130,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.True(condition.Not);
 
       Assert.False(condition.FloatValues);
-      Assert.Equal(TestInt, condition.Value);
-      Assert.Equal(ExtraTestInt, condition.MinValue);
+      Assert.Equal(IntConst, condition.Value);
+      Assert.Equal(IntConstAlt, condition.MinValue);
     }
 
     [Fact]
@@ -131,7 +139,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddLessThanOrEqualTo(TestFloat, ExtraTestFloat)
+              .AddLessThanOrEqualTo(FloatConst, FloatConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -140,8 +148,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.True(condition.Not);
 
       Assert.True(condition.FloatValues);
-      Assert.Equal(TestFloat, condition.FloatValue);
-      Assert.Equal(ExtraTestFloat, condition.FloatMinValue);
+      Assert.Equal(FloatConst, condition.FloatValue);
+      Assert.Equal(FloatConstAlt, condition.FloatMinValue);
     }
 
     [Fact]
@@ -149,7 +157,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddIsEqual(TestInt, ExtraTestInt)
+              .AddIsEqual(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -157,8 +165,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       ElementAsserts.IsValid(condition);
       Assert.False(condition.Not);
 
-      Assert.Equal(TestInt, condition.FirstValue);
-      Assert.Equal(ExtraTestInt, condition.SecondValue);
+      Assert.Equal(IntConst, condition.FirstValue);
+      Assert.Equal(IntConstAlt, condition.SecondValue);
     }
 
     [Fact]
@@ -166,7 +174,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddIsNotEqual(TestInt, ExtraTestInt)
+              .AddIsNotEqual(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -174,8 +182,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       ElementAsserts.IsValid(condition);
       Assert.True(condition.Not);
 
-      Assert.Equal(TestInt, condition.FirstValue);
-      Assert.Equal(ExtraTestInt, condition.SecondValue);
+      Assert.Equal(IntConst, condition.FirstValue);
+      Assert.Equal(IntConstAlt, condition.SecondValue);
     }
 
     [Fact]
@@ -183,7 +191,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddLessThan(TestInt, ExtraTestInt)
+              .AddLessThan(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -192,8 +200,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.False(condition.Not);
 
       Assert.False(condition.FloatValues);
-      Assert.Equal(TestInt, condition.Value);
-      Assert.Equal(ExtraTestInt, condition.MaxValue);
+      Assert.Equal(IntConst, condition.Value);
+      Assert.Equal(IntConstAlt, condition.MaxValue);
     }
 
     [Fact]
@@ -201,7 +209,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddLessThan(TestFloat, ExtraTestFloat)
+              .AddLessThan(FloatConst, FloatConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -210,8 +218,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.False(condition.Not);
 
       Assert.True(condition.FloatValues);
-      Assert.Equal(TestFloat, condition.FloatValue);
-      Assert.Equal(ExtraTestFloat, condition.FloatMaxValue);
+      Assert.Equal(FloatConst, condition.FloatValue);
+      Assert.Equal(FloatConstAlt, condition.FloatMaxValue);
     }
 
     [Fact]
@@ -219,7 +227,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddGreaterThanOrEqualTo(TestInt, ExtraTestInt)
+              .AddGreaterThanOrEqualTo(IntConst, IntConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -228,8 +236,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.True(condition.Not);
 
       Assert.False(condition.FloatValues);
-      Assert.Equal(TestInt, condition.Value);
-      Assert.Equal(ExtraTestInt, condition.MaxValue);
+      Assert.Equal(IntConst, condition.Value);
+      Assert.Equal(IntConstAlt, condition.MaxValue);
     }
 
     [Fact]
@@ -237,7 +245,7 @@ namespace BlueprintCore.Test.Conditions.Builder
     {
       var conditions =
           ConditionsBuilder.New()
-              .AddGreaterThanOrEqualTo(TestFloat, ExtraTestFloat)
+              .AddGreaterThanOrEqualTo(FloatConst, FloatConstAlt)
               .Build();
 
       Assert.Single(conditions.Conditions);
@@ -246,8 +254,8 @@ namespace BlueprintCore.Test.Conditions.Builder
       Assert.True(condition.Not);
 
       Assert.True(condition.FloatValues);
-      Assert.Equal(TestFloat, condition.FloatValue);
-      Assert.Equal(ExtraTestFloat, condition.FloatMaxValue);
+      Assert.Equal(FloatConst, condition.FloatValue);
+      Assert.Equal(FloatConstAlt, condition.FloatMaxValue);
     }
     
     [Fact]

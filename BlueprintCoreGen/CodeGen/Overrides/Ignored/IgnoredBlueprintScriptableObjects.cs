@@ -1,15 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Kingmaker.Dungeon.Blueprints;
-using Kingmaker.Blueprints;
-using Kingmaker.Blueprints.Items.Equipment;
-using Kingmaker.Blueprints.Encyclopedia;
-using Kingmaker.Kingdom.Artisans;
-using Kingmaker.Kingdom.Blueprints;
-using Kingmaker.Armies.TacticalCombat.Brain;
-using Kingmaker.Designers.Mechanics.Collections;
-using Kingmaker.AI.Blueprints;
-using Kingmaker.AI.Blueprints.Considerations;
 
 namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 {
@@ -19,27 +9,27 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
     public static readonly List<Type> Types =
       new()
       {
-        typeof(BlueprintDungeonArea),
-        typeof(BlueprintDungeonBoon),
-        typeof(BlueprintDungeonRoot),
-        typeof(BlueprintDungeonShrine),
-        typeof(BlueprintGenericPackLoot),
-        typeof(BlueprintPet),
-        typeof(BlueprintActionList),
-        typeof(BlueprintItemEquipmentHandSimple),
-        typeof(BlueprintEncyclopediaSkillPage),
-        typeof(ArtisanItemDeck),
-        typeof(BlueprintKingdomArtisan),
-        typeof(BlueprintKingdomClaim),
-        typeof(BlueprintKingdomUpgrade),
-        typeof(BlueprintTacticalCombatAiPostponeTurn),
-        typeof(BuffCollection),
-        typeof(BlueprintAiRandomMove),
-        typeof(BlueprintAiRunAway),
-        typeof(ConsiderationCustom),
-        typeof(IsEngagedConsideration),
-        typeof(SavingThrowConsideration),
-        typeof(SpecificUnitBlueprintConsideration),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonArea),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoon),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonRoot),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonShrine),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintGenericPackLoot),
+        typeof(Kingmaker.Blueprints.BlueprintPet),
+        typeof(Kingmaker.Blueprints.BlueprintActionList),
+        typeof(Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHandSimple),
+        typeof(Kingmaker.Blueprints.Encyclopedia.BlueprintEncyclopediaSkillPage),
+        typeof(Kingmaker.Kingdom.Artisans.ArtisanItemDeck),
+        typeof(Kingmaker.Kingdom.Artisans.BlueprintKingdomArtisan),
+        typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomClaim),
+        typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade),
+        typeof(Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiPostponeTurn),
+        typeof(Kingmaker.Designers.Mechanics.Collections.BuffCollection),
+        typeof(Kingmaker.AI.Blueprints.BlueprintAiRandomMove),
+        typeof(Kingmaker.AI.Blueprints.BlueprintAiRunAway),
+        typeof(Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom),
+        typeof(Kingmaker.AI.Blueprints.Considerations.IsEngagedConsideration),
+        typeof(Kingmaker.AI.Blueprints.Considerations.SavingThrowConsideration),
+        typeof(Kingmaker.AI.Blueprints.Considerations.SpecificUnitBlueprintConsideration),
       };
   }
 }

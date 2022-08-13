@@ -250,12 +250,659 @@
   // ***** New Components ***** //
 
   {
+    "TypeName": "AddOutgoingDamageTriggerFixed",
+    "Replace": "true"
+  },
+
+  {
     "TypeName": "AddStatBonusIfHasFactFixed",
+    "Replace": "true"
+  },
+
+  {
+    "TypeName": "AttackStatReplacementFixed",
+    "Replace": "true"
+  },
+
+  {
+    "TypeName": "SuppressBuffsFixed",
     "Replace": "true"
   },
 
   {
     "TypeName": "TargetHasBuffsFromCaster",
     "RequiredFields": [ "Buffs" ]
+  },
+
+  {
+    "TypeName": "WeaponBuffOnConfirmedCritFixed",
+    "Replace": "true"
+  },
+
+  // ***** Obsolete *****//
+
+  {
+    "TypeName": "AbilityCustomFly",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilityCustomTongueGrab",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilityFocusParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilitySillyFeed",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilityTargetStoneToFlesh",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilityMagusSpellRecallCostCalculator",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AbilitySwitchDualCompanion",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AccomplishedSneakAttacker",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AcrobaticMovement",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddFortificationObsolete",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddImmunityFirebrand",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddLocustSwarmMechanicPart",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddOutgoingDamageTrigger",
+    "ObsoleteComment": "Use AddOutgoingDamageTriggerFixed."
+  },
+
+  {
+    "TypeName": "AddNimbusDamageDivisor",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddNocticulaBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AddTricksterAthleticBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AeonSavedStateFeature",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AlliedSpellcaster",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AngelSwordAdditionalDamageAndHeal",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ArcaneBloodlineArcana",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ArmagsBladeEnrage",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "AttackStatReplacement",
+    "ObsoleteComment": "Use AttackReplacementStatFixed."
+  },
+
+  {
+    "TypeName": "AzataFavorableMagic",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BackToBack",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BackToBackBetter",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BashingFinish",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BodyguardACBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BrilliantEnergy",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "Bugurt",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "BurstBarrier",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CavalierMountedMastery",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CavalierRetribution",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CavalierStandAgainstDarkness",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CavalierStealGlory",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CoordinatedDefense",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "CoordinatedManeuvers",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ConduitSurge",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DamageBonusOrderOfCockatrice",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DamageGrace",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DemonSocothbenothAspect",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DeskariAspect",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DestructiveShockwave",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DevilReflectAbility",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "DuelistPreciseStrike",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "EchoesOfStoneTerrainBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "EnduringSpells",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "EqualForce",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "EvasionWithTowerShield",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ExpandedArsenalMagicSchools",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "FastBombs",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "FightingDefensivelyACBonusProperty",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "FightingDefensivelyAttackPenaltyProperty",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "FlamewardenBurningRenewal",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "FullWeaponMasterySkeletonParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "GentlePersuasionConditioning",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "Hardy",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ImpatienceCalmingPart",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ImpatienceWatcherTickingResolve",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ImprovedCriticalParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "IndomitableMount",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "InHarmsWay",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "IntenseSpells",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "IsAlchemistSpellbook",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiChosenWeapon",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiCriticalPerfection",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiIaijutsuFocus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiPerfectStrike",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiPowerfulCrit",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "KensaiWeaponMastery",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ImprovedCriticalEdgeParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "LiquidateTowerShieldPenalty",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "MountedCombat",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "MountedShield",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "MythicUnarmedStrike",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "Opportunist",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "OutflankDamageBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "OutflankProvokeAttack",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PenetratingStrike",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PreciseStrike",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PointBlankMasterParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PowerAttackWatcher",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PreciseShot",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PreciseShotDivineHunterTarget",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "PummelingCharge",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "RecommendationAccomplishedSneakAttacker",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "RestrictionKensaiWeapon",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "Revolt",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SavingSlash",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SchoolMasteryParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShatterConfidence",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShakeItOff",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShieldedCaster",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShieldFocus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShieldMaster",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShieldWall",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SiezeTheMoment",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "ShroudOfWater",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SpellPenetrationMythicBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "StonyStepTerrainBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SuppressBane",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "SuppressBuffs",
+    "ObsoleteComment": "Use SuppressBuffsFixed."
+  },
+
+  {
+    "TypeName": "SurpriseSpells",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TellingBlow",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TeleportationCircle",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TowerShieldSpecialistTotalCover",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterArcanaAdditionalEnchantments",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterArcanaBetterEnhancements",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterKnowledgeWorldSkillBonus",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterKnowledgeWorldD20",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterLoreNatureRestTrigger",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TricksterParry",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TwoWeaponCriticalAdditionalAttackEnchant",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TwoWeaponFightingAttackPenalty",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TwoWeaponFightingAttacks",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "TwoWeaponFightingDamagePenalty",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "UnfailingBeacon",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "UnwillingShield",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "UnwillingShieldTarget",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "WeaponAngelDamageDice",
+    "ObsoleteComment": "Use WeaponBuffOnConfirmedCritFixed."
+  },
+
+  {
+    "TypeName": "WeaponBuffOnConfirmedCrit",
+    "ObsoleteComment": "Use WeaponBuffOnConfirmedCritFixed."
+  },
+
+  {
+    "TypeName": "WeaponFocusParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "WeaponMasteryParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "WeaponSpecializationParametrized",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "WeaponTrainingAttackStatReplacement",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
+  },
+
+  {
+    "TypeName": "WizardEnergyAbsorption",
+    "ObsoleteComment": "File an issue on GitHub if you need this."
   }
 ]

@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using System;
@@ -22,12 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/>
     /// </summary>
-    public TBuilder SetOnCreatureCastPrefab(PrefabLink onCreatureCastPrefab)
+    ///
+    /// <param name="onCreatureCastPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetOnCreatureCastPrefab(AssetLink<PrefabLink> onCreatureCastPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_OnCreatureCastPrefab = onCreatureCastPrefab;
+          bp.m_OnCreatureCastPrefab = onCreatureCastPrefab?.Get();
         });
     }
 
@@ -47,12 +52,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreaturePrefab"/>
     /// </summary>
-    public TBuilder SetOnCreaturePrefab(PrefabLink onCreaturePrefab)
+    ///
+    /// <param name="onCreaturePrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetOnCreaturePrefab(AssetLink<PrefabLink> onCreaturePrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_OnCreaturePrefab = onCreaturePrefab;
+          bp.m_OnCreaturePrefab = onCreaturePrefab?.Get();
         });
     }
 

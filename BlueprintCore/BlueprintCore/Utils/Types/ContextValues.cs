@@ -53,13 +53,37 @@ namespace BlueprintCore.Utils.Types
       };
     }
 
-    public static ContextValue CustomProperty(string property, bool toCaster = false)
+    public static ContextValue CustomProperty(
+      Blueprint<BlueprintUnitPropertyReference> property, bool toCaster = false)
     {
       return new ContextValue
       {
-        ValueType =
-            toCaster ? ContextValueType.CasterProperty : ContextValueType.TargetProperty,
-        m_CustomProperty = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property)
+        ValueType = toCaster ? ContextValueType.CasterProperty : ContextValueType.TargetProperty,
+        m_CustomProperty = property.Reference
+      };
+    }
+
+    /// <summary>
+    /// Uses <see cref="AbilityParameterType.Level"/>
+    /// </summary>
+    public static ContextValue SpellLevel()
+    {
+      return new ContextValue
+      {
+        ValueType = ContextValueType.AbilityParameter,
+        m_AbilityParameter = AbilityParameterType.Level
+      };
+    }
+
+    /// <summary>
+    /// Uses <see cref="AbilityParameterType.CasterStatBonus"/>
+    /// </summary>
+    public static ContextValue CasterStatBonus()
+    {
+      return new ContextValue
+      {
+        ValueType = ContextValueType.AbilityParameter,
+        m_AbilityParameter = AbilityParameterType.CasterStatBonus
       };
     }
   }

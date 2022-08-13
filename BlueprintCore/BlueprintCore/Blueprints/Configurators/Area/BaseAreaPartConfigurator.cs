@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
@@ -468,13 +469,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.GraphCache"/>
     /// </summary>
-    public TBuilder SetGraphCache(TextAssetLink graphCache)
+    ///
+    /// <param name="graphCache">
+    /// You can pass in the animation using a TextAssetLink or it's AssetId.
+    /// </param>
+    public TBuilder SetGraphCache(AssetLink<TextAssetLink> graphCache)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(graphCache);
-          bp.GraphCache = graphCache;
+          bp.GraphCache = graphCache?.Get();
         });
     }
 

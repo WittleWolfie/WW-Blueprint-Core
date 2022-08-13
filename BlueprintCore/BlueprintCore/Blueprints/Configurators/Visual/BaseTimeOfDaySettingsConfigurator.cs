@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.LightSelector;
 using System;
@@ -22,13 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Morning"/>
     /// </summary>
-    public TBuilder SetMorning(GameObject morning)
+    ///
+    /// <param name="morning">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetMorning(Asset<GameObject> morning)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(morning);
-          bp.Morning = morning;
+          bp.Morning = morning?.Get();
         });
     }
 
@@ -48,13 +52,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Day"/>
     /// </summary>
-    public TBuilder SetDay(GameObject day)
+    ///
+    /// <param name="day">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetDay(Asset<GameObject> day)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(day);
-          bp.Day = day;
+          bp.Day = day?.Get();
         });
     }
 
@@ -74,13 +81,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Evening"/>
     /// </summary>
-    public TBuilder SetEvening(GameObject evening)
+    ///
+    /// <param name="evening">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetEvening(Asset<GameObject> evening)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(evening);
-          bp.Evening = evening;
+          bp.Evening = evening?.Get();
         });
     }
 
@@ -100,13 +110,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Night"/>
     /// </summary>
-    public TBuilder SetNight(GameObject night)
+    ///
+    /// <param name="night">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetNight(Asset<GameObject> night)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(night);
-          bp.Night = night;
+          bp.Night = night?.Get();
         });
     }
 

@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Footrprints;
 using Kingmaker.ResourceLinks;
@@ -22,12 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
     /// </summary>
-    public TBuilder SetLeftFootPrint(PrefabLink leftFootPrint)
+    ///
+    /// <param name="leftFootPrint">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetLeftFootPrint(AssetLink<PrefabLink> leftFootPrint)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.LeftFootPrint = leftFootPrint;
+          bp.LeftFootPrint = leftFootPrint?.Get();
         });
     }
 
@@ -47,12 +52,16 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.RightFootPrint"/>
     /// </summary>
-    public TBuilder SetRightFootPrint(PrefabLink rightFootPrint)
+    ///
+    /// <param name="rightFootPrint">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetRightFootPrint(AssetLink<PrefabLink> rightFootPrint)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.RightFootPrint = rightFootPrint;
+          bp.RightFootPrint = rightFootPrint?.Get();
         });
     }
 

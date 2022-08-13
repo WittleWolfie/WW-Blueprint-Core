@@ -1,5 +1,55 @@
 ﻿# Changelog
 
+## v2.2.0 Release
+
+* New Quick Start setup using a project template, no more editing .csproj files!
+* Expanded tutorials to cover more advanced modding
+    * Activatable Abilities, Transpilers, Assets, and more
+* Added several replacement components from TTT-Core
+    * Existing methods are flagged as obsolete and will be removed in the next major release, so consider migrating
+* Added `Asset<>` and `AssetLink<>` types to allow referencing assets by Asset Id
+* Added `ToString()` override to `Blueprint<>`
+    * This makes it easier to cast between types
+* Added `AddToFeatureSelection()` and `AddToRangerStyles()` methods to `FeatureConfigurator`
+    * Convenience methods for adding to `BlueprintFeatureSelection` if the `FeatureGroup` logic doesn't handle it
+* ContextValues
+    * Added support for `ContextValueType.AbilityParameter`
+    * Updated `CustomProperty` to accept `Blueprint<>` instead of `string`
+* Added new `HasActionsAvailable` Condition
+* Fixed and filled out unit test project
+    * Future contributions should include unit tests to the extent possible
+* Fixed type specific overrides to apply to Lists and Arrays
+* Fixed LogWrapper to respect `EnableInternalVerboseLogs`
+
+### Breaking Changes
+
+* If you are using ILStrip there are new patches, add the following entry points:
+    * `BlueprintCore.UnitParts.Replacements.UnitPartBuffSuppressFixed/Buff_OnAttach_Suppression_Patch`
+    * `BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch`
+    * `BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch`
+* Lists and arrays of the following types have been replaced by their BPCore version, which may require updates:
+    * `LocalizedString` => `LocalString`
+    * `AnimationClipWrapperLink` => `AssetLink<AnimationClipWrapperLink>`
+    * `AnimationClipWrapper` => `Asset<AnimationClipWrapper>`
+    * `EquipmentEntityLink` => `AssetLink<EquipmentEntityLink>`
+    * `EquipmentEntity` => `Asset<EquipmentEntity>`
+    * `FamiliarLink` => `AssetLink<FamiliarLink>`
+    * `Familiar` => `Asset<Familiar>`
+    * `PrefabLink` => `AssetLink<PrefabLink>`
+    * `GameObject` => `Asset<GameObject>`
+    * `ProjectileLink` => `AssetLink<ProjectileLink>`
+    * `Projectile` => `Asset<Projectile>`
+    * `SpriteLink` => `AssetLink<SpriteLink>`
+    * `Sprite` => `Asset<Sprite>`
+    * `TextAssetLink` => `AssetLink<TextAssetLink>`
+    * `TextAsset` => `Asset<TextAsset>`
+    * `Texture2DLink` => `AssetLink<Texture2DLink>`
+    * `Texture2D` => `Asset<Texture2D>`
+    * `UnitViewLink` => `AssetLink<UnitViewLink>`
+    * `UnitEntityView` => `Asset<UnitEntityView>`
+    * `VideoLink` => `AssetLink<VideoLink>`
+    * `VideoClip` => `Asset<VideoClip>`
+
 ## v2.1.2 Release
 
 * Bugfixes:

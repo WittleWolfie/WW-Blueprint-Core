@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
@@ -121,12 +122,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.CompletedPrefab"/>
     /// </summary>
-    public TBuilder SetCompletedPrefab(PrefabLink completedPrefab)
+    ///
+    /// <param name="completedPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetCompletedPrefab(AssetLink<PrefabLink> completedPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CompletedPrefab = completedPrefab;
+          bp.CompletedPrefab = completedPrefab?.Get();
         });
     }
 
@@ -146,12 +151,16 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.UnfinishedPrefab"/>
     /// </summary>
-    public TBuilder SetUnfinishedPrefab(PrefabLink unfinishedPrefab)
+    ///
+    /// <param name="unfinishedPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetUnfinishedPrefab(AssetLink<PrefabLink> unfinishedPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.UnfinishedPrefab = unfinishedPrefab;
+          bp.UnfinishedPrefab = unfinishedPrefab?.Get();
         });
     }
 
@@ -314,6 +323,33 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
           if (bp.m_UpgradesTo is null) { return; }
           action.Invoke(bp.m_UpgradesTo);
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="TeleportationCircle"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TeleportationCircle</term><description>ea277e5efe3d4f459e74ea83d7a73d2f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTeleportationCircle(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TeleportationCircle();
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -781,32 +817,6 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         component.m_Settlement = BlueprintTool.GetRef<BlueprintSettlement.Reference>(null);
       }
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TeleportationCircle"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TeleportationCircle</term><description>ea277e5efe3d4f459e74ea83d7a73d2f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddTeleportationCircle(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new TeleportationCircle();
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>

@@ -21,7 +21,8 @@ namespace BlueprintCore.Test.Utils
     const string UntaggedCase3 = "LocalizedString:54f2985b-f688-431b-bd30-37296e0636a6:Every attack during a combat entails the following calculations:\nFirst, the attacker makes an attack roll and compares the result to the target's AC to see if the attack was a hit or a miss.\nIf the attack hits, the attackers make a damage roll to see how much damage it deals.\nAttack is an attempt to harm an enemy during combat. To make an attack roll, you roll a d20, and then add various bonuses and penalties: from the equipped weapon, various abilities, active spells and other factors. The sum of all these numbers make up the attack roll result that is then compared to the target's AC.\n{br}For example, in the last combat your character {t|SourceUnit} attacked the enemy {t|TargetUnit} and got {t|SourceRollPlusBonus}. Let's break down this result.\nRolling the d20 resulted in {t|SourceRoll}\n{t|SourceRollDetails}";
     #endregion
 
-    (string Tagged, string Untagged)[] Cases = new[] { (TaggedCase1, UntaggedCase1), (TaggedCase2, UntaggedCase2), (TaggedCase3, UntaggedCase3) };
+    (string Tagged, string Untagged)[] Cases =
+      new[] { (TaggedCase1, UntaggedCase1), (TaggedCase2, UntaggedCase2), (TaggedCase3, UntaggedCase3) };
 
 
     [Fact]

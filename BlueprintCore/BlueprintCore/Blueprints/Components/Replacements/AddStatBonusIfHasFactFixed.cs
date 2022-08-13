@@ -17,7 +17,7 @@ using UnityEngine;
 namespace BlueprintCore.Blueprints.Components.Replacements
 {
   /// <summary>
-  /// Working replacement for Owlcat's AddStatBonusIfHasFact.
+  /// Working replacement for Owlcat's AddStatBonusIfHasFact. Instantiate using constructors.
   /// </summary>
   /// 
   /// <remarks>
@@ -25,10 +25,12 @@ namespace BlueprintCore.Blueprints.Components.Replacements
   /// <see href="https://github.com/Vek17/TabletopTweaks-Core/blob/master/TabletopTweaks-Core/">TabletopTweaks-Core</see>
   /// </remarks>
   [AllowMultipleComponents]
-  [TypeId("3DCFCE44-A7DD-48FE-9331-3681A43DBFA4")]
+  [TypeId("3dcfce44-a7dd-48fe-9331-3681a43dbfa4")]
   public class AddStatBonusIfHasFactFixed :
     UnitBuffComponentDelegate, IUnitGainFactHandler, IUnitSubscriber, ISubscriber, IUnitLostFactHandler
   {
+    private static readonly LogWrapper Logger = LogWrapper.GetInternal("AddStatBonusIfHasFactFixed");
+
     public ReferenceArrayProxy<BlueprintUnitFact, BlueprintUnitFactReference> RequiredFacts
     {
       get
@@ -61,6 +63,7 @@ namespace BlueprintCore.Blueprints.Components.Replacements
       {
         if (Owner.HasFact(blueprint))
         {
+          Logger.Verbose($"Bonus does not apply becuase of ExcludeFact: {blueprint.AssetGuid}");
           return false;
         }
       }
@@ -76,13 +79,19 @@ namespace BlueprintCore.Blueprints.Components.Replacements
 
       bool allFacts = RequireAllFacts || m_RequiredFacts.Length == 1;
       var shouldApply = allFacts ? hasAllFacts : hasAnyFacts;
+
+      Logger.Verbose($"ShouldApplyBonus: hasAllFacts - {hasAllFacts} hasAnyFacts - {hasAnyFacts}");
       return InvertCondition ? !shouldApply : shouldApply;
     }
 
     private void Update()
     {
       ModifiableValue stat = Owner.Stats.GetStat(Stat);
-      if (stat == null) { return; }
+      if (stat == null)
+      {
+        Logger.Warn($"Owner is missing Stat: {Stat}");
+        return;
+      }
 
       if (ShouldApplyBonus())
       {

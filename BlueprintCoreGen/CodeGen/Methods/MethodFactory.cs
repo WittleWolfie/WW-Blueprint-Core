@@ -270,6 +270,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
           ? GetFieldMethodName(methodPrefix, field.Name)
           : methodOverride.MethodName;
 
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(methodOverride.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{methodOverride.ObsoleteComment}\")]");
+      }
+
       // Declaration
       method.AddLine($"public {returnType} {methodName}({parameterDeclaration})");
       method.AddLine($"{{");
@@ -333,6 +340,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       // Parameter comments
       method.AddParameterComments(parameters);
+
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(componentMethod.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{componentMethod.ObsoleteComment}\")]");
+      }
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
@@ -487,6 +501,13 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       // Parameter comments
       method.AddParameterComments(parameters);
+
+      // Obsolete Attr
+      if (!string.IsNullOrEmpty(builderMethod.ObsoleteComment))
+      {
+        method.AddImport(typeof(ObsoleteAttribute));
+        method.AddLine($"[Obsolete(\"{builderMethod.ObsoleteComment}\")]");
+      }
 
       var methodName =
         string.IsNullOrEmpty(methodOverride.MethodName)
@@ -656,24 +677,32 @@ namespace BlueprintCoreGen.CodeGen.Methods
 
       public void AddRemarks(Type constructedType, List<string> remarks)
       {
+        var componentNameAttr = constructedType.GetCustomAttribute<ComponentNameAttribute>();
+        var examples = Examples.GetFor(constructedType);
+        if (!remarks.Any() && componentNameAttr is null && !examples.Any()) { return; }
+
         AddLine(@"///");
         AddLine(@"/// <remarks>");
         remarks.ForEach(paragraph => AddRemark(paragraph));
-        AddLine(@"///");
-        var componentNameAttr = constructedType.GetCustomAttribute<ComponentNameAttribute>();
+
         if (componentNameAttr is not null)
         {
-          AddRemark($"ComponentName: {componentNameAttr.Name}");
           AddLine(@"///");
+          AddRemark($"ComponentName: {componentNameAttr.Name}");
         }
-        AddLine($"/// <list type=\"bullet\">");
-        AddLine(@"/// <listheader>Used by</listheader>");
-        Examples.GetFor(constructedType).ForEach(
-          example =>
-            AddLine(
-              $"/// <item><term>{example.BlueprintName}</term>" +
-              $"<description>{example.BlueprintGuid}</description></item>"));
-        AddLine($"/// </list>");
+
+        if (examples.Any())
+        {
+          AddLine(@"///");
+          AddLine($"/// <list type=\"bullet\">");
+          AddLine(@"/// <listheader>Used by</listheader>");
+          Examples.GetFor(constructedType).ForEach(
+            example =>
+              AddLine(
+                $"/// <item><term>{example.BlueprintName}</term>" +
+                $"<description>{example.BlueprintGuid}</description></item>"));
+          AddLine($"/// </list>");
+        }
         AddLine($"/// </remarks>");
       }
 

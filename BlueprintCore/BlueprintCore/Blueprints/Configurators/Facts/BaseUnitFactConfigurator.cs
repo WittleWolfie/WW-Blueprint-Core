@@ -1,9 +1,11 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
@@ -175,13 +177,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 
@@ -268,7 +273,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>GloryDomainBaseBuff</term><description>55edcfff497a1e04a963f72c485da5cb</description></item>
+    /// <item><term>CavalierCallingSkillCheckBuff</term><description>41f68e5c879e440991740a03f5ed7541</description></item>
     /// <item><term>GuidanceBuff</term><description>ec931b882e806ce42906597e5585c13f</description></item>
     /// <item><term>RangedLegerdemainUntargetable</term><description>5f632e786b68d8d4c8bb66275fc600a7</description></item>
     /// </list>
@@ -348,6 +353,3399 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Stat = stat;
       component.Value = value;
       component.Descriptor = descriptor ?? component.Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AttackStatReplacementFixed"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Replace attack stat
+    /// </para>
+    /// </remarks>
+    public TBuilder AddAttackStatReplacementFixed(AttackStatReplacementFixed component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SuppressBuffsFixed"/>
+    /// </summary>
+    public TBuilder AddSuppressBuffsFixed(SuppressBuffsFixed component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AccomplishedSneakAttacker"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add stat bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAccomplishedSneakAttacker(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? value = null)
+    {
+      var component = new AccomplishedSneakAttacker();
+      component.Value = value ?? component.Value;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AcrobaticMovement"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MobilityUseAbilityBuff</term><description>9dc2afb96879cfd4bb7aed475ed51002</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAcrobaticMovement()
+    {
+      return AddComponent(new AcrobaticMovement());
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddFortificationObsolete"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TalwynsArmorFeature</term><description>e5c7cbf08a7000e40b8036081d296b74</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddFortificationObsolete(
+        int? chance = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AddFortificationObsolete();
+      component.Chance = chance ?? component.Chance;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddImmunityFirebrand"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FirebrandBuff</term><description>c6cc1c5356db4674dbd2be20ea205c86</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddImmunityFirebrand(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AddImmunityFirebrand();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
+    /// <item><term>DreadfulCarnage</term><description>fc37b70e3d064a147a3a99db4a86ee12</description></item>
+    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilityList">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="runInReasonContext">
+    /// <para>
+    /// InfoBox: To get access to initiator from spell or attack, or ability context
+    /// </para>
+    /// </param>
+    /// <param name="weaponType">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("Use AddOutgoingDamageTriggerFixed.")]
+    public TBuilder AddOutgoingDamageTrigger(
+        List<Blueprint<BlueprintAbilityReference>>? abilityList = null,
+        AbilityType? abilityType = null,
+        ActionsBuilder? actions = null,
+        bool? applyToAreaEffectDamage = null,
+        bool? checkAbilityType = null,
+        bool? checkDamageDealt = null,
+        bool? checkEnergyDamageType = null,
+        bool? checkSpellDescriptor = null,
+        bool? checkSpellParent = null,
+        bool? checkWeaponType = null,
+        CompareOperation.Type? compareType = null,
+        DamageEnergyType? energyType = null,
+        bool? ignoreDamageFromThisFact = null,
+        bool? notZeroDamage = null,
+        bool? runInReasonContext = null,
+        SpellDescriptorWrapper? spellDescriptorsList = null,
+        bool? targetKilledByThisDamage = null,
+        ContextValue? targetValue = null,
+        bool? triggerOnStatDamageOrEnergyDrain = null,
+        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
+    {
+      var component = new AddOutgoingDamageTrigger();
+      component.m_AbilityList = abilityList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AbilityList;
+      if (component.m_AbilityList is null)
+      {
+        component.m_AbilityList = new BlueprintAbilityReference[0];
+      }
+      component.m_AbilityType = abilityType ?? component.m_AbilityType;
+      component.Actions = actions?.Build() ?? component.Actions;
+      if (component.Actions is null)
+      {
+        component.Actions = Utils.Constants.Empty.Actions;
+      }
+      component.ApplyToAreaEffectDamage = applyToAreaEffectDamage ?? component.ApplyToAreaEffectDamage;
+      component.CheckAbilityType = checkAbilityType ?? component.CheckAbilityType;
+      component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
+      component.CheckEnergyDamageType = checkEnergyDamageType ?? component.CheckEnergyDamageType;
+      component.CheckSpellDescriptor = checkSpellDescriptor ?? component.CheckSpellDescriptor;
+      component.CheckSpellParent = checkSpellParent ?? component.CheckSpellParent;
+      component.CheckWeaponType = checkWeaponType ?? component.CheckWeaponType;
+      component.CompareType = compareType ?? component.CompareType;
+      component.EnergyType = energyType ?? component.EnergyType;
+      component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
+      component.NotZeroDamage = notZeroDamage ?? component.NotZeroDamage;
+      component.RunInReasonContext = runInReasonContext ?? component.RunInReasonContext;
+      component.SpellDescriptorsList = spellDescriptorsList ?? component.SpellDescriptorsList;
+      component.TargetKilledByThisDamage = targetKilledByThisDamage ?? component.TargetKilledByThisDamage;
+      component.TargetValue = targetValue ?? component.TargetValue;
+      if (component.TargetValue is null)
+      {
+        component.TargetValue = ContextValues.Constant(0);
+      }
+      component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain ?? component.TriggerOnStatDamageOrEnergyDrain;
+      component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
+      if (component.m_WeaponType is null)
+      {
+        component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddNimbusDamageDivisor"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ProfaneNimbusBuff</term><description>bb08ad05d0b4505488775090954c2317</description></item>
+    /// <item><term>SacredNimbusBuff</term><description>57b1c6a69c53f4d4ea9baec7d0a3a93a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddNimbusDamageDivisor(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        AddNimbusDamageDivisor.NimbusType? type = null)
+    {
+      var component = new AddNimbusDamageDivisor();
+      component.m_Type = type ?? component.m_Type;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AeonSavedStateFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AeonRewind</term><description>00dcda6221d72af4989d7efb6081f882</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="delaySeconds">
+    /// <para>
+    /// InfoBox: Delay before unit translocation and spawn of appear fx
+    /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="invulnerabilityBuff">
+    /// <para>
+    /// InfoBox: Buff which should protect unit and forbid direct control
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="rank">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="resource">
+    /// <para>
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAeonSavedStateFeature(
+        AssetLink<PrefabLink>? appearFx = null,
+        float? delaySeconds = null,
+        AssetLink<PrefabLink>? disappearFx = null,
+        Blueprint<BlueprintBuffReference>? invulnerabilityBuff = null,
+        float? invulnerabilitySeconds = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintFeatureReference>? rank = null,
+        Blueprint<BlueprintAbilityResourceReference>? resource = null)
+    {
+      var component = new AeonSavedStateFeature();
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
+      if (component.AppearFx is null)
+      {
+        component.AppearFx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.DelaySeconds = delaySeconds ?? component.DelaySeconds;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
+      if (component.DisappearFx is null)
+      {
+        component.DisappearFx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_InvulnerabilityBuff = invulnerabilityBuff?.Reference ?? component.m_InvulnerabilityBuff;
+      if (component.m_InvulnerabilityBuff is null)
+      {
+        component.m_InvulnerabilityBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.InvulnerabilitySeconds = invulnerabilitySeconds ?? component.InvulnerabilitySeconds;
+      component.m_Rank = rank?.Reference ?? component.m_Rank;
+      if (component.m_Rank is null)
+      {
+        component.m_Rank = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      component.m_Resource = resource?.Reference ?? component.m_Resource;
+      if (component.m_Resource is null)
+      {
+        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AlliedSpellcaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="alliedSpellcasterFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAlliedSpellcaster(
+        Blueprint<BlueprintUnitFactReference>? alliedSpellcasterFact = null,
+        int? radius = null)
+    {
+      var component = new AlliedSpellcaster();
+      component.m_AlliedSpellcasterFact = alliedSpellcasterFact?.Reference ?? component.m_AlliedSpellcasterFact;
+      if (component.m_AlliedSpellcasterFact is null)
+      {
+        component.m_AlliedSpellcasterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AngelSwordAdditionalDamageAndHeal"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
+    /// <item><term>AngelSwordEffectBuffNonUnique</term><description>a422afd38359e6a40b71dd41ada6b334</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="cloakFact">
+    /// <para>
+    /// InfoBox: Changes how this mechanics works if player has Mythic Cloak
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="damagePrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="healingPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="maximizeFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAngelSwordAdditionalDamageAndHeal(
+        Blueprint<BlueprintUnitFactReference>? cloakFact = null,
+        AssetLink<PrefabLink>? damagePrefab = null,
+        AssetLink<PrefabLink>? healingPrefab = null,
+        Blueprint<BlueprintUnitFactReference>? maximizeFact = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AngelSwordAdditionalDamageAndHeal();
+      component.m_CloakFact = cloakFact?.Reference ?? component.m_CloakFact;
+      if (component.m_CloakFact is null)
+      {
+        component.m_CloakFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.DamagePrefab = damagePrefab?.Get() ?? component.DamagePrefab;
+      if (component.DamagePrefab is null)
+      {
+        component.DamagePrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      component.HealingPrefab = healingPrefab?.Get() ?? component.HealingPrefab;
+      if (component.HealingPrefab is null)
+      {
+        component.HealingPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_MaximizeFact = maximizeFact?.Reference ?? component.m_MaximizeFact;
+      if (component.m_MaximizeFact is null)
+      {
+        component.m_MaximizeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ArcaneBloodlineArcana"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BloodlineArcaneArcana</term><description>e8e4f56618dd8b04490aa6a0b75ac24f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddArcaneBloodlineArcana(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ArcaneBloodlineArcana();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ArmagsBladeEnrage"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmagsBladeBuff</term><description>38804797dd02b2f4c818c6eba0b00b5d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddArmagsBladeEnrage(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ArmagsBladeEnrage();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AttackStatReplacement"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Replace attack stat
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Incorporeal</term><description>c4a7f98d743bc784c9d4cf2105852c39</description></item>
+    /// <item><term>ShadowGreater_Feature_StrengthDamage</term><description>89d9954f32fa1624bb132342c1878e90</description></item>
+    /// <item><term>ZenArcherZenArcheryFeature</term><description>379c0da9f384e7547a70c259445377f5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="weaponTypes">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("Use AttackReplacementStatFixed.")]
+    public TBuilder AddAttackStatReplacement(
+        bool? checkWeaponTypes = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        StatType? replacementStat = null,
+        WeaponSubCategory? subCategory = null,
+        List<Blueprint<BlueprintWeaponTypeReference>>? weaponTypes = null)
+    {
+      var component = new AttackStatReplacement();
+      component.CheckWeaponTypes = checkWeaponTypes ?? component.CheckWeaponTypes;
+      component.ReplacementStat = replacementStat ?? component.ReplacementStat;
+      component.SubCategory = subCategory ?? component.SubCategory;
+      component.m_WeaponTypes = weaponTypes?.Select(bp => bp.Reference)?.ToArray() ?? component.m_WeaponTypes;
+      if (component.m_WeaponTypes is null)
+      {
+        component.m_WeaponTypes = new BlueprintWeaponTypeReference[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AzataFavorableMagic"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FavorableMagicFeature</term><description>afcee6925a6eadf43820d12e0d966ebe</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAzataFavorableMagic(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AzataFavorableMagic();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BackToBack"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BackToBack</term><description>c920f2cd2244d284aa69a146aeefcb2c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="backToBackFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBackToBack(
+        Blueprint<BlueprintUnitFactReference>? backToBackFact = null,
+        int? radius = null)
+    {
+      var component = new BackToBack();
+      component.m_BackToBackFact = backToBackFact?.Reference ?? component.m_BackToBackFact;
+      if (component.m_BackToBackFact is null)
+      {
+        component.m_BackToBackFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BackToBackBetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AllRoundDefenseFeature</term><description>7060a735afc12e144942d853ad5b7a65</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="backToBackBetterFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBackToBackBetter(
+        Blueprint<BlueprintUnitFactReference>? backToBackBetterFact = null,
+        int? radius = null)
+    {
+      var component = new BackToBackBetter();
+      component.m_BackToBackBetterFact = backToBackBetterFact?.Reference ?? component.m_BackToBackBetterFact;
+      if (component.m_BackToBackBetterFact is null)
+      {
+        component.m_BackToBackBetterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BurstBarrier"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BurstBarrier</term><description>6c97b3fd5d354454c9f69fea5348a7e8</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBurstBarrier()
+    {
+      return AddComponent(new BurstBarrier());
+    }
+
+    /// <summary>
+    /// Adds <see cref="CavalierMountedMastery"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierMountedMastery</term><description>fde5b47705ea18444947633c5f025703</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCavalierMountedMastery(
+        ModifierDescriptor? descriptor = null)
+    {
+      var component = new CavalierMountedMastery();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CavalierRetribution"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierRetribution</term><description>bb1487fcae090c446aff904b0980347c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCavalierRetribution(
+        Blueprint<BlueprintBuffReference>? buff = null)
+    {
+      var component = new CavalierRetribution();
+      component.m_Buff = buff?.Reference ?? component.m_Buff;
+      if (component.m_Buff is null)
+      {
+        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CavalierStandAgainstDarkness"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierStandAgainstDarkness</term><description>323fb6a07905bbd4b9b73906fc4f6534</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="checkedFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCavalierStandAgainstDarkness(
+        Blueprint<BlueprintUnitFactReference>? checkedFact = null)
+    {
+      var component = new CavalierStandAgainstDarkness();
+      component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
+      if (component.m_CheckedFact is null)
+      {
+        component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CavalierStealGlory"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierStealGlory</term><description>2f96ffadc3dcc5d449a022c7dc537c05</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCavalierStealGlory()
+    {
+      return AddComponent(new CavalierStealGlory());
+    }
+
+    /// <summary>
+    /// Adds <see cref="CoordinatedDefense"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CoordinatedDefense</term><description>992fd59da1783de49b135ad89142c6d7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="coordinatedDefenseFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCoordinatedDefense(
+        Blueprint<BlueprintUnitFactReference>? coordinatedDefenseFact = null,
+        int? radius = null)
+    {
+      var component = new CoordinatedDefense();
+      component.m_CoordinatedDefenseFact = coordinatedDefenseFact?.Reference ?? component.m_CoordinatedDefenseFact;
+      if (component.m_CoordinatedDefenseFact is null)
+      {
+        component.m_CoordinatedDefenseFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CoordinatedManeuvers"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CoordinatedManeuvers</term><description>b186cea78dce3a04aacff0a81786008c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="coordinatedManeuversFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddCoordinatedManeuvers(
+        Blueprint<BlueprintUnitFactReference>? coordinatedManeuversFact = null,
+        int? radius = null)
+    {
+      var component = new CoordinatedManeuvers();
+      component.m_CoordinatedManeuversFact = coordinatedManeuversFact?.Reference ?? component.m_CoordinatedManeuversFact;
+      if (component.m_CoordinatedManeuversFact is null)
+      {
+        component.m_CoordinatedManeuversFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ConduitSurge"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddConduitSurge(
+        Blueprint<BlueprintBuffReference>? buff = null,
+        ContextValue? value = null)
+    {
+      var component = new ConduitSurge();
+      component.m_Buff = buff?.Reference ?? component.m_Buff;
+      if (component.m_Buff is null)
+      {
+        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.Value = value ?? component.Value;
+      if (component.Value is null)
+      {
+        component.Value = ContextValues.Constant(0);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DamageBonusOrderOfCockatrice"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CavalierCockatriceChallenge</term><description>ba176bca404967b47bf9e583e80c3fd5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="checkedFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDamageBonusOrderOfCockatrice(
+        ContextValue? bonus = null,
+        Blueprint<BlueprintUnitFactReference>? checkedFact = null,
+        ModifierDescriptor? descriptor = null)
+    {
+      var component = new DamageBonusOrderOfCockatrice();
+      component.Bonus = bonus ?? component.Bonus;
+      if (component.Bonus is null)
+      {
+        component.Bonus = ContextValues.Constant(0);
+      }
+      component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
+      if (component.m_CheckedFact is null)
+      {
+        component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.Descriptor = descriptor ?? component.Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DamageGrace"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Replace damage stat for weapon
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FencingGrace</term><description>47b352ea0f73c354aba777945760b441</description></item>
+    /// <item><term>SlashingGrace</term><description>697d64669eb2c0543abb9c9b07998a38</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDamageGrace()
+    {
+      return AddComponent(new DamageGrace());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DemonSocothbenothAspect"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SocothbenothAspectBuff</term><description>006210142499ccb4ea837d4b61506055</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDemonSocothbenothAspect(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DemonSocothbenothAspect();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DeskariAspect"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DeskariAspectBuff</term><description>1c8b0722a3694854db5b2fa8800575c4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDeskariAspect(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DeskariAspect();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DevilReflectAbility"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>HellsSealVariantMindReflectBuff</term><description>ab52d90a7895595498a7266bbf69563f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDevilReflectAbility(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        SpellSchool[]? reflectSchools = null)
+    {
+      var component = new DevilReflectAbility();
+      component.m_ReflectSchools = reflectSchools ?? component.m_ReflectSchools;
+      if (component.m_ReflectSchools is null)
+      {
+        component.m_ReflectSchools = new SpellSchool[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DuelistPreciseStrike"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PreciseStrikeAbility</term><description>4247758d93b218a43aed6aecc1f50fbb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="cloakDuelistFact">
+    /// <para>
+    /// InfoBox: Changes the mechanic if the White Wind Cloak is equipped by a Duelist
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cloakNonDuelistFact">
+    /// <para>
+    /// InfoBox: Changes the mechanic if the White Wind Cloak is equipped by a non-Duelist
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="duelist">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDuelistPreciseStrike(
+        Blueprint<BlueprintBuffReference>? cloakDuelistFact = null,
+        Blueprint<BlueprintBuffReference>? cloakNonDuelistFact = null,
+        Blueprint<BlueprintCharacterClassReference>? duelist = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DuelistPreciseStrike();
+      component.m_CloakDuelistFact = cloakDuelistFact?.Reference ?? component.m_CloakDuelistFact;
+      if (component.m_CloakDuelistFact is null)
+      {
+        component.m_CloakDuelistFact = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_CloakNonDuelistFact = cloakNonDuelistFact?.Reference ?? component.m_CloakNonDuelistFact;
+      if (component.m_CloakNonDuelistFact is null)
+      {
+        component.m_CloakNonDuelistFact = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_Duelist = duelist?.Reference ?? component.m_Duelist;
+      if (component.m_Duelist is null)
+      {
+        component.m_Duelist = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EchoesOfStoneTerrainBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EchoesOfStone</term><description>70d3ac68dad02074791f58c8ba09d42f</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddEchoesOfStoneTerrainBonus(
+        AreaSetting? setting = null)
+    {
+      var component = new EchoesOfStoneTerrainBonus();
+      component.Setting = setting ?? component.Setting;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EnduringSpells"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EnduringSpells</term><description>2f206e6d292bdfb4d981e99dcf08153f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="greater">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddEnduringSpells(
+        Blueprint<BlueprintUnitFactReference>? greater = null)
+    {
+      var component = new EnduringSpells();
+      component.m_Greater = greater?.Reference ?? component.m_Greater;
+      if (component.m_Greater is null)
+      {
+        component.m_Greater = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EvasionWithTowerShield"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TowerShieldEvasion</term><description>bc678dd87b293ed4a99d0d75c1974f64</description></item>
+    /// <item><term>TowerShieldImprovedEvasion</term><description>a2daced5523237e4ab92309a03250cc0</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddEvasionWithTowerShield(
+        bool? improved = null)
+    {
+      var component = new EvasionWithTowerShield();
+      component.Improved = improved ?? component.Improved;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FastBombs"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FastBombsBuff</term><description>c42ae8f9652bbc14eb13b31d12d20f8a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilities">
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddFastBombs(
+        List<Blueprint<BlueprintAbilityReference>>? abilities = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new FastBombs();
+      component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
+      if (component.m_Abilities is null)
+      {
+        component.m_Abilities = new BlueprintAbilityReference[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FlamewardenBurningRenewal"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlamewardenBurningRenewalFeature</term><description>7cf2a6bf35c422e4ea219fcc2eb564f5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="resource">
+    /// <para>
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddFlamewardenBurningRenewal(
+        ActionsBuilder? actions = null,
+        Blueprint<BlueprintAbilityResourceReference>? resource = null)
+    {
+      var component = new FlamewardenBurningRenewal();
+      component.Actions = actions?.Build() ?? component.Actions;
+      if (component.Actions is null)
+      {
+        component.Actions = Utils.Constants.Empty.Actions;
+      }
+      component.m_Resource = resource?.Reference ?? component.m_Resource;
+      if (component.m_Resource is null)
+      {
+        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GentlePersuasionConditioning"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GentlePersuasionFeature</term><description>90639fbe91016ed4893d434e68f6b466</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="punishmentBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="rewardBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddGentlePersuasionConditioning(
+        Blueprint<BlueprintBuffReference>? punishmentBuff = null,
+        Blueprint<BlueprintBuffReference>? rewardBuff = null)
+    {
+      var component = new GentlePersuasionConditioning();
+      component.m_PunishmentBuff = punishmentBuff?.Reference ?? component.m_PunishmentBuff;
+      if (component.m_PunishmentBuff is null)
+      {
+        component.m_PunishmentBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_RewardBuff = rewardBuff?.Reference ?? component.m_RewardBuff;
+      if (component.m_RewardBuff is null)
+      {
+        component.m_RewardBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Hardy"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Hardy</term><description>f75d3b6110f04d1409564b9d7647db60</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="steelSoul">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddHardy(
+        Blueprint<BlueprintFeatureReference>? steelSoul = null)
+    {
+      var component = new Hardy();
+      component.m_SteelSoul = steelSoul?.Reference ?? component.m_SteelSoul;
+      if (component.m_SteelSoul is null)
+      {
+        component.m_SteelSoul = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ImpatienceCalmingPart"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ImpatienceTickingBuff</term><description>46b39651560c13f41a1f5deebb9caa1a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="impatience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="patience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="targetedImpatience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddImpatienceCalmingPart(
+        Blueprint<BlueprintBuffReference>? impatience = null,
+        Blueprint<BlueprintBuffReference>? patience = null,
+        Blueprint<BlueprintBuffReference>? targetedImpatience = null)
+    {
+      var component = new ImpatienceCalmingPart();
+      component.m_Impatience = impatience?.Reference ?? component.m_Impatience;
+      if (component.m_Impatience is null)
+      {
+        component.m_Impatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_Patience = patience?.Reference ?? component.m_Patience;
+      if (component.m_Patience is null)
+      {
+        component.m_Patience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_TargetedImpatience = targetedImpatience?.Reference ?? component.m_TargetedImpatience;
+      if (component.m_TargetedImpatience is null)
+      {
+        component.m_TargetedImpatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ImpatienceWatcherTickingResolve"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ImpatienceTickingBuff</term><description>46b39651560c13f41a1f5deebb9caa1a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="impatience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="patience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="targetedImpatience">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddImpatienceWatcherTickingResolve(
+        Blueprint<BlueprintBuffReference>? impatience = null,
+        Blueprint<BlueprintBuffReference>? patience = null,
+        int[]? resolveChances = null,
+        int[]? resolveChancesForHighInt = null,
+        int[]? resolveChancesForLowInt = null,
+        Blueprint<BlueprintBuffReference>? targetedImpatience = null)
+    {
+      var component = new ImpatienceWatcherTickingResolve();
+      component.m_Impatience = impatience?.Reference ?? component.m_Impatience;
+      if (component.m_Impatience is null)
+      {
+        component.m_Impatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_Patience = patience?.Reference ?? component.m_Patience;
+      if (component.m_Patience is null)
+      {
+        component.m_Patience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.ResolveChances = resolveChances ?? component.ResolveChances;
+      if (component.ResolveChances is null)
+      {
+        component.ResolveChances = new int[0];
+      }
+      component.ResolveChancesForHighInt = resolveChancesForHighInt ?? component.ResolveChancesForHighInt;
+      if (component.ResolveChancesForHighInt is null)
+      {
+        component.ResolveChancesForHighInt = new int[0];
+      }
+      component.ResolveChancesForLowInt = resolveChancesForLowInt ?? component.ResolveChancesForLowInt;
+      if (component.ResolveChancesForLowInt is null)
+      {
+        component.ResolveChancesForLowInt = new int[0];
+      }
+      component.m_TargetedImpatience = targetedImpatience?.Reference ?? component.m_TargetedImpatience;
+      if (component.m_TargetedImpatience is null)
+      {
+        component.m_TargetedImpatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="IntenseSpells"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SpecializationSchoolEvocation</term><description>c46512b796216b64899f26301241e4e6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="wizard">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddIntenseSpells(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintCharacterClassReference>? wizard = null)
+    {
+      var component = new IntenseSpells();
+      component.m_Wizard = wizard?.Reference ?? component.m_Wizard;
+      if (component.m_Wizard is null)
+      {
+        component.m_Wizard = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KensaiCriticalPerfection"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="magusBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddKensaiCriticalPerfection(
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
+    {
+      var component = new KensaiCriticalPerfection();
+      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
+      if (component.m_ChosenWeaponBlueprint is null)
+      {
+        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
+      if (component.m_MagusBlueprint is null)
+      {
+        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KensaiIaijutsuFocus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Armor class bonus against alignment
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SwordSaintInstantFocus</term><description>5fcdb5b9dd41724439c6c4e4b6d27e81</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="magusBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddKensaiIaijutsuFocus(
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
+    {
+      var component = new KensaiIaijutsuFocus();
+      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
+      if (component.m_ChosenWeaponBlueprint is null)
+      {
+        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
+      if (component.m_MagusBlueprint is null)
+      {
+        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KensaiPerfectStrike"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Armor class bonus against alignment
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SwordSaintPerfectStrikeBuff</term><description>e194d672b44eabd418e80f4bd2308a5b</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="magusBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddKensaiPerfectStrike(
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
+    {
+      var component = new KensaiPerfectStrike();
+      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
+      if (component.m_ChosenWeaponBlueprint is null)
+      {
+        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
+      if (component.m_MagusBlueprint is null)
+      {
+        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KensaiPowerfulCrit"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SwordSaintPerfectStrikeCritBuff</term><description>54deca24695cb0c4fb6fc8e4c1861eef</description></item>
+    /// <item><term>SwordSaintWeaponMastery</term><description>5b31af13868166d4c9bb452f19277f19</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="magusBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddKensaiPowerfulCrit(
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
+    {
+      var component = new KensaiPowerfulCrit();
+      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
+      if (component.m_ChosenWeaponBlueprint is null)
+      {
+        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
+      if (component.m_MagusBlueprint is null)
+      {
+        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KensaiWeaponMastery"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SwordSaintWeaponMastery</term><description>5b31af13868166d4c9bb452f19277f19</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="chosenWeaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="magusBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddKensaiWeaponMastery(
+        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
+        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
+    {
+      var component = new KensaiWeaponMastery();
+      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
+      if (component.m_ChosenWeaponBlueprint is null)
+      {
+        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
+      if (component.m_MagusBlueprint is null)
+      {
+        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="LiquidateTowerShieldPenalty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TowerShieldNegatePenalty</term><description>4808f1ac7432cbf488cf9213610acda0</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddLiquidateTowerShieldPenalty()
+    {
+      return AddComponent(new LiquidateTowerShieldPenalty());
+    }
+
+    /// <summary>
+    /// Adds <see cref="MythicUnarmedStrike"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Weapon type damage bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ImprovedUnarmedStrikeMythicFeat</term><description>e086a07dae105244291fb11e05d0715f</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddMythicUnarmedStrike()
+    {
+      return AddComponent(new MythicUnarmedStrike());
+    }
+
+    /// <summary>
+    /// Adds <see cref="Opportunist"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Opportunist</term><description>5bb6dc5ce00550441880a6ff8ad4c968</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddOpportunist()
+    {
+      return AddComponent(new Opportunist());
+    }
+
+    /// <summary>
+    /// Adds <see cref="OutflankDamageBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Azata1SongOfThePeopleBuff</term><description>87b23796bb1b49ca96c0da8a7b298ebf</description></item>
+    /// <item><term>ChainmailOfComraderyFeature</term><description>b0d0ed812d973224ca2ba1cbb22c94c6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="outflankFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddOutflankDamageBonus(
+        int? damageBonus = null,
+        int? increasedDamageBonus = null,
+        Blueprint<BlueprintUnitFactReference>? outflankFact = null)
+    {
+      var component = new OutflankDamageBonus();
+      component.DamageBonus = damageBonus ?? component.DamageBonus;
+      component.IncreasedDamageBonus = increasedDamageBonus ?? component.IncreasedDamageBonus;
+      component.m_OutflankFact = outflankFact?.Reference ?? component.m_OutflankFact;
+      if (component.m_OutflankFact is null)
+      {
+        component.m_OutflankFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="OutflankProvokeAttack"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Outflank</term><description>422dab7309e1ad343935f33a4d6e9f11</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="outflankFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddOutflankProvokeAttack(
+        Blueprint<BlueprintUnitFactReference>? outflankFact = null)
+    {
+      var component = new OutflankProvokeAttack();
+      component.m_OutflankFact = outflankFact?.Reference ?? component.m_OutflankFact;
+      if (component.m_OutflankFact is null)
+      {
+        component.m_OutflankFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PenetratingStrike"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Reduces DR against weapons with Focus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GreaterPenetratingStrike</term><description>eb6eb946c68ef094f89c7633f5bfdc9b</description></item>
+    /// <item><term>PenetratingStrike</term><description>308cd7dc4f10efd428f531bbf4f2823d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPenetratingStrike(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? reductionReduction = null)
+    {
+      var component = new PenetratingStrike();
+      component.ReductionReduction = reductionReduction ?? component.ReductionReduction;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PreciseStrike"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PreciseStrike</term><description>5662d1b793db90c4b9ba68037fd2a768</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="preciseStrikeFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPreciseStrike(
+        DamageDescription? damage = null,
+        Blueprint<BlueprintUnitFactReference>? preciseStrikeFact = null)
+    {
+      var component = new PreciseStrike();
+      Validate(damage);
+      component.Damage = damage ?? component.Damage;
+      component.m_PreciseStrikeFact = preciseStrikeFact?.Reference ?? component.m_PreciseStrikeFact;
+      if (component.m_PreciseStrikeFact is null)
+      {
+        component.m_PreciseStrikeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PointBlankMasterParametrized"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PointBlankMaster</term><description>05a3b543b0a0a0346a5061e90f293f0b</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPointBlankMasterParametrized()
+    {
+      return AddComponent(new PointBlankMasterParametrized());
+    }
+
+    /// <summary>
+    /// Adds <see cref="PowerAttackWatcher"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Weapon type attack bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DeadlyAimFeature</term><description>f47df34d53f8c904f9981a3ee8e84892</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="powerAttackBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPowerAttackWatcher(
+        Blueprint<BlueprintActivatableAbilityReference>? powerAttackBlueprint = null)
+    {
+      var component = new PowerAttackWatcher();
+      component.m_PowerAttackBlueprint = powerAttackBlueprint?.Reference ?? component.m_PowerAttackBlueprint;
+      if (component.m_PowerAttackBlueprint is null)
+      {
+        component.m_PowerAttackBlueprint = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PreciseShot"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Ignore penalty to ranged attack in combat
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PreciseShot</term><description>8f3d1e6b4be006f4d896081f2f889665</description></item>
+    /// <item><term>RingOfSharpStrikeFeature</term><description>80509af6a726dbd4aaccbda7096d9253</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPreciseShot(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new PreciseShot();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PreciseShotDivineHunterTarget"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SharedPrecisionTargetBuff</term><description>d5960c0203ad9ee48b8e4420a252273d</description></item>
+    /// <item><term>VolleyFireCooldownBuff</term><description>0d02b41741498e8478695d77ab527b03</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPreciseShotDivineHunterTarget(
+        Blueprint<BlueprintBuffReference>? buff = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new PreciseShotDivineHunterTarget();
+      component.m_Buff = buff?.Reference ?? component.m_Buff;
+      if (component.m_Buff is null)
+      {
+        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PummelingCharge"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PummelingChargeBuff</term><description>0da484e5fcd6c0747a18a80f638e9240</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddPummelingCharge(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        WeaponCategory? unarmedCategory = null)
+    {
+      var component = new PummelingCharge();
+      component.UnarmedCategory = unarmedCategory ?? component.UnarmedCategory;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="Revolt"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RevoltAttackBuff</term><description>ad48caada2fd3b14eae09fcb62cf07c5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddRevolt(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new Revolt();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SavingSlash"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SavingSlash</term><description>eee7abd42ef7bac4ea117b2f41f85ec3</description></item>
+    /// <item><term>SavingSlashGreater</term><description>732ad7ec6b1cd1f4885370924d492e87</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddSavingSlash(
+        int? bonus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? useContextValue = null,
+        ContextValue? value = null,
+        WeaponCategory? weapon = null)
+    {
+      var component = new SavingSlash();
+      component.Bonus = bonus ?? component.Bonus;
+      component.UseContextValue = useContextValue ?? component.UseContextValue;
+      component.Value = value ?? component.Value;
+      if (component.Value is null)
+      {
+        component.Value = ContextValues.Constant(0);
+      }
+      component.Weapon = weapon ?? component.Weapon;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShatterConfidence"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShatterConfidenceBuff</term><description>14225a2e4561bfd46874c9a4a97e7133</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="confoundingDuelistFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShatterConfidence(
+        Blueprint<BlueprintFeatureReference>? confoundingDuelistFeature = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ShatterConfidence();
+      component.m_ConfoundingDuelistFeature = confoundingDuelistFeature?.Reference ?? component.m_ConfoundingDuelistFeature;
+      if (component.m_ConfoundingDuelistFeature is null)
+      {
+        component.m_ConfoundingDuelistFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShakeItOff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShakeItOff</term><description>6337b37f2a7c11b4ab0831d6780bce2a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="shakeItOffFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShakeItOff(
+        int? radius = null,
+        Blueprint<BlueprintUnitFactReference>? shakeItOffFact = null)
+    {
+      var component = new ShakeItOff();
+      component.Radius = radius ?? component.Radius;
+      component.m_ShakeItOffFact = shakeItOffFact?.Reference ?? component.m_ShakeItOffFact;
+      if (component.m_ShakeItOffFact is null)
+      {
+        component.m_ShakeItOffFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShieldedCaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShieldedCaster</term><description>0b707584fc2ea724aa72c396c2230dc7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="shieldedCasterFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShieldedCaster(
+        int? radius = null,
+        Blueprint<BlueprintUnitFactReference>? shieldedCasterFact = null)
+    {
+      var component = new ShieldedCaster();
+      component.Radius = radius ?? component.Radius;
+      component.m_ShieldedCasterFact = shieldedCasterFact?.Reference ?? component.m_ShieldedCasterFact;
+      if (component.m_ShieldedCasterFact is null)
+      {
+        component.m_ShieldedCasterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShieldFocus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add AC if owner has shield
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShieldFocus</term><description>ac57069b6bf8c904086171683992a92a</description></item>
+    /// <item><term>ShieldFocusGreater</term><description>afd05ca5363036c44817c071189b67e1</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShieldFocus()
+    {
+      return AddComponent(new ShieldFocus());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShieldWall"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShieldWall</term><description>8976de442862f82488a4b138a0a89907</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="shieldWallFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShieldWall(
+        int? radius = null,
+        Blueprint<BlueprintUnitFactReference>? shieldWallFact = null)
+    {
+      var component = new ShieldWall();
+      component.Radius = radius ?? component.Radius;
+      component.m_ShieldWallFact = shieldWallFact?.Reference ?? component.m_ShieldWallFact;
+      if (component.m_ShieldWallFact is null)
+      {
+        component.m_ShieldWallFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SiezeTheMoment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SiezeTheMoment</term><description>1191ef3065e6f8e4f9fbe1b7e3c0f760</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="siezeTheMomentFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddSiezeTheMoment(
+        Blueprint<BlueprintUnitFactReference>? siezeTheMomentFact = null)
+    {
+      var component = new SiezeTheMoment();
+      component.m_SiezeTheMomentFact = siezeTheMomentFact?.Reference ?? component.m_SiezeTheMomentFact;
+      if (component.m_SiezeTheMomentFact is null)
+      {
+        component.m_SiezeTheMomentFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SpellPenetrationMythicBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SpellPenetrationMythicFeat</term><description>51b6b22ff184eef46a675449e837365d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="greater">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddSpellPenetrationMythicBonus(
+        Blueprint<BlueprintUnitFactReference>? greater = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new SpellPenetrationMythicBonus();
+      component.m_Greater = greater?.Reference ?? component.m_Greater;
+      if (component.m_Greater is null)
+      {
+        component.m_Greater = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StonyStepTerrainBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>StonyStep</term><description>c542b083d72f19944a4c6bdf640fc099</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddStonyStepTerrainBonus(
+        AreaSetting? setting = null)
+    {
+      var component = new StonyStepTerrainBonus();
+      component.Setting = setting ?? component.Setting;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SuppressBuffs"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>MadnessBlessingMajorAbilityActNormallyBuff</term><description>378dcf1a707a44a29e1c2e5b8ee4cbb5</description></item>
+    /// <item><term>WitchHexMajorAmelioratingPoisonSuppressBuff</term><description>2cf1962ef4cd4b5468c09bf4959d1bf7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("Use SuppressBuffsFixed.")]
+    public TBuilder AddSuppressBuffs(
+        List<Blueprint<BlueprintBuffReference>>? buffs = null,
+        SpellDescriptorWrapper? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        SpellSchool[]? schools = null)
+    {
+      var component = new SuppressBuffs();
+      component.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Buffs;
+      if (component.m_Buffs is null)
+      {
+        component.m_Buffs = new BlueprintBuffReference[0];
+      }
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Schools = schools ?? component.Schools;
+      if (component.Schools is null)
+      {
+        component.Schools = new SpellSchool[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SurpriseSpells"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SurpriseSpells</term><description>de5cb97a702699841abd3fc66c69fbcf</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddSurpriseSpells(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new SurpriseSpells();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TellingBlow"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Reduces DR against weapons with Focus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>StudentOfWarTellingBlow</term><description>1cd672da802093d47a1473ff985acc63</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="immunityFact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTellingBlow(
+        Blueprint<BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintUnitFactReference>? immunityFact = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? reductionReduction = null)
+    {
+      var component = new TellingBlow();
+      component.m_Buff = buff?.Reference ?? component.m_Buff;
+      if (component.m_Buff is null)
+      {
+        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_ImmunityFact = immunityFact?.Reference ?? component.m_ImmunityFact;
+      if (component.m_ImmunityFact is null)
+      {
+        component.m_ImmunityFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      component.ReductionReduction = reductionReduction ?? component.ReductionReduction;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TowerShieldSpecialistTotalCover"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TowerShieldTotalCover</term><description>4068bdf2373538e4fbd1c70438102f2e</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTowerShieldSpecialistTotalCover()
+    {
+      return AddComponent(new TowerShieldSpecialistTotalCover());
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterArcanaAdditionalEnchantments"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterKnowledgeArcanaTier2Feature</term><description>7bbd9f681440a294382b527a554e419d</description></item>
+    /// <item><term>TricksterKnowledgeArcanaTier3Feature</term><description>5e26c673173e423881e318d2f0ae84f0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="armorEnchantments">
+    /// <para>
+    /// Blueprint of type BlueprintArmorEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="commonEnchantments">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="weaponEnchantments">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterArcanaAdditionalEnchantments(
+        List<Blueprint<BlueprintArmorEnchantmentReference>>? armorEnchantments = null,
+        List<Blueprint<BlueprintItemEnchantmentReference>>? commonEnchantments = null,
+        bool? onlyWeaponsShieldsAndArmor = null,
+        List<Blueprint<BlueprintWeaponEnchantmentReference>>? weaponEnchantments = null)
+    {
+      var component = new TricksterArcanaAdditionalEnchantments();
+      component.ArmorEnchantments = armorEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.ArmorEnchantments;
+      if (component.ArmorEnchantments is null)
+      {
+        component.ArmorEnchantments = new BlueprintArmorEnchantmentReference[0];
+      }
+      component.CommonEnchantments = commonEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.CommonEnchantments;
+      if (component.CommonEnchantments is null)
+      {
+        component.CommonEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      component.OnlyWeaponsShieldsAndArmor = onlyWeaponsShieldsAndArmor ?? component.OnlyWeaponsShieldsAndArmor;
+      component.WeaponEnchantments = weaponEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.WeaponEnchantments;
+      if (component.WeaponEnchantments is null)
+      {
+        component.WeaponEnchantments = new BlueprintWeaponEnchantmentReference[0];
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterArcanaBetterEnhancements"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterKnowledgeArcanaTier1Feature</term><description>c7bb946de7454df4380c489a8350ba38</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="bestEnchantments">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="enhancementEnchantments">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterArcanaBetterEnhancements(
+        List<Blueprint<BlueprintItemEnchantmentReference>>? bestEnchantments = null,
+        List<Blueprint<BlueprintItemEnchantmentReference>>? enhancementEnchantments = null)
+    {
+      var component = new TricksterArcanaBetterEnhancements();
+      component.BestEnchantments = bestEnchantments?.Select(bp => bp.Reference)?.ToList() ?? component.BestEnchantments;
+      if (component.BestEnchantments is null)
+      {
+        component.BestEnchantments = new();
+      }
+      component.EnhancementEnchantments = enhancementEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.EnhancementEnchantments;
+      if (component.EnhancementEnchantments is null)
+      {
+        component.EnhancementEnchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterKnowledgeWorldSkillBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterKnowledgeWorldTier1Feature</term><description>06983a66bd6bac04db3996cd3064d9f0</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterKnowledgeWorldSkillBonus()
+    {
+      return AddComponent(new TricksterKnowledgeWorldSkillBonus());
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterKnowledgeWorldD20"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterKnowledgeWorldTier2Feature</term><description>8b6fe337865492645892cc8db5dd0e01</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterKnowledgeWorldD20()
+    {
+      return AddComponent(new TricksterKnowledgeWorldD20());
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterLoreNatureRestTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterLoreNature1Feature</term><description>cb232b9ed5c216242a667e95527ad8e1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="tier1Buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="tier2Buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="tier2Feature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="tier3Buffs">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="tier3Feature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterLoreNatureRestTrigger(
+        List<Blueprint<BlueprintBuffReference>>? tier1Buffs = null,
+        List<Blueprint<BlueprintBuffReference>>? tier2Buffs = null,
+        Blueprint<BlueprintFeatureReference>? tier2Feature = null,
+        List<Blueprint<BlueprintBuffReference>>? tier3Buffs = null,
+        Blueprint<BlueprintFeatureReference>? tier3Feature = null)
+    {
+      var component = new TricksterLoreNatureRestTrigger();
+      component.Tier1Buffs = tier1Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier1Buffs;
+      if (component.Tier1Buffs is null)
+      {
+        component.Tier1Buffs = new BlueprintBuffReference[0];
+      }
+      component.Tier2Buffs = tier2Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier2Buffs;
+      if (component.Tier2Buffs is null)
+      {
+        component.Tier2Buffs = new BlueprintBuffReference[0];
+      }
+      component.m_Tier2Feature = tier2Feature?.Reference ?? component.m_Tier2Feature;
+      if (component.m_Tier2Feature is null)
+      {
+        component.m_Tier2Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      component.Tier3Buffs = tier3Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier3Buffs;
+      if (component.Tier3Buffs is null)
+      {
+        component.Tier3Buffs = new BlueprintBuffReference[0];
+      }
+      component.m_Tier3Feature = tier3Feature?.Reference ?? component.m_Tier3Feature;
+      if (component.m_Tier3Feature is null)
+      {
+        component.m_Tier3Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TricksterParry"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TricksterMobilityTier3Feature</term><description>6db3651d9af54f28b5a3a5570f49f349</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTricksterParry(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TricksterParry();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TwoWeaponFightingAttackPenalty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Basic Mechanics for two weapon fighting
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="mythicBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTwoWeaponFightingAttackPenalty(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintFeatureReference>? mythicBlueprint = null)
+    {
+      var component = new TwoWeaponFightingAttackPenalty();
+      component.m_MythicBlueprint = mythicBlueprint?.Reference ?? component.m_MythicBlueprint;
+      if (component.m_MythicBlueprint is null)
+      {
+        component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TwoWeaponFightingAttacks"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: BuffMechanics/Extra Attack
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTwoWeaponFightingAttacks(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TwoWeaponFightingAttacks();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="TwoWeaponFightingDamagePenalty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddTwoWeaponFightingDamagePenalty(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TwoWeaponFightingDamagePenalty();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnfailingBeacon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UnfailingBeaconBuff</term><description>05de8faa859c32d41838326ab1674272</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddUnfailingBeacon(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new UnfailingBeacon();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponTrainingAttackStatReplacement"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Replace attack stat for weapon training
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FightersFinesse</term><description>2f1619e253ea6a04087def71c7925715</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddWeaponTrainingAttackStatReplacement(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        StatType? replacementStat = null)
+    {
+      var component = new WeaponTrainingAttackStatReplacement();
+      component.ReplacementStat = replacementStat ?? component.ReplacementStat;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WizardEnergyAbsorption"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Buffs/AddEffect/EnergyResistance
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>EnergyAbsorptionFeature</term><description>e0a0f1ec8dd1fb94d99f824c6f032c64</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="resource">
+    /// <para>
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddWizardEnergyAbsorption(
+        ContextValue? pool = null,
+        Blueprint<BlueprintAbilityResourceReference>? resource = null,
+        DamageEnergyType? type = null,
+        bool? usePool = null,
+        bool? useValueMultiplier = null,
+        ContextValue? value = null,
+        ContextValue? valueMultiplier = null)
+    {
+      var component = new WizardEnergyAbsorption();
+      component.Pool = pool ?? component.Pool;
+      if (component.Pool is null)
+      {
+        component.Pool = ContextValues.Constant(0);
+      }
+      component.m_Resource = resource?.Reference ?? component.m_Resource;
+      if (component.m_Resource is null)
+      {
+        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      component.Type = type ?? component.Type;
+      component.UsePool = usePool ?? component.UsePool;
+      component.UseValueMultiplier = useValueMultiplier ?? component.UseValueMultiplier;
+      component.Value = value ?? component.Value;
+      if (component.Value is null)
+      {
+        component.Value = ContextValues.Constant(0);
+      }
+      component.ValueMultiplier = valueMultiplier ?? component.ValueMultiplier;
+      if (component.ValueMultiplier is null)
+      {
+        component.ValueMultiplier = ContextValues.Constant(0);
+      }
       return AddComponent(component);
     }
 
@@ -501,13 +3899,16 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="prefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddReplaceUnitPrefab(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        PrefabLink? prefab = null)
+        AssetLink<PrefabLink>? prefab = null)
     {
       var component = new ReplaceUnitPrefab();
-      component.m_Prefab = prefab ?? component.m_Prefab;
+      component.m_Prefab = prefab?.Get() ?? component.m_Prefab;
       if (component.m_Prefab is null)
       {
         component.m_Prefab = Utils.Constants.Empty.PrefabLink;
@@ -574,7 +3975,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>CR5_NightmareStandard</term><description>a97b1875eae857d479c64543590f6ccb</description></item>
+    /// <item><term>CR5_SchirAdvanced_RE_high</term><description>e94fa2ce83bb4b442996079dded134d7</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -791,58 +4192,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="AzataFavorableMagic"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FavorableMagicFeature</term><description>afcee6925a6eadf43820d12e0d966ebe</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAzataFavorableMagic(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AzataFavorableMagic();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DemonSocothbenothAspect"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SocothbenothAspectBuff</term><description>006210142499ccb4ea837d4b61506055</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddDemonSocothbenothAspect(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new DemonSocothbenothAspect();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityUsagesCountTrigger"/>
     /// </summary>
     ///
@@ -884,54 +4233,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_TriggerCount = ContextValues.Constant(0);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AccomplishedSneakAttacker"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add stat bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAccomplishedSneakAttacker(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        int? value = null)
-    {
-      var component = new AccomplishedSneakAttacker();
-      component.Value = value ?? component.Value;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AcrobaticMovement"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>MobilityUseAbilityBuff</term><description>9dc2afb96879cfd4bb7aed475ed51002</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddAcrobaticMovement()
-    {
-      return AddComponent(new AcrobaticMovement());
     }
 
     /// <summary>
@@ -1108,7 +4409,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
+    /// <item><term>LivingFlameFeature</term><description>01276815beaf1c44bbfb842bc1bcb899</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1274,10 +4575,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>ScapegoatAbilityEnemyBuff</term><description>9261f8040c97eab458010defa54cb594</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder AddAttackerSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
-        GameObject? failFx = null)
+        Asset<GameObject>? failFx = null)
     {
       var component = new AddAttackerSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -1286,8 +4591,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddComponent(component);
     }
 
@@ -1526,10 +4830,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>ScapegoatAbilityEnemyBuff</term><description>9261f8040c97eab458010defa54cb594</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     public TBuilder AddCasterSpellFailureChance(
         int? chance = null,
         ConditionsBuilder? conditions = null,
-        GameObject? failFx = null)
+        Asset<GameObject>? failFx = null)
     {
       var component = new AddCasterSpellFailureChance();
       component.Chance = chance ?? component.Chance;
@@ -1538,8 +4846,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddComponent(component);
     }
 
@@ -2159,6 +5466,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="equipmentEntity">
+    /// You can pass in the animation using an EquipmentEntityLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -2166,13 +5476,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddEquipmentEntity(
-        EquipmentEntityLink? equipmentEntity = null,
+        AssetLink<EquipmentEntityLink>? equipmentEntity = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddEquipmentEntity();
-      Validate(equipmentEntity);
-      component.EquipmentEntity = equipmentEntity ?? component.EquipmentEntity;
+      component.EquipmentEntity = equipmentEntity?.Get() ?? component.EquipmentEntity;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2342,16 +5651,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a FamiliarLink or it's AssetId.
+    /// </param>
     public TBuilder AddFamiliar(
         bool? hideInCapital = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        FamiliarLink? prefabLink = null)
+        AssetLink<FamiliarLink>? prefabLink = null)
     {
       var component = new AddFamiliar();
       component.HideInCapital = hideInCapital ?? component.HideInCapital;
-      Validate(prefabLink);
-      component.PrefabLink = prefabLink ?? component.PrefabLink;
+      component.PrefabLink = prefabLink?.Get() ?? component.PrefabLink;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2390,34 +5701,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Value = ContextValues.Constant(0);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddFortificationObsolete"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TalwynsArmorFeature</term><description>e5c7cbf08a7000e40b8036081d296b74</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddFortificationObsolete(
-        int? chance = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AddFortificationObsolete();
-      component.Chance = chance ?? component.Chance;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2548,32 +5831,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddImmortality();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddImmunityFirebrand"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FirebrandBuff</term><description>c6cc1c5356db4674dbd2be20ea205c86</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddImmunityFirebrand(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AddImmunityFirebrand();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2968,7 +6225,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobatsFootwearFeature</term><description>bb115b9d89d7b4b48814d059ecd29164</description></item>
-    /// <item><term>FormOfTheDragonIRedBuff</term><description>294cbb3e1d547f341a5d7ec8500ffa44</description></item>
+    /// <item><term>FormOfTheDragonISilverBuff</term><description>feb2ab7613e563e45bcf9f7ffe4e05c6</description></item>
     /// <item><term>XantirWithoutSwarm_MidnightFaneInThePast</term><description>a44bf782e3a95194493874cf122c4f99</description></item>
     /// </list>
     /// </remarks>
@@ -3033,35 +6290,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddMythicEnemyHitPointsBonus();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddNimbusDamageDivisor"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ProfaneNimbusBuff</term><description>bb08ad05d0b4505488775090954c2317</description></item>
-    /// <item><term>SacredNimbusBuff</term><description>57b1c6a69c53f4d4ea9baec7d0a3a93a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddNimbusDamageDivisor(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        AddNimbusDamageDivisor.NimbusType? type = null)
-    {
-      var component = new AddNimbusDamageDivisor();
-      component.m_Type = type ?? component.m_Type;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3863,6 +7091,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -3871,14 +7102,13 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </param>
     public TBuilder AddSpellFailureChance(
         int? chance = null,
-        GameObject? failFx = null,
+        Asset<GameObject>? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new AddSpellFailureChance();
       component.Chance = chance ?? component.Chance;
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -4067,6 +7297,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="failFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -4078,7 +7311,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? arcane = null,
         int? chance = null,
         bool? divine = null,
-        GameObject? failFx = null,
+        Asset<GameObject>? failFx = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -4087,8 +7320,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Arcane = arcane ?? component.Arcane;
       component.Chance = chance ?? component.Chance;
       component.Divine = divine ?? component.Divine;
-      Validate(failFx);
-      component.FailFx = failFx ?? component.FailFx;
+      component.FailFx = failFx?.Get() ?? component.FailFx;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -4187,7 +7419,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>EritriceInspiringSongEffectBuff</term><description>ce99c5bd16ce4e243939d945fd38d8d5</description></item>
+    /// <item><term>EverlastingLightBuff</term><description>88bc343b94e545abbb5a33dba6eda85d</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEffectBuff</term><description>252279901e3644ce8b5b3275bea8f7bd</description></item>
     /// </list>
     /// </remarks>
@@ -4367,110 +7599,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.OnlyRanged = onlyRanged ?? component.OnlyRanged;
       component.Value = value ?? component.Value;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AeonSavedStateFeature"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AeonRewind</term><description>00dcda6221d72af4989d7efb6081f882</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="delaySeconds">
-    /// <para>
-    /// InfoBox: Delay before unit translocation and spawn of appear fx
-    /// </para>
-    /// </param>
-    /// <param name="invulnerabilityBuff">
-    /// <para>
-    /// InfoBox: Buff which should protect unit and forbid direct control
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    /// <param name="rank">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="resource">
-    /// <para>
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddAeonSavedStateFeature(
-        PrefabLink? appearFx = null,
-        float? delaySeconds = null,
-        PrefabLink? disappearFx = null,
-        Blueprint<BlueprintBuffReference>? invulnerabilityBuff = null,
-        float? invulnerabilitySeconds = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintFeatureReference>? rank = null,
-        Blueprint<BlueprintAbilityResourceReference>? resource = null)
-    {
-      var component = new AeonSavedStateFeature();
-      component.AppearFx = appearFx ?? component.AppearFx;
-      if (component.AppearFx is null)
-      {
-        component.AppearFx = Utils.Constants.Empty.PrefabLink;
-      }
-      component.DelaySeconds = delaySeconds ?? component.DelaySeconds;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
-      if (component.DisappearFx is null)
-      {
-        component.DisappearFx = Utils.Constants.Empty.PrefabLink;
-      }
-      component.m_InvulnerabilityBuff = invulnerabilityBuff?.Reference ?? component.m_InvulnerabilityBuff;
-      if (component.m_InvulnerabilityBuff is null)
-      {
-        component.m_InvulnerabilityBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.InvulnerabilitySeconds = invulnerabilitySeconds ?? component.InvulnerabilitySeconds;
-      component.m_Rank = rank?.Reference ?? component.m_Rank;
-      if (component.m_Rank is null)
-      {
-        component.m_Rank = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      component.m_Resource = resource?.Reference ?? component.m_Resource;
-      if (component.m_Resource is null)
-      {
-        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -4657,62 +7785,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="AttackStatReplacement"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Replace attack stat
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Incorporeal</term><description>c4a7f98d743bc784c9d4cf2105852c39</description></item>
-    /// <item><term>ShadowGreater_Feature_StrengthDamage</term><description>89d9954f32fa1624bb132342c1878e90</description></item>
-    /// <item><term>ZenArcherZenArcheryFeature</term><description>379c0da9f384e7547a70c259445377f5</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    /// <param name="weaponTypes">
-    /// <para>
-    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddAttackStatReplacement(
-        bool? checkWeaponTypes = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        StatType? replacementStat = null,
-        WeaponSubCategory? subCategory = null,
-        List<Blueprint<BlueprintWeaponTypeReference>>? weaponTypes = null)
-    {
-      var component = new AttackStatReplacement();
-      component.CheckWeaponTypes = checkWeaponTypes ?? component.CheckWeaponTypes;
-      component.ReplacementStat = replacementStat ?? component.ReplacementStat;
-      component.SubCategory = subCategory ?? component.SubCategory;
-      component.m_WeaponTypes = weaponTypes?.Select(bp => bp.Reference)?.ToArray() ?? component.m_WeaponTypes;
-      if (component.m_WeaponTypes is null)
-      {
-        component.m_WeaponTypes = new BlueprintWeaponTypeReference[0];
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AutoFailCastingDefensively"/>
     /// </summary>
     ///
@@ -4847,7 +7919,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyDominateBuff</term><description>2ab491a0101344bc8ad3e62ba6a6dac6</description></item>
-    /// <item><term>CR4_Marauder_Human_RogueMelee_MaleRichQuater</term><description>db59e733b90f41ddaaabdc67b784a6e8</description></item>
+    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -4897,7 +7969,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR21_ZombieLordFighter_DLC1</term><description>a356271a621747158164fcb22c5f7935</description></item>
+    /// <item><term>CR23_SkeletalChampion_Melee_DLC1</term><description>c4dddee9f3c64f6faab89ac8b28b0d97</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -5105,6 +8177,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="fakeDeathMessage">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
@@ -5117,7 +8192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCompanionImmortality(
         ActionsBuilder? actions = null,
         float? disappearDelay = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         LocalString? fakeDeathMessage = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -5129,7 +8204,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.Actions = Utils.Constants.Empty.Actions;
       }
       component.DisappearDelay = disappearDelay ?? component.DisappearDelay;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -5157,48 +8232,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddCompleteDamageImmunity()
     {
       return AddComponent(new CompleteDamageImmunity());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ConduitSurge"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddConduitSurge(
-        Blueprint<BlueprintBuffReference>? buff = null,
-        ContextValue? value = null)
-    {
-      var component = new ConduitSurge();
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.Value = value ?? component.Value;
-      if (component.Value is null)
-      {
-        component.Value = ContextValues.Constant(0);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -5472,50 +8505,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       if (component.m_Classes is null)
       {
         component.m_Classes = new BlueprintCharacterClassReference[0];
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="FastBombs"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FastBombsBuff</term><description>c42ae8f9652bbc14eb13b31d12d20f8a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="abilities">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddFastBombs(
-        List<Blueprint<BlueprintAbilityReference>>? abilities = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new FastBombs();
-      component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
-      if (component.m_Abilities is null)
-      {
-        component.m_Abilities = new BlueprintAbilityReference[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -5885,60 +8874,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_Ability = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="GentlePersuasionConditioning"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>GentlePersuasionFeature</term><description>90639fbe91016ed4893d434e68f6b466</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="punishmentBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="rewardBuff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddGentlePersuasionConditioning(
-        Blueprint<BlueprintBuffReference>? punishmentBuff = null,
-        Blueprint<BlueprintBuffReference>? rewardBuff = null)
-    {
-      var component = new GentlePersuasionConditioning();
-      component.m_PunishmentBuff = punishmentBuff?.Reference ?? component.m_PunishmentBuff;
-      if (component.m_PunishmentBuff is null)
-      {
-        component.m_PunishmentBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_RewardBuff = rewardBuff?.Reference ?? component.m_RewardBuff;
-      if (component.m_RewardBuff is null)
-      {
-        component.m_RewardBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -6726,7 +9661,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodragerFeyBlurringMovementBuff</term><description>0d4dc6eea3f13d6488c21bc3fd3f119e</description></item>
-    /// <item><term>JoCat_ShirtFeature</term><description>706edd2eaa8c4c9dbf731085e0397333</description></item>
+    /// <item><term>JoCat_ShirtBuffEffect</term><description>93cd1894b4fb4aaba92434e1ee802385</description></item>
     /// <item><term>LongbowOfLeechingStrikeBuff</term><description>dd7722a46f520b4429cedbc8515cab2d</description></item>
     /// </list>
     /// </remarks>
@@ -7149,32 +10084,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="Revolt"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>RevoltAttackBuff</term><description>ad48caada2fd3b14eae09fcb62cf07c5</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRevolt(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new Revolt();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="ScrollSpecialization"/>
     /// </summary>
     ///
@@ -7571,60 +10480,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="SuppressBuffs"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>MadnessBlessingMajorAbilityActNormallyBuff</term><description>378dcf1a707a44a29e1c2e5b8ee4cbb5</description></item>
-    /// <item><term>WitchHexMajorAmelioratingPoisonSuppressBuff</term><description>2cf1962ef4cd4b5468c09bf4959d1bf7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddSuppressBuffs(
-        List<Blueprint<BlueprintBuffReference>>? buffs = null,
-        SpellDescriptorWrapper? descriptor = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        SpellSchool[]? schools = null)
-    {
-      var component = new SuppressBuffs();
-      component.m_Buffs = buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Buffs;
-      if (component.m_Buffs is null)
-      {
-        component.m_Buffs = new BlueprintBuffReference[0];
-      }
-      component.Descriptor = descriptor ?? component.Descriptor;
-      component.Schools = schools ?? component.Schools;
-      if (component.Schools is null)
-      {
-        component.Schools = new SpellSchool[0];
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="SuppressDismember"/>
     /// </summary>
     ///
@@ -7710,32 +10565,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="TricksterParry"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterMobilityTier3Feature</term><description>6db3651d9af54f28b5a3a5570f49f349</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddTricksterParry(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new TricksterParry();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="UnearthlyGrace"/>
     /// </summary>
     ///
@@ -7754,32 +10583,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     public TBuilder AddUnearthlyGrace()
     {
       return AddComponent(new UnearthlyGrace());
-    }
-
-    /// <summary>
-    /// Adds <see cref="UnfailingBeacon"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>UnfailingBeaconBuff</term><description>05de8faa859c32d41838326ab1674272</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddUnfailingBeacon(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new UnfailingBeacon();
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -7884,38 +10687,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new WeaponTraining();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="WeaponTrainingAttackStatReplacement"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Replace attack stat for weapon training
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FightersFinesse</term><description>2f1619e253ea6a04087def71c7925715</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddWeaponTrainingAttackStatReplacement(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        StatType? replacementStat = null)
-    {
-      var component = new WeaponTrainingAttackStatReplacement();
-      component.ReplacementStat = replacementStat ?? component.ReplacementStat;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -8541,7 +11312,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmuletOfUnforgivingElementsAcidBuff</term><description>e6e363e8bd8074047bef3b286f159fe8</description></item>
-    /// <item><term>DLC3_RageConfusionIsland</term><description>6401e7d62cf6424a95a858bff65b2000</description></item>
+    /// <item><term>DLC3_IllusionIslandWillPenaltyBuff</term><description>b1279883b1d04bc3a4ce88052dd7b74d</description></item>
     /// <item><term>SongOfHeroicResolveEffectBuff</term><description>4eafdc4608d89f84b82089953bc54e59</description></item>
     /// </list>
     /// </remarks>
@@ -8661,111 +11432,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AddOutgoingDamageTrigger"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
-    /// <item><term>DreadfulCarnage</term><description>fc37b70e3d064a147a3a99db4a86ee12</description></item>
-    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="abilityList">
-    /// <para>
-    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="runInReasonContext">
-    /// <para>
-    /// InfoBox: To get access to initiator from spell or attack, or ability context
-    /// </para>
-    /// </param>
-    /// <param name="weaponType">
-    /// <para>
-    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddOutgoingDamageTrigger(
-        List<Blueprint<BlueprintAbilityReference>>? abilityList = null,
-        AbilityType? abilityType = null,
-        ActionsBuilder? actions = null,
-        bool? applyToAreaEffectDamage = null,
-        bool? checkAbilityType = null,
-        bool? checkDamageDealt = null,
-        bool? checkEnergyDamageType = null,
-        bool? checkSpellDescriptor = null,
-        bool? checkSpellParent = null,
-        bool? checkWeaponType = null,
-        CompareOperation.Type? compareType = null,
-        DamageEnergyType? energyType = null,
-        bool? ignoreDamageFromThisFact = null,
-        bool? notZeroDamage = null,
-        bool? runInReasonContext = null,
-        SpellDescriptorWrapper? spellDescriptorsList = null,
-        bool? targetKilledByThisDamage = null,
-        ContextValue? targetValue = null,
-        bool? triggerOnStatDamageOrEnergyDrain = null,
-        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
-    {
-      var component = new AddOutgoingDamageTrigger();
-      component.m_AbilityList = abilityList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AbilityList;
-      if (component.m_AbilityList is null)
-      {
-        component.m_AbilityList = new BlueprintAbilityReference[0];
-      }
-      component.m_AbilityType = abilityType ?? component.m_AbilityType;
-      component.Actions = actions?.Build() ?? component.Actions;
-      if (component.Actions is null)
-      {
-        component.Actions = Utils.Constants.Empty.Actions;
-      }
-      component.ApplyToAreaEffectDamage = applyToAreaEffectDamage ?? component.ApplyToAreaEffectDamage;
-      component.CheckAbilityType = checkAbilityType ?? component.CheckAbilityType;
-      component.CheckDamageDealt = checkDamageDealt ?? component.CheckDamageDealt;
-      component.CheckEnergyDamageType = checkEnergyDamageType ?? component.CheckEnergyDamageType;
-      component.CheckSpellDescriptor = checkSpellDescriptor ?? component.CheckSpellDescriptor;
-      component.CheckSpellParent = checkSpellParent ?? component.CheckSpellParent;
-      component.CheckWeaponType = checkWeaponType ?? component.CheckWeaponType;
-      component.CompareType = compareType ?? component.CompareType;
-      component.EnergyType = energyType ?? component.EnergyType;
-      component.IgnoreDamageFromThisFact = ignoreDamageFromThisFact ?? component.IgnoreDamageFromThisFact;
-      component.NotZeroDamage = notZeroDamage ?? component.NotZeroDamage;
-      component.RunInReasonContext = runInReasonContext ?? component.RunInReasonContext;
-      component.SpellDescriptorsList = spellDescriptorsList ?? component.SpellDescriptorsList;
-      component.TargetKilledByThisDamage = targetKilledByThisDamage ?? component.TargetKilledByThisDamage;
-      component.TargetValue = targetValue ?? component.TargetValue;
-      if (component.TargetValue is null)
-      {
-        component.TargetValue = ContextValues.Constant(0);
-      }
-      component.TriggerOnStatDamageOrEnergyDrain = triggerOnStatDamageOrEnergyDrain ?? component.TriggerOnStatDamageOrEnergyDrain;
-      component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
-      if (component.m_WeaponType is null)
-      {
-        component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -9066,74 +11732,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       }
       component.CheckResource = checkResource ?? component.CheckResource;
       component.OnlyOnParty = onlyOnParty ?? component.OnlyOnParty;
-      component.m_Resource = resource?.Reference ?? component.m_Resource;
-      if (component.m_Resource is null)
-      {
-        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DeskariAspect"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DeskariAspectBuff</term><description>1c8b0722a3694854db5b2fa8800575c4</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddDeskariAspect(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new DeskariAspect();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="FlamewardenBurningRenewal"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FlamewardenBurningRenewalFeature</term><description>7cf2a6bf35c422e4ea219fcc2eb564f5</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="resource">
-    /// <para>
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddFlamewardenBurningRenewal(
-        ActionsBuilder? actions = null,
-        Blueprint<BlueprintAbilityResourceReference>? resource = null)
-    {
-      var component = new FlamewardenBurningRenewal();
-      component.Actions = actions?.Build() ?? component.Actions;
-      if (component.Actions is null)
-      {
-        component.Actions = Utils.Constants.Empty.Actions;
-      }
       component.m_Resource = resource?.Reference ?? component.m_Resource;
       if (component.m_Resource is null)
       {
@@ -10246,7 +12844,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyACAgainstRangeAuraFeature</term><description>e44e483c864349cf8eda2ac753ef0171</description></item>
-    /// <item><term>ArmyGainAttackWhenHitFeature</term><description>054665fdee674a5cac99b194b50af349</description></item>
+    /// <item><term>ArmyGhoulParalysisFeature</term><description>0ff98740c64f4d948e783f6e0dcd4bd7</description></item>
     /// <item><term>SubtypeExtraplanar</term><description>136fa0343d5b4b348bdaa05d83408db3</description></item>
     /// </list>
     /// </remarks>
@@ -11169,7 +13767,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensive_ImagesOfChaosBuff</term><description>29894ea708974f13ba02eb90bebfc90b</description></item>
-    /// <item><term>ArmyTrickster6EquipmentFeature4</term><description>7970cc7ee3c047c8a2d9ca8f02c88c95</description></item>
+    /// <item><term>ArmyTrickster6EquipmentFeature5</term><description>e59a71062b7549e4a017e79d71f21bb7</description></item>
     /// <item><term>ZachariusFearAuraFeature</term><description>4427c26e51a3dff4a9ef2ed7541876ee</description></item>
     /// </list>
     /// </remarks>
@@ -12020,122 +14618,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="AlliedSpellcaster"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="alliedSpellcasterFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddAlliedSpellcaster(
-        Blueprint<BlueprintUnitFactReference>? alliedSpellcasterFact = null,
-        int? radius = null)
-    {
-      var component = new AlliedSpellcaster();
-      component.m_AlliedSpellcasterFact = alliedSpellcasterFact?.Reference ?? component.m_AlliedSpellcasterFact;
-      if (component.m_AlliedSpellcasterFact is null)
-      {
-        component.m_AlliedSpellcasterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AngelSwordAdditionalDamageAndHeal"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>AngelSwordEffectBuffNonUnique</term><description>a422afd38359e6a40b71dd41ada6b334</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="cloakFact">
-    /// <para>
-    /// InfoBox: Changes how this mechanics works if player has Mythic Cloak
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="maximizeFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAngelSwordAdditionalDamageAndHeal(
-        Blueprint<BlueprintUnitFactReference>? cloakFact = null,
-        PrefabLink? damagePrefab = null,
-        PrefabLink? healingPrefab = null,
-        Blueprint<BlueprintUnitFactReference>? maximizeFact = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AngelSwordAdditionalDamageAndHeal();
-      component.m_CloakFact = cloakFact?.Reference ?? component.m_CloakFact;
-      if (component.m_CloakFact is null)
-      {
-        component.m_CloakFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.DamagePrefab = damagePrefab ?? component.DamagePrefab;
-      if (component.DamagePrefab is null)
-      {
-        component.DamagePrefab = Utils.Constants.Empty.PrefabLink;
-      }
-      component.HealingPrefab = healingPrefab ?? component.HealingPrefab;
-      if (component.HealingPrefab is null)
-      {
-        component.HealingPrefab = Utils.Constants.Empty.PrefabLink;
-      }
-      component.m_MaximizeFact = maximizeFact?.Reference ?? component.m_MaximizeFact;
-      if (component.m_MaximizeFact is null)
-      {
-        component.m_MaximizeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AngelSwordAntiDescriptor"/>
     /// </summary>
     ///
@@ -12226,32 +14708,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Armor = new ArmorProficiencyGroup[0];
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ArcaneBloodlineArcana"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BloodlineArcaneArcana</term><description>e8e4f56618dd8b04490aa6a0b75ac24f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddArcaneBloodlineArcana(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new ArcaneBloodlineArcana();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -13083,82 +15539,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="BackToBack"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BackToBack</term><description>c920f2cd2244d284aa69a146aeefcb2c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="backToBackFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddBackToBack(
-        Blueprint<BlueprintUnitFactReference>? backToBackFact = null,
-        int? radius = null)
-    {
-      var component = new BackToBack();
-      component.m_BackToBackFact = backToBackFact?.Reference ?? component.m_BackToBackFact;
-      if (component.m_BackToBackFact is null)
-      {
-        component.m_BackToBackFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BackToBackBetter"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AllRoundDefenseFeature</term><description>7060a735afc12e144942d853ad5b7a65</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="backToBackBetterFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddBackToBackBetter(
-        Blueprint<BlueprintUnitFactReference>? backToBackBetterFact = null,
-        int? radius = null)
-    {
-      var component = new BackToBackBetter();
-      component.m_BackToBackBetterFact = backToBackBetterFact?.Reference ?? component.m_BackToBackBetterFact;
-      if (component.m_BackToBackBetterFact is null)
-      {
-        component.m_BackToBackBetterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="BindAbilitiesToClass"/>
     /// </summary>
     ///
@@ -13672,113 +16052,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="CavalierMountedMastery"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CavalierMountedMastery</term><description>fde5b47705ea18444947633c5f025703</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddCavalierMountedMastery(
-        ModifierDescriptor? descriptor = null)
-    {
-      var component = new CavalierMountedMastery();
-      component.Descriptor = descriptor ?? component.Descriptor;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CavalierRetribution"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CavalierRetribution</term><description>bb1487fcae090c446aff904b0980347c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddCavalierRetribution(
-        Blueprint<BlueprintBuffReference>? buff = null)
-    {
-      var component = new CavalierRetribution();
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CavalierStandAgainstDarkness"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CavalierStandAgainstDarkness</term><description>323fb6a07905bbd4b9b73906fc4f6534</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="checkedFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddCavalierStandAgainstDarkness(
-        Blueprint<BlueprintUnitFactReference>? checkedFact = null)
-    {
-      var component = new CavalierStandAgainstDarkness();
-      component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
-      if (component.m_CheckedFact is null)
-      {
-        component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CavalierStealGlory"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CavalierStealGlory</term><description>2f96ffadc3dcc5d449a022c7dc537c05</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddCavalierStealGlory()
-    {
-      return AddComponent(new CavalierStealGlory());
-    }
-
-    /// <summary>
     /// Adds <see cref="ChargeAttackBonus"/>
     /// </summary>
     ///
@@ -13932,7 +16205,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_CombatTrigger</term><description>05898d8c986546fe850462aa71c65589</description></item>
-    /// <item><term>HellsDecreeAbilityRageAllyBonusBuff</term><description>3e4ab56c5f87ee04e85fe0eb9bb894cb</description></item>
+    /// <item><term>HellsDecreeAbilityRageAllyBuff</term><description>86fa611413abbcb48aee999d89a0bd8b</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>
@@ -14164,82 +16437,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.Value = Utils.Constants.Empty.DiceValue;
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CoordinatedDefense"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CoordinatedDefense</term><description>992fd59da1783de49b135ad89142c6d7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="coordinatedDefenseFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddCoordinatedDefense(
-        Blueprint<BlueprintUnitFactReference>? coordinatedDefenseFact = null,
-        int? radius = null)
-    {
-      var component = new CoordinatedDefense();
-      component.m_CoordinatedDefenseFact = coordinatedDefenseFact?.Reference ?? component.m_CoordinatedDefenseFact;
-      if (component.m_CoordinatedDefenseFact is null)
-      {
-        component.m_CoordinatedDefenseFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="CoordinatedManeuvers"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CoordinatedManeuvers</term><description>b186cea78dce3a04aacff0a81786008c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="coordinatedManeuversFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddCoordinatedManeuvers(
-        Blueprint<BlueprintUnitFactReference>? coordinatedManeuversFact = null,
-        int? radius = null)
-    {
-      var component = new CoordinatedManeuvers();
-      component.m_CoordinatedManeuversFact = coordinatedManeuversFact?.Reference ?? component.m_CoordinatedManeuversFact;
-      if (component.m_CoordinatedManeuversFact is null)
-      {
-        component.m_CoordinatedManeuversFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Radius = radius ?? component.Radius;
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -14549,71 +16746,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.DamageBonus = damageBonus ?? component.DamageBonus;
       component.Descriptor = descriptor ?? component.Descriptor;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DamageBonusOrderOfCockatrice"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CavalierCockatriceChallenge</term><description>ba176bca404967b47bf9e583e80c3fd5</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="checkedFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddDamageBonusOrderOfCockatrice(
-        ContextValue? bonus = null,
-        Blueprint<BlueprintUnitFactReference>? checkedFact = null,
-        ModifierDescriptor? descriptor = null)
-    {
-      var component = new DamageBonusOrderOfCockatrice();
-      component.Bonus = bonus ?? component.Bonus;
-      if (component.Bonus is null)
-      {
-        component.Bonus = ContextValues.Constant(0);
-      }
-      component.m_CheckedFact = checkedFact?.Reference ?? component.m_CheckedFact;
-      if (component.m_CheckedFact is null)
-      {
-        component.m_CheckedFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Descriptor = descriptor ?? component.Descriptor;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DamageGrace"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Replace damage stat for weapon
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FencingGrace</term><description>47b352ea0f73c354aba777945760b441</description></item>
-    /// <item><term>SlashingGrace</term><description>697d64669eb2c0543abb9c9b07998a38</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddDamageGrace()
-    {
-      return AddComponent(new DamageGrace());
     }
 
     /// <summary>
@@ -15226,128 +17358,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="DuelistPreciseStrike"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>PreciseStrikeAbility</term><description>4247758d93b218a43aed6aecc1f50fbb</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="cloakDuelistFact">
-    /// <para>
-    /// InfoBox: Changes the mechanic if the White Wind Cloak is equipped by a Duelist
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="cloakNonDuelistFact">
-    /// <para>
-    /// InfoBox: Changes the mechanic if the White Wind Cloak is equipped by a non-Duelist
-    /// </para>
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="duelist">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddDuelistPreciseStrike(
-        Blueprint<BlueprintBuffReference>? cloakDuelistFact = null,
-        Blueprint<BlueprintBuffReference>? cloakNonDuelistFact = null,
-        Blueprint<BlueprintCharacterClassReference>? duelist = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new DuelistPreciseStrike();
-      component.m_CloakDuelistFact = cloakDuelistFact?.Reference ?? component.m_CloakDuelistFact;
-      if (component.m_CloakDuelistFact is null)
-      {
-        component.m_CloakDuelistFact = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_CloakNonDuelistFact = cloakNonDuelistFact?.Reference ?? component.m_CloakNonDuelistFact;
-      if (component.m_CloakNonDuelistFact is null)
-      {
-        component.m_CloakNonDuelistFact = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_Duelist = duelist?.Reference ?? component.m_Duelist;
-      if (component.m_Duelist is null)
-      {
-        component.m_Duelist = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="EnduringSpells"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>EnduringSpells</term><description>2f206e6d292bdfb4d981e99dcf08153f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="greater">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddEnduringSpells(
-        Blueprint<BlueprintUnitFactReference>? greater = null)
-    {
-      var component = new EnduringSpells();
-      component.m_Greater = greater?.Reference ?? component.m_Greater;
-      if (component.m_Greater is null)
-      {
-        component.m_Greater = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="Evasion"/>
     /// </summary>
     ///
@@ -15365,26 +17375,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new Evasion();
       component.SavingThrow = savingThrow ?? component.SavingThrow;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="EvasionWithTowerShield"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TowerShieldEvasion</term><description>bc678dd87b293ed4a99d0d75c1974f64</description></item>
-    /// <item><term>TowerShieldImprovedEvasion</term><description>a2daced5523237e4ab92309a03250cc0</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddEvasionWithTowerShield(
-        bool? improved = null)
-    {
-      var component = new EvasionWithTowerShield();
-      component.Improved = improved ?? component.Improved;
       return AddComponent(component);
     }
 
@@ -15588,42 +17578,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new FullSpeedInStealth();
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="Hardy"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Hardy</term><description>f75d3b6110f04d1409564b9d7647db60</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="steelSoul">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddHardy(
-        Blueprint<BlueprintFeatureReference>? steelSoul = null)
-    {
-      var component = new Hardy();
-      component.m_SteelSoul = steelSoul?.Reference ?? component.m_SteelSoul;
-      if (component.m_SteelSoul is null)
-      {
-        component.m_SteelSoul = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -16032,8 +17986,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonCLGazeAllyBuff</term><description>b26ce61b589a4c34b878a67dc1059f12</description></item>
-    /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
-    /// <item><term>Valmallos_Buff_AeonGazeEnemy_Core</term><description>217c83b902de44ffa2602d52bafe3d2e</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
+    /// <item><term>NabasuGrowthPoint</term><description>1cf11bcb4b3a3de4195730d567a40df0</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -16508,285 +18462,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new InitiatorCritAutoconfirm();
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KensaiCriticalPerfection"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="magusBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddKensaiCriticalPerfection(
-        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
-        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
-    {
-      var component = new KensaiCriticalPerfection();
-      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
-      if (component.m_ChosenWeaponBlueprint is null)
-      {
-        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
-      if (component.m_MagusBlueprint is null)
-      {
-        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KensaiIaijutsuFocus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Armor class bonus against alignment
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SwordSaintInstantFocus</term><description>5fcdb5b9dd41724439c6c4e4b6d27e81</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="magusBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddKensaiIaijutsuFocus(
-        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
-        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
-    {
-      var component = new KensaiIaijutsuFocus();
-      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
-      if (component.m_ChosenWeaponBlueprint is null)
-      {
-        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
-      if (component.m_MagusBlueprint is null)
-      {
-        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KensaiPerfectStrike"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Armor class bonus against alignment
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SwordSaintPerfectStrikeBuff</term><description>e194d672b44eabd418e80f4bd2308a5b</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="magusBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddKensaiPerfectStrike(
-        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
-        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
-    {
-      var component = new KensaiPerfectStrike();
-      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
-      if (component.m_ChosenWeaponBlueprint is null)
-      {
-        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
-      if (component.m_MagusBlueprint is null)
-      {
-        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KensaiPowerfulCrit"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SwordSaintPerfectStrikeCritBuff</term><description>54deca24695cb0c4fb6fc8e4c1861eef</description></item>
-    /// <item><term>SwordSaintWeaponMastery</term><description>5b31af13868166d4c9bb452f19277f19</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="magusBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddKensaiPowerfulCrit(
-        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
-        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
-    {
-      var component = new KensaiPowerfulCrit();
-      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
-      if (component.m_ChosenWeaponBlueprint is null)
-      {
-        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
-      if (component.m_MagusBlueprint is null)
-      {
-        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="KensaiWeaponMastery"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SwordSaintWeaponMastery</term><description>5b31af13868166d4c9bb452f19277f19</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="chosenWeaponBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="magusBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddKensaiWeaponMastery(
-        Blueprint<BlueprintParametrizedFeatureReference>? chosenWeaponBlueprint = null,
-        Blueprint<BlueprintCharacterClassReference>? magusBlueprint = null)
-    {
-      var component = new KensaiWeaponMastery();
-      component.m_ChosenWeaponBlueprint = chosenWeaponBlueprint?.Reference ?? component.m_ChosenWeaponBlueprint;
-      if (component.m_ChosenWeaponBlueprint is null)
-      {
-        component.m_ChosenWeaponBlueprint = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
-      }
-      component.m_MagusBlueprint = magusBlueprint?.Reference ?? component.m_MagusBlueprint;
-      if (component.m_MagusBlueprint is null)
-      {
-        component.m_MagusBlueprint = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -17307,26 +18982,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="MythicUnarmedStrike"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Weapon type damage bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ImprovedUnarmedStrikeMythicFeat</term><description>e086a07dae105244291fb11e05d0715f</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddMythicUnarmedStrike()
-    {
-      return AddComponent(new MythicUnarmedStrike());
-    }
-
-    /// <summary>
     /// Adds <see cref="NewRoundTrigger"/>
     /// </summary>
     ///
@@ -17456,22 +19111,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="Opportunist"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Opportunist</term><description>5bb6dc5ce00550441880a6ff8ad4c968</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddOpportunist()
-    {
-      return AddComponent(new Opportunist());
-    }
-
-    /// <summary>
     /// Adds <see cref="OutflankAttackBonus"/>
     /// </summary>
     ///
@@ -17514,83 +19153,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="OutflankDamageBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Azata1SongOfThePeopleBuff</term><description>87b23796bb1b49ca96c0da8a7b298ebf</description></item>
-    /// <item><term>ChainmailOfComraderyFeature</term><description>b0d0ed812d973224ca2ba1cbb22c94c6</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="outflankFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddOutflankDamageBonus(
-        int? damageBonus = null,
-        int? increasedDamageBonus = null,
-        Blueprint<BlueprintUnitFactReference>? outflankFact = null)
-    {
-      var component = new OutflankDamageBonus();
-      component.DamageBonus = damageBonus ?? component.DamageBonus;
-      component.IncreasedDamageBonus = increasedDamageBonus ?? component.IncreasedDamageBonus;
-      component.m_OutflankFact = outflankFact?.Reference ?? component.m_OutflankFact;
-      if (component.m_OutflankFact is null)
-      {
-        component.m_OutflankFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="OutflankProvokeAttack"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Outflank</term><description>422dab7309e1ad343935f33a4d6e9f11</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="outflankFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddOutflankProvokeAttack(
-        Blueprint<BlueprintUnitFactReference>? outflankFact = null)
-    {
-      var component = new OutflankProvokeAttack();
-      component.m_OutflankFact = outflankFact?.Reference ?? component.m_OutflankFact;
-      if (component.m_OutflankFact is null)
-      {
-        component.m_OutflankFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="PartialDRIgnore"/>
     /// </summary>
     ///
@@ -17615,39 +19177,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? reductionReduction = null)
     {
       var component = new PartialDRIgnore();
-      component.ReductionReduction = reductionReduction ?? component.ReductionReduction;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PenetratingStrike"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Reduces DR against weapons with Focus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>GreaterPenetratingStrike</term><description>eb6eb946c68ef094f89c7633f5bfdc9b</description></item>
-    /// <item><term>PenetratingStrike</term><description>308cd7dc4f10efd428f531bbf4f2823d</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPenetratingStrike(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        int? reductionReduction = null)
-    {
-      var component = new PenetratingStrike();
       component.ReductionReduction = reductionReduction ?? component.ReductionReduction;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -17692,178 +19221,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new PointBlankMaster();
       component.Category = category ?? component.Category;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PointBlankMasterParametrized"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>PointBlankMaster</term><description>05a3b543b0a0a0346a5061e90f293f0b</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddPointBlankMasterParametrized()
-    {
-      return AddComponent(new PointBlankMasterParametrized());
-    }
-
-    /// <summary>
-    /// Adds <see cref="PowerAttackWatcher"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Weapon type attack bonus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DeadlyAimFeature</term><description>f47df34d53f8c904f9981a3ee8e84892</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="powerAttackBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddPowerAttackWatcher(
-        Blueprint<BlueprintActivatableAbilityReference>? powerAttackBlueprint = null)
-    {
-      var component = new PowerAttackWatcher();
-      component.m_PowerAttackBlueprint = powerAttackBlueprint?.Reference ?? component.m_PowerAttackBlueprint;
-      if (component.m_PowerAttackBlueprint is null)
-      {
-        component.m_PowerAttackBlueprint = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PreciseShot"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Ignore penalty to ranged attack in combat
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>PreciseShot</term><description>8f3d1e6b4be006f4d896081f2f889665</description></item>
-    /// <item><term>RingOfSharpStrikeFeature</term><description>80509af6a726dbd4aaccbda7096d9253</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPreciseShot(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new PreciseShot();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PreciseShotDivineHunterTarget"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SharedPrecisionTargetBuff</term><description>d5960c0203ad9ee48b8e4420a252273d</description></item>
-    /// <item><term>VolleyFireCooldownBuff</term><description>0d02b41741498e8478695d77ab527b03</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPreciseShotDivineHunterTarget(
-        Blueprint<BlueprintBuffReference>? buff = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new PreciseShotDivineHunterTarget();
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="PreciseStrike"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>PreciseStrike</term><description>5662d1b793db90c4b9ba68037fd2a768</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="preciseStrikeFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddPreciseStrike(
-        DamageDescription? damage = null,
-        Blueprint<BlueprintUnitFactReference>? preciseStrikeFact = null)
-    {
-      var component = new PreciseStrike();
-      Validate(damage);
-      component.Damage = damage ?? component.Damage;
-      component.m_PreciseStrikeFact = preciseStrikeFact?.Reference ?? component.m_PreciseStrikeFact;
-      if (component.m_PreciseStrikeFact is null)
-      {
-        component.m_PreciseStrikeFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
       return AddComponent(component);
     }
 
@@ -18812,45 +20169,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="SavingSlash"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SavingSlash</term><description>eee7abd42ef7bac4ea117b2f41f85ec3</description></item>
-    /// <item><term>SavingSlashGreater</term><description>732ad7ec6b1cd1f4885370924d492e87</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddSavingSlash(
-        int? bonus = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        bool? useContextValue = null,
-        ContextValue? value = null,
-        WeaponCategory? weapon = null)
-    {
-      var component = new SavingSlash();
-      component.Bonus = bonus ?? component.Bonus;
-      component.UseContextValue = useContextValue ?? component.UseContextValue;
-      component.Value = value ?? component.Value;
-      if (component.Value is null)
-      {
-        component.Value = ContextValues.Constant(0);
-      }
-      component.Weapon = weapon ?? component.Weapon;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="SavingThrowBonusAgainstAbilityType"/>
     /// </summary>
     ///
@@ -19410,44 +20728,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="ShakeItOff"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShakeItOff</term><description>6337b37f2a7c11b4ab0831d6780bce2a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="shakeItOffFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddShakeItOff(
-        int? radius = null,
-        Blueprint<BlueprintUnitFactReference>? shakeItOffFact = null)
-    {
-      var component = new ShakeItOff();
-      component.Radius = radius ?? component.Radius;
-      component.m_ShakeItOffFact = shakeItOffFact?.Reference ?? component.m_ShakeItOffFact;
-      if (component.m_ShakeItOffFact is null)
-      {
-        component.m_ShakeItOffFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="ShareBuffsWithPet"/>
     /// </summary>
     ///
@@ -19571,162 +20851,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       }
       component.Type = type ?? component.Type;
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShatterConfidence"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShatterConfidenceBuff</term><description>14225a2e4561bfd46874c9a4a97e7133</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="confoundingDuelistFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddShatterConfidence(
-        Blueprint<BlueprintFeatureReference>? confoundingDuelistFeature = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new ShatterConfidence();
-      component.m_ConfoundingDuelistFeature = confoundingDuelistFeature?.Reference ?? component.m_ConfoundingDuelistFeature;
-      if (component.m_ConfoundingDuelistFeature is null)
-      {
-        component.m_ConfoundingDuelistFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShieldWall"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShieldWall</term><description>8976de442862f82488a4b138a0a89907</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="shieldWallFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddShieldWall(
-        int? radius = null,
-        Blueprint<BlueprintUnitFactReference>? shieldWallFact = null)
-    {
-      var component = new ShieldWall();
-      component.Radius = radius ?? component.Radius;
-      component.m_ShieldWallFact = shieldWallFact?.Reference ?? component.m_ShieldWallFact;
-      if (component.m_ShieldWallFact is null)
-      {
-        component.m_ShieldWallFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShieldedCaster"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShieldedCaster</term><description>0b707584fc2ea724aa72c396c2230dc7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="shieldedCasterFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddShieldedCaster(
-        int? radius = null,
-        Blueprint<BlueprintUnitFactReference>? shieldedCasterFact = null)
-    {
-      var component = new ShieldedCaster();
-      component.Radius = radius ?? component.Radius;
-      component.m_ShieldedCasterFact = shieldedCasterFact?.Reference ?? component.m_ShieldedCasterFact;
-      if (component.m_ShieldedCasterFact is null)
-      {
-        component.m_ShieldedCasterFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SiezeTheMoment"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SiezeTheMoment</term><description>1191ef3065e6f8e4f9fbe1b7e3c0f760</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="siezeTheMomentFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddSiezeTheMoment(
-        Blueprint<BlueprintUnitFactReference>? siezeTheMomentFact = null)
-    {
-      var component = new SiezeTheMoment();
-      component.m_SiezeTheMomentFact = siezeTheMomentFact?.Reference ?? component.m_SiezeTheMomentFact;
-      if (component.m_SiezeTheMomentFact is null)
-      {
-        component.m_SiezeTheMomentFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -19890,76 +21014,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="SpellPenetrationMythicBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SpellPenetrationMythicFeat</term><description>51b6b22ff184eef46a675449e837365d</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="greater">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddSpellPenetrationMythicBonus(
-        Blueprint<BlueprintUnitFactReference>? greater = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new SpellPenetrationMythicBonus();
-      component.m_Greater = greater?.Reference ?? component.m_Greater;
-      if (component.m_Greater is null)
-      {
-        component.m_Greater = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="SurpriseSpells"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SurpriseSpells</term><description>de5cb97a702699841abd3fc66c69fbcf</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddSurpriseSpells(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new SurpriseSpells();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="Take10ForSuccess"/>
     /// </summary>
     ///
@@ -20076,74 +21130,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new TargetCritAutoconfirmFromCaster();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TellingBlow"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Reduces DR against weapons with Focus
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>StudentOfWarTellingBlow</term><description>1cd672da802093d47a1473ff985acc63</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="buff">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="immunityFact">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddTellingBlow(
-        Blueprint<BlueprintBuffReference>? buff = null,
-        Blueprint<BlueprintUnitFactReference>? immunityFact = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        int? reductionReduction = null)
-    {
-      var component = new TellingBlow();
-      component.m_Buff = buff?.Reference ?? component.m_Buff;
-      if (component.m_Buff is null)
-      {
-        component.m_Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_ImmunityFact = immunityFact?.Reference ?? component.m_ImmunityFact;
-      if (component.m_ImmunityFact is null)
-      {
-        component.m_ImmunityFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.ReductionReduction = reductionReduction ?? component.ReductionReduction;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -20280,387 +21266,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.Value = ContextValues.Constant(0);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TricksterArcanaAdditionalEnchantments"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add ability resources
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterKnowledgeArcanaTier2Feature</term><description>7bbd9f681440a294382b527a554e419d</description></item>
-    /// <item><term>TricksterKnowledgeArcanaTier3Feature</term><description>5e26c673173e423881e318d2f0ae84f0</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="armorEnchantments">
-    /// <para>
-    /// Blueprint of type BlueprintArmorEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="commonEnchantments">
-    /// <para>
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="weaponEnchantments">
-    /// <para>
-    /// Blueprint of type BlueprintWeaponEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddTricksterArcanaAdditionalEnchantments(
-        List<Blueprint<BlueprintArmorEnchantmentReference>>? armorEnchantments = null,
-        List<Blueprint<BlueprintItemEnchantmentReference>>? commonEnchantments = null,
-        bool? onlyWeaponsShieldsAndArmor = null,
-        List<Blueprint<BlueprintWeaponEnchantmentReference>>? weaponEnchantments = null)
-    {
-      var component = new TricksterArcanaAdditionalEnchantments();
-      component.ArmorEnchantments = armorEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.ArmorEnchantments;
-      if (component.ArmorEnchantments is null)
-      {
-        component.ArmorEnchantments = new BlueprintArmorEnchantmentReference[0];
-      }
-      component.CommonEnchantments = commonEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.CommonEnchantments;
-      if (component.CommonEnchantments is null)
-      {
-        component.CommonEnchantments = new BlueprintItemEnchantmentReference[0];
-      }
-      component.OnlyWeaponsShieldsAndArmor = onlyWeaponsShieldsAndArmor ?? component.OnlyWeaponsShieldsAndArmor;
-      component.WeaponEnchantments = weaponEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.WeaponEnchantments;
-      if (component.WeaponEnchantments is null)
-      {
-        component.WeaponEnchantments = new BlueprintWeaponEnchantmentReference[0];
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TricksterArcanaBetterEnhancements"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add ability resources
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterKnowledgeArcanaTier1Feature</term><description>c7bb946de7454df4380c489a8350ba38</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="bestEnchantments">
-    /// <para>
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="enhancementEnchantments">
-    /// <para>
-    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddTricksterArcanaBetterEnhancements(
-        List<Blueprint<BlueprintItemEnchantmentReference>>? bestEnchantments = null,
-        List<Blueprint<BlueprintItemEnchantmentReference>>? enhancementEnchantments = null)
-    {
-      var component = new TricksterArcanaBetterEnhancements();
-      component.BestEnchantments = bestEnchantments?.Select(bp => bp.Reference)?.ToList() ?? component.BestEnchantments;
-      if (component.BestEnchantments is null)
-      {
-        component.BestEnchantments = new();
-      }
-      component.EnhancementEnchantments = enhancementEnchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.EnhancementEnchantments;
-      if (component.EnhancementEnchantments is null)
-      {
-        component.EnhancementEnchantments = new BlueprintItemEnchantmentReference[0];
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TricksterKnowledgeWorldD20"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterKnowledgeWorldTier2Feature</term><description>8b6fe337865492645892cc8db5dd0e01</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTricksterKnowledgeWorldD20()
-    {
-      return AddComponent(new TricksterKnowledgeWorldD20());
-    }
-
-    /// <summary>
-    /// Adds <see cref="TricksterKnowledgeWorldSkillBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterKnowledgeWorldTier1Feature</term><description>06983a66bd6bac04db3996cd3064d9f0</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTricksterKnowledgeWorldSkillBonus()
-    {
-      return AddComponent(new TricksterKnowledgeWorldSkillBonus());
-    }
-
-    /// <summary>
-    /// Adds <see cref="TricksterLoreNatureRestTrigger"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TricksterLoreNature1Feature</term><description>cb232b9ed5c216242a667e95527ad8e1</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="tier1Buffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="tier2Buffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="tier2Feature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="tier3Buffs">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="tier3Feature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddTricksterLoreNatureRestTrigger(
-        List<Blueprint<BlueprintBuffReference>>? tier1Buffs = null,
-        List<Blueprint<BlueprintBuffReference>>? tier2Buffs = null,
-        Blueprint<BlueprintFeatureReference>? tier2Feature = null,
-        List<Blueprint<BlueprintBuffReference>>? tier3Buffs = null,
-        Blueprint<BlueprintFeatureReference>? tier3Feature = null)
-    {
-      var component = new TricksterLoreNatureRestTrigger();
-      component.Tier1Buffs = tier1Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier1Buffs;
-      if (component.Tier1Buffs is null)
-      {
-        component.Tier1Buffs = new BlueprintBuffReference[0];
-      }
-      component.Tier2Buffs = tier2Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier2Buffs;
-      if (component.Tier2Buffs is null)
-      {
-        component.Tier2Buffs = new BlueprintBuffReference[0];
-      }
-      component.m_Tier2Feature = tier2Feature?.Reference ?? component.m_Tier2Feature;
-      if (component.m_Tier2Feature is null)
-      {
-        component.m_Tier2Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      component.Tier3Buffs = tier3Buffs?.Select(bp => bp.Reference)?.ToArray() ?? component.Tier3Buffs;
-      if (component.Tier3Buffs is null)
-      {
-        component.Tier3Buffs = new BlueprintBuffReference[0];
-      }
-      component.m_Tier3Feature = tier3Feature?.Reference ?? component.m_Tier3Feature;
-      if (component.m_Tier3Feature is null)
-      {
-        component.m_Tier3Feature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TwoWeaponFightingAttackPenalty"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Basic Mechanics for two weapon fighting
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    /// <param name="mythicBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddTwoWeaponFightingAttackPenalty(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintFeatureReference>? mythicBlueprint = null)
-    {
-      var component = new TwoWeaponFightingAttackPenalty();
-      component.m_MythicBlueprint = mythicBlueprint?.Reference ?? component.m_MythicBlueprint;
-      if (component.m_MythicBlueprint is null)
-      {
-        component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TwoWeaponFightingAttacks"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: BuffMechanics/Extra Attack
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddTwoWeaponFightingAttacks(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new TwoWeaponFightingAttacks();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="TwoWeaponFightingDamagePenalty"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TwoWeaponFightingBasicMechanics</term><description>6948b379c0562714d9f6d58ccbfa8faa</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddTwoWeaponFightingDamagePenalty(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new TwoWeaponFightingDamagePenalty();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -21421,168 +22026,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="ImpatienceCalmingPart"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ImpatienceTickingBuff</term><description>46b39651560c13f41a1f5deebb9caa1a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="impatience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="patience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="targetedImpatience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddImpatienceCalmingPart(
-        Blueprint<BlueprintBuffReference>? impatience = null,
-        Blueprint<BlueprintBuffReference>? patience = null,
-        Blueprint<BlueprintBuffReference>? targetedImpatience = null)
-    {
-      var component = new ImpatienceCalmingPart();
-      component.m_Impatience = impatience?.Reference ?? component.m_Impatience;
-      if (component.m_Impatience is null)
-      {
-        component.m_Impatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_Patience = patience?.Reference ?? component.m_Patience;
-      if (component.m_Patience is null)
-      {
-        component.m_Patience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_TargetedImpatience = targetedImpatience?.Reference ?? component.m_TargetedImpatience;
-      if (component.m_TargetedImpatience is null)
-      {
-        component.m_TargetedImpatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ImpatienceWatcherTickingResolve"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ImpatienceTickingBuff</term><description>46b39651560c13f41a1f5deebb9caa1a</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="impatience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="patience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="targetedImpatience">
-    /// <para>
-    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddImpatienceWatcherTickingResolve(
-        Blueprint<BlueprintBuffReference>? impatience = null,
-        Blueprint<BlueprintBuffReference>? patience = null,
-        int[]? resolveChances = null,
-        int[]? resolveChancesForHighInt = null,
-        int[]? resolveChancesForLowInt = null,
-        Blueprint<BlueprintBuffReference>? targetedImpatience = null)
-    {
-      var component = new ImpatienceWatcherTickingResolve();
-      component.m_Impatience = impatience?.Reference ?? component.m_Impatience;
-      if (component.m_Impatience is null)
-      {
-        component.m_Impatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.m_Patience = patience?.Reference ?? component.m_Patience;
-      if (component.m_Patience is null)
-      {
-        component.m_Patience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      component.ResolveChances = resolveChances ?? component.ResolveChances;
-      if (component.ResolveChances is null)
-      {
-        component.ResolveChances = new int[0];
-      }
-      component.ResolveChancesForHighInt = resolveChancesForHighInt ?? component.ResolveChancesForHighInt;
-      if (component.ResolveChancesForHighInt is null)
-      {
-        component.ResolveChancesForHighInt = new int[0];
-      }
-      component.ResolveChancesForLowInt = resolveChancesForLowInt ?? component.ResolveChancesForLowInt;
-      if (component.ResolveChancesForLowInt is null)
-      {
-        component.ResolveChancesForLowInt = new int[0];
-      }
-      component.m_TargetedImpatience = targetedImpatience?.Reference ?? component.m_TargetedImpatience;
-      if (component.m_TargetedImpatience is null)
-      {
-        component.m_TargetedImpatience = BlueprintTool.GetRef<BlueprintBuffReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="Afterbuff"/>
     /// </summary>
     ///
@@ -21624,32 +22067,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       }
       component.DurationMultiplier = durationMultiplier ?? component.DurationMultiplier;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ArmagsBladeEnrage"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ArmagsBladeBuff</term><description>38804797dd02b2f4c818c6eba0b00b5d</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddArmagsBladeEnrage(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new ArmagsBladeEnrage();
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -22164,26 +22581,36 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>StandartRageBuff</term><description>da8ce41ac3cd74742b80984ccc3c9613</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="activateFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="deactivateFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="eachRoundFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddBuffParticleEffectPlay(
-        PrefabLink? activateFx = null,
-        PrefabLink? deactivateFx = null,
-        PrefabLink? eachRoundFx = null,
+        AssetLink<PrefabLink>? activateFx = null,
+        AssetLink<PrefabLink>? deactivateFx = null,
+        AssetLink<PrefabLink>? eachRoundFx = null,
         bool? playEachRound = null,
         bool? playOnActivate = null,
         bool? playOnDeactivate = null)
     {
       var component = new BuffParticleEffectPlay();
-      component.ActivateFx = activateFx ?? component.ActivateFx;
+      component.ActivateFx = activateFx?.Get() ?? component.ActivateFx;
       if (component.ActivateFx is null)
       {
         component.ActivateFx = Utils.Constants.Empty.PrefabLink;
       }
-      component.DeactivateFx = deactivateFx ?? component.DeactivateFx;
+      component.DeactivateFx = deactivateFx?.Get() ?? component.DeactivateFx;
       if (component.DeactivateFx is null)
       {
         component.DeactivateFx = Utils.Constants.Empty.PrefabLink;
       }
-      component.EachRoundFx = eachRoundFx ?? component.EachRoundFx;
+      component.EachRoundFx = eachRoundFx?.Get() ?? component.EachRoundFx;
       if (component.EachRoundFx is null)
       {
         component.EachRoundFx = Utils.Constants.Empty.PrefabLink;
@@ -22405,22 +22832,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="BurstBarrier"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BurstBarrier</term><description>6c97b3fd5d354454c9f69fea5348a7e8</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddBurstBarrier()
-    {
-      return AddComponent(new BurstBarrier());
-    }
-
-    /// <summary>
     /// Adds <see cref="CannyDefensePermanent"/>
     /// </summary>
     ///
@@ -22578,38 +22989,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="DevilReflectAbility"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>HellsSealVariantMindReflectBuff</term><description>ab52d90a7895595498a7266bbf69563f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddDevilReflectAbility(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        SpellSchool[]? reflectSchools = null)
-    {
-      var component = new DevilReflectAbility();
-      component.m_ReflectSchools = reflectSchools ?? component.m_ReflectSchools;
-      if (component.m_ReflectSchools is null)
-      {
-        component.m_ReflectSchools = new SpellSchool[0];
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="DifficultyStatAdvancement"/>
     /// </summary>
     ///
@@ -22631,25 +23010,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       var component = new DifficultyStatAdvancement();
       component.BasicStatBonus = basicStatBonus ?? component.BasicStatBonus;
       component.DerivativeStatBonus = derivativeStatBonus ?? component.DerivativeStatBonus;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="EchoesOfStoneTerrainBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>EchoesOfStone</term><description>70d3ac68dad02074791f58c8ba09d42f</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddEchoesOfStoneTerrainBonus(
-        AreaSetting? setting = null)
-    {
-      var component = new EchoesOfStoneTerrainBonus();
-      component.Setting = setting ?? component.Setting;
       return AddComponent(component);
     }
 
@@ -22869,66 +23229,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_Spells = new BlueprintAbilityReference[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="IntenseSpells"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SpecializationSchoolEvocation</term><description>c46512b796216b64899f26301241e4e6</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    /// <param name="wizard">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddIntenseSpells(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintCharacterClassReference>? wizard = null)
-    {
-      var component = new IntenseSpells();
-      component.m_Wizard = wizard?.Reference ?? component.m_Wizard;
-      if (component.m_Wizard is null)
-      {
-        component.m_Wizard = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="LiquidateTowerShieldPenalty"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TowerShieldNegatePenalty</term><description>4808f1ac7432cbf488cf9213610acda0</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddLiquidateTowerShieldPenalty()
-    {
-      return AddComponent(new LiquidateTowerShieldPenalty());
     }
 
     /// <summary>
@@ -23295,34 +23595,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="PummelingCharge"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>PummelingChargeBuff</term><description>0da484e5fcd6c0747a18a80f638e9240</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddPummelingCharge(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        WeaponCategory? unarmedCategory = null)
-    {
-      var component = new PummelingCharge();
-      component.UnarmedCategory = unarmedCategory ?? component.UnarmedCategory;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="ReduceDamageReduction"/>
     /// </summary>
     ///
@@ -23523,27 +23795,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="ShieldFocus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add AC if owner has shield
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShieldFocus</term><description>ac57069b6bf8c904086171683992a92a</description></item>
-    /// <item><term>ShieldFocusGreater</term><description>afd05ca5363036c44817c071189b67e1</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddShieldFocus()
-    {
-      return AddComponent(new ShieldFocus());
-    }
-
-    /// <summary>
     /// Adds <see cref="SkillSuccessIfBonus"/>
     /// </summary>
     ///
@@ -23700,25 +23951,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.OneHandedOnly = oneHandedOnly ?? component.OneHandedOnly;
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="StonyStepTerrainBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>StonyStep</term><description>c542b083d72f19944a4c6bdf640fc099</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddStonyStepTerrainBonus(
-        AreaSetting? setting = null)
-    {
-      var component = new StonyStepTerrainBonus();
-      component.Setting = setting ?? component.Setting;
       return AddComponent(component);
     }
 
@@ -23927,22 +24159,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="TowerShieldSpecialistTotalCover"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>TowerShieldTotalCover</term><description>4068bdf2373538e4fbd1c70438102f2e</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddTowerShieldSpecialistTotalCover()
-    {
-      return AddComponent(new TowerShieldSpecialistTotalCover());
-    }
-
-    /// <summary>
     /// Adds <see cref="WeaponTrainingBonuses"/>
     /// </summary>
     ///
@@ -24027,70 +24243,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       if (component.m_Wizard is null)
       {
         component.m_Wizard = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="WizardEnergyAbsorption"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Buffs/AddEffect/EnergyResistance
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>EnergyAbsorptionFeature</term><description>e0a0f1ec8dd1fb94d99f824c6f032c64</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="resource">
-    /// <para>
-    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddWizardEnergyAbsorption(
-        ContextValue? pool = null,
-        Blueprint<BlueprintAbilityResourceReference>? resource = null,
-        DamageEnergyType? type = null,
-        bool? usePool = null,
-        bool? useValueMultiplier = null,
-        ContextValue? value = null,
-        ContextValue? valueMultiplier = null)
-    {
-      var component = new WizardEnergyAbsorption();
-      component.Pool = pool ?? component.Pool;
-      if (component.Pool is null)
-      {
-        component.Pool = ContextValues.Constant(0);
-      }
-      component.m_Resource = resource?.Reference ?? component.m_Resource;
-      if (component.m_Resource is null)
-      {
-        component.m_Resource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
-      }
-      component.Type = type ?? component.Type;
-      component.UsePool = usePool ?? component.UsePool;
-      component.UseValueMultiplier = useValueMultiplier ?? component.UseValueMultiplier;
-      component.Value = value ?? component.Value;
-      if (component.Value is null)
-      {
-        component.Value = ContextValues.Constant(0);
-      }
-      component.ValueMultiplier = valueMultiplier ?? component.ValueMultiplier;
-      if (component.ValueMultiplier is null)
-      {
-        component.ValueMultiplier = ContextValues.Constant(0);
       }
       return AddComponent(component);
     }

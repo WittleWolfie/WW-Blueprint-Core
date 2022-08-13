@@ -1,10 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -265,13 +267,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.Prefab"/>
     /// </summary>
-    public TBuilder SetPrefab(UnitViewLink prefab)
+    ///
+    /// <param name="prefab">
+    /// You can pass in the animation using a UnitViewLink or it's AssetId.
+    /// </param>
+    public TBuilder SetPrefab(AssetLink<UnitViewLink> prefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(prefab);
-          bp.Prefab = prefab;
+          bp.Prefab = prefab?.Get();
         });
     }
 
@@ -1141,6 +1146,14 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="AddOutgoingDamageTriggerFixed"/>
+    /// </summary>
+    public TBuilder AddOutgoingDamageTriggerFixed(AddOutgoingDamageTriggerFixed component)
+    {
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnitUpgraderComponent"/>
     /// </summary>
     ///
@@ -1149,7 +1162,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GiantSpiderSummoned</term><description>9e120b5e0ad3c794491c049aa24b9fde</description></item>
+    /// <item><term>GiantFrogSummoned</term><description>1ed9a630f0d9d7f44855d3d1d1b2cdf2</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -1935,8 +1948,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>MountTestCharacter_HumanFemale</term><description>88f9a508bf27b314697ccfd009da1a46</description></item>
-    /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
+    /// <item><term>MountTestCharacter_HalforcMale</term><description>8f571f3bc4c26914790c749e49ec3bd2</description></item>
+    /// <item><term>WillOWispYellowSummon_cr8</term><description>25a09e126dba4fcb90b3f95bbe61cd0d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2136,7 +2149,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Asty</term><description>d8e2475977bd87b439c4bba8f5f55949</description></item>
-    /// <item><term>CR2_Marauder_Human_FighterMelee_Male</term><description>a148c7c95cec68e43ac490852071c711</description></item>
+    /// <item><term>CR2_Marauder_Human_FighterRanged_Female</term><description>7956220e37fe19f4e9d54df6fc65bb49</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2501,6 +2514,9 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <param name="description">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
     /// <param name="maxExtraActions">
     /// <para>
     /// InfoBox: Base turn and bonus morale turn have separate counters
@@ -2514,7 +2530,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AddArmyUnitComponent(
         LocalString? description = null,
-        Sprite? icon = null,
+        Asset<Sprite>? icon = null,
         bool? isHaveMorale = null,
         int? maxExtraActions = null,
         int? mercenariesBaseGrowths = null,
@@ -2531,8 +2547,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         component.Description = Utils.Constants.Empty.String;
       }
-      Validate(icon);
-      component.Icon = icon ?? component.Icon;
+      component.Icon = icon?.Get() ?? component.Icon;
       component.IsHaveMorale = isHaveMorale ?? component.IsHaveMorale;
       component.MaxExtraActions = maxExtraActions ?? component.MaxExtraActions;
       component.MercenariesBaseGrowths = mercenariesBaseGrowths ?? component.MercenariesBaseGrowths;

@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.Visual.HitSystem;
@@ -396,13 +397,16 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.EnergyResistance"/>
     /// </summary>
-    public TBuilder SetEnergyResistance(GameObject energyResistance)
+    ///
+    /// <param name="energyResistance">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetEnergyResistance(Asset<GameObject> energyResistance)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(energyResistance);
-          bp.EnergyResistance = energyResistance;
+          bp.EnergyResistance = energyResistance?.Get();
         });
     }
 

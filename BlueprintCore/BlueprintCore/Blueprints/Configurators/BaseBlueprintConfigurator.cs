@@ -47,6 +47,57 @@ namespace BlueprintCore.Blueprints.Configurators
     protected BaseBlueprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
+    /// Adds <see cref="BashingFinish"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BashingFinish</term><description>0b442a7b4aa598d4e912a4ecee0500ff</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddBashingFinish()
+    {
+      return AddComponent(new BashingFinish());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DestructiveShockwave"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DestructiveShockwaveMythicFeat</term><description>263a65c1e92dd964192ba7d41a76b4e3</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddDestructiveShockwave()
+    {
+      return AddComponent(new DestructiveShockwave());
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShieldMaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShieldMaster</term><description>dbec636d84482944f87435bd31522fcc</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddShieldMaster()
+    {
+      return AddComponent(new ShieldMaster());
+    }
+
+    /// <summary>
     /// Adds <see cref="DlcCondition"/>
     /// </summary>
     ///
@@ -183,7 +234,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HodagHideFeature</term><description>b1f7df692d479e1469b99177a3212f80</description></item>
+    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -623,54 +674,6 @@ namespace BlueprintCore.Blueprints.Configurators
       component.Bonus = bonus ?? component.Bonus;
       component.Descriptor = descriptor ?? component.Descriptor;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="BashingFinish"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BashingFinish</term><description>0b442a7b4aa598d4e912a4ecee0500ff</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddBashingFinish()
-    {
-      return AddComponent(new BashingFinish());
-    }
-
-    /// <summary>
-    /// Adds <see cref="DestructiveShockwave"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DestructiveShockwaveMythicFeat</term><description>263a65c1e92dd964192ba7d41a76b4e3</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddDestructiveShockwave()
-    {
-      return AddComponent(new DestructiveShockwave());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShieldMaster"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShieldMaster</term><description>dbec636d84482944f87435bd31522fcc</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddShieldMaster()
-    {
-      return AddComponent(new ShieldMaster());
     }
 
     /// <summary>
@@ -1187,8 +1190,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>DLC2_Sv_Bureaucrat_DeadBody</term><description>fbb763a4fb6c4df99b79b48b8c5682ef</description></item>
-    /// <item><term>InvitedToWedding</term><description>d239b8b2e21331942a1a042b97d0082d</description></item>
+    /// <item><term>DLC2_Sv_Healer_DeadBody</term><description>36dac84675c846bbb6bfe11343a84eba</description></item>
+    /// <item><term>MilitaryWenduagRankUp_Hide</term><description>44247994f44e4e5d88f3f739616af1dc</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAreaDidLoadTrigger(

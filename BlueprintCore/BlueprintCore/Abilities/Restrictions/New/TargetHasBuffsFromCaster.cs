@@ -19,7 +19,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
   /// Requires the target to have specific buffs applied by the caster.
   /// </summary>
   [AllowedOn(typeof(BlueprintAbility), false)]
-  [TypeId("0C3EC19D-A6CD-4221-99BF-57429C009D46")]
+  [TypeId("0c3ec19d-a6cd-4221-99bf-57429c009d46")]
   public class TargetHasBuffsFromCaster : BlueprintComponent, IAbilityTargetRestriction
   {
     private static readonly LogWrapper Logger = LogWrapper.GetInternal("TargetHasBuff");
@@ -55,6 +55,7 @@ namespace BlueprintCore.Abilities.Restrictions.New
         }
       }
 
+      Logger.Verbose($"Matching buff count: {matchingBuffCount}");
       if (RequireAllBuffs)
       {
         return matchingBuffCount == CheckedBuffs.Length;

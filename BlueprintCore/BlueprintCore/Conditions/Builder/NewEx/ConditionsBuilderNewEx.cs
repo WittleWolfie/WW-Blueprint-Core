@@ -13,15 +13,28 @@ namespace BlueprintCore.Conditions.Builder.NewEx
   {
 
     /// <summary>
+    /// Adds <see cref="HasActionsAvailable"/>
+    /// </summary>
+    public static ConditionsBuilder HasActionsAvailable(
+        this ConditionsBuilder builder,
+        bool negate = false,
+        bool? requireFullRound = null,
+        bool? requireMove = null,
+        bool? requireStandard = null,
+        bool? requireSwift = null)
+    {
+      var element = ElementTool.Create<HasActionsAvailable>();
+      element.Not = negate;
+      element.RequireFullRound = requireFullRound ?? element.RequireFullRound;
+      element.RequireMove = requireMove ?? element.RequireMove;
+      element.RequireStandard = requireStandard ?? element.RequireStandard;
+      element.RequireSwift = requireSwift ?? element.RequireSwift;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="TargetInMeleeRange"/>
     /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// </list>
-    /// </remarks>
     public static ConditionsBuilder TargetInMeleeRange(
         this ConditionsBuilder builder,
         bool negate = false)

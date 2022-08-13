@@ -4,6 +4,7 @@ using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
@@ -331,39 +332,51 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
-    public TBuilder SetLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder SetLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(loadingScreenSprites);
-          bp.LoadingScreenSprites = loadingScreenSprites.ToList();
+          bp.LoadingScreenSprites = loadingScreenSprites?.Select(entry => entry?.Get())?.ToList();
         });
     }
 
     /// <summary>
     /// Adds to the contents of <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
-    public TBuilder AddToLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder AddToLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.LoadingScreenSprites = bp.LoadingScreenSprites ?? new();
-          bp.LoadingScreenSprites.AddRange(loadingScreenSprites);
+          bp.LoadingScreenSprites.AddRange(loadingScreenSprites?.Select(entry => entry?.Get()));
         });
     }
 
     /// <summary>
     /// Removes elements from <see cref="BlueprintArea.LoadingScreenSprites"/>
     /// </summary>
-    public TBuilder RemoveFromLoadingScreenSprites(params SpriteLink[] loadingScreenSprites)
+    ///
+    /// <param name="loadingScreenSprites">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder RemoveFromLoadingScreenSprites(params AssetLink<SpriteLink>[] loadingScreenSprites)
     {
       return OnConfigureInternal(
         bp =>
         {
           if (bp.LoadingScreenSprites is null) { return; }
-          bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(val => !loadingScreenSprites.Contains(val)).ToList();
+          var convertedParams = loadingScreenSprites.Select(entry => entry?.Get());
+          bp.LoadingScreenSprites = bp.LoadingScreenSprites.Where(val => !convertedParams.Contains(val)).ToList();
         });
     }
 

@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
@@ -118,13 +119,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintCompanionStory.m_ImageLink"/>
     /// </summary>
-    public TBuilder SetImageLink(SpriteLink imageLink)
+    ///
+    /// <param name="imageLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder SetImageLink(AssetLink<SpriteLink> imageLink)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(imageLink);
-          bp.m_ImageLink = imageLink;
+          bp.m_ImageLink = imageLink?.Get();
         });
     }
 

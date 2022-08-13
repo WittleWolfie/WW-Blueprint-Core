@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using System;
@@ -22,13 +23,16 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <summary>
     /// Sets the value of <see cref="BlueprintMapObject.Prefab"/>
     /// </summary>
-    public TBuilder SetPrefab(GameObject prefab)
+    ///
+    /// <param name="prefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetPrefab(Asset<GameObject> prefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(prefab);
-          bp.Prefab = prefab;
+          bp.Prefab = prefab?.Get();
         });
     }
 

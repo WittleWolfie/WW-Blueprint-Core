@@ -2,6 +2,7 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.ElementsSystem;
@@ -84,13 +85,16 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_Icon"/>
     /// </summary>
-    public TBuilder SetIcon(Sprite icon)
+    ///
+    /// <param name="icon">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetIcon(Asset<Sprite> icon)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(icon);
-          bp.m_Icon = icon;
+          bp.m_Icon = icon?.Get();
         });
     }
 
@@ -110,12 +114,16 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_VFX"/>
     /// </summary>
-    public TBuilder SetVFX(PrefabLink vFX)
+    ///
+    /// <param name="vFX">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetVFX(AssetLink<PrefabLink> vFX)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_VFX = vFX;
+          bp.m_VFX = vFX?.Get();
         });
     }
 

@@ -9,8 +9,8 @@ namespace BlueprintCoreTutorial.Feats
 {
   public class MagicalAptitudeSolution
   {
-    private static readonly string FeatName = "MagicalAptitude";
-    private static readonly string FeatGuid = "E47A36AB-EBCC-4D94-9888-B795ABD398F3";
+    private const string FeatName = "MagicalAptitude";
+    private const string FeatGuid = "E47A36AB-EBCC-4D94-9888-B795ABD398F3";
 
     /// <summary>
     /// Adds the Magical Aptitude feat.

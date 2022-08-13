@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
@@ -745,12 +746,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_PositiveMoraleFx"/>
     /// </summary>
-    public TBuilder SetPositiveMoraleFx(PrefabLink positiveMoraleFx)
+    ///
+    /// <param name="positiveMoraleFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetPositiveMoraleFx(AssetLink<PrefabLink> positiveMoraleFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_PositiveMoraleFx = positiveMoraleFx;
+          bp.m_PositiveMoraleFx = positiveMoraleFx?.Get();
         });
     }
 
@@ -770,12 +775,16 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_NegativeMoraleFx"/>
     /// </summary>
-    public TBuilder SetNegativeMoraleFx(PrefabLink negativeMoraleFx)
+    ///
+    /// <param name="negativeMoraleFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetNegativeMoraleFx(AssetLink<PrefabLink> negativeMoraleFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_NegativeMoraleFx = negativeMoraleFx;
+          bp.m_NegativeMoraleFx = negativeMoraleFx?.Get();
         });
     }
 

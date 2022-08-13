@@ -2,6 +2,7 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
@@ -49,13 +50,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.View"/>
     /// </summary>
-    public TBuilder SetView(ProjectileLink view)
+    ///
+    /// <param name="view">
+    /// You can pass in the animation using a ProjectileLink or it's AssetId.
+    /// </param>
+    public TBuilder SetView(AssetLink<ProjectileLink> view)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(view);
-          bp.View = view;
+          bp.View = view?.Get();
         });
     }
 
@@ -75,12 +79,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.CastFx"/>
     /// </summary>
-    public TBuilder SetCastFx(PrefabLink castFx)
+    ///
+    /// <param name="castFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetCastFx(AssetLink<PrefabLink> castFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.CastFx = castFx;
+          bp.CastFx = castFx?.Get();
         });
     }
 
@@ -409,13 +417,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.StuckArrowPrefab"/>
     /// </summary>
-    public TBuilder SetStuckArrowPrefab(GameObject stuckArrowPrefab)
+    ///
+    /// <param name="stuckArrowPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetStuckArrowPrefab(Asset<GameObject> stuckArrowPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(stuckArrowPrefab);
-          bp.StuckArrowPrefab = stuckArrowPrefab;
+          bp.StuckArrowPrefab = stuckArrowPrefab?.Get();
         });
     }
 
@@ -435,13 +446,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.DeflectedArrowPrefab"/>
     /// </summary>
-    public TBuilder SetDeflectedArrowPrefab(GameObject deflectedArrowPrefab)
+    ///
+    /// <param name="deflectedArrowPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    public TBuilder SetDeflectedArrowPrefab(Asset<GameObject> deflectedArrowPrefab)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(deflectedArrowPrefab);
-          bp.DeflectedArrowPrefab = deflectedArrowPrefab;
+          bp.DeflectedArrowPrefab = deflectedArrowPrefab?.Get();
         });
     }
 

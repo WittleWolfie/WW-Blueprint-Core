@@ -33,12 +33,208 @@
     "Comment": [
       "You can pass in the string using a LocalizedString or the Key to a LocalizedString."
     ],
-    "AssignmentFmtRhs":  "{0}?.LocalizedString",
+    "AssignmentFmtRhs": "{0}?.LocalizedString",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.String"
   },
 
   {
+    "TypeName": "AnimationClipWrapperLink",
+    "TypeNameOverride": "AssetLink<AnimationClipWrapperLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using an AnimationClipWrapperLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "AnimationClipWrapper",
+    "TypeNameOverride": "Asset<AnimationClipWrapper>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using an AnimationClipWrapper or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "EquipmentEntityLink",
+    "TypeNameOverride": "AssetLink<EquipmentEntityLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using an EquipmentEntityLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "EquipmentEntity",
+    "TypeNameOverride": "Asset<EquipmentEntity>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using an EquipmentEntity or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "FamiliarLink",
+    "TypeNameOverride": "AssetLink<FamiliarLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a FamiliarLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Familiar",
+    "TypeNameOverride": "Asset<Familiar>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a Familiar or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
     "TypeName": "PrefabLink",
+    "TypeNameOverride": "AssetLink<PrefabLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a PrefabLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()",
     "AssignmentIfNullRhs": "Utils.Constants.Empty.PrefabLink"
+  },
+
+  {
+    "TypeName": "GameObject",
+    "TypeNameOverride": "Asset<GameObject>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a GameObject or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "ProjectileLink",
+    "TypeNameOverride": "AssetLink<ProjectileLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a ProjectileLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Projectile",
+    "TypeNameOverride": "Asset<Projectile>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a Projectile or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "SpriteLink",
+    "TypeNameOverride": "AssetLink<SpriteLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a SpriteLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Sprite",
+    "TypeNameOverride": "Asset<Sprite>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a Sprite or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "TextAssetLink",
+    "TypeNameOverride": "AssetLink<TextAssetLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a TextAssetLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "TextAsset",
+    "TypeNameOverride": "Asset<TextAsset>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a TextAsset or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Texture2DLink",
+    "TypeNameOverride": "AssetLink<Texture2DLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a Texture2DLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "Texture2D",
+    "TypeNameOverride": "Asset<Texture2D>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a Texture2D or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "UnitViewLink",
+    "TypeNameOverride": "AssetLink<UnitViewLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a UnitViewLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "UnitEntityView",
+    "TypeNameOverride": "Asset<UnitEntityView>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a UnitEntityView or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "VideoLink",
+    "TypeNameOverride": "AssetLink<VideoLink>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using a VideoLink or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
+  },
+
+  {
+    "TypeName": "VideoClip",
+    "TypeNameOverride": "Asset<VideoClip>",
+    "Imports": [ "AssetTool" ],
+    "Comment": [
+      "You can pass in the animation using an VideoClip or it's AssetId."
+    ],
+    "AssignmentFmtRhs": "{0}?.Get()"
   }
 ]

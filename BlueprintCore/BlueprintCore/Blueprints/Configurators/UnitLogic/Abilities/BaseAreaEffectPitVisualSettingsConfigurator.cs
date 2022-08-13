@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
@@ -47,12 +48,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.UnitDisappearFx"/>
     /// </summary>
-    public TBuilder SetUnitDisappearFx(PrefabLink unitDisappearFx)
+    ///
+    /// <param name="unitDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetUnitDisappearFx(AssetLink<PrefabLink> unitDisappearFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.UnitDisappearFx = unitDisappearFx;
+          bp.UnitDisappearFx = unitDisappearFx?.Get();
         });
     }
 
@@ -72,12 +77,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.UnitAppearFx"/>
     /// </summary>
-    public TBuilder SetUnitAppearFx(PrefabLink unitAppearFx)
+    ///
+    /// <param name="unitAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetUnitAppearFx(AssetLink<PrefabLink> unitAppearFx)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.UnitAppearFx = unitAppearFx;
+          bp.UnitAppearFx = unitAppearFx?.Get();
         });
     }
 

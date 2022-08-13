@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using BlueprintCore.Test.Patches;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;

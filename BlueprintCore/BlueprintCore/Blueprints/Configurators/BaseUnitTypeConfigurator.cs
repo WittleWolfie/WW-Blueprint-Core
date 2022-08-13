@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
@@ -37,13 +38,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitType.Image"/>
     /// </summary>
-    public TBuilder SetImage(Sprite image)
+    ///
+    /// <param name="image">
+    /// You can pass in the animation using a Sprite or it's AssetId.
+    /// </param>
+    public TBuilder SetImage(Asset<Sprite> image)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(image);
-          bp.Image = image;
+          bp.Image = image?.Get();
         });
     }
 

@@ -6,6 +6,7 @@ using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -1014,7 +1015,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HuntersSurpriseAbility</term><description>0bd6b945523c0264f9ddfd0aad3791e8</description></item>
+    /// <item><term>HuntersBondAbility</term><description>cd80ea8a7a07a9d4cb1a54e67a9390a5</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1083,7 +1084,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrder</term><description>b1723a0239d428243a1be2299696eb85</description></item>
-    /// <item><term>MagicalVestment</term><description>2d4263d80f5136b4296d6eb43a221d7d</description></item>
+    /// <item><term>MadnessDomainBaseAbility</term><description>9246020fe13095346946ff3101d9f60d</description></item>
     /// <item><term>WitchHexRegenerativeSinewAbility</term><description>40d201c6fbbb46e46a63dec8508de65a</description></item>
     /// </list>
     /// </remarks>
@@ -1128,7 +1129,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealFeature</term><description>b6798b29d36982b4786a32dfd81a914f</description></item>
+    /// <item><term>HellsDecreeAbilityTargetedRageAllySelfBuff</term><description>783bcdac2a948eb448f3eb249f068f6f</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -1180,7 +1181,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagboundWitchVileCurseDeterioration</term><description>97a64518e7fd0aa4e86a51245e9de1a7</description></item>
+    /// <item><term>HagboundWitchVileCurseDeteriorationCast</term><description>e1ededaf191910b4c9ad73d7dd150a21</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1204,13 +1205,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <summary>
     /// Adds <see cref="TargetHasBuffsFromCaster"/>
     /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// </list>
-    /// </remarks>
     ///
     /// <param name="buffs">
     /// <para>
@@ -1240,6 +1234,306 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.Buffs = buffs?.Select(bp => bp.Reference)?.ToArray();
       component.RequireAllBuffs = requireAllBuffs ?? component.RequireAllBuffs;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomFly"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FlyTest</term><description>cdcf060b81ff7344db1d93e0dfb6aa2f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilityCustomFly(
+        UnitAnimationActionBuffState? animation = null,
+        float? flyUpTime = null,
+        bool? hasIsAllyEffectRunConditions = null,
+        AnimationCurve? landing = null,
+        float? landTime = null,
+        float? maxHeight = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        AnimationCurve? takeOff = null,
+        float? takeoffTime = null)
+    {
+      var component = new AbilityCustomFly();
+      Validate(animation);
+      component.Animation = animation ?? component.Animation;
+      component.FlyUpTime = flyUpTime ?? component.FlyUpTime;
+      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landing);
+      component.Landing = landing ?? component.Landing;
+      component.LandTime = landTime ?? component.LandTime;
+      component.MaxHeight = maxHeight ?? component.MaxHeight;
+      Validate(takeOff);
+      component.TakeOff = takeOff ?? component.TakeOff;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityCustomTongueGrab"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GiantFrogTongueGrabTest</term><description>b5362f4dc554d2544921934b3a841efa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilityCustomTongueGrab(
+        UnitAnimationCustomTongueGrab? animationAction = null,
+        bool? hasIsAllyEffectRunConditions = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Feet? pullDistance = null,
+        AnimationCurve? returnCurve = null,
+        bool? returnTargetAbility = null,
+        AnimationCurve? stickCurve = null,
+        float? tongueReturnSpeed = null,
+        float? tongueStickSpeed = null)
+    {
+      var component = new AbilityCustomTongueGrab();
+      Validate(animationAction);
+      component.AnimationAction = animationAction ?? component.AnimationAction;
+      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      component.PullDistance = pullDistance ?? component.PullDistance;
+      Validate(returnCurve);
+      component.ReturnCurve = returnCurve ?? component.ReturnCurve;
+      component.m_ReturnTargetAbility = returnTargetAbility ?? component.m_ReturnTargetAbility;
+      Validate(stickCurve);
+      component.StickCurve = stickCurve ?? component.StickCurve;
+      component.TongueReturnSpeed = tongueReturnSpeed ?? component.TongueReturnSpeed;
+      component.TongueStickSpeed = tongueStickSpeed ?? component.TongueStickSpeed;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilitySillyFeed"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AbilitySillyFeed</term><description>705481ead7d4b4142b2c07f0088e9913</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilitySillyFeed(
+        UnitAnimationActionClip? animation = null,
+        bool? hasIsAllyEffectRunConditions = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AbilitySillyFeed();
+      Validate(animation);
+      component.m_Animation = animation ?? component.m_Animation;
+      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityTargetStoneToFlesh"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>StoneToFlesh</term><description>e243740dfdb17a246b116b334ed0b165</description></item>
+    /// <item><term>TrueForm</term><description>be0537e563ad07241a15c25dba990bd1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilityTargetStoneToFlesh(
+        bool? canBeNotPetrified = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AbilityTargetStoneToFlesh();
+      component.CanBeNotPetrified = canBeNotPetrified ?? component.CanBeNotPetrified;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MagusSpellRecall</term><description>1bd76e00b6e056d42a8ecc1031dd43b4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="improvedFeature">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilityMagusSpellRecallCostCalculator(
+        Blueprint<BlueprintFeatureReference>? improvedFeature = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AbilityMagusSpellRecallCostCalculator();
+      component.m_ImprovedFeature = improvedFeature?.Reference ?? component.m_ImprovedFeature;
+      if (component.m_ImprovedFeature is null)
+      {
+        component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilitySwitchDualCompanion"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Switch_Dual_Companions_Ability</term><description>26c8d5dc21025564baaeaee51ede05c1</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    /// <param name="appearProjectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    /// <param name="disappearProjectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portalPrefab">
+    /// You can pass in the animation using a GameObject or it's AssetId.
+    /// </param>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddAbilitySwitchDualCompanion(
+        float? appearDelay = null,
+        Asset<GameObject>? appearFx = null,
+        Blueprint<BlueprintProjectileReference>? appearProjectile = null,
+        Asset<GameObject>? disappearFx = null,
+        Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
+        bool? hasIsAllyEffectRunConditions = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        string? portalBone = null,
+        Asset<GameObject>? portalPrefab = null)
+    {
+      var component = new AbilitySwitchDualCompanion();
+      component.AppearDelay = appearDelay ?? component.AppearDelay;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
+      component.m_AppearProjectile = appearProjectile?.Reference ?? component.m_AppearProjectile;
+      if (component.m_AppearProjectile is null)
+      {
+        component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
+      component.m_DisappearProjectile = disappearProjectile?.Reference ?? component.m_DisappearProjectile;
+      if (component.m_DisappearProjectile is null)
+      {
+        component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      component.PortalBone = portalBone ?? component.PortalBone;
+      component.PortalPrefab = portalPrefab?.Get() ?? component.PortalPrefab;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationAccomplishedSneakAttacker"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
+    /// </list>
+    /// </remarks>
+    [Obsolete("File an issue on GitHub if you need this.")]
+    public TBuilder AddRecommendationAccomplishedSneakAttacker()
+    {
+      return AddComponent(new RecommendationAccomplishedSneakAttacker());
     }
 
     /// <summary>
@@ -1520,7 +1814,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteDeath</term><description>7d721be6d74f07f4d952ee8d6f8f44a0</description></item>
-    /// <item><term>HolySword</term><description>bea9deffd3ab6734c9534153ddc70bde</description></item>
+    /// <item><term>HolySmite</term><description>ad5ed5ea4ec52334a94e975a64dad336</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1882,7 +2176,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>JagannathKhandaPoisonBuff</term><description>7cadc7cfdfb491143a62eabfdcd2d948</description></item>
+    /// <item><term>JaethalCampBuff</term><description>e9cc770ccca8b73488196e1f508e2675</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -1911,7 +2205,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HelmetOfTheDuskFeature</term><description>ade5182f85a26fd4f85eebcaf70449ec</description></item>
+    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
     /// <item><term>WreckingDevilEnchantment</term><description>b147364a4f50438f943f8095c85916b7</description></item>
     /// </list>
     /// </remarks>
@@ -1990,6 +2284,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2001,6 +2298,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2020,6 +2320,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2031,6 +2340,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2046,25 +2358,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddArmyAbilityTeleportation(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new ArmyAbilityTeleportation();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2074,7 +2386,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2086,18 +2398,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2107,7 +2419,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2428,6 +2740,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2439,6 +2754,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2458,6 +2776,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2469,6 +2796,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2484,25 +2814,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoor(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDimensionDoor();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2512,7 +2842,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2524,18 +2854,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2545,7 +2875,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2570,6 +2900,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="appearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2581,6 +2914,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="disappearProjectile">
     /// <para>
@@ -2600,19 +2936,22 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddAbilityCustomDimensionDoorSwap(
-        PrefabLink? appearFx = null,
+        AssetLink<PrefabLink>? appearFx = null,
         Blueprint<BlueprintProjectileReference>? appearProjectile = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null)
+        AssetLink<PrefabLink>? portalFromPrefab = null)
     {
       var component = new AbilityCustomDimensionDoorSwap();
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       if (component.AppearFx is null)
       {
         component.AppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2622,7 +2961,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2634,7 +2973,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
@@ -2656,6 +2995,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2667,6 +3009,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2686,6 +3031,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2697,6 +3051,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2712,26 +3069,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorTargets(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
         UnitEvaluator[]? targets = null)
     {
       var component = new AbilityCustomDimensionDoorTargets();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2741,7 +3098,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2753,18 +3110,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2774,7 +3131,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2806,6 +3163,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2817,6 +3177,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2836,6 +3199,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2847,6 +3219,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -2862,25 +3237,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomDweomerLeap(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomDweomerLeap();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2890,7 +3265,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2902,18 +3277,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -2923,7 +3298,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -2948,6 +3323,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="casterAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="casterAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -2959,6 +3337,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="casterDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="casterDisappearProjectile">
     /// <para>
@@ -2990,6 +3371,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="portalFromPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="portalToPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="sideAppearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="sideAppearProjectile">
     /// <para>
     /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
@@ -3001,6 +3391,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
+    /// </param>
+    /// <param name="sideDisappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
     /// </param>
     /// <param name="sideDisappearProjectile">
     /// <para>
@@ -3016,26 +3409,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomFlashStep(
         bool? cameraShouldFollow = null,
-        PrefabLink? casterAppearFx = null,
+        AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
-        PrefabLink? casterDisappearFx = null,
+        AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
         Blueprint<BlueprintUnitFactReference>? flashShot = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
-        PrefabLink? portalFromPrefab = null,
-        PrefabLink? portalToPrefab = null,
+        AssetLink<PrefabLink>? portalFromPrefab = null,
+        AssetLink<PrefabLink>? portalToPrefab = null,
         Feet? radius = null,
-        PrefabLink? sideAppearFx = null,
+        AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
-        PrefabLink? sideDisappearFx = null,
+        AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
     {
       var component = new AbilityCustomFlashStep();
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
-      component.CasterAppearFx = casterAppearFx ?? component.CasterAppearFx;
+      component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
       {
         component.CasterAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3045,7 +3438,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.CasterDisappearFx = casterDisappearFx ?? component.CasterDisappearFx;
+      component.CasterDisappearFx = casterDisappearFx?.Get() ?? component.CasterDisappearFx;
       if (component.CasterDisappearFx is null)
       {
         component.CasterDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3062,18 +3455,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
       component.PortalBone = portalBone ?? component.PortalBone;
-      component.PortalFromPrefab = portalFromPrefab ?? component.PortalFromPrefab;
+      component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
       {
         component.PortalFromPrefab = Utils.Constants.Empty.PrefabLink;
       }
-      component.PortalToPrefab = portalToPrefab ?? component.PortalToPrefab;
+      component.PortalToPrefab = portalToPrefab?.Get() ?? component.PortalToPrefab;
       if (component.PortalToPrefab is null)
       {
         component.PortalToPrefab = Utils.Constants.Empty.PrefabLink;
       }
       component.Radius = radius ?? component.Radius;
-      component.SideAppearFx = sideAppearFx ?? component.SideAppearFx;
+      component.SideAppearFx = sideAppearFx?.Get() ?? component.SideAppearFx;
       if (component.SideAppearFx is null)
       {
         component.SideAppearFx = Utils.Constants.Empty.PrefabLink;
@@ -3083,7 +3476,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideAppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      component.SideDisappearFx = sideDisappearFx ?? component.SideDisappearFx;
+      component.SideDisappearFx = sideDisappearFx?.Get() ?? component.SideDisappearFx;
       if (component.SideDisappearFx is null)
       {
         component.SideDisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3093,51 +3486,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomFly"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FlyTest</term><description>cdcf060b81ff7344db1d93e0dfb6aa2f</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilityCustomFly(
-        UnitAnimationActionBuffState? animation = null,
-        float? flyUpTime = null,
-        bool? hasIsAllyEffectRunConditions = null,
-        AnimationCurve? landing = null,
-        float? landTime = null,
-        float? maxHeight = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        AnimationCurve? takeOff = null,
-        float? takeoffTime = null)
-    {
-      var component = new AbilityCustomFly();
-      Validate(animation);
-      component.Animation = animation ?? component.Animation;
-      component.FlyUpTime = flyUpTime ?? component.FlyUpTime;
-      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
-      Validate(landing);
-      component.Landing = landing ?? component.Landing;
-      component.LandTime = landTime ?? component.LandTime;
-      component.MaxHeight = maxHeight ?? component.MaxHeight;
-      Validate(takeOff);
-      component.TakeOff = takeOff ?? component.TakeOff;
-      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3297,6 +3645,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </list>
     /// </remarks>
     ///
+    /// <param name="appearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="disappearFx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -3317,9 +3671,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityCustomTeleportation(
         float? appearDuration = null,
-        PrefabLink? appearFx = null,
+        AssetLink<PrefabLink>? appearFx = null,
         float? disappearDuration = null,
-        PrefabLink? disappearFx = null,
+        AssetLink<PrefabLink>? disappearFx = null,
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -3327,13 +3681,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     {
       var component = new AbilityCustomTeleportation();
       component.AppearDuration = appearDuration ?? component.AppearDuration;
-      component.AppearFx = appearFx ?? component.AppearFx;
+      component.AppearFx = appearFx?.Get() ?? component.AppearFx;
       if (component.AppearFx is null)
       {
         component.AppearFx = Utils.Constants.Empty.PrefabLink;
       }
       component.DisappearDuration = disappearDuration ?? component.DisappearDuration;
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
+      component.DisappearFx = disappearFx?.Get() ?? component.DisappearFx;
       if (component.DisappearFx is null)
       {
         component.DisappearFx = Utils.Constants.Empty.PrefabLink;
@@ -3344,51 +3698,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityCustomTongueGrab"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>GiantFrogTongueGrabTest</term><description>b5362f4dc554d2544921934b3a841efa</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilityCustomTongueGrab(
-        UnitAnimationCustomTongueGrab? animationAction = null,
-        bool? hasIsAllyEffectRunConditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Feet? pullDistance = null,
-        AnimationCurve? returnCurve = null,
-        bool? returnTargetAbility = null,
-        AnimationCurve? stickCurve = null,
-        float? tongueReturnSpeed = null,
-        float? tongueStickSpeed = null)
-    {
-      var component = new AbilityCustomTongueGrab();
-      Validate(animationAction);
-      component.AnimationAction = animationAction ?? component.AnimationAction;
-      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
-      component.PullDistance = pullDistance ?? component.PullDistance;
-      Validate(returnCurve);
-      component.ReturnCurve = returnCurve ?? component.ReturnCurve;
-      component.m_ReturnTargetAbility = returnTargetAbility ?? component.m_ReturnTargetAbility;
-      Validate(stickCurve);
-      component.StickCurve = stickCurve ?? component.StickCurve;
-      component.TongueReturnSpeed = tongueReturnSpeed ?? component.TongueReturnSpeed;
-      component.TongueStickSpeed = tongueStickSpeed ?? component.TongueStickSpeed;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -4138,50 +4447,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
-    /// Adds <see cref="AbilityMagusSpellRecallCostCalculator"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>MagusSpellRecall</term><description>1bd76e00b6e056d42a8ecc1031dd43b4</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="improvedFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilityMagusSpellRecallCostCalculator(
-        Blueprint<BlueprintFeatureReference>? improvedFeature = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AbilityMagusSpellRecallCostCalculator();
-      component.m_ImprovedFeature = improvedFeature?.Reference ?? component.m_ImprovedFeature;
-      if (component.m_ImprovedFeature is null)
-      {
-        component.m_ImprovedFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AbilityRequirementCanMove"/>
     /// </summary>
     ///
@@ -4288,7 +4553,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbjurationResistanceAcidAbility</term><description>9b415e09847398644ad6e57a9e3ab06a</description></item>
-    /// <item><term>HellsDecreeAbilityEnemyToAll</term><description>0fa67d400d45df548beb0ffd50b83dc3</description></item>
+    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
     /// <item><term>WitchWanderingHexAbility</term><description>b209beab784d93546b40a2fa2a09ffa8</description></item>
     /// </list>
     /// </remarks>
@@ -4550,114 +4815,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_UnitFact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilitySillyFeed"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AbilitySillyFeed</term><description>705481ead7d4b4142b2c07f0088e9913</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilitySillyFeed(
-        UnitAnimationActionClip? animation = null,
-        bool? hasIsAllyEffectRunConditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AbilitySillyFeed();
-      Validate(animation);
-      component.m_Animation = animation ?? component.m_Animation;
-      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilitySwitchDualCompanion"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Switch_Dual_Companions_Ability</term><description>26c8d5dc21025564baaeaee51ede05c1</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="appearProjectile">
-    /// <para>
-    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="disappearProjectile">
-    /// <para>
-    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilitySwitchDualCompanion(
-        float? appearDelay = null,
-        GameObject? appearFx = null,
-        Blueprint<BlueprintProjectileReference>? appearProjectile = null,
-        GameObject? disappearFx = null,
-        Blueprint<BlueprintProjectileReference>? disappearProjectile = null,
-        bool? hasIsAllyEffectRunConditions = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        string? portalBone = null,
-        GameObject? portalPrefab = null)
-    {
-      var component = new AbilitySwitchDualCompanion();
-      component.AppearDelay = appearDelay ?? component.AppearDelay;
-      Validate(appearFx);
-      component.AppearFx = appearFx ?? component.AppearFx;
-      component.m_AppearProjectile = appearProjectile?.Reference ?? component.m_AppearProjectile;
-      if (component.m_AppearProjectile is null)
-      {
-        component.m_AppearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
-      }
-      Validate(disappearFx);
-      component.DisappearFx = disappearFx ?? component.DisappearFx;
-      component.m_DisappearProjectile = disappearProjectile?.Reference ?? component.m_DisappearProjectile;
-      if (component.m_DisappearProjectile is null)
-      {
-        component.m_DisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
-      }
-      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
-      component.PortalBone = portalBone ?? component.PortalBone;
-      Validate(portalPrefab);
-      component.PortalPrefab = portalPrefab ?? component.PortalPrefab;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -5353,7 +5510,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>RemoveCurse 4</term><description>55b85c03103de184091a96eeaed4de25</description></item>
+    /// <item><term>RemoveCurse 3</term><description>668f4d1ff4dbfc442bd75f9b6f69e05e</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>
@@ -5684,35 +5841,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.Inverted = inverted ?? component.Inverted;
       component.Stat = stat ?? component.Stat;
       return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="AbilityTargetStoneToFlesh"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>StoneToFlesh</term><description>e243740dfdb17a246b116b334ed0b165</description></item>
-    /// <item><term>TrueForm</term><description>be0537e563ad07241a15c25dba990bd1</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddAbilityTargetStoneToFlesh(
-        bool? canBeNotPetrified = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new AbilityTargetStoneToFlesh();
-      component.CanBeNotPetrified = canBeNotPetrified ?? component.CanBeNotPetrified;
-      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -6050,6 +6178,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="prefabLink">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
     public TBuilder AddAbilitySpawnFx(
         AbilitySpawnFxAnchor? anchor = null,
         float? delay = null,
@@ -6057,7 +6189,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AbilitySpawnFxAnchor? orientationAnchor = null,
         AbilitySpawnFxOrientation? orientationMode = null,
         AbilitySpawnFxAnchor? positionAnchor = null,
-        PrefabLink? prefabLink = null,
+        AssetLink<PrefabLink>? prefabLink = null,
         AbilitySpawnFxTime? time = null,
         AbilitySpawnFxWeaponTarget? weaponTarget = null)
     {
@@ -6068,7 +6200,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       component.OrientationAnchor = orientationAnchor ?? component.OrientationAnchor;
       component.OrientationMode = orientationMode ?? component.OrientationMode;
       component.PositionAnchor = positionAnchor ?? component.PositionAnchor;
-      component.PrefabLink = prefabLink ?? component.PrefabLink;
+      component.PrefabLink = prefabLink?.Get() ?? component.PrefabLink;
       if (component.PrefabLink is null)
       {
         component.PrefabLink = Utils.Constants.Empty.PrefabLink;
@@ -6258,22 +6390,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       var component = new PureRecommendation();
       component.Priority = priority ?? component.Priority;
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationAccomplishedSneakAttacker"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddRecommendationAccomplishedSneakAttacker()
-    {
-      return AddComponent(new RecommendationAccomplishedSneakAttacker());
     }
 
     /// <summary>

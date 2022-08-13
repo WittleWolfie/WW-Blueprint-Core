@@ -39,7 +39,9 @@ namespace BlueprintCore.Utils
     public static void EnableInternalVerboseLogs(bool enable = true)
     {
       InternalLogWrappers.ForEach(logger => logger.EnableVerboseLogs = enable);
+      EnableVerboseLogsInternal = true;
     }
+    private static bool EnableVerboseLogsInternal = false;
 
     internal static string PrefixRoot = $"BlueprintCore";
     internal static List<LogWrapper> InternalLogWrappers = new();
@@ -48,6 +50,7 @@ namespace BlueprintCore.Utils
     {
       var logWrapper = Get($"{PrefixRoot}.{prefix}");
       InternalLogWrappers.Add(logWrapper);
+      logWrapper.EnableVerboseLogs = EnableVerboseLogsInternal;
       return logWrapper;
     }
 
