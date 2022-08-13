@@ -270,3 +270,14 @@ Some tips:
 
 * Look at existing game blueprints and see how they implement scaling bonuses
 * The [Wrath Game Structure](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki) section of the wiki has information that is helpful
+
+### Next Steps
+
+Try the [Skald's Vigor](advanced/skalds_vigor.md) advanced feat tutorial which covers more topics including:
+
+* Troubleshooting and debugging
+* Wrath's `EventBus`
+* Modifying existing blueprints
+* Adding icons
+* Actions and conditions
+* Feature pre-requisites

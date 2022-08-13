@@ -175,14 +175,14 @@ public override void RunAction()
     // ...
     if (ruleSkillCheck2.Success)
     {
-      // ...
-	  }
+    // ...
+    }
     NotifySubscribers(this, ruleSkillCheck2);
   }
-	finally
-	{
+  finally
+  {
     // ...
-	}
+  }
 }
 
 public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck initimidateCheck) {}
@@ -222,9 +222,7 @@ One option is to count the number of instructions before our new instructions an
 
 The goal is to minimize the chance your transpiler breaks, and you do that by anchoring to instructions. In our case we always want the event to be the last statement in the `try` block, so the new code should go just before the corresponding statement.
 
-There is a problem with our `Ldloc_S`. In dnSpy it included an operand `skillCheckResult` but that doesn't mean anything in our C# code.
-
-How do we know what operand to use? Find an existing instruction that uses the operand, and copy it. In dnSpy's IL view it's called out clearly in the comments: `} // end .try`. So the line before that is the last statement:
+In dnSpy's IL view the end of the `try` block is called out clearly in the comments: `} // end .try`. So the line before that is the last statement:
 
 ```
 IL_0419: leave.s   IL_0428
@@ -321,7 +319,7 @@ static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> inst
 }
 ```
 
-Now you need to find update the operands of instructions using `retLabel` or `leaveLabel` to use `newJumpTarget` instead. Except there's a problem: if you update _all_ operands using `retLabel` it includes early returns before `TriggerSkillCheck` is called, so `ruleSkillCheck2` doesn't exist.
+Now you need to update the operands of instructions using `retLabel` or `leaveLabel` to use `newJumpTarget` instead. Except there's a problem: if you update _all_ operands using `retLabel` it includes early returns before `TriggerSkillCheck` is called, so `ruleSkillCheck2` doesn't exist.
 
 Rather than updating all operands using `retLabel` or `leaveLabel`, search backwards and update only until `TriggerSkillCheck` is called:
 
@@ -535,14 +533,14 @@ Finally the attack itself consumes a swift:
 
 ```C#
 caster.SpendAction(UnitCommand.CommandType.Swift, isFullRound: False, timeSinceCommandStart: 0);
-  var attack =
-    Context.TriggerRule<RuleAttackWithWeapon>(
-      new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
+var attack =
+  Context.TriggerRule<RuleAttackWithWeapon>(
+    new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
 ```
 
 ## Adding a Toggle
 
-Since Wrath can be played in either turn-based or real-time mode, triggered abilities typically have a toggle which can disable them. This is particularly important because Hurtful uses a resource, a swift action, that the player may not want to spend.
+Since Wrath can be played in either turn-based or real-time mode, triggered abilities typically have a toggle which can disable them. This is particularly important because Hurtful uses a resource, a swift action, the player may not want to spend.
 
 This is done using `BlueprintActivatableAbility`. Activatable abilities are generally simple blueprints without components that specify a `BlueprintBuff` which is applied when toggled on and removed when toggled off. Create a buff with the `HurtfulComponent` to trigger the attack and an activatable ability using that buff:
 

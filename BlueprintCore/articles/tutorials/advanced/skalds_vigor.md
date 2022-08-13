@@ -27,7 +27,7 @@ Make sure to add "SkaldsVigor.Name" and "SkaldsVigor.Description" to your `Local
 
 ## Adding a Prerequisite
 
-First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature preqrequisites. You can find them by searching `Prerequisite` in the `FeatureConfigurator` API or the decompiler.
+First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature prerequisites. You can find them by searching `Prerequisite` in the `FeatureConfigurator` API or the decompiler.
 
 For this use `AddPrerequisiteFeature` and pass in the Raging Song feature. You can find the Raging Song feature using [BubblePrints](https://github.com/factubsio/BubblePrints) or by searching `FeatureRefs`:
 
@@ -41,7 +41,7 @@ FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.Comb
 
 Unfortunately `FeatureRefs.RagingSong` provides `Blueprint<BlueprintReference<BlueprintFeature>>` but `AddPrerequisiteFeature` expects `Blueprint<BlueprintFeatureReference>`. There's no way to automatically convert but you can call `ToString()` to get the GUID directly. You can also use the cast method: `FeatureRefs.RagingSong.Cast<BlueprintFeatureReference>()`.
 
-> ![TIP]
+> [!TIP]
 > In this example there is only a single version of Raging Song. Some features have multiple versions such as a Magus's Spell Combat. You can require one of a set of features using PrerequisiteFeaturesFromList.
 
 Go ahead and test it out. It should be available to characters with Raging Song:
@@ -73,7 +73,7 @@ Now we'll need to apply the buff when Raging Song is active. To do that we'll ne
 
 Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is `InspiredRageBuff` which spawns `InspiredRageArea` which applies the actual effects using `InspiredRageEffectBuff`.
 
-> ![NOTE]
+> [!NOTE]
 > You could avoid modifying existing blueprints by adding a `FactsChangeTrigger` component to the feat itself, which allows you to execute actions in response to a fact, such as the `InspiredRageBuff`, being applied or removed. The tutorial avoids this approach because it only works for Skald's Vigor, not Greater Skald's Vigor.
 
 There are multiple ways to apply the buff, we'll add an `AddFactContextActions` component to `InspiredRageEffectBuff`:
@@ -99,7 +99,7 @@ Test it out and you should see something similar to this:
 
 It works! ... or does it? Keep testing and the fast healing does not apply every round. Something is wrong, but what?
 
-> ![NOTE]
+> [!NOTE]
 > If it works consistently you may have a mod that accidentally fixes the issue. Otherwise test in turn based combat; in my testing this was the most reliable way to trigger fast healing failures.
 
 ### Troubleshooting
@@ -112,12 +112,12 @@ First look up the `AddEffectContextFastHealing` component in the decompiler. It 
 
 ![OnNewRound uses](~/images/advanced_feat/on_new_round.png)
 
-> ![TIP]
+> [!TIP]
 > When searching for uses of interface methods in dnSpy, go to the interface definition and search from there. Searching from an implementation usually returns nothing.
 
-Ignore `TacticalCombatUnitTicksController` which is used for army combat. Check `UnitTicksController.TickNextRound()`; it explicitly doesn't handle buffs. This means `Buff.TickMechanics()` is responsible for triggering fast healing.
+Ignore `TacticalCombatUnitTicksController`, anything "Tactical" is used for army combat. Check `UnitTicksController.TickNextRound()`; it explicitly doesn't handle buffs. This means `Buff.TickMechanics()` is responsible for triggering fast healing.
 
-Now you could try patching `Buff.TickMechanics()` but there's a patch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is just tied to the blueprint; it''s either always there or not. Nothing changes that.
+Now you could try patching `Buff.TickMechanics()` but there's a catch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is always part of the blueprint and nothing changes that.
 
 Fortunately `Buff.TickMechanics()` is only called by `BuffCollection.TickBuff()` which is called by `BuffCollection.Tick()`. `BuffCollection` represents all the buffs on a unit, so `Tick()` is responsible for triggering new round effects on all buffs.
 
@@ -163,7 +163,7 @@ static class BuffCollection_Patch
 }
 ```
 
-> ![TIP]
+> [!TIP]
 > Always wrap your patches in try/catch statements and log exceptions. If you don't the exception may not be logged resulting in silent failures.
 
 The purpose of this patch is to look for discrepencies in the buff trigger timing. If the buff works correctly `buff.NextEventTime` should increment by 6 seconds every 6 seconds of game time, since 6 seconds is one round.
@@ -180,7 +180,7 @@ Test it in and out of combat and look at the log (I added the numbers for refere
 [147.4724 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:46.7940000 vs 12:11:42.2940000
 ```
 
-> ![TIP]
+> [!TIP]
 > Make sure to disable ILStrip or add your patch to the Entry Points in your .csproj file. I recommend disabling ILStrip for Debug builds.
 
 A few things are wrong:
@@ -195,7 +195,7 @@ If you pay careful attention to the buff UI in game you might spot the problem. 
 * A valid target enters the area
 * A valid target is in the area *each round*
 
-In other words: `InspiredRageEffectBuff` is reapplied every round. Since its stacking type is `StackingType.Replace` it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.
+In other words: `InspiredRageEffectBuff` is reapplied every round. Since its stacking type is `StackingType.Replace` (the default value) it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.
 
 There are a few ways to fix this but the simplest is to change the stacking behavior of Inspired Rage:
 
@@ -271,7 +271,7 @@ if (ability?.Blueprint != ActivatableAbilityRefs.InspiredRageAbility.Reference.G
 }
 ```
 
-> ![NOTE]
+> [!NOTE]
 > Blueprints can be directly compared because there is only a single cached instance of any given game blueprint.
 
 Now it just needs to remove the Skald's Vigor buff. To get an idea of how to remove a buff look at the decompiled code for `ContextActionRemoveBuff`, the same action we're already using to remove the buff:
@@ -316,6 +316,9 @@ It is common for mods to import PNG files directly, see [TabletopTweaks-Core's](
 3. Create a script to build an AssetBundle using [Unity's Tutorial](https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4)
 4. Create a new folder in Assets called **Icons**
 
+> [!NOTE]
+> If you created your project using the [Quick Start](~/articles/intro.md#quick-start) instructions you can skip the steps above.
+
 Your Unity project should look similar to this:
 
 ![Unity project bundle setup](~/images/advanced_feat/unity_bundle_setup.png)
@@ -330,7 +333,7 @@ With the icon still selected, click the **AssetBundle** dropdown at the bottom o
 
 ![Icon inspector tab](~/images/advanced_feat/unity_sprite_config.png)
 
-> ![NOTE]
+> [!NOTE]
 > Currently BPCore only supports a single AssetBundle called `assemblyname_assets`. The icons folder is for organization but everything should go to the assets bundle. If your mod was called TabletopStuff it would be `tabletopstuff_assets`.
 
 Create the AssetBundle by selecting **Assets > Build AssetBundles**. Unity generates the **StreamingAssets** folder which should contain two AssetBundles: blueprintcoretutorial_assets and StreamingAssets. You can ignore StreamingAssets.
@@ -347,17 +350,17 @@ Open your project file and update your deployment target:
 
 ```xml
 <Target Name="Deploy" AfterTargets="ILStrip">
-<ItemGroup>
-  <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
-  <ModConfig Include="$(OutputPath)\Info.json" />
-  <Strings Include="$(OutputPath)\LocalizedStrings.json" />
-  <Assets Include="$(OutputPath)\assets" />
-</ItemGroup>
+  <ItemGroup>
+    <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
+    <ModConfig Include="$(OutputPath)\Info.json" />
+    <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+    <Assets Include="$(OutputPath)\*_assets" />
+  </ItemGroup>
 
-<Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-<Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-<Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
-<Copy SourceFiles="@(Assets)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <Copy SourceFiles="@(Assembly)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <Copy SourceFiles="@(Strings)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
+  <Copy SourceFiles="@(Assets)" DestinationFolder="$(WrathPath)\Mods\$(MSBuildProjectName)" />
 </Target>
 ```
 
@@ -444,3 +447,14 @@ Tips:
 * `InspiredRageDeactivationHandler` triggers once on the unit using Inspired Rage, so you need to find every affected unit and remove the buff
     * Remember that `InspiredRageEffectBuff` is applied by `InspiredRageArea`
     * Look at the `SourceAreaEffectId` field of the `Buff` class
+
+### Next Steps
+
+Try more tutorials:
+
+* [Furious Focus](advanced/furious_focus.md)
+    * Creating new components
+    * Modifying attacks
+* [Hurtful](advanced/hurtful.md)
+    * Writing a transpiler
+    * Activatable abilities
