@@ -452,9 +452,9 @@ Tips:
 
 Try more tutorials:
 
-* [Furious Focus](advanced/furious_focus.md)
+* [Furious Focus](furious_focus.md)
     * Creating new components
     * Modifying attacks
-* [Hurtful](advanced/hurtful.md)
+* [Hurtful](hurtful.md)
     * Writing a transpiler
     * Activatable abilities
