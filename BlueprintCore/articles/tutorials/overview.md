@@ -6,7 +6,7 @@ Tutorial names indicate what type of modification to the game they explain. For 
 
 You can do them in any order but the recommended order is:
 
-1. Pre-work
+1. [Pre-work](#pre-work)
 2. [Adding a Feat](feat.md)
 3. Advanced Feats
     * [Skald's Vigor](advanced/skalds_vigor.md)
@@ -18,15 +18,8 @@ All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Bl
 
 ### Pre-work
 
-Before going through any of these tutorials you should work through the [OwlcatModdingWiki Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide). The tutorials require:
-
-* A C# project configured for installation using [Unity Mod Manager](https://www.nexusmods.com/site/mods/21)
-* A [Public Assembly](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Publicize-Assemblies)
-    * Be sure to configure the `WrathPath` environment variable
-* [Optional] Download [RemoteConsole](https://github.com/OwlcatOpenSource/RemoteConsole/releases)
-    * This will show game log events making it easier to debug issues
-
-Once that's done, complete the BlueprintCore [Project Setup](~/articles/intro.md).
+* Install and configure [Unity Mod Manager](https://www.nexusmods.com/site/mods/21)
+* Complete the BlueprintCore [Project Setup](~/articles/intro.md)
 
 Build your project to make sure everything is configured correctly. Now you're ready to start the tutorials.
 
