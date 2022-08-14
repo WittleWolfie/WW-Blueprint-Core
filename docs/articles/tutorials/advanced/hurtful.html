@@ -193,14 +193,14 @@ MechanicsContext mechanicsContext = (data != null) ? data.Context : null;
     // ...
     if (ruleSkillCheck2.Success)
     {
-      // ...
-	  }
+    // ...
+    }
     NotifySubscribers(this, ruleSkillCheck2);
   }
-	finally
-	{
+  finally
+  {
     // ...
-	}
+  }
 }
 
 public static void NotifySubscribers(Demoralize demoralize, RuleSkillCheck initimidateCheck) {}
@@ -226,8 +226,7 @@ IL_0414: call      void Kingmaker.UnitLogic.Mechanics.Actions.Demoralize::Notify
 <p>Now that we have new instructions they need to be inserted into the existing instructions, but where?</p>
 <p>One option is to count the number of instructions before our new instructions and just insert there. However, if the assembly changes because of a game update or another transpiler, this is likely to break. For this reason choosing where to insert new code is critical.</p>
 <p>The goal is to minimize the chance your transpiler breaks, and you do that by anchoring to instructions. In our case we always want the event to be the last statement in the <code>try</code> block, so the new code should go just before the corresponding statement.</p>
-<p>There is a problem with our <code>Ldloc_S</code>. In dnSpy it included an operand <code>skillCheckResult</code> but that doesn't mean anything in our C# code.</p>
-<p>How do we know what operand to use? Find an existing instruction that uses the operand, and copy it. In dnSpy's IL view it's called out clearly in the comments: <code>} // end .try</code>. So the line before that is the last statement:</p>
+<p>In dnSpy's IL view the end of the <code>try</code> block is called out clearly in the comments: <code>} // end .try</code>. So the line before that is the last statement:</p>
 <pre><code>IL_0419: leave.s   IL_0428
 </code></pre>
 <p>To find the insertion point, find this <em>specific</em> <code>leave.s</code> instruction. If you search the IL you'll see another <code>leave.s</code> instruction so checking the opcode is not sufficient. Thankfully we know that we always want to be called near the end of the method, so just search for last <code>leave.s</code> instruction:</p>
@@ -302,7 +301,7 @@ static IEnumerable&lt;CodeInstruction&gt; Transpiler(IEnumerable&lt;CodeInstruct
   }
 }
 </code></pre>
-<p>Now you need to find update the operands of instructions using <code>retLabel</code> or <code>leaveLabel</code> to use <code>newJumpTarget</code> instead. Except there's a problem: if you update <em>all</em> operands using <code>retLabel</code> it includes early returns before <code>TriggerSkillCheck</code> is called, so <code>ruleSkillCheck2</code> doesn't exist.</p>
+<p>Now you need to update the operands of instructions using <code>retLabel</code> or <code>leaveLabel</code> to use <code>newJumpTarget</code> instead. Except there's a problem: if you update <em>all</em> operands using <code>retLabel</code> it includes early returns before <code>TriggerSkillCheck</code> is called, so <code>ruleSkillCheck2</code> doesn't exist.</p>
 <p>Rather than updating all operands using <code>retLabel</code> or <code>leaveLabel</code>, search backwards and update only until <code>TriggerSkillCheck</code> is called:</p>
 <pre><code class="lang-C#">var code = new List&lt;CodeInstruction&gt;(instructions);
 Label newJumpTarget = il.DefineLabel();
@@ -492,12 +491,12 @@ if (!attack.AttackRoll.IsHit)
 </code></pre>
 <p>Finally the attack itself consumes a swift:</p>
 <pre><code class="lang-C#">caster.SpendAction(UnitCommand.CommandType.Swift, isFullRound: False, timeSinceCommandStart: 0);
-  var attack =
-    Context.TriggerRule&lt;RuleAttackWithWeapon&gt;(
-      new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
+var attack =
+  Context.TriggerRule&lt;RuleAttackWithWeapon&gt;(
+    new(caster, target, threatHandMelee.Weapon, attackBonusPenalty: 0));
 </code></pre>
 <h2 id="adding-a-toggle">Adding a Toggle</h2>
-<p>Since Wrath can be played in either turn-based or real-time mode, triggered abilities typically have a toggle which can disable them. This is particularly important because Hurtful uses a resource, a swift action, that the player may not want to spend.</p>
+<p>Since Wrath can be played in either turn-based or real-time mode, triggered abilities typically have a toggle which can disable them. This is particularly important because Hurtful uses a resource, a swift action, the player may not want to spend.</p>
 <p>This is done using <code>BlueprintActivatableAbility</code>. Activatable abilities are generally simple blueprints without components that specify a <code>BlueprintBuff</code> which is applied when toggled on and removed when toggled off. Create a buff with the <code>HurtfulComponent</code> to trigger the attack and an activatable ability using that buff:</p>
 <pre><code class="lang-C#">var buff =
   BuffConfigurator.New(BuffName, BuffGuid)

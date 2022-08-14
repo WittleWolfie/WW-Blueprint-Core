@@ -90,7 +90,7 @@
 </code></pre>
 <p>Make sure to add &quot;SkaldsVigor.Name&quot; and &quot;SkaldsVigor.Description&quot; to your <code>LocalizedStrings.json</code> file.</p>
 <h2 id="adding-a-prerequisite">Adding a Prerequisite</h2>
-<p>First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature preqrequisites. You can find them by searching <code>Prerequisite</code> in the <code>FeatureConfigurator</code> API or the decompiler.</p>
+<p>First let's make sure the feat is only available to character with the Raging Song feature. There's a category of components to implement feature prerequisites. You can find them by searching <code>Prerequisite</code> in the <code>FeatureConfigurator</code> API or the decompiler.</p>
 <p>For this use <code>AddPrerequisiteFeature</code> and pass in the Raging Song feature. You can find the Raging Song feature using <a href="https://github.com/factubsio/BubblePrints">BubblePrints</a> or by searching <code>FeatureRefs</code>:</p>
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
   .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
@@ -99,10 +99,10 @@
   .Configure();
 </code></pre>
 <p>Unfortunately <code>FeatureRefs.RagingSong</code> provides <code>Blueprint&lt;BlueprintReference&lt;BlueprintFeature&gt;&gt;</code> but <code>AddPrerequisiteFeature</code> expects <code>Blueprint&lt;BlueprintFeatureReference&gt;</code>. There's no way to automatically convert but you can call <code>ToString()</code> to get the GUID directly. You can also use the cast method: <code>FeatureRefs.RagingSong.Cast&lt;BlueprintFeatureReference&gt;()</code>.</p>
-<blockquote>
-<p>![TIP]
-In this example there is only a single version of Raging Song. Some features have multiple versions such as a Magus's Spell Combat. You can require one of a set of features using PrerequisiteFeaturesFromList.</p>
-</blockquote>
+<div class="TIP">
+<h5>Tip</h5>
+<p>In this example there is only a single version of Raging Song. Some features have multiple versions such as a Magus's Spell Combat. You can require one of a set of features using PrerequisiteFeaturesFromList.</p>
+</div>
 <p>Go ahead and test it out. It should be available to characters with Raging Song:</p>
 <p><img src="../../../images/advanced_feat/present_prereq.png" alt="Skald's Vigor showing prerequisite is present"></p>
 <p>and unavailable to characters without it:</p>
@@ -121,10 +121,10 @@ In this example there is only a single version of Raging Song. Some features hav
 <p>The custom progression results in 2 fast healing until level 8, then 4 until level 16 where it caps out at 6.</p>
 <p>Now we'll need to apply the buff when Raging Song is active. To do that we'll need to have some way to trigger applying the buff. If you look at the <code>RagingSong</code> blueprint in BubblePrints it isn't very helpful. However, it is referenced in <code>SkaldProgression</code> and searching that reveals another feature, <code>InspiredRage</code>, which grants <code>InspiredRageAbility</code> which is the activatable ability for Raging Song.</p>
 <p>Activatable abilities are typically implemented using a buff which is enabled or disabled when the ability is toggled. In this case the buff is <code>InspiredRageBuff</code> which spawns <code>InspiredRageArea</code> which applies the actual effects using <code>InspiredRageEffectBuff</code>.</p>
-<blockquote>
-<p>![NOTE]
-You could avoid modifying existing blueprints by adding a <code>FactsChangeTrigger</code> component to the feat itself, which allows you to execute actions in response to a fact, such as the <code>InspiredRageBuff</code>, being applied or removed. The tutorial avoids this approach because it only works for Skald's Vigor, not Greater Skald's Vigor.</p>
-</blockquote>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You could avoid modifying existing blueprints by adding a <code>FactsChangeTrigger</code> component to the feat itself, which allows you to execute actions in response to a fact, such as the <code>InspiredRageBuff</code>, being applied or removed. The tutorial avoids this approach because it only works for Skald's Vigor, not Greater Skald's Vigor.</p>
+</div>
 <p>There are multiple ways to apply the buff, we'll add an <code>AddFactContextActions</code> component to <code>InspiredRageEffectBuff</code>:</p>
 <pre><code class="lang-C#">BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
   .AddFactContextActions(
@@ -140,21 +140,21 @@ You could avoid modifying existing blueprints by adding a <code>FactsChangeTrigg
 <p>Test it out and you should see something similar to this:</p>
 <p><img src="../../../images/advanced_feat/fast_healing.png" alt="Skald's Vigor healing demo"></p>
 <p>It works! ... or does it? Keep testing and the fast healing does not apply every round. Something is wrong, but what?</p>
-<blockquote>
-<p>![NOTE]
-If it works consistently you may have a mod that accidentally fixes the issue. Otherwise test in turn based combat; in my testing this was the most reliable way to trigger fast healing failures.</p>
-</blockquote>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If it works consistently you may have a mod that accidentally fixes the issue. Otherwise test in turn based combat; in my testing this was the most reliable way to trigger fast healing failures.</p>
+</div>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <p>There are two ways to investigate further: <a href="https://github.com/thehambeard/Wrath2Debug/releases/latest">Wrath2Debug</a> or method patching.</p>
 <p>I used both techniques but I'm not going to walk through Wrath2Debug as it''s complicated to setup and use. Instead read the game code and try patching methods to log details.</p>
 <p>First look up the <code>AddEffectContextFastHealing</code> component in the decompiler. It triggers each round by implementing <code>ITickEachRound.OnNewRound()</code>. Search for uses of this method:</p>
 <p><img src="../../../images/advanced_feat/on_new_round.png" alt="OnNewRound uses"></p>
-<blockquote>
-<p>![TIP]
-When searching for uses of interface methods in dnSpy, go to the interface definition and search from there. Searching from an implementation usually returns nothing.</p>
-</blockquote>
-<p>Ignore <code>TacticalCombatUnitTicksController</code> which is used for army combat. Check <code>UnitTicksController.TickNextRound()</code>; it explicitly doesn't handle buffs. This means <code>Buff.TickMechanics()</code> is responsible for triggering fast healing.</p>
-<p>Now you could try patching <code>Buff.TickMechanics()</code> but there's a patch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is just tied to the blueprint; it''s either always there or not. Nothing changes that.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>When searching for uses of interface methods in dnSpy, go to the interface definition and search from there. Searching from an implementation usually returns nothing.</p>
+</div>
+<p>Ignore <code>TacticalCombatUnitTicksController</code>, anything &quot;Tactical&quot; is used for army combat. Check <code>UnitTicksController.TickNextRound()</code>; it explicitly doesn't handle buffs. This means <code>Buff.TickMechanics()</code> is responsible for triggering fast healing.</p>
+<p>Now you could try patching <code>Buff.TickMechanics()</code> but there's a catch: this is called for an individual buff which only works if the buff is being called properly. Reading through how the method works it's probably not being called because the component is always part of the blueprint and nothing changes that.</p>
 <p>Fortunately <code>Buff.TickMechanics()</code> is only called by <code>BuffCollection.TickBuff()</code> which is called by <code>BuffCollection.Tick()</code>. <code>BuffCollection</code> represents all the buffs on a unit, so <code>Tick()</code> is responsible for triggering new round effects on all buffs.</p>
 <p>You can patch <code>Tick()</code> and log data; I ended up patching <code>UpdateNextEvent()</code> which selects the buff which should trigger next. Either way start by logging what buff is ticking:</p>
 <pre><code class="lang-C#">[HarmonyPatch(typeof(BuffCollection))]
@@ -195,10 +195,10 @@ static class BuffCollection_Patch
   }
 }
 </code></pre>
-<blockquote>
-<p>![TIP]
-Always wrap your patches in try/catch statements and log exceptions. If you don't the exception may not be logged resulting in silent failures.</p>
-</blockquote>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Always wrap your patches in try/catch statements and log exceptions. If you don't the exception may not be logged resulting in silent failures.</p>
+</div>
 <p>The purpose of this patch is to look for discrepencies in the buff trigger timing. If the buff works correctly <code>buff.NextEventTime</code> should increment by 6 seconds every 6 seconds of game time, since 6 seconds is one round.</p>
 <p>Test it in and out of combat and look at the log (I added the numbers for reference):</p>
 <pre><code>[143.6401 - Mods]: SkaldsVigor: UpdateNextEvent(1) Prefix: 12:11:40.7940000
@@ -209,10 +209,10 @@ Always wrap your patches in try/catch statements and log exceptions. If you don'
 [147.4724 - Mods]: SkaldsVigor: UpdateNextEvent(4) Prefix: 12:11:42.2940000
 [147.4724 - Mods]: SkaldsVigor: Skald's Vigor: 12:11:46.7940000 vs 12:11:42.2940000
 </code></pre>
-<blockquote>
-<p>![TIP]
-Make sure to disable ILStrip or add your patch to the Entry Points in your .csproj file. I recommend disabling ILStrip for Debug builds.</p>
-</blockquote>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Make sure to disable ILStrip or add your patch to the Entry Points in your .csproj file. I recommend disabling ILStrip for Debug builds.</p>
+</div>
 <p>A few things are wrong:</p>
 <ol>
 <li>UpdateNextEvent(1) should trigger Skald's Vigor, but if it did trigger then the next tick time of UpdateNextEvent(2) should be <code>12:11:46.794</code>.</li>
@@ -224,7 +224,7 @@ Make sure to disable ILStrip or add your patch to the Entry Points in your .cspr
 <li>A valid target enters the area</li>
 <li>A valid target is in the area <em>each round</em></li>
 </ul>
-<p>In other words: <code>InspiredRageEffectBuff</code> is reapplied every round. Since its stacking type is <code>StackingType.Replace</code> it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.</p>
+<p>In other words: <code>InspiredRageEffectBuff</code> is reapplied every round. Since its stacking type is <code>StackingType.Replace</code> (the default value) it's removed and added every round. Components that tick each round trigger a round after they are applied. So every round Skald's Vigor is removed and added, delaying the fast healing to the next round. Game time is a little fuzzy so sometimes it triggers before being removed.</p>
 <p>There are a few ways to fix this but the simplest is to change the stacking behavior of Inspired Rage:</p>
 <pre><code class="lang-C#">BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
   .AddFactContextActions(
@@ -279,10 +279,10 @@ Make sure to disable ILStrip or add your patch to the Entry Points in your .cspr
   return;
 }
 </code></pre>
-<blockquote>
-<p>![NOTE]
-Blueprints can be directly compared because there is only a single cached instance of any given game blueprint.</p>
-</blockquote>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Blueprints can be directly compared because there is only a single cached instance of any given game blueprint.</p>
+</div>
 <p>Now it just needs to remove the Skald's Vigor buff. To get an idea of how to remove a buff look at the decompiled code for <code>ContextActionRemoveBuff</code>, the same action we're already using to remove the buff:</p>
 <pre><code class="lang-C#">Buff skaldsVigor = ability.Owner.Buffs.GetBuff(BlueprintTool.Get&lt;BlueprintBuff&gt;(BuffGuid));
 skaldsVigor?.Remove();
@@ -315,6 +315,10 @@ skaldsVigor?.Remove();
 <li>Create a script to build an AssetBundle using <a href="https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4">Unity's Tutorial</a></li>
 <li>Create a new folder in Assets called <strong>Icons</strong></li>
 </ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you created your project using the <a href="../../intro.html#quick-start">Quick Start</a> instructions you can skip the steps above.</p>
+</div>
 <p>Your Unity project should look similar to this:</p>
 <p><img src="../../../images/advanced_feat/unity_bundle_setup.png" alt="Unity project bundle setup"></p>
 <p>Select the icons folder, then <strong>Assets &gt; Import New Asset</strong> and choose your icon image file.</p>
@@ -322,10 +326,10 @@ skaldsVigor?.Remove();
 <p>Your icon should be displayed in the folder contents. Select it and in the Inspector tab set <strong>Texture Type</strong> to <strong>Sprite (2D and UI)</strong> and click Apply.</p>
 <p>With the icon still selected, click the <strong>AssetBundle</strong> dropdown at the bottom of the Inspector tab, select <strong>New</strong> and enter <strong>blueprintcoretutorial_assets</strong>. This determines which generated AssetBundle will contain the icon. The Inspector tab should look like this:</p>
 <p><img src="../../../images/advanced_feat/unity_sprite_config.png" alt="Icon inspector tab"></p>
-<blockquote>
-<p>![NOTE]
-Currently BPCore only supports a single AssetBundle called <code>assemblyname_assets</code>. The icons folder is for organization but everything should go to the assets bundle. If your mod was called TabletopStuff it would be <code>tabletopstuff_assets</code>.</p>
-</blockquote>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Currently BPCore only supports a single AssetBundle called <code>assemblyname_assets</code>. The icons folder is for organization but everything should go to the assets bundle. If your mod was called TabletopStuff it would be <code>tabletopstuff_assets</code>.</p>
+</div>
 <p>Create the AssetBundle by selecting <strong>Assets &gt; Build AssetBundles</strong>. Unity generates the <strong>StreamingAssets</strong> folder which should contain two AssetBundles: blueprintcoretutorial_assets and StreamingAssets. You can ignore StreamingAssets.</p>
 <h3 id="deploy-the-assetbundle">Deploy the AssetBundle</h3>
 <p>Back in your mod right click your project and select <strong>Add &gt; Existing Item</strong>. Navigate to the folder containing your AssetBundle and add it to the project. Make sure you set file filter to <strong>All Files</strong> at the bottom right. Ignore <code>*.manifest</code>, <code>*.meta</code>, and <code>*.manifest.meta</code>.</p>
@@ -333,17 +337,17 @@ Currently BPCore only supports a single AssetBundle called <code>assemblyname_as
 <p><img src="../../../images/advanced_feat/bundle_properties.png" alt="AssetBundle properties in visual studio"></p>
 <p>Open your project file and update your deployment target:</p>
 <pre><code class="lang-xml">&lt;Target Name=&quot;Deploy&quot; AfterTargets=&quot;ILStrip&quot;&gt;
-&lt;ItemGroup&gt;
-  &lt;Assembly Include=&quot;$(OutputPath)\$(AssemblyName).dll&quot; /&gt;
-  &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
-  &lt;Strings Include=&quot;$(OutputPath)\LocalizedStrings.json&quot; /&gt;
-  &lt;Assets Include=&quot;$(OutputPath)\assets&quot; /&gt;
-&lt;/ItemGroup&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assembly Include=&quot;$(OutputPath)\$(AssemblyName).dll&quot; /&gt;
+    &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
+    &lt;Strings Include=&quot;$(OutputPath)\LocalizedStrings.json&quot; /&gt;
+    &lt;Assets Include=&quot;$(OutputPath)\*_assets&quot; /&gt;
+  &lt;/ItemGroup&gt;
 
-&lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
-&lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
-&lt;Copy SourceFiles=&quot;@(Strings)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
-&lt;Copy SourceFiles=&quot;@(Assets)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(Strings)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(Assets)&quot; DestinationFolder=&quot;$(WrathPath)\Mods\$(MSBuildProjectName)&quot; /&gt;
 &lt;/Target&gt;
 </code></pre>
 <h3 id="use-the-asset">Use the Asset</h3>
@@ -409,6 +413,22 @@ AddFactContextActions(
 <ul>
 <li>Remember that <code>InspiredRageEffectBuff</code> is applied by <code>InspiredRageArea</code></li>
 <li>Look at the <code>SourceAreaEffectId</code> field of the <code>Buff</code> class</li>
+</ul>
+</li>
+</ul>
+<h3 id="next-steps">Next Steps</h3>
+<p>Try more tutorials:</p>
+<ul>
+<li><a href="advanced/furious_focus.md">Furious Focus</a>
+<ul>
+<li>Creating new components</li>
+<li>Modifying attacks</li>
+</ul>
+</li>
+<li><a href="advanced/hurtful.md">Hurtful</a>
+<ul>
+<li>Writing a transpiler</li>
+<li>Activatable abilities</li>
 </ul>
 </li>
 </ul>
