@@ -22,6 +22,7 @@ For general usage details see the links below:
 If you have an existing mod to which you're integrating BPCore you'll need to go through the [Full Setup](#full-setup). If you're starting a new mod you're in luck, BPCore now has [Project Templates](https://github.com/WittleWolfie/BPCoreTemplate)!
 
 1. Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/), skip if you already have it
+    * When prompted for Workloads include ".NET desktop development", anything else is optional
 2. Download and install [Unity](https://unity3d.com/get-unity/download/archive) version `2019.4.26f1`, skip if you already have it
 3. Open Unity and create a new project with the 3D template, then close it
     * I recommend putting your Unity project folder in the same directory you put your mod project folder
