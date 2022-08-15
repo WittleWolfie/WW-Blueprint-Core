@@ -238,6 +238,120 @@
   },
 
   {
+    "TypeName": "RecommendationBaseAttackPart",
+    "Methods": [
+      {
+        "MethodName": "RecommendationBAB",
+        "RequiredFields": [ "MinPart" ]
+      },
+      {
+        "MethodName": "RecommendationHalfBAB",
+        "Remarks":  [ "Sets MinPart to 0.45" ],
+        "ConstantFields": [
+          {
+            "FieldName": "MinPart",
+            "Value": "0.45f"
+          }
+        ]
+      },
+      {
+        "MethodName": "RecommendationThreeQuartersBAB",
+        "Remarks": [ "Sets MinPart to 0.7" ],
+        "ConstantFields": [
+          {
+            "FieldName": "MinPart",
+            "Value": "0.7f"
+          }
+        ]
+      },
+      {
+        "MethodName": "RecommendationFullBAB",
+        "Remarks": [ "Sets MinPart to 0.95" ],
+        "ConstantFields": [
+          {
+            "FieldName": "MinPart",
+            "Value": "0.95f"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "RecommendationCompanionBoon",
+    "RequiredFields": [ "m_CompanionRank" ]
+  },
+
+  {
+    "TypeName": "RecommendationHasFeature",
+    "RequiredFields": [ "m_Feature" ]
+  },
+
+  {
+    "TypeName": "RecommendationNoFeatFromGroup",
+    "RequiredFields": [ "m_Features" ]
+  },
+
+  {
+    "TypeName": "RecommendationRequiresSpellbookSource",
+    "Methods": [
+      {
+        "MethodName": "RecommendationRequiresSpellbookSource"
+      },
+      {
+        "MethodName": "RecommendationAlchemistSpells",
+        "IgnoredFields": [ "Divine", "Arcane" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Alchemist",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "RecommendationArcaneSpells",
+        "IgnoredFields": [ "Divine", "Alchemist" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Arcane",
+            "Value": "true"
+          }
+        ]
+      },
+      {
+        "MethodName": "RecommendationDivineSpells",
+        "IgnoredFields": [ "Arcane", "Alchemist" ],
+        "ConstantFields": [
+          {
+            "FieldName": "Divine",
+            "Value": "true"
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TypeName": "RecommendationStatComparison",
+    "RequiredFields": [ "HigherStat", "LowerStat" ]
+  },
+
+  {
+    "TypeName": "RecommendationStatMiminum",
+    "RequiredFields": [ "Stat", "MinimalValue" ]
+  },
+
+  {
+    "TypeName": "RecommendationWeaponSubcategoryFocus",
+    "RequiredFields": [ "Subcategory" ]
+  },
+
+  {
+    "TypeName": "RecommendationWeaponTypeFocus",
+    "RequiredFields": [ "WeaponRangeType" ]
+  },
+
+  {
     "TypeName": "SpellComponent",
     "RequiredFields": [ "School" ]
   },
