@@ -58,6 +58,7 @@ namespace BlueprintCoreTutorial.Feats
           // Wrath uses the unchained version of Inspired Rage, this re-creates the progression of strength bonus:
           // +2 until level 8, then +4 until level 16, then +6.
           ContextRankConfigs.ClassLevel(new string[] { skaldClass }).WithCustomProgression((7, 2), (15, 4), (16, 6)))
+        .AddComponent<InspiredRageDeactivationHandler>()
         .Configure();
 
       // Skald's Vigor feat
@@ -91,14 +92,14 @@ namespace BlueprintCoreTutorial.Feats
         // Prevents Inspired Rage from being removed and reapplied each round.
         .SetStacking(StackingType.Ignore)
         .Configure();
-
-      EventBus.Subscribe(new InspiredRageDeactivationHandler());
     }
 
-    private class InspiredRageDeactivationHandler : IActivatableAbilityWillStopHandler
+    private class InspiredRageDeactivationHandler : UnitFactComponentDelegate, IActivatableAbilityWillStopHandler
     {
-      private readonly BlueprintActivatableAbility InspiredRage =
+      private static readonly BlueprintActivatableAbility InspiredRage =
         ActivatableAbilityRefs.InspiredRageAbility.Reference.Get();
+
+      private static readonly BlueprintBuff SkaldsVigor = BlueprintTool.Get<BlueprintBuff>(BuffName);
 
       public void HandleActivatableAbilityWillStop(ActivatableAbility ability)
       {
@@ -110,7 +111,7 @@ namespace BlueprintCoreTutorial.Feats
           }
           Logger.Info("Inspired Rage deactivated.");
 
-          Buff skaldsVigor = ability.Owner.Buffs.GetBuff(BlueprintTool.Get<BlueprintBuff>(BuffGuid));
+          Buff skaldsVigor = ability.Owner.Buffs.GetBuff(SkaldsVigor);
           skaldsVigor?.Remove();
         }
         catch (Exception e)

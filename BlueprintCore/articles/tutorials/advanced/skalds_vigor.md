@@ -289,6 +289,41 @@ EventBus.Subscribe(new InspiredRageDeactivationHandler());
 
 Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.
 
+### Event Spam
+
+If you log every time `InspiredRageDeactivationHandler` you'll see that events, particularly ones implementing `IGlobalSubscriber`, are spammy. Keep this in mind, avoid expensive operations, and minimize the time your handler is subscribed.
+
+Currently the handler fetches one or more blueprints each time it is called. This can be simplified by storing the blueprints in a static variable:
+
+```C#
+private static readonly BlueprintActivatableAbility InspiredRage =
+  ActivatableAbilityRefs.InspiredRageAbility.Reference.Get();
+
+private static readonly BlueprintBuff SkaldsVigor = BlueprintTool.Get<BlueprintBuff>(BuffName);
+```
+
+To minimize the time the handler is subscribed, convert it to a `UnitFactComponentDelegate`:
+
+```C#
+private class InspiredRageDeactivationHandler : UnitFactComponentDelegate, IActivatableAbilityWillStopHandler
+```
+
+Now you can remove the call to `EventBus.Subscribe()` and add this as a component to the buff:
+
+```C#
+BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName("SkaldsVigor.Name")
+  .SetDescription("SkaldsVigor.Description")
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
+  .AddComponent<InspiredRageDeactivationHandler>()
+  .Configure();
+```
+
+You don't need to call `EventBus.Subscribe()`, it is automatically called for components implementing `UnitFactComponentDelegate` when the fact is applied, in this case when the buff is on.
+
 ## Adding an Icon
 
 ### Select an Icon
@@ -434,7 +469,7 @@ Test it out and it should apply to your party:
 
 ### Completing the Feat
 
-There are two more changes needed to finish Greater Skald's Vigor:
+There are at least two changes needed to finish Greater Skald's Vigor:
 
 1. Require 10 ranks in Performance (song)
 2. Add support for Lingering Performance
