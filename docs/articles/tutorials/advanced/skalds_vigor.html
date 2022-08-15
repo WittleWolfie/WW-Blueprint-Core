@@ -291,6 +291,29 @@ skaldsVigor?.Remove();
 <pre><code class="lang-C#">EventBus.Subscribe(new InspiredRageDeactivationHandler());
 </code></pre>
 <p>Test it with Lingering Performance and the buff should clear at the start of your next turn while Inspired Rage remains.</p>
+<h3 id="event-spam">Event Spam</h3>
+<p>If you log every time <code>InspiredRageDeactivationHandler</code> you'll see that events, particularly ones implementing <code>IGlobalSubscriber</code>, are spammy. Keep this in mind, avoid expensive operations, and minimize the time your handler is subscribed.</p>
+<p>Currently the handler fetches one or more blueprints each time it is called. This can be simplified by storing the blueprints in a static variable:</p>
+<pre><code class="lang-C#">private static readonly BlueprintActivatableAbility InspiredRage =
+  ActivatableAbilityRefs.InspiredRageAbility.Reference.Get();
+
+private static readonly BlueprintBuff SkaldsVigor = BlueprintTool.Get&lt;BlueprintBuff&gt;(BuffName);
+</code></pre>
+<p>To minimize the time the handler is subscribed, convert it to a <code>UnitFactComponentDelegate</code>:</p>
+<pre><code class="lang-C#">private class InspiredRageDeactivationHandler : UnitFactComponentDelegate, IActivatableAbilityWillStopHandler
+</code></pre>
+<p>Now you can remove the call to <code>EventBus.Subscribe()</code> and add this as a component to the buff:</p>
+<pre><code class="lang-C#">BuffConfigurator.New(BuffName, BuffGuid)
+  .SetDisplayName(&quot;SkaldsVigor.Name&quot;)
+  .SetDescription(&quot;SkaldsVigor.Description&quot;)
+  .AddEffectContextFastHealing(bonus: ContextValues.Rank())
+  .AddContextRankConfig(
+    ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SkaldClass.ToString() })
+      .WithCustomProgression((7, 2), (15, 4), (16, 6)))
+  .AddComponent&lt;InspiredRageDeactivationHandler&gt;()
+  .Configure();
+</code></pre>
+<p>You don't need to call <code>EventBus.Subscribe()</code>, it is automatically called for components implementing <code>UnitFactComponentDelegate</code> when the fact is applied, in this case when the buff is on.</p>
 <h2 id="adding-an-icon">Adding an Icon</h2>
 <h3 id="select-an-icon">Select an Icon</h3>
 <p>This tutorial doesn't walk through creating an icon. You can use the <a href="https://assetstore.unity.com/">Unity Asset Store</a> to find an icon, paid or free.</p>
@@ -400,7 +423,7 @@ AddFactContextActions(
 <p>Test it out and it should apply to your party:</p>
 <p><img src="../../../images/advanced_feat/group_fast_healing.png" alt="Greater Skald's Vigor party healing"></p>
 <h3 id="completing-the-feat">Completing the Feat</h3>
-<p>There are two more changes needed to finish Greater Skald's Vigor:</p>
+<p>There are at least two changes needed to finish Greater Skald's Vigor:</p>
 <ol>
 <li>Require 10 ranks in Performance (song)</li>
 <li>Add support for Lingering Performance</li>
