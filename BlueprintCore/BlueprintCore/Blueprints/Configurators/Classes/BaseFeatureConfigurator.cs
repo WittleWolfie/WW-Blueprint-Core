@@ -1438,6 +1438,477 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="RecommendationBaseAttackPart"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationBAB(
+        float minPart,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? notRecommendIfHigher = null)
+    {
+      var component = new RecommendationBaseAttackPart();
+      component.MinPart = minPart;
+      component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationBaseAttackPart"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// Sets MinPart to 0.45
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationHalfBAB(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? notRecommendIfHigher = null)
+    {
+      var component = new RecommendationBaseAttackPart();
+      component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
+      component.MinPart = 0.45f;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationBaseAttackPart"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// Sets MinPart to 0.7
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationThreeQuartersBAB(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? notRecommendIfHigher = null)
+    {
+      var component = new RecommendationBaseAttackPart();
+      component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
+      component.MinPart = 0.7f;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationBaseAttackPart"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// Sets MinPart to 0.95
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationFullBAB(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? notRecommendIfHigher = null)
+    {
+      var component = new RecommendationBaseAttackPart();
+      component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
+      component.MinPart = 0.95f;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationCompanionBoon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CompanionBoon</term><description>8fc01f06eab4dd946baa5bc658cac556</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="companionRank">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRecommendationCompanionBoon(
+        Blueprint<BlueprintFeatureReference> companionRank)
+    {
+      var component = new RecommendationCompanionBoon();
+      component.m_CompanionRank = companionRank?.Reference;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationHasFeature"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AgileManeuvers</term><description>197306972c98bb843af738dc7529a7ac</description></item>
+    /// <item><term>ShieldBashFeature</term><description>121811173a614534e8720d7550aae253</description></item>
+    /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="feature">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRecommendationHasFeature(
+        Blueprint<BlueprintUnitFactReference> feature,
+        bool? mandatory = null)
+    {
+      var component = new RecommendationHasFeature();
+      component.m_Feature = feature?.Reference;
+      component.Mandatory = mandatory ?? component.Mandatory;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationNoFeatFromGroup"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
+    /// <item><term>HoldPerson</term><description>c7104f7526c4c524f91474614054547e</description></item>
+    /// <item><term>WhiteMageCureLightWoundsCast</term><description>83d6d8f4c4d296941838086f60485fb7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="features">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRecommendationNoFeatFromGroup(
+        List<Blueprint<BlueprintUnitFactReference>> features,
+        bool? goodIfNoFeature = null)
+    {
+      var component = new RecommendationNoFeatFromGroup();
+      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
+      component.GoodIfNoFeature = goodIfNoFeature ?? component.GoodIfNoFeature;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationRequiresSpellbookSource"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneArmorMastery</term><description>453f5181a5ed3a445abfa3bcd3f4ac0c</description></item>
+    /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationRequiresSpellbookSource(
+        bool? alchemist = null,
+        bool? arcane = null,
+        bool? divine = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationRequiresSpellbookSource();
+      component.Alchemist = alchemist ?? component.Alchemist;
+      component.Arcane = arcane ?? component.Arcane;
+      component.Divine = divine ?? component.Divine;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationRequiresSpellbookSource"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneArmorMastery</term><description>453f5181a5ed3a445abfa3bcd3f4ac0c</description></item>
+    /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationAlchemistSpells(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationRequiresSpellbookSource();
+      component.Alchemist = true;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationRequiresSpellbookSource"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneArmorMastery</term><description>453f5181a5ed3a445abfa3bcd3f4ac0c</description></item>
+    /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationArcaneSpells(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationRequiresSpellbookSource();
+      component.Arcane = true;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationRequiresSpellbookSource"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneArmorMastery</term><description>453f5181a5ed3a445abfa3bcd3f4ac0c</description></item>
+    /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder RecommendationDivineSpells(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationRequiresSpellbookSource();
+      component.Divine = true;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationStatComparison"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DragonStyle</term><description>87ec6541cddfa394ab540dd13399d319</description></item>
+    /// <item><term>SlashingGrace</term><description>697d64669eb2c0543abb9c9b07998a38</description></item>
+    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddRecommendationStatComparison(
+        StatType higherStat,
+        StatType lowerStat,
+        int? diff = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationStatComparison();
+      component.HigherStat = higherStat;
+      component.LowerStat = lowerStat;
+      component.Diff = diff ?? component.Diff;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationStatMiminum"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CombatReflexes</term><description>0f8939ae6f220984e8fb568abbdfba95</description></item>
+    /// <item><term>SnapShot</term><description>7115a6c08bd101247b70d72a4ff99453</description></item>
+    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddRecommendationStatMiminum(
+        int minimalValue,
+        StatType stat,
+        bool? goodIfHigher = null)
+    {
+      var component = new RecommendationStatMiminum();
+      component.MinimalValue = minimalValue;
+      component.Stat = stat;
+      component.GoodIfHigher = goodIfHigher ?? component.GoodIfHigher;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationWeaponSubcategoryFocus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FencingGrace</term><description>47b352ea0f73c354aba777945760b441</description></item>
+    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>TwoWeaponFighting</term><description>ac8aaf29054f5b74eb18f2af950e752d</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddRecommendationWeaponSubcategoryFocus(
+        WeaponSubCategory subcategory,
+        bool? badIfNoFocus = null,
+        bool? hasFocus = null)
+    {
+      var component = new RecommendationWeaponSubcategoryFocus();
+      component.Subcategory = subcategory;
+      component.BadIfNoFocus = badIfNoFocus ?? component.BadIfNoFocus;
+      component.HasFocus = hasFocus ?? component.HasFocus;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationWeaponTypeFocus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ClusteredShots</term><description>f7de245bb20f12f47864c7cb8b1d1abb</description></item>
+    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
+    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddRecommendationWeaponTypeFocus(
+        WeaponRangeType weaponRangeType,
+        bool? hasFocus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new RecommendationWeaponTypeFocus();
+      component.WeaponRangeType = weaponRangeType;
+      component.HasFocus = hasFocus ?? component.HasFocus;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="SpellDescriptorComponent"/>
     /// </summary>
     ///
@@ -2476,154 +2947,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Adds <see cref="RecommendationBaseAttackPart"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
-    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRecommendationBaseAttackPart(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        float? minPart = null,
-        bool? notRecommendIfHigher = null)
-    {
-      var component = new RecommendationBaseAttackPart();
-      component.MinPart = minPart ?? component.MinPart;
-      component.NotRecommendIfHigher = notRecommendIfHigher ?? component.NotRecommendIfHigher;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationCompanionBoon"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CompanionBoon</term><description>8fc01f06eab4dd946baa5bc658cac556</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="companionRank">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddRecommendationCompanionBoon(
-        Blueprint<BlueprintFeatureReference>? companionRank = null)
-    {
-      var component = new RecommendationCompanionBoon();
-      component.m_CompanionRank = companionRank?.Reference ?? component.m_CompanionRank;
-      if (component.m_CompanionRank is null)
-      {
-        component.m_CompanionRank = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationHasFeature"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AgileManeuvers</term><description>197306972c98bb843af738dc7529a7ac</description></item>
-    /// <item><term>ShieldBashFeature</term><description>121811173a614534e8720d7550aae253</description></item>
-    /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="feature">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddRecommendationHasFeature(
-        Blueprint<BlueprintUnitFactReference>? feature = null,
-        bool? mandatory = null)
-    {
-      var component = new RecommendationHasFeature();
-      component.m_Feature = feature?.Reference ?? component.m_Feature;
-      if (component.m_Feature is null)
-      {
-        component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      component.Mandatory = mandatory ?? component.Mandatory;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationNoFeatFromGroup"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>HoldPerson</term><description>c7104f7526c4c524f91474614054547e</description></item>
-    /// <item><term>WhiteMageCureLightWoundsCast</term><description>83d6d8f4c4d296941838086f60485fb7</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="features">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddRecommendationNoFeatFromGroup(
-        List<Blueprint<BlueprintUnitFactReference>>? features = null,
-        bool? goodIfNoFeature = null)
-    {
-      var component = new RecommendationNoFeatFromGroup();
-      component.m_Features = features?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Features;
-      if (component.m_Features is null)
-      {
-        component.m_Features = new BlueprintUnitFactReference[0];
-      }
-      component.GoodIfNoFeature = goodIfNoFeature ?? component.GoodIfNoFeature;
-      return AddComponent(component);
-    }
-
-    /// <summary>
     /// Adds <see cref="RecommendationRequiresSpellbook"/>
     /// </summary>
     ///
@@ -2648,155 +2971,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RecommendationRequiresSpellbook();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationRequiresSpellbookSource"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ArcaneArmorMastery</term><description>453f5181a5ed3a445abfa3bcd3f4ac0c</description></item>
-    /// <item><term>ArcaneArmorTraining</term><description>1a0298abacb6e0f45b7e28553e99e76c</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRecommendationRequiresSpellbookSource(
-        bool? alchemist = null,
-        bool? arcane = null,
-        bool? divine = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new RecommendationRequiresSpellbookSource();
-      component.Alchemist = alchemist ?? component.Alchemist;
-      component.Arcane = arcane ?? component.Arcane;
-      component.Divine = divine ?? component.Divine;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationStatComparison"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DragonStyle</term><description>87ec6541cddfa394ab540dd13399d319</description></item>
-    /// <item><term>SlashingGrace</term><description>697d64669eb2c0543abb9c9b07998a38</description></item>
-    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRecommendationStatComparison(
-        int? diff = null,
-        StatType? higherStat = null,
-        StatType? lowerStat = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new RecommendationStatComparison();
-      component.Diff = diff ?? component.Diff;
-      component.HigherStat = higherStat ?? component.HigherStat;
-      component.LowerStat = lowerStat ?? component.LowerStat;
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationStatMiminum"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>CombatReflexes</term><description>0f8939ae6f220984e8fb568abbdfba95</description></item>
-    /// <item><term>SnapShot</term><description>7115a6c08bd101247b70d72a4ff99453</description></item>
-    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddRecommendationStatMiminum(
-        bool? goodIfHigher = null,
-        int? minimalValue = null,
-        StatType? stat = null)
-    {
-      var component = new RecommendationStatMiminum();
-      component.GoodIfHigher = goodIfHigher ?? component.GoodIfHigher;
-      component.MinimalValue = minimalValue ?? component.MinimalValue;
-      component.Stat = stat ?? component.Stat;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationWeaponSubcategoryFocus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>FencingGrace</term><description>47b352ea0f73c354aba777945760b441</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
-    /// <item><term>TwoWeaponFighting</term><description>ac8aaf29054f5b74eb18f2af950e752d</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddRecommendationWeaponSubcategoryFocus(
-        bool? badIfNoFocus = null,
-        bool? hasFocus = null,
-        WeaponSubCategory? subcategory = null)
-    {
-      var component = new RecommendationWeaponSubcategoryFocus();
-      component.BadIfNoFocus = badIfNoFocus ?? component.BadIfNoFocus;
-      component.HasFocus = hasFocus ?? component.HasFocus;
-      component.Subcategory = subcategory ?? component.Subcategory;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="RecommendationWeaponTypeFocus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ClusteredShots</term><description>f7de245bb20f12f47864c7cb8b1d1abb</description></item>
-    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
-    /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    public TBuilder AddRecommendationWeaponTypeFocus(
-        bool? hasFocus = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        WeaponRangeType? weaponRangeType = null)
-    {
-      var component = new RecommendationWeaponTypeFocus();
-      component.HasFocus = hasFocus ?? component.HasFocus;
-      component.WeaponRangeType = weaponRangeType ?? component.WeaponRangeType;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
