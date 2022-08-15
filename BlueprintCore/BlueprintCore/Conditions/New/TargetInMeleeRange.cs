@@ -40,7 +40,7 @@ namespace BlueprintCore.Conditions.New
       WeaponSlot threatHandleMelee = caster.GetThreatHandMelee();
       if (threatHandleMelee == null)
       {
-        Logger.Warn("Caster can't make attack");
+        Logger.Verbose("Caster can't make attack");
         return false;
       }
 
