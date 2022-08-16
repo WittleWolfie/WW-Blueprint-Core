@@ -63,10 +63,10 @@ For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacte
 // Parameters:
 //   characterClass:
 //     Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-//     • A blueprint instance –
-//     • A blueprint reference –
-//     • A blueprint id as a string, Guid, or BlueprintGuid –
-//     • A blueprint name registered with BlueprintTool –
+//     â€¢ A blueprint instance â€“
+//     â€¢ A blueprint reference â€“
+//     â€¢ A blueprint id as a string, Guid, or BlueprintGuid â€“
+//     â€¢ A blueprint name registered with BlueprintTool â€“
 //     See Blueprint for more details.
 //
 //   merge:
@@ -78,10 +78,10 @@ For example, the `FeatureConfigurator` exposes a method `AddPrerequisiteCharacte
 //     to ComponentMerge.Fail.
 //
 // Remarks:
-//     • Used by
-//     • AdvancedWeaponTraining1 –3aa4cbdd4af5ba54888b0dc7f07f80c4
-//     • OracleRevelationSoulSiphon –226c053a75fd7c34cab1b493f5847787
-//     • WreckingBlowsFeature –5bccc86dd1f187a4a99f092dc054c755
+//     â€¢ Used by
+//     â€¢ AdvancedWeaponTraining1 â€“3aa4cbdd4af5ba54888b0dc7f07f80c4
+//     â€¢ OracleRevelationSoulSiphon â€“226c053a75fd7c34cab1b493f5847787
+//     â€¢ WreckingBlowsFeature â€“5bccc86dd1f187a4a99f092dc054c755
 public TBuilder AddPrerequisiteClassLevel(
     Blueprint<BlueprintCharacterClassReference> characterClass,
     int level,
@@ -197,4 +197,4 @@ BlueprintCore is available as a [NuGet package](https://www.nuget.org/packages/W
 # Interested in modding?
 
 * Check out the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
-* Join us on [Discord](https://discord.gg/zHbMuYT6).
+* Join us on [Discord](https://discord.com/invite/wotr).
