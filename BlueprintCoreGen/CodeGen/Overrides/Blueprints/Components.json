@@ -241,11 +241,11 @@
     "TypeName": "RecommendationBaseAttackPart",
     "Methods": [
       {
-        "MethodName": "RecommendationBAB",
+        "MethodName": "AddRecommendationBAB",
         "RequiredFields": [ "MinPart" ]
       },
       {
-        "MethodName": "RecommendationHalfBAB",
+        "MethodName": "AddRecommendationHalfBAB",
         "Remarks":  [ "Sets MinPart to 0.45" ],
         "ConstantFields": [
           {
@@ -255,7 +255,7 @@
         ]
       },
       {
-        "MethodName": "RecommendationThreeQuartersBAB",
+        "MethodName": "AddRecommendationThreeQuartersBAB",
         "Remarks": [ "Sets MinPart to 0.7" ],
         "ConstantFields": [
           {
@@ -265,7 +265,7 @@
         ]
       },
       {
-        "MethodName": "RecommendationFullBAB",
+        "MethodName": "AddRecommendationFullBAB",
         "Remarks": [ "Sets MinPart to 0.95" ],
         "ConstantFields": [
           {

@@ -1158,7 +1158,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    public TBuilder RecommendationBAB(
+    public TBuilder AddRecommendationBAB(
         float minPart,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -1193,7 +1193,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    public TBuilder RecommendationHalfBAB(
+    public TBuilder AddRecommendationHalfBAB(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notRecommendIfHigher = null)
@@ -1227,7 +1227,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    public TBuilder RecommendationThreeQuartersBAB(
+    public TBuilder AddRecommendationThreeQuartersBAB(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notRecommendIfHigher = null)
@@ -1261,7 +1261,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    public TBuilder RecommendationFullBAB(
+    public TBuilder AddRecommendationFullBAB(
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? notRecommendIfHigher = null)
