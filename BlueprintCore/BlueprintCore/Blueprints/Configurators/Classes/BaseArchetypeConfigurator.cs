@@ -1499,7 +1499,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbundantArcanePool</term><description>8acebba92ada26043873cae5b92cef7b</description></item>
-    /// <item><term>MagicalTail8</term><description>df186ef345849d149bdbf4ddb45aee35</description></item>
+    /// <item><term>MagicBlessingFeature</term><description>1754ff61a0805714fa2b89c8c1bb87ad</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -1711,7 +1711,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>HealingDomainProgressionSecondary</term><description>599fb0d60358c354d8c5c4304a73e19a</description></item>
+    /// <item><term>HeatAdaptationFeature</term><description>2825e3a53c76ad944a47c5c44fb6109f</description></item>
     /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
     /// </list>
     /// </remarks>
@@ -2039,7 +2039,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmorFocusHeavy</term><description>c27e6d2b0d33d42439f512c6d9a6a601</description></item>
-    /// <item><term>HellknightClass</term><description>ed246f1680e667b47b7427d51e651059</description></item>
+    /// <item><term>ShieldBashFeature</term><description>121811173a614534e8720d7550aae253</description></item>
     /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
     /// </list>
     /// </remarks>
@@ -2077,7 +2077,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
-    /// <item><term>ImprovedCriticalKukri</term><description>45482376f0d543a4d9ba1aa6b78c9c0a</description></item>
+    /// <item><term>ImprovedCriticalIncorporealTouch</term><description>1e086b508c360984eb263420f0550a36</description></item>
     /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
     /// </list>
     /// </remarks>

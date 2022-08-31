@@ -618,7 +618,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyUnitsBestIngredients</term><description>596531fba07848c3959d6e7df0e0a3a4</description></item>
-    /// <item><term>FlagLich1BoneShield</term><description>49dfbfd138cd4ba3848c35234b3381ae</description></item>
+    /// <item><term>FlagLegend5Ability</term><description>65d044d2bff845bd87a8b26192e8f383</description></item>
     /// <item><term>ZiforianSupport_buff</term><description>3735e202e116466898a0e7fd54607d22</description></item>
     /// </list>
     /// </remarks>
@@ -853,7 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyLeaderPetDrake</term><description>3b33a686ce224e6d9fb0f634267e4784</description></item>
-    /// <item><term>FlagLeadership3Morale</term><description>87cc231b38d843edab15031e7db25b39</description></item>
+    /// <item><term>FlagLeadership3ZelousLearner</term><description>eec54a9e96624cdf8cc9e6f58e374138</description></item>
     /// <item><term>QuatermasterMaps_buff</term><description>cc4249f904c246c4a7f3eeab976116d4</description></item>
     /// </list>
     /// </remarks>

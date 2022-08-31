@@ -1,8 +1,10 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;
@@ -22,40 +24,27 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     protected BaseClassAdditionalVisualSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/>
+    /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.m_Conditions"/>
     /// </summary>
-    ///
-    /// <param name="prerequisite">
-    /// <para>
-    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder SetPrerequisite(Blueprint<BlueprintEtudeReference> prerequisite)
+    public TBuilder SetConditions(ConditionsBuilder conditions)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.m_Prerequisite = prerequisite?.Reference;
+          bp.m_Conditions = conditions?.Build();
         });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.m_Prerequisite"/> by invoking the provided action.
+    /// Modifies <see cref="BlueprintClassAdditionalVisualSettings.m_Conditions"/> by invoking the provided action.
     /// </summary>
-    public TBuilder ModifyPrerequisite(Action<BlueprintEtudeReference> action)
+    public TBuilder ModifyConditions(Action<ConditionsChecker> action)
     {
       return OnConfigureInternal(
         bp =>
         {
-          if (bp.m_Prerequisite is null) { return; }
-          action.Invoke(bp.m_Prerequisite);
+          if (bp.m_Conditions is null) { return; }
+          action.Invoke(bp.m_Conditions);
         });
     }
 
@@ -260,9 +249,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       base.OnConfigureCompleted();
     
-      if (Blueprint.m_Prerequisite is null)
+      if (Blueprint.m_Conditions is null)
       {
-        Blueprint.m_Prerequisite = BlueprintTool.GetRef<BlueprintEtudeReference>(null);
+        Blueprint.m_Conditions = Utils.Constants.Empty.Conditions;
       }
       if (Blueprint.ColorRamps is null)
       {

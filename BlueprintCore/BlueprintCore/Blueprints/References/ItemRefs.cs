@@ -95,6 +95,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Antique_ThiefLockpicks_item = "3c6a739e793b7a14ab050075aa5b73c4";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Antique_ThiefPowder_item = "0dd11fae5fabc9b47b38370c651267bb";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Antique_ThiefRune_item = "be5a4a23cc6603d4683f1fd6575bc4b3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Archpriest_Item1 = "4b9a8ce578184679858fd380f3d86a55";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Archpriest_Item2 = "7dc19f7de5bd4424926b57e6fe01e9ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Archpriest_Item3 = "32625c7587d24f14ac13482296d37f01";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreeluNote_1 = "f76d7d6cee1ec3944a42d0c5f3712bef";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreeluNote_2 = "74cd9c593b0f12c4dbe7ccc367a97f7c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreeluNote_3 = "eb4db5961ce551b45bbe21e270aa7d78";
@@ -265,6 +268,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC2_SpicyPastry_item = "1468ffa7cb79425a96e1894bd9669e39";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC2Cave_Mushrooms = "fbca9138f0214722b34274ec2fa0c93a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC2SithhudRod = "ea9295fcff1749fb9e733aa12bbb4dae";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Besmara_Quest_Part1 = "67d4c5d4f5b14495bfbe599b014b45b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Besmara_Quest_Part2 = "b21a01fca48b4fafaaa327e1d331e620";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Besmara_Quest_Part3 = "0f4554bd289c421ba9bb7d330f1dca87";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Besmara_Quest_Part4 = "d184e97af17d40398f9c4a741bc1f5ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Besmara_Quest_Part5 = "8723a1774f3d46bfa19e94e0abc69da3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Darkness_FirstRunestone = "85ff4f17515249bf9ee3e72e4d0ffee0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Darkness_LamashtuUnholySymbol = "32313843dd7947fc80e123d4b14704b3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Darkness_SecondRunestone = "635a5f50c3a04eb6b77e1883061722fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Darkness_ThirdRunestone = "ac645559f90a4709ad3f5ddc87045139";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_Darkness_WildMagicCrystall = "ce1ef646db9e4122bd9ea6d987b1dce8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_GnomeCashItem = "97ea0b53288d46b0aed65f0e3ac3037e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_m = "ba51d5a9bc8a467c947d2a5ccd2ab3f3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_StartingCash = "620107fe863540b7907df92b1bc8d1c8";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DogPelt = "11f8e6d119ec41b4da0fb1bdbe9b5527";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x3 = "45a8d763a44a5a844a6a936f17e4b765";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x4 = "80d9f2dd22aa13a4491cb7f039ce89a6";
@@ -532,6 +548,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> PaperShardItem = "08133117418642fb9d1d2adba9785f43";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Pearl = "17e5973a5ef49ce42ac49117d693efaa";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> PeasantHead = "a1fa3991b7d835c439754d9f61d20500";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Pepperbox = "9297060d0d3241029b32d74bcf9107f0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Peridot = "21d5890987c4887469acd001f7244e1e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> PetrifiedEgg = "843c6c5b39aefc74b9b69d8dac96463c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> PileOfDust_item = "216deec5170eeb64490fded384658ab7";
@@ -625,13 +642,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoanaMedallion = "4d78ec5dd1d1d5d41b9f2d8f2c8b5d53";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoanaMedallionBroken = "be786e92d34c75a479cb48fa37b7b07d";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoftCheese = "012e57f834bf1ea4eb09236d67d106ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Songbird_item1 = "6b3443e1a15b4156ad3f194b6bbcde1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Songbird_item2 = "8646192e77ee45f4b2a90f0db752ff1a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> Songbird_item3 = "0a3f89bf59cd421fa9b36d301426c1d7";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SosielVerse = "385abed73e162d448af1352d27c0cbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoulJar_Lich = "1818ebfaa6e1e2843801f1f9b5934629";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoulJar_Trickster = "f0641f67501a4084897d9bcbc00ddc99";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SourGutsBroth_item = "dcd74925420a4c54d9e643d6e213fbcb";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SpicyPastry_item = "b0a3bb682cfe6054bac65d0f4d68d3d0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SpiderGlands = "569c43986497b804eacde134442e8f8d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> StaffOfHealing_cleaned = "015b3e745e9d49899ece4d48619e33e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> StaffOfHealing_Kestoglyr = "7390d4359f0602e4d9ccc66760d09868";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> StarMaraca_item1 = "afd085bcd15a409d9050661a1fe590b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> StarMaraca_item2 = "2fa3ada8abe04f0189ea2a18c025a946";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> StarMaraca_item3 = "c091dfe19cd44c6eb8ec6e3ea7e5c67c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> StarMaraca_item4 = "13153faee8714b0f8906286a6d1c1399";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> StewardsHelmet_temp = "a873336aecf2b424a93bd52c3cfadf72";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SweetSyrup = "04864f80887167d448eafa4781671a0f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SworOfValorBanner = "3a5ffb2f2b818be449cf2b3fe468253c";
@@ -665,6 +690,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Vegetables = "f486b44aa66cd784da6979a14a4ddc4d";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> VendorsLetter = "91d62c53afcecb44590dafb1ce5399bc";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> VerySharpClaw = "6491698b9d6a18b44b3380b086dea959";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> WardenKey = "6fa0d27b20154172b2bc4162ca9427f1";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> WhimsicalBerry = "316714dc4fe85584a99f4785363eae80";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Wine = "a52e49a86b923f8469b77032ee612538";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> WinterWolfPelt = "b5ae97e5683cbfb45a4331a006cc4112";
@@ -772,6 +798,9 @@ namespace BlueprintCore.Blueprints.References
           Antique_ThiefLockpicks_item,
           Antique_ThiefPowder_item,
           Antique_ThiefRune_item,
+          Archpriest_Item1,
+          Archpriest_Item2,
+          Archpriest_Item3,
           AreeluNote_1,
           AreeluNote_2,
           AreeluNote_3,
@@ -942,6 +971,19 @@ namespace BlueprintCore.Blueprints.References
           DLC2_SpicyPastry_item,
           DLC2Cave_Mushrooms,
           DLC2SithhudRod,
+          DLC3_Besmara_Quest_Part1,
+          DLC3_Besmara_Quest_Part2,
+          DLC3_Besmara_Quest_Part3,
+          DLC3_Besmara_Quest_Part4,
+          DLC3_Besmara_Quest_Part5,
+          DLC3_Darkness_FirstRunestone,
+          DLC3_Darkness_LamashtuUnholySymbol,
+          DLC3_Darkness_SecondRunestone,
+          DLC3_Darkness_ThirdRunestone,
+          DLC3_Darkness_WildMagicCrystall,
+          DLC3_GnomeCashItem,
+          DLC3_m,
+          DLC3_StartingCash,
           DogPelt,
           DominoCyan1x3,
           DominoCyan1x4,
@@ -1209,6 +1251,7 @@ namespace BlueprintCore.Blueprints.References
           PaperShardItem,
           Pearl,
           PeasantHead,
+          Pepperbox,
           Peridot,
           PetrifiedEgg,
           PileOfDust_item,
@@ -1302,13 +1345,21 @@ namespace BlueprintCore.Blueprints.References
           SoanaMedallion,
           SoanaMedallionBroken,
           SoftCheese,
+          Songbird_item1,
+          Songbird_item2,
+          Songbird_item3,
           SosielVerse,
           SoulJar_Lich,
           SoulJar_Trickster,
           SourGutsBroth_item,
           SpicyPastry_item,
           SpiderGlands,
+          StaffOfHealing_cleaned,
           StaffOfHealing_Kestoglyr,
+          StarMaraca_item1,
+          StarMaraca_item2,
+          StarMaraca_item3,
+          StarMaraca_item4,
           StewardsHelmet_temp,
           SweetSyrup,
           SworOfValorBanner,
@@ -1342,6 +1393,7 @@ namespace BlueprintCore.Blueprints.References
           Vegetables,
           VendorsLetter,
           VerySharpClaw,
+          WardenKey,
           WhimsicalBerry,
           Wine,
           WinterWolfPelt,

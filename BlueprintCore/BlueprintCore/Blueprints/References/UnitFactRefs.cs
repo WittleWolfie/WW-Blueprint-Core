@@ -103,6 +103,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySweepingBlowFact = "7cec615b2a164497884a8168aa51acad";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyTempestStrikeFact = "8fb1c4b8300e4c46b5a24b8fb68251b0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyUltimatePhantasmalKillerFact = "ae517f955e8244abb379362fd7f0e675";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> BesmarBossCheck = "7779f3d2ff3d46bbaf9e7da75f578d12";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ChannelEnergyFact = "93f062bc0bf70e84ebae436e325e30e8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DefensiveStanceFact = "82014844bd65c0041bb33e3d1c08c627";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DeflectionArmor1 = "65f88f740e7b02144a97064c1b5a0b37";
@@ -126,6 +127,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DeflectionArmor8 = "05425bd28cbb71d4b9dbce0f83231333";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DeflectionArmor9 = "3d6b4c5d23d7d7a4c8b338b995d32b8b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DivineMagicFact = "51f6d2498c3f4bfd95e21d9dc5de0b7d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> DLC3_MindControllerMob = "d340b86b627c45d4a4a30d7331478b28";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> Dragon5ManaConsumptionFact = "d28a14ead0b848979d4c239db272fd54";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> Ferocity = "955e356c813de1743a98ab3485d5bc69";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> FighterOverwhelmingShoutFact = "33260a1e9c7945e8a8745beb92925641";
@@ -181,6 +183,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor5 = "7661741dbb9604842a642457456fd0e4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor50 = "af4eb3d1bbaaa4448b1f8ab9ba36143a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor6 = "987ba44303e88054c9504cb3083ba0c9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor60 = "128341907eac477485dcab5aca9ca66c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor7 = "e73864391ccf0894997928443a29d755";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor8 = "b9342e2a6dc5165489ba3412c50ca3d1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> NaturalArmor9 = "da6417809bdedfa468dd2fd0cc74be92";
@@ -312,6 +315,7 @@ namespace BlueprintCore.Blueprints.References
           ArmySweepingBlowFact,
           ArmyTempestStrikeFact,
           ArmyUltimatePhantasmalKillerFact,
+          BesmarBossCheck,
           ChannelEnergyFact,
           DefensiveStanceFact,
           DeflectionArmor1,
@@ -335,6 +339,7 @@ namespace BlueprintCore.Blueprints.References
           DeflectionArmor8,
           DeflectionArmor9,
           DivineMagicFact,
+          DLC3_MindControllerMob,
           Dragon5ManaConsumptionFact,
           Ferocity,
           FighterOverwhelmingShoutFact,
@@ -390,6 +395,7 @@ namespace BlueprintCore.Blueprints.References
           NaturalArmor5,
           NaturalArmor50,
           NaturalArmor6,
+          NaturalArmor60,
           NaturalArmor7,
           NaturalArmor8,
           NaturalArmor9,

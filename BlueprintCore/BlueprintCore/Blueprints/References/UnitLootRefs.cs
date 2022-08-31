@@ -49,6 +49,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> CultistsLootWizardScrolls1 = "fd7de353f3ffea5408a90357fb9c1563";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> CultistsLootWizardScrolls2 = "6954ffc4f9ce8cb45b0206e9241e0dc4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DeerLoot = "089ee5f7d0e417c4c9b89e8bbf26b6d2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_6levelminibossLoot = "e2620334c84f40d2a3543a3d39bb9780";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_9levelminibossLoot = "657374aa97ca47e99d9ce9ba7c068c79";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_GnomeCashUnitLoot = "8334604ab4424e3a8327a27a2bfde95d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StartingGold = "9664424d72a94e858e59899ef3321346";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_1 = "8df6559bcce54277b22356c79a478d21";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_10 = "59a4a7a85532463aa50f38d1fdec20a0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_2 = "86248157f6e341629b4cabe1838a6308";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_3 = "9975acd840714ef280bc62f1ed82f6b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_4 = "53dcd457c2ae4261a797af7aca618929";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_5 = "f97dbd82b43c4ef4a61f59fc161ced11";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_6 = "7ea1e02bf8ed48bea3800e27c84414cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_7 = "1a2a359599f64c2d806219554140077f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_8 = "4004b43bf2774c1dabd7ec6023895a43";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_9 = "3be9925d1a2a420faa667ff21f54669b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DogLoot = "15ebc42d2ffefc848b17f68ff457f051";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomercatLoot = "d2c4914b339ff9f4eb60d31634f746a0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomerlionLoot = "8dfddd5847e1bc24bbbebe75a63c083b";
@@ -209,6 +223,20 @@ namespace BlueprintCore.Blueprints.References
           CultistsLootWizardScrolls1,
           CultistsLootWizardScrolls2,
           DeerLoot,
+          DLC3_6levelminibossLoot,
+          DLC3_9levelminibossLoot,
+          DLC3_GnomeCashUnitLoot,
+          DLC3_StartingGold,
+          DLC3_StoryLootMiniBoss_1,
+          DLC3_StoryLootMiniBoss_10,
+          DLC3_StoryLootMiniBoss_2,
+          DLC3_StoryLootMiniBoss_3,
+          DLC3_StoryLootMiniBoss_4,
+          DLC3_StoryLootMiniBoss_5,
+          DLC3_StoryLootMiniBoss_6,
+          DLC3_StoryLootMiniBoss_7,
+          DLC3_StoryLootMiniBoss_8,
+          DLC3_StoryLootMiniBoss_9,
           DogLoot,
           DweomercatLoot,
           DweomerlionLoot,

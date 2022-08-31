@@ -326,6 +326,18 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUnitTemplate.CrBonus"/>
+    /// </summary>
+    public TBuilder SetCrBonus(int crBonus)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CrBonus = crBonus;
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

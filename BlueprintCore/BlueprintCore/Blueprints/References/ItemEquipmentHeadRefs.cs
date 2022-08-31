@@ -33,6 +33,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> CrushingPresenceItem = "835d2e861aef0dd4fb21df9700074edc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DarknessCaressItem = "39755fa97553462ca91a6109e5e1e393";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DemonicResentmentItem = "f7d357a00baf9ab4dab0b6e49e11656d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DLC3_HelmOfBitterEndItem = "2010d68d0aa44615ac3f6b6c41bc4ac3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DLCTestItem = "70ed181085a34b7881efef7958d6698e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DoublingAnnoyanceItem = "63c9d4fc0810432aa6d85111d345aa84";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DravensHatItem = "0160c8eabe704db41b6309af0d26a8e0";
@@ -190,6 +191,7 @@ namespace BlueprintCore.Blueprints.References
           CrushingPresenceItem,
           DarknessCaressItem,
           DemonicResentmentItem,
+          DLC3_HelmOfBitterEndItem,
           DLCTestItem,
           DoublingAnnoyanceItem,
           DravensHatItem,

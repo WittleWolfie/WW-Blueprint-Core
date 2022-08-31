@@ -254,7 +254,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ElementalPunisherLongbowEnchantment</term><description>0bf0156eb3687254b9fb0f6b4067da20</description></item>
+    /// <item><term>DLC3_DefacerWarhammerEnchantment</term><description>c3b2c58b5e794064b09c6b59308d301f</description></item>
     /// <item><term>LightningArrowsQuiverEnchantment</term><description>d0cab2c642c912245a5c35821db45d0e</description></item>
     /// <item><term>RovagugRelicScorpionEnchantment</term><description>08dfd84c0a80dfb48924a5f3800bbd2d</description></item>
     /// </list>
@@ -717,7 +717,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalPiercingDamage</term><description>5a6bac93089d3ec449f316d22826c5f4</description></item>
-    /// <item><term>BaneUndead</term><description>eebb4d3f20b8caa43af1fed8f2773328</description></item>
+    /// <item><term>BaneVermin</term><description>c3428441c00354c4fabe27629c6c64dd</description></item>
     /// <item><term>WoundBearerNegative1d6</term><description>7f727c7023be4854babc44d3ee756d31</description></item>
     /// </list>
     /// </remarks>
@@ -762,7 +762,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AgainstHelplessPlus2</term><description>2fa378b52d997da4e814af3c48d88d35</description></item>
-    /// <item><term>BaneOutsiderEvil</term><description>20ba9055c6ae1e44ca270c03feacc53b</description></item>
+    /// <item><term>BaneOutsiderGood</term><description>a876de94b916b7249a77d090cb9be4f3</description></item>
     /// <item><term>SingingEdgeEnchantment</term><description>a3a40379e5950cf408d4bcf375072d26</description></item>
     /// </list>
     /// </remarks>
@@ -815,6 +815,34 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
+    /// Adds <see cref="WeaponCritAutoconfirmAgainstSize"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_ButcheringGreataxeEnchantment</term><description>47cd9bd112c24d4e9b0a4400bcdee6e2</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddWeaponCritAutoconfirmAgainstSize(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Size? size = null)
+    {
+      var component = new WeaponCritAutoconfirmAgainstSize();
+      component.Size = size ?? component.Size;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="WeaponDamageAgainstAlignment"/>
     /// </summary>
     ///
@@ -823,7 +851,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anarchic</term><description>57315bc1e1f62a741be0efde688087e9</description></item>
-    /// <item><term>Holy</term><description>28a9964d81fedae44bae3ca45710c140</description></item>
+    /// <item><term>DLC3_ShadowBalorFX</term><description>9abd18bca8394dc18b17318481e06933</description></item>
     /// <item><term>Unholy</term><description>d05753b8df780fc4bb55b318f06af453</description></item>
     /// </list>
     /// </remarks>
@@ -1002,7 +1030,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Enhancement1</term><description>d42fc23b92c640846ac137dc26e000d4</description></item>
-    /// <item><term>Superpower</term><description>590db6d4f87a23e47beac27bfea8e7e7</description></item>
+    /// <item><term>Enhancement8</term><description>b337af3a2c2a46d0bd0683e983f9d94e</description></item>
     /// <item><term>TemporaryEnhancement5</term><description>746ee366e50611146821d61e391edf16</description></item>
     /// </list>
     /// </remarks>
@@ -1053,11 +1081,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool? haste = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        int? number = null)
+        int? number = null,
+        bool? penalized = null)
     {
       var component = new WeaponExtraAttack();
       component.Haste = haste ?? component.Haste;
       component.Number = number ?? component.Number;
+      component.Penalized = penalized ?? component.Penalized;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

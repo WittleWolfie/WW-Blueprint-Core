@@ -155,8 +155,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
-    /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
+    /// <item><term>InevitableDarkness_Feature_Dispel</term><description>879b5de95ddb4fbfb61ca2d40cbd0743</description></item>
+    /// <item><term>ZombieDispelExplosion</term><description>bcd9277193ef41dfb8d3b292ee33c828</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -185,7 +185,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>6264845f5654cdd48809fe36f5dc4ffb</description></item>
-    /// <item><term>Cue_0024</term><description>c43f80ef0e950c3449a74dd8e403bf6e</description></item>
+    /// <item><term>Cue_0024</term><description>30437eab305b3864586674692c526a4e</description></item>
     /// <item><term>Wardstone_SoldiersAndDemonsFight</term><description>76de06039af340ddba4ed13149ecb72a</description></item>
     /// </list>
     /// </remarks>
@@ -212,7 +212,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction1</term><description>ffd7ece2931543b08711654f927b28c8</description></item>
+    /// <item><term>CommandAction1</term><description>aebca8d873bd4dee820454bda3b648e9</description></item>
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
@@ -258,7 +258,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
-    /// <item><term>CommandAction2</term><description>bf0933f5898f4fd280fbb4638979be84</description></item>
+    /// <item><term>CommandAction2</term><description>5cc7015599a344eb93230564f24b5df8</description></item>
     /// <item><term>Tools_CheckPassedActions2</term><description>db695eb808004014b25ad3475123d544</description></item>
     /// </list>
     /// </remarks>
@@ -310,7 +310,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>058d6563b283ae04294ba2c729383663</description></item>
-    /// <item><term>Cue_0016</term><description>bb7b3fbefbb88e34a97bc895f76c368e</description></item>
+    /// <item><term>Cue_0016</term><description>5ca6507997f72204ca0babb22f93966a</description></item>
     /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
     /// </list>
     /// </remarks>
@@ -347,7 +347,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>FirstCultistAttack_dialogue</term><description>5d0e5f6591424935983d03c587618ba9</description></item>
+    /// <item><term>EvilAbrogail_dialogue</term><description>712211a84a7fcfb49a8aa4b69ba59e14</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>5a2c83b1758ca624bbd3d87d7a3e15c2</description></item>
+    /// <item><term>Cue_0050</term><description>1a72f91b235492b4abf59da16c90e816</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -476,7 +476,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GreyborEnterZone</term><description>547cc0d248f5f6b459d09a4820f83831</description></item>
+    /// <item><term>GrayGarrison_FinalSiege_Etude</term><description>a7a2e9a56072fad4d93ab976d23086ac</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -522,7 +522,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction1</term><description>8db12bd249514acaa8233858c4669d60</description></item>
+    /// <item><term>CommandAction10</term><description>df2588f53b544f178f2f35da2c6b5058</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
@@ -555,7 +555,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>Hepzamirah_MainDialogue</term><description>5662c8bcb913b3842a10f67034c096f3</description></item>
+    /// <item><term>HalDragonForm_dialogue</term><description>47d85fe3492d724498753d668267d495</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -577,7 +577,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>Cue_0026</term><description>7a0d1af8491b4c84d9355fa555c942e9</description></item>
+    /// <item><term>Cue_0024</term><description>68981c2d5949c2744a2a985813222f01</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -626,7 +626,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
-    /// <item><term>CommandAction3</term><description>36a68c2f8f96483ea8d42bf9a25089df</description></item>
+    /// <item><term>CommandAction32</term><description>0c62d83ec19645f2a765ea885d0c8056</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

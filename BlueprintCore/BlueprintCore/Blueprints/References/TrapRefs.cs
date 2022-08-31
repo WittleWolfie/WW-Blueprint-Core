@@ -15,6 +15,7 @@ namespace BlueprintCore.Blueprints.References
   /// </remarks>
   public static class TrapRefs
   {
+    public static readonly Blueprint<BlueprintReference<BlueprintTrap>> Blueprints_NOTUSED_ = "e6713f4a0bde49648b43e93bf372b0d2";
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> DLC1_StorytellerFlavorTrap = "e5272fddd95945bba815df56d56a7a19";
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> FakeBannerTrap = "9f306abf6791a3f44bdb824fbc81caf5";
     public static readonly Blueprint<BlueprintReference<BlueprintTrap>> FinneanlabFlavorTrap = "3797ac0b3c46d3f43a19a39fa34c5c2c";
@@ -31,6 +32,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly List<Blueprint<BlueprintReference<BlueprintTrap>>> All =
       new()
       {
+          Blueprints_NOTUSED_,
           DLC1_StorytellerFlavorTrap,
           FakeBannerTrap,
           FinneanlabFlavorTrap,

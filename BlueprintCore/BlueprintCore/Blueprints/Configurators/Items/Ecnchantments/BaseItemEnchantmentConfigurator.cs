@@ -210,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityTargetedRageAllySelfBuff</term><description>783bcdac2a948eb448f3eb249f068f6f</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -354,7 +354,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>JaethalCampBuff</term><description>e9cc770ccca8b73488196e1f508e2675</description></item>
+    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -383,8 +383,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
-    /// <item><term>WreckingDevilEnchantment</term><description>b147364a4f50438f943f8095c85916b7</description></item>
+    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
+    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -577,7 +577,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneProtectorEnchant</term><description>d3118dd2796883645a56c888880ecfba</description></item>
-    /// <item><term>PermanentFreedomHoldImmun</term><description>1bc0bb7cef5ee4c4c81294ead983dbf3</description></item>
+    /// <item><term>ParalyzedImmunity</term><description>cff254a8c1b51d04c957d83baab398bb</description></item>
     /// <item><term>StabilityStanceEnhancement5</term><description>a1a88d4009945de47922944ebbece28d</description></item>
     /// </list>
     /// </remarks>
@@ -640,7 +640,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ALR_GlovesEnchantment</term><description>2b6a3d0a74d740faa06a2e0ad266b4a9</description></item>
-    /// <item><term>HelmetOfDurableCavalierEnchantment</term><description>32be3b787ae9bd74ab040c5ea0dc5905</description></item>
+    /// <item><term>HelmetFullPlateKnightEnchantment</term><description>6ae76de18c1580b4da5fc5aaa455c44d</description></item>
     /// <item><term>WoundBearerAthletic5</term><description>1eac86bba153a204395fadcbb991b95c</description></item>
     /// </list>
     /// </remarks>
@@ -711,7 +711,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlchemistsClothEnchantment</term><description>5ac1350dbddabd745baad8170d4e9c05</description></item>
-    /// <item><term>HerbalRingEnchantment</term><description>bc5c63a3270c9f542b94c16f4a359347</description></item>
+    /// <item><term>HelmetOfComraderyEnchantmet</term><description>52b4958a099692242953570eebd91dc8</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningEnchantment</term><description>2a4e61dcd2b74da3b742e1e67837b825</description></item>
     /// </list>
     /// </remarks>
@@ -749,7 +749,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2DCagainstNecroticPlus2Enchant</term><description>0bc09adac665a7647b39ca76b897ddd5</description></item>
-    /// <item><term>HeadbandOfSubjugatorEnchantment</term><description>b63c8c303b673864eb14c13740ae2b63</description></item>
+    /// <item><term>HatTricornFeatheredEnchantment</term><description>a38c3c8bbfc4dc84492fa5a188112dc8</description></item>
     /// <item><term>ZeorisDaggerHeadband_GoverningEnchantment</term><description>fe29f7cf83a7449282b7f97d541dc575</description></item>
     /// </list>
     /// </remarks>

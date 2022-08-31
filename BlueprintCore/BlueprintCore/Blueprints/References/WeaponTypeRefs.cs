@@ -19,18 +19,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Bardiche = "b1cbf457fd471d148b39ae56667f405a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BastardSword = "d2fe2c5516b56f04da1d5ea51ae3ddfe";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Battleaxe = "2bc77aa47f97de348aefcf03ec8fa43b";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Battleaxe_DLC3 = "6364e3bac8164a758635630661953b31";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteBuletteType = "ebb1e708e46d32c4888207913f76e555";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteDragonType = "12a8a3a89e62d6b4fbc09ecdc187a828";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteType = "952e30e6cb40b454789a9db6e5f6dd09";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteType1d10 = "9b9da970fb869cf469007b51a42f661b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteType1d4 = "e47557fbe9084c089b3e25f3908044e5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteType2d4 = "3e26b00461ead9a4d8bb1ababaf99f63";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BiteTypeTwoHanded = "899a905e8b7c4566ab48005d7fce2189";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BombType = "1a2f020861cf1d843ab99170284b5ac5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> BrassGolemFalchion = "a03f15ead432e584b8542ff25a1b3ac6";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawDevilType = "16afe2c7bfa3f604e8c00e61898fd148";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawType = "d4f7aee36efe0b54e810c9d3407b6ab3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawType1d8 = "8034aa61e74b8ba4fa67c1a4288f45c1";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawType2d4 = "493243bca1fb64f4dbdc56023fc1b0af";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawTypeCrit1820 = "d4efec9dac9a4fbda64cef600e9bcd38";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawTypeCritX3 = "9a1e014ac86afb0419428cf33752158e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> ClawTypeTwoHanded = "970df67e0c810174ebf771735e4777e5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Club = "26aa0672af2c7d84ba93bec37758c712";
@@ -51,6 +54,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DLC2_Shortsword_Rusty = "bfaf9d2cb3d342b8808bb12b4b36d841";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DLC2_Spear_Fake = "f48396194d4340d2990f480bc80dd4ba";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DLC2Shortbow = "31f452fd471549bb8c639227b925e547";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DLC3_Nahyndri_WeaponType_GargantuaClub = "02b5e016d1af49c8b3eac54acbebeb35";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DLC3_Nahyndri_WeaponType_LargeSlam = "aafb67b5ff83498ba307506878e5878a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DoubleAxe = "87d76c7534506a546a065731ee6a38cd";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DoubleSword = "e95efb85a0912a7489be69d5f03a5308";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> DuelingSword = "a6f7e3dc443ff114ba68b4648fd33e9f";
@@ -161,18 +166,21 @@ namespace BlueprintCore.Blueprints.References
           Bardiche,
           BastardSword,
           Battleaxe,
+          Battleaxe_DLC3,
           BiteBuletteType,
           BiteDragonType,
           BiteType,
           BiteType1d10,
           BiteType1d4,
           BiteType2d4,
+          BiteTypeTwoHanded,
           BombType,
           BrassGolemFalchion,
           ClawDevilType,
           ClawType,
           ClawType1d8,
           ClawType2d4,
+          ClawTypeCrit1820,
           ClawTypeCritX3,
           ClawTypeTwoHanded,
           Club,
@@ -193,6 +201,8 @@ namespace BlueprintCore.Blueprints.References
           DLC2_Shortsword_Rusty,
           DLC2_Spear_Fake,
           DLC2Shortbow,
+          DLC3_Nahyndri_WeaponType_GargantuaClub,
+          DLC3_Nahyndri_WeaponType_LargeSlam,
           DoubleAxe,
           DoubleSword,
           DuelingSword,

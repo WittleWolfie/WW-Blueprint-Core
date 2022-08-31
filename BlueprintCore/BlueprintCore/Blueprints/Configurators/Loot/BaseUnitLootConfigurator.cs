@@ -78,7 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aminas_Chapter5VendorTable</term><description>8b2dae3f8da96f640995594f6bcf7a29</description></item>
-    /// <item><term>InnkeeperVendorTable</term><description>7b80ddeaf18d5a740bc12e7325044f29</description></item>
+    /// <item><term>DLC3_VendorTableMagicShields</term><description>695e348b2719415f883de90d932aeb66</description></item>
     /// <item><term>WyvernMeatLoot</term><description>abe034c3a49a1854496fa6fe1f439114</description></item>
     /// </list>
     /// </remarks>
@@ -102,8 +102,8 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BlacksmithWeapon_DLC1VendorTable</term><description>7d73798a7e624afa8340916c7461cf12</description></item>
-    /// <item><term>Jeweler_DLC1VendorTable</term><description>3f08f2fcaed14d989ff1230fb214f1fb</description></item>
-    /// <item><term>Tailor_DLC1VendorTable</term><description>76560f48b5d24c70bb228db6f3f1c099</description></item>
+    /// <item><term>HilorArmor_DLC1VendorTable</term><description>84fb4303222b413eb42daeb8d98a30dd</description></item>
+    /// <item><term>Tailor_DLC1VendorTable1</term><description>301b28b1b3924e55989c41288048e4d2</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddLootItemsPackFixedAndNotInPlayerInitialInventory(
@@ -152,7 +152,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CultistsLootClericScrolls1</term><description>668d29eefe4b614459ef48abad5efeb0</description></item>
-    /// <item><term>JewelryCR7</term><description>1261afb3a6229b848ac3a52b67a6d587</description></item>
+    /// <item><term>JewelryCR6</term><description>c8d223433f2dbfc4080569ea7f4792db</description></item>
     /// <item><term>TrashLootStandardWeaponsAndArmor</term><description>6414d0eccbb66364bb1ef9f57599fc5c</description></item>
     /// </list>
     /// </remarks>

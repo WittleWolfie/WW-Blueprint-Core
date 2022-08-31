@@ -177,6 +177,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event53TradingTheCultistCaptivesCooldown = "40d70ba581dd413f90fc7302772c12aa";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event57StrentheningTheMindCooldown = "3c6b71dc1d4648c59534d8a48b7d8dfa";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event59BloodPotionCooldown = "e33b536e52814d539c174a84c7c44e59";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event60ArmyUnitsVulnerable = "e23c69d0f44e4223a0793da9c138c0f5";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event61DrakePoisonCooldown = "bbde7a1a2dca43c5828234556ddbb0d5";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event61MountTrainingCooldown = "a29b110a510842068b3359b3ef925264";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event66TreasuresFromTheLakeCooldown = "042bcd9861664d42a3afc4cb0a756944";
@@ -224,6 +225,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagAngel5BestowProtection = "c70913a7b8494fa3b1f0ce2fc701718a";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagAngel5BestowWrath = "8d9c6f05ef2644aeb7f17f9c5b11853a";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagArmyDissociated = "1097031e73e14a3480f3e20b0c4be0e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagArmyUnitsCautious = "c240b57570154ab3a18228f7df7836ec";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagArmyUnitsPrudent = "af1f2e659eba45fc832c86e2088a5ae3";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagAzata1InspiredAdvance = "85e2b2a302a84e49aa716ba2ca288f29";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagAzata1SongOfPeople = "3636c88d0cd94149af2218267a86ff36";
@@ -289,6 +291,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership3MasterOfManeuver = "690292ae92d840ef9cb77ec97f5c50ae";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership3Morale = "87cc231b38d843edab15031e7db25b39";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership3ZelousLearner = "eec54a9e96624cdf8cc9e6f58e374138";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership3ZelousLearner_Dragon = "e4d36c10874d4ca18a4a5d1a2a9ad5f6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership6LeaderFeatEnemyMoraleDecrease = "da809e995d554da693ebb98f8c9d0e5f";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership6LeaderFeatIncreaseMorale = "015cde2cf9e748c2890cece7e99adfe7";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagLeadership6LeaderFeatMoraleEachTurn = "3e3568987a684773a98923de7bb64d87";
@@ -689,6 +692,7 @@ namespace BlueprintCore.Blueprints.References
           Event53TradingTheCultistCaptivesCooldown,
           Event57StrentheningTheMindCooldown,
           Event59BloodPotionCooldown,
+          Event60ArmyUnitsVulnerable,
           Event61DrakePoisonCooldown,
           Event61MountTrainingCooldown,
           Event66TreasuresFromTheLakeCooldown,
@@ -736,6 +740,7 @@ namespace BlueprintCore.Blueprints.References
           FlagAngel5BestowProtection,
           FlagAngel5BestowWrath,
           FlagArmyDissociated,
+          FlagArmyUnitsCautious,
           FlagArmyUnitsPrudent,
           FlagAzata1InspiredAdvance,
           FlagAzata1SongOfPeople,
@@ -801,6 +806,7 @@ namespace BlueprintCore.Blueprints.References
           FlagLeadership3MasterOfManeuver,
           FlagLeadership3Morale,
           FlagLeadership3ZelousLearner,
+          FlagLeadership3ZelousLearner_Dragon,
           FlagLeadership6LeaderFeatEnemyMoraleDecrease,
           FlagLeadership6LeaderFeatIncreaseMorale,
           FlagLeadership6LeaderFeatMoraleEachTurn,

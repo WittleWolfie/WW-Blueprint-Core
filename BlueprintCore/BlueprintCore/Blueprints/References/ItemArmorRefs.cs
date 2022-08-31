@@ -199,6 +199,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DesertMirageItem = "596b1dea473749819ad81b1e60e4a193";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DiskOfUnbalanceArmorItem = "6e5f45b35f064cb78dfe07ae0eefd96e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DivineProtectorArmorItem = "d098f4cd8bd859644953d44b89bebfa2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_DemonhideLeatherArmorItem = "f125e2f29ffd44e7acfb7619586a7e24";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_GuardianHeavyShieldArmor = "4d76a36d73804bef8a02d8c12b3b237f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_StandhardFullplateArmorItem = "77dfad25fbaf4f3f842b66fa46e4ebf9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DragonfallItem = "373ad14ed09bfdb458db39e1edff548a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DragonscalePlate = "d0808425cbe661140a636de0ca1a1535";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DrapingVeilOfProwessRobeItem = "bad754cddbddc3741822051eabb8e611";
@@ -728,6 +731,9 @@ namespace BlueprintCore.Blueprints.References
           DesertMirageItem,
           DiskOfUnbalanceArmorItem,
           DivineProtectorArmorItem,
+          DLC3_DemonhideLeatherArmorItem,
+          DLC3_GuardianHeavyShieldArmor,
+          DLC3_StandhardFullplateArmorItem,
           DragonfallItem,
           DragonscalePlate,
           DrapingVeilOfProwessRobeItem,

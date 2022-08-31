@@ -837,6 +837,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_WeaponFocusRewardFeat</term><description>c6654ca31b9943b4b02d184733854471</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// <item><term>WeaponFocusGreater</term><description>09c9e82965fb4334b984a1e9df3bd088</description></item>
     /// </list>
@@ -912,7 +913,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>WeaponSpecialization</term><description>31470b17e8446ae4ea0dacd6c5817d86</description></item>
+    /// <item><term>DLC3_WeaponSpecializationRewardFeat</term><description>870b1c38ccf34a7d8b18330a5580cdf4</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// <item><term>WeaponSpecializationMythicFeat</term><description>d84ac5b1931bc504a98bfefaa419e34f</description></item>
     /// </list>
@@ -1028,7 +1029,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodlineArcaneNewArcanaFeature</term><description>4a2e8388c2f0dd3478811d9c947bebfb</description></item>
-    /// <item><term>LoremasterDruidSecretWitch</term><description>32392efe253dffa43b34fd9d1185eb59</description></item>
+    /// <item><term>LoremasterWizardSecretBard</term><description>b8310eac977d2c7498184f2523490f31</description></item>
     /// <item><term>MysticTheurgeOracleLevelParametrized9</term><description>4a2fa8146d6263649bd91a0a2006ebad</description></item>
     /// </list>
     /// </remarks>

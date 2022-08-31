@@ -9,6 +9,7 @@ using Kingmaker.DLC;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
+using Kingmaker.UI.SettingsUI;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -146,6 +147,30 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.ToBeContinued = toBeContinued;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.IsDungeon"/>
+    /// </summary>
+    public TBuilder SetIsDungeon(bool isDungeon = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsDungeon = isDungeon;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.AllowMythicChange"/>
+    /// </summary>
+    public TBuilder SetAllowMythicChange(bool allowMythicChange = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AllowMythicChange = allowMythicChange;
         });
     }
 
@@ -450,6 +475,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc2Campaign</term><description>e6fdda2539274c1e89d236be69f5a984</description></item>
+    /// <item><term>Dlc3Campaign</term><description>e1bde745d6ad47c0bc9fb8e479b29153</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -483,6 +509,84 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         component.m_CustomCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlueprintCampaignExperience"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc3Campaign</term><description>e1bde745d6ad47c0bc9fb8e479b29153</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddBlueprintCampaignExperience(
+        bool? allowChecks = null,
+        bool? allowMobs = null,
+        bool? allowQuests = null,
+        bool? allowTraps = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new BlueprintCampaignExperience();
+      component.AllowChecks = allowChecks ?? component.AllowChecks;
+      component.AllowMobs = allowMobs ?? component.AllowMobs;
+      component.AllowQuests = allowQuests ?? component.AllowQuests;
+      component.AllowTraps = allowTraps ?? component.AllowTraps;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlueprintCampaignOverrideFogOfWarVisionRadius"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc3Campaign</term><description>e1bde745d6ad47c0bc9fb8e479b29153</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddBlueprintCampaignOverrideFogOfWarVisionRadius(
+        float? addition = null,
+        float? multiplier = null)
+    {
+      var component = new BlueprintCampaignOverrideFogOfWarVisionRadius();
+      component.Addition = addition ?? component.Addition;
+      component.Multiplier = multiplier ?? component.Multiplier;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BlueprintCampaignOverrideSettingBool"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc2Campaign</term><description>e6fdda2539274c1e89d236be69f5a984</description></item>
+    /// <item><term>Dlc3Campaign</term><description>e1bde745d6ad47c0bc9fb8e479b29153</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddBlueprintCampaignOverrideSettingBool(
+        UISettingsEntityBool? boolValue = null,
+        bool? value = null)
+    {
+      var component = new BlueprintCampaignOverrideSettingBool();
+      Validate(boolValue);
+      component.Bool = boolValue ?? component.Bool;
+      component.Value = value ?? component.Value;
+      return AddComponent(component);
     }
 
     /// <summary>

@@ -60,6 +60,30 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextConditionDungeonStage"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_BoonsTutorial</term><description>656933737f3d4ee4b8be54a54df48d3f</description></item>
+    /// </list>
+    /// </remarks>
+    public static ConditionsBuilder DungeonStage(
+        this ConditionsBuilder builder,
+        int? maxLevel = null,
+        int? minLevel = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<ContextConditionDungeonStage>();
+      element.MaxLevel = maxLevel ?? element.MaxLevel;
+      element.MinLevel = minLevel ?? element.MinLevel;
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CurrentAreaIs"/>
     /// </summary>
     ///
@@ -68,7 +92,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_64</term><description>0e8be804be2a4a97b102a3f36d21f240</description></item>
+    /// <item><term>Cue_45</term><description>74bf01e6e98e49099e74b21f4cf28e8e</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
@@ -129,7 +153,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CavesShortcutUnlocked</term><description>d1f433e953409144d914f15597db6e34</description></item>
-    /// <item><term>Green_Slot_2_1_IsNotEmpty</term><description>c7fbd363a489d674cb4a29150b2526e2</description></item>
+    /// <item><term>Green_Slot_1_4_IsNotEmpty</term><description>c472c9af55454dd4ca2a845c3c4ad274</description></item>
     /// <item><term>Slot_3_3_IsNotEmpty</term><description>85c097fd43ebd3940b6ea98b57e6f35e</description></item>
     /// </list>
     /// </remarks>
@@ -302,7 +326,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>d38052d00f394118945e8861f00574f5</description></item>
-    /// <item><term>Graveyard_BossFight_Drop</term><description>73c79925eb004918ba9e09e4146f2c71</description></item>
+    /// <item><term>DLC3_Nahyndri2ndPhase_SZ</term><description>715a608a028942439ac34180997c0f0a</description></item>
     /// <item><term>TrueLootHideZone9</term><description>168ca19a2ced8d448a9944c2f0f01d72</description></item>
     /// </list>
     /// </remarks>

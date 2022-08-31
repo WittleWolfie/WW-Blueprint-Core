@@ -116,6 +116,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DesertMirageEnchantment = "c58ca74a08ec4b23a50ca19c72404960";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DiplomacyPenalty3 = "c2d44882eedc3b64fab5179ebf8d4350";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC1ZachariusFallenWandEnchantment = "d132a21801be48f683893fc82f3e4c2a";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_BracersOfBraveryEnchantment = "338dbdb19b584050a99e82d705fd8a66";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_DemonhideLeatherArmorEnchantment = "f8494f446b324cfcb5d8a4be3b859f2d";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_GuardianHeavyShieldEnchantment = "2491c3d7e94f4873bc67e465b0e588d2";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_StandhardArmorEnchantment = "d4f5fbfb6ea5460f945146c216681090";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DragonfallEnchantment = "afcdd71ddf0f090448fefbae0fe12b32";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> EarthenEmbraceEnchantment = "e92b599a1fb80574381e515d69f34473";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> ElectricityResistance10Enchant = "1e4dcaf8ffa56c24788e392dae886166";
@@ -406,6 +410,10 @@ namespace BlueprintCore.Blueprints.References
           DesertMirageEnchantment,
           DiplomacyPenalty3,
           DLC1ZachariusFallenWandEnchantment,
+          DLC3_BracersOfBraveryEnchantment,
+          DLC3_DemonhideLeatherArmorEnchantment,
+          DLC3_GuardianHeavyShieldEnchantment,
+          DLC3_StandhardArmorEnchantment,
           DragonfallEnchantment,
           EarthenEmbraceEnchantment,
           ElectricityResistance10Enchant,

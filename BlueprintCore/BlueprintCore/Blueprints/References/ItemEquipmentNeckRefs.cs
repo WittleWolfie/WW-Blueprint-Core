@@ -75,6 +75,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> DarekSunhammersFake = "3e4ce583dc71401588f33f8192c252cd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> DarekSunhammersWork = "5a3463e8f61c4663aa59660ff51e3cb1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> DeathlyArousalItem = "ced0c42331b39f5499846880a2b82c9b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> DLC3_AmuletOfCombatAwarenessItem = "c6b28bf6b42b4650bc3363f141c89bb6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> DragonsHeirloomItem = "ad3af6b9e7724c65b2d3a427d6a2d7ef";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> EmeraldNecklace = "7506e7e62c58c6444881d0896fff5db1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> FalseNahCrystalAmuletItem = "3b72223fefa190148a4df605e18b21b6";
@@ -181,6 +182,7 @@ namespace BlueprintCore.Blueprints.References
           DarekSunhammersFake,
           DarekSunhammersWork,
           DeathlyArousalItem,
+          DLC3_AmuletOfCombatAwarenessItem,
           DragonsHeirloomItem,
           EmeraldNecklace,
           FalseNahCrystalAmuletItem,

@@ -212,6 +212,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChannelersRodToggleAbility = "aa409dbbbd7dfc24bb95dabebdebedfb";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChickenFamiliarAbility = "04b61ff76e702674ab208e7dbe50a57e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChillingInfusionAbility = "fb426ea002abbbc4198b1cd6b99f1be8";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChimeraAspect = "e4e210e0bf104fbe9283f428b715514a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColdIronArrowsQuiverAbility = "58c4f326a6b0657488c897b61b2a6765";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColorlessRemainsQuiver_MadnessAbility = "d537c2879cbf4f9ca7cdbac3f10b5c25";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColorlessRemainsQuiver_SolidAbility = "f2f77d9770d6455aa60fbac2dd7f1f00";
@@ -227,6 +228,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DeadlyMagicToggleAbility = "e72727ff8f28cae47a4cd56655ce7b10";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DeathOfElementsConsumingElementsToggleAbility = "b226bc1be6564054ea779cf9496ed0fc";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DeathOfElementsDeathOfElementsToggleAbility = "2596b57f85864fd4db057bbc9e23c379";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DeathSmellAbility = "2543bc3d69484d6cac8410cfe3dedfac";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DebilitatingInjuryBewilderedAbility = "c74a63e0d2fd08149bfcfff8ded43313";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DebilitatingInjuryDisorientedAbility = "dda92ebaf6a03f84387f7104fd597c2e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DebilitatingInjuryHamperedAbility = "bf99375b26fb46546b0592e89ba890aa";
@@ -252,6 +254,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DivinationSchoolForetellHinderToggleAbility = "42c263499df42064297f504c340e74c7";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DivineGuardianBodyguardAbility = "14a9c13a2fb063b4ca9f883e00e0c3d0";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DivineGuardianInHarmsWayAbility = "d98c7711030ab6b4fa8347fc933fec72";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_InspireCourageToggleAbility = "b7659c60ae834c0798f59be96068e73e";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_InspireGreatnessToggleAbility = "3d307d808b834caeb1cb5d339b09d41b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_InspireHeroicsToggleAbility = "1ea13f644c6e4fabadd6d750dafb1766";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_RodOfMagicalAffinityActivatableAbility = "2174ca01f81d4c8c82f03753292a8ba4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DogFamiliarAbility = "c1d499b277b473a47a026a732e036ca4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonAzataFrightfulPresenceAbility = "a2e0cbebe3bb4a90a22b75d3c22d952c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonStyleToggleAbility = "2c0a8b11e3bb37c4c80c73cc0f706c84";
@@ -471,6 +477,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> MountTargetSwitch = "d340d820867cf9741903c9be9aed1ccc";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> NabasuAspectAbility = "868c4957c5671114eaaf8e0b6b55ad3f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> NabasuDeathStealingGazeAbility = "17da4d99f8f0e144b985e294ca20dae2";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> NahyndrianDarkness_Ability_ProximityTrigger = "0afaf4fa4d08477d8ce9f88bdcf7c832";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> NecromancySchoolGreaterAbility = "23929ea35519488459ed30eea4425a04";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> NegativeEnergyToggleAbility = "c549f3124090fb2499e36b6ec85fa75c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Nocticula_ActivatableAbility_SeductivePresence = "5831d05257f34e1ca8d7b843ffc8e482";
@@ -483,6 +490,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OldGrimoireToggleAbility = "8e9cc2f3e7ae81c45b5a059f9423ef0b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OmoxAspectAbility = "e305991cb9461a04a97e4f5b02b8b767";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OpportunistsBootsAbility = "7db58d723056ba04c9bb754723a141a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OracleRevelationArmorOfBonesActivatableAbility = "524b8b15d37c4b3bb55c628baeb09458";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OracleRevelationArmorOfBonesActivatableAbility13 = "9ae6030c2a264eb28a7217bf5a6df109";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OracleRevelationInvisibilityAbility = "15e8267675c2fae48807e819ed77d027";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OracleRevelationInvisibilityAbilityGreater = "5a756c0181baee548aed363274c651e4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> OracleRevelationSpiritOfTheWarriorAbility = "e52a097da8913cc4baa31415e1fd72de";
@@ -613,6 +622,23 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanWeaponSpeedChoice = "8ce5ced3b7fbf7440aa316199bc4c30f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShatteringPunchToggleAbility = "eeb10f28bf48e7042aec273440c9525c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShieldBashAbility = "3bb6b76ed5b38ab4f957c7f923c23b68";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectBearAbility = "e66b1350f66949d997e31a57ce638fee";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectBoarAbility = "43bc6e6b0f91413095d4f68206598a69";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectDinosaurAbility = "4b399131ebbf485e940ccd3690eab8d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectElephantAbility = "1035bab01a9d420dbb070818afb88215";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectHorseAbility = "5107da0ffa3a4b7bac5fd24f87e7852d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectLizardAbility = "22386071787246c597748ae8378d4bc9";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectSpiderAbility = "56af94739fbf401799f6e54b091750e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectTigerAbility = "958fcd0e2e674c72b97dea83b806eec1";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectWolfAbility = "2ec2c06d00574e6795c48cb65e17cb52";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectWolverineAbility = "28471f7cdf854170a1bdd8facbb2f054";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel1 = "854127ffc3644660b1c047d0a1967a66";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel11 = "297eb5e400e747c785cf98523f46db5d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel13 = "db4a89bdcc6044d6b538dc2c19cac745";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel17 = "b88411e69af245c08dfbbb88d9b24112";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel19 = "469e70bdd542407293ba0f00d9c672d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel3 = "79d7262325ab48be89b2dd8194683508";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterClawAbilityLevel7 = "ab97ac6b88eb4a96a375a47971a994e1";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShroudOfWaterArmorMode = "a5db7a8c00e80ce4a907cdfc627fbb80";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShroudOfWaterShieldMode = "0471dfb142e74a2458b90a01dd45cfb0";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SickeningCriticalToggleAbility = "8d6937857f626674e92d98fd32a59124";
@@ -918,6 +944,7 @@ namespace BlueprintCore.Blueprints.References
           ChannelersRodToggleAbility,
           ChickenFamiliarAbility,
           ChillingInfusionAbility,
+          ChimeraAspect,
           ColdIronArrowsQuiverAbility,
           ColorlessRemainsQuiver_MadnessAbility,
           ColorlessRemainsQuiver_SolidAbility,
@@ -933,6 +960,7 @@ namespace BlueprintCore.Blueprints.References
           DeadlyMagicToggleAbility,
           DeathOfElementsConsumingElementsToggleAbility,
           DeathOfElementsDeathOfElementsToggleAbility,
+          DeathSmellAbility,
           DebilitatingInjuryBewilderedAbility,
           DebilitatingInjuryDisorientedAbility,
           DebilitatingInjuryHamperedAbility,
@@ -958,6 +986,10 @@ namespace BlueprintCore.Blueprints.References
           DivinationSchoolForetellHinderToggleAbility,
           DivineGuardianBodyguardAbility,
           DivineGuardianInHarmsWayAbility,
+          DLC3_InspireCourageToggleAbility,
+          DLC3_InspireGreatnessToggleAbility,
+          DLC3_InspireHeroicsToggleAbility,
+          DLC3_RodOfMagicalAffinityActivatableAbility,
           DogFamiliarAbility,
           DragonAzataFrightfulPresenceAbility,
           DragonStyleToggleAbility,
@@ -1177,6 +1209,7 @@ namespace BlueprintCore.Blueprints.References
           MountTargetSwitch,
           NabasuAspectAbility,
           NabasuDeathStealingGazeAbility,
+          NahyndrianDarkness_Ability_ProximityTrigger,
           NecromancySchoolGreaterAbility,
           NegativeEnergyToggleAbility,
           Nocticula_ActivatableAbility_SeductivePresence,
@@ -1189,6 +1222,8 @@ namespace BlueprintCore.Blueprints.References
           OldGrimoireToggleAbility,
           OmoxAspectAbility,
           OpportunistsBootsAbility,
+          OracleRevelationArmorOfBonesActivatableAbility,
+          OracleRevelationArmorOfBonesActivatableAbility13,
           OracleRevelationInvisibilityAbility,
           OracleRevelationInvisibilityAbilityGreater,
           OracleRevelationSpiritOfTheWarriorAbility,
@@ -1319,6 +1354,23 @@ namespace BlueprintCore.Blueprints.References
           ShamanWeaponSpeedChoice,
           ShatteringPunchToggleAbility,
           ShieldBashAbility,
+          ShifterAspectBearAbility,
+          ShifterAspectBoarAbility,
+          ShifterAspectDinosaurAbility,
+          ShifterAspectElephantAbility,
+          ShifterAspectHorseAbility,
+          ShifterAspectLizardAbility,
+          ShifterAspectSpiderAbility,
+          ShifterAspectTigerAbility,
+          ShifterAspectWolfAbility,
+          ShifterAspectWolverineAbility,
+          ShifterClawAbilityLevel1,
+          ShifterClawAbilityLevel11,
+          ShifterClawAbilityLevel13,
+          ShifterClawAbilityLevel17,
+          ShifterClawAbilityLevel19,
+          ShifterClawAbilityLevel3,
+          ShifterClawAbilityLevel7,
           ShroudOfWaterArmorMode,
           ShroudOfWaterShieldMode,
           SickeningCriticalToggleAbility,

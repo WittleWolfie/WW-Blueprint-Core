@@ -36,6 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
           { typeof(Kingmaker.UnitLogic.Abilities.Components.TargetType), "Kingmaker.UnitLogic.Abilities.Components.TargetType" },
           { typeof(Kingmaker.UnitLogic.Mechanics.ValueType), "Kingmaker.UnitLogic.Mechanics.ValueType" },
           { typeof(UnityEngine.Object), "UnityEngine.Object" },
+          { typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference), "Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference" },
 
           { typeof(bool), "bool" },
           { typeof(bool?), "bool" },
@@ -87,7 +88,10 @@ namespace BlueprintCoreGen.CodeGen.Overrides
             { "class", "clazz" },
             { "override", "overrideValue" },
             { "continue", "continueValue" },
-            { "double", "doubleValue" }
+            { "double", "doubleValue" },
+            { "fixed", "fixedValue" },
+            { "bool", "boolValue" },
+            { "object", "objectValue" }
           };
   }
 }

@@ -30,7 +30,6 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <listheader>Used by</listheader>
     /// <item><term>LootCondition</term><description>d1d246fc5c3df5d48aaee5dd199e75ab</description></item>
     /// <item><term>RighteousMight</term><description>90810e5cf53bf854293cbd5ea1066252</description></item>
-    /// <item><term>RobeOfVirtueFeature</term><description>f3b1a7b396fc0b048b93967c6738708f</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder AlignmentCheck(
@@ -145,7 +144,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
-    /// <item><term>Answer_0042</term><description>9384003f84564b94c9b01e7e16a1db5d</description></item>
+    /// <item><term>Answer_0042</term><description>e5603282835aed948946ffedefe05ce5</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -355,7 +354,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Kerz]_BarkCondition</term><description>59c232c2fa5e7c54baa235fee0e049d6</description></item>
-    /// <item><term>BookPage_Room3Clean</term><description>68eaac50f8c3027479e00ec614f0b4c0</description></item>
+    /// <item><term>Check_0011</term><description>19f4bc0964418ae4ea0f07bce5e6f30a</description></item>
     /// <item><term>ZanedraInTemple</term><description>0d22fd186d557a049b46c0fb3d623f04</description></item>
     /// </list>
     /// </remarks>
@@ -495,7 +494,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions</term><description>7f8be13550ec4db894002cae58c9b811</description></item>
-    /// <item><term>Banter_NenioTrever_banter1_pack2</term><description>751e505f4376dd54e9f2eeb1fcf43e41</description></item>
+    /// <item><term>Banter_NenioVenduag_banter1</term><description>5ebe87b446c42c24499c68f28826ee3c</description></item>
     /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
     /// </list>
     /// </remarks>
@@ -536,7 +535,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[DLC1_Taberdine]_BarkConditions</term><description>c1bbb11f93d44e13b5587d4c9701515d</description></item>
-    /// <item><term>Cue_0005</term><description>1044dda3e3c04fb1adea83a8d0531935</description></item>
+    /// <item><term>Cue_0006</term><description>12b30421933a28e4a80cedb72b234ffe</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -591,7 +590,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
-    /// <item><term>Cue_0057</term><description>f29d673291599d9428af5d77c32b1bc4</description></item>
+    /// <item><term>Cue_0049</term><description>1643731eb71ab0f4db2c405b0800c27d</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -640,7 +639,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Cue_0006</term><description>fddd605a9eac4add97401daf5027f8fa</description></item>
+    /// <item><term>Cue_0012</term><description>6ce4c8c57d804eee8d63c76e3924d323</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -693,7 +692,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC1_Levelup</term><description>dca1299c933b43dd8078cdf078ee6121</description></item>
+    /// <item><term>Answer_0006</term><description>13e54e84a1344930b2d35ec4fba205ff</description></item>
+    /// <item><term>Cue_0009</term><description>8185d7eca07f4264a5bad9f59fed3dc7</description></item>
     /// <item><term>PF-399070</term><description>c41ed688835e4f57a5e76334b68cd729</description></item>
     /// </list>
     /// </remarks>
@@ -823,7 +823,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Cue_0006</term><description>78f52b70b8e80b94e83b923def53360c</description></item>
+    /// <item><term>Cue_0008_ArenaQuestGiver</term><description>49171a3dfce5f5741936b4b7629278ce</description></item>
     /// <item><term>Ziggurat_ZachariusBeginRitual</term><description>8a020a9f01405ae4fa417500e1efd2e6</description></item>
     /// </list>
     /// </remarks>
@@ -932,7 +932,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>2a5615c36b154ef79b0f7bff878081a0</description></item>
-    /// <item><term>Cue_0020</term><description>a66a6e34e9aa8d749921acdc7a0ae938</description></item>
+    /// <item><term>Cue_0060</term><description>6ea88ed6d7ac02c42b1eb4d641db14ad</description></item>
     /// <item><term>Gift_From_Stranger_Notification</term><description>e688d0cd0791435eaf84bbe4561624bc</description></item>
     /// </list>
     /// </remarks>
@@ -1058,7 +1058,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>30_HeroicVictory</term><description>a43192eddffb455db6004059811ac92d</description></item>
-    /// <item><term>Cue_0007</term><description>0479d1ab08a5c2a44837227804085e15</description></item>
+    /// <item><term>Cue_0007</term><description>ca65e3d40c8ca114c991a908c5187d35</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>

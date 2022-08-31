@@ -58,7 +58,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction 3</term><description>651c3ea9f9323e943823ed497736ac74</description></item>
-    /// <item><term>CommandSetCombatMode4</term><description>c804cbf4f3e9427ca72b9800042cacb3</description></item>
+    /// <item><term>CommandSetCombatMode7</term><description>78179ec3b28b41f1b7c72f44bd190cbf</description></item>
     /// <item><term>Valmallos_Feature_CombatTrigger</term><description>f4621cc70bec4fe7b0373ed152e40570</description></item>
     /// </list>
     /// </remarks>
@@ -103,7 +103,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_01_Chapter2Intro</term><description>20073002e0594c88b5af911060e8dde8</description></item>
-    /// <item><term>Tutorials_Chapter03</term><description>1b59d48741cbf9945adde5dc62f968d8</description></item>
+    /// <item><term>Tutorials_Chapter02</term><description>b21b9dcb071cb2e4eaf91c66c0431e6d</description></item>
     /// <item><term>Tutorials_Chapter04</term><description>6321277cfb08bb5469b148e2a7a7cc12</description></item>
     /// </list>
     /// </remarks>
@@ -212,7 +212,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRace</term><description>b7f02ba92b363064fb873963bec275ee</description></item>
-    /// <item><term>Edge_SarkorianWedding_Chapter05_Army21</term><description>f5867b88ae4d4b189c025df9161e75d4</description></item>
+    /// <item><term>Edge_SarkorianWedding_Chapter05_Army14</term><description>b3c8bd9291a34edc88b62353f2f847f9</description></item>
     /// <item><term>Location_SarkorianWedding</term><description>da3e19fa23f94fa3a563bd866189e9da</description></item>
     /// </list>
     /// </remarks>

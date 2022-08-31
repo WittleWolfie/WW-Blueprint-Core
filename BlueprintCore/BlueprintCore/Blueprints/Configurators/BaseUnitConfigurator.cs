@@ -20,6 +20,7 @@ using Kingmaker.Blueprints.Items;
 using Kingmaker.Controllers.Rest.Special;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.TempMapCode.Ambush;
+using Kingmaker.Dungeon.FactLogic;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence.Versioning;
 using Kingmaker.Enums;
@@ -1162,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GiantFrogSummoned</term><description>1ed9a630f0d9d7f44855d3d1d1b2cdf2</description></item>
+    /// <item><term>GibrilethSummon</term><description>cffe1c1aff5ca5c468b78ede814d6d78</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -1197,6 +1198,35 @@ namespace BlueprintCore.Blueprints.Configurators
         component.m_Upgraders = new BlueprintUnitUpgrader.Reference[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonAddLootToVendor"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Dungeon Add Loot To Vendor
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Falconium_tier1_original1</term><description>2a2e73631326473bb43abda08475380b</description></item>
+    /// <item><term>DLC3_Falconium_tier3_original</term><description>95bbd372681d419abe7d1b39830c06dd</description></item>
+    /// <item><term>DLC3_VendorInPort_tier1_unique</term><description>042d769be561428da5cc5c0b07408869</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddDungeonAddLootToVendor(params DungeonAddLootToVendor.Item[] loots)
+    {
+      var component = new DungeonAddLootToVendor();
+      Validate(loots);
+      component.m_Loots = loots;
+      if (component.m_Loots is null)
+      {
+        component.m_Loots = new DungeonAddLootToVendor.Item[0];
+      }
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1455,8 +1485,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DarknessMachine</term><description>5ccf98d8542442c1b81dc0973d5afe7a</description></item>
     /// <item><term>SmithKitten</term><description>5788b5e98469dd64f8afafe1fda8d53d</description></item>
-    /// <item><term>StorageKitten</term><description>e6fb6d6856cd5854ebcd6b3a30ece96e</description></item>
     /// <item><term>WagonKitten</term><description>c07d0cff2312c4647a30706bd3bf84c6</description></item>
     /// </list>
     /// </remarks>
@@ -1493,6 +1523,36 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="AttackOfOpportunityLimits"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Nahyndri_FinalBoss</term><description>7beffb211ea84810876ab65014c1cee5</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddAttackOfOpportunityLimits(
+        float? angleToTurnMax = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? shouldTurnToTarget = null)
+    {
+      var component = new AttackOfOpportunityLimits();
+      component.AngleToTurnMax = angleToTurnMax ?? component.AngleToTurnMax;
+      component.ShouldTurnToTarget = shouldTurnToTarget ?? component.ShouldTurnToTarget;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="DisableAllFx"/>
     /// </summary>
     ///
@@ -1501,8 +1561,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CR20_AnimatedWeapon_Bardiche</term><description>1706dff4d4435d540b5260fe1feb98e4</description></item>
-    /// <item><term>CR20_AnimatedWeapon_Longsword</term><description>34df84245e875364b9a8832256bc349f</description></item>
-    /// <item><term>CR23_AnimatedArmor_2</term><description>83e961b5118b0ef459c335a04c675a86</description></item>
+    /// <item><term>DLC3_CR23_AnimatedArmor</term><description>55b9608791934a50a42f72a2a37093b5</description></item>
+    /// <item><term>DLC3_FallenAngelBoss_Stage1_cutscene</term><description>55a397d24ad648f2ac933e70ce3ca8ff</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1529,7 +1589,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1StartPregenCavalierUnit</term><description>cbc5b710d6c446da9964700a3717d3a0</description></item>
-    /// <item><term>MC_Human_M_Cavalier_DemonUnit</term><description>96ae0d6d804c47e583779f9751e418ec</description></item>
+    /// <item><term>DLC3StartPregenSlayerUnitMelee</term><description>897e11de846b495390bbdf5e5bc990f7</description></item>
     /// <item><term>StartGameSorcererPregenUnit</term><description>1f6d72fd52ce418fb677db2243ea4de5</description></item>
     /// </list>
     /// </remarks>
@@ -1603,7 +1663,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>Octavia_Companion_AshGiant</term><description>fa37583d5f36ab54ea00249578fb435b</description></item>
+    /// <item><term>Nenio_NPC_Level_Cultist</term><description>b9da69e83235c99429ea4631a7313b63</description></item>
     /// <item><term>WoljifTestLeve9</term><description>b6a343d8b3f47784dab47911fb42a84a</description></item>
     /// </list>
     /// </remarks>
@@ -1633,7 +1693,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>Nenio_Companion</term><description>1b893f7cf2b150e4f8bc2b3c389ba71d</description></item>
+    /// <item><term>MC_Human_M_Cavalier_Drezen</term><description>29e1bfadb5a940bfac1b27c65d349fbe</description></item>
     /// <item><term>WoljifTestLeve9</term><description>b6a343d8b3f47784dab47911fb42a84a</description></item>
     /// </list>
     /// </remarks>
@@ -1663,7 +1723,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>CR7_GhoulHuntmaster_RangerRanged</term><description>e884bd90f8936a743ac534bba620c549</description></item>
+    /// <item><term>DLC3_CR1_WolfStandard_Jezelda</term><description>85d21f7231ac47b79dc8a80efcdf2177</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -1740,7 +1800,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1StartPregenCavalierUnit</term><description>cbc5b710d6c446da9964700a3717d3a0</description></item>
-    /// <item><term>PlayerDemonMythicTestLevel16</term><description>3cf9d59bad44fc64a8e73c4eb4ac924e</description></item>
+    /// <item><term>MC_Human_M_Cavalier_TricksterUnit</term><description>aa2649e962be4a899d93cdaee8233e4a</description></item>
     /// <item><term>StartGameSorcererPregenUnitLevel8</term><description>f373e1221fc89d9419109e23cf1a7048</description></item>
     /// </list>
     /// </remarks>
@@ -1796,7 +1856,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CustomCompanion</term><description>baaff53a675a84f4983f1e2113b24552</description></item>
-    /// <item><term>CustomCompanionDlc2</term><description>46e3688f1f2748589b4147ea3367434b</description></item>
+    /// <item><term>CustomCompanionDlc3</term><description>4ee630120a7a4774a11eb09489b32bbb</description></item>
     /// <item><term>StartGame_Player_Unit_DLC2</term><description>78d4f75f6e144224a948df629df00193</description></item>
     /// </list>
     /// </remarks>
@@ -1878,7 +1938,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Octavia_Companion_Havoc</term><description>7aac1f42a826c6d4ba58e548960fb37b</description></item>
+    /// <item><term>Octavia_Companion_BlackDragon</term><description>b8f5dee95746a744b9d27362e9d00d4e</description></item>
     /// <item><term>TestTrader</term><description>38c90d65490c1c143a9f1f0fde6bbe20</description></item>
     /// </list>
     /// </remarks>
@@ -1948,7 +2008,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>MountTestCharacter_HalforcMale</term><description>8f571f3bc4c26914790c749e49ec3bd2</description></item>
+    /// <item><term>Melazmera</term><description>85c7a3fd80f93db43a3e588ba5f5f9bc</description></item>
     /// <item><term>WillOWispYellowSummon_cr8</term><description>25a09e126dba4fcb90b3f95bbe61cd0d</description></item>
     /// </list>
     /// </remarks>
@@ -1989,8 +2049,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CR11M_MythicCrazyIncubus</term><description>667f0ff46d87bca498cb8f410057be03</description></item>
-    /// <item><term>CR6_WillOWispYellow</term><description>827b90e60645fe641b29098ed1f70219</description></item>
-    /// <item><term>DarkForestWillOWisp</term><description>e0d4d1ca071fba54fbb2fe6fb4813aa6</description></item>
+    /// <item><term>CR8_WarWisp</term><description>5101be4b7f4e08047b84e0cb789b67e4</description></item>
+    /// <item><term>DLC3_CR8_BabauPoisoner_MeleeRogue</term><description>107055a08d4f4798b88f37c56d0fb1f0</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2023,7 +2083,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaWizard_Curse</term><description>c0fe3438b11d09841a8717ab55eebe15</description></item>
-    /// <item><term>CR5_MonitorLizard</term><description>69818deca34684a46a3120a69cca9d53</description></item>
+    /// <item><term>DLC1_Taberdine_Broken</term><description>b1b1ab4a89b24e1bacea98d5011063ed</description></item>
     /// <item><term>Zanedra_Sanctum</term><description>34c3e14d08f2ff4448b745761cbb846f</description></item>
     /// </list>
     /// </remarks>
@@ -2061,7 +2121,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1_BlindCarver_Wintersun</term><description>c209cd1dfa02401eb66f190f0f5675ad</description></item>
-    /// <item><term>Kyado_ScrollVendorYoung_DH</term><description>3597b87c65fc4604b9aa0f134a2e551c</description></item>
+    /// <item><term>DLC3_PortHalflingMale</term><description>a6aba861efd1435685ae7c2a2293904e</description></item>
     /// <item><term>WarCamp_ScrollVendorYoung</term><description>6b6eb149263959a4c9ea307057a20978</description></item>
     /// </list>
     /// </remarks>
@@ -2103,7 +2163,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arsinoe</term><description>a609ed9b2205d034bb3bb04d2a255681</description></item>
-    /// <item><term>JorunVane_DrezenCapital</term><description>59649a004ed01994e9887f9ab8b2168d</description></item>
+    /// <item><term>DragonCommoner2</term><description>c8bd514ff6c0496f8b05df50b8e8e027</description></item>
     /// <item><term>Woljif_NPC</term><description>318127d85d5d41b4d9acea4e2ad1c4a4</description></item>
     /// </list>
     /// </remarks>
@@ -2148,8 +2208,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Asty</term><description>d8e2475977bd87b439c4bba8f5f55949</description></item>
-    /// <item><term>CR2_Marauder_Human_FighterRanged_Female</term><description>7956220e37fe19f4e9d54df6fc65bb49</description></item>
+    /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
+    /// <item><term>DLC3_CR10_ZombieLordFighterLevel8</term><description>7d85f37ede5742118aeb709b52b7a6d7</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2163,6 +2223,7 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddTags(
         AddTags.DifficultyRequirement? difficultyRequirement = null,
         bool? isCaster = null,
+        bool? isMelee = null,
         bool? isRanged = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -2173,6 +2234,7 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new AddTags();
       component.m_DifficultyRequirement = difficultyRequirement ?? component.m_DifficultyRequirement;
       component.IsCaster = isCaster ?? component.IsCaster;
+      component.IsMelee = isMelee ?? component.IsMelee;
       component.IsRanged = isRanged ?? component.IsRanged;
       component.Tags = tags ?? component.Tags;
       if (component.Tags is null)
@@ -2234,7 +2296,9 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC2_Millorn</term><description>3b91296c7ae04a1391dfe972ce1e3eaf</description></item>
+    /// <item><term>CR3_Crusader_Human_PaladinMelee_Vendor1</term><description>f7f12ae65b95491da0daf56a756dfcfb</description></item>
+    /// <item><term>DLC3_VendorInPort_tier1_magic</term><description>014ea571b07f4517993c6cf2fed41ec9</description></item>
+    /// <item><term>DLC3_VendorInPort_tier3_original</term><description>f63fa83e81104870af58c34a6bc440b6</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddChangeVendorPrices(
@@ -2265,7 +2329,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1StartPregenCavalierUnit</term><description>cbc5b710d6c446da9964700a3717d3a0</description></item>
-    /// <item><term>DLC2StartPregenRangerUnit</term><description>39de3638efa749089823c1133a30bd37</description></item>
+    /// <item><term>DLC3PrimalDruidPregen</term><description>4470bd35c9ee4735b95f9da00573aba7</description></item>
     /// <item><term>StartGameSorcererPregenUnit</term><description>1f6d72fd52ce418fb677db2243ea4de5</description></item>
     /// </list>
     /// </remarks>
@@ -2322,7 +2386,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ankou_ShadowDoubleSummon</term><description>704d11701a4a9ef4daee07e4593bf69c</description></item>
-    /// <item><term>CR14_Ankou</term><description>58ed91a92b8d70248aa884d303954469</description></item>
+    /// <item><term>DLC3_CR14_Ankou</term><description>108de5e671d54415b7ff862da925c6d4</description></item>
     /// <item><term>FiendishAnkou</term><description>8180204b0589cfb4f9796475ec60c5ce</description></item>
     /// </list>
     /// </remarks>
@@ -2528,6 +2592,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="tier">
+    /// <para>
+    /// InfoBox: Should be set automatically according to HP
+    /// </para>
+    /// </param>
     public TBuilder AddArmyUnitComponent(
         LocalString? description = null,
         Asset<Sprite>? icon = null,
@@ -2539,7 +2608,8 @@ namespace BlueprintCore.Blueprints.Configurators
         ArmyProperties? properties = null,
         KingdomResourcesAmount? recruitmentPrice = null,
         int? startMorale = null,
-        KingdomResourcesAmount? supportPrice = null)
+        KingdomResourcesAmount? supportPrice = null,
+        int? tier = null)
     {
       var component = new ArmyUnitComponent();
       component.Description = description?.LocalizedString ?? component.Description;
@@ -2555,6 +2625,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.RecruitmentPrice = recruitmentPrice ?? component.RecruitmentPrice;
       component.StartMorale = startMorale ?? component.StartMorale;
       component.SupportPrice = supportPrice ?? component.SupportPrice;
+      component.Tier = tier ?? component.Tier;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2601,7 +2672,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>MephitEarthSummoned</term><description>46779f56cab2cb0438161fec0129790d</description></item>
+    /// <item><term>Herald</term><description>fff912fcbfbbc364e84ae5ea9384db89</description></item>
     /// <item><term>Ygefeles_WeakCopy</term><description>7aab7792681750a42bacd71f9f7c6d5f</description></item>
     /// </list>
     /// </remarks>
@@ -2643,7 +2714,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aasimar_Victim</term><description>dfa634221ff82bf42a3b0a511b6d2e5a</description></item>
-    /// <item><term>CR3_Cultist_Wizard_DamageFullCaster</term><description>46d14b326c3a8f549941ec2573ce0cd0</description></item>
+    /// <item><term>Cultist_Wizard_Coronation</term><description>5b5eba3c18cd47689510b3b485655645</description></item>
     /// <item><term>Zerieks</term><description>79674c8c4286cd7498c7bb33fd8dca31</description></item>
     /// </list>
     /// </remarks>

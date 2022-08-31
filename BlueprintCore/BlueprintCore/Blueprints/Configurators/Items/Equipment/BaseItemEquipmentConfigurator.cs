@@ -186,6 +186,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipment.HideAbilityInfo"/>
+    /// </summary>
+    public TBuilder SetHideAbilityInfo(bool hideAbilityInfo = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideAbilityInfo = hideAbilityInfo;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.IsNonRemovable"/>
     /// </summary>
     public TBuilder SetIsNonRemovable(bool isNonRemovable = true)
@@ -445,7 +457,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdamantineBanded</term><description>ed04d2a914a93e046aadee8cc3109f65</description></item>
-    /// <item><term>HaramakiOfDivineGuidanceItem</term><description>1e9e2d9589ee4e96ba5208aeb1615334</description></item>
+    /// <item><term>HalfplateStandartPlus2</term><description>ce0076c7408f10741950cec394767b75</description></item>
     /// <item><term>WelcomeRespiteItem</term><description>55d88efb08e2eea4c9d214cd4c54e87c</description></item>
     /// </list>
     /// </remarks>

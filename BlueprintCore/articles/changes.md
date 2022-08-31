@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v2.3.0 Release
+
+* Hand tuned Recommendation components
+* 
+
 ## v2.2.0 Release
 
 * New Quick Start setup using a project template, no more editing .csproj files!

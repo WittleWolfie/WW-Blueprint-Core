@@ -37,6 +37,7 @@ using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Kingmaker.Visual;
 using Kingmaker.Visual.Animation.Kingmaker.Actions;
+using Kingmaker.Visual.HitSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -309,7 +310,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>GreyGarrison_SuperMythicBuff</term><description>4b11247a4988c254fb9d1cd67f0b1e4a</description></item>
+    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -343,7 +344,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BlackLinnormStewBuff</term><description>4fbf48fff5bff9148accad55c116b8f2</description></item>
-    /// <item><term>FastHealing9</term><description>9017213d83ccddb4ab720e0a0efe36ff</description></item>
+    /// <item><term>FinneanArmourerArmorBuff</term><description>0d9604f466fee484ab05dcb6c435ab9f</description></item>
     /// <item><term>VrolikaiAspectFeature</term><description>0ed608f1a0695cd4cb80bf6d415ab295</description></item>
     /// </list>
     /// </remarks>
@@ -382,7 +383,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityTargetedRageAllySelfBuff</term><description>783bcdac2a948eb448f3eb249f068f6f</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -400,7 +401,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagboundWitchVileCurseDeteriorationCast</term><description>e1ededaf191910b4c9ad73d7dd150a21</description></item>
+    /// <item><term>HeatLightBurn</term><description>bdfe41d7d32c46109771df2151f4a330</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -981,6 +982,34 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="ChangeHitFxType"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddChangeHitFxType(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        BloodType? overrideBloodType = null)
+    {
+      var component = new ChangeHitFxType();
+      component.OverrideBloodType = overrideBloodType ?? component.OverrideBloodType;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddForceMove"/>
     /// </summary>
     ///
@@ -1010,6 +1039,31 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         component.FeetPerRound = ContextValues.Constant(0);
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddGoldenDragonSkillBonus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add stat bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GoldenDragonSharedSkillUMD</term><description>4e0b919e4fbd85142bce959fae129d1a</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddGoldenDragonSkillBonus(
+        ModifierDescriptor? descriptor = null,
+        StatType? stat = null)
+    {
+      var component = new AddGoldenDragonSkillBonus();
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.Stat = stat ?? component.Stat;
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -1134,6 +1188,49 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="BuffEnchantArmor"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AasimarRedMask_MagicalVestmentArmorBuff</term><description>2d6f3b09fddf442da939f66c751b1b14</description></item>
+    /// <item><term>Inquisitor_Liotr_MagicalVestmentShieldBuff</term><description>af3878638a198144faa4f8ff660c09a8</description></item>
+    /// <item><term>MagicalVestmentShieldBuff</term><description>2e8446f820936a44f951b50d70a82b16</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddBuffEnchantArmor(
+        List<Blueprint<BlueprintItemEnchantmentReference>>? enchantments = null,
+        BuffEnchantArmor.ItemType? itemType = null,
+        BuffScaling? scaling = null)
+    {
+      var component = new BuffEnchantArmor();
+      component.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Enchantments;
+      if (component.m_Enchantments is null)
+      {
+        component.m_Enchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      component.m_ItemType = itemType ?? component.m_ItemType;
+      Validate(scaling);
+      component.m_Scaling = scaling ?? component.m_Scaling;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="BuffEnchantSpecificWeaponWorn"/>
     /// </summary>
     ///
@@ -1141,8 +1238,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BooksOfDreamsIStageFeature</term><description>739765ea859647b595bc2df4012052f8</description></item>
-    /// <item><term>RadianceGoodBuff</term><description>f10cba2c41612614ea28b5fc2743bc4c</description></item>
+    /// <item><term>MightyBlowOfGoodBuff</term><description>864a5775ceaed974f9f8c3acc1d5dcd1</description></item>
+    /// <item><term>RadianceGoodBuff6</term><description>7b860e2d2b8542e1adc0ba562bed3a6b</description></item>
     /// <item><term>TheUndyingLoveOfTheHopebringer_LightNova_GiveBuff</term><description>8c9b07c246a3469e8c154d98ee594ee3</description></item>
     /// </list>
     /// </remarks>
@@ -1408,7 +1505,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_DressPolymorph</term><description>6267b23ce31a4ad8b1b3557826671708</description></item>
-    /// <item><term>HellknightPolymorfBuff</term><description>45a6f94d77549124ea72c5304b02f8fb</description></item>
+    /// <item><term>MidnightFane_HuskPolymorphBuff_5</term><description>674aa5fb4fd044e9b3dfe19bdfc8a5f3</description></item>
     /// <item><term>YozzPolymorfBuff</term><description>ed4e29772921bc84098f1a9a1dcc3ddb</description></item>
     /// </list>
     /// </remarks>
@@ -1645,7 +1742,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeBaseBuff</term><description>da22fac7ee174766a1d924749245b8e9</description></item>
-    /// <item><term>HatOfHearteningSongBuff</term><description>2ac1f04db1e7da34cab38a32f9794e28</description></item>
+    /// <item><term>GolemSummerEntangleAuraBuff</term><description>f8ff09d49cdc6a64dbfeca21031bca49</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalAreaBuff</term><description>b2b739c6e18b457d9ba30ab389b0520f</description></item>
     /// </list>
     /// </remarks>
@@ -1694,7 +1791,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_BesmaraPirateBaseAttackBonus</term><description>ff69961f459744018d3dbfb8e50a7973</description></item>
     /// <item><term>DLC3_BesmaraPirateBaseBuff</term><description>c2ea5f0cbdd640af9f24a1b63a2bfb6c</description></item>
     /// <item><term>KnightOfTheWallDefensiveChallengeBuff</term><description>d064c2b40f9b78240a1527bead977df3</description></item>
     /// </list>
@@ -2036,7 +2132,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyDistortionImmunityAfterBuff</term><description>938dc00f7c7f4a908feb96d533263f70</description></item>
-    /// <item><term>GolemAutumnGrappledBuff</term><description>077537d7c64aa4e44b559b914693d085</description></item>
+    /// <item><term>FreebootersBaneBuffAllies</term><description>8a7fcaeaf69867f40aee02e84c0882d8</description></item>
     /// <item><term>WitchHexDeathCurseBuff2</term><description>5e6aeb6852a77b3449b37a4bdb9f7bb4</description></item>
     /// </list>
     /// </remarks>
@@ -2066,7 +2162,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>HoldAnimalBuff</term><description>2090955a573cec3438db7f47707610f9</description></item>
+    /// <item><term>HoldMonsterBuff</term><description>2cfcce5b62d3e6d4082ec31b58468cc8</description></item>
     /// <item><term>VinetrapEntangledBuff</term><description>231a622f767e8ed4e9b3e435265a3e99</description></item>
     /// </list>
     /// </remarks>
@@ -2124,6 +2220,42 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       component.FirstFxDelay = firstFxDelay ?? component.FirstFxDelay;
       component.SecondFx = secondFx?.Get() ?? component.SecondFx;
       component.SecondFxDelay = secondFxDelay ?? component.SecondFxDelay;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SetBuffOnsetDelay"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Archpriest_PossessionBuff_ShadowBalorEncounter</term><description>4fc454d17bbc41e7aac430dd570e61c6</description></item>
+    /// <item><term>Archpriest_PossessionBuff_ShadowBalorEncounter_Target</term><description>2e73650948d3419b82c74da67030c67e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddSetBuffOnsetDelay(
+        ContextDurationValue? delay = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ActionsBuilder? onStart = null)
+    {
+      var component = new SetBuffOnsetDelay();
+      Validate(delay);
+      component.Delay = delay ?? component.Delay;
+      component.OnStart = onStart?.Build() ?? component.OnStart;
+      if (component.OnStart is null)
+      {
+        component.OnStart = Utils.Constants.Empty.Actions;
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2369,7 +2501,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>JaethalCampBuff</term><description>e9cc770ccca8b73488196e1f508e2675</description></item>
+    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -2398,8 +2530,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
-    /// <item><term>WreckingDevilEnchantment</term><description>b147364a4f50438f943f8095c85916b7</description></item>
+    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
+    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2795,6 +2927,25 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="HealResistance"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_SicknessHeavyDiseaseBuff</term><description>4a19a78fbde84e03b4547137b11ddc3a</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddHealResistance(
+        float? resistance = null)
+    {
+      var component = new HealResistance();
+      component.Resistance = resistance ?? component.Resistance;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="MetamagicOnNextSpell"/>
     /// </summary>
     ///
@@ -2842,7 +2993,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmberLoveRodBuff</term><description>3123ec8935850514aab8edccf7d8e942</description></item>
-    /// <item><term>MetamagicRodLesserPersistentBuff</term><description>9bbbad52b778495dbdc290700663dd90</description></item>
+    /// <item><term>MetamagicRodLesserMaximizeBuff</term><description>9799c61073256e747bcbbda5a565af8d</description></item>
     /// <item><term>SkeletalFingerRodQuickenNormalBuff</term><description>2e03f85b3e759a743b2cae86b687ba4f</description></item>
     /// </list>
     /// </remarks>
@@ -3132,7 +3283,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneAccuracyBuff</term><description>dd2d0de63be31854794c006dc1077294</description></item>
-    /// <item><term>CombatExpertiseBuff</term><description>e81cd772a7311554090e413ea28ceea1</description></item>
+    /// <item><term>CommunityDomainGreaterBuff</term><description>672b0149e68d73943ad09ac35a9f5f30</description></item>
     /// <item><term>ShatterConfidenceBuff</term><description>14225a2e4561bfd46874c9a4a97e7133</description></item>
     /// </list>
     /// </remarks>

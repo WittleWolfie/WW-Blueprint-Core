@@ -176,6 +176,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DestructionDomainProgressionSecondary = "8edced7121849414f8b1dc77a119b4a2";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DevilProgression = "87bc9abf00b240a44bb344fea50ec9bc";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DivineHoundAnimalCompanionProgression = "56e99ebd958e4abdae91ba028a666728";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DLC3_BardProgression_BOON = "fdf0d800df8d4f2bbbd98d2c9bdf03c1";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DLC3_UniqueConstructProgression = "0e2386da30e4440aaf64f213d46ee413";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DomainAnimalCompanionProgression = "125af359f8bc9a145968b5d8fd8159b8";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DragonDiscipleProgression = "69fc2bad2eb331346a6c777423e0d0f7";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> DragonheirAcidProgression = "f09074860cc87fd4ebf6bf69ddd20d10";
@@ -431,6 +433,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWavesSpiritWanderingProgression = "bfbed44eafaa4344189730403b426a88";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWindSpiritProgression = "eae7cee2a5da93442a7563dfeda33432";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWindSpiritWanderingProgression = "11a92d0a44576e4439b745ab00f298b5";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShifterProgression = "da560d3be3c943d8b1fa23e77dd7efa4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SkaldProgression = "26418fed2bc153245972a5b54204ed75";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SlayerProgression = "1f35d11937a06624b8a60db68c7869a1";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SorcererProgression = "997665565ca80a649aedd72455c4df1f";
@@ -674,6 +677,8 @@ namespace BlueprintCore.Blueprints.References
           DestructionDomainProgressionSecondary,
           DevilProgression,
           DivineHoundAnimalCompanionProgression,
+          DLC3_BardProgression_BOON,
+          DLC3_UniqueConstructProgression,
           DomainAnimalCompanionProgression,
           DragonDiscipleProgression,
           DragonheirAcidProgression,
@@ -929,6 +934,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanWavesSpiritWanderingProgression,
           ShamanWindSpiritProgression,
           ShamanWindSpiritWanderingProgression,
+          ShifterProgression,
           SkaldProgression,
           SlayerProgression,
           SorcererProgression,

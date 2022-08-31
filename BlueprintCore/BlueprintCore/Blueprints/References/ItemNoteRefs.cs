@@ -123,6 +123,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> StargazerDiary = "96b1b5d37cd6461f912bbfa677d4a08b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> SuramgaminBook1 = "ceaf8786eada58040819b0fa912f1a3a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> SuramgaminBook2 = "8007ad3c9f395954fa68e5c865f90f31";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TE_plaintext = "6485ac03d7aa4712bbc648eba7a7f414";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TerendelevOrigin = "c0697a86bc2442d0ae9a382caf8623b9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TheatrePoem_1 = "792ec2eea0d74cb4aa412389f03baf1e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TheatrePoem_2 = "424e5c40b4f4467cbcecb5a5f5dcc1ea";
@@ -245,6 +246,7 @@ namespace BlueprintCore.Blueprints.References
           StargazerDiary,
           SuramgaminBook1,
           SuramgaminBook2,
+          TE_plaintext,
           TerendelevOrigin,
           TheatrePoem_1,
           TheatrePoem_2,

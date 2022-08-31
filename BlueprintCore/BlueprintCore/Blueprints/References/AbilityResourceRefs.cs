@@ -226,6 +226,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DivinationSchoolBaseResource = "7fbeac3a41c4e41489be06e0b4d79603";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DivinationSchoolGreaterResource = "2aa6b409a9fcb794d80719f038abe665";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DivineGuardianTrothResource = "56f173d90f7d6244dadb4664cfd503ab";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DLC3_TrickstersPromiseAbilityResource = "04316d3361f74712aa3d24d0639642f1";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DrovierAspectResource = "ef7fb483effafc145923ab907caf414b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarEnlargePersonResource = "cf4613322038b7f468d12e7bef8c1c53";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarInvisibilityResource = "0d9b1e48bfa420f43b3298b66f144c7f";
@@ -485,6 +486,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritBaseResource = "ada40bc12148b6b43b9b05af54dfcb6f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritGreaterResource = "e929e058fbbcab148afb938caa28a1b4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritTrueResource = "186968f21dc2aa04788277aa3d6166a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterAspectResource = "1b096f343ea54ae0a4e3b6cf404bf62d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterWildShapeResource = "2210cea8cc94431a911dc5d4b6d72cbd";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShiningLightResource = "7892a17840adb5741839512a1694cf47";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShroudOfWaterArmorResource = "4d3297d1e4505654c899c00f3eb39373";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShroudOfWaterResource = "1f4eeef738e694c44aad070a0b3d64a2";
@@ -777,6 +780,7 @@ namespace BlueprintCore.Blueprints.References
           DivinationSchoolBaseResource,
           DivinationSchoolGreaterResource,
           DivineGuardianTrothResource,
+          DLC3_TrickstersPromiseAbilityResource,
           DrovierAspectResource,
           DuergarEnlargePersonResource,
           DuergarInvisibilityResource,
@@ -1036,6 +1040,8 @@ namespace BlueprintCore.Blueprints.References
           ShamanWindSpiritBaseResource,
           ShamanWindSpiritGreaterResource,
           ShamanWindSpiritTrueResource,
+          ShifterAspectResource,
+          ShifterWildShapeResource,
           ShiningLightResource,
           ShroudOfWaterArmorResource,
           ShroudOfWaterResource,

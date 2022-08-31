@@ -10,10 +10,10 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
       new()
       {
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonArea),
-        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoon),
-        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonRoot),
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonShrine),
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintGenericPackLoot),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonSetting),
+        typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonLocatorGroup),
         typeof(Kingmaker.Blueprints.BlueprintPet),
         typeof(Kingmaker.Blueprints.BlueprintActionList),
         typeof(Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHandSimple),
@@ -23,7 +23,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomClaim),
         typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade),
         typeof(Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiPostponeTurn),
-        typeof(Kingmaker.Designers.Mechanics.Collections.BuffCollection),
         typeof(Kingmaker.AI.Blueprints.BlueprintAiRandomMove),
         typeof(Kingmaker.AI.Blueprints.BlueprintAiRunAway),
         typeof(Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom),

@@ -197,6 +197,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DecaySpreaderProperty</term><description>3d9c37a06e8a4a6aa0dd5e2d80e207fe</description></item>
+    /// <item><term>DLC3_SicknessIslandCorpseProperty</term><description>9fc25f8a627d4260ae2d95b3e5395b1f</description></item>
     /// <item><term>StewardsHelmetProperty</term><description>7276918a98694f84b80792c123cf15a0</description></item>
     /// </list>
     /// </remarks>
@@ -306,6 +307,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CoupDeGraceAgregatorProperty</term><description>bd9224781e76429b92f0e60b13c079cc</description></item>
+    /// <item><term>DLC3_SplintershredGreataxeProperty</term><description>4418e0e12e5747a69b84abb29fd77c55</description></item>
     /// <item><term>MainWeaponDamageStatBonusProperty</term><description>9955f9c72c350254daff5a029ee32712</description></item>
     /// </list>
     /// </remarks>
@@ -450,6 +452,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="ArcaneSpellFailureChanceGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_ArmorPenaltyProperty</term><description>c6814940fdc04fd0935f59b03067b874</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddArcaneSpellFailureChanceGetter(
+        PropertySettings? settings = null)
+    {
+      var component = new ArcaneSpellFailureChanceGetter();
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AreaCrComplexGetter"/>
     /// </summary>
     ///
@@ -457,8 +479,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_RageConfusionIslandDC</term><description>31f09fa9a9ea4d5887e06735dbe3701c</description></item>
-    /// <item><term>HeavyEffectAreaCRGetterDamage</term><description>ae5d48090284494ea680860d10658204</description></item>
+    /// <item><term>DLC3_ArcaneIslandModCRGetterProperty</term><description>41152617447b495ab0ad515aa58e1a49</description></item>
+    /// <item><term>DLC3_WildMagicDCTier2</term><description>9731259e59e24b3ca9e97758139a0ccb</description></item>
     /// <item><term>HeavyEffectAreaCRGetterDC9</term><description>6d7d0426bdf84a0c910200c52bd9787b</description></item>
     /// </list>
     /// </remarks>
@@ -486,11 +508,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinCreatePoisonAbilityProperty</term><description>0482fffc039d46fc86a86bda03e00f1a</description></item>
-    /// <item><term>HellKnightOrderOfTheRackDCProperty</term><description>41f1001fac3d4464ad243e9abab51783</description></item>
+    /// <item><term>DLC3_RoguesRangersGainDRBuffLevelGetter</term><description>2aa73fe91377456b8734ba94a506d541</description></item>
     /// <item><term>ScaledFistACBonusProperty2</term><description>d71c095e672c4abfb068aa402899b3ec</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="archetype">
+    /// <para>
+    /// Tooltip: Archetype filter: if specified and the unit does not have it, return 0.
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     /// <param name="clazz">
     /// <para>
     /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
@@ -504,14 +541,169 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// </para>
     /// </param>
     public TBuilder AddClassLevelGetter(
+        Blueprint<BlueprintArchetypeReference>? archetype = null,
         Blueprint<BlueprintCharacterClassReference>? clazz = null,
         PropertySettings? settings = null)
     {
       var component = new ClassLevelGetter();
+      component.m_Archetype = archetype?.Reference ?? component.m_Archetype;
+      if (component.m_Archetype is null)
+      {
+        component.m_Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null);
+      }
       component.m_Class = clazz?.Reference ?? component.m_Class;
       if (component.m_Class is null)
       {
         component.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CompanionsCountGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_DwarvenBlessingProperty</term><description>7a2e877faaf14b88b1af878ea3f77aac</description></item>
+    /// <item><term>DLC3_GnomeBlessingProperty</term><description>28185df8d2494e1e9ad56c626f89883a</description></item>
+    /// <item><term>DLC3_HitDieHPRegainUniqueProperty</term><description>fb85ae5e942b452daab608856ae42100</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="archetypesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="archetypesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="classesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="classesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="racesExclude">
+    /// <para>
+    /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="racesInclude">
+    /// <para>
+    /// Blueprint of type BlueprintRace. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddCompanionsCountGetter(
+        List<Blueprint<BlueprintArchetypeReference>>? archetypesExclude = null,
+        List<Blueprint<BlueprintArchetypeReference>>? archetypesInclude = null,
+        bool? checkActive = null,
+        bool? checkCompanionArchetype = null,
+        bool? checkCompanionClass = null,
+        bool? checkCompanionRace = null,
+        bool? checkDetached = null,
+        bool? checkEx = null,
+        bool? checkRemote = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classesExclude = null,
+        List<Blueprint<BlueprintCharacterClassReference>>? classesInclude = null,
+        CompanionsCountGetter.AliveAndDead? countAliveAndDead = null,
+        bool? countUnique = null,
+        List<Blueprint<BlueprintRaceReference>>? racesExclude = null,
+        List<Blueprint<BlueprintRaceReference>>? racesInclude = null,
+        PropertySettings? settings = null)
+    {
+      var component = new CompanionsCountGetter();
+      component.m_ArchetypesExclude = archetypesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ArchetypesExclude;
+      if (component.m_ArchetypesExclude is null)
+      {
+        component.m_ArchetypesExclude = new BlueprintArchetypeReference[0];
+      }
+      component.m_ArchetypesInclude = archetypesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ArchetypesInclude;
+      if (component.m_ArchetypesInclude is null)
+      {
+        component.m_ArchetypesInclude = new BlueprintArchetypeReference[0];
+      }
+      component.CheckActive = checkActive ?? component.CheckActive;
+      component.CheckCompanionArchetype = checkCompanionArchetype ?? component.CheckCompanionArchetype;
+      component.CheckCompanionClass = checkCompanionClass ?? component.CheckCompanionClass;
+      component.CheckCompanionRace = checkCompanionRace ?? component.CheckCompanionRace;
+      component.CheckDetached = checkDetached ?? component.CheckDetached;
+      component.CheckEx = checkEx ?? component.CheckEx;
+      component.CheckRemote = checkRemote ?? component.CheckRemote;
+      component.m_ClassesExclude = classesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ClassesExclude;
+      if (component.m_ClassesExclude is null)
+      {
+        component.m_ClassesExclude = new BlueprintCharacterClassReference[0];
+      }
+      component.m_ClassesInclude = classesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ClassesInclude;
+      if (component.m_ClassesInclude is null)
+      {
+        component.m_ClassesInclude = new BlueprintCharacterClassReference[0];
+      }
+      component.CountAliveAndDead = countAliveAndDead ?? component.CountAliveAndDead;
+      component.CountUnique = countUnique ?? component.CountUnique;
+      component.m_RacesExclude = racesExclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_RacesExclude;
+      if (component.m_RacesExclude is null)
+      {
+        component.m_RacesExclude = new BlueprintRaceReference[0];
+      }
+      component.m_RacesInclude = racesInclude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_RacesInclude;
+      if (component.m_RacesInclude is null)
+      {
+        component.m_RacesInclude = new BlueprintRaceReference[0];
       }
       Validate(settings);
       component.Settings = settings ?? component.Settings;
@@ -527,7 +719,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>TricksterLoreReligionKnowledgeDomainBaseProperty</term><description>7e78f0b1c281488090e66551c980dc5b</description></item>
+    /// <item><term>TricksterLoreReligionEvilDomainProperty</term><description>20ca3133880b472abab7f039e37b6f50</description></item>
     /// <item><term>TricksterLoreReligionWeatherDomainProperty</term><description>7747294b95e64edbb23e1ec5aca774e1</description></item>
     /// </list>
     /// </remarks>
@@ -568,6 +760,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BrimorakAspectEffectProperty</term><description>d6a524d190f04a7ca3f920d2f96fa21b</description></item>
+    /// <item><term>DLC3_SplintershredGreataxeProperty</term><description>4418e0e12e5747a69b84abb29fd77c55</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -705,15 +898,44 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_WildMagicDCTier1</term><description>11a3a4720f764ce6866236e4debe749c</description></item>
+    /// <item><term>DLC3_DivineBlessingProperty</term><description>7de101b6b93044798663c7c51f2ec099</description></item>
+    /// <item><term>DLC3_MixedMagicBlessingProperty</term><description>0c1d12b632484cca84a2888d17628d84</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddSpellLevelGetter(
+        bool? fromCastRule = null,
         PropertySettings? settings = null)
     {
       var component = new SpellLevelGetter();
+      component.FromCastRule = fromCastRule ?? component.FromCastRule;
       Validate(settings);
       component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="StatValueGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DragonMaxAbilityCharismaProperty</term><description>38e975690470467f8de29613fbff5de3</description></item>
+    /// <item><term>DragonMaxAbilityIntelligenceProperty</term><description>dd4ccbadaf20485088b9e08d67f033f5</description></item>
+    /// <item><term>DragonMaxAbilityWisdomProperty</term><description>2d9692f01aad466a93cae382d2ab965c</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddStatValueGetter(
+        PropertySettings? settings = null,
+        StatType? stat = null,
+        StatValueGetter.ReturnType? valueType = null)
+    {
+      var component = new StatValueGetter();
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      component.Stat = stat ?? component.Stat;
+      component.ValueType = valueType ?? component.ValueType;
       return AddComponent(component);
     }
 
@@ -846,7 +1068,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Angel4WardFromWeaknessProperty</term><description>077e52a62381442099143b51d9838d42</description></item>
-    /// <item><term>RitualBullsStrengthBonusProperty</term><description>3c2a8b7d6e45313429b50cbdc34f2ac0</description></item>
+    /// <item><term>RitualBlessDurationProperty</term><description>76dfe71d24782ef438436349b2fea12e</description></item>
     /// <item><term>WeakeningTrapAttackReductionProperty</term><description>6d5c72e8c0334621b1e6b4098ccc4750</description></item>
     /// </list>
     /// </remarks>

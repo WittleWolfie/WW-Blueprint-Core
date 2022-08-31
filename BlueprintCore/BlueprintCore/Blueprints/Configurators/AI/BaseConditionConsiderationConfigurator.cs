@@ -1,12 +1,11 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
-using Kingmaker.UnitLogic;
-using Kingmaker.Utility;
+using Kingmaker.ElementsSystem;
 using System;
-using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -22,102 +21,51 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     protected BaseConditionConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
-    /// Sets the value of <see cref="ConditionConsideration.Conditions"/>
+    /// Sets the value of <see cref="ConditionConsideration.Condition"/>
     /// </summary>
-    public TBuilder SetConditions(params UnitCondition[] conditions)
+    public TBuilder SetCondition(ConditionsBuilder condition)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Conditions = conditions;
+          bp.Condition = condition?.Build();
         });
     }
 
     /// <summary>
-    /// Adds to the contents of <see cref="ConditionConsideration.Conditions"/>
+    /// Modifies <see cref="ConditionConsideration.Condition"/> by invoking the provided action.
     /// </summary>
-    public TBuilder AddToConditions(params UnitCondition[] conditions)
+    public TBuilder ModifyCondition(Action<ConditionsChecker> action)
     {
       return OnConfigureInternal(
         bp =>
         {
-          bp.Conditions = bp.Conditions ?? new UnitCondition[0];
-          bp.Conditions = CommonTool.Append(bp.Conditions, conditions);
+          if (bp.Condition is null) { return; }
+          action.Invoke(bp.Condition);
         });
     }
 
     /// <summary>
-    /// Removes elements from <see cref="ConditionConsideration.Conditions"/>
+    /// Sets the value of <see cref="ConditionConsideration.ConditionTrueScore"/>
     /// </summary>
-    public TBuilder RemoveFromConditions(params UnitCondition[] conditions)
+    public TBuilder SetConditionTrueScore(float conditionTrueScore)
     {
       return OnConfigureInternal(
         bp =>
         {
-          if (bp.Conditions is null) { return; }
-          bp.Conditions = bp.Conditions.Where(val => !conditions.Contains(val)).ToArray();
+          bp.ConditionTrueScore = conditionTrueScore;
         });
     }
 
     /// <summary>
-    /// Removes elements from <see cref="ConditionConsideration.Conditions"/> that match the provided predicate.
+    /// Sets the value of <see cref="ConditionConsideration.ConditionFlaseScore"/>
     /// </summary>
-    public TBuilder RemoveFromConditions(Func<UnitCondition, bool> predicate)
+    public TBuilder SetConditionFlaseScore(float conditionFlaseScore)
     {
       return OnConfigureInternal(
         bp =>
         {
-          if (bp.Conditions is null) { return; }
-          bp.Conditions = bp.Conditions.Where(e => !predicate(e)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="ConditionConsideration.Conditions"/>
-    /// </summary>
-    public TBuilder ClearConditions()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.Conditions = new UnitCondition[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="ConditionConsideration.Conditions"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyConditions(Action<UnitCondition> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.Conditions is null) { return; }
-          bp.Conditions.ForEach(action);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="ConditionConsideration.HasCondition"/>
-    /// </summary>
-    public TBuilder SetHasCondition(float hasCondition)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.HasCondition = hasCondition;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="ConditionConsideration.NoCondition"/>
-    /// </summary>
-    public TBuilder SetNoCondition(float noCondition)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.NoCondition = noCondition;
+          bp.ConditionFlaseScore = conditionFlaseScore;
         });
     }
 
@@ -125,9 +73,9 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     {
       base.OnConfigureCompleted();
     
-      if (Blueprint.Conditions is null)
+      if (Blueprint.Condition is null)
       {
-        Blueprint.Conditions = new UnitCondition[0];
+        Blueprint.Condition = Utils.Constants.Empty.Conditions;
       }
     }
   }

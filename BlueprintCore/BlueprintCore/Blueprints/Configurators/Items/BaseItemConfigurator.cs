@@ -850,6 +850,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_GnomeCashItem</term><description>97ea0b53288d46b0aed65f0e3ac3037e</description></item>
+    /// <item><term>DLC3_StartingCash</term><description>620107fe863540b7907df92b1bc8d1c8</description></item>
     /// <item><term>GoldCoins</term><description>f2bc0997c24e573448c6c91d2be88afa</description></item>
     /// </list>
     /// </remarks>

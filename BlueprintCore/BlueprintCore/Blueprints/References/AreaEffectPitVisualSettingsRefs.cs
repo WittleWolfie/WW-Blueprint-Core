@@ -17,12 +17,14 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> BlackHole_Settings = "12c1cf9d3d674cf47ae748ea3caf4d38";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> CreatePit_Settings = "98f7571740ad43648b63e6137b6988ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> DLC3_Nahyndri_Golemlike_Single_AnchorSlam_CustomPitSettings = "afb3023bf5d6456a84522ed3b42457f0";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>>> All =
       new()
       {
           BlackHole_Settings,
           CreatePit_Settings,
+          DLC3_Nahyndri_Golemlike_Single_AnchorSlam_CustomPitSettings,
       };
   }
 }

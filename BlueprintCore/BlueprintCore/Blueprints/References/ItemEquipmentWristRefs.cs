@@ -45,6 +45,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> ChaosScourgeItem = "d7ac91cca37741c4bc743ad658498bb0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> CharonsTouch = "47f01a08b59205c4eac8c33a1fcb6b6a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> ClearPurposeItem = "8b6f51c26b16baa48aeb22c9f145f57f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> DLC3_BracersOfBraveryItem = "cb7f21a7624e4697827698f0ba629e68";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> EnergyBlastBracersItem = "5024e734e4308a34e8b1fb328be914c3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> EngravedBracelet = "a78b976c8e356b34a9f2d84e42d8c918";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> GearsRuleItem = "c76341cfbc0d0f14ea51ceb30efee432";
@@ -97,6 +98,7 @@ namespace BlueprintCore.Blueprints.References
           ChaosScourgeItem,
           CharonsTouch,
           ClearPurposeItem,
+          DLC3_BracersOfBraveryItem,
           EnergyBlastBracersItem,
           EngravedBracelet,
           GearsRuleItem,

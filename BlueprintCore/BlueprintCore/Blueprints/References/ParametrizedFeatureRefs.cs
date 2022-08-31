@@ -19,6 +19,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> BloodlineArcaneNewArcanaFeature = "4a2e8388c2f0dd3478811d9c947bebfb";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> BloodlineArcaneNewArcanaFeatureMagus = "c66e61dea38f3d8479a54eabec20ac99";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> BloodlineArcaneSchoolPowerFeature = "8891303b67eb273428f1691864b08cf8";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> DLC3_SpellFocusRewardFeat = "878eb147b30e446cab7c3c128bfb81a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> DLC3_WeaponFocusRewardFeat = "c6654ca31b9943b4b02d184733854471";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> DLC3_WeaponSpecializationRewardFeat = "870b1c38ccf34a7d8b18330a5580cdf4";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> ExpandedArsenalSchool = "f137089c48364014aa3ec3b92ccaf2e2";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> FencingGrace = "47b352ea0f73c354aba777945760b441";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> FeyspeakerMagicFeature = "ea0ce0aeef8c9e04eadc1ed766455178";
@@ -78,6 +81,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretSorcerer = "a26834acd0f797c4e948660f4eb6ccd9";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretWitch = "6d7d4acede258984b8633d9b00d53877";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> LoremasterWizardSecretWizard = "d0e31ebe24d95694a804e84d4d02bf25";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized1 = "01be9f7549374df2b503c3116274ed9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized2 = "fba063ef591d4405901213bc66eb1486";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized3 = "a9381bc517c749d18a310842e2dff221";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized4 = "8db0f6582454453ca005a626b3df4823";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized5 = "8576efc2744a4087b3a0b337680fdd85";
+    public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeHunterLevelParametrized6 = "3e77f63396f04664bfde81cb81de6947";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeInquisitorLevelParametrized1 = "bcd757ac2aeef3c49b77e5af4e510956";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeInquisitorLevelParametrized2 = "4869109802e135e45af20741f9056fd5";
     public static readonly Blueprint<BlueprintReference<BlueprintParametrizedFeature>> MysticTheurgeInquisitorLevelParametrized3 = "e3a9ed781f9093341ac1073f59018e3f";
@@ -141,6 +150,9 @@ namespace BlueprintCore.Blueprints.References
           BloodlineArcaneNewArcanaFeature,
           BloodlineArcaneNewArcanaFeatureMagus,
           BloodlineArcaneSchoolPowerFeature,
+          DLC3_SpellFocusRewardFeat,
+          DLC3_WeaponFocusRewardFeat,
+          DLC3_WeaponSpecializationRewardFeat,
           ExpandedArsenalSchool,
           FencingGrace,
           FeyspeakerMagicFeature,
@@ -200,6 +212,12 @@ namespace BlueprintCore.Blueprints.References
           LoremasterWizardSecretSorcerer,
           LoremasterWizardSecretWitch,
           LoremasterWizardSecretWizard,
+          MysticTheurgeHunterLevelParametrized1,
+          MysticTheurgeHunterLevelParametrized2,
+          MysticTheurgeHunterLevelParametrized3,
+          MysticTheurgeHunterLevelParametrized4,
+          MysticTheurgeHunterLevelParametrized5,
+          MysticTheurgeHunterLevelParametrized6,
           MysticTheurgeInquisitorLevelParametrized1,
           MysticTheurgeInquisitorLevelParametrized2,
           MysticTheurgeInquisitorLevelParametrized3,

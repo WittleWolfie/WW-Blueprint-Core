@@ -258,7 +258,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-256029</term><description>21c80029f09f46c89ee4ec36d0deea37</description></item>
+    /// <item><term>PF-276496</term><description>45a18b7f7c3841238a94d23e45022d98</description></item>
     /// <item><term>PF-402644</term><description>bc8586d9cda14137a66c82b601092132</description></item>
     /// </list>
     /// </remarks>
@@ -317,7 +317,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-339343</term><description>adc22eb66c2f43798c9824ac05fb60f4</description></item>
+    /// <item><term>PF-252717</term><description>8bacf8493b904c3ebd11dcd885b1ff41</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>
@@ -405,6 +405,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-191269</term><description>90edf140bf514ebaa3fff74c4f576e4d</description></item>
     /// <item><term>PF-382275</term><description>50ad5ea849874e8abd47f0e5a088119c</description></item>
+    /// <item><term>PF-400743</term><description>8c5f56e6b06641828d1611402f847e5c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -541,7 +542,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-215564</term><description>185be5e1ae964cee94428816eec0d210</description></item>
     /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
-    /// <item><term>PF-382355</term><description>b7415799a01c43b7b1e1c5d7c908c590</description></item>
+    /// <item><term>PF-383958_HilorNotDeadInTavern</term><description>1f341cf5b5ba4b9ebc52199cf1fb8c80</description></item>
     /// </list>
     /// </remarks>
     ///

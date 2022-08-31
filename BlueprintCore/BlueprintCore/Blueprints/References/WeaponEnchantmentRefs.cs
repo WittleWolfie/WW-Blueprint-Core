@@ -197,6 +197,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC2RustyDaggerEnchantment = "3b277a58c33c4fe68ebb42a6c72b603e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC2ShortbowEnchantment = "9f69df901e2a4106a8d871b968c9acd8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC2ShortspearEnchantment = "07de6c83aa2c423f897b6904ba270216";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_BeautybreakerEnchantment = "646588bc44814f25b73ed8d8c98d3f18";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_BeautyslasherEnchantment = "38cd022c3d19436586d5e4b4d56f6ea5";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_BonesnatcherScytheEnchantment = "4faa4fc450cb4d438b450fdce9c5e810";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_ButcheringGreataxeEnchantment = "47cd9bd112c24d4e9b0a4400bcdee6e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_DefacerWarhammerEnchantment = "c3b2c58b5e794064b09c6b59308d301f";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_DemonbaneFalcataEnchantment = "1c6ad04291af4c21897f0f25259e6690";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_EvercoldHeavyCrossbowEnchantment = "7eea1f49ab5648e2a4433debe95341be";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_GuardianBattleaxeEnchantment = "65734781b09647ed92177461a50d92d6";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_JabstabberPunchdaggerEnchantment = "87993b9a4ec6458d9afb79bda10acd5b";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_KapaoEnchantment = "10a6279460384455aec3031827994dea";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_NahyndrianBladeWeaponEnchantment = "d40541d034cc459bb87eb71f63ee5107";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_NahyndrianVorpalBladeWeaponEnchantment = "b17a18b184274136b479eee076f1e588";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_ShadowBalorFX = "9abd18bca8394dc18b17318481e06933";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_StaffOfTheMightySummonsEnchantment = "3bba9f4c1d3d427eb026cb6e794d58e7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCBardicheRustyEnchantment = "d579b18e60ea4d868a4c43f23aba35b8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCRustyFlailEnchantment = "b317a8d5c0e048a882bccf35118ddeb2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCShortswordEnchantment = "e09c0fd1fd8248059db544e2a14bc2f0";
@@ -232,6 +246,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Enhancement4 = "783d7d496da6ac44f9511011fc5f1979";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Enhancement5 = "bdba267e951851449af552aa9f9e3992";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Enhancement6 = "0326d02d2e24d254a9ef626cc7a3850f";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Enhancement7 = "f8125dcb57d3463a9a039e4631204cbe";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Enhancement8 = "b337af3a2c2a46d0bd0683e983f9d94e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EnhancementBonusWilloWisp = "012f72c2749c2e94eb3c389f3f077aac";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EnhancementBonusWilloWisp_0 = "1923191b9eed2704f9b66f2358da2fcf";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EntomberEnchantment = "e3422118c3fda5749b7a038c979cd8fa";
@@ -479,7 +495,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RabidUnderdogEnchantment = "071ff6076375dfa4f9e9d76a2021bece";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RackingPointEnchantment = "c06d81cd31ea9104790a379f6b7b757b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceBadEnchantment = "40433f161d052d74aa80769dcaf1df09";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceBadEnchantment6 = "955dae09e1484fdda91bafe1ca336e0c";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceGoodEnchantment = "119b0b2ddae69d4438e6a4bedff32412";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceGoodEnchantment6 = "431f0d8a21b9469d946f5ae50f5b126e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceMasterworkEnchantment = "fd95b7769eb76c846a8d7e18dae961e7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Radiant = "5ac5c88157f7dde48a2a5b24caf40131";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RainOfArrowsQuiverEnchantment = "385715affec7e8f4da68ebf744e8a327";
@@ -866,6 +884,20 @@ namespace BlueprintCore.Blueprints.References
           DLC2RustyDaggerEnchantment,
           DLC2ShortbowEnchantment,
           DLC2ShortspearEnchantment,
+          DLC3_BeautybreakerEnchantment,
+          DLC3_BeautyslasherEnchantment,
+          DLC3_BonesnatcherScytheEnchantment,
+          DLC3_ButcheringGreataxeEnchantment,
+          DLC3_DefacerWarhammerEnchantment,
+          DLC3_DemonbaneFalcataEnchantment,
+          DLC3_EvercoldHeavyCrossbowEnchantment,
+          DLC3_GuardianBattleaxeEnchantment,
+          DLC3_JabstabberPunchdaggerEnchantment,
+          DLC3_KapaoEnchantment,
+          DLC3_NahyndrianBladeWeaponEnchantment,
+          DLC3_NahyndrianVorpalBladeWeaponEnchantment,
+          DLC3_ShadowBalorFX,
+          DLC3_StaffOfTheMightySummonsEnchantment,
           DLCBardicheRustyEnchantment,
           DLCRustyFlailEnchantment,
           DLCShortswordEnchantment,
@@ -901,6 +933,8 @@ namespace BlueprintCore.Blueprints.References
           Enhancement4,
           Enhancement5,
           Enhancement6,
+          Enhancement7,
+          Enhancement8,
           EnhancementBonusWilloWisp,
           EnhancementBonusWilloWisp_0,
           EntomberEnchantment,
@@ -1148,7 +1182,9 @@ namespace BlueprintCore.Blueprints.References
           RabidUnderdogEnchantment,
           RackingPointEnchantment,
           RadianceBadEnchantment,
+          RadianceBadEnchantment6,
           RadianceGoodEnchantment,
+          RadianceGoodEnchantment6,
           RadianceMasterworkEnchantment,
           Radiant,
           RainOfArrowsQuiverEnchantment,

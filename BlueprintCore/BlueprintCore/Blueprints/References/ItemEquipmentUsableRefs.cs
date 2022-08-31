@@ -36,6 +36,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BlakemoorGrimoireGood = "275ccbce3db40bc439164d4be4be5c5d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BlindingBombItem = "845fc50c8eb8e9d4f90acfbc5817e54b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BloodyMeatItem = "ede78d969190d8844ba0b7b1c3ab5a0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIIStageItem = "6dbf16bf75b64035b55e1a1d92854acb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIStageItem = "90a63a8227de4a9ea72cb7c597afe382";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsItem = "289842de01a049249f0e921c18bd91a4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BrazenWhipItem = "e4177a7d7096159408f5679720fd589c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> Briar = "a997311fafaaf6548be896f0a9ef24ec";
@@ -62,6 +64,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DevilImpItem = "ff0b6d4a4c0142344924711cb47f39d9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DisplacementBombItem = "3a5e3ed8ec18da4449958e0457f527ba";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC1ZachariusFallenWandItem = "8e7cc05f5d8649718a885210067b4349";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_BesmaraHolySymbolUsableItem = "3b649254066e4e2bab81c3fd2fbd2be7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_NahyndrianHolySignUsableItem = "3b1bfc8fba824fa5ad0ce7cac2c23783";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_NahyndrianHolySymbolUsableItem = "4fcd58cd19b3430ebbed68734bec20af";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_RodOfMagicalAffinityItem = "340cf8ee69c5458c99ecd21daf082704";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_ThePromissingMirrorUsableSetItem = "ce710315e960422c909599f3e2f360b8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DriedHandOfmartyrItem = "363e0db503c3a7b47a06567c8f35dbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DualityOfConjurationAndSummoningItem = "ba856bd4ba814f12a3b30d56c1c3df1c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ElixirMasterpiece = "5219d5846529ae949b88c87858c1bb9e";
@@ -136,6 +143,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ParalyzingBombItem = "802d2f157828d8a42854f8061a3453dd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PeridotWyvernItem = "2ef3360e54ef1734b97f1c465016b31e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PipefoxItem = "53eaa254970205c4bb7d9c9813a25915";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfAcidBlood = "3a9c8275f0d44c18800dd0287113633b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfAid = "3bcbf79b01e4db044a6f06d86cec9117";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfAlignWeaponChaos = "e22d68efeb5de994fa19103068e77280";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfAlignWeaponEvil = "3c0ea09d1d4600249830fc62323ce674";
@@ -152,14 +160,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfBreathOfLife = "6c7f06bed793617458b6243ad9411979";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfBrilliantInspiration = "0110d98071a4d5e479580022295b43b6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfBullsStrength = "2983c97b71ba60443b1c749854ef53a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfBurningMadness = "716d720d01f948aab2cc8a1e1787f71a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCatsGrace = "94b24d55f514cdd45a79d34904fea944";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCharisma = "d61de8043a3afd04a9eab4851ed18095";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCureCriticalWounds = "1f45a09f2e072ea4e8d52fadcd7e66f3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCureLightWounds = "d52566ae8cbe8dc4dae977ef51c27d91";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCureModerateWounds = "f991f3051c3b9e64fabc87891077b613";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfCureSeriousWounds = "e76d14096063ee041bdb1d13d8172599";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDeadlyStrikes = "f76d26e957c64a66987591c2f3c9ff5d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDeathWardCast = "cac4fbb0a58a0be4484b12159de2011c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDelayPoison = "0afbffc4d6913f648a923640f4519c0c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDiamondSkin = "243b90062baa4bca96e00468efc16065";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDispelMagic = "89417807779c867418fb8efb0c05600b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDispelMagicGreater = "212e4b43bbb25ae4cbde2869f84ec243";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfDisplacement = "e21a5ab9509a943409bbd791e9685b03";
@@ -171,6 +182,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfFoxsCunning = "17f132fa2c8c213479640212ae444005";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfFreedomOfMovement = "cec58292b1977844aabb6df5ab6b6a5c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfGoodHope = "60d07aa7231490a43b48b5faa15b6e80";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfGreaterFortune = "b203cca4a89040c4b7c9c52e2bb4ec6f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfGreaterHeroism = "50bb69fde67ef84458df156782950247";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfGreaterInvisibility = "fbd60834ee656984398cd022ecdfaafb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfHaste = "89487c2b77a9a8d419d75af899e0f1b7";
@@ -182,8 +194,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInflictModerateWounds = "a9991bfea27096f46bb7b4ccf0fb7eb7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInflictSeriousWounds = "5865436f0210e3b4e8f6bb2144fdff7c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInspiringRecovery = "565f757f8079cb6489dc49cfb54ccdd8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInvincibility = "3430ab10bc2849a18614c0937a16ff31";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInvisibility = "5f9fe6030695f48489b59887536748e8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInvisibilityGreater = "8fa057895097dc041809a416c61734da";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfLifeKiss = "92dc2f47093f464ebe4ce55766257557";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMageArmor = "ab4961408ba080449afd3e65aa0acbc1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMagicalVestmentArmor = "e5043c7472483b34f8edf2ba0fa249a5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMagicalVestmentShield = "d25d8c6fa378a8b4c9da73b63bd5837c";
@@ -191,10 +205,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMagicFangGreater = "871aafa1bc2a16741869f90666f96783";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMagicWeaponPrimary = "c6d033e38fc9ea14ea35bb3debe5b917";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMagicWeaponSecondary = "aaf646d7a2bfe6c4b90fefccd8d93ef6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfMindBomb = "f46eaa9515c0468dac350d6e3cbc286b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfNeutralizePoison = "b46b711ee354a134496c080b720bbb16";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfOfVanish = "b70aa3e06d55bfd41b9ee6d3a89bc0a8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfOverwhelmingPresence = "f594b3c3a4875114c89da87f3ca743e1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfOwlsWisdom = "db548855a06daba4cb57f34f4780fd02";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfPerfection = "0eb66cab3b4a4d7fa34818ada4fa5608";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfProtectionFromAcid = "30d3dfb67a23cbf4a98044a8f1141b67";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfProtectionFromArrows = "f07dabc44677fa3489105d0bf3f69e3b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfProtectionFromArrows_0 = "b248613596724524fbbe894309af2003";
@@ -224,13 +240,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfResistSonic = "81a8a9f1c28e436419c407e697169345";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfRestoration = "c70e0e663c71d9b4481354b2d7bd134f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfRestorationLesser = "1365aee7d18c85d438f5b027122ca8cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfRevival = "b043adcd917a47c587af2e0cbbb94104";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfSharpRazor = "30b5e6dcb7884eb6a146e935fc405567";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfShieldOfDawn = "65b1cae0b14dd0e4a847a396b461f834";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfShieldOfFaith = "bc93a78d71bef084fa155e529660ed0d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfShieldOfFaith12 = "4c9ff461486c09c42bda818c5fa1caa3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfSpellResistance = "8af85a64a5917cc4a93cd91c69fe8347";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfSteelMind = "7f0d4e3b47e3482fa30d262b500ba02e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfStoneskin = "d685221892beaa542bdb40e0c90929f7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfStoneToFlesh = "f568fe2e25bc16e40a1be642f4213c56";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfSwiftDeath = "800190f666e4499dba79a1d1298cf980";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfThirdEye = "78aa6aac4c1f482d82b2aa198de4db88";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfTrueSeeing = "6ae537fdf1ff3c94f91c1df2cb3b9bad";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfVigor = "7037a9252e664254971566258dec22f6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PreciousTreatItem = "c1b53867f7aa7a7458c2a7afcf929a98";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> QuestElectriItem = "ba3f8571c77a1e8468312e769c1c4b66";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> RainOfArrowsQuiverItem = "ad3a2628bb643c140895c4cec43e6f6f";
@@ -371,6 +393,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCommandGreaterFlee = "1b39aa98fe81f68499171ccb9e7f7178";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCommandGreaterHalt = "7d857059e45e46a4eb50312b52055081";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCommandHalt = "8672d24afa566c14993f03f42fe5af77";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCompleteMagicImmunity = "0085f05342ea41fd8ad6e630c83c18a2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfConeOfCold = "5344f2240620b27478d12f00643fc292";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfConfusionSpell = "1db86aaa479be6944abe90eaddb4afa2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfConstrictingCoils = "ebaeaebc1a30536468ba680aff1d6471";
@@ -401,6 +424,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCureModerateWoundsMass = "28d4223811d2c4741afb3601c96f05cc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCureSeriousWounds = "543cbbd019ba71c49919ee7b5d65e888";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCureSeriousWoundsMass = "31d83c295bc1a2640a798d6c02407498";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfDarkLore = "11f2342692e741d1bfc3511b6824dbf2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfDayLight = "e8d50d4f060a96d4cac36ba2c32d2f0a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfDeathClutch = "45ab47da2e105cf4a81512b9bfadfec1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfDeathWard = "89e10c3f21fa50c4b8719e004c7628d3";
@@ -573,6 +597,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInflictSeriousWoundsMass = "2d9149f08a6ff4149a76b7a1bb560c6c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInsanity = "6693a97a9521c074cb53ef5a94a55f05";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInspiringRecovery = "8f8ee8111d7ac874f8479778c5e3a8d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInstantRecovery = "900e4912ded6446e95a1eeeb5e960007";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInvisibility = "c0af0b5277e91e347ade3aa8994b0d17";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInvisibilityGreater = "d4bb60352b8a62845ba3a7b34ef29a0b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfInvisibilityMass = "f157e6a94573ff94694f114b119229da";
@@ -682,6 +707,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfProtectionFromSpells = "ef721d710294f344c89e00b940d935e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRage = "8773e798277bad64ab5f8c0e90e0e99e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRage_0 = "81f35b521b23ad947acaa8151fa81139";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRagingSummoning = "c0df026970514acd8facb881593766ee";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRainbowPattern = "84cd707a7ae9f934389ed6bbf51b023a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRaiseAnimalCompanion = "cb162acc2628f6a40b1ee16649d3cdfa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfRaiseDead = "a43d2960b3f9bed49a02ae44efef4cfc";
@@ -862,6 +888,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThornBody = "5802eddae12f5b442a54e4bc6c21246e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThoughtsense = "c55714e6f0159954baecc3e55c1cad4e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThunderingDrums = "f63d628a79acb144780e7f01ae639e84";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTimeTrap = "314cd5dc52684b51a3548580fd526811";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTotalSynchronization = "5321981520354b629c21a1122dfc19f1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTouchOfGracelessness = "318abebf99d5a2e4593538bf7dbc5e04";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTouchOfSlime = "d1a586649cea48f48a0c535aacecfba3";
@@ -1163,6 +1190,8 @@ namespace BlueprintCore.Blueprints.References
           BlakemoorGrimoireGood,
           BlindingBombItem,
           BloodyMeatItem,
+          BooksOfDreamsIIIStageItem,
+          BooksOfDreamsIIStageItem,
           BooksOfDreamsItem,
           BrazenWhipItem,
           Briar,
@@ -1189,6 +1218,11 @@ namespace BlueprintCore.Blueprints.References
           DevilImpItem,
           DisplacementBombItem,
           DLC1ZachariusFallenWandItem,
+          DLC3_BesmaraHolySymbolUsableItem,
+          DLC3_NahyndrianHolySignUsableItem,
+          DLC3_NahyndrianHolySymbolUsableItem,
+          DLC3_RodOfMagicalAffinityItem,
+          DLC3_ThePromissingMirrorUsableSetItem,
           DriedHandOfmartyrItem,
           DualityOfConjurationAndSummoningItem,
           ElixirMasterpiece,
@@ -1263,6 +1297,7 @@ namespace BlueprintCore.Blueprints.References
           ParalyzingBombItem,
           PeridotWyvernItem,
           PipefoxItem,
+          PotionOfAcidBlood,
           PotionOfAid,
           PotionOfAlignWeaponChaos,
           PotionOfAlignWeaponEvil,
@@ -1279,14 +1314,17 @@ namespace BlueprintCore.Blueprints.References
           PotionOfBreathOfLife,
           PotionOfBrilliantInspiration,
           PotionOfBullsStrength,
+          PotionOfBurningMadness,
           PotionOfCatsGrace,
           PotionOfCharisma,
           PotionOfCureCriticalWounds,
           PotionOfCureLightWounds,
           PotionOfCureModerateWounds,
           PotionOfCureSeriousWounds,
+          PotionOfDeadlyStrikes,
           PotionOfDeathWardCast,
           PotionOfDelayPoison,
+          PotionOfDiamondSkin,
           PotionOfDispelMagic,
           PotionOfDispelMagicGreater,
           PotionOfDisplacement,
@@ -1298,6 +1336,7 @@ namespace BlueprintCore.Blueprints.References
           PotionOfFoxsCunning,
           PotionOfFreedomOfMovement,
           PotionOfGoodHope,
+          PotionOfGreaterFortune,
           PotionOfGreaterHeroism,
           PotionOfGreaterInvisibility,
           PotionOfHaste,
@@ -1309,8 +1348,10 @@ namespace BlueprintCore.Blueprints.References
           PotionOfInflictModerateWounds,
           PotionOfInflictSeriousWounds,
           PotionOfInspiringRecovery,
+          PotionOfInvincibility,
           PotionOfInvisibility,
           PotionOfInvisibilityGreater,
+          PotionOfLifeKiss,
           PotionOfMageArmor,
           PotionOfMagicalVestmentArmor,
           PotionOfMagicalVestmentShield,
@@ -1318,10 +1359,12 @@ namespace BlueprintCore.Blueprints.References
           PotionOfMagicFangGreater,
           PotionOfMagicWeaponPrimary,
           PotionOfMagicWeaponSecondary,
+          PotionOfMindBomb,
           PotionOfNeutralizePoison,
           PotionOfOfVanish,
           PotionOfOverwhelmingPresence,
           PotionOfOwlsWisdom,
+          PotionOfPerfection,
           PotionOfProtectionFromAcid,
           PotionOfProtectionFromArrows,
           PotionOfProtectionFromArrows_0,
@@ -1351,13 +1394,19 @@ namespace BlueprintCore.Blueprints.References
           PotionOfResistSonic,
           PotionOfRestoration,
           PotionOfRestorationLesser,
+          PotionOfRevival,
+          PotionOfSharpRazor,
           PotionOfShieldOfDawn,
           PotionOfShieldOfFaith,
           PotionOfShieldOfFaith12,
           PotionOfSpellResistance,
+          PotionOfSteelMind,
           PotionOfStoneskin,
           PotionOfStoneToFlesh,
+          PotionOfSwiftDeath,
+          PotionOfThirdEye,
           PotionOfTrueSeeing,
+          PotionOfVigor,
           PreciousTreatItem,
           QuestElectriItem,
           RainOfArrowsQuiverItem,
@@ -1498,6 +1547,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfCommandGreaterFlee,
           ScrollOfCommandGreaterHalt,
           ScrollOfCommandHalt,
+          ScrollOfCompleteMagicImmunity,
           ScrollOfConeOfCold,
           ScrollOfConfusionSpell,
           ScrollOfConstrictingCoils,
@@ -1528,6 +1578,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfCureModerateWoundsMass,
           ScrollOfCureSeriousWounds,
           ScrollOfCureSeriousWoundsMass,
+          ScrollOfDarkLore,
           ScrollOfDayLight,
           ScrollOfDeathClutch,
           ScrollOfDeathWard,
@@ -1700,6 +1751,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfInflictSeriousWoundsMass,
           ScrollOfInsanity,
           ScrollOfInspiringRecovery,
+          ScrollOfInstantRecovery,
           ScrollOfInvisibility,
           ScrollOfInvisibilityGreater,
           ScrollOfInvisibilityMass,
@@ -1809,6 +1861,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfProtectionFromSpells,
           ScrollOfRage,
           ScrollOfRage_0,
+          ScrollOfRagingSummoning,
           ScrollOfRainbowPattern,
           ScrollOfRaiseAnimalCompanion,
           ScrollOfRaiseDead,
@@ -1989,6 +2042,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfThornBody,
           ScrollOfThoughtsense,
           ScrollOfThunderingDrums,
+          ScrollOfTimeTrap,
           ScrollOfTotalSynchronization,
           ScrollOfTouchOfGracelessness,
           ScrollOfTouchOfSlime,

@@ -136,6 +136,83 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/>
+    /// </summary>
+    public TBuilder SetConsoleBlocks(params BlueprintEncyclopediaBlock[] consoleBlocks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(consoleBlocks);
+          bp.ConsoleBlocks = consoleBlocks.ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/>
+    /// </summary>
+    public TBuilder AddToConsoleBlocks(params BlueprintEncyclopediaBlock[] consoleBlocks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ConsoleBlocks = bp.ConsoleBlocks ?? new();
+          bp.ConsoleBlocks.AddRange(consoleBlocks);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/>
+    /// </summary>
+    public TBuilder RemoveFromConsoleBlocks(params BlueprintEncyclopediaBlock[] consoleBlocks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ConsoleBlocks is null) { return; }
+          bp.ConsoleBlocks = bp.ConsoleBlocks.Where(val => !consoleBlocks.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromConsoleBlocks(Func<BlueprintEncyclopediaBlock, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ConsoleBlocks is null) { return; }
+          bp.ConsoleBlocks = bp.ConsoleBlocks.Where(e => !predicate(e)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/>
+    /// </summary>
+    public TBuilder ClearConsoleBlocks()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ConsoleBlocks = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintEncyclopediaPage.ConsoleBlocks"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyConsoleBlocks(Action<BlueprintEncyclopediaBlock> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ConsoleBlocks is null) { return; }
+          bp.ConsoleBlocks.ForEach(action);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -147,6 +224,10 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       if (Blueprint.Blocks is null)
       {
         Blueprint.Blocks = new();
+      }
+      if (Blueprint.ConsoleBlocks is null)
+      {
+        Blueprint.ConsoleBlocks = new();
       }
     }
   }

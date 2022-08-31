@@ -67,7 +67,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Artifact_HornsOfNaragaUnsummonBuff</term><description>bf24f9a2ae9047029f53ef8c797c50cf</description></item>
-    /// <item><term>DLC3_HasteIslandBuff</term><description>5ebf1f33e08f47f89d83bb951248fffa</description></item>
+    /// <item><term>DLC3_SicknessHeavyDiseaseBuff</term><description>4a19a78fbde84e03b4547137b11ddc3a</description></item>
+    /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddBuffActions(
@@ -103,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GreaterMutagenDexterityStrengthBuff</term><description>d0a5cedfd497f3b4f9581b6066d9043b</description></item>
+    /// <item><term>GrandCognatogenCharismaIntelligenceBuff</term><description>a5a6f915d13fd994fb109473032d7440</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

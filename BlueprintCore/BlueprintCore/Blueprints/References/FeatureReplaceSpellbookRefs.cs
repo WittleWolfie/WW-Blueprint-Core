@@ -106,6 +106,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterArcanistUnletteredArcanist = "babe721f43f95f740a81534d339d3c7f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterBard = "8692be2866501634dab99f4b9c5ae002";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterBloodrager = "05f9f14d2989b094a9e5502edda26ed5";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterCrossbloodedSorcerer = "b86e2fe442504bd38f192309f2fdfb22";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterEldritchScion = "8d02179db32f7da4a9db682120448dea";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterEldritchScoundrel = "1451d4fdf7ebf694a8f2c340de16f2c3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterEmpyrealSorcerer = "21fd403374d27bb4aa452bf92eccd291";
@@ -257,6 +258,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterArcanistUnletteredArcanist,
           LoremasterBard,
           LoremasterBloodrager,
+          LoremasterCrossbloodedSorcerer,
           LoremasterEldritchScion,
           LoremasterEldritchScoundrel,
           LoremasterEmpyrealSorcerer,

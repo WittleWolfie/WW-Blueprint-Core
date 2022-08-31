@@ -245,6 +245,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DiskOfUnbalanceEnchantment = "74a49e6878664b649288868565396492";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DisplayOfPowerEnchantment = "d3bca607f82a5dd49bc014f6ca38453b";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DivineProtectorArmorEnchantment = "b759e9d8c59eccf4880c31c2221dc502";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_AmuletOfCombatAwarenessEnchantment = "54cfff4515384a38804ca0e45207c480";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_BootsOfUndersumpEnchantment = "fde4d5f97f834c7a8db4517eed180e68";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_BrokenTricksterAlignmentEnchantment = "9f5c5e8205604a018086590829bb5a6c";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_BrokenTricksterEnchantment = "62db31daa40146f7b0be0e02b3bf9a18";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_BrokenTricksterPoisonImmunityEnchantment = "f0154af8f3f541f9b7a9a2c5679e38e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_CloakOfRadianceEnchantment = "06cec593bd28452a9a3a710bfb46abb3";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_CloakOfSweetSpeakEnchantment = "b746adf5d653427cbeeacd6ff610db15";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_GlassesOfundeniableTruthEnchantment = "303e8c4538c94aa89752a9579f7ef734";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_GlovesOfSurgicalExtractionEnchantment = "0524503389fe4d23b710428f66781a66";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_HelmOfBitterEndEnchantment = "e0df18fe4db4473b91c92f3c915948c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_NahyndrianHolySymbolEnchantment = "defb539b70c749c3b03ac7d60bbe1205";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_RingOfInstantTriumphEnchantment = "cf86e52d03964ac4af5203ab478deba7";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_RobeOfTheSinmageEnchantment = "f583e44cd3a742a28cb5253c09e3db6e";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_RobeOfUnspeakableTruthEnchantment = "52491d2c417244879a718169e2179591";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_TrickstersPromiseEnchantment = "c504c67525df49bcacedb76cf79629dc";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLCTestEnchantment = "41e0272c93814e17aa6373af435cb521";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DoublingAnnoyanceEnchantment = "8130290bce6742b4a827a7f380ed8429";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DragonsHeirloomEnchantment = "8aed62503e40480eb876c67630dae9bf";
@@ -909,6 +924,21 @@ namespace BlueprintCore.Blueprints.References
           DiskOfUnbalanceEnchantment,
           DisplayOfPowerEnchantment,
           DivineProtectorArmorEnchantment,
+          DLC3_AmuletOfCombatAwarenessEnchantment,
+          DLC3_BootsOfUndersumpEnchantment,
+          DLC3_BrokenTricksterAlignmentEnchantment,
+          DLC3_BrokenTricksterEnchantment,
+          DLC3_BrokenTricksterPoisonImmunityEnchantment,
+          DLC3_CloakOfRadianceEnchantment,
+          DLC3_CloakOfSweetSpeakEnchantment,
+          DLC3_GlassesOfundeniableTruthEnchantment,
+          DLC3_GlovesOfSurgicalExtractionEnchantment,
+          DLC3_HelmOfBitterEndEnchantment,
+          DLC3_NahyndrianHolySymbolEnchantment,
+          DLC3_RingOfInstantTriumphEnchantment,
+          DLC3_RobeOfTheSinmageEnchantment,
+          DLC3_RobeOfUnspeakableTruthEnchantment,
+          DLC3_TrickstersPromiseEnchantment,
           DLCTestEnchantment,
           DoublingAnnoyanceEnchantment,
           DragonsHeirloomEnchantment,
