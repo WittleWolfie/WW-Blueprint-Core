@@ -40,7 +40,7 @@ namespace BlueprintCoreTutorial.Feats
         .SetDescription(FeatDescription)
         .SetIcon(IconName)
         // Adds UI recommendation for 3/4 or Full BAB characters
-        .AddRecommendationBaseAttackPart(minPart: 0.7f)
+        .AddRecommendationThreeQuartersBAB()
         // Adds UI recommendation for Weapon Focus 2H
         .AddRecommendationWeaponSubcategoryFocus(subcategory: WeaponSubCategory.TwoHanded, hasFocus: true)
         // Adds UI tags
