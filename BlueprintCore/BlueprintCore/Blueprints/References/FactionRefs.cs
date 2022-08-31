@@ -22,6 +22,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Crusaders = "9b14690df00add445a925445562c69f4";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> CutsceneNeutrals = "d64258e86eeb1d8479f35a9b16f6590a";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Demons = "26140a3088fadfb44ab11601d5e16113";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_arc = "7544359f998744f3b4d07d5d664e516f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ArenaOfDevilrageFaction1 = "c89d85c18fc14af5b956a65ef632d4a3";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ArenaOfDevilrageFaction2 = "48346f0dcb7f41d5b0bc50f79015fe32";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_BesmaraPiratesFaction = "df58063a92684955981fca5377d992e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_Invisible_Kitten_Faction = "f9e60285c12c4919be2ad156b9e10812";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ShadowBalorFaction = "5f5dd23f30064cb7b28ad4c99c6f7004";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ShipGolemFaction = "c2f667f6b5c04559b0d69859091faf51";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenChorussina = "2648700405e96f049988ac15fd5da6a9";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenCultists = "c393ee9c1e09f114f907819cb3296468";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DummyFaction = "f53d9de2a5cd4144596a0ef9e26ffa9c";
@@ -62,6 +69,13 @@ namespace BlueprintCore.Blueprints.References
           Crusaders,
           CutsceneNeutrals,
           Demons,
+          DLC3_arc,
+          DLC3_ArenaOfDevilrageFaction1,
+          DLC3_ArenaOfDevilrageFaction2,
+          DLC3_BesmaraPiratesFaction,
+          DLC3_Invisible_Kitten_Faction,
+          DLC3_ShadowBalorFaction,
+          DLC3_ShipGolemFaction,
           DrezenChorussina,
           DrezenCultists,
           DummyFaction,

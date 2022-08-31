@@ -35,12 +35,38 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BurnNumberProperty = "02c5943c77717974cb7fa1b7c0dc51f8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> CombatExpertiseAttackPenaltyProperty = "8a63b06d20838954e97eb444f805ec89";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> CoupDeGraceAgregatorProperty = "bd9224781e76429b92f0e60b13c079cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DeathThroesDC = "d17aeb4cff7d4ffab8c68d40530f4de5";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DecaySpreaderProperty = "3d9c37a06e8a4a6aa0dd5e2d80e207fe";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DemonicFormIINabasuGazeDCProperty = "bfd5362f22e8437eab27436e836af4a8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DestructiveDispelProperty = "13e4f1dd08954723b173335a54b48746";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ArcaneIslandModCRGetterProperty = "41152617447b495ab0ad515aa58e1a49";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ArmorPenaltyProperty = "c6814940fdc04fd0935f59b03067b874";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BarbarianBloodragerHPProperty = "d469ee34c5614824934c37d27aeff25d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BarbRagerProp = "b0d6f760f8e64047b7e3243dd3b30acd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BeautyslasherProperty = "733b40ea23944eb5b32aa941ffef9c2c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BesmaraIntegrationPirateBasePlayerDebuffProperty = "f92d7a84ef954747adac9b5bd56d82e6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BesmaraPirateBasePlayerDebuffProperty = "5aa400fc438346f4a39be258331836ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BonesnatcherScytheProperty = "be7081649cb640bdb90dfff5bbdd2b8c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_BonusAttackDamageBowsGetter = "61f1f7d860e84b76b0f4e4958abc6ef1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_DivineBlessingProperty = "7de101b6b93044798663c7c51f2ec099";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_DwarvenBlessingProperty = "7a2e877faaf14b88b1af878ea3f77aac";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ElementalAreaCRProperty = "8ce12a60c336403983a360d504ee80a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GlovesOfSurgicalExtractionProperty = "7eb6ebf0ac9c49deb77122c3c95db779";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GnomeBlessingProperty = "28185df8d2494e1e9ad56c626f89883a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainMaxHealProperty = "fce61cac8c574a058f760192f3ada3bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainProperty = "59ddc289614f4746b0579a62bed2c7d1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainUniqueProperty = "fb85ae5e942b452daab608856ae42100";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_KineticRicochetProperty = "4a18040254d040f78c298f10649eab71";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_MixedMagicBlessingProperty = "0c1d12b632484cca84a2888d17628d84";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty = "b51cd8eea32a4bbbbf736a595d83699e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_NegativeEnergyModUndeadOnlyBuffProperty = "8391baeebd4f4f7b812b8faea67356c9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_RageConfusionIslandDC = "31f09fa9a9ea4d5887e06735dbe3701c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_RoguesRangersGainDRBuffLevelGetter = "2aa73fe91377456b8734ba94a506d541";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_SicknessIslandCorpseProperty = "9fc25f8a627d4260ae2d95b3e5395b1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_SlashingBludgeoningLevelRankGetter = "54a35f59c7a74a39b4ad214359269fb7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_SplintershredGreataxeProperty = "4418e0e12e5747a69b84abb29fd77c55";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_VeryHotIslandHeatMetalRanksDC = "8512b179a1424b748e523cbb24edc0af";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_VeryHotIslandHeatMetalRanksDCHeavy = "65b64ec93c2d48af8d14cc5cae84bc7d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier1 = "11a3a4720f764ce6866236e4debe749c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier2 = "9731259e59e24b3ca9e97758139a0ccb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier3 = "570fc70c025c44789fbdf43fa3dcf0fd";
@@ -79,6 +105,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MummyRotProperty = "64fce1577bec426793c44ae09d71c61f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MutationWarriorSpontaneousHealingResourceProperty = "7ca6ae35171a429bbcfb375ab657776f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MythicChannelProperty = "152e61de154108d489ff34b98066c25c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MythicPowersFromDLC1FortificationMythicGetter = "f5476c8419de43108d2298d6bdbe0eea";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkCurrentHPProperty = "2d73d0816ab3440d9602b7c964fb7b0f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkDamagedHPProperty = "78cd0d7cc5bc454ab69b21b87960c804";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkMaxHPProperty = "e4503ac141c04a2687240081ec7c6c39";
@@ -218,12 +245,38 @@ namespace BlueprintCore.Blueprints.References
           BurnNumberProperty,
           CombatExpertiseAttackPenaltyProperty,
           CoupDeGraceAgregatorProperty,
+          DeathThroesDC,
           DecaySpreaderProperty,
           DemonicFormIINabasuGazeDCProperty,
           DestructiveDispelProperty,
+          DLC3_ArcaneIslandModCRGetterProperty,
+          DLC3_ArmorPenaltyProperty,
+          DLC3_BarbarianBloodragerHPProperty,
           DLC3_BarbRagerProp,
+          DLC3_BeautyslasherProperty,
+          DLC3_BesmaraIntegrationPirateBasePlayerDebuffProperty,
           DLC3_BesmaraPirateBasePlayerDebuffProperty,
+          DLC3_BonesnatcherScytheProperty,
+          DLC3_BonusAttackDamageBowsGetter,
+          DLC3_DivineBlessingProperty,
+          DLC3_DwarvenBlessingProperty,
+          DLC3_ElementalAreaCRProperty,
+          DLC3_GlovesOfSurgicalExtractionProperty,
+          DLC3_GnomeBlessingProperty,
+          DLC3_HitDieHPRegainMaxHealProperty,
+          DLC3_HitDieHPRegainProperty,
+          DLC3_HitDieHPRegainUniqueProperty,
+          DLC3_KineticRicochetProperty,
+          DLC3_MixedMagicBlessingProperty,
+          DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty,
+          DLC3_NegativeEnergyModUndeadOnlyBuffProperty,
           DLC3_RageConfusionIslandDC,
+          DLC3_RoguesRangersGainDRBuffLevelGetter,
+          DLC3_SicknessIslandCorpseProperty,
+          DLC3_SlashingBludgeoningLevelRankGetter,
+          DLC3_SplintershredGreataxeProperty,
+          DLC3_VeryHotIslandHeatMetalRanksDC,
+          DLC3_VeryHotIslandHeatMetalRanksDCHeavy,
           DLC3_WildMagicDCTier1,
           DLC3_WildMagicDCTier2,
           DLC3_WildMagicDCTier3,
@@ -262,6 +315,7 @@ namespace BlueprintCore.Blueprints.References
           MummyRotProperty,
           MutationWarriorSpontaneousHealingResourceProperty,
           MythicChannelProperty,
+          MythicPowersFromDLC1FortificationMythicGetter,
           OracleRevelationLifeLinkCurrentHPProperty,
           OracleRevelationLifeLinkDamagedHPProperty,
           OracleRevelationLifeLinkMaxHPProperty,

@@ -68,6 +68,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakWyvernItem = "b20919f1a98333f449956f0380fae855";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> ContagiousShroudItem = "80f028d846d9e47408f35739b93bde4b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> DervishCloakItem = "2595ae738523d9c4ea96f0d7e8b35470";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> DLC3_CloakOfRadianceItem = "a9e22202c101432fa5dc28f3a4769e4f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> DLC3_CloakOfSweetSpeakSetItem = "8f4791f15f224edbb12b42c0d8155eac";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> DungeoneersCloakItem = "fd1ed44854da4b35a70c613fac2d3d8f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> EnchantersCapeItem = "41cd16a5d7c786c4ab7fb134f436a135";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> ExtraplanarCloakItem = "dafc585c01487b74781ae43f1a747d9e";
@@ -153,6 +155,8 @@ namespace BlueprintCore.Blueprints.References
           CloakWyvernItem,
           ContagiousShroudItem,
           DervishCloakItem,
+          DLC3_CloakOfRadianceItem,
+          DLC3_CloakOfSweetSpeakSetItem,
           DungeoneersCloakItem,
           EnchantersCapeItem,
           ExtraplanarCloakItem,

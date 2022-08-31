@@ -29,6 +29,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarCloth_IntermediateItem = "ae4118a79f5154543adb9c4b59e7b6de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarMasochisticClothItem = "7393c642e36be6e488ddd7eb7ca30a31";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarTrypophobiaClothItem = "c3311fb9253b3b94bb640961a189910b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DLC3_RobeOfTheSinmageItem = "b2b41b525b33406596ef4051d6232c1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DLC3_RobeOfUnspeakableTruthItem = "9d7e7dbc35ea4298bd51790644caa8c6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> EarthenEmbraceItem = "bb2ded7279ea5e34fb8578b3d2eebffa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> GorgeousGlowingGarnetGarmentItem = "8afe91a71d05417cb8162d8ce1f903a5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> HagsDemiseItem = "c092fdcc5b6f4a6983c7085e9f669372";
@@ -45,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMaliceItem = "2e78284d218c51643bc3e1f0a530a5fc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMephistophelesItem = "204b71bd46194f9ab523dcd728f2f370";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfOrderItem = "32f8cc0a9152d224f933a5c0879ec368";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfTheWiseItemCorrect = "009c8ed2e4fe4b62b1df9b577b5d4e29";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfTrampleItem = "f3989bdf3f1e92248950ed7b0922dd8e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfVirtueItem = "17c5e2686dbb5a843b5ba859f22aeea1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfWater_CorrectItem = "aeb82599c5c745d9b6ec12e282569f30";
@@ -74,6 +77,8 @@ namespace BlueprintCore.Blueprints.References
           DemonicAltarCloth_IntermediateItem,
           DemonicAltarMasochisticClothItem,
           DemonicAltarTrypophobiaClothItem,
+          DLC3_RobeOfTheSinmageItem,
+          DLC3_RobeOfUnspeakableTruthItem,
           EarthenEmbraceItem,
           GorgeousGlowingGarnetGarmentItem,
           HagsDemiseItem,
@@ -90,6 +95,7 @@ namespace BlueprintCore.Blueprints.References
           RobeOfMaliceItem,
           RobeOfMephistophelesItem,
           RobeOfOrderItem,
+          RobeOfTheWiseItemCorrect,
           RobeOfTrampleItem,
           RobeOfVirtueItem,
           RobeOfWater_CorrectItem,

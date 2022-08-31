@@ -89,7 +89,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <listheader>Used by</listheader>
     /// <item><term>Add3_SearchMoltenScar</term><description>39a11378f06fff740b8211686247d943</description></item>
     /// <item><term>Cue_0252_playerheir</term><description>a8764b751e8fb1240b998546ec6ed292</description></item>
-    /// <item><term>PF-232045</term><description>e117b759ee6647e2a156d4c7f0637142</description></item>
+    /// <item><term>WarCamp_CrusadeAnnouncement</term><description>d95152499fa0696478cc6af83e44f029</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder AutoKingdom(
@@ -300,6 +300,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter03</term><description>15e0048c7daf0ac4999c2313b58df0e3</description></item>
     /// <item><term>CrusadeTutorial_01_Chapter2Intro</term><description>20073002e0594c88b5af911060e8dde8</description></item>
+    /// <item><term>CrusadeTutorial_01_Chapter2Intro_Gamepad</term><description>a7ddb70f04c74468b7c05cb6b4275c65</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder KingdomExists(
@@ -455,7 +456,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <listheader>Used by</listheader>
     /// <item><term>CreateSettlementFort21</term><description>0b7377f7c46c6aa43bf66af6ec618836</description></item>
     /// <item><term>CreateSettlementNearRegill</term><description>8b4cd3ebd7b3f3b4ea201bbfed62fa28</description></item>
-    /// <item><term>PF-300995</term><description>f25549e2b0654ca6b20335c374e2258d</description></item>
+    /// <item><term>PF-412703</term><description>8cddb1adab904075a656a7d4bf226271</description></item>
     /// </list>
     /// </remarks>
     ///

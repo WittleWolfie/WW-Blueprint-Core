@@ -30,7 +30,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GreaterCognatogenIntelligenceWisdomBuff</term><description>34fde71198d30094aa133546e8cf8733</description></item>
+    /// <item><term>GrandMutagenDexterityConstitutionBuff</term><description>8d4357118c75a5746802a3582a937376</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>
@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GreaterMutagenDexterityStrength</term><description>78d953b296fb2154aa2c85e6e724ce56</description></item>
+    /// <item><term>GreaterCognatogenCharismaWisdom</term><description>0d51cf14921631c40b17b6e6a3b6b1ab</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -142,6 +142,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <listheader>Used by</listheader>
     /// <item><term>CavalierCallingSkillCheckBuff</term><description>41f68e5c879e440991740a03f5ed7541</description></item>
     /// <item><term>HellsSealVariantFireExplosionBuff</term><description>905a43b9f088b33498fcf5d3569711fa</description></item>
+    /// <item><term>SkeletalFingerRodQuickenNormalKillBuff</term><description>e1c9d88a7be14454bd110a2ea406c3e0</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder InContext(
@@ -261,8 +262,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowEnchantment</term><description>8a7d0e599fe6b8c4c9ee034eb6af1830</description></item>
-    /// <item><term>GowrowAquaticShortspearEnchantment</term><description>c845e1109500f9a4aaabf7a494c4068d</description></item>
-    /// <item><term>RangingShots</term><description>2b558167862b05d47b8472d176257f82</description></item>
+    /// <item><term>GreaterFortuneBuff</term><description>1ae7151d431043f9bad37976c3a2e6cd</description></item>
+    /// <item><term>SwiftDeathBuff</term><description>d9518719276543d3b7b78fac41e0c7e7</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -397,7 +398,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Areelu_UnbreakableDefenseBuff</term><description>57572f514d5b49bf98432026c80382c3</description></item>
-    /// <item><term>DragonLevel2MaxAbilityIntelligenceFeature</term><description>21c84e44bf6c4639a0db1a515c0ee3c0</description></item>
+    /// <item><term>DragonLevel1MaxAbilityStrengthFeature</term><description>6a7f8ee85c7f42228c83bb9d2f1711f2</description></item>
     /// <item><term>TransmutationSchoolStrengthAbility</term><description>aadee249a033b2747b63344a758e91be</description></item>
     /// </list>
     /// </remarks>
@@ -536,7 +537,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>HuntersSurprise</term><description>6209197fed619cf41910f9aaceaf7d51</description></item>
+    /// <item><term>GoodHopeTrailblazer</term><description>0082c3ed87626204f9b46d84cec1518d</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -798,7 +799,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeArea</term><description>bc346635e3d04df7968249d59ea756ba</description></item>
-    /// <item><term>EclipseChillOnBuff</term><description>1d585582fbe72e14aadc5cd7985c06f4</description></item>
+    /// <item><term>DLC3_InspireGreatnessArea</term><description>688b0b6520754064bdc48d103337c111</description></item>
     /// <item><term>WrathOfTheUndeadArea</term><description>22e31702587142ddb99391d589ba538b</description></item>
     /// </list>
     /// </remarks>
@@ -885,7 +886,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
+    /// <item><term>Halaseliax_FireAuraArea</term><description>de0b34e1564d48cabf078046963eb389</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -972,7 +973,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelHaloArea</term><description>7aa654dc15f051b4e865dc82b6765b0c</description></item>
-    /// <item><term>DeathAttackAbility</term><description>14f11007d016ec94682af6de83959a83</description></item>
+    /// <item><term>DevilApostateEvangelizationBuff</term><description>e73b257d725bceb4ab49498f37954f65</description></item>
     /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
     /// </list>
     /// </remarks>
@@ -1123,7 +1124,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptEndEnchantment</term><description>66f1ac1f205e99f4e83c9b3aa8f0b0b1</description></item>
-    /// <item><term>MagicalVestmentShieldBuff</term><description>2e8446f820936a44f951b50d70a82b16</description></item>
+    /// <item><term>MagicalVestmentShield</term><description>adcda176d1756eb45bd5ec9592073b09</description></item>
     /// <item><term>WarpriestShieldbearerChannelPositiveHarm</term><description>894e20539c353c74ab2733a056351947</description></item>
     /// </list>
     /// </remarks>
@@ -1189,7 +1190,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensiveRandomizerBuff</term><description>1a72d85f20f14f1b84d20b8b6e44734e</description></item>
-    /// <item><term>GogglesOfMalocchioFeature</term><description>782027e68010df048af8289ceb6f3c31</description></item>
+    /// <item><term>DLC3_VeryHotIslandBuff</term><description>8c61a2a184da402daac616cfc5f77273</description></item>
     /// <item><term>SwordlordSteelNetBuff</term><description>dc9738ee4e71f5c4287e37f3b74c6fe6</description></item>
     /// </list>
     /// </remarks>
@@ -1315,7 +1316,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonNormalizeSizeGazeEnemyBuff</term><description>dc42e955adbd444fbb3082687080117b</description></item>
-    /// <item><term>MasterSlayerBuff</term><description>d474f18e89348bf4db1ff634040ad283</description></item>
+    /// <item><term>ImpalerEnchantment</term><description>a70838190b8751e4c93f5c410d8ca356</description></item>
     /// <item><term>WintersMarkEnchantment</term><description>0641db56869d87c4bb387e5ae4a18a0e</description></item>
     /// </list>
     /// </remarks>
@@ -1388,6 +1389,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_IllusionIslandCasterBuff</term><description>3f2bbe4dbb22461aa8392a5e46de62bc</description></item>
     /// <item><term>Feeblemind</term><description>444eed6e26f773a40ab6e4d160c67faa</description></item>
     /// </list>
     /// </remarks>

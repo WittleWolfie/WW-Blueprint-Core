@@ -6,6 +6,7 @@ using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
@@ -78,6 +79,32 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPart.m_StaticSceneConsoleOverride"/>
+    /// </summary>
+    public TBuilder SetStaticSceneConsoleOverride(SceneReference staticSceneConsoleOverride)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(staticSceneConsoleOverride);
+          bp.m_StaticSceneConsoleOverride = staticSceneConsoleOverride;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPart.m_StaticSceneConsoleOverride"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyStaticSceneConsoleOverride(Action<SceneReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_StaticSceneConsoleOverride is null) { return; }
+          action.Invoke(bp.m_StaticSceneConsoleOverride);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_LightScene"/>
     /// </summary>
     public TBuilder SetLightScene(SceneReference lightScene)
@@ -100,6 +127,32 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         {
           if (bp.m_LightScene is null) { return; }
           action.Invoke(bp.m_LightScene);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPart.m_LightSceneConsoleOverride"/>
+    /// </summary>
+    public TBuilder SetLightSceneConsoleOverride(SceneReference lightSceneConsoleOverride)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(lightSceneConsoleOverride);
+          bp.m_LightSceneConsoleOverride = lightSceneConsoleOverride;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPart.m_LightSceneConsoleOverride"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLightSceneConsoleOverride(Action<SceneReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_LightSceneConsoleOverride is null) { return; }
+          action.Invoke(bp.m_LightSceneConsoleOverride);
         });
     }
 
@@ -467,6 +520,35 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPart.AreaLocalName"/>
+    /// </summary>
+    ///
+    /// <param name="areaLocalName">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetAreaLocalName(LocalString areaLocalName)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AreaLocalName = areaLocalName?.LocalizedString;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPart.AreaLocalName"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAreaLocalName(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.AreaLocalName is null) { return; }
+          action.Invoke(bp.AreaLocalName);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.GraphCache"/>
     /// </summary>
     ///
@@ -506,6 +588,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       if (Blueprint.m_SoundBankNames is null)
       {
         Blueprint.m_SoundBankNames = new string[0];
+      }
+      if (Blueprint.AreaLocalName is null)
+      {
+        Blueprint.AreaLocalName = Utils.Constants.Empty.String;
       }
     }
   }

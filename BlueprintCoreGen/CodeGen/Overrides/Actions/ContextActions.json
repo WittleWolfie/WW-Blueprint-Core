@@ -841,14 +841,46 @@
 
   {
     "TypeName": "ContextActionRandomize",
-    "CustomFields": [
+    "Methods": [
       {
-        "FieldName": "m_Actions",
-        "ParamName": "weightedActions",
-        "TypeName": "(ActionsBuilder actions, int weight)",
-        "Required": "true",
-        "CommentFmt": "List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.",
-        "AssignmentFmtRhs": "{0}.Select(action => new ContextActionRandomize.ActionWrapper {{ Action = action.actions.Build(), Weight = action.weight }}).ToArray()"
+        "MethodName": "Randomize",
+        "IgnoredFields": [ "Salt", "Seed" ],
+        "ConstantFields": [
+          {
+            "FieldName": "CalculateSeed",
+            "Value": "false"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "m_Actions",
+            "ParamName": "weightedActions",
+            "TypeName": "(ActionsBuilder actions, int weight)",
+            "Required": "true",
+            "CommentFmt": "List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.",
+            "AssignmentFmtRhs": "{0}.Select(action => new ContextActionRandomize.ActionWrapper {{ Action = action.actions.Build(), Weight = action.weight }}).ToArray()"
+          }
+        ]
+      },
+      {
+        "MethodName": "RandomizeWithSeed",
+        "RequiredFields": [ "Salt", "Seed" ],
+        "ConstantFields": [
+          {
+            "FieldName": "CalculateSeed",
+            "Value": "true"
+          }
+        ],
+        "CustomFields": [
+          {
+            "FieldName": "m_Actions",
+            "ParamName": "weightedActions",
+            "TypeName": "List<(ActionsBuilder actions, int weight)>",
+            "Required": "true",
+            "CommentFmt": "List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represents the relative probability compared to the other entries in the list.",
+            "AssignmentFmtRhs": "{0}.Select(action => new ContextActionRandomize.ActionWrapper {{ Action = action.actions.Build(), Weight = action.weight }}).ToArray()"
+          }
+        ]
       }
     ]
   },

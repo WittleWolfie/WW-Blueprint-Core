@@ -7,6 +7,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Enums;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;
@@ -16,6 +17,7 @@ using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -737,6 +739,54 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     }
 
     /// <summary>
+    /// Adds <see cref="DungeonArea"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Alushinyrra_Whorehouse_lvl_01</term><description>e25e817958684dbaa34f741ba66bbe8f</description></item>
+    /// <item><term>DLC3_Island_PiratesBesmar_3</term><description>ac831d4ca7854fe5a36f355d530929cc</description></item>
+    /// <item><term>FireDungeon_lvl_01</term><description>578e9e6c28c34bb980f721add45615e0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="modifyUnitsFaction">
+    /// <para>
+    /// Tooltip: Switch the spawned units faction to the one set in the dungeon root
+    /// </para>
+    /// </param>
+    public TBuilder AddDungeonArea(
+        DungeonRoomSettings? exterior = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? modifyUnitsFaction = null,
+        EntityReference? rewardScriptZone = null,
+        List<DungeonRoomSettings>? rooms = null)
+    {
+      var component = new DungeonArea();
+      Validate(exterior);
+      component.Exterior = exterior ?? component.Exterior;
+      component.ModifyUnitsFaction = modifyUnitsFaction ?? component.ModifyUnitsFaction;
+      Validate(rewardScriptZone);
+      component.RewardScriptZone = rewardScriptZone ?? component.RewardScriptZone;
+      Validate(rooms);
+      component.Rooms = rooms ?? component.Rooms;
+      if (component.Rooms is null)
+      {
+        component.Rooms = new();
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="OverrideCampingAction"/>
     /// </summary>
     ///
@@ -745,7 +795,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AzataIsland</term><description>31bab5549f7ea384186159a238360c8d</description></item>
-    /// <item><term>DLC2_Tavern</term><description>dec10943d88040d0962f530cb4f2be63</description></item>
+    /// <item><term>DLC3_BloodIvory_lvl_08</term><description>871be5663e764a87b733d0ef472ede13</description></item>
     /// <item><term>WarCamp</term><description>7a25c101fe6f7aa46b192db13373d03b</description></item>
     /// </list>
     /// </remarks>

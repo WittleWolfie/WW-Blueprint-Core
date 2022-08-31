@@ -2093,7 +2093,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0054</term><description>d6e30610613f65b4997c592f622f80f1</description></item>
-    /// <item><term>CrusadeEvent64</term><description>e8980ed1a7364f79a02e916ed9c32eaa</description></item>
+    /// <item><term>CrusadeEvent63</term><description>7ef34faced78457a97fa47de371d7c18</description></item>
     /// <item><term>SarcorianElders_Ring</term><description>1375b1d6ec7842668d5c340c6fd77259</description></item>
     /// </list>
     /// </remarks>
@@ -2479,7 +2479,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add3_SearchMoltenScar</term><description>39a11378f06fff740b8211686247d943</description></item>
-    /// <item><term>KTC_FarewellToMythicAzata_Notification</term><description>30f193f9ab5501145aaf8822d6c63d0a</description></item>
+    /// <item><term>KTC_Fail_Notification</term><description>93e8ee34311b5e64788bcd5c53bfed0f</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>

@@ -34,7 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Barrel_explosion</term><description>8fdc96985bf749dfb5f8bd9085d4aeda</description></item>
-    /// <item><term>FireDamage_Actions</term><description>209d33847e7d4a33a894f9de8350a9c1</description></item>
+    /// <item><term>MachineDamage_Actions</term><description>3e522e59d3514dea90c56c7ecd6685a0</description></item>
     /// <item><term>TestDamagedMapobject</term><description>149d05c335f0cd24ca4a8866e968bb1d</description></item>
     /// </list>
     /// </remarks>

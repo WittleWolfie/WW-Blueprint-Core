@@ -230,6 +230,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MutationWarriorDiscoverySelection = "5d297a1a9a4384e408a1098381721db1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeArcaneSpellbookSelection = "97f510c6483523c49bc779e93e4c4568";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeDivineSpellbookSelection = "7cd057944ce7896479717778330a4933";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection1 = "bbab32c87c08454c83d698b1a4f5db03";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection2 = "25000b1e9f97424f8422709ba607a48b";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection3 = "2e2decab18164a9ea18311a24d7f6451";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection4 = "4189cebfb9cd4f56909201f79ee73600";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection5 = "7af998111f3a4b4aae0c0a9c644cb546";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeHunterLevelSelection6 = "ac5ad4f088e14dadb01a49a838caf227";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeInquisitorLevelSelection1 = "8ae18c62c0fbfeb4ea77f877883947fd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeInquisitorLevelSelection2 = "f78f63d364bd9fe4ea2885d95432c068";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MysticTheurgeInquisitorLevelSelection3 = "5f6c7b84edc68a146955be0600de4095";
@@ -324,6 +330,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanNatureSpiritTrueSelection = "e7f4cfcd7488ac14bbc3e09426b59fd0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanSpiritAnimalSelection = "d22f319fefac4ca4b90f03ac5cb9c714";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanSPiritSelection = "00c8c566d1825dd4a871250f35285982";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShifterAspectSelectionFeature = "121829d239124685b430f5263031bf83";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SkaldFeatSelection = "0a1999535b4f77b4d89f689a385e5ec9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SkaldRagePowerSelection = "2476514e31791394fa140f1a07941c96";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SkaldTalentSelection = "d2a8fde8985691045b90e1ec57e3cc57";
@@ -633,6 +640,12 @@ namespace BlueprintCore.Blueprints.References
           MutationWarriorDiscoverySelection,
           MysticTheurgeArcaneSpellbookSelection,
           MysticTheurgeDivineSpellbookSelection,
+          MysticTheurgeHunterLevelSelection1,
+          MysticTheurgeHunterLevelSelection2,
+          MysticTheurgeHunterLevelSelection3,
+          MysticTheurgeHunterLevelSelection4,
+          MysticTheurgeHunterLevelSelection5,
+          MysticTheurgeHunterLevelSelection6,
           MysticTheurgeInquisitorLevelSelection1,
           MysticTheurgeInquisitorLevelSelection2,
           MysticTheurgeInquisitorLevelSelection3,
@@ -727,6 +740,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanNatureSpiritTrueSelection,
           ShamanSpiritAnimalSelection,
           ShamanSPiritSelection,
+          ShifterAspectSelectionFeature,
           SkaldFeatSelection,
           SkaldRagePowerSelection,
           SkaldTalentSelection,

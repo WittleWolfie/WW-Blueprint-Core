@@ -251,6 +251,83 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintUISound.CardInterface"/>
+    /// </summary>
+    public TBuilder SetCardInterface(params BlueprintUISound.UISound[] cardInterface)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(cardInterface);
+          bp.CardInterface = cardInterface.ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintUISound.CardInterface"/>
+    /// </summary>
+    public TBuilder AddToCardInterface(params BlueprintUISound.UISound[] cardInterface)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CardInterface = bp.CardInterface ?? new();
+          bp.CardInterface.AddRange(cardInterface);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintUISound.CardInterface"/>
+    /// </summary>
+    public TBuilder RemoveFromCardInterface(params BlueprintUISound.UISound[] cardInterface)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CardInterface is null) { return; }
+          bp.CardInterface = bp.CardInterface.Where(val => !cardInterface.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintUISound.CardInterface"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCardInterface(Func<BlueprintUISound.UISound, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CardInterface is null) { return; }
+          bp.CardInterface = bp.CardInterface.Where(e => !predicate(e)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintUISound.CardInterface"/>
+    /// </summary>
+    public TBuilder ClearCardInterface()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CardInterface = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintUISound.CardInterface"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCardInterface(Action<BlueprintUISound.UISound> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.CardInterface is null) { return; }
+          bp.CardInterface.ForEach(action);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -266,6 +343,10 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       if (Blueprint.Tooltip is null)
       {
         Blueprint.Tooltip = new();
+      }
+      if (Blueprint.CardInterface is null)
+      {
+        Blueprint.CardInterface = new();
       }
     }
   }

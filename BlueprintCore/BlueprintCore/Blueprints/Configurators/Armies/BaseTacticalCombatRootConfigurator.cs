@@ -354,90 +354,6 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceCoefficient"/>
-    /// </summary>
-    ///
-    /// <param name="autoVictoryChanceCoefficient">
-    /// <para>
-    /// InfoBox: Chance = Coefficient * (Crusader&amp;apos;s Danger) / (Demons&amp;apos; Danger)
-    /// </para>
-    /// </param>
-    public TBuilder SetAutoVictoryChanceCoefficient(float autoVictoryChanceCoefficient)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_AutoVictoryChanceCoefficient = autoVictoryChanceCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryChanceMinimum"/>
-    /// </summary>
-    ///
-    /// <param name="autoVictoryChanceMinimum">
-    /// <para>
-    /// InfoBox: Crusaders can&amp;apos;t win if victory chance is below this value
-    /// </para>
-    /// </param>
-    public TBuilder SetAutoVictoryChanceMinimum(float autoVictoryChanceMinimum)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_AutoVictoryChanceMinimum = autoVictoryChanceMinimum;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoCombatLossesCoefficient"/>
-    /// </summary>
-    ///
-    /// <param name="autoCombatLossesCoefficient">
-    /// <para>
-    /// InfoBox: Losses Coefficient = (1 - Coefficient * (Crusader&amp;apos;s Danger) / (Demons&amp;apos; Danger)) + AutoCombatMinimumLossesCoefficient
-    /// </para>
-    /// </param>
-    public TBuilder SetAutoCombatLossesCoefficient(float autoCombatLossesCoefficient)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_AutoCombatLossesCoefficient = autoCombatLossesCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoCombatMinimumLossesCoefficient"/>
-    /// </summary>
-    public TBuilder SetAutoCombatMinimumLossesCoefficient(float autoCombatMinimumLossesCoefficient)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_AutoCombatMinimumLossesCoefficient = autoCombatMinimumLossesCoefficient;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/>
-    /// </summary>
-    ///
-    /// <param name="dismembermentDamageCoefficient">
-    /// <para>
-    /// Tooltip: Damage to original stack full health ratio should exceed this value to trigger dismemberment
-    /// </para>
-    /// </param>
-    public TBuilder SetDismembermentDamageCoefficient(float dismembermentDamageCoefficient)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_DismembermentDamageCoefficient = dismembermentDamageCoefficient;
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_DiceRollResultsDistribution"/>
     /// </summary>
     public TBuilder SetDiceRollResultsDistribution(AnimationCurve diceRollResultsDistribution)
@@ -706,6 +622,244 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/>
+    /// </summary>
+    public TBuilder SetUnitTiersByBaseHealth(params int[] unitTiersByBaseHealth)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UnitTiersByBaseHealth = unitTiersByBaseHealth.ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/>
+    /// </summary>
+    public TBuilder AddToUnitTiersByBaseHealth(params int[] unitTiersByBaseHealth)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UnitTiersByBaseHealth = bp.m_UnitTiersByBaseHealth ?? new();
+          bp.m_UnitTiersByBaseHealth.AddRange(unitTiersByBaseHealth);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/>
+    /// </summary>
+    public TBuilder RemoveFromUnitTiersByBaseHealth(params int[] unitTiersByBaseHealth)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UnitTiersByBaseHealth is null) { return; }
+          bp.m_UnitTiersByBaseHealth = bp.m_UnitTiersByBaseHealth.Where(val => !unitTiersByBaseHealth.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromUnitTiersByBaseHealth(Func<int, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UnitTiersByBaseHealth is null) { return; }
+          bp.m_UnitTiersByBaseHealth = bp.m_UnitTiersByBaseHealth.Where(e => !predicate(e)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/>
+    /// </summary>
+    public TBuilder ClearUnitTiersByBaseHealth()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UnitTiersByBaseHealth = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_UnitTiersByBaseHealth"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyUnitTiersByBaseHealth(Action<int> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_UnitTiersByBaseHealth is null) { return; }
+          bp.m_UnitTiersByBaseHealth.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_AutoVictoryCoefficient"/>
+    /// </summary>
+    ///
+    /// <param name="autoVictoryCoefficient">
+    /// <para>
+    /// InfoBox: Get auto win result if `Enemy Army Exp / Player Army Exp &amp;lt;= AutoVictoryCoefficient`
+    /// </para>
+    /// </param>
+    public TBuilder SetAutoVictoryCoefficient(float autoVictoryCoefficient)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AutoVictoryCoefficient = autoVictoryCoefficient;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_PlayerLossesCoefficientA"/>
+    /// </summary>
+    ///
+    /// <param name="playerLossesCoefficientA">
+    /// <para>
+    /// InfoBox: PlayerLosses = A * x^2 + B * x + C, where x = Enemy Army Exp / Player Army Exp
+    /// </para>
+    /// </param>
+    public TBuilder SetPlayerLossesCoefficientA(float playerLossesCoefficientA)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PlayerLossesCoefficientA = playerLossesCoefficientA;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_PlayerLossesCoefficientB"/>
+    /// </summary>
+    public TBuilder SetPlayerLossesCoefficientB(float playerLossesCoefficientB)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PlayerLossesCoefficientB = playerLossesCoefficientB;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_PlayerLossesCoefficientC"/>
+    /// </summary>
+    public TBuilder SetPlayerLossesCoefficientC(float playerLossesCoefficientC)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PlayerLossesCoefficientC = playerLossesCoefficientC;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_EnemyLossesCoefficientA"/>
+    /// </summary>
+    ///
+    /// <param name="enemyLossesCoefficientA">
+    /// <para>
+    /// InfoBox: EnemyLosses = A - B * x, where x = Enemy Army Exp / Player Army Exp
+    /// </para>
+    /// </param>
+    public TBuilder SetEnemyLossesCoefficientA(float enemyLossesCoefficientA)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EnemyLossesCoefficientA = enemyLossesCoefficientA;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_EnemyLossesCoefficientB"/>
+    /// </summary>
+    public TBuilder SetEnemyLossesCoefficientB(float enemyLossesCoefficientB)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_EnemyLossesCoefficientB = enemyLossesCoefficientB;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_MaxTierLossesPercent"/>
+    /// </summary>
+    ///
+    /// <param name="maxTierLossesPercent">
+    /// <para>
+    /// InfoBox: Calculate losses starting from low grade to higher, killing at most MaxGradeLossesPercent of units. If after first iteration there should be more losses, go from low grade reducing count without any cap
+    /// </para>
+    /// </param>
+    public TBuilder SetMaxTierLossesPercent(float maxTierLossesPercent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_MaxTierLossesPercent = maxTierLossesPercent;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_LowLossesPercent"/>
+    /// </summary>
+    ///
+    /// <param name="lowLossesPercent">
+    /// <para>
+    /// InfoBox: Used to color armies on global map. Player losses &amp;lt; LowLossesPercent -&amp;gt; green
+    /// </para>
+    /// </param>
+    public TBuilder SetLowLossesPercent(float lowLossesPercent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_LowLossesPercent = lowLossesPercent;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_HighLossesPercent"/>
+    /// </summary>
+    ///
+    /// <param name="highLossesPercent">
+    /// <para>
+    /// InfoBox: Used to color armies on global map. Player losses &amp;gt; m_HighLossesPercent -&amp;gt; red. Between high and low -&amp;gt; yellow
+    /// </para>
+    /// </param>
+    public TBuilder SetHighLossesPercent(float highLossesPercent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_HighLossesPercent = highLossesPercent;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_DismembermentDamageCoefficient"/>
+    /// </summary>
+    ///
+    /// <param name="dismembermentDamageCoefficient">
+    /// <para>
+    /// Tooltip: Damage to original stack full health ratio should exceed this value to trigger dismemberment
+    /// </para>
+    /// </param>
+    public TBuilder SetDismembermentDamageCoefficient(float dismembermentDamageCoefficient)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DismembermentDamageCoefficient = dismembermentDamageCoefficient;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_WinnerCutscene"/>
     /// </summary>
     ///
@@ -848,6 +1002,10 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       if (Blueprint.m_LeaderManaResource is null)
       {
         Blueprint.m_LeaderManaResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      if (Blueprint.m_UnitTiersByBaseHealth is null)
+      {
+        Blueprint.m_UnitTiersByBaseHealth = new();
       }
       if (Blueprint.m_WinnerCutscene is null)
       {

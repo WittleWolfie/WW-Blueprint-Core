@@ -21,6 +21,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> CambionRace = "980bed7f6d9e4c33a86b95d199eb4934";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ColoxusRace = "82acc85f3fdb48e29f68dc1ace6c1a6e";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DhampirRace = "64e8b7d5f1ae91d45bbf1e56a3fdff01";
+    public static readonly Blueprint<BlueprintReference<BlueprintRace>> DLC3_HalflingBuffedRace = "ee9a6061370b4db2b28e489664b0acb4";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DuergarRace = "cd40ff5a556bcf3419bf7479616cd2ad";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DuergarTyrantRace = "315a604df7e8cb34098ed2a3b7e3d068";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DwarfRace = "c4faf439f0e70bd40b5e36ee80d06be7";
@@ -56,6 +57,7 @@ namespace BlueprintCore.Blueprints.References
           CambionRace,
           ColoxusRace,
           DhampirRace,
+          DLC3_HalflingBuffedRace,
           DuergarRace,
           DuergarTyrantRace,
           DwarfRace,

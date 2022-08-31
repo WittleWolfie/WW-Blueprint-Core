@@ -131,6 +131,30 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAiCastSpell.m_TargetPointUnderTarget"/>
+    /// </summary>
+    public TBuilder SetTargetPointUnderTarget(bool targetPointUnderTarget = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TargetPointUnderTarget = targetPointUnderTarget;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAiCastSpell.m_DeadTargetType"/>
+    /// </summary>
+    public TBuilder SetDeadTargetType(DeadTargetType deadTargetType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DeadTargetType = deadTargetType;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_RandomVariant"/>
     /// </summary>
     public TBuilder SetRandomVariant(bool randomVariant = true)

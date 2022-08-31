@@ -105,6 +105,27 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Knock_achiv = "ae15532c6c4d4d3ba295a3ffe5f26a48";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Puzzle_achiv = "bef5f09474f542d28e8280c206b28d66";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC2_Vandal_achiv = "a7805a22938346a1a08666427847a5b0";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_01_All_ends = "53796d60e99345ca96726e5e7fe5ee15";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_02_Win_conscience = "e9021034803f4da6a9e6439ec5206771";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_03_Take_boon = "9252901ed2944303bfb35ea8dbd2f552";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_04_Take_15_boons = "a4fcb30c9c8941bfad0790d3e2071a05";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_05_Take_all_boons = "a78808931866455888ef7b25e1f1c5b9";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_06_Quest_of_bismarites = "f22f31601f464368b88cb0661637e6ef";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_07_Hidden_ending = "6ee1083a2fbc4d8e8724a19a4a97858a";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_08_Kill_the_fox = "ec24b4f9f8f641e287d8bebf1249e134";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_09_Win_the_tricster = "65ac464c17854754a5f341e9e06f1da0";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_10_Win_the_minister = "d82913b2cc164961b84eb9879214920a";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_11_Win_the_angel = "ddfcbb6e70184053b81da43d785cca5a";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_12_Win_the_firstguard = "0a82af59bff94f159256232826565694";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_13_Gardener = "eb010dfb84ae4081a1ea0b5794ed917f";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_14_Do_not_shout_at_me = "7c97fdba0b2c4133b413be0f3c838e0b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_15_Madness_of_the_brave = "23448b283396483eb7ae33c83d53519f";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_16_From_the_jaws_of_defeat = "6e0dfbb7ca0a4c2faac19c86dbb8be44";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_17_Own_hands = "b5b32f2dffbe4d06a22b3b045ac34563";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_18_Get_a_set = "09fe64846e92416fa309977ba8122ec9";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_19_First_try = "08b3dea416ea42f5bf3afb5a684a9331";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_20_Unusual_mortal = "ec1df64345574156955feb2ed3e4ae1a";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_21_Myth_sell = "34b74f93ab2b4c9ea036852bc93d6a03";
 
     public static readonly List<Blueprint<BlueprintReference<AchievementData>>> All =
       new()
@@ -199,6 +220,27 @@ namespace BlueprintCore.Blueprints.References
           DLC2_Knock_achiv,
           DLC2_Puzzle_achiv,
           DLC2_Vandal_achiv,
+          DLC3_01_All_ends,
+          DLC3_02_Win_conscience,
+          DLC3_03_Take_boon,
+          DLC3_04_Take_15_boons,
+          DLC3_05_Take_all_boons,
+          DLC3_06_Quest_of_bismarites,
+          DLC3_07_Hidden_ending,
+          DLC3_08_Kill_the_fox,
+          DLC3_09_Win_the_tricster,
+          DLC3_10_Win_the_minister,
+          DLC3_11_Win_the_angel,
+          DLC3_12_Win_the_firstguard,
+          DLC3_13_Gardener,
+          DLC3_14_Do_not_shout_at_me,
+          DLC3_15_Madness_of_the_brave,
+          DLC3_16_From_the_jaws_of_defeat,
+          DLC3_17_Own_hands,
+          DLC3_18_Get_a_set,
+          DLC3_19_First_try,
+          DLC3_20_Unusual_mortal,
+          DLC3_21_Myth_sell,
       };
   }
 }

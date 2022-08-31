@@ -1,9 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.Dungeon.Enums;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
@@ -11,6 +14,7 @@ using Kingmaker.Kingdom;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
@@ -2185,6 +2189,92 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           if (bp.m_History is null) { return; }
           bp.m_History.ForEach(action);
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonAreaPreset"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Alushinyrra_Whorehouse_lvl_01_Default_Preset</term><description>0b38b1f9ad664ccf955d7238a212a602</description></item>
+    /// <item><term>DLC3_Island_PiratesBesmar_3_Default_Preset</term><description>a4dbede2096d4658af5429edfb2b1fc0</description></item>
+    /// <item><term>FireDungeon_lvl_01_Default_Preset</term><description>db21af214948498c9961ec5815015dd4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="modificators">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonModificator. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="reward">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonIslandReward. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddDungeonAreaPreset(
+        DungeonDifficulty? difficulty = null,
+        int? expedition = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        List<Blueprint<BlueprintDungeonModificatorReference>>? modificators = null,
+        Blueprint<BlueprintDungeonIslandRewardReference>? reward = null,
+        int? seed = null,
+        bool? spawnAllSecretRooms = null,
+        bool? spawnAllTraps = null,
+        bool? spawnLoot = null,
+        bool? spawnMobs = null,
+        bool? spawnObjects = null,
+        bool? spawnSecretRooms = null,
+        bool? spawnTraps = null,
+        int? stage = null)
+    {
+      var component = new DungeonAreaPreset();
+      component.Difficulty = difficulty ?? component.Difficulty;
+      component.Expedition = expedition ?? component.Expedition;
+      component.m_Modificators = modificators?.Select(bp => bp.Reference)?.ToList() ?? component.m_Modificators;
+      if (component.m_Modificators is null)
+      {
+        component.m_Modificators = new();
+      }
+      component.m_Reward = reward?.Reference ?? component.m_Reward;
+      if (component.m_Reward is null)
+      {
+        component.m_Reward = BlueprintTool.GetRef<BlueprintDungeonIslandRewardReference>(null);
+      }
+      component.Seed = seed ?? component.Seed;
+      component.SpawnAllSecretRooms = spawnAllSecretRooms ?? component.SpawnAllSecretRooms;
+      component.SpawnAllTraps = spawnAllTraps ?? component.SpawnAllTraps;
+      component.SpawnLoot = spawnLoot ?? component.SpawnLoot;
+      component.SpawnMobs = spawnMobs ?? component.SpawnMobs;
+      component.SpawnObjects = spawnObjects ?? component.SpawnObjects;
+      component.SpawnSecretRooms = spawnSecretRooms ?? component.SpawnSecretRooms;
+      component.SpawnTraps = spawnTraps ?? component.SpawnTraps;
+      component.Stage = stage ?? component.Stage;
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     protected override void OnConfigureCompleted()

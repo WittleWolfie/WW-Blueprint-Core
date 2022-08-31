@@ -10,7 +10,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
       new()
       {
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
-        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionDungeonStage),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithSpellSchool),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStealth),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged),
         typeof(Kingmaker.Kingdom.Conditions.BuildingHasNeighbours),
@@ -38,8 +38,9 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState),
-        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.ItemFromCollectionCondition),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsExpedition),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsIslandCurrentFinished),
       };
   }
 }

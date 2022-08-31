@@ -1141,7 +1141,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAngel_RankUp01_Option01</term><description>0a778d548526b6844aa28b19cede9e88</description></item>
+    /// <item><term>MythicAeon_RankUp03_Option02</term><description>daa2d4c1f08e0be47b98e33011fb8f51</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -1170,7 +1170,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAutoKingdomDelay</term><description>7e50ed6c545e4fc486680348003de3cd</description></item>
-    /// <item><term>Timer_Before_AzataRankUp_05</term><description>2f037d9256b149d7b8a90005d3d99523</description></item>
+    /// <item><term>Timer_Before_AzataRankUp_04</term><description>91f3d4b3ffeb43ec8c5ed98e2b5edc22</description></item>
     /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
     /// </list>
     /// </remarks>
@@ -1212,7 +1212,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>KTC_LichRankUp_4</term><description>d5b07c39ab554215b5c10595571958a2</description></item>
+    /// <item><term>KTC_AngelRankUp_2</term><description>40176f9292e941c41a82d38f97fa5e3e</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1330,7 +1330,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_DemonAttack_Audio</term><description>889de41c810a460d979da3f5a21cbca3</description></item>
-    /// <item><term>Dragon_MusicState_Epilogue</term><description>acf038bb4d3e4251a8219f01d22960b1</description></item>
+    /// <item><term>DLC3_SongBird_Whisper_Audio</term><description>61a1ddf4236e442ea519520ce6005fa0</description></item>
     /// <item><term>WarCamp_Peaceful_Audio</term><description>aa31ae323e6e54341bc59ce6fba7c08e</description></item>
     /// </list>
     /// </remarks>
@@ -1363,7 +1363,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>DrezenCapital_DefaultAmbience_Audio</term><description>63dd69dc339c4e3db4b3d743049e9cf7</description></item>
+    /// <item><term>DrezenCapital_MythicArea_AzataTrasformationCutscene_Audio</term><description>b789f94015304230bd942195066293de</description></item>
     /// <item><term>ZigguratSound</term><description>f2035ebb6d074f33aaa1ec362d0f1929</description></item>
     /// </list>
     /// </remarks>
@@ -1567,6 +1567,27 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
+    /// Adds <see cref="EtudeBracketEnsureAudio"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter01</term><description>df17ab913c348644b9bd3fe3f9781a84</description></item>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>DLC3_Roguelike</term><description>3964ed959f554763bbe951818b34aead</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddEtudeBracketEnsureAudio(
+        AudioFilePackagesSettings.AudioChunk? chunk = null)
+    {
+      var component = new EtudeBracketEnsureAudio();
+      component.Chunk = chunk ?? component.Chunk;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeBracketFollowUnit"/>
     /// </summary>
     ///
@@ -1742,7 +1763,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_BeforeQuest</term><description>a271248ab27e0be49bbc08a423214a16</description></item>
-    /// <item><term>JewelerCapitalTraderInCapital</term><description>80d962445c436644fa371e3e8324e1f1</description></item>
+    /// <item><term>ExoticCapitalTraderInCapital</term><description>f5d08d5c41d6b584ca59081039a19f20</description></item>
     /// <item><term>WarCamp_DefaultPeaceful_Outdoor</term><description>27d07416c620e0e48865bd88d74cbb82</description></item>
     /// </list>
     /// </remarks>
@@ -2149,6 +2170,40 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
+    /// Adds <see cref="EtudeGameOverTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DarkBalorFight_HideUnits</term><description>5bc605a8f4624ec08d857dcc52378eb5</description></item>
+    /// <item><term>DLC3_DemonsHeart</term><description>15cc71ca8c954bdb97ed5bf2b140fcb6</description></item>
+    /// <item><term>DLC3_TheFirstCleric</term><description>812c1f9133214a78b35669c6627898a9</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddEtudeGameOverTrigger(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ActionsBuilder? onGameOver = null)
+    {
+      var component = new EtudeGameOverTrigger();
+      component.OnGameOver = onGameOver?.Build() ?? component.OnGameOver;
+      if (component.OnGameOver is null)
+      {
+        component.OnGameOver = Utils.Constants.Empty.Actions;
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeIgnorePartyEncumbrance"/>
     /// </summary>
     ///
@@ -2211,7 +2266,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>GalfreyInDH</term><description>bcba97110780285489da48e728acd806</description></item>
+    /// <item><term>GoddessesSummit_HideAllPets</term><description>5fc90ace2efa4f11bfa3e059147b2221</description></item>
     /// <item><term>Woljif_AbandonedMansion_CutScenePat</term><description>1bbf7d9eff0f47ea9bc50f2d88ae39fc</description></item>
     /// </list>
     /// </remarks>

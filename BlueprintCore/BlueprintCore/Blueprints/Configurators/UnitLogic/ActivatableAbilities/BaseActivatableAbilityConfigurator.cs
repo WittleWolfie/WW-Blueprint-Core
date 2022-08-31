@@ -429,7 +429,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloToggleAbility</term><description>248bbb747c273684d9fdf2ed38935def</description></item>
-    /// <item><term>MonkeyFamiliarAbility</term><description>b0ebfde1f490bd84396c9f3035d10a49</description></item>
+    /// <item><term>MobilityUseAbility</term><description>4be5757b85af47545a5789f1d03abda9</description></item>
     /// <item><term>ViperFamiliarAbility</term><description>52b0d34465ad50545836fddd437cf5c9</description></item>
     /// </list>
     /// </remarks>
@@ -557,7 +557,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeAbility</term><description>3e2d25b97be14414b897fc97f2d76c9a</description></item>
-    /// <item><term>InquisitorGreaterBaneAbility</term><description>de3cadee4492d68439c23e5d4004ba89</description></item>
+    /// <item><term>InspireCourageToggleAbility</term><description>5250fe10c377fdb49be449dfe050ba70</description></item>
     /// <item><term>WitchHexAuraOfPurityActivatableAbility</term><description>298edc3bc21e61044bba25f4e767cb8b</description></item>
     /// </list>
     /// </remarks>
@@ -874,7 +874,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>FaerieDragon_01_Ability</term><description>9344f002300f4c54ca2414ed5cfd957a</description></item>
-    /// <item><term>RedPanda_Ability</term><description>9c2df676a777f414a8d452441d53a4c8</description></item>
     /// </list>
     /// </remarks>
     ///

@@ -193,6 +193,32 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="IgnoreArmorGroupComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>HaramakiType</term><description>9511d62bcfc57c245bf64350a5933470</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddIgnoreArmorGroupComponent(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new IgnoreArmorGroupComponent();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddPlayerLeaveCombatTrigger"/>
     /// </summary>
     ///
@@ -201,7 +227,6 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CavalierForTheKingResource</term><description>d6f77eb811f3748428c8ad48e273e91d</description></item>
-    /// <item><term>DLC3_BesmaraPirateBasePlayerDebuff</term><description>cd3191486e1b4d7e9697967721b79068</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -234,7 +259,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
+    /// <item><term>GrimEndingEnchantment</term><description>e96b10d7226fbc8418d4552bbade258b</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -273,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeavyFlailOfWeaknessEnchantment</term><description>13de9078d1d11a643a8f63a3838923d0</description></item>
+    /// <item><term>GraspingFrostEnchantment</term><description>3e9a8fdd71ea0b64d8aeaa44b8b6ea3b</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -311,6 +336,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? onAttackOfOpportunity = null,
         bool? onCharge = null,
         bool? onlyHit = null,
+        bool? onlyNatural20 = null,
         bool? onlyOnFirstAttack = null,
         bool? onlyOnFirstHit = null,
         bool? onlyOnFullAttack = null,
@@ -346,6 +372,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.OnAttackOfOpportunity = onAttackOfOpportunity ?? component.OnAttackOfOpportunity;
       component.OnCharge = onCharge ?? component.OnCharge;
       component.OnlyHit = onlyHit ?? component.OnlyHit;
+      component.OnlyNatural20 = onlyNatural20 ?? component.OnlyNatural20;
       component.OnlyOnFirstAttack = onlyOnFirstAttack ?? component.OnlyOnFirstAttack;
       component.OnlyOnFirstHit = onlyOnFirstHit ?? component.OnlyOnFirstHit;
       component.OnlyOnFullAttack = onlyOnFullAttack ?? component.OnlyOnFullAttack;
@@ -376,6 +403,11 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </list>
     /// </remarks>
     ///
+    /// <param name="doNotPassAttackRoll">
+    /// <para>
+    /// InfoBox: Ignore attacker&amp;apos;s roll
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -389,6 +421,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponCategory[]? categories = null,
         bool? checkCategory = null,
         bool? criticalHit = null,
+        bool? doNotPassAttackRoll = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? not = null,
@@ -415,6 +448,7 @@ namespace BlueprintCore.Blueprints.Configurators
       }
       component.CheckCategory = checkCategory ?? component.CheckCategory;
       component.CriticalHit = criticalHit ?? component.CriticalHit;
+      component.DoNotPassAttackRoll = doNotPassAttackRoll ?? component.DoNotPassAttackRoll;
       component.Not = not ?? component.Not;
       component.NotReach = notReach ?? component.NotReach;
       component.OnlyHit = onlyHit ?? component.OnlyHit;
@@ -430,7 +464,6 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_BesmaraPirateBase</term><description>b41ce1f362bc44c5b1c43ebba880e3dd</description></item>
     /// <item><term>ShamanHexProtectiveLuckBuff</term><description>9e7a13c71f6be1749af81afc57640ccf</description></item>
     /// <item><term>WitchHexProtectiveLuckBuff</term><description>1ba3d3a0942d080448ce6aa865bbbd65</description></item>
     /// </list>
@@ -479,7 +512,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonGreaterBaneBuff</term><description>cdcc13884252b2c4d8dac57cb5f46555</description></item>
-    /// <item><term>GoodBlessingMinorBuff</term><description>4b55c23d11a140949be65293ad9f75a4</description></item>
+    /// <item><term>FlailOfLightburstEnchantmentNew</term><description>56b6450b77c34525a41746a2508f5f61</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -563,6 +596,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponRangeType? rangeType = null,
         bool? reduceHPToZero = null,
         ConditionsBuilder? targetConditions = null,
+        bool? useWeaponDice = null,
         ContextDiceValue? value = null,
         Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
@@ -609,6 +643,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         component.TargetConditions = Utils.Constants.Empty.Conditions;
       }
+      component.m_UseWeaponDice = useWeaponDice ?? component.m_UseWeaponDice;
       component.Value = value ?? component.Value;
       if (component.Value is null)
       {
@@ -1225,7 +1260,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_Prelate_Hulrun_Notification</term><description>5ec3719a546abce46bfbf05735a48e14</description></item>
+    /// <item><term>KTC_LichRankUp_4_Notification</term><description>213cafffc8ad4ac3a5c8af0044d2c315</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1329,7 +1364,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_CH1_AlchemistLair</term><description>546bf66870894657beb8e058b2702dfb</description></item>
-    /// <item><term>Fleshmarket_Dyunk</term><description>decab5093aaa4e78a36345545b3e094d</description></item>
+    /// <item><term>DrezenDefaultAreaMechanic</term><description>53e461cc1c808b546a7df90e671631d8</description></item>
     /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
     /// </list>
     /// </remarks>
@@ -1363,7 +1398,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_MutasafenAttackSE</term><description>6058edc67bafcc140a178a9ce914f21b</description></item>
-    /// <item><term>GrayGarrison_FinalSiege_3rdFloor_Etude</term><description>d758d6194e2dde84b917778fd1c449af</description></item>
+    /// <item><term>FornAmbush</term><description>c44d6391717c26d4696c7c22be12f41f</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1447,7 +1482,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_Return_Default</term><description>87d74b3a4bc758d408d7949c6de23fdd</description></item>
-    /// <item><term>DLC1_AreeluHouse_Vasetems</term><description>44188a0218e145e28b5a424ba97a025f</description></item>
+    /// <item><term>DLC1_AreeluHouse_TableItems</term><description>12bfd7ba89154c1191e28770575f1591</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1516,7 +1551,9 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC1_Levelup</term><description>dca1299c933b43dd8078cdf078ee6121</description></item>
+    /// <item><term>CheckBoonFlags</term><description>87a65a30a6f5424b86fed226dbc2d101</description></item>
+    /// <item><term>DLC3_DevilActivated</term><description>7181daa98be84847a11681799d3589b7</description></item>
+    /// <item><term>MythicLevel</term><description>dc66b7adec0e41c2b948b4bc9c31ec99</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddLevelUpTrigger(
@@ -1553,7 +1590,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>Kaylessa_Warcamp_NotesPickedUp</term><description>41ec608edfa94ebf98ef5c927af8167f</description></item>
+    /// <item><term>HelmetCollected</term><description>889dd404da4321d4e98d097d897ca252</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1775,9 +1812,9 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Barrel_explosion</term><description>8fdc96985bf749dfb5f8bd9085d4aeda</description></item>
-    /// <item><term>FireDamage_Actions</term><description>209d33847e7d4a33a894f9de8350a9c1</description></item>
+    /// <item><term>AltarDamage_Actions</term><description>35995aa895b843ab9c2d75d3a158487e</description></item>
     /// <item><term>KenabresBurning_Default</term><description>ff99c02a1f792a545bc4eda7858cbaaf</description></item>
+    /// <item><term>ObeliskDamage_Actions</term><description>c60c445428024f7d8a1f1193cfd1f5b3</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1827,7 +1864,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>GrayGarrison_FirstVisit_3rdFloor_Etude</term><description>1304473a907c5c245bede60bbaf6bbeb</description></item>
+    /// <item><term>Graveyard_ZombiesAfterHealer</term><description>3dda94638ca94701a9ae576c50b39e87</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1958,8 +1995,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Battle_Agains_Chaos</term><description>cec8a8ac297b47adbb67d8ecaf78592f</description></item>
-    /// <item><term>EstrodTower_Default</term><description>d770f2e5f96151d4e976195494a1188f</description></item>
+    /// <item><term>Balor_save_health</term><description>ad452511a21544c384af7d640ceb105b</description></item>
+    /// <item><term>DarkBalorFight_HideUnits</term><description>5bc605a8f4624ec08d857dcc52378eb5</description></item>
     /// <item><term>ReturnToDrezen</term><description>eb0d42923a0cf6c4281b0925337e8591</description></item>
     /// </list>
     /// </remarks>
@@ -2035,6 +2072,61 @@ namespace BlueprintCore.Blueprints.Configurators
       Validate(trap);
       component.Trap = trap ?? component.Trap;
       return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="VendorDealTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_MythSell</term><description>512298ca57a94c7b90d27ccce57aa103</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="item">
+    /// <para>
+    /// InfoBox: If empty, triggers for any operation
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="vendor">
+    /// <para>
+    /// InfoBox: If empty, triggers for any vendor
+    /// </para>
+    /// </param>
+    public TBuilder AddVendorDealTrigger(
+        ActionsBuilder? actions = null,
+        VendorDealTrigger.DealType? dealTriggerType = null,
+        Blueprint<BlueprintItemReference>? item = null,
+        UnitEvaluator? vendor = null)
+    {
+      var component = new VendorDealTrigger();
+      component.m_Actions = actions?.Build() ?? component.m_Actions;
+      if (component.m_Actions is null)
+      {
+        component.m_Actions = Utils.Constants.Empty.Actions;
+      }
+      component.m_DealTriggerType = dealTriggerType ?? component.m_DealTriggerType;
+      component.m_Item = item?.Reference ?? component.m_Item;
+      if (component.m_Item is null)
+      {
+        component.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      Validate(vendor);
+      component.m_Vendor = vendor ?? component.m_Vendor;
+      return AddComponent(component);
     }
   }
 }

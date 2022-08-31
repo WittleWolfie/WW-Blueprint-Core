@@ -97,6 +97,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColdLine00 = "df0464dbf5b83804d9980eb42ed37462";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColdLine00Breath = "fe327abf15980eb458ced542260794e2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColorSpray15Feet00 = "10d887991ea50ce428140411284f875e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColorSpray15Feet00_SeelahWeddingTraps = "32e3781d404e4834bcee498c6f90d574";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColorSpray30Feet00 = "a03e8c31fe8b5534ebb8368933e6f4b7";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ColumnProjectile = "33b2953fd7e14622a1052e9861970d97";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Creature_PainajaiSpear00_Projectile = "bf772bb31cb5a2847ae75f539d016bd7";
@@ -121,6 +122,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Disintegrate00_Up = "532e1b1ecfb599642a7d6f27de962fb4";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DisruptUndead00 = "d543d55f7fdb60340af40ea8fc5e686d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DisruptUndead00_Up = "fc7468fcca9122544b14eb976746982d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC3_Nahyndri_Golemlike_Projectile = "d6d379c072e84751b174644c8ce84239";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Dummy00_Projectile = "b8e4b2d648683fb43b8a60d2bf36d2b2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00 = "2117f0eb12152c7408b1a26d4965d72a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00_Up = "b804391dbc792ef4ab42dd7c1723e6c9";
@@ -267,6 +269,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Mythic9lvlLich_CorruptMagic00_Projectile_Up = "90934947374328e4e81e320f29e3e00e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Mythic9lvlTrickster_HogOfDesolation00_Projectile_Up = "5f1e13c1bbc638848b93d8aa3e0e86de";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MythicNonelvlLocust_Infest00 = "ae929793962242cabda8f409fea59bcb";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Nahindry_BoneProjectile00_DLC3 = "42ff41a9dbf94794b11c895f3a3f5268";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> NecromancyCone30Feet00 = "4d601ab51e167c04a8c6883260e872ee";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> NecromancyCone50Feet00 = "d07c1c64e5f087e4a919688db7059f0e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> NegativeCommonProjectile00 = "3f068599c7549e84497154248278e5b0";
@@ -306,6 +309,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ScreamingFlames00 = "d24189c235ed4074a9d6d84e77e80900";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SearingLight00 = "2511627d593387d4d89004bec111ba31";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SearingLight00_Up = "2f23fcf5308a699499f5694215b47a05";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Exhaustion00_Projectile_DLC3 = "ad9d0152b82f4477acdd738eb5528546";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Infusion00_Projectile_DLC3 = "f8daba62ae5f454aae7bcd280d924e74";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SnowBall00 = "81a8bff536bae184bacb3a58f0bc381a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SnowBall00_Up = "f372eab8f8afec54da987dee187bb180";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SonicCommonRay00_Projectile = "4be4353c12c18c340823fc7f00727bd1";
@@ -429,6 +434,7 @@ namespace BlueprintCore.Blueprints.References
           ColdLine00,
           ColdLine00Breath,
           ColorSpray15Feet00,
+          ColorSpray15Feet00_SeelahWeddingTraps,
           ColorSpray30Feet00,
           ColumnProjectile,
           Creature_PainajaiSpear00_Projectile,
@@ -453,6 +459,7 @@ namespace BlueprintCore.Blueprints.References
           Disintegrate00_Up,
           DisruptUndead00,
           DisruptUndead00_Up,
+          DLC3_Nahyndri_Golemlike_Projectile,
           Dummy00_Projectile,
           ElectroBallProjectile00,
           ElectroBallProjectile00_Up,
@@ -599,6 +606,7 @@ namespace BlueprintCore.Blueprints.References
           Mythic9lvlLich_CorruptMagic00_Projectile_Up,
           Mythic9lvlTrickster_HogOfDesolation00_Projectile_Up,
           MythicNonelvlLocust_Infest00,
+          Nahindry_BoneProjectile00_DLC3,
           NecromancyCone30Feet00,
           NecromancyCone50Feet00,
           NegativeCommonProjectile00,
@@ -638,6 +646,8 @@ namespace BlueprintCore.Blueprints.References
           ScreamingFlames00,
           SearingLight00,
           SearingLight00_Up,
+          ShadowBoss_Exhaustion00_Projectile_DLC3,
+          ShadowBoss_Infusion00_Projectile_DLC3,
           SnowBall00,
           SnowBall00_Up,
           SonicCommonRay00_Projectile,

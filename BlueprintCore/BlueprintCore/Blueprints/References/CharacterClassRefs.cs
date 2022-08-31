@@ -33,6 +33,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> ConstructClass = "fd66bdea5c33e5f458e929022322e6bf";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DemonMythicClass = "8e19495ea576a8641964102d177e34b7";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DevilMythicClass = "211f49705f478b3468db6daa802452a2";
+    public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DLC3_UniqueConstructClass = "c91a49b104e94b7ab806bf6120f98f05";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DragonClass = "01a754e7c1b7c5946ba895a5ff0faffc";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DragonDiscipleClass = "72051275b1dbb2d42ba9118237794f7c";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> DruidClass = "610d836f3a3a9ed42a4349b62f002e96";
@@ -69,6 +70,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> RangerClass = "cda0615668a6df14eb36ba19ee881af6";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> RogueClass = "299aa766dee3cbf4790da4efb8c72484";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> ShamanClass = "145f1d3d360a7ad48bd95d392c81b38e";
+    public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> ShifterClass = "a406d6ebea5c46bba3160246be03e96f";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> SkaldClass = "6afa347d804838b48bda16acb0573dc0";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> SlayerClass = "c75e0971973957d4dbad24bc7957e4fb";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> SorcererClass = "b3a505fb61437dc4097f43c3f8f9a4cf";
@@ -106,6 +108,7 @@ namespace BlueprintCore.Blueprints.References
           ConstructClass,
           DemonMythicClass,
           DevilMythicClass,
+          DLC3_UniqueConstructClass,
           DragonClass,
           DragonDiscipleClass,
           DruidClass,
@@ -142,6 +145,7 @@ namespace BlueprintCore.Blueprints.References
           RangerClass,
           RogueClass,
           ShamanClass,
+          ShifterClass,
           SkaldClass,
           SlayerClass,
           SorcererClass,

@@ -17,6 +17,7 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Tutorial;
+using Kingmaker.UI.PhotoMode;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation;
@@ -1030,6 +1031,32 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.PhotoModeRoot"/>
+    /// </summary>
+    public TBuilder SetPhotoModeRoot(UIPhotoModeRoot photoModeRoot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(photoModeRoot);
+          bp.PhotoModeRoot = photoModeRoot;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.PhotoModeRoot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPhotoModeRoot(Action<UIPhotoModeRoot> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.PhotoModeRoot is null) { return; }
+          action.Invoke(bp.PhotoModeRoot);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_DifficultyList"/>
     /// </summary>
     public TBuilder SetDifficultyList(DifficultyPresetsList difficultyList)
@@ -1078,6 +1105,32 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         {
           if (bp.SettingsValues is null) { return; }
           action.Invoke(bp.SettingsValues);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.PhotoModeValues"/>
+    /// </summary>
+    public TBuilder SetPhotoModeValues(PhotoModeValues photoModeValues)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(photoModeValues);
+          bp.PhotoModeValues = photoModeValues;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.PhotoModeValues"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPhotoModeValues(Action<PhotoModeValues> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.PhotoModeValues is null) { return; }
+          action.Invoke(bp.PhotoModeValues);
         });
     }
 
@@ -1945,6 +1998,32 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.Combat"/>
+    /// </summary>
+    public TBuilder SetCombat(CombatRoot combat)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(combat);
+          bp.Combat = combat;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.Combat"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyCombat(Action<CombatRoot> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Combat is null) { return; }
+          action.Invoke(bp.Combat);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_UnitTypes"/>
     /// </summary>
     ///
@@ -2351,6 +2430,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_SpellSchoolRoot"/>
+    /// </summary>
+    ///
+    /// <param name="spellSchoolRoot">
+    /// <para>
+    /// Blueprint of type SpellSchoolRoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSpellSchoolRoot(Blueprint<SpellSchoolRoot.Reference> spellSchoolRoot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SpellSchoolRoot = spellSchoolRoot?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_SpellSchoolRoot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpellSchoolRoot(Action<SpellSchoolRoot.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SpellSchoolRoot is null) { return; }
+          action.Invoke(bp.m_SpellSchoolRoot);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -2478,6 +2595,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_BlueprintBugReportTutorialReference is null)
       {
         Blueprint.m_BlueprintBugReportTutorialReference = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
+      if (Blueprint.m_SpellSchoolRoot is null)
+      {
+        Blueprint.m_SpellSchoolRoot = BlueprintTool.GetRef<SpellSchoolRoot.Reference>(null);
       }
     }
   }

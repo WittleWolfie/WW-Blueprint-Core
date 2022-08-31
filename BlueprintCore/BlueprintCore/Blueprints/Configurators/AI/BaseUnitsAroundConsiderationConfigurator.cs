@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 
@@ -38,6 +39,18 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         bp =>
         {
           bp.Filter = filter;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="UnitsAroundConsideration.FilterDead"/>
+    /// </summary>
+    public TBuilder SetFilterDead(DeadTargetType filterDead)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.FilterDead = filterDead;
         });
     }
 

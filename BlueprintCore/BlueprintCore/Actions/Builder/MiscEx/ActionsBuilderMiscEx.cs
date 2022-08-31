@@ -9,6 +9,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
+using Kingmaker.UI.MVVM._VM.ServiceWindows.Inventory;
 using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,8 +32,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>60_Ascension</term><description>bf2f03321974495bbbcfc89781895757</description></item>
-    /// <item><term>SorcScroll_Action</term><description>c99f4c8c4cd44d7293ca5e73efff2a36</description></item>
+    /// <item><term>CommandAction2</term><description>05c128b409364f22a7c396d88a9a81df</description></item>
+    /// <item><term>StarMaraca_dead</term><description>164aa7706c5b4cb9ba6dcd8ff7f31ab6</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -146,7 +147,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
     /// <item><term>Chapter04</term><description>637a57423a82b044f888677c92f5d6cb</description></item>
-    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// <item><term>DLC3_Salesman_dialogue</term><description>f98723d13d2a4945b060c0f0da601d14</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -224,9 +225,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cue_0009</term><description>32d9ef168c6a4b0e9faf49276757bf78</description></item>
-    /// <item><term>Cue_0092</term><description>02f78f1ae421a474899f477aed93abd2</description></item>
-    /// <item><term>Cue_6</term><description>bce0e0734b514a8194a695aa0dc017f6</description></item>
+    /// <item><term>Answer_0004</term><description>2834afb4ff974f60bd8f802391979448</description></item>
+    /// <item><term>Cue_10</term><description>15e6957db46c4ab593187c44f8bb4014</description></item>
+    /// <item><term>Cue_8</term><description>626c4ccc37be4bfab1dddebb8c4c4e6b</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder CreateCustomCompanion(
@@ -367,9 +368,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// </remarks>
     public static ActionsBuilder MakeAutoSave(
         this ActionsBuilder builder,
+        bool? askConfirmation = null,
         bool? saveForImport = null)
     {
       var element = ElementTool.Create<MakeAutoSave>();
+      element.AskConfirmation = askConfirmation ?? element.AskConfirmation;
       element.SaveForImport = saveForImport ?? element.SaveForImport;
       return builder.Add(element);
     }
@@ -512,7 +515,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0029</term><description>02c75198420d9ff45b04b4158ab65f4d</description></item>
+    /// <item><term>Cue_0036</term><description>91645746b99d12646af479beace7ec9d</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -636,7 +639,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0053</term><description>4a39499e080be884b9566f948362f0a1</description></item>
-    /// <item><term>DLC2_RichQuarter</term><description>91a2a02a516143f1bee4e428c9d83dad</description></item>
+    /// <item><term>DLC3_ShopOverride_Port</term><description>c56faf9cd55245d79f88050d1146ef9e</description></item>
     /// <item><term>Vendor_Tiefling_SetBigPrices</term><description>04e277fd32f342739153f7bd6d2919a9</description></item>
     /// </list>
     /// </remarks>
@@ -666,7 +669,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_FlyingIsles_HigherCityTutorial</term><description>703a58daf08849d9bb67e328064866ea</description></item>
-    /// <item><term>Cue_0062</term><description>bb89e76de056adf4c984110340b738ff</description></item>
+    /// <item><term>DangerousMonsterTutorial_2</term><description>8ee66977e7c1417face00c91d458498f</description></item>
     /// <item><term>TutorInspect</term><description>8edce8ffe87051a4eb32293277f7b4be</description></item>
     /// </list>
     /// </remarks>
@@ -712,7 +715,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>daab00a6e6c650246a7ebb32c9fd8240</description></item>
-    /// <item><term>DLC1_ThresholdOutdoor_BET_NormalCamp</term><description>e67f735c38b444b680c94bf090b3a334</description></item>
+    /// <item><term>DLC1_ThresholdOutdoor_BET_MixedFar</term><description>a5dca28200034f298e04270b0aed3d5d</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -751,8 +754,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0002</term><description>9ccba3622c4345f1a0d4ab58a5edaab0</description></item>
-    /// <item><term>Cue_0006</term><description>5867dfe6156215944ab9b9d8b414c8a7</description></item>
+    /// <item><term>Answer_0001</term><description>32346e6ee58b4139a2bbabab80317c28</description></item>
+    /// <item><term>BlacksmithCapitalTraderInCapital</term><description>aee729f4de1f5844096ec3f36bcbc4f1</description></item>
     /// <item><term>WoljifFarewell_dialogue</term><description>0e94cfa04d06db1438eb565f60c0012c</description></item>
     /// </list>
     /// </remarks>
@@ -809,8 +812,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>bacc9e60f4554ddf9aff4aa5f7dd61ef</description></item>
-    /// <item><term>Cue_0051</term><description>3df7adbce79f77f41a2830ac44b85591</description></item>
     /// <item><term>Cue_0052</term><description>728a93278c0029648ab10295221af126</description></item>
+    /// <item><term>DLC3_Mythic_Swarm</term><description>c2e0b007689f41228cedf4fe90547f6f</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -837,6 +840,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         ItemsCollectionEvaluator? destinationContainer = null,
         Blueprint<BlueprintItemReference>? item = null,
         bool? silent = null,
+        EquipSlotType? slotType = null,
+        UnequipItem.TargetTypeValues? targetType = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<UnequipItem>();
@@ -849,6 +854,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         element.m_Item = BlueprintTool.GetRef<BlueprintItemReference>(null);
       }
       element.Silent = silent ?? element.Silent;
+      element.SlotType = slotType ?? element.SlotType;
+      element.TargetType = targetType ?? element.TargetType;
       builder.Validate(unit);
       element.Unit = unit ?? element.Unit;
       return builder.Add(element);

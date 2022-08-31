@@ -209,6 +209,34 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
+    /// Adds <see cref="DlcStoreConsoleFree"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FreeDlc1</term><description>d185af74fc5b4c198600e0202ca11de8</description></item>
+    /// <item><term>FreeDlc3</term><description>aa65dbd3c0bb44b49343b020c9a4c8a3</description></item>
+    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDlcStoreConsoleFree(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DlcStoreConsoleFree();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="DlcStoreEpic"/>
     /// </summary>
     ///

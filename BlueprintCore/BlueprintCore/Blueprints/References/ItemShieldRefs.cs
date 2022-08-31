@@ -47,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DeskariCultistLightShieldItemPlus1 = "fd81a64fb490b954b906aec4249dff43";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DiskOfUnbalanceShieldItem = "116d8113cb9f44b7b7e3bba4cec2bfe5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DivineProtectorShieldItem = "6d469a9b200f1cd4abb6e7f149832450";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DLC3_GuardianHeavyShieldSetItem = "2d29d6d2674a476fb54c72e8906d7e8e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> EludingTargetItem = "43659a3401c8b5843b97105150c5f26b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> FallenShield = "0fe26883b8269924b8078762c4d09b5c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> FlameguardShieldItem = "f4b263547ad2cb1459a53476c3eaf442";
@@ -71,6 +72,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus2 = "d41ea649a1054b647aafc5b2cb4f8543";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus2AcidFire = "b7bc92ff205348f45839058f4ff7d383";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus3 = "7e23918977b18524591204c93fae0a37";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus3IHellknight = "d1584204df7c459bbb941d3512d4c9f4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus4 = "777f5b91bdda1804cacd3f45dd9f0cf1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlus5 = "0b09d902ff100524dbec6e3d3d93dc3b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldItemPlusCultist3 = "7ae5e6ce236b4dc3a2b4495653b98adb";
@@ -169,6 +171,7 @@ namespace BlueprintCore.Blueprints.References
           DeskariCultistLightShieldItemPlus1,
           DiskOfUnbalanceShieldItem,
           DivineProtectorShieldItem,
+          DLC3_GuardianHeavyShieldSetItem,
           EludingTargetItem,
           FallenShield,
           FlameguardShieldItem,
@@ -193,6 +196,7 @@ namespace BlueprintCore.Blueprints.References
           HeavyShieldItemPlus2,
           HeavyShieldItemPlus2AcidFire,
           HeavyShieldItemPlus3,
+          HeavyShieldItemPlus3IHellknight,
           HeavyShieldItemPlus4,
           HeavyShieldItemPlus5,
           HeavyShieldItemPlusCultist3,

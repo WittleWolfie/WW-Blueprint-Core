@@ -97,6 +97,96 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_XBox"/>
+    /// </summary>
+    public TBuilder SetXBox(BlueprintTutorial.VisualOverride xBox)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(xBox);
+          bp.m_XBox = xBox;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_XBox"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyXBox(Action<BlueprintTutorial.VisualOverride> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_XBox is null) { return; }
+          action.Invoke(bp.m_XBox);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_PS4"/>
+    /// </summary>
+    public TBuilder SetPS4(BlueprintTutorial.VisualOverride pS4)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(pS4);
+          bp.m_PS4 = pS4;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_PS4"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPS4(Action<BlueprintTutorial.VisualOverride> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PS4 is null) { return; }
+          action.Invoke(bp.m_PS4);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTutorial.m_BlueprintTutorialConsoleRef"/>
+    /// </summary>
+    ///
+    /// <param name="blueprintTutorialConsoleRef">
+    /// <para>
+    /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBlueprintTutorialConsoleRef(Blueprint<BlueprintTutorial.Reference> blueprintTutorialConsoleRef)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_BlueprintTutorialConsoleRef = blueprintTutorialConsoleRef?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTutorial.m_BlueprintTutorialConsoleRef"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBlueprintTutorialConsoleRef(Action<BlueprintTutorial.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_BlueprintTutorialConsoleRef is null) { return; }
+          action.Invoke(bp.m_BlueprintTutorialConsoleRef);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_TitleText"/>
     /// </summary>
     ///
@@ -384,7 +474,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_01_Chapter2Intro</term><description>20073002e0594c88b5af911060e8dde8</description></item>
-    /// <item><term>NewTutorial_18_LevelUp_1</term><description>879d9dfee7ddcdd458738e817e3a0913</description></item>
+    /// <item><term>DLC3_Port_tutorial</term><description>862ffff02b5945b093d4bb9b1918b246</description></item>
     /// <item><term>TestTutorialSC</term><description>2e48c8330634d544489e1fc14ccf5eaa</description></item>
     /// </list>
     /// </remarks>
@@ -412,12 +502,15 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// </param>
     public TBuilder AddTutorialPage(
         LocalString? descriptionText = null,
+        BlueprintTutorial.VisualOverride? pCGamepad = null,
         AssetLink<SpriteLink>? picture = null,
+        BlueprintTutorial.VisualOverride? pS4 = null,
         LocalString? solutionFoundText = null,
         LocalString? solutionNotFoundText = null,
         LocalString? titleText = null,
         LocalString? triggerText = null,
-        AssetLink<VideoLink>? video = null)
+        AssetLink<VideoLink>? video = null,
+        BlueprintTutorial.VisualOverride? xBox = null)
     {
       var component = new TutorialPage();
       component.m_DescriptionText = descriptionText?.LocalizedString ?? component.m_DescriptionText;
@@ -425,7 +518,11 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       {
         component.m_DescriptionText = Utils.Constants.Empty.String;
       }
+      Validate(pCGamepad);
+      component.m_PCGamepad = pCGamepad ?? component.m_PCGamepad;
       component.m_Picture = picture?.Get() ?? component.m_Picture;
+      Validate(pS4);
+      component.m_PS4 = pS4 ?? component.m_PS4;
       component.m_SolutionFoundText = solutionFoundText?.LocalizedString ?? component.m_SolutionFoundText;
       if (component.m_SolutionFoundText is null)
       {
@@ -447,6 +544,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
         component.m_TriggerText = Utils.Constants.Empty.String;
       }
       component.m_Video = video?.Get() ?? component.m_Video;
+      Validate(xBox);
+      component.m_XBox = xBox ?? component.m_XBox;
       return AddComponent(component);
     }
 
@@ -553,8 +652,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_01_Chapter2Intro</term><description>20073002e0594c88b5af911060e8dde8</description></item>
-    /// <item><term>CrusadeTutorial_08_Chapter3Intro</term><description>ee3f047c2d2444dc9a85a699ff2bb276</description></item>
-    /// <item><term>CrusadeTutorial_14_Buildings</term><description>659b920f412b46b08ab4e66824a7092b</description></item>
+    /// <item><term>CrusadeTutorial_08_Chapter3Intro_Gamepad</term><description>000f3a87380a4b65a24b2c7efa517bd4</description></item>
+    /// <item><term>CrusadeTutorial_14_Buildings_Gamepad</term><description>98c855b4f5aa4508bb930372a1ae9c58</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -996,7 +1095,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>NewTutorial_16_ArmorClass</term><description>e2267e1c76a32d845b864d9c9125a58c</description></item>
-    /// <item><term>NewTutorial_16_Damage</term><description>55130d443b9e43f47aa1f5c051aca6e8</description></item>
+    /// <item><term>NewTutorial_16_Attack_Gamepad</term><description>215921caac3d4a1290c980da843a8f0b</description></item>
     /// <item><term>TestTutorialDRSmall</term><description>9b1b19c27c8bf9b40a05e72c07134092</description></item>
     /// </list>
     /// </remarks>
@@ -1035,8 +1134,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_DRNormal</term><description>5b809f6c0138a944ab86246002deff0e</description></item>
-    /// <item><term>ContextTutor_DRUltimate</term><description>af8d86a8e2d97c04386700b5bef00066</description></item>
     /// <item><term>NewTutorial_24_DamageReduction</term><description>4c0eedee0a882c84388e104ee3f0c67a</description></item>
+    /// <item><term>NewTutorial_24_DamageReduction_Gamepad</term><description>37e9383cb54140a0bed0accc1d4b97fb</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1559,6 +1658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_Scrolls</term><description>1a0413784e253384bb0927fefb79cdb4</description></item>
+    /// <item><term>ContextTutor_Scrolls_Gamepad</term><description>5c91718101844b928d9ed6e3169410d9</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1613,6 +1713,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_09_Kingdom</term><description>3b3eef7a42c54323a471a02e9a439a4a</description></item>
+    /// <item><term>CrusadeTutorial_09_Kingdom_Gamepad</term><description>d2ece9974f6043abbcbd76c691438249</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1639,6 +1740,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_10_Edicts</term><description>b2b0cc9d575a40f6a12ab30c95f0b267</description></item>
+    /// <item><term>CrusadeTutorial_10_Edicts_Gamepad</term><description>6837d72930054cc68bd1bde4a5e95671</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1852,6 +1954,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_06_ArmyManagement</term><description>ff4852b301114006b9407e2ad54df475</description></item>
+    /// <item><term>CrusadeTutorial_06_ArmyManagement_Gamepad</term><description>489a631e3ee64c3daf36b22e341e7e38</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1926,6 +2029,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_ScrollsMemorizing</term><description>283a2b24e3187bb4c91f6034ed090afc</description></item>
+    /// <item><term>ContextTutor_ScrollsMemorizing_Gamepad</term><description>cea1c3854c184290902f027d1f023e37</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1952,6 +2056,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_NewRecipe</term><description>91a99dbe207e4c14bf58365d64e0eada</description></item>
+    /// <item><term>ContextTutor_NewRecipe_Gamepad</term><description>815381e4011e4f5aa97de7911b232694</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2032,6 +2137,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_MagicWand</term><description>d0304ab7f1236e64c920fac2623c568f</description></item>
+    /// <item><term>ContextTutor_MagicWand_Gamepad</term><description>94619144ccf24f02ab745e916af9938c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2076,6 +2182,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ContextTutor_Autocast</term><description>eefc2dcadfcecfd429fb5697356fb214</description></item>
+    /// <item><term>ContextTutor_Autocast_Gamepad</term><description>03b2557810a24179833d9ee7de9e4c3a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2164,6 +2271,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_11_Mercs</term><description>368fcc42afa94552b1a67acfd3748bff</description></item>
+    /// <item><term>CrusadeTutorial_11_Mercs_Gamepad</term><description>ad53d8ede9f84bdfa964daa534a99450</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2374,8 +2482,8 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_03_General</term><description>bb09900e7a5f49e694b0abd252e3c12c</description></item>
-    /// <item><term>CrusadeTutorial_07_Morale</term><description>4568d12fdf8447e38735d811ca7cf07f</description></item>
-    /// <item><term>CrusadeTutorial_13_Regions</term><description>4b18c717fcbe481aad4bb181e62cea3a</description></item>
+    /// <item><term>CrusadeTutorial_07_Morale_Gamepad</term><description>752426de1e714d09a4fdde9a6458c74a</description></item>
+    /// <item><term>CrusadeTutorial_13_Regions_Gamepad</term><description>498f81fcdc5842fe807de4eb951ed2bc</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2417,6 +2525,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_02_Battle</term><description>e00f8f602dc54e04b0d4c65205a25f17</description></item>
     /// <item><term>CrusadeTutorial_04_GeneralInCombat</term><description>c689b8fdec744cb98f4231ff1e5e01af</description></item>
+    /// <item><term>CrusadeTutorial_04_GeneralInCombat_Gamepad</term><description>7e56b8279f084a0abb5da219130bd0c3</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2987,6 +3096,10 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     {
       base.OnConfigureCompleted();
     
+      if (Blueprint.m_BlueprintTutorialConsoleRef is null)
+      {
+        Blueprint.m_BlueprintTutorialConsoleRef = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
       if (Blueprint.m_TitleText is null)
       {
         Blueprint.m_TitleText = Utils.Constants.Empty.String;

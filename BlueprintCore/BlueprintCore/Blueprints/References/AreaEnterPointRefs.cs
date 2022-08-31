@@ -109,6 +109,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromGate_Enter = "607d6e8c491a22748bf18fe4befaa630";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromMinaghoHideout_Enter = "adb72d279e7fda64eb7b7adebd92623b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromMines_Enter = "ea854d5d8ab672f41855656b80593fe1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromPort = "8bdb7350884b404c8db589a7a3cac355";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromRoofs_Enter = "d1bf271ce06d2724b95adce12011ef93";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromRottenGutting_Enter = "814f8a38be5da4f4d846747f08f4a99c";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> AlushinyrraLowerCity_FromTavernToMiddleLeft_Enter = "e3b4f8d9f5ea17e4183e96e463d44096";
@@ -504,14 +505,131 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC2_TheatreHall_Enter = "94b021f675a843a4bc497a0d20eeb568";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC2_TheatreScene_Enter = "c5eb3abf1b97498fb99e066224339cde";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC2_Unused = "7410c54578dc45daaea8feee74a0efbf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_01_Enter = "6b6809d2e1da4d39a42845fbf0912b41";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_02_Enter = "a4c08cd4e32a48e5af26adbefb79de3a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_03_Enter = "f97fb249e29645e4bc5c594cff1a85f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_04_Enter = "3641e5325ac44b9eb2c407c928bedcd4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_05_Enter = "3fd9c4024b3a44cebcaf51dccf66ae3a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_06_Enter = "6dec492c4dd6466fbf276182b9603a56";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_Double01_Enter = "f93e27427bb34ebda2f9b31f15f63e27";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Alushinyrra_Whorehouse_lvl_Double05_Enter = "5972f850169c40f9bad3e5591a85f5c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Balor = "7ddcf85fbb7e4b9f9ad1ce4272d82aad";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Enter = "753f1534ee5e45f69c30f654febe7283";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_From_ship = "8edc917780a6463aa40c288c2ce45364";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_FromDarknessLair = "5fc88af1ed004f85a86c3d43db9d43ab";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_FromPort_To_Ship = "d2712a27192d4397b9735597d3cf35d5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Rest = "8c2cc39744a84274bd3ef38ee1f94e00";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Ship = "1f9c5f5c6a0c4d63b917f0e8379ce9ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_Double2_Enter = "c6ba1a44a8424e5fadfa4bf1ec11161b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_Double8_Enter = "8389af75708641f280b5fd31e8fbab54";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_01_Enter = "029e426869da44b4a39b1de5fb93d2ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_02_Enter = "ffe1c6fdcbc04711a665573f47657020";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_03_Enter = "efcf86769c264d0fb41809d80b2f8f2f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_04_Enter = "4549cfb4e7ff47988ba25c7dfb94c170";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_05_Enter = "f07e604296924751a08e49e17d19c946";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_06_Enter = "de83aec64d1b4203826d20ba95b30ed6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_07_Enter = "7e17a47b7deb4b4e895daae370a0f789";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_lvl_08_Enter = "578965aeb8bd44388eab1854c4d707cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_DarknessLair_Enter = "527aca2c496243f3b8bc6d81b1f7ff92";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_DarknessLair_FromSanctum = "5ba079cef10e404bba9ff35501ce72ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_DarknessLairSanctum_Enter = "184d5464330b4c63b82ca6a43523e09e";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_DemonsHeart_Enter = "2ee7e3bb7bba4d918c9ef78d9f8462dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_Double02_Enter = "8525905a875e446bb68edf24358ab932";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_Double04_Enter = "bb5f4464773b4b6c9c499b34dc337527";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_lvl_02_Enter = "c8acfa0ec3234912a95a732f2cfad1b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_lvl_03_Enter = "3429a8fb8ea849e6899b74390663294e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_lvl_04_Enter = "44871643e78943a4951cf175d658a29c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_lvl_05_Enter = "99e5f06ba9634783b1d22e52b881205d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_FireDungeon_lvl_5_Enter = "ff8115bd7de4479db486787eea57ae50";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GoddamnCity_lvl_01_Enter = "8fdb9290baad444c8b1fdecb9ac3705b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GoddamnCity_lvl_02_Enter = "374822352fc54b7abc863c798f3ea37e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GoddamnCity_lvl_03_Enter = "ab562277e42c4d308425315d2c553f53";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GoddamnCity_lvl_04_Enter = "bcdfa7815e52432da94193a977aece8c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GoddamnCity_lvl_05_Enter = "79e5de254e4946e3a251585b0e25f165";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_Double1_Enter = "345455bcb5ed40b8bf530ed1d3d1ea21";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_Double5_Enter = "25d834b645f54375bbf9f954e40a69d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_lvl_01_Enter = "96e5e67cb5944176a19b3d5d71ba923e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_lvl_02_Enter = "317d9b58763d487d81ec2070e174f75e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_lvl_03_Enter = "2629f32c78734ae9bca66c6614afbcc1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_lvl_04_Enter = "5d71db73730e4e32b8659a4431cc8bc5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_GrayGarrison_lvl_05_Enter = "742656f165dc4a05ad587094ee6829f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_1_Enter = "33f8aadf6bd3432ebffed79f215a4018";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_2_Enter = "2f125a396bf940c5bc02b272b3539978";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_3_Enter = "a2c66d25e31341298514a86772e6587d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_4_Enter = "1103d9aa8b024a049d7e74a31ee19486";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_5_Enter = "e0c9bc60fb864cad8abdeb36793194e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_6_Enter = "d2b99433ddf4436f8160fc5ca26b7acd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_7_Enter = "9d90dad744164ee7b9f979a109d7ee37";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Ice_Alushinyrra_8_Enter = "590e35be44a3487aa869195073db0076";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_IceAlush_Double1_Enter = "f832fd53da374965bbb64ebd7925e9d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_IceAlush_Double8_Enter = "d06383d49fd14ac582254ef17fc81fc3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Is_PB_Double2_Enter = "09b5a0327af04341affc3de2add41344";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Is_PB_Double4_Enter = "b144824ec4cb4434a3b65822e9b2a9a2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Island_Besmar_5_Enter = "ee02eac9da414808a9dd2757e6f72653";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Island_PiratesBesmar_2_Enter = "bf17332709904eae8f286392b4eb0bdf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Island_PiratesBesmar_3_Enter = "8e8691dd157f44739d5a257ef9889a3e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Island_PiratesBesmar_4_Enter = "e55be3bc31cc4348b33cf5ec05833653";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Island_PiratesBesmar_6_Enter = "aac83128d6e04788962034629ff79ace";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_IslandOnStilts_lvl_01_Enter = "336ea28b7ae7483d9f7876c961ce3212";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_1_Enter = "4282e697d66c4fe0b62aa7684e8e9f46";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_2_Enter = "bdc6ec94c97b40188271c2199a6a2850";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_3_Enter = "9ea2285695634ff7be77d61249715ca2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_4_Enter = "762d38b7919444f9b252329148574f74";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_5_Enter = "07397c4cdc97452ab53a5fd1b28d88d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_Double1_Enter = "ad838d9632ce401da8716eafb37c739b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_Double2_Enter = "d15304c7535644d98ec9dd464bce67ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Kohh_Double5_Enter = "555b979d8a0e47048a2dce31831e25f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Lava_Tempel_1_Enter = "b92e8a5a2e3e48e8b05e6f943d7fc7b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Lava_Tempel_Double1_Enter = "a4370d08bec34b34b718401468e4a3d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Lava_Tempel_Double5_Enter = "178772c8505c40ee870d609e05e28e09";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Lava_Temple_6_Enter = "a84bae40ecd24ef1aa1c87da9863d545";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Lava_Temple_7_Enter = "8a96af93cd2542858979d4358c244828";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Maelstrom_Enter = "69156677dfe74931be89309cfa4094ce";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SA_lvl1_Enter = "97e248bea71141adb96bbbd8aacd3cc7";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SA_lvl2_Enter = "b1419041e3b64ae2bab29b809e33bba1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SA_lvl3_Enter = "7436d5e701824773aa5e839497e65e2d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SA_lvl4_Enter = "7e7bfee6a5d5460a97848192374db6a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_Double01_Enter = "a23e3f3e728447438e7352748eead062";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_Double02_Enter = "8fcc1cf47d304e3791299ea75ba027cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_Double04_Enter = "26ee820e61e5415e8d6220f48535466d";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_lvl_01_Enter = "45f1b151bd254c39addde03a624967b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_lvl_02_Enter = "44b271e57d9843079d509c3e3939c40e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_lvl_03_Enter = "76d991cc275e46fbb683923be4803b35";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_lvl_04_Enter = "0e1060034e534af79f6ac824f71c6455";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandCave_lvl_05_Enter = "0007a25b977d4cf487b70b724b451aea";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_Double1_Enter = "f915e404ccdb4539841c5af077dd418f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_Double4_Enter = "65df750e8b0f4731a4860be652c67a05";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_lvl_01_Enter = "869bad27b0314a61b58ba4fd85e4c388";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_lvl_02_Enter = "1f98dd9d9a1e4cd9a1b0fd64096720ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_lvl_03_Enter = "9a16b335173d450e883354afd427d405";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_lvl_04_Enter = "3fb2ea61e60e4cc2bea8b0b5b8dae19d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SandSwamp_lvl_05_Enter = "e13bb8f176f44eccaf64c700cfc8ee4c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SeaHub_Back_Enter = "b627cb605b83486c87fd3bb93ea02242";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SeaHub_Enter = "8f6337157f97448c85e6ebb9aca02631";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SeaHub_RE_enter_point = "abd543a030e4481da571e8fb1d542105";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_SeaHub_Rest = "a04c2f887b2048b49b20e9cff1891880";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_00_Enter = "53677f313ed248a980e2e39a0b243699";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_01_Enter = "64fad9f889254b789d5bd0af1d39c8c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_02_Enter = "3b8b148281c840c6905c737d68bc7081";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_03_Enter = "370cd9626ef84b52839512fad897d5a3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_04_Enter = "f96716e6c83c4c3796627528c1803b80";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_Double02_Enter = "9203422b0e8649fa95db6be7adf4a78b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Snow_lvl_Double03_Enter = "d9fe2c9514854eabb3c33deaec8c7682";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_Songbird_Dungeon_Enter = "739632698a4e4435a4d47e43819fe77e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_StarMaraca_Lair_Enter = "a225ab202e4d4ed287a2077819708f59";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_StarMaraca_Lair_StarMaraca_enter = "830b1f0f7cd64a6d8a0d37102eaa12cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TheFirstCleric_Enter = "49db5f395e3b485caed7c69bbcba4e11";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_1_Enter = "1c4ab606babb4274992c30212ecf15c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_2_Enter = "22082a8001a24f49a7e79fd8ebe117bb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_3_Enter = "d63242c57b224769a2b09ec0a68682d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_4_Enter = "59ab5cd6866d492abb15bad567702d01";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_5_Enter = "1971109edc374697a73b1a3574a4ce5e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_Double2_Enter = "91664ddff8d2406090e99c0b83f20db4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_ToxicPrison_Double5_Enter = "4c90848377344059b4adfc4b7896f347";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_BackFromShip = "3ab2d75305c446489801ac64ec558938";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_CaveEntrance = "84e73ed886cd49fcb202c680452ae5a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_Enter = "325f54a63e294fdeace8b260b7fab8ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_Outdoor = "2f70741655554fcf9c91feaa04b16076";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_Bridge = "dd57f22149ec2d2488c94b10c73e3b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveIn = "6b6cc86f36384bc4db11397c51a50eaf";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveOut = "82c6efc0397398945be7a9deb3d81679";
@@ -699,6 +817,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FinneanLab_Enter = "9bd3c794a80b80849b839b535cb4f1d8";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FinneanLab_Exit = "05feeb5e86a7f4648847ffab699f9a5a";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FinneanLab_Indor_Enter = "9ced797515f0c844391b4109106925ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FireDungeon_lvl_01_Enter = "95815f223801459eab8dc4fcadebd87e";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FloraArea_FloraArea_Enter = "eeb922d28beb47cc8dc7567aa8eef8eb";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FromCave_Enter = "ce37e8ac759fe074c80c42246e9e94f7";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> FuryOfPharasmaPartyB02 = "90742f42f9bd68f4eba2f729b000ab1f";
@@ -1205,7 +1324,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TenThousandDelights_PortalArk = "844aa4dff96ce6345ba90f1f7a394ed5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TenThousandDelights_ShamiraPlace = "87f2d2c238e32134b8a07a89cd250188";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TerendelevLair_TerendelevLair_Enter = "85bf04b627cd1594193fd31c57d5da1b";
-    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Test_DungeonArchitect_SnowSetting_Enter = "53677f313ed248a980e2e39a0b243699";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Test_Level_Enter = "bc769f70fc3d4af0877ff0b21cf107b8";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TestArea1_EnterPoint = "07fb3a0c7bd08cf4ca6bfbcab045cbec";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TestArea2_EnterPoint = "8f7e0644f2d59b748b7015d9d3fcb621";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TestEnterPoint0 = "1bfbe304cc90bf14ca4757cf376ed8db";
@@ -1264,6 +1383,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TricksterCouncil_Enter_Fight = "5a0547ad4ec05a542bf733b90e54f006";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TricksterCouncil_EnterFromPulura = "a49067fce66468748b137ff297251f1c";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Tutorial_Test_Polygon_Enter = "badca089e9d547341bfb5d4762833ca1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Unused_Enter_1 = "fdb164bef3b94935ac69d05bbb49a37a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Unused_Enter_2 = "e0074f1bdd5049798621628c09886831";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Unused_Enter_3 = "ef476a80d7fa4b3087e1ca726464d658";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Unused_Enter_4 = "0c513b4dc10b4e5aa87bb496fb6b40cb";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Varnhold_Enter = "378a73640b9c9f84889adbbbd6e609b0";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Varnhold_Water_Enter = "5e551748d9b315d4bad8e824a1717183";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> VaultOfGraves_Enter = "491657a2cec88c0499045a8b7840bc67";
@@ -1423,6 +1546,7 @@ namespace BlueprintCore.Blueprints.References
           AlushinyrraLowerCity_FromGate_Enter,
           AlushinyrraLowerCity_FromMinaghoHideout_Enter,
           AlushinyrraLowerCity_FromMines_Enter,
+          AlushinyrraLowerCity_FromPort,
           AlushinyrraLowerCity_FromRoofs_Enter,
           AlushinyrraLowerCity_FromRottenGutting_Enter,
           AlushinyrraLowerCity_FromTavernToMiddleLeft_Enter,
@@ -1818,14 +1942,131 @@ namespace BlueprintCore.Blueprints.References
           DLC2_TheatreHall_Enter,
           DLC2_TheatreScene_Enter,
           DLC2_Unused,
+          DLC3_Alushinyrra_Whorehouse_lvl_01_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_02_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_03_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_04_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_05_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_06_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_Double01_Enter,
+          DLC3_Alushinyrra_Whorehouse_lvl_Double05_Enter,
+          DLC3_AlushinyrraPort_Balor,
           DLC3_AlushinyrraPort_Enter,
+          DLC3_AlushinyrraPort_From_ship,
+          DLC3_AlushinyrraPort_FromDarknessLair,
+          DLC3_AlushinyrraPort_FromPort_To_Ship,
+          DLC3_AlushinyrraPort_Rest,
+          DLC3_AlushinyrraPort_Ship,
+          DLC3_BloodIvory_Double2_Enter,
+          DLC3_BloodIvory_Double8_Enter,
+          DLC3_BloodIvory_lvl_01_Enter,
+          DLC3_BloodIvory_lvl_02_Enter,
+          DLC3_BloodIvory_lvl_03_Enter,
+          DLC3_BloodIvory_lvl_04_Enter,
+          DLC3_BloodIvory_lvl_05_Enter,
+          DLC3_BloodIvory_lvl_06_Enter,
+          DLC3_BloodIvory_lvl_07_Enter,
+          DLC3_BloodIvory_lvl_08_Enter,
+          DLC3_DarknessLair_Enter,
+          DLC3_DarknessLair_FromSanctum,
+          DLC3_DarknessLairSanctum_Enter,
           DLC3_DemonsHeart_Enter,
+          DLC3_FireDungeon_Double02_Enter,
+          DLC3_FireDungeon_Double04_Enter,
+          DLC3_FireDungeon_lvl_02_Enter,
+          DLC3_FireDungeon_lvl_03_Enter,
+          DLC3_FireDungeon_lvl_04_Enter,
+          DLC3_FireDungeon_lvl_05_Enter,
+          DLC3_FireDungeon_lvl_5_Enter,
+          DLC3_GoddamnCity_lvl_01_Enter,
+          DLC3_GoddamnCity_lvl_02_Enter,
+          DLC3_GoddamnCity_lvl_03_Enter,
+          DLC3_GoddamnCity_lvl_04_Enter,
+          DLC3_GoddamnCity_lvl_05_Enter,
+          DLC3_GrayGarrison_Double1_Enter,
+          DLC3_GrayGarrison_Double5_Enter,
+          DLC3_GrayGarrison_lvl_01_Enter,
+          DLC3_GrayGarrison_lvl_02_Enter,
+          DLC3_GrayGarrison_lvl_03_Enter,
+          DLC3_GrayGarrison_lvl_04_Enter,
+          DLC3_GrayGarrison_lvl_05_Enter,
+          DLC3_Ice_Alushinyrra_1_Enter,
+          DLC3_Ice_Alushinyrra_2_Enter,
+          DLC3_Ice_Alushinyrra_3_Enter,
+          DLC3_Ice_Alushinyrra_4_Enter,
+          DLC3_Ice_Alushinyrra_5_Enter,
+          DLC3_Ice_Alushinyrra_6_Enter,
+          DLC3_Ice_Alushinyrra_7_Enter,
+          DLC3_Ice_Alushinyrra_8_Enter,
+          DLC3_IceAlush_Double1_Enter,
+          DLC3_IceAlush_Double8_Enter,
+          DLC3_Is_PB_Double2_Enter,
+          DLC3_Is_PB_Double4_Enter,
+          DLC3_Island_Besmar_5_Enter,
+          DLC3_Island_PiratesBesmar_2_Enter,
+          DLC3_Island_PiratesBesmar_3_Enter,
+          DLC3_Island_PiratesBesmar_4_Enter,
+          DLC3_Island_PiratesBesmar_6_Enter,
           DLC3_IslandOnStilts_lvl_01_Enter,
           DLC3_Kohh_1_Enter,
           DLC3_Kohh_2_Enter,
+          DLC3_Kohh_3_Enter,
+          DLC3_Kohh_4_Enter,
+          DLC3_Kohh_5_Enter,
+          DLC3_Kohh_Double1_Enter,
+          DLC3_Kohh_Double2_Enter,
+          DLC3_Kohh_Double5_Enter,
+          DLC3_Lava_Tempel_1_Enter,
+          DLC3_Lava_Tempel_Double1_Enter,
+          DLC3_Lava_Tempel_Double5_Enter,
+          DLC3_Lava_Temple_6_Enter,
+          DLC3_Lava_Temple_7_Enter,
+          DLC3_Maelstrom_Enter,
           DLC3_SA_lvl1_Enter,
           DLC3_SA_lvl2_Enter,
+          DLC3_SA_lvl3_Enter,
+          DLC3_SA_lvl4_Enter,
+          DLC3_SandCave_Double01_Enter,
+          DLC3_SandCave_Double02_Enter,
+          DLC3_SandCave_Double04_Enter,
           DLC3_SandCave_lvl_01_Enter,
+          DLC3_SandCave_lvl_02_Enter,
+          DLC3_SandCave_lvl_03_Enter,
+          DLC3_SandCave_lvl_04_Enter,
+          DLC3_SandCave_lvl_05_Enter,
+          DLC3_SandSwamp_Double1_Enter,
+          DLC3_SandSwamp_Double4_Enter,
+          DLC3_SandSwamp_lvl_01_Enter,
+          DLC3_SandSwamp_lvl_02_Enter,
+          DLC3_SandSwamp_lvl_03_Enter,
+          DLC3_SandSwamp_lvl_04_Enter,
+          DLC3_SandSwamp_lvl_05_Enter,
+          DLC3_SeaHub_Back_Enter,
+          DLC3_SeaHub_Enter,
+          DLC3_SeaHub_RE_enter_point,
+          DLC3_SeaHub_Rest,
+          DLC3_Snow_lvl_00_Enter,
+          DLC3_Snow_lvl_01_Enter,
+          DLC3_Snow_lvl_02_Enter,
+          DLC3_Snow_lvl_03_Enter,
+          DLC3_Snow_lvl_04_Enter,
+          DLC3_Snow_lvl_Double02_Enter,
+          DLC3_Snow_lvl_Double03_Enter,
+          DLC3_Songbird_Dungeon_Enter,
+          DLC3_StarMaraca_Lair_Enter,
+          DLC3_StarMaraca_Lair_StarMaraca_enter,
+          DLC3_TheFirstCleric_Enter,
+          DLC3_ToxicPrison_1_Enter,
+          DLC3_ToxicPrison_2_Enter,
+          DLC3_ToxicPrison_3_Enter,
+          DLC3_ToxicPrison_4_Enter,
+          DLC3_ToxicPrison_5_Enter,
+          DLC3_ToxicPrison_Double2_Enter,
+          DLC3_ToxicPrison_Double5_Enter,
+          DLC3_TwilightWaters_BackFromShip,
+          DLC3_TwilightWaters_CaveEntrance,
+          DLC3_TwilightWaters_Enter,
+          DLC3_TwilightWaters_Outdoor,
           DragonsGraveyard_Bridge,
           DragonsGraveyard_CaveIn,
           DragonsGraveyard_CaveOut,
@@ -2013,6 +2254,7 @@ namespace BlueprintCore.Blueprints.References
           FinneanLab_Enter,
           FinneanLab_Exit,
           FinneanLab_Indor_Enter,
+          FireDungeon_lvl_01_Enter,
           FloraArea_FloraArea_Enter,
           FromCave_Enter,
           FuryOfPharasmaPartyB02,
@@ -2519,7 +2761,7 @@ namespace BlueprintCore.Blueprints.References
           TenThousandDelights_PortalArk,
           TenThousandDelights_ShamiraPlace,
           TerendelevLair_TerendelevLair_Enter,
-          Test_DungeonArchitect_SnowSetting_Enter,
+          Test_Level_Enter,
           TestArea1_EnterPoint,
           TestArea2_EnterPoint,
           TestEnterPoint0,
@@ -2578,6 +2820,10 @@ namespace BlueprintCore.Blueprints.References
           TricksterCouncil_Enter_Fight,
           TricksterCouncil_EnterFromPulura,
           Tutorial_Test_Polygon_Enter,
+          Unused_Enter_1,
+          Unused_Enter_2,
+          Unused_Enter_3,
+          Unused_Enter_4,
           Varnhold_Enter,
           Varnhold_Water_Enter,
           VaultOfGraves_Enter,

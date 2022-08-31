@@ -46,6 +46,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Enervation00_Trajectory_Ray4 = "fbc2d807674c66d48befada98bb92465";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Enervation00_Trajectory_Ray5 = "1837c0f8e0e8ade46b10869f0c82e862";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Enervation00_Trajectory_Ray6 = "0266233bea09b6e4e97e404fc89195ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Exhaustion00_Trajectory = "7d1563de96b24e36908473ffb4255360";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Fear00_Trajectory = "829deb4a2c118b44ea1a4cf1b2b08d66";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Fireball00_Trajectory = "bc2bcd393624da84c91b8418daa1f9fe";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> FireCommonProjectile00_Trajectory = "afed2425f12066f4aa8027c058f97a87";
@@ -75,6 +76,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic7lvlLich_BoneLance00_Tentacle2_Trajectory = "a4b9baeac595a474f8e4558e2189a607";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic9lvlLich_CorruptMagic00_Trajectory = "22f0cc30529b24b48b2f5d6fb655032f";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic9lvlLich_CorruptMagic01_Trajectory = "f9c7338d31a7a8e4e8e73b4aab66e02c";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Nahyndri_Spikes00_Trajectory = "15b349cf2753441281df28f8dd287a37";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> NegativeCommonProjectile00_Trajectory = "df781f03331fa7541a1cf2d662883f2d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> NyrissaRay00_Trajectory = "0d6baccb5ced41546b771331e86b08c9";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> NyrissaRay01_Trajectory = "69879a53548344949a6313e66ddb4081";
@@ -141,6 +143,7 @@ namespace BlueprintCore.Blueprints.References
           Enervation00_Trajectory_Ray4,
           Enervation00_Trajectory_Ray5,
           Enervation00_Trajectory_Ray6,
+          Exhaustion00_Trajectory,
           Fear00_Trajectory,
           Fireball00_Trajectory,
           FireCommonProjectile00_Trajectory,
@@ -170,6 +173,7 @@ namespace BlueprintCore.Blueprints.References
           Mythic7lvlLich_BoneLance00_Tentacle2_Trajectory,
           Mythic9lvlLich_CorruptMagic00_Trajectory,
           Mythic9lvlLich_CorruptMagic01_Trajectory,
+          Nahyndri_Spikes00_Trajectory,
           NegativeCommonProjectile00_Trajectory,
           NyrissaRay00_Trajectory,
           NyrissaRay01_Trajectory,

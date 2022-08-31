@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfWaryStepsItem = "c567d113d0b7053428fcb76e5175e37f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> ConnectiontoEarthBoostItem = "57d89d9340dedb449a279622ec0541be";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> DevilsBootsItem = "0da402fcbd1ab3d4e852a4a831c3f468";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> DLC3_BootsOfUndersumpItem = "77e8e9ceb50447bfbae19f6c9a850d76";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> EvadingStepsItem = "91b1162500bb78545b0f802e33dfd8d6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> ExpeditionBootsItem = "35f1391907ebb3948bbac3ccb9ccd4c5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> FluffyBootsItem = "c5d49a08ecdc41d3a5d29b9c66a8e07a";
@@ -71,6 +72,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfWaryStepsItem,
           ConnectiontoEarthBoostItem,
           DevilsBootsItem,
+          DLC3_BootsOfUndersumpItem,
           EvadingStepsItem,
           ExpeditionBootsItem,
           FluffyBootsItem,

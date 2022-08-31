@@ -35,6 +35,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> CopperRing = "caeb348840e1fd240a70971db14da63b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DaeranStartingRingItem = "e0986c3e091b2a14a91d2257979b39b6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DarkOmenItem = "7d46733a8faf56544afac48c1b71283f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DLC3_RingOfInstantTriumphItem = "b631f6412333463eb620b4fd0571698c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> EarthUnleashedItem = "d19469a2cbd65334e844b0adda9e561e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> ElementalProtectorItem = "05bef2136b8766049830442a654a98ed";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> EnliveningLeaderishipItem = "ce230a619be858d468a5eb14d358d7d5";
@@ -173,6 +174,7 @@ namespace BlueprintCore.Blueprints.References
           CopperRing,
           DaeranStartingRingItem,
           DarkOmenItem,
+          DLC3_RingOfInstantTriumphItem,
           EarthUnleashedItem,
           ElementalProtectorItem,
           EnliveningLeaderishipItem,

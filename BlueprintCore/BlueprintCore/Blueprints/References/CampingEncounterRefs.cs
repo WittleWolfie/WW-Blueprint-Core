@@ -17,6 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> ArueshalaeAfterLab_CampingEncounter = "b1501473507eb00418ab14db5fd9f23a";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> ArueshalaeAfterWintersun_CampingEncounter = "22dad7c1dc2b0b14c9dcc8d82e6c33d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> DreamDeskari_CampingEncounter = "82d57844b91b4a3bbef65b4cd5febb9f";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> GiveMeAnIdea_CampingEncounter = "e4c190854170bef43be0e040704fbf8b";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> HagReturns_CampingEncounter = "8cf7a8ffbbf274641b94d4c0c079c29f";
     public static readonly Blueprint<BlueprintReference<BlueprintCampingEncounter>> LannAndBook_CampingEncounter = "3b8accfc8290f64419422bfacd6efa4b";
@@ -37,6 +38,7 @@ namespace BlueprintCore.Blueprints.References
       {
           ArueshalaeAfterLab_CampingEncounter,
           ArueshalaeAfterWintersun_CampingEncounter,
+          DreamDeskari_CampingEncounter,
           GiveMeAnIdea_CampingEncounter,
           HagReturns_CampingEncounter,
           LannAndBook_CampingEncounter,

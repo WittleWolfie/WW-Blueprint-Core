@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> CrazyScientistsGlovesItem = "ecf27920f812bcf49a533019c0255207";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> DashingCavaliersGlovesItem = "176da707c9c9d764e972a9da8b444ff3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> DeliquescentGlovesItem = "ac79bcf464e676f49b630895f8b2fd42";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> DLC3_GlovesOfSurgicalExtractionItem = "7fc098d7fbf24964874e81fcb9321a57";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> EvisceratorsGlovesItem = "bb60024e93999d445bdd689870205ef2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> FencersGiftItem = "7b31959c8bb4d7e48a693c62a714e3be";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> GauntletOfPunching = "a6e3b8f1f3f3e7540b5b7c9e5737f200";
@@ -110,6 +111,7 @@ namespace BlueprintCore.Blueprints.References
           CrazyScientistsGlovesItem,
           DashingCavaliersGlovesItem,
           DeliquescentGlovesItem,
+          DLC3_GlovesOfSurgicalExtractionItem,
           EvisceratorsGlovesItem,
           FencersGiftItem,
           GauntletOfPunching,

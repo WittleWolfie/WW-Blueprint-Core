@@ -54,6 +54,35 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.ExperienceGained"/>
+    /// </summary>
+    ///
+    /// <param name="experienceGained">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetExperienceGained(LocalString experienceGained)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ExperienceGained = experienceGained?.LocalizedString;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDungeonLocalizedStrings.ExperienceGained"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyExperienceGained(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ExperienceGained is null) { return; }
+          action.Invoke(bp.ExperienceGained);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.LeaderboardRecordValues"/>
     /// </summary>
     public TBuilder SetLeaderboardRecordValues(params BlueprintDungeonLocalizedStrings.LeaderboardRecordValue[] leaderboardRecordValues)
@@ -214,6 +243,10 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       if (Blueprint.StageNameParameterized is null)
       {
         Blueprint.StageNameParameterized = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ExperienceGained is null)
+      {
+        Blueprint.ExperienceGained = Utils.Constants.Empty.String;
       }
       if (Blueprint.LeaderboardRecordValues is null)
       {

@@ -1,8 +1,10 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.RuleSystem;
 using Kingmaker.Settings;
 using Kingmaker.Utility;
@@ -420,6 +422,37 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAiAction.Actions"/>
+    /// </summary>
+    ///
+    /// <param name="actions">
+    /// <para>
+    /// Tooltip: Additional actions to run after the action is triggered
+    /// </para>
+    /// </param>
+    public TBuilder SetActions(ActionsBuilder actions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.Actions = actions?.Build();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAiAction.Actions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyActions(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.Actions is null) { return; }
+          action.Invoke(bp.Actions);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -431,6 +464,10 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       if (Blueprint.m_TargetConsiderations is null)
       {
         Blueprint.m_TargetConsiderations = new ConsiderationReference[0];
+      }
+      if (Blueprint.Actions is null)
+      {
+        Blueprint.Actions = Utils.Constants.Empty.Actions;
       }
     }
   }

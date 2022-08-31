@@ -146,6 +146,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMetalBlastArea = "38a2979db34ad0f45a449e5eb174729f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMetalBlastAreaRare = "267f19ba174b21e4d9baf30afd589068";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMudBlastArea = "0af604484b5fcbb41b328750797e3948";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeathSmellArea = "8d73261778404a29a15dc7752fd57a99";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeepestFearAreaEffect = "a11513803d0449343a3f1e9a6737bce6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DemodandStringyEntanglingFoldsArea = "06b07906bd79cf04582b00a8f27214a5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DemonChargeArea = "2c85baa87fe85434cbcd8ef3b36f607d";
@@ -164,6 +165,29 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DisruptiveArea = "e57906afd2116b94aac2220d5912f4ea";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DivinationSchoolForetellAidAura = "4ba26a4641c911d4487e3f7f11bcf801";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DivinationSchoolForetellHinderAura = "69b27cad1d3f30a47843efbcc3fd8cf8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_BesmaraHolySymbolAreaEffect = "37d6966c296a47cd8f5d7050fbaaee87";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_BrokenTricksterFlowerAreaEffect = "276d2282328a41a38c28de5f82087e5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_CloakOfRadianceAreaEffect = "155b708637784888a42f666829965190";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElemenatlWaterAreaEffect = "49dfb23c90764e01b44106f6e0f5b414";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalAirAreaEffect = "79bccb419918402ea7bb780ce14dd10f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalEarthAreaEffect = "5e9ee0ac464d499aaa74ae1c344b4522";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalFireAreaEffect = "b4b0114b22d64e059233378b8ce547ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalLocusAreaEffect = "a7e320519348419fb7f8cede05692535";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalWaterStormAreaEffect = "652bfe12354b46d3b4e181943ed455ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_GlassesOfundeniableTruthSetAreaEffect = "3b0073d0b992438db2380551dfcb894e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_HitDieHPRegainAreaEffect = "45d78f04951d41c7a6f9be4cabfa33c9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_InspireCourageArea = "89a2c946891d428b8e5f46bdda8b92be";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_InspireGreatnessArea = "688b0b6520754064bdc48d103337c111";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_InspireHeroicsArea = "b179c68b84b24d7c9ad4b7e035bb5ccd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_Nahyndri_Golemlike_Single_AnchorSlam_CustomPit = "2e63f44d01454a11b205c9794a8708dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_NegativeEnergyModAreaEffect = "c4696e02f7384305bcce231201f70ff4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ReshapeRealityDebrisAreaEffect = "5ed044134fdc48119e9d7eed922b5cc8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ReshapeRealityIceAreaEffect = "da0e3c1e0c62469ca3ac9c2a828110ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ReshapeRealityLavaAreaEffect = "78d2bdcd66754fdc8f737b67bf1bb6c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ReshapeRealityMudAreaEffect = "f4c9a474c5b644db907d6ade7e878484";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_SicknessIslandAreaEffect = "250d9f158d2d4652b8d30804936ae341";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_SicknessIslandConsiderationApplierAreaEffect = "32e1844b5af0444980c131724fbda394";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_VeryHotIslandModAreaEffect = "2f2bad7fb72647088213e38d9593fe76";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DomainOfTheHungryFleshArea = "6df8ed6ff8ac4974aba16eca1b7b5cbe";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DoombringingAura = "9c1c22ea222df984388bc8b803033e10";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DragonAzataFrightfulPresenceArea = "0113eed491c545018167645044deb032";
@@ -279,6 +303,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MOnsterMythicChangeMythicToWorseBaseArea = "8021b0207ca842c7a1d51cc363342dae";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> NabasuAspectArea = "fb495f4a7f2d0404cb1596eb96fa3073";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> NabasuDeathStealingGazeAreaEffect = "609913ecbb69c63428f3db841173eca6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> NahyndrianDarkness_AreaEffect_ProximityTrigger = "bdedb8b65bae4d1f8c41686a26bd6c36";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> NegativeEnergyAreaEffect = "1dfe6cf28a6f40ed982258f0434fae9f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> NereidBeguilingAuraAreaEffect = "466ec47d91f209646aa1b66a797b7d8d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> Nocticula_AreaEffect_MindFogArea = "44a3273fb02747cd9f8d6d5b4fcd5a94";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> Nocticula_AreaEffect_SeductivePresence = "7af69ec90ad24cf38beea09594cdf9c3";
@@ -347,6 +373,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RatSwarmDamageArea = "7dcabca455afd9a44bb008330180f5c8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RavenSwarmDamageArea = "5ca91a30fe86a2349838bd5be321d638";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RealmProtectorArea = "0e5102ce4d899284181302e3757f9705";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RepellingBracersAreaEffect = "073005a9a72c433c83e4cd8d7869d5a8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ReposeDomainGreaterAura = "7269a28475a91d84486749bf47443c72";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RepulsiveNatureArea = "e2182d05755d9a54fa4967a5f6b3ecdf";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RiftDrakeFriedTastyAromaAreaEffect = "4c494a9f873c1e64d8af9e23fc8250e0";
@@ -609,6 +636,7 @@ namespace BlueprintCore.Blueprints.References
           DeadlyEarthMetalBlastArea,
           DeadlyEarthMetalBlastAreaRare,
           DeadlyEarthMudBlastArea,
+          DeathSmellArea,
           DeepestFearAreaEffect,
           DemodandStringyEntanglingFoldsArea,
           DemonChargeArea,
@@ -627,6 +655,29 @@ namespace BlueprintCore.Blueprints.References
           DisruptiveArea,
           DivinationSchoolForetellAidAura,
           DivinationSchoolForetellHinderAura,
+          DLC3_BesmaraHolySymbolAreaEffect,
+          DLC3_BrokenTricksterFlowerAreaEffect,
+          DLC3_CloakOfRadianceAreaEffect,
+          DLC3_ElemenatlWaterAreaEffect,
+          DLC3_ElementalAirAreaEffect,
+          DLC3_ElementalEarthAreaEffect,
+          DLC3_ElementalFireAreaEffect,
+          DLC3_ElementalLocusAreaEffect,
+          DLC3_ElementalWaterStormAreaEffect,
+          DLC3_GlassesOfundeniableTruthSetAreaEffect,
+          DLC3_HitDieHPRegainAreaEffect,
+          DLC3_InspireCourageArea,
+          DLC3_InspireGreatnessArea,
+          DLC3_InspireHeroicsArea,
+          DLC3_Nahyndri_Golemlike_Single_AnchorSlam_CustomPit,
+          DLC3_NegativeEnergyModAreaEffect,
+          DLC3_ReshapeRealityDebrisAreaEffect,
+          DLC3_ReshapeRealityIceAreaEffect,
+          DLC3_ReshapeRealityLavaAreaEffect,
+          DLC3_ReshapeRealityMudAreaEffect,
+          DLC3_SicknessIslandAreaEffect,
+          DLC3_SicknessIslandConsiderationApplierAreaEffect,
+          DLC3_VeryHotIslandModAreaEffect,
           DomainOfTheHungryFleshArea,
           DoombringingAura,
           DragonAzataFrightfulPresenceArea,
@@ -742,6 +793,8 @@ namespace BlueprintCore.Blueprints.References
           MOnsterMythicChangeMythicToWorseBaseArea,
           NabasuAspectArea,
           NabasuDeathStealingGazeAreaEffect,
+          NahyndrianDarkness_AreaEffect_ProximityTrigger,
+          NegativeEnergyAreaEffect,
           NereidBeguilingAuraAreaEffect,
           Nocticula_AreaEffect_MindFogArea,
           Nocticula_AreaEffect_SeductivePresence,
@@ -810,6 +863,7 @@ namespace BlueprintCore.Blueprints.References
           RatSwarmDamageArea,
           RavenSwarmDamageArea,
           RealmProtectorArea,
+          RepellingBracersAreaEffect,
           ReposeDomainGreaterAura,
           RepulsiveNatureArea,
           RiftDrakeFriedTastyAromaAreaEffect,

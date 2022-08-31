@@ -20,6 +20,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> ColorlessRemainsGoggles_MadnessItem = "5b2fa590883042948dcebfa162025ead";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> ColorlessRemainsGoggles_SolidItem = "0a5bb37581c24706bda2b7d230afaa20";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> CrystallEyeItem = "478599b731b44d243a65e06e9f2fc50e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> DLC3_BrokenTricksterGlassesArtifactItem = "692b59ae0433471aa675b5b1b80db863";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> DLC3_GlassesOfundeniableTruthItem = "e77292f3222c4e97851dd363b916ef32";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> DLC3_TrickstersPromiseGlassesItem = "50f228dd56294800adb2432e6aa1cddd";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> EyesOfEagleCorrectItem = "f780cd67dd4e4bce9044d8ebc550cf65";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfDreadfulJudgeItem = "f60c4386186224f4f8c4e4f823729516";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfFeriociousPactItem = "76d219c4b02f2d64bbf15363565647c3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfMalocchioItem = "8f476e6a796971a48b1c87e822aca941";
@@ -43,6 +47,10 @@ namespace BlueprintCore.Blueprints.References
           ColorlessRemainsGoggles_MadnessItem,
           ColorlessRemainsGoggles_SolidItem,
           CrystallEyeItem,
+          DLC3_BrokenTricksterGlassesArtifactItem,
+          DLC3_GlassesOfundeniableTruthItem,
+          DLC3_TrickstersPromiseGlassesItem,
+          EyesOfEagleCorrectItem,
           GogglesOfDreadfulJudgeItem,
           GogglesOfFeriociousPactItem,
           GogglesOfMalocchioItem,
