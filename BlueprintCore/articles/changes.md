@@ -1,9 +1,9 @@
 ﻿# Changelog
 
-## v2.3.0 Release
+## v2.2.2 Release
 
+* Updated for Patch 1.4
 * Hand tuned Recommendation components
-* 
 
 ## v2.2.0 Release
 
