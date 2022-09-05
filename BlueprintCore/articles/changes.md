@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## v2.2.3 Release
+
+* Updated for latest game version
+* Fixed bug with FeatureConfigurator which could incorrectly add features to selection groups
+* Added `SetClass()` and upated constructor for ArchetypeConfigurator to automatically add the archetype to the class
+
 ## v2.2.2 Release
 
 * Updated for Patch 1.4
