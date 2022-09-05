@@ -1277,7 +1277,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1Wave_FirstCleric", "38be8d6ddc3d450db71ae17ae895afa3"),
-            new Blueprint("FoxNotControlledByAreshka", "b1101707a48746eba4cc02600f59a585"),
+            new Blueprint("ForestQuestFirstDIalogHeal_flag", "9b8ccbeaa8d360049b442ecf9b23b5b9"),
             new Blueprint("ZombieRoomEnter2", "61f52bd1057441adbf7ce9901f535e3e"),
           }
         },

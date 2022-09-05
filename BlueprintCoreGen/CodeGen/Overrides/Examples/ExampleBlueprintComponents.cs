@@ -2276,7 +2276,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abad_state_0", "52edc4f040174899850aaeb0b853b1d8"),
-            new Blueprint("KTC_LichRankUp_4_Notification", "213cafffc8ad4ac3a5c8af0044d2c315"),
+            new Blueprint("KTC_LichRankUp_1_Notification", "34a1fb6d575b3cd458fd6ce51c89491c"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -3019,7 +3019,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Herald", "fff912fcbfbbc364e84ae5ea9384db89"),
+            new Blueprint("Herald_Sanctum", "4ea8b90496bdb0942961cd4b462ed17f"),
             new Blueprint("Ygefeles_WeakCopy", "7aab7792681750a42bacd71f9f7c6d5f"),
           }
         },
@@ -11872,7 +11872,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_DevouredByDarkness", "67d3321ed01a4e58a9ed3e13f94f1d04"),
-            new Blueprint("KTC_AngelRankUp_2", "40176f9292e941c41a82d38f97fa5e3e"),
+            new Blueprint("Knock_Achiv", "526bde57729f44e59d04cf85ffb5cf14"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -12154,6 +12154,16 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
+          typeof(Kingmaker.AreaLogic.Etudes.EtudeBracketSetCompanionPosition),
+          new()
+          {
+            new Blueprint("DaeranRomance_BarksAfterSex", "54998634e0121484c8f2de44b09f3766"),
+            new Blueprint("MilitaryGreyborRankUpPosition", "eec01ec25a200874db7a93e10cccf808"),
+            new Blueprint("Trever_Position", "0e84f374f8b74246a24c1e0a997ba6a6"),
+          }
+        },
+
+        {
           typeof(Kingmaker.Corruption.EtudeDisableCraft),
           new()
           {
@@ -12336,16 +12346,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
             new Blueprint("LichSkeletonInDrezen", "9eed74c36e7b42878d87201aa58c79e7"),
             new Blueprint("PetDragonAzata_Nexus", "8ec49bab42a211e4f85f593718ecc536"),
             new Blueprint("PetDragonAzata_ThroneRoom", "e4a1eb7ccc927bb41afbe8b20f00861f"),
-          }
-        },
-
-        {
-          typeof(Kingmaker.AreaLogic.Etudes.EtudeBracketSetCompanionPosition),
-          new()
-          {
-            new Blueprint("DaeranRomance_BarksAfterSex", "54998634e0121484c8f2de44b09f3766"),
-            new Blueprint("LogisticsWoljifRankUpPosition", "11112e563d0192447a07f96c5e9915d6"),
-            new Blueprint("TalkToAnevia", "0f7d78d061a2a2848b145e85a6eb686f"),
           }
         },
 

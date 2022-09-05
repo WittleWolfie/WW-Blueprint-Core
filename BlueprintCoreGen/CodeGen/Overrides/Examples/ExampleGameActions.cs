@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("EarPiercingScream", "8e7cfa5f213a90549aadd18f8f6f4664"),
+            new Blueprint("EaglesoulBuff", "fb0ae0908b3d5c3459be94e11e0c1687"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -395,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("Cue_0035", "458093a5e9c08e341817c706a4afadff"),
+            new Blueprint("Cue_0035", "62d54f591bc9d3a45b3d5ab50b9fc08d"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -678,7 +678,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("(CR 6) Necromancer_SpawnActions", "966067be66094e699fd7247f4507dd1a"),
-            new Blueprint("Cue_0050", "1a72f91b235492b4abf59da16c90e816"),
+            new Blueprint("Cue_0050", "c71d79e6048d8b14c8bb173e7e97e2e6"),
             new Blueprint("Zone3_Epigraph_SZ", "fde009ee2ae62024baaac478de277b28"),
           }
         },
@@ -698,7 +698,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abad_state_0", "52edc4f040174899850aaeb0b853b1d8"),
-            new Blueprint("Cue_0024", "68981c2d5949c2744a2a985813222f01"),
+            new Blueprint("Cue_0022", "ecbf22d2f1fcae04c8a3bd17c2045d09"),
             new Blueprint("ZombiesDead", "c042c6cb0eaaafc418c94615e4aac891"),
           }
         },
@@ -1271,7 +1271,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("DLC3_Int_FirstClericWave2", "34580f00bdc04d82bae0e3d1aab0a1b1"),
+            new Blueprint("DLC3_Int_FirstClericPossession", "599cf346d24d4900a1010227819d6fb0"),
             new Blueprint("Wintersun_Default", "87839550c801db944b102f61084fd245"),
           }
         },
@@ -1299,7 +1299,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AdditionalAtmosphericScenes", "e04f6b926f3350d41ab2d07c55d9814d"),
-            new Blueprint("CommandAction10", "df2588f53b544f178f2f35da2c6b5058"),
+            new Blueprint("CommandAction10", "dba0857095d9420c98305820184e8b49"),
             new Blueprint("Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions", "a53e004ccda24065b81f49c9ee3b0e49"),
           }
         },
@@ -1368,7 +1368,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonKenabresRebuilded", "470c835355608c34fa4571ba4f65cbc3"),
-            new Blueprint("Cue_0123", "3034d21124a9d5a43969b119cada65c5"),
+            new Blueprint("DLC3_SteersmanIsDead", "90a98fca882f4d91b06fb562ccd24c44"),
             new Blueprint("TheBridgeIsBuilt", "048ce8550994326429f73b6119270293"),
           }
         },
@@ -1931,7 +1931,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_TargonaSearch", "34246eb4ed22ea44cb2e84c278d9e14d"),
-            new Blueprint("DragonTreasures_Actions", "7e817b0fca9193f4797fb5eed8347dfa"),
+            new Blueprint("Drezen_SecondState_Locust", "3b2a1572df0d448fb262b4115a1fad95"),
             new Blueprint("ZigguratUpgradedInside", "e531191d4ecff7b44a18f614b5ec1e1a"),
           }
         },
@@ -2019,7 +2019,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AddAeonEyeActionsHolder", "c6738bf1a8f74dc8b0a1762a721e1eb6"),
-            new Blueprint("CommandAction6", "6b42ba77f3ac4b309aa3a146623cd92e"),
+            new Blueprint("CommandAction6", "11413ee4d8c3416696e86e99f0f2cd96"),
             new Blueprint("WoundWormLair_Event_Mechanics", "fa1e44ec4639c4242b745b9b7c72cc03"),
           }
         },
@@ -2137,7 +2137,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1ArenaCombat", "8e64ed1e12bc30c498402e99c95e75e3"),
-            new Blueprint("CommandAction20", "c49a96ffa89c447da36e36c885659432"),
+            new Blueprint("CommandAction2", "f6e29c0c7a3149f6b9af4480b6e3d9fc"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -2702,7 +2702,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abad_state_4", "b08d18580c6a4e41b803ca3f48a58c01"),
-            new Blueprint("CommandAction 6", "893fc4f449384fd2b3ad50cf3e436a87"),
+            new Blueprint("CommandAction 6", "acafcd58ca24e814eb3266d40b8c4294"),
             new Blueprint("Woljif_Q3_AbandonedMansion_Default", "7a56583bbe8854d44a0d9fde9ee3acee"),
           }
         },

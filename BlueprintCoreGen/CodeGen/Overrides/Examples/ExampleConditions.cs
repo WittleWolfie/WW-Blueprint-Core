@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0006", "12b30421933a28e4a80cedb72b234ffe"),
+            new Blueprint("Cue_0006", "3f8f92afb5fe9ae49b85f0fe9836d6a6"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -601,7 +601,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0012", "6ce4c8c57d804eee8d63c76e3924d323"),
+            new Blueprint("Cue_0012", "caebf26559e2b5346bc538a3ca6ba471"),
             new Blueprint("ZigguratRiot", "5ecb3695c95e4bd4b836a0deac1ecfd7"),
           }
         },
@@ -689,7 +689,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions", "7f8be13550ec4db894002cae58c9b811"),
-            new Blueprint("Banter_NenioVenduag_banter1", "5ebe87b446c42c24499c68f28826ee3c"),
+            new Blueprint("Banter_NenioVenduag_banter2", "70643b831c3af9e4980b8a36fcd29944"),
             new Blueprint("ZigguratDeadRomanceTimer", "587df869a564f7046a48bbf27f017619"),
           }
         },
@@ -838,7 +838,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Colyphyr2NexusTransition", "0b377d6a162f4c4c99020cd446149f6a"),
-            new Blueprint("DLC3_Int_FinalBossFight", "48d1f9db73d14d9f8f276f8fe9d769d2"),
+            new Blueprint("DLC3_FinalBossFight", "f49a627e89394a7bae6b5fd0d8da641a"),
             new Blueprint("SwarmThatWalksClass", "5295b8e13c2303f4c88bdb3d7760a757"),
           }
         },
@@ -925,7 +925,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("10State_0", "1f815765df0d4d7ba19f731dfa064081"),
-            new Blueprint("Cue_0049", "1643731eb71ab0f4db2c405b0800c27d"),
+            new Blueprint("Cue_0038", "b408553de904b1d4ea0878629e02fe4e"),
             new Blueprint("Zacharius_FinalBetrayal_dialogue", "5ec3e47a05de18c46b36f08c8dfbeafb"),
           }
         },
