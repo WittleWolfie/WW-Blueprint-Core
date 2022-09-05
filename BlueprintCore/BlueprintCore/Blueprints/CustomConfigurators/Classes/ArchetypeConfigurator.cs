@@ -43,10 +43,25 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// An implicit cast converts the string to <see cref="Utils.Blueprint{TRef}"/>, exposing the blueprint instance and its reference.
     /// </para>
     /// </remarks>
-    public static ArchetypeConfigurator New(string name, string guid)
+    /// <param name="clazz">
+    /// If specified the archetype is added to that class. An Archetype can only be associated with a single class.
+    /// </param>
+    public static ArchetypeConfigurator New(
+      string name, string guid, Blueprint<BlueprintReference<BlueprintCharacterClass>> clazz = null)
     {
       BlueprintTool.Create<BlueprintArchetype>(name, guid);
-      return For(name);
+      if (clazz is null)
+        return For(name);
+      return For(name).SetClass(clazz);
+    }
+
+    /// <summary>
+    /// Adds this archetype to the specified class. Note that an Archetype is only valid for a single class.
+    /// </summary>
+    public ArchetypeConfigurator SetClass(Blueprint<BlueprintReference<BlueprintCharacterClass>> clazz)
+    {
+      Clazz = clazz;
+      return this;
     }
 
     // Start AddFeatures
@@ -190,5 +205,13 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     // End LevelEntries
+
+    private Blueprint<BlueprintReference<BlueprintCharacterClass>> Clazz;
+    protected override void OnConfigureCompleted()
+    {
+      base.OnConfigureCompleted();
+
+      CharacterClassConfigurator.For(Clazz).AddToArchetypes(Blueprint).Configure();
+    }
   }
 }
