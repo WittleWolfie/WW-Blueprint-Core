@@ -597,7 +597,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Colyphyr2NexusTransition</term><description>0b377d6a162f4c4c99020cd446149f6a</description></item>
-    /// <item><term>DLC3_Int_FinalBossFight</term><description>48d1f9db73d14d9f8f276f8fe9d769d2</description></item>
+    /// <item><term>DLC3_FinalBossFight</term><description>f49a627e89394a7bae6b5fd0d8da641a</description></item>
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>

@@ -1260,7 +1260,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_LichRankUp_4_Notification</term><description>213cafffc8ad4ac3a5c8af0044d2c315</description></item>
+    /// <item><term>KTC_LichRankUp_1_Notification</term><description>34a1fb6d575b3cd458fd6ce51c89491c</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>

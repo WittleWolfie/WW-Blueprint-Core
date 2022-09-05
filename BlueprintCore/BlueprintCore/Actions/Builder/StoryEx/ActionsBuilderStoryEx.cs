@@ -355,7 +355,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC3_Int_FirstClericWave2</term><description>34580f00bdc04d82bae0e3d1aab0a1b1</description></item>
+    /// <item><term>DLC3_Int_FirstClericPossession</term><description>599cf346d24d4900a1010227819d6fb0</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -1852,7 +1852,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0035</term><description>458093a5e9c08e341817c706a4afadff</description></item>
+    /// <item><term>Cue_0035</term><description>62d54f591bc9d3a45b3d5ab50b9fc08d</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

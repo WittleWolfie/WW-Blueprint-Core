@@ -207,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>KTC_AngelRankUp_2</term><description>40176f9292e941c41a82d38f97fa5e3e</description></item>
+    /// <item><term>Knock_Achiv</term><description>526bde57729f44e59d04cf85ffb5cf14</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -961,8 +961,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DaeranRomance_BarksAfterSex</term><description>54998634e0121484c8f2de44b09f3766</description></item>
-    /// <item><term>LogisticsWoljifRankUpPosition</term><description>11112e563d0192447a07f96c5e9915d6</description></item>
-    /// <item><term>TalkToAnevia</term><description>0f7d78d061a2a2848b145e85a6eb686f</description></item>
+    /// <item><term>MilitaryGreyborRankUpPosition</term><description>eec01ec25a200874db7a93e10cccf808</description></item>
+    /// <item><term>Trever_Position</term><description>0e84f374f8b74246a24c1e0a997ba6a6</description></item>
     /// </list>
     /// </remarks>
     ///

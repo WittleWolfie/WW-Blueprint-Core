@@ -2672,7 +2672,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Herald</term><description>fff912fcbfbbc364e84ae5ea9384db89</description></item>
+    /// <item><term>Herald_Sanctum</term><description>4ea8b90496bdb0942961cd4b462ed17f</description></item>
     /// <item><term>Ygefeles_WeakCopy</term><description>7aab7792681750a42bacd71f9f7c6d5f</description></item>
     /// </list>
     /// </remarks>

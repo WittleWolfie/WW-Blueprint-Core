@@ -367,7 +367,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DragonTreasures_Actions</term><description>7e817b0fca9193f4797fb5eed8347dfa</description></item>
+    /// <item><term>Drezen_SecondState_Locust</term><description>3b2a1572df0d448fb262b4115a1fad95</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -437,7 +437,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonKenabresRebuilded</term><description>470c835355608c34fa4571ba4f65cbc3</description></item>
-    /// <item><term>Cue_0123</term><description>3034d21124a9d5a43969b119cada65c5</description></item>
+    /// <item><term>DLC3_SteersmanIsDead</term><description>90a98fca882f4d91b06fb562ccd24c44</description></item>
     /// <item><term>TheBridgeIsBuilt</term><description>048ce8550994326429f73b6119270293</description></item>
     /// </list>
     /// </remarks>
@@ -761,7 +761,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction6</term><description>6b42ba77f3ac4b309aa3a146623cd92e</description></item>
+    /// <item><term>CommandAction6</term><description>11413ee4d8c3416696e86e99f0f2cd96</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
