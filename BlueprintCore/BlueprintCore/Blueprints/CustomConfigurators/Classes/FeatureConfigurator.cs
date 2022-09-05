@@ -153,9 +153,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       return this;
     }
 
-    private static readonly HashSet<BlueprintFeatureSelection> AdditionalFeatureSelections = new();
     private static readonly IEnumerable<BlueprintFeatureSelection> FeatureSelections =
       FeatureSelectionRefs.All.Select(selectionRef => selectionRef.Reference.Get());
+
+    private readonly HashSet<BlueprintFeatureSelection> AdditionalFeatureSelections = new();
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
