@@ -35,16 +35,16 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 
 7. Follow the prompts (described below)
     * First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
-![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
+    ![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
     * Next prompt is the directory you want to use for your mod / C# project
-![Select mod project directory](~/images/quick_start/select_mod_dir.png)
+    ![Select mod project directory](~/images/quick_start/select_mod_dir.png)
     * Next prompt is the directory for the Unity project you created
-![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
+    ![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
     * Last prompt is the name of the mod, **no spaces**
-![Enter mod name](~/images/quick_start/mod_name.png)
+    ![Enter mod name](~/images/quick_start/mod_name.png)
 
 8. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
-![Run Setup with powershell](~/images/quick_start/unity.png)
+    ![Run Setup with powershell](~/images/quick_start/unity.png)
     * From the top bar select **Assets** > **Build AssetBundles**
     * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
     * You can close Unity
@@ -57,12 +57,12 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 10. Still in Visual Studio, right click the project and select **Add** > **Existing Item**
     * Navigate to the Unity project folder then `Assets/StreamingAssets` and select `<modname>_assets`
     * Right click `<modname>_assets` and set to `Copy if newer`
-![Assets file properties](~/images/quick_start/assets_props.png)
+    ![Assets file properties](~/images/quick_start/assets_props.png)
 
 10. Build the project
 11. Launch Wrath and create or level up a character
     * If all went well you should see a new feat called "My Feat"
-![Example feat from mod](~/images/quick_start/my_feat.png)
+    ![Example feat from mod](~/images/quick_start/my_feat.png)
 
 You're all set! If you want to keep your assembly size small you can additionally configure [ILStrip](#optional-reduce-assembly-size-with-ilstrip).
 
