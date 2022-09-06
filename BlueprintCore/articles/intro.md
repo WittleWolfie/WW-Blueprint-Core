@@ -30,9 +30,7 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip)
 5. Extract the contents
 6. Open the folder `BPCoreTemplate`, right click `Setup.ps1`, and select `Run with Powershell`
-
 ![Run Setup with powershell](~/images/quick_start/run_powershell.png)
-
 7. Follow the prompts (described below)
     * First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
     ![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
@@ -42,13 +40,11 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
     ![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
     * Last prompt is the name of the mod, **no spaces**
     ![Enter mod name](~/images/quick_start/mod_name.png)
-
 8. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
     ![Run Setup with powershell](~/images/quick_start/unity.png)
     * From the top bar select **Assets** > **Build AssetBundles**
     * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
     * You can close Unity
-
 9. Navigate to your mod project folder and open `<ModName>.csproj` in Visual Studio
     * Right click the project and select **Clean**
     * When it completes (check the Output window at the bottom), right click again and select **Unload Project**
@@ -58,9 +54,8 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
     * Navigate to the Unity project folder then `Assets/StreamingAssets` and select `<modname>_assets`
     * Right click `<modname>_assets` and set to `Copy if newer`
     ![Assets file properties](~/images/quick_start/assets_props.png)
-
-10. Build the project
-11. Launch Wrath and create or level up a character
+11. Build the project
+12. Launch Wrath and create or level up a character
     * If all went well you should see a new feat called "My Feat"
     ![Example feat from mod](~/images/quick_start/my_feat.png)
 
