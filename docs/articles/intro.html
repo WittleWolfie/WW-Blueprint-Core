@@ -102,32 +102,27 @@
 </ol>
 <p><img src="../images/quick_start/run_powershell.png" alt="Run Setup with powershell"></p>
 <ol start="7">
-<li>Follow the prompts (described below)
+<li><p>Follow the prompts (described below)</p>
 <ul>
-<li>First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.</li>
+<li>First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
+<img src="../images/quick_start/select_wrath_dir.png" alt="Select Wrath install directory"></li>
+<li>Next prompt is the directory you want to use for your mod / C# project
+<img src="../images/quick_start/select_mod_dir.png" alt="Select mod project directory"></li>
+<li>Next prompt is the directory for the Unity project you created
+<img src="../images/quick_start/select_unity_dir.png" alt="Select Unity project directory"></li>
+<li>Last prompt is the name of the mod, <strong>no spaces</strong>
+<img src="../images/quick_start/mod_name.png" alt="Enter mod name"></li>
 </ul>
 </li>
-</ol>
-<p><img src="../images/quick_start/select_wrath_dir.png" alt="Select Wrath install directory"></p>
-<pre><code>* Next prompt is the directory you want to use for your mod / C# project
-</code></pre>
-<p><img src="../images/quick_start/select_mod_dir.png" alt="Select mod project directory"></p>
-<pre><code>* Next prompt is the directory for the Unity project you created
-</code></pre>
-<p><img src="../images/quick_start/select_unity_dir.png" alt="Select Unity project directory"></p>
-<pre><code>* Last prompt is the name of the mod, **no spaces**
-</code></pre>
-<p><img src="../images/quick_start/mod_name.png" alt="Enter mod name"></p>
-<ol start="8">
-<li>Open the Unity project you created. You should have an <code>Assets</code> folder and an <code>Editor</code> folder now.</li>
-</ol>
-<p><img src="../images/quick_start/unity.png" alt="Run Setup with powershell"></p>
-<pre><code>* From the top bar select **Assets** &gt; **Build AssetBundles**
-* A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `&lt;modname&gt;_assets`.
-* You can close Unity
-</code></pre>
-<ol start="9">
-<li>Navigate to your mod project folder and open <code>&lt;ModName&gt;.csproj</code> in Visual Studio
+<li><p>Open the Unity project you created. You should have an <code>Assets</code> folder and an <code>Editor</code> folder now.
+<img src="../images/quick_start/unity.png" alt="Run Setup with powershell"></p>
+<ul>
+<li>From the top bar select <strong>Assets</strong> &gt; <strong>Build AssetBundles</strong></li>
+<li>A moment later you should see a <code>StreamingAssets</code> folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called <code>&lt;modname&gt;_assets</code>.</li>
+<li>You can close Unity</li>
+</ul>
+</li>
+<li><p>Navigate to your mod project folder and open <code>&lt;ModName&gt;.csproj</code> in Visual Studio</p>
 <ul>
 <li>Right click the project and select <strong>Clean</strong></li>
 <li>When it completes (check the Output window at the bottom), right click again and select <strong>Unload Project</strong></li>
@@ -135,23 +130,22 @@
 <li>This fixes issues with Intellisense caching claiming your assembly reference is broken</li>
 </ul>
 </li>
-<li>Still in Visual Studio, right click the project and select <strong>Add</strong> &gt; <strong>Existing Item</strong>
+<li><p>Still in Visual Studio, right click the project and select <strong>Add</strong> &gt; <strong>Existing Item</strong></p>
 <ul>
 <li>Navigate to the Unity project folder then <code>Assets/StreamingAssets</code> and select <code>&lt;modname&gt;_assets</code></li>
-<li>Right click <code>&lt;modname&gt;_assets</code> and set to <code>Copy if newer</code></li>
+<li>Right click <code>&lt;modname&gt;_assets</code> and set to <code>Copy if newer</code>
+<img src="../images/quick_start/assets_props.png" alt="Assets file properties"></li>
 </ul>
 </li>
-</ol>
-<p><img src="../images/quick_start/assets_props.png" alt="Assets file properties"></p>
-<ol start="10">
-<li>Build the project</li>
-<li>Launch Wrath and create or level up a character
+<li><p>Build the project</p>
+</li>
+<li><p>Launch Wrath and create or level up a character</p>
 <ul>
-<li>If all went well you should see a new feat called &quot;My Feat&quot;</li>
+<li>If all went well you should see a new feat called &quot;My Feat&quot;
+<img src="../images/quick_start/my_feat.png" alt="Example feat from mod"></li>
 </ul>
 </li>
 </ol>
-<p><img src="../images/quick_start/my_feat.png" alt="Example feat from mod"></p>
 <p>You're all set! If you want to keep your assembly size small you can additionally configure <a href="#optional-reduce-assembly-size-with-ilstrip">ILStrip</a>.</p>
 <h4 id="troubleshooting">Troubleshooting</h4>
 <p>Some users reported an issue where Unity &quot;locks&quot; files. This prevents the rename from happening. If this happens just follow the instructions in the <a href="tutorials/advanced/skalds_vigor.html#create-an-assetbundle">Skald's Vigor Tutorial</a>.</p>
