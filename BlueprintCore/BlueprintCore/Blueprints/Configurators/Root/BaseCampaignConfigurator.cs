@@ -16,11 +16,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintCampaign"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  public abstract class BaseCampaignConfigurator<T, TBuilder>
+    /// <summary>
+    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintCampaign"/>.
+    /// </summary>
+    /// <inheritdoc/>
+    public abstract class BaseCampaignConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintCampaign
     where TBuilder : BaseCampaignConfigurator<T, TBuilder>

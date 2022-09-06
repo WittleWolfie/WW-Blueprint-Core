@@ -30,11 +30,11 @@ using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
-  /// <summary>
-  /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific extensions such as <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
-  /// </summary>
-  /// <inheritdoc cref="ActionsBuilder"/>
-  public static class ActionsBuilderContextEx
+    /// <summary>
+    /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific extensions such as <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
+    /// </summary>
+    /// <inheritdoc cref="ActionsBuilder"/>
+    public static class ActionsBuilderContextEx
   {
 
     /// <summary>

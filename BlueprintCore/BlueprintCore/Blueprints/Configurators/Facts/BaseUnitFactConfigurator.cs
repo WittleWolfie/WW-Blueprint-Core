@@ -65,11 +65,11 @@ using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  public abstract class BaseUnitFactConfigurator<T, TBuilder>
+    /// <summary>
+    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
+    /// </summary>
+    /// <inheritdoc/>
+    public abstract class BaseUnitFactConfigurator<T, TBuilder>
     : BaseFactConfigurator<T, TBuilder>
     where T : BlueprintUnitFact
     where TBuilder : BaseUnitFactConfigurator<T, TBuilder>

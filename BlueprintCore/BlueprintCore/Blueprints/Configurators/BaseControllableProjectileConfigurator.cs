@@ -9,11 +9,11 @@ using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintControllableProjectile"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  public abstract class BaseControllableProjectileConfigurator<T, TBuilder>
+    /// <summary>
+    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintControllableProjectile"/>.
+    /// </summary>
+    /// <inheritdoc/>
+    public abstract class BaseControllableProjectileConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintControllableProjectile
     where TBuilder : BaseControllableProjectileConfigurator<T, TBuilder>

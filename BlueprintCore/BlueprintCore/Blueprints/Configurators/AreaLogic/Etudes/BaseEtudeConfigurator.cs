@@ -2064,8 +2064,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     public TBuilder AddEtudeBracketSetCompanionPosition(
         Blueprint<BlueprintUnitReference>? companion = null,
         bool? ignoreWhenEx = null,
-        EntityReference? locator = null,
-        bool? shouldRelease = null)
+        EntityReference? locator = null)
     {
       var component = new EtudeBracketSetCompanionPosition();
       component.m_Companion = companion?.Reference ?? component.m_Companion;
@@ -2076,7 +2075,6 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       component.m_IgnoreWhenEx = ignoreWhenEx ?? component.m_IgnoreWhenEx;
       Validate(locator);
       component.m_Locator = locator ?? component.m_Locator;
-      component.m_ShouldRelease = shouldRelease ?? component.m_ShouldRelease;
       return AddComponent(component);
     }
 
