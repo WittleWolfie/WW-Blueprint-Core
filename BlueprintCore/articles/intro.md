@@ -24,38 +24,64 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 1. Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/), skip if you already have it
     * When prompted for Workloads include ".NET desktop development", anything else is optional
 2. Download and install [Unity](https://unity3d.com/get-unity/download/archive) version `2019.4.26f1`, skip if you already have it
-3. Open Unity and create a new project with the 3D template, then close it
+3. Open Unity and create a new project with the 3D template, **then close it**
     * I recommend putting your Unity project folder in the same directory you put your mod project folder
-4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases)
+    * **Seriously close it or you'll probably need to do some renaming of things in Unity yourself from BasicTemplate to your mod name**
+4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip)
 5. Extract the contents
 6. Open the folder `BPCoreTemplate`, right click `Setup.ps1`, and select `Run with Powershell`
+
 ![Run Setup with powershell](~/images/quick_start/run_powershell.png)
+
 7. Follow the prompts (described below)
     * First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
-    ![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
+
+![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
+
     * Next prompt is the directory you want to use for your mod / C# project
-    ![Select mod project directory](~/images/quick_start/select_mod_dir.png)
+
+![Select mod project directory](~/images/quick_start/select_mod_dir.png)
+
     * Next prompt is the directory for the Unity project you created
-    ![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
+
+![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
+
     * Last prompt is the name of the mod, **no spaces**
-    ![Enter mod name](~/images/quick_start/mod_name.png)
+
+![Enter mod name](~/images/quick_start/mod_name.png)
+
 8. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
+
 ![Run Setup with powershell](~/images/quick_start/unity.png)
+
     * From the top bar select **Assets** > **Build AssetBundles**
     * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
     * You can close Unity
+
 9. Navigate to your mod project folder and open `<ModName>.csproj` in Visual Studio
-    * Right click the project and select **Add** > **Existing Item**
+    * Right click the project and select **Clean**
+    * When it completes (check the Output window at the bottom), right click again and select **Unload Project**
+    * Right click one more time and select **Reload Project**
+    * This fixes issues with Intellisense caching claiming your assembly reference is broken
+10. Still in Visual Studio, right click the project and select **Add** > **Existing Item**
     * Navigate to the Unity project folder then `Assets/StreamingAssets` and select `<modname>_assets`
     * Right click `<modname>_assets` and set to `Copy if newer`
-    ![Assets file properties](~/images/quick_start/assets_props.png)
-10. Rebuild the project
-    * It should build but you might see errors in the UI until you re-start Visual Studio. This is a problem with Intellisense caching.
+
+![Assets file properties](~/images/quick_start/assets_props.png)
+
+10. Build the project
 11. Launch Wrath and create or level up a character
     * If all went well you should see a new feat called "My Feat"
-    ![Example feat from mod](~/images/quick_start/my_feat.png)
+
+![Example feat from mod](~/images/quick_start/my_feat.png)
 
 You're all set! If you want to keep your assembly size small you can additionally configure [ILStrip](#optional-reduce-assembly-size-with-ilstrip).
+
+#### Troubleshooting
+
+Some users reported an issue where Unity "locks" files. This prevents the rename from happening. If this happens just follow the instructions in the [Skald's Vigor Tutorial](~/articles/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
+
+Otherwise try opening powershell and running the script from there. This allows you to see any errors.
 
 ### Full Setup
 
