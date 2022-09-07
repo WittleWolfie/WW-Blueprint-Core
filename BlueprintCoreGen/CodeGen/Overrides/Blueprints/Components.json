@@ -246,7 +246,7 @@
       },
       {
         "MethodName": "AddRecommendationHalfBAB",
-        "Remarks":  [ "Sets MinPart to 0.45" ],
+        "Remarks": [ "Sets MinPart to 0.45" ],
         "ConstantFields": [
           {
             "FieldName": "MinPart",
@@ -349,6 +349,70 @@
   {
     "TypeName": "RecommendationWeaponTypeFocus",
     "RequiredFields": [ "WeaponRangeType" ]
+  },
+
+  {
+    "TypeName": "ReplaceStatForPrerequisites",
+    "RequiredFields": [ "OldStat" ],
+    "Methods": [
+      {
+        "MethodName": "AddReplaceStatForPrerequisites",
+        "Remarks": [ "When checking prerequisites, replaces the stat with a constant or adds a constant to the stat of addToStat is true." ],
+        "RequiredFields": [ "SpecificNumber" ],
+        "IgnoredFields": [ "Policy", "NewStat", "m_CharacterClass" ],
+        "ExtraParams": [
+          {
+            "ParamName": "addToStat",
+            "TypeName": "bool",
+            "CommentFmt": "If true, the value is added to the original stat",
+            "DefaultValue": "false",
+            "OperationFmt": [
+              "{0}.Policy = addToStat ? ReplaceStatForPrerequisites.StatReplacementPolicy.Summand : ReplaceStatForPrerequisites.StatReplacementPolicy.SpecificNumber;"
+            ]
+          }
+        ]
+      },
+      {
+        "MethodName": "AddReplaceStatForPrerequisites",
+        "Remarks": [ "When checking prerequisites, replaces the stat with class levels or adds class levels to the stat of addToStat is true." ],
+        "RequiredFields": [ "m_CharacterClass" ],
+        "IgnoredFields": [ "Policy", "NewStat", "SpecificNumber" ],
+        "ExtraParams": [
+          {
+            "ParamName": "addToStat",
+            "TypeName": "bool",
+            "CommentFmt": "If true, the value is added to the original stat",
+            "DefaultValue": "false",
+            "OperationFmt": [
+              "{0}.Policy = addToStat ? ReplaceStatForPrerequisites.StatReplacementPolicy.ClassLevelStacking : ReplaceStatForPrerequisites.StatReplacementPolicy.ClassLevel;"
+            ]
+          }
+        ]
+      },
+      {
+        "MethodName": "AddReplaceStatForPrerequisites",
+        "Remarks": [ "When checking prerequisites, replaces the stat with another stat." ],
+        "RequiredFields": [ "NewStat" ],
+        "IgnoredFields": [ "m_CharacterClass", "SpecificNumber" ],
+        "ConstantFields": [
+          {
+            "fieldName": "Policy",
+            "Value": "ReplaceStatForPrerequisites.StatReplacementPolicy.NewStat"
+          }
+        ]
+      },
+      {
+        "MethodName": "AddReplaceStatForPrerequisitesMagus",
+        "RequiredFields": [ "m_CharacterClass" ],
+        "IgnoredFields": [ "SpecificNumber", "NewStat" ],
+        "ConstantFields": [
+          {
+            "fieldName": "Policy",
+            "Value": "ReplaceStatForPrerequisites.StatReplacementPolicy.MagusBaseAttack"
+          }
+        ]
+      }
+    ]
   },
 
   {

@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## v2.2.4 Release
+
+* Hand tuned more components
+
+### Breaking Changes
+
+* `AddReplaceStatForPrerequisites` has been modified
+
 ## v2.2.3 Release
 
 * Updated for latest game version

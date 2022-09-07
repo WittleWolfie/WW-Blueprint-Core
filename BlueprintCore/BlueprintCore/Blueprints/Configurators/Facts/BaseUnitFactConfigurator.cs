@@ -65,11 +65,11 @@ using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseUnitFactConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintUnitFact"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseUnitFactConfigurator<T, TBuilder>
     : BaseFactConfigurator<T, TBuilder>
     where T : BlueprintUnitFact
     where TBuilder : BaseUnitFactConfigurator<T, TBuilder>
@@ -354,6 +354,162 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.Stat = stat;
       component.Value = value;
       component.Descriptor = descriptor ?? component.Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceStatForPrerequisites"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// When checking prerequisites, replaces the stat with a constant or adds a constant to the stat of addToStat is true.
+    /// </para>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KineticWarriorFeature</term><description>ff14cb2bfab1c0547be66d8aaa7e4ada</description></item>
+    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
+    /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="addToStat">
+    /// If true, the value is added to the original stat
+    /// </param>
+    public TBuilder AddReplaceStatForPrerequisites(
+        StatType oldStat,
+        int specificNumber,
+        bool addToStat = false)
+    {
+      var component = new ReplaceStatForPrerequisites();
+      component.OldStat = oldStat;
+      component.SpecificNumber = specificNumber;
+      component.Policy = addToStat ? ReplaceStatForPrerequisites.StatReplacementPolicy.Summand : ReplaceStatForPrerequisites.StatReplacementPolicy.SpecificNumber;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceStatForPrerequisites"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// When checking prerequisites, replaces the stat with class levels or adds class levels to the stat of addToStat is true.
+    /// </para>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KineticWarriorFeature</term><description>ff14cb2bfab1c0547be66d8aaa7e4ada</description></item>
+    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
+    /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="characterClass">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="addToStat">
+    /// If true, the value is added to the original stat
+    /// </param>
+    public TBuilder AddReplaceStatForPrerequisites(
+        Blueprint<BlueprintCharacterClassReference> characterClass,
+        StatType oldStat,
+        bool addToStat = false)
+    {
+      var component = new ReplaceStatForPrerequisites();
+      component.m_CharacterClass = characterClass?.Reference;
+      component.OldStat = oldStat;
+      component.Policy = addToStat ? ReplaceStatForPrerequisites.StatReplacementPolicy.ClassLevelStacking : ReplaceStatForPrerequisites.StatReplacementPolicy.ClassLevel;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceStatForPrerequisites"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    /// <para>
+    /// When checking prerequisites, replaces the stat with another stat.
+    /// </para>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KineticWarriorFeature</term><description>ff14cb2bfab1c0547be66d8aaa7e4ada</description></item>
+    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
+    /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddReplaceStatForPrerequisites(
+        StatType newStat,
+        StatType oldStat)
+    {
+      var component = new ReplaceStatForPrerequisites();
+      component.NewStat = newStat;
+      component.OldStat = oldStat;
+      component.Policy = ReplaceStatForPrerequisites.StatReplacementPolicy.NewStat;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ReplaceStatForPrerequisites"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Add ability resources
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>KineticWarriorFeature</term><description>ff14cb2bfab1c0547be66d8aaa7e4ada</description></item>
+    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
+    /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="characterClass">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddReplaceStatForPrerequisitesMagus(
+        Blueprint<BlueprintCharacterClassReference> characterClass,
+        StatType oldStat)
+    {
+      var component = new ReplaceStatForPrerequisites();
+      component.m_CharacterClass = characterClass?.Reference;
+      component.OldStat = oldStat;
+      component.Policy = ReplaceStatForPrerequisites.StatReplacementPolicy.MagusBaseAttack;
       return AddComponent(component);
     }
 
@@ -20580,56 +20736,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     {
       var component = new ReplaceSourceBone();
       component.SourceBone = sourceBone ?? component.SourceBone;
-      return AddComponent(component);
-    }
-
-    /// <summary>
-    /// Adds <see cref="ReplaceStatForPrerequisites"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Add ability resources
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>KineticWarriorFeature</term><description>ff14cb2bfab1c0547be66d8aaa7e4ada</description></item>
-    /// <item><term>SwordSaintCriticalPerfection</term><description>36837f00fc2f5d043847e37ba6af187c</description></item>
-    /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="characterClass">
-    /// <para>
-    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public TBuilder AddReplaceStatForPrerequisites(
-        Blueprint<BlueprintCharacterClassReference>? characterClass = null,
-        StatType? newStat = null,
-        StatType? oldStat = null,
-        ReplaceStatForPrerequisites.StatReplacementPolicy? policy = null,
-        int? specificNumber = null)
-    {
-      var component = new ReplaceStatForPrerequisites();
-      component.m_CharacterClass = characterClass?.Reference ?? component.m_CharacterClass;
-      if (component.m_CharacterClass is null)
-      {
-        component.m_CharacterClass = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
-      }
-      component.NewStat = newStat ?? component.NewStat;
-      component.OldStat = oldStat ?? component.OldStat;
-      component.Policy = policy ?? component.Policy;
-      component.SpecificNumber = specificNumber ?? component.SpecificNumber;
       return AddComponent(component);
     }
 

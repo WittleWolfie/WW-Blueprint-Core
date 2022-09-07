@@ -29,11 +29,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEtude"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  public abstract class BaseEtudeConfigurator<T, TBuilder>
+    /// <summary>
+    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEtude"/>.
+    /// </summary>
+    /// <inheritdoc/>
+    public abstract class BaseEtudeConfigurator<T, TBuilder>
     : BaseFactConfigurator<T, TBuilder>
     where T : BlueprintEtude
     where TBuilder : BaseEtudeConfigurator<T, TBuilder>
