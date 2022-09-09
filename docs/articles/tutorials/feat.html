@@ -232,8 +232,8 @@ static class BlueprintsCaches_Patch
 <pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid)
     .SetDisplayName(&quot;MagicalAptitude.Name&quot;)
     .SetDescription(&quot;MagicalAptitude.Description&quot;)
-    .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
-    .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
+    .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
+    .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
     .Configure();
 </code></pre>
 <p>Notice the skill is defined in using the <code>StatType</code> enum. This is used in game to represent most numerical characteristics. Instead of searching for &quot;Skill&quot; we could have searched for &quot;Stat&quot; to find different ways to add the effect.</p>

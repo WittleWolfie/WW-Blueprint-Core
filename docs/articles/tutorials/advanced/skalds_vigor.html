@@ -132,7 +132,7 @@
       ActionsBuilder.New()
         .Conditional(
           ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
-          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true)))
   .Configure();
 </code></pre>
 <p>Since the existing buff is modified it effects every application. The conditional check ensures it only applies to characters with the feat.</p>
@@ -232,7 +232,7 @@ static class BuffCollection_Patch
       ActionsBuilder.New()
         .Conditional(
           ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
-          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true)))
   .SetStacking(StackingType.Ignore)
   .Configure();
 </code></pre>
@@ -417,7 +417,7 @@ AddFactContextActions(
         ifTrue: applyBuff)
       .Conditional(
         ConditionsBuilder.New().CasterHasFact(GreaterFeatName),
-        ifTrue: applyBuff),
+        ifTrue: applyBuff)),
 </code></pre>
 <p>Technically this results in applying the buff to the caster twice if they have Greater Skald's Vigor, but the default behavior for buffs is replace so only a single instance is applied.</p>
 <p>Test it out and it should apply to your party:</p>

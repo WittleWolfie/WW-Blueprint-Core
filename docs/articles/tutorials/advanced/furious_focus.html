@@ -135,7 +135,7 @@ if (powerAttackModifier is null)
 }
 
 Logger.Info($&quot;Adding attack bonus to {Owner.CharacterName}'s attack&quot;);
-evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable));
+evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
 </code></pre>
 <p>To understand where this code comes from just look at how <code>WeaponParametersAttackBonus</code> applies its penalty. Each modifier is added to <code>m_ModifiableBonus</code> and includes a value and a <code>Fact</code> which points to the fact providing the bonus. When adding the Furious Focus bonus the <code>Fact</code> from <code>UnitFactComponentDelegate</code> is provided to ensure it shows up in the tooltips.</p>
 <p>Add the component to the feature:</p>
@@ -150,6 +150,15 @@ evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDes
 </code></pre>
 <p>Test it out and you should see something like this:</p>
 <p><img src="../../../images/advanced_feat/furious_focus_tooltip.png" alt="Furious Focus attack bonus tooltip"></p>
+<p>You might notice something wrong: the bonus doesn't add up! The problem is in our use of <code>AddModifier()</code>:</p>
+<pre><code class="lang-C#">evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+</code></pre>
+<p>The behavior of this is different if called in <code>OnEventDidTrigger</code> than in <code>OnEventAboutToTrigger</code>. In <code>OnEventAboutToTrigger</code> the result has not been calculated yet, which is why we can't tell that Power Attack applies. At that point calling <code>AddModifier()</code> adds to the bonuses used in the event to calculate <code>evt.Result</code>.</p>
+<p>However, calling <code>AddModifier()</code> in <code>OnEventDidTrigger</code> only affects the tooltip. The result is already calculated and stored in <code>evt.Result</code>, so to fix it modify the result directly:</p>
+<pre><code class="lang-C#">evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+evt.Result -= powerAttackModifier.Value.Value;
+</code></pre>
+<p>You still need to call <code>AddModifier</code> or it won't show up on the tooltip, but test again and the numbers should add up.</p>
 <h2 id="completing-the-feat">Completing the Feat</h2>
 <p>Right now the attack bonus eliminates the penalty from Power Attack at all times. Finishing the feat requires adding some restrictions to the bonus:</p>
 <ol>
