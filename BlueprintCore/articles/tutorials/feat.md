@@ -208,8 +208,8 @@ Everything looks good but there is no mechanical effect. There are several ways 
 FeatureConfigurator.New(FeatName, FeatGuid)
     .SetDisplayName("MagicalAptitude.Name")
     .SetDescription("MagicalAptitude.Description")
-    .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
-    .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
+    .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
+    .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
     .Configure();
 ```
 

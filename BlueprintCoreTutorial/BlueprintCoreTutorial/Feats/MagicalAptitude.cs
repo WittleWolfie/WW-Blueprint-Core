@@ -17,12 +17,14 @@ namespace BlueprintCoreTutorial.Feats
     public static void Configure()
     {
       FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat)
-          .SetDisplayName("MagicalAptitude.Name")
-          .SetDescription("MagicalAptitude.Description")
-          .AddFeatureTagsComponent(FeatureTag.Skills)
-          .AddBuffSkillBonus(stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.Feat)
-          .AddBuffSkillBonus(stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.Feat)
-          .Configure();
+        .SetDisplayName("MagicalAptitude.Name")
+        .SetDescription("MagicalAptitude.Description")
+        .AddFeatureTagsComponent(FeatureTag.Skills)
+        .AddBuffSkillBonus(
+          stat: StatType.SkillKnowledgeArcana, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
+        .AddBuffSkillBonus(
+          stat: StatType.SkillUseMagicDevice, value: 2, descriptor: ModifierDescriptor.UntypedStackable)
+        .Configure();
     }
   }
 }
