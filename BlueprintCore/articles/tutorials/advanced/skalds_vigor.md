@@ -85,7 +85,7 @@ BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
       ActionsBuilder.New()
         .Conditional(
           ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
-          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true)))
   .Configure();
 ```
 
@@ -206,7 +206,7 @@ BuffConfigurator.For(BuffRefs.InspiredRageEffectBuff)
       ActionsBuilder.New()
         .Conditional(
           ConditionsBuilder.New().TargetIsYourself().HasFact(FeatName),
-          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true))
+          ifTrue: ActionsBuilder.New().ApplyBuffPermanent(BuffName, isNotDispelable: true)))
   .SetStacking(StackingType.Ignore)
   .Configure();
 ```
@@ -458,7 +458,7 @@ AddFactContextActions(
         ifTrue: applyBuff)
       .Conditional(
         ConditionsBuilder.New().CasterHasFact(GreaterFeatName),
-        ifTrue: applyBuff),
+        ifTrue: applyBuff)),
 ```
 
 Technically this results in applying the buff to the caster twice if they have Greater Skald's Vigor, but the default behavior for buffs is replace so only a single instance is applied.
