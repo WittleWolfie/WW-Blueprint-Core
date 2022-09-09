@@ -77,7 +77,8 @@ namespace BlueprintCoreTutorial.Feats
           }
 
           Logger.Info($"Adding attack bonus to {Owner.CharacterName}'s attack");
-          evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable));
+          evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+          evt.Result -= powerAttackModifier.Value.Value;
         }
         catch (Exception e)
         {

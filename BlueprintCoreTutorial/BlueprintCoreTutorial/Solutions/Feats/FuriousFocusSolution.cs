@@ -92,7 +92,12 @@ namespace BlueprintCoreTutorial.Solutions.Feats
           }
 
           Logger.Info($"Adding attack bonus to {Owner.CharacterName}'s attack");
-          evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable));
+          // If we did this in OnEventAboutToTrigger() then it would apply to the result automatically. Since this is
+          // in OnEventDidTrigger, evt.Result is already calculated and this just makes sure it shows up in the
+          // tooltip.
+          evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+          // Modify the result directly so that the bonus applies
+          evt.Result -= powerAttackModifier.Value.Value;
         }
         catch (Exception e)
         {

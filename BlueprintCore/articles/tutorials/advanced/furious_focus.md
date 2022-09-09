@@ -83,7 +83,7 @@ if (powerAttackModifier is null)
 }
 
 Logger.Info($"Adding attack bonus to {Owner.CharacterName}'s attack");
-evt.AddModifier(new Modifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable));
+evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
 ```
 
 To understand where this code comes from just look at how `WeaponParametersAttackBonus` applies its penalty. Each modifier is added to `m_ModifiableBonus` and includes a value and a `Fact` which points to the fact providing the bonus. When adding the Furious Focus bonus the `Fact` from `UnitFactComponentDelegate` is provided to ensure it shows up in the tooltips.
@@ -104,6 +104,23 @@ FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.Comb
 Test it out and you should see something like this:
 
 ![Furious Focus attack bonus tooltip](~/images/advanced_feat/furious_focus_tooltip.png)
+
+You might notice something wrong: the bonus doesn't add up! The problem is in our use of `AddModifier()`:
+
+```C#
+evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+```
+
+The behavior of this is different if called in `OnEventDidTrigger` than in `OnEventAboutToTrigger`. In `OnEventAboutToTrigger` the result has not been calculated yet, which is why we can't tell that Power Attack applies. At that point calling `AddModifier()` adds to the bonuses used in the event to calculate `evt.Result`.
+
+However, calling `AddModifier()` in `OnEventDidTrigger` only affects the tooltip. The result is already calculated and stored in `evt.Result`, so to fix it modify the result directly:
+
+```C#
+evt.AddModifier(-powerAttackModifier.Value.Value, Fact, ModifierDescriptor.UntypedStackable);
+evt.Result -= powerAttackModifier.Value.Value;
+```
+
+You still need to call `AddModifier` or it won't show up on the tooltip, but test again and the numbers should add up.
 
 ## Completing the Feat
 
