@@ -145,7 +145,12 @@ namespace BlueprintCore.Utils
     /// <returns>True if the blueprint exists with the specified type, false otherwise</returns>
     public static bool TryGet<T>(string nameOrGuid, out T? blueprint) where T : SimpleBlueprint
     {
-      if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid.ToLower()); }
+      blueprint = null;
+      if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId))
+      {
+        if (!Guid.TryParse(nameOrGuid.ToLower(), out assetId))
+          return false;
+      }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
       if (asset is T bp)
@@ -153,8 +158,6 @@ namespace BlueprintCore.Utils
         blueprint = bp;
         return true;
       }
-
-      blueprint = null;
       return false;
     }
 
