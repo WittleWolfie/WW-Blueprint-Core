@@ -3,6 +3,7 @@
 ## v2.2.4 Release
 
 * Hand tuned more components
+* Added `BlueprintTool.Exists<T>()` to check for presence of a blueprint
 
 ### Breaking Changes
 
