@@ -141,15 +141,20 @@ namespace BlueprintCore.Utils
       return asset;
     }
 
+    /// <param name="blueprint">Populated with the blueprint if it exists, null otherwise.</param>
     /// <returns>True if the blueprint exists with the specified type, false otherwise</returns>
-    public static bool Exists<T>(string nameOrGuid) where T : SimpleBlueprint
+    public static bool TryGet<T>(string nameOrGuid, out T? blueprint) where T : SimpleBlueprint
     {
       if (!GuidsByName.TryGetValue(nameOrGuid, out Guid assetId)) { assetId = Guid.Parse(nameOrGuid.ToLower()); }
 
       SimpleBlueprint asset = ResourcesLibrary.TryGetBlueprint(new BlueprintGuid(assetId));
-      if (asset is T)
+      if (asset is T bp)
+      {
+        blueprint = bp;
         return true;
+      }
 
+      blueprint = null;
       return false;
     }
 
