@@ -346,7 +346,8 @@ Here are the icons we'll use for Skald's Vigor: ![Skald's Vigor icon](~/images/a
 
 It is common for mods to import PNG files directly, see [TabletopTweaks-Core's](https://github.com/Vek17/TabletopTweaks-Core/tree/master/TabletopTweaks-Core) `AssetLoader` for an example. This works but is not efficient and doesn't work if you want to import other assets such as models, textures, and shaders.
 
-1. Download [Unity](https://unity3d.com/get-unity/download/archive) version `2019.4.26f1`
+1. Download [Unity](https://unity3d.com/get-unity/download/archive) version `2020.3.33f1`
+    * Prior to game patch 1.4 the correct Unity version is `2019.4.26f1`
 2. Create a new project with the 3D template
 3. Create a script to build an AssetBundle using [Unity's Tutorial](https://learn.unity.com/tutorial/introduction-to-asset-bundles#6028bab6edbc2a750bf5b8a4)
 4. Create a new folder in Assets called **Icons**
