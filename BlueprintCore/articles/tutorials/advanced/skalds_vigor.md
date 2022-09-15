@@ -334,7 +334,7 @@ My icons are edited composites of existing in-game icons:
 
 1. Download [AssetStudio](https://github.com/Perfare/AssetStudio)
 2. Extract game assets
-    * Most icons are in `%WrathPath%\Bundles\icons`
+    * Most icons are in `%WrathPath%\Bundles\blueprint.assets` and `%WrathPath%\Bundles\icons`
 3. Open icons in your photo editor of choice, I use [GIMP](https://www.gimp.org/)
 4. Combine, edit, and tweak the icon to your heart's content
 
