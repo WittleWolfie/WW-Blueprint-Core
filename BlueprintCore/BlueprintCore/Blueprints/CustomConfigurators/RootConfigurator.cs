@@ -67,6 +67,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   {
     protected static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintConfigurator");
 
+    private static readonly List<RootConfigurator<T, TBuilder>> DelayedBlueprints = new();
+
     protected readonly TBuilder Self;
     protected readonly T Blueprint;
 
@@ -87,6 +89,53 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       Validator = new(Blueprint.name, typeof(T).Name);
     }
 
+    /// <summary>
+    /// Configures any delayed blueprints.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// This is useful if you want to interact with other content mods without having a dependency. For example you can
+    /// use this to add a new <c>BlueprintFeature</c> to the appropriate <c>BlueprintFeatureSelection</c> from another
+    /// mod.
+    /// </para>
+    /// 
+    /// <para>
+    /// It's recommended to call this after <c>StartGameLoader.LoadPackTOC()</c> by postfixing it. If you use TTT-Core
+    /// this can be done by subscribing to <c>IBlueprintCacheInitHandler</c> and responding to
+    /// <c>AfterBlueprintCachePatches()</c>.
+    /// </para>
+    /// 
+    /// <example>
+    /// <code>
+    /// // Note that the blueprint is created and registered here, but not configured
+    /// var feature =
+    ///   FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroup.Feat, FeatureGroup.CombatFeat)
+    ///     .Configure(delayed: true);
+    /// 
+    /// // This method should be declared in a class implementing IBlueprintCacheInitHandler
+    /// public void AfterBlueprintCachePatches()
+    /// {
+    ///   // Now the feature is configured. Any mods that add BlueprintFeatureSelections matching FeatureGroup.Feat or
+    ///   // FeatureGroup.CombatFeat will include your feat.
+    ///   RootConfigurator.ConfigureDelayed();
+    /// }
+    /// </code>
+    /// </example>
+    /// </remarks>
+    public static void ConfigureDelayedBlueprints()
+    {
+      try
+      {
+        DelayedBlueprints.ForEach(c => c.Configure());
+        DelayedBlueprints.Clear();
+      }
+      catch (Exception e)
+      {
+        Logger.Error("Exception thrown while configuring delayed blueprints.", e);
+      }
+    }
+
     /// <summary>Commits the configuration changes to the blueprint.</summary>
     /// 
     /// <remarks>
@@ -96,12 +145,21 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// Throws <see cref="InvalidOperationException"/> if called twice on the same configurator.
     /// </remarks>
     ///
+    /// <param name="delayed">
+    /// If true, queues this blueprint to be configured when <see cref="ConfigureDelayedBlueprints"/> is called
+    /// </param>
     /// <returns>The resulting blueprint.</returns>
-    public T Configure()
+    public T Configure(bool delayed = false)
     {
       if (Configured)
       {
         throw new InvalidOperationException($"{Blueprint.name} has already been configured.");
+      }
+
+      if (delayed)
+      {
+        DelayedBlueprints.Add(this);
+        return Blueprint;
       }
 
       Configured = true;
