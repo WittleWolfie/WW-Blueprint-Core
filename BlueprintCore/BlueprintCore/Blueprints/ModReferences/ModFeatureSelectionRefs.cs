@@ -105,6 +105,23 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> OceansEchoMysterySelection = "a8044859-fd51-414e-972f-a74c4ccf9068";
     // ************************** //
 
+    // **** Kineticist Expanded Elements **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatAether = "cc59b93cc889438a857ca64481db977b";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatAether1 = "1321f09e13514fd1ab4f4df3189d3987";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatAether2 = "708b8dfe0daa456dabd64336a8f7dbad";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatAether3 = "d8f8641c3b084f9ebb0d46644ecccc7c";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> GravityBlastSelection = "2b5ad478d5874bd48cdf7be60e4a92b6";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatVoid = "d5fcefbff62645e48335d6b6090cab9c";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatVoid1 = "80eb6089020342ca9d9de552df7202ee";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatVoid2 = "37237f8fcba1474892fe30d5af4e3c6f";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatVoid3 = "ffda029f1ea64e99b178f8b6480098bb";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WoodBlastSelection = "959431c21e414452ada0ce3c45ed49e6";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatWood = "9e877e6403d142faa3481e07e8b4dc92";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatWood1 = "aa39d83f9331407a9cb22196eee48486";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatWood2 = "bf160ad2eddc475694510f4512ec4f6b";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatWood3 = "949d5baa2b5449b68debca0a6594323a";
+    // ************************************** //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -206,6 +223,23 @@ namespace BlueprintCore.Blueprints.ModReferences
         OracleRevelationWingsOfTheDragonSelection,
         OceansEchoMysterySelection,
         // ************************** //
+        
+        // **** Kineticist Expanded Elements **** //
+        WildTalentBonusFeatAether,
+        WildTalentBonusFeatAether1,
+        WildTalentBonusFeatAether2,
+        WildTalentBonusFeatAether3,
+        GravityBlastSelection,
+        WildTalentBonusFeatVoid,
+        WildTalentBonusFeatVoid1,
+        WildTalentBonusFeatVoid2,
+        WildTalentBonusFeatVoid3,
+        WoodBlastSelection,
+        WildTalentBonusFeatWood,
+        WildTalentBonusFeatWood1,
+        WildTalentBonusFeatWood2,
+        WildTalentBonusFeatWood3,
+        // ************************************** //
       };
   }
 }
