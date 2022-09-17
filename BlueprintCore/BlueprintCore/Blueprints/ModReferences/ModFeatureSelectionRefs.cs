@@ -66,6 +66,10 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> SpellBlendingSelection = "67d5b18e-c934-4c6d-a4a6-446df6855ad6";
     // ****************** //
 
+    // **** TTT-Reworks **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> TricksterTTTAnimalCompanionSelectionDomain = "38342bea-7587-4985-90c3-80ce60db0a44";
+    // ********************* //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -128,6 +132,10 @@ namespace BlueprintCore.Blueprints.ModReferences
         SorcererDestinedFeatSelection,
         SpellBlendingSelection,
         // ****************** //
+
+        // **** TTT-Reworks **** //
+        TricksterTTTAnimalCompanionSelectionDomain,
+        // ********************* //
       };
   }
 }
