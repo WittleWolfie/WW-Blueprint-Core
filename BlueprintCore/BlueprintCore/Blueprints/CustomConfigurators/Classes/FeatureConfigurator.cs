@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
+using BlueprintCore.Blueprints.ModReferences;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -83,53 +84,68 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         switch (style)
         {
           case RangerStyle.Archery10:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection10.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleArcherySelection10.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Archery6;
           case RangerStyle.Archery6:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection6.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleArcherySelection6.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Archery2;
           case RangerStyle.Archery2:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleArcherySelection2.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleArcherySelection2.Cast<BlueprintFeatureSelectionReference>().Reference);
             break;
 
           case RangerStyle.Menacing10:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection10.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleMenacingSelection10.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Menacing6;
           case RangerStyle.Menacing6:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection6.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleMenacingSelection6.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Menacing2;
           case RangerStyle.Menacing2:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleMenacingSelection2.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleMenacingSelection2.Cast<BlueprintFeatureSelectionReference>().Reference);
             break;
 
           case RangerStyle.Shield10:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection10.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleShieldSelection10.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Shield6;
           case RangerStyle.Shield6:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection6.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleShieldSelection6.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.Shield2;
           case RangerStyle.Shield2:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleShieldSelection2.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleShieldSelection2.Cast<BlueprintFeatureSelectionReference>().Reference);
             break;
 
           case RangerStyle.TwoHanded10:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection10.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoHandedSelection10.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.TwoHanded6;
           case RangerStyle.TwoHanded6:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection6.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoHandedSelection6.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.TwoHanded2;
           case RangerStyle.TwoHanded2:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoHandedSelection2.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoHandedSelection2.Cast<BlueprintFeatureSelectionReference>().Reference);
             break;
 
           case RangerStyle.TwoWeapon10:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection10.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoWeaponSelection10.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.TwoWeapon6;
           case RangerStyle.TwoWeapon6:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection6.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoWeaponSelection6.Cast<BlueprintFeatureSelectionReference>().Reference);
             goto case RangerStyle.TwoWeapon2;
           case RangerStyle.TwoWeapon2:
-            AdditionalFeatureSelections.Add(FeatureSelectionRefs.RangerStyleTwoWeaponSelection2.Reference.Get());
+            AdditionalFeatureSelections.Add(
+              FeatureSelectionRefs.RangerStyleTwoWeaponSelection2.Cast<BlueprintFeatureSelectionReference>().Reference);
             break;
         }
       }
@@ -137,31 +153,42 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <summary>
-    /// Adds the feature to the specified selections. 
+    /// Adds the feature to the specified selections, if the selections exist.
     /// </summary>
     /// 
     /// <remarks>
+    /// <para>
     /// Most selections should be automatically populated based on the FeatureGroup values you specify in
     /// <see cref="New(string, string, FeatureGroup[])"/>.
+    /// </para>
+    /// 
+    /// <para>
+    /// Note that if a selection you provide here does not exist, it will not fail. Use this to add your feature to
+    /// selections from other mods without a dependency: call
+    /// <see cref="RootConfigurator{T, TBuilder}.Configure(bool)"/> setting <c>delayed</c> to <c>true</c>. Then when
+    /// you call <see cref="RootConfigurator{T, TBuilder}.ConfigureDelayedBlueprints"/> those selections should exist
+    /// if the required mod is installed.
+    /// </para>
     /// </remarks>
     public FeatureConfigurator AddToFeatureSelection(params Blueprint<BlueprintFeatureSelectionReference>[] selections)
     {
       foreach (var selection in selections)
       {
-        AdditionalFeatureSelections.Add(selection.Reference.Get());
+        AdditionalFeatureSelections.Add(selection.Reference);
       }
       return this;
     }
 
     private static readonly IEnumerable<BlueprintFeatureSelection> FeatureSelections =
-      FeatureSelectionRefs.All.Select(selectionRef => selectionRef.Reference.Get());
+      FeatureSelectionRefs.All.Select(selectionRef => selectionRef.Reference.Get()).Where(s => s is not null);
 
-    private readonly HashSet<BlueprintFeatureSelection> AdditionalFeatureSelections = new();
+    private readonly HashSet<BlueprintFeatureSelectionReference> AdditionalFeatureSelections = new();
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
 
-      foreach (var selection in FeatureSelections.Except(AdditionalFeatureSelections))
+      var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);
+      foreach (var selection in FeatureSelections.Except(additionalFeatureSelections))
       {
         if (Blueprint.HasGroup(selection.Group) || Blueprint.HasGroup(selection.Group2))
         {
@@ -169,7 +196,16 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         }
       }
 
-      foreach (var selection in AdditionalFeatureSelections)
+      var modFeatureSelections = ModFeatureSelectionRefs.All.Select(s => s.Reference.Get()).Where(s => s is not null);
+      foreach (var selection in modFeatureSelections.Except(additionalFeatureSelections))
+      {
+        if (Blueprint.HasGroup(selection.Group) || Blueprint.HasGroup(selection.Group2))
+        {
+          FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
+        }
+      }
+
+      foreach (var selection in additionalFeatureSelections)
       {
         FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
