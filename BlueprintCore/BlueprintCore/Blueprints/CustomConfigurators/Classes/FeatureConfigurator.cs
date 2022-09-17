@@ -190,25 +190,19 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);
       foreach (var selection in FeatureSelections.Except(additionalFeatureSelections))
       {
-        if (GroupMatches(Blueprint, selection))
+        if (Blueprint.HasGroup(selection.Group, selection.Group2))
           FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
 
       var modFeatureSelections = ModFeatureSelectionRefs.All.Select(s => s.Reference.Get()).Where(s => s is not null);
       foreach (var selection in modFeatureSelections.Except(additionalFeatureSelections))
       {
-        if (GroupMatches(Blueprint, selection))
+        if (Blueprint.HasGroup(selection.Group, selection.Group2))
           FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
 
       foreach (var selection in additionalFeatureSelections)
         FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
-    }
-
-    private static bool GroupMatches(BlueprintFeature feature, BlueprintFeatureSelection featureSelection)
-    {
-      return
-        feature.HasGroup(featureSelection.Group, featureSelection.Group2) || feature.HasGroup(featureSelection.Groups);
     }
   }
 
