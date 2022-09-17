@@ -61,13 +61,11 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
   /// 
   /// For more information see <see href="https://wittlewolfie.github.io/WW-Blueprint-Core/articles/intro.html#using-blueprintcore">Using BlueprintCore</see>.
   /// </remarks>
-  public abstract class RootConfigurator<T, TBuilder>
+  public abstract class RootConfigurator<T, TBuilder> : Configurator
     where T: BlueprintScriptableObject
     where TBuilder : RootConfigurator<T, TBuilder>
   {
     protected static readonly LogWrapper Logger = LogWrapper.GetInternal("BlueprintConfigurator");
-
-    private static readonly List<RootConfigurator<T, TBuilder>> DelayedBlueprints = new();
 
     protected readonly TBuilder Self;
     protected readonly T Blueprint;
@@ -102,7 +100,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// 
     /// <para>
     /// It's recommended to call this after <c>StartGameLoader.LoadPackTOC()</c> by postfixing it. If you use TTT-Core
-    /// this can be done by subscribing to <c>IBlueprintCacheInitHandler</c> and responding to
+    /// this can be done by implementing <c>IBlueprintCacheInitHandler</c> and calling it in
     /// <c>AfterBlueprintCachePatches()</c>.
     /// </para>
     /// 
@@ -127,8 +125,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     {
       try
       {
-        DelayedBlueprints.ForEach(c => c.Configure());
-        DelayedBlueprints.Clear();
+        Logger.Info($"Uhh guess delayed configure is firing? {DelayedConfigurators.Count}");
+        DelayedConfigurators.ForEach(c => c.BaseConfigure());
+        DelayedConfigurators.Clear();
       }
       catch (Exception e)
       {
@@ -158,7 +157,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
 
       if (delayed)
       {
-        DelayedBlueprints.Add(this);
+        DelayedConfigurators.Add(Self);
+        Logger.Verbose($"Setting {Blueprint.name} to delayed configuration: {DelayedConfigurators.Count}");
         return Blueprint;
       }
 
@@ -177,6 +177,11 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
         Logger.Warn(Validator.GetErrorString());
       }
       return Blueprint;
+    }
+
+    internal override void BaseConfigure()
+    {
+      Configure();
     }
 
     /// <summary>Adds the specified <see cref="BlueprintComponent"/> to the blueprint.</summary>
@@ -362,5 +367,16 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
         Merge = merge;
       }
     }
+  }
+
+  /// <summary>
+  /// This is required because static members (i.e. DelayedConfigurators) are initialized for each type of a generic
+  /// class, so it cannot be stored in RootConfigurator.
+  /// </summary>
+  public abstract class Configurator
+  {
+    internal static readonly List<Configurator> DelayedConfigurators = new();
+
+    internal abstract void BaseConfigure();
   }
 }
