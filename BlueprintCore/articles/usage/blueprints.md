@@ -39,6 +39,42 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   .Configure();
 ```
 
+#### Delayed Configuration aka Cross Mod Support
+
+You may add a new feat or spell in your mod which should be present in a `BlueprintFeatureSelection` or `BlueprintSpellList` defined in another mod. You could handle this by declaring that mod as a requirement, or you can use BPCore's delayed configuration.
+
+When calling `Configure()` just pass in `delayed: true`, then after all `BlueprintCache.Init()` patches run call [RootConfigurator.ConfigureDelayedBlueprints()](xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator.ConfigureDelayedBlueprints):
+
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroups.Feat, FeatureGroups.CombatFeat)
+  .Configure(delayed: true);
+
+// This is the interface method defined in TTT-Core's IBlueprintCacheInitHandler
+public void AfterBlueprintCachePatches()
+{
+  // Now the feature is configured. Any mods that add BlueprintFeatureSelections matching FeatureGroup.Feat or
+  // FeatureGroup.CombatFeat will include your feat.
+  RootConfigurator.ConfigureDelayed();
+}
+```
+
+BPCore maintains a list of known mod feature selections in "Mod" refs classes. When `Configure()` is called for a
+feature, its groups are checked against all known mod feature selections. If the selections are present and match then
+the feature is automatically added.
+
+If you need to add your feat to a specific mod feature selection:
+
+```C#
+FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroups.Feat, FeatureGroups.CombatFeat)
+  // Adds to AntipaladinServantSelection from Microscopic Content Expansion
+  .AddToFeatureSelection(ModFeatureSelectionRefs.AntipaladinServantSelection)
+  .Configure(delayed: true);
+```
+> [!TIP]
+> You can specify blueprints not included in BPCore's "Mod" refs classes normally. Any selections not present when the feature is configured are ignored.
+
+Since it is standard to create blueprints in `BlueprintCache.Init()` you should call `ConfigureDelayed()` after. You can call it in `AfterBlueprintCachePatches()` from TTT-Core's IBlueprintCacheInitHandler or in a postfix patch of `StartGameLoader.LoadPackTOC()`.
+
 ### Adding Components
 
 Every supported component has at least one AddX method where X is the component type, e.g. `AddBuffSkillBonus` in `FeatureConfigurator`. Through community contributions Some components have multiple methods based on usage. For example, `PrerequisiteParametrizedFeature` is implemented in three methods: AddPrerequisiteParametrizedSpellFeature, AddPrerequisiteParametrizedWeaponFeature, and AddPrerequisiteParametrizedWeaponFeature.
