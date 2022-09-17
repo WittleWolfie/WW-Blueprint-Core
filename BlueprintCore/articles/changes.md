@@ -2,6 +2,15 @@
 
 ## v2.2.4 Release
 
+* Added blueprint references to populate content mods, including auto config for BlueprintFeatureSelection
+    * Microscopic Content Expansion
+    * TTT-Base, TTT-Reworks
+    * WOTR_PATH_OF_RAGE
+    * Expanded Content
+    * Kineticist Expanded Elements
+    * Magic Time!
+* Added support for delayed configuration
+    * Recommended for auto config of BlueprintFeatureSelection to support mods
 * Hand tuned more components
 * Added `BlueprintTool.TryGet<T>()` to check for presence of a blueprint
 
