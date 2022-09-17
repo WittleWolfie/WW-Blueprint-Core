@@ -122,6 +122,14 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> WildTalentBonusFeatWood3 = "949d5baa2b5449b68debca0a6594323a";
     // ************************************** //
 
+    // **** Magic Time! **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ADArcaneDiscoverySelection = "688e2e50-7409-42b7-96ee-fb4173298f84";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> BloodArcanistBloodlineSelection = "a09e5315-774e-418f-939e-78a01d0dfbc6";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ORSchoolSelection = "d7e71cae-e607-490f-9198-45e6b4a59882";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> PactWizardCurseSelection = "d1b23aa9-e4e8-4d3a-bb10-0ac0ba4276f1";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> PactWizardPatronSelection = "db921b58-7558-495b-8e8f-4d7077308f3c";
+    // ********************* //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -240,6 +248,14 @@ namespace BlueprintCore.Blueprints.ModReferences
         WildTalentBonusFeatWood2,
         WildTalentBonusFeatWood3,
         // ************************************** //
+
+        // **** Magic Time! **** //
+        ADArcaneDiscoverySelection,
+        BloodArcanistBloodlineSelection,
+        ORSchoolSelection,
+        PactWizardCurseSelection,
+        PactWizardPatronSelection,
+        // ********************* //
       };
   }
 }
