@@ -125,7 +125,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     {
       try
       {
-        Logger.Info($"Uhh guess delayed configure is firing? {DelayedConfigurators.Count}");
         DelayedConfigurators.ForEach(c => c.BaseConfigure());
         DelayedConfigurators.Clear();
       }
@@ -158,7 +157,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       if (delayed)
       {
         DelayedConfigurators.Add(Self);
-        Logger.Verbose($"Setting {Blueprint.name} to delayed configuration: {DelayedConfigurators.Count}");
         return Blueprint;
       }
 
