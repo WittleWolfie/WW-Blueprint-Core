@@ -7,6 +7,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
+using Kingmaker;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain;
@@ -213,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR28_VavakiaMythic6Fighter</term><description>0510832260f2410d907ed08813bcea2c</description></item>
+    /// <item><term>DLC3_CR27M_NabasuRogueAssasin</term><description>a77fe4457c11407499419896690c1e9b</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -3913,6 +3914,34 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
+    /// Adds <see cref="WeaponTrainingDamageBonusStatReplacement"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FighterFinessDamageFeature</term><description>d55f530e9b0047af9dd888b543a8e9a0</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddWeaponTrainingDamageBonusStatReplacement(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        StatType? replacementStat = null)
+    {
+      var component = new WeaponTrainingDamageBonusStatReplacement();
+      component.ReplacementStat = replacementStat ?? component.ReplacementStat;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="FormationACBonus"/>
     /// </summary>
     ///
@@ -4138,7 +4167,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC1_MarhevokRanged</term><description>ddd51e0a11c24092a54f9940a897725e</description></item>
+    /// <item><term>DLC1_JewelerTrader</term><description>e969dd0934d94dc4b9b8954b5bb0cb43</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -8331,7 +8360,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Archpriest_PossessionBuff_ShadowBalorEncounter</term><description>4fc454d17bbc41e7aac430dd570e61c6</description></item>
-    /// <item><term>DLC3_MindControllModDebuff</term><description>326c3fe92f84408c85564f2418e39fa3</description></item>
+    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -8381,7 +8410,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR7_SkeletalChampionArcherLongBow1</term><description>1aa966d93e6949a7b7a07c3d0344ba36</description></item>
+    /// <item><term>CR7_SkeletalChampionArcherLowAgro</term><description>fb46919b30fd7e8499b618a207073fea</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -14597,7 +14626,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcerbicRingFeature</term><description>094b291d04fdde84b963b07400c0df80</description></item>
-    /// <item><term>DragonDiscipleFormFeatureUltimate</term><description>717699191d106eb46a7d820a872ed24d</description></item>
+    /// <item><term>DragonDiscipleFormFeatureWings</term><description>aa36f82ab9a046c4a853dccf0cdbaf53</description></item>
     /// <item><term>ZenArcherReflexiveShotFeature</term><description>e6a3ade07ee84144a90203f5699c07ef</description></item>
     /// </list>
     /// </remarks>
@@ -16083,7 +16112,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbrogailMetamagicFeature</term><description>f976da658b1344538cfb867e6a3329ec</description></item>
-    /// <item><term>HokugolQuickenedFeature</term><description>3cf2f004ce0f16c46a1841b67d2fbcda</description></item>
+    /// <item><term>HolyChampion</term><description>eff3b63f744868845a2f511e9929f0de</description></item>
     /// <item><term>Zanedra_Metamagic</term><description>ad77aded6888c69458669e5ecd2fa979</description></item>
     /// </list>
     /// </remarks>
@@ -23712,7 +23741,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonNormalizeSizeGazeEnemyGargantuaBuff</term><description>39ce7de50e1e43439a205cfef8059f5e</description></item>
-    /// <item><term>DLC3_GiantDungeonTemplateBuff_CR1</term><description>8f60fbc6b1714fdaac46f4fc74ff769c</description></item>
+    /// <item><term>DLC3_LegendaryProportionsBuff</term><description>51afcb44344a45569fec113ce99916dd</description></item>
     /// <item><term>TricksterMicroscopicProportionsBuff</term><description>1dfc2f933e7833f41922411962e1d58a</description></item>
     /// </list>
     /// </remarks>

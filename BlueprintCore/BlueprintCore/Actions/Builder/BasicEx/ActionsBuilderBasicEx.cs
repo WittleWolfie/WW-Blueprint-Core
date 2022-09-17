@@ -447,7 +447,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>CommandSpawnUnits3</term><description>38a4b621536f49f19e53998a1f0033d4</description></item>
+    /// <item><term>CommonAttachBuff(VisionRange2)_SpawnActions</term><description>929ac6d9b2123ba4cb043864adac8828</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -684,7 +684,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton_CheckFailedActions</term><description>f2d080fe523049cea7039b64baeed252</description></item>
-    /// <item><term>Cue_0049</term><description>7353179e65d03984dbf323b201b958f8</description></item>
+    /// <item><term>Cue_0053</term><description>1785f3ebdfcb89f44ae691a06d336273</description></item>
     /// <item><term>YeribethHall_ResetCipher</term><description>6613c051209b7ef49a3653bc1d87fa36</description></item>
     /// </list>
     /// </remarks>
@@ -765,7 +765,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0048_Merge</term><description>19f6bd3c47d39f040a523cdb591209fb</description></item>
-    /// <item><term>Cue_0002</term><description>cccae5c1d9a34da8825e4a7982e1176c</description></item>
+    /// <item><term>Cue_0008</term><description>3c7cb627b3874dd9b018b0e6cc1e76fb</description></item>
     /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
     /// </list>
     /// </remarks>
@@ -977,7 +977,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>Cue_0023</term><description>6ac11e25245d47e2b1783b451ac81c5c</description></item>
+    /// <item><term>Cue_0015</term><description>9b70b905e836ed84da3526a021f4d6a2</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -1039,7 +1039,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0028</term><description>5ea4515a64699c843a282df111148bf3</description></item>
+    /// <item><term>Cue_0029</term><description>385f63ce5de55114e9b63099dafd3967</description></item>
     /// <item><term>WatchPoint_SZHouse_Camera</term><description>782f3b6f96c840f99b785c32bdfb5e98</description></item>
     /// </list>
     /// </remarks>
@@ -1177,7 +1177,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_4</term><description>b08d18580c6a4e41b803ca3f48a58c01</description></item>
-    /// <item><term>CommandAction 6</term><description>acafcd58ca24e814eb3266d40b8c4294</description></item>
+    /// <item><term>CommandAction 6</term><description>894d85b3b48495342826c255fca4d6b3</description></item>
     /// <item><term>Woljif_Q3_AbandonedMansion_Default</term><description>7a56583bbe8854d44a0d9fde9ee3acee</description></item>
     /// </list>
     /// </remarks>
@@ -1774,7 +1774,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>f6e29c0c7a3149f6b9af4480b6e3d9fc</description></item>
+    /// <item><term>CommandAction2</term><description>4486e3afc7bc44fa8058e10e22220268</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

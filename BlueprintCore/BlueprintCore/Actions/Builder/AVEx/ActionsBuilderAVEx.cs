@@ -212,7 +212,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction1</term><description>aebca8d873bd4dee820454bda3b648e9</description></item>
+    /// <item><term>CommandAction1</term><description>3f124a9e750344119c1ad1385bb29e61</description></item>
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
@@ -258,7 +258,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
-    /// <item><term>CommandAction2</term><description>5cc7015599a344eb93230564f24b5df8</description></item>
+    /// <item><term>CommandAction2</term><description>a19f4c8ed6e24e808e3c09ed3d2a0d0c</description></item>
     /// <item><term>Tools_CheckPassedActions2</term><description>db695eb808004014b25ad3475123d544</description></item>
     /// </list>
     /// </remarks>
@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0050</term><description>c71d79e6048d8b14c8bb173e7e97e2e6</description></item>
+    /// <item><term>Cue_0049</term><description>87aeabd05d4de3e4c881930088c729ce</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -476,7 +476,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GrayGarrison_FinalSiege_Etude</term><description>a7a2e9a56072fad4d93ab976d23086ac</description></item>
+    /// <item><term>GrayGarrison_FirstVisit_Etude</term><description>5cf468c3a40684e4fa6e1a8982d6c9fe</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -522,7 +522,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction10</term><description>dba0857095d9420c98305820184e8b49</description></item>
+    /// <item><term>CommandAction11</term><description>582be7d6642244de94f20e32b7d2d324</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

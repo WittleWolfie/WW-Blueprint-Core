@@ -480,7 +480,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_ArcaneIslandModCRGetterProperty</term><description>41152617447b495ab0ad515aa58e1a49</description></item>
-    /// <item><term>DLC3_WildMagicDCTier2</term><description>9731259e59e24b3ca9e97758139a0ccb</description></item>
+    /// <item><term>DLC3_WildMagicDCTier1</term><description>11a3a4720f764ce6866236e4debe749c</description></item>
     /// <item><term>HeavyEffectAreaCRGetterDC9</term><description>6d7d0426bdf84a0c910200c52bd9787b</description></item>
     /// </list>
     /// </remarks>

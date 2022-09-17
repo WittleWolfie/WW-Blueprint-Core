@@ -1225,8 +1225,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>DLC2_Sv_Healer_DeadBody</term><description>36dac84675c846bbb6bfe11343a84eba</description></item>
-    /// <item><term>MilitaryWenduagRankUp_Hide</term><description>44247994f44e4e5d88f3f739616af1dc</description></item>
+    /// <item><term>DLC2_Sv_Bureaucrat_DeadBody</term><description>fbb763a4fb6c4df99b79b48b8c5682ef</description></item>
+    /// <item><term>InvitedToWedding</term><description>d239b8b2e21331942a1a042b97d0082d</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAreaDidLoadTrigger(

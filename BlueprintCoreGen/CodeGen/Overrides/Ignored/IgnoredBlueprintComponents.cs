@@ -69,7 +69,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.UnitLogic.FactLogic.ReplaceDamageDice),
         typeof(Kingmaker.UnitLogic.FactLogic.SpellLinkEvocation),
         typeof(Kingmaker.UnitLogic.Class.Kineticist.Properties.LevelBasedPropertyWithFeatureList),
-        typeof(Kingmaker.UnitLogic.Buffs.RemoveBuffOnLoad),
         typeof(Kingmaker.UnitLogic.Buffs.Components.AddEffectProtectionFromElement),
         typeof(Kingmaker.UnitLogic.Buffs.Components.AddSpellSchool),
         typeof(Kingmaker.UnitLogic.ActivatableAbilities.AddActivatableAbilityComponent),

@@ -92,7 +92,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_45</term><description>74bf01e6e98e49099e74b21f4cf28e8e</description></item>
+    /// <item><term>Cue_46</term><description>0b881bc6d37740e2b46a3f3382603736</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>

@@ -177,6 +177,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> TrashLootScrolls3 = "e7099df5604e5df4a9b275e6efbf3702";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> TrashLootScrolls4 = "5d2cefc0bcdcd6c4d92bc50634f25275";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> TrashLootStandardWeaponsAndArmor = "6414d0eccbb66364bb1ef9f57599fc5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> TriceratopsLoot = "4f886f5cbd90480abe5d205cde689549";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> TrollhoundHideLoot = "610763bc97614af45b9bdac59f66eb17";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> VarnholdVendorTable = "68a386a4de42df1498f89add1e9d88ea";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> WinterWolfLoot = "340a138e67f49af46975bc356dc6d9fb";
@@ -351,6 +352,7 @@ namespace BlueprintCore.Blueprints.References
           TrashLootScrolls3,
           TrashLootScrolls4,
           TrashLootStandardWeaponsAndArmor,
+          TriceratopsLoot,
           TrollhoundHideLoot,
           VarnholdVendorTable,
           WinterWolfLoot,

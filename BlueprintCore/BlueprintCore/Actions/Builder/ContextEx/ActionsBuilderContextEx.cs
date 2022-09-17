@@ -30,11 +30,11 @@ using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.ContextEx
 {
-    /// <summary>
-    /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific extensions such as <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
-    /// </summary>
-    /// <inheritdoc cref="ActionsBuilder"/>
-    public static class ActionsBuilderContextEx
+  /// <summary>
+  /// Extension to <see cref="ActionsBuilder"/> for most <see cref="ContextAction"/> types. Some <see cref="ContextAction"/> types are in more specific extensions such as <see cref="AVEx.ActionsBuilderAVEx">AVEx</see> or <see cref="KingdomEx.ActionsBuilderKingdomEx">KingdomEx</see>.
+  /// </summary>
+  /// <inheritdoc cref="ActionsBuilder"/>
+  public static class ActionsBuilderContextEx
   {
 
     /// <summary>
@@ -2259,7 +2259,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GrenadierAlchemistFireMove</term><description>4356fcafc22a1e04db280577676b6af0</description></item>
+    /// <item><term>GrenadierAcidFlaskSwift</term><description>332fff180dfc85c4fb443cda2afd7155</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

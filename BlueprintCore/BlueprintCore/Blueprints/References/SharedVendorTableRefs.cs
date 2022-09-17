@@ -204,6 +204,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_Vendor_DLC2 = "e5cdfb113e884ab6967650f5eacbcb42";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Exotic_Chapter3VendorTable = "9c597a1f92dde2f4f8adb27ee5730188";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Exotic_Chapter5VendorTable = "73895d43f46b45079e19d1afcb96efdd";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133 = "02e39d74e5044828b3990ecbfe53a281";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_10 = "84faf06464cc41ec925504cc28fe4367";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_11 = "f1351d99e0214fb5bb78ea9622b19cba";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_2 = "b2ab29392654405fbe8d0bf412ee8c7a";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_3 = "d70d8c7cbe094799aadc26775d8979cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_4 = "35927eb97d9e42328cf852ad138c282d";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_5 = "219cd85fc479413b9cfccdc59609aa25";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_6 = "122b612df9ee4442a0e42ee8c4afa07f";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_7 = "fb83d3bc16c94ebeac0ce5a24ba9151c";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_8 = "9bf02b4d154a4d0dbeb72bbbda95a5b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Fake_Blueprint_PF_439133_9 = "f8affbe8ad2b464b9fc4b6dbb284b714";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> FirstVendorTable = "8c17a31b6a9a6eb4cbb668902e9edcb1";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> GesmerhaScroll_DLC1VendorTable = "6bd529a52e1b4dbbac223f36b0a91a35";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> GoblinVillageVendorTable = "8f0c5a34d47b52743b897676caed21fe";
@@ -485,6 +496,17 @@ namespace BlueprintCore.Blueprints.References
           Equipment_Vendor_DLC2,
           Exotic_Chapter3VendorTable,
           Exotic_Chapter5VendorTable,
+          Fake_Blueprint_PF_439133,
+          Fake_Blueprint_PF_439133_10,
+          Fake_Blueprint_PF_439133_11,
+          Fake_Blueprint_PF_439133_2,
+          Fake_Blueprint_PF_439133_3,
+          Fake_Blueprint_PF_439133_4,
+          Fake_Blueprint_PF_439133_5,
+          Fake_Blueprint_PF_439133_6,
+          Fake_Blueprint_PF_439133_7,
+          Fake_Blueprint_PF_439133_8,
+          Fake_Blueprint_PF_439133_9,
           FirstVendorTable,
           GesmerhaScroll_DLC1VendorTable,
           GoblinVillageVendorTable,

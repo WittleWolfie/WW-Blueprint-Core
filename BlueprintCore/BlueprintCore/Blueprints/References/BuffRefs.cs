@@ -1799,6 +1799,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ArcaneIslandCasterLevelDebuff = "7cf5d4f3eba14ecb98c3590942c820ba";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ArcaneModDescription = "0d170380c070495b9f55f2a2fe559559";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ArmorPenaltyReduceBuff = "1c8d105f94f94017a119719a5623fccd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BarbarrianBloodragerHPBuffBuff = "3e5c8e66d0924359b7964bf963161f06";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BarbRagerBuff = "d9e26434aafe4a0491b33c9eb9b7bcaa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BardsSongStackBuff = "c5e558b14af942c1903223079609474c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BearsBullBuff = "aa951b779d4646c2958345534c036e89";
@@ -7173,6 +7174,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ArcaneIslandCasterLevelDebuff,
           DLC3_ArcaneModDescription,
           DLC3_ArmorPenaltyReduceBuff,
+          DLC3_BarbarrianBloodragerHPBuffBuff,
           DLC3_BarbRagerBuff,
           DLC3_BardsSongStackBuff,
           DLC3_BearsBullBuff,

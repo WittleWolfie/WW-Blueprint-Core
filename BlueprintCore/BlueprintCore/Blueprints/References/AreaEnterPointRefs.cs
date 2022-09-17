@@ -519,6 +519,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_FromDarknessLair = "5fc88af1ed004f85a86c3d43db9d43ab";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_FromPort_To_Ship = "d2712a27192d4397b9735597d3cf35d5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Rest = "8c2cc39744a84274bd3ef38ee1f94e00";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Rest_port = "3e0dc779264446878a92b25fd829d070";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_AlushinyrraPort_Ship = "1f9c5f5c6a0c4d63b917f0e8379ce9ce";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_Double2_Enter = "c6ba1a44a8424e5fadfa4bf1ec11161b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_BloodIvory_Double8_Enter = "8389af75708641f280b5fd31e8fbab54";
@@ -1956,6 +1957,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_AlushinyrraPort_FromDarknessLair,
           DLC3_AlushinyrraPort_FromPort_To_Ship,
           DLC3_AlushinyrraPort_Rest,
+          DLC3_AlushinyrraPort_Rest_port,
           DLC3_AlushinyrraPort_Ship,
           DLC3_BloodIvory_Double2_Enter,
           DLC3_BloodIvory_Double8_Enter,

@@ -3562,6 +3562,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Fighter_FeatureList = "f468391d94a54f2fb0376211d1721392";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FighterArmorMastery = "e52aa4151b214d00b720e682fbb4538b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FighterFeats = "d3ad21070fdc476883d78c5a75313ef0";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FighterFinessDamageFeature = "d55f530e9b0047af9dd888b543a8e9a0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FighterPoisonousStrikeFeature = "f072bddff42e43a4a611f2b7a9e81e23";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FighterProficiencies = "a23591cc77086494ba20880f87e73970";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FightersFinesse = "2f1619e253ea6a04087def71c7925715";
@@ -11295,6 +11296,7 @@ namespace BlueprintCore.Blueprints.References
           Fighter_FeatureList,
           FighterArmorMastery,
           FighterFeats,
+          FighterFinessDamageFeature,
           FighterPoisonousStrikeFeature,
           FighterProficiencies,
           FightersFinesse,

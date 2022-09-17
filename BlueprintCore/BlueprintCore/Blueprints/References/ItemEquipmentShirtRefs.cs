@@ -25,6 +25,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClaspOfDeathRobeItem = "d8c0d242f1844c4fa1e40e91eae3f198";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfBlazingFighterItem = "fa9c152b414fa8c418c9064043fdfa34";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfHeavyFortificationItem = "6c29087271234af1819123d31bf9f3c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DarkAcolytesRobeItemCorrect = "2394c36e06b84f008f49754c7ed0317e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarAgilityClothItem = "8ac08cece7840174a80407516fdff043";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarCloth_IntermediateItem = "ae4118a79f5154543adb9c4b59e7b6de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarMasochisticClothItem = "7393c642e36be6e488ddd7eb7ca30a31";
@@ -73,6 +74,7 @@ namespace BlueprintCore.Blueprints.References
           ClaspOfDeathRobeItem,
           ClothOfBlazingFighterItem,
           ClothOfHeavyFortificationItem,
+          DarkAcolytesRobeItemCorrect,
           DemonicAltarAgilityClothItem,
           DemonicAltarCloth_IntermediateItem,
           DemonicAltarMasochisticClothItem,

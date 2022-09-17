@@ -367,7 +367,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>Drezen_SecondState_Locust</term><description>3b2a1572df0d448fb262b4115a1fad95</description></item>
+    /// <item><term>DoorDown_CheckPassedActions</term><description>7f2715fba23390d4996bd0a139e9b4f7</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -761,17 +761,28 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction6</term><description>11413ee4d8c3416696e86e99f0f2cd96</description></item>
+    /// <item><term>CommandAction6</term><description>6b42ba77f3ac4b309aa3a146623cd92e</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="scriptZoneEvaluator">
+    /// <para>
+    /// InfoBox: NOTE: Should evaluate scriptZone!
+    /// </para>
+    /// </param>
     public static ActionsBuilder ScriptZoneActivate(
         this ActionsBuilder builder,
-        EntityReference? scriptZone = null)
+        EntityReference? scriptZone = null,
+        MapObjectEvaluator? scriptZoneEvaluator = null,
+        bool? useEvaluator = null)
     {
       var element = ElementTool.Create<ScriptZoneActivate>();
       builder.Validate(scriptZone);
       element.ScriptZone = scriptZone ?? element.ScriptZone;
+      builder.Validate(scriptZoneEvaluator);
+      element.ScriptZoneEvaluator = scriptZoneEvaluator ?? element.ScriptZoneEvaluator;
+      element.UseEvaluator = useEvaluator ?? element.UseEvaluator;
       return builder.Add(element);
     }
 
@@ -792,13 +803,24 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="scriptZoneEvaluator">
+    /// <para>
+    /// InfoBox: NOTE: Should evaluate scriptZone!
+    /// </para>
+    /// </param>
     public static ActionsBuilder ScriptZoneDeactivate(
         this ActionsBuilder builder,
-        EntityReference? scriptZone = null)
+        EntityReference? scriptZone = null,
+        MapObjectEvaluator? scriptZoneEvaluator = null,
+        bool? useEvaluator = null)
     {
       var element = ElementTool.Create<ScriptZoneDeactivate>();
       builder.Validate(scriptZone);
       element.ScriptZone = scriptZone ?? element.ScriptZone;
+      builder.Validate(scriptZoneEvaluator);
+      element.ScriptZoneEvaluator = scriptZoneEvaluator ?? element.ScriptZoneEvaluator;
+      element.UseEvaluator = useEvaluator ?? element.UseEvaluator;
       return builder.Add(element);
     }
 
@@ -815,7 +837,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>d36dcab7631c4ad0b4d71ed4483b1973</description></item>
-    /// <item><term>CommandAction1</term><description>a5240ddbcec74627bcf04abb8b6f86e7</description></item>
+    /// <item><term>CommandAction1</term><description>9df78bb01373451bab52aa8b3e53255a</description></item>
     /// <item><term>Poisons_dmg_zone3</term><description>a98b6c45026a4845b7827c767a832dde</description></item>
     /// </list>
     /// </remarks>
@@ -1121,7 +1143,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction 6</term><description>be567a6f4284ae147bc9d91391b19b28</description></item>
+    /// <item><term>CommandAction 6</term><description>2abd66007a170e04fa94ea49ca610401</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>

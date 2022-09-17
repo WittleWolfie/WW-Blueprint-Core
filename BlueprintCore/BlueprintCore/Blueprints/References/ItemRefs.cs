@@ -679,6 +679,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> TianXiaTea = "881a8406304e1054f8c2d64c22488f3c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Tools = "dbab6e3a65c14ae5919275c3741fd925";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> TraversingEnigmaBook_item = "64d3dd9d78ba06543bff1eb98aa462ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> TriceratopsPelt = "d58ad91a96144c5684dbe55c2ffff3e6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> TrollhoundHide = "bf370943c57055d479bf4ef93a232df8";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Trout = "46433d3d45f2e4a4383db22c77899d2f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Turquoise = "0e0a31aaffda6464d9dd7fe97a14d267";
@@ -1382,6 +1383,7 @@ namespace BlueprintCore.Blueprints.References
           TianXiaTea,
           Tools,
           TraversingEnigmaBook_item,
+          TriceratopsPelt,
           TrollhoundHide,
           Trout,
           Turquoise,

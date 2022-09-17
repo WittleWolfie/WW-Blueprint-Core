@@ -12,11 +12,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintClassAdditionalVisualSettings"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseClassAdditionalVisualSettingsConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintClassAdditionalVisualSettings"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseClassAdditionalVisualSettingsConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintClassAdditionalVisualSettings
     where TBuilder : BaseClassAdditionalVisualSettingsConfigurator<T, TBuilder>

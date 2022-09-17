@@ -9,6 +9,7 @@ using Kingmaker.DLC;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
+using Kingmaker.Sound;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.Utility;
 using System;
@@ -16,11 +17,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintCampaign"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseCampaignConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintCampaign"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseCampaignConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintCampaign
     where TBuilder : BaseCampaignConfigurator<T, TBuilder>
@@ -171,6 +172,18 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.AllowMythicChange = allowMythicChange;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.AudioChunk"/>
+    /// </summary>
+    public TBuilder SetAudioChunk(AudioFilePackagesSettings.AudioChunk audioChunk)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.AudioChunk = audioChunk;
         });
     }
 
@@ -529,19 +542,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="overrideTrapsProgression">
+    /// <para>
+    /// InfoBox: By default, BlueprintRoot -&amp;gt; Progression -&amp;gt; DCToCRTable will be used
+    /// </para>
+    /// </param>
+    /// <param name="trapsDCToCRTable">
+    /// <para>
+    /// Blueprint of type BlueprintStatProgression. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddBlueprintCampaignExperience(
         bool? allowChecks = null,
         bool? allowMobs = null,
         bool? allowQuests = null,
         bool? allowTraps = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? overrideTrapsProgression = null,
+        Blueprint<BlueprintStatProgressionReference>? trapsDCToCRTable = null)
     {
       var component = new BlueprintCampaignExperience();
       component.AllowChecks = allowChecks ?? component.AllowChecks;
       component.AllowMobs = allowMobs ?? component.AllowMobs;
       component.AllowQuests = allowQuests ?? component.AllowQuests;
       component.AllowTraps = allowTraps ?? component.AllowTraps;
+      component.OverrideTrapsProgression = overrideTrapsProgression ?? component.OverrideTrapsProgression;
+      component.m_TrapsDCToCRTable = trapsDCToCRTable?.Reference ?? component.m_TrapsDCToCRTable;
+      if (component.m_TrapsDCToCRTable is null)
+      {
+        component.m_TrapsDCToCRTable = BlueprintTool.GetRef<BlueprintStatProgressionReference>(null);
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

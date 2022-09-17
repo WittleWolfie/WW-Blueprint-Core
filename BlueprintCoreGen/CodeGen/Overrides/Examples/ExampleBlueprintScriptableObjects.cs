@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GoodRestInBrothelBuff", "56da6328d76224e4a9f6e3edecac199e"),
+            new Blueprint("GoodHopeBuff", "85af9f0c5d29e5e4fa2e75ca70442487"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -165,7 +165,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonAreaEffectsGazeProperty", "f363c368c37546c3a4793b348963dc28"),
-            new Blueprint("PerfectFormConstitutionToWisdomProperty", "47525da0da454026a7952bdae85be5c8"),
+            new Blueprint("PerfectFormConstitutionToStrengthProperty", "d3a9446eed7b458690904831241bac3f"),
             new Blueprint("WitchHexSpellLevelProperty", "75efe8b64a3a4cd09dda28cef156cfb5"),
           }
         },
@@ -364,7 +364,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_Areshkagal_First_DemonTeleport_AiAction", "c5c4211d6ea24a0f94c5fc6bcc36b584"),
-            new Blueprint("HeroismAiAction", "b22cdb441a1157c4f9907bd652f49484"),
+            new Blueprint("HeroismGreaterAiAction", "2cd769aff48fdc34c8a19cf607292706"),
             new Blueprint("ZombieFearAIAction", "7cff1a10bbe680f4b835017c4671704a"),
           }
         },
@@ -693,7 +693,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbadarPriestLetter_azata_bad", "69fff4acfbd641cea12e1ed38db21029"),
-            new Blueprint("DweomercatPelt", "5d2b01d12a3ca1c4db1aeac269d531f4"),
+            new Blueprint("DweomerlionPelt", "e156d9ac338e1d34fac27629f337fa68"),
             new Blueprint("ZoeyPendantTeleport", "9a90929e2db1be448b495509170a4251"),
           }
         },
@@ -735,6 +735,16 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
             new Blueprint("1stFight", "1eb2a98d5e95e7f49a78c961cdc68738"),
             new Blueprint("HillShooting_SummonPool", "52269708513447e9a8451f778c963c1d"),
             new Blueprint("ZombieWave3", "d45ec2e51b0b57e40bb573f6e2d35db2"),
+          }
+        },
+
+        {
+          typeof(Kingmaker.Blueprints.Items.BlueprintSharedVendorTable),
+          new()
+          {
+            new Blueprint("Aminas_Chapter5VendorTable", "8b2dae3f8da96f640995594f6bcf7a29"),
+            new Blueprint("DLC3_VendorTable_Equipment", "195579adaa20483ca3aad66bb2b06f8f"),
+            new Blueprint("Weapon_DefendersHeartVendorTable", "5f17d3b47752fb94abe8c98534af8920"),
           }
         },
 
@@ -1207,7 +1217,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AlchemistsClothItem", "004e05369fd13e2428bf7eb84bcd38ec"),
-            new Blueprint("Robe2ST2DC_CorrectItem", "a5160a52ad404bd6a3a3eef8f1a455f3"),
+            new Blueprint("PilgrimClothItem", "de9188750de58a64ca8c9886359d274b"),
             new Blueprint("WanderingConmanItem", "fdc89dbe3502c7843ac5685099aac211"),
           }
         },
@@ -1277,7 +1287,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1Wave_FirstCleric", "38be8d6ddc3d450db71ae17ae895afa3"),
-            new Blueprint("ForestQuestFirstDIalogHeal_flag", "9b8ccbeaa8d360049b442ecf9b23b5b9"),
+            new Blueprint("ForestQuestFirstDIalog_flag", "b923477c9a9dd3f4ba2b2d98eb6ae3af"),
             new Blueprint("ZombieRoomEnter2", "61f52bd1057441adbf7ce9901f535e3e"),
           }
         },
@@ -1523,16 +1533,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
-          typeof(Kingmaker.Blueprints.Items.BlueprintSharedVendorTable),
-          new()
-          {
-            new Blueprint("Aminas_Chapter5VendorTable", "8b2dae3f8da96f640995594f6bcf7a29"),
-            new Blueprint("DLC3_TomeOfClearThoughtPlus2_VendorList", "e59d5bebe24e4ab3967864268c383783"),
-            new Blueprint("Weapon_DefendersHeartVendorTable", "5f17d3b47752fb94abe8c98534af8920"),
-          }
-        },
-
-        {
           // Flag for review
           typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomEventTimeline),
           new()
@@ -1645,7 +1645,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2wine_bottle (1)", "e7f447e2306708443bcbd6c05983d1e3"),
-            new Blueprint("PF2_Demons_MimicChestObject1", "d7ff134427e69b540a8a4961b7375336"),
+            new Blueprint("PF2_Demons_MimicChestObject2", "87f5f1cd7d5c08b4da18961a263cf882"),
             new Blueprint("ZantirRuneLootContainer", "f65148f38532e0a4ebacad5e5fe18fd7"),
           }
         },
@@ -2150,7 +2150,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AgressiveEnd", "6d321264a441daf498f1493c9f13dba1"),
-            new Blueprint("Cue_0030", "9e13e4293e91dd54cb436252c738d723"),
+            new Blueprint("Cue_0030", "06dbb2e7a7bd48143b5f17ed544cc977"),
             new Blueprint("Xorges_shared12_2", "518e96fc4479fec44b98fa1f35c42da1"),
           }
         },
@@ -2408,7 +2408,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1stFight_Final", "8ef514ae57a6c704ba2e125a4e0f78ad"),
-            new Blueprint("HilorPrisonLeave", "10e78b3f2fdc4bb4a641501bb5f97439"),
+            new Blueprint("HilorKyadoToPrison", "a5e50abb3a904f1ea73211ab2dc94f77"),
             new Blueprint("Zone3_Epigraph", "00f1dceaedf422e41f2d9cd0d9c6e571"),
           }
         },
@@ -2418,7 +2418,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("gate", "fc268500370d415da9cf27c32043ace3"),
-            new Blueprint("gate 2", "1c50b799fc0078c4dab504bf169ce2d5"),
+            new Blueprint("gate 2", "486038c8133904d4fab9de56e2715848"),
             new Blueprint("gate9", "5b1a0b6731eb475692ebef9f02f1808b"),
           }
         },
@@ -2458,7 +2458,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint(" JoCat_Errand", "182aeccdeab24ef5b32e6d09c170e545"),
-            new Blueprint("HeraldDontGo_c4_errand", "eb200bff3ec0cb04c82623a4f77657fd"),
+            new Blueprint("HepzaTrap", "abad633c8e954194788fee3807a238ed"),
             new Blueprint("ZanedraEscape", "62689e32325839e40b9ee3fc6a110f10"),
           }
         },

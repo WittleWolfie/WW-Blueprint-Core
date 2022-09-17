@@ -444,7 +444,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FirstWorldMincePieBuffDexterity</term><description>79570395efbcdc8449e3037a7d1cd3ee</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -1917,7 +1917,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HeatLightBurn</term><description>bdfe41d7d32c46109771df2151f4a330</description></item>
+    /// <item><term>HeavensDistressDebuff</term><description>10ed4bb996d24d19a87dc97d94bec7c5</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -2968,6 +2968,68 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       var component = new PureRecommendation();
       component.Priority = priority ?? component.Priority;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationHasClasses"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="contraditionClasses">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="recommendedClasses">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRecommendationHasClasses(
+        List<Blueprint<BlueprintCharacterClassReference>>? contraditionClasses = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        List<Blueprint<BlueprintCharacterClassReference>>? recommendedClasses = null)
+    {
+      var component = new RecommendationHasClasses();
+      component.m_ContraditionClasses = contraditionClasses?.Select(bp => bp.Reference)?.ToArray() ?? component.m_ContraditionClasses;
+      if (component.m_ContraditionClasses is null)
+      {
+        component.m_ContraditionClasses = new BlueprintCharacterClassReference[0];
+      }
+      component.m_RecommendedClasses = recommendedClasses?.Select(bp => bp.Reference)?.ToArray() ?? component.m_RecommendedClasses;
+      if (component.m_RecommendedClasses is null)
+      {
+        component.m_RecommendedClasses = new BlueprintCharacterClassReference[0];
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

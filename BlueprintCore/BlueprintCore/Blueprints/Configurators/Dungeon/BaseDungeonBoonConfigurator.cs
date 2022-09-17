@@ -1,6 +1,5 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
-using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
@@ -148,17 +147,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBoonLogicFeature(
         Blueprint<BlueprintFeatureReference>? feature = null,
         bool? mainCharacterOnly = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? start = null,
         int? step = null)
     {
@@ -171,7 +162,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       component.m_MainCharacterOnly = mainCharacterOnly ?? component.m_MainCharacterOnly;
       component.Start = start ?? component.Start;
       component.Step = step ?? component.Step;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     /// <summary>
@@ -200,17 +191,9 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
     public TBuilder AddBoonLogicPartyBuff(
         Blueprint<BlueprintBuffReference>? buff = null,
         bool? mainCharacterOnly = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail,
         bool? onlyRandomCharacterClass = null,
         DungeonBoonLogic.ProgressionType? progression = null,
         int? start = null,
@@ -227,7 +210,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       component.m_Progression = progression ?? component.m_Progression;
       component.Start = start ?? component.Start;
       component.Step = step ?? component.Step;
-      return AddUniqueComponent(component, mergeBehavior, merge);
+      return AddComponent(component);
     }
 
     protected override void OnConfigureCompleted()

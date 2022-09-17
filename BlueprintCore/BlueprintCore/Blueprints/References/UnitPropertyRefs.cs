@@ -51,6 +51,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_DivineBlessingProperty = "7de101b6b93044798663c7c51f2ec099";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_DwarvenBlessingProperty = "7a2e877faaf14b88b1af878ea3f77aac";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ElementalAreaCRProperty = "8ce12a60c336403983a360d504ee80a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ElementalLocusDC = "6ddd11a994134c6d90dde15e8d8c8797";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GlovesOfSurgicalExtractionProperty = "7eb6ebf0ac9c49deb77122c3c95db779";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GnomeBlessingProperty = "28185df8d2494e1e9ad56c626f89883a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainMaxHealProperty = "fce61cac8c574a058f760192f3ada3bd";
@@ -261,6 +262,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_DivineBlessingProperty,
           DLC3_DwarvenBlessingProperty,
           DLC3_ElementalAreaCRProperty,
+          DLC3_ElementalLocusDC,
           DLC3_GlovesOfSurgicalExtractionProperty,
           DLC3_GnomeBlessingProperty,
           DLC3_HitDieHPRegainMaxHealProperty,

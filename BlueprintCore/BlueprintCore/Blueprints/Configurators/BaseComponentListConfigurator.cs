@@ -21,11 +21,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintComponentList"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseComponentListConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintComponentList"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseComponentListConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintComponentList
     where TBuilder : BaseComponentListConfigurator<T, TBuilder>
@@ -207,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Knock_Achiv</term><description>526bde57729f44e59d04cf85ffb5cf14</description></item>
+    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

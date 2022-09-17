@@ -1163,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GibrilethSummon</term><description>cffe1c1aff5ca5c468b78ede814d6d78</description></item>
+    /// <item><term>GolemAdamantineDestructableSummon</term><description>8e0cf54771f8b7948af9553977716177</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -2083,7 +2083,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaWizard_Curse</term><description>c0fe3438b11d09841a8717ab55eebe15</description></item>
-    /// <item><term>DLC1_Taberdine_Broken</term><description>b1b1ab4a89b24e1bacea98d5011063ed</description></item>
+    /// <item><term>DLC1_SilkShadow</term><description>b072b04b217546d7916f88ae5e949c6c</description></item>
     /// <item><term>Zanedra_Sanctum</term><description>34c3e14d08f2ff4448b745761cbb846f</description></item>
     /// </list>
     /// </remarks>
@@ -2209,7 +2209,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
-    /// <item><term>DLC3_CR10_ZombieLordFighterLevel8</term><description>7d85f37ede5742118aeb709b52b7a6d7</description></item>
+    /// <item><term>DLC3_CR10_ZombieLordFighterLevel7_Axe</term><description>d87bdef36a734759b9cd5b90be3efb4f</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>

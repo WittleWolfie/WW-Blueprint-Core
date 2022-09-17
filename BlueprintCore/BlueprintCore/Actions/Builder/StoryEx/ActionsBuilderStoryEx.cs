@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0048</term><description>08d9f68c0c3447fb9d334da26412754a</description></item>
+    /// <item><term>Cue_0049</term><description>9948565aca0d84644b1c00de118af389</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -186,7 +186,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Nocticula]_SpawnActions</term><description>d77f996b50fad684bb0435c1d12a526d</description></item>
-    /// <item><term>CommandAction3</term><description>43e061076de143b48e3e161baabb4526</description></item>
+    /// <item><term>CommandAction3</term><description>3bc79386e2b04a28994ac50a965600fe</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -807,14 +807,35 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <item><term>MythicLevel</term><description>dc66b7adec0e41c2b948b4bc9c31ec99</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="clazz">
+    /// <para>
+    /// Blueprint of type BlueprintCharacterClass. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public static ActionsBuilder RemoveMythicLevels(
         this ActionsBuilder builder,
+        Blueprint<BlueprintCharacterClassReference>? clazz = null,
         int? levels = null,
+        bool? specificClass = null,
         bool? specificUnit = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<RemoveMythicLevels>();
+      element.m_Class = clazz?.Reference ?? element.m_Class;
+      if (element.m_Class is null)
+      {
+        element.m_Class = BlueprintTool.GetRef<BlueprintCharacterClassReference>(null);
+      }
       element.Levels = levels ?? element.Levels;
+      element.SpecificClass = specificClass ?? element.SpecificClass;
       element.SpecificUnit = specificUnit ?? element.SpecificUnit;
       builder.Validate(unit);
       element.Unit = unit ?? element.Unit;
@@ -1019,7 +1040,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0028</term><description>3ecc04f4da4c06b4b90a26729c94c2ae</description></item>
+    /// <item><term>Cue_0028</term><description>6051bc4e387b430391b4d9a3078dc6c3</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1247,7 +1268,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0026</term><description>d5176f6a75262904082f34ea99761d58</description></item>
-    /// <item><term>CommandAction 1</term><description>98962faeeefa2884fae531b6d8b11690</description></item>
+    /// <item><term>Cue_0010</term><description>01213825658f5ec4eb82c347d060f224</description></item>
     /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
     /// </list>
     /// </remarks>
@@ -1415,7 +1436,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0029</term><description>860e98d931913dd41a77be32912d5bf6</description></item>
+    /// <item><term>Cue_0029</term><description>03a8e06306517e444a79c1be63df3123</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1553,7 +1574,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>Cue_0008</term><description>ab948ab9f9eab9a4ca4edfecbafa5076</description></item>
+    /// <item><term>Cue_0008</term><description>3197df8ce22124f4189850a7be2abd64</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1599,7 +1620,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DoorToHall_CheckPassedActions</term><description>f826477e1978cb2429fa664f772a0bc2</description></item>
+    /// <item><term>DoorToKB_CheckPassedActions</term><description>e16485ef06cc2dd4a94db114939109fa</description></item>
     /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
     /// </list>
     /// </remarks>
@@ -1852,7 +1873,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0035</term><description>62d54f591bc9d3a45b3d5ab50b9fc08d</description></item>
+    /// <item><term>Cue_0036</term><description>c0698efd5193ced46bfdebc659177b56</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

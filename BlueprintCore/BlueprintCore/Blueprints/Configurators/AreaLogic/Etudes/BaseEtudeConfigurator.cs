@@ -12,6 +12,7 @@ using Kingmaker.Blueprints.Area;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Crusade.GlobalMagic;
+using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
@@ -29,11 +30,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEtude"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseEtudeConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintEtude"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseEtudeConfigurator<T, TBuilder>
     : BaseFactConfigurator<T, TBuilder>
     where T : BlueprintEtude
     where TBuilder : BaseEtudeConfigurator<T, TBuilder>
@@ -1212,7 +1213,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Knock_Achiv</term><description>526bde57729f44e59d04cf85ffb5cf14</description></item>
+    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -2289,6 +2290,37 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       var component = new HideAllPets();
       component.HideOnRemoteAndEx = hideOnRemoteAndEx ?? component.HideOnRemoteAndEx;
       component.LeaveAzataDragon = leaveAzataDragon ?? component.LeaveAzataDragon;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="KeepCompanionHidden"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DiplomacyLannRankUp_Hide</term><description>362929592a154a56a6b40bd1c5159dbf</description></item>
+    /// <item><term>LogisticsWenduagRankUp_Hide</term><description>9ce0dca7e0624042a00b3f115ef23c6a</description></item>
+    /// <item><term>MilitaryWenduagRankUp_Hide</term><description>44247994f44e4e5d88f3f739616af1dc</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddKeepCompanionHidden(
+        CompanionInParty? companion = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new KeepCompanionHidden();
+      Validate(companion);
+      component.Companion = companion ?? component.Companion;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
