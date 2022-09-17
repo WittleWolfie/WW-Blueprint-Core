@@ -130,6 +130,10 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> PactWizardPatronSelection = "db921b58-7558-495b-8e8f-4d7077308f3c";
     // ********************* //
 
+    // **** Added Feats **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> FavoredAnimalFocusSelection = "fe2d7d81-6631-4bff-8a35-b56c9811d7eb";
+    // ********************* //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -255,6 +259,10 @@ namespace BlueprintCore.Blueprints.ModReferences
         ORSchoolSelection,
         PactWizardCurseSelection,
         PactWizardPatronSelection,
+        // ********************* //
+
+        // **** Added Feats **** //
+        FavoredAnimalFocusSelection,
         // ********************* //
       };
   }
