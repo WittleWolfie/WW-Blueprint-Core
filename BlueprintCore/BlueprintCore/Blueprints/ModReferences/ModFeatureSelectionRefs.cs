@@ -74,6 +74,37 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> DemonSpecialSelection = "1df9edd3-e5f4-4857-93e5-7a40e1d567f2";
     // *************************** //
 
+    // **** Expanded Content **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DemonLordSelection = "889ec01d-2f84-4a8b-8bf6-8731abebd305";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ArchdevilSelection = "ece14bdb-858a-43b7-8058-f90961747f19";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> EmpyrealLordSelection = "20bce6e8-8d9d-42d1-9a6b-6346e5b4ed3d";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DeitiesSelection = "2a892ef9-70b0-4da7-8e10-1267b1d85017";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DraconicDeitySelection = "fe6de0a2-13ed-464a-a2bc-3f3aa12fecde";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DeitiesofAncientOsirionSelection = "2a41e9fc-5d53-49d8-82dc-f1d6e7e37f58";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DeitiesofTianXiaSelection = "8fffd927-275e-4b8a-87c4-546de9fce316";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> PhilosophiesSelection = "c2bd9f7e-2b05-4814-acaa-a66db2a0c765";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> PantheonSelection = "15a1f975-029e-49bb-b8b3-ac712806b34a";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ScalykindCompanionSelectionDomain = "41db7508-c821-4805-b441-6ec0102cb774";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> CrueltySelection1 = "80fd53ab-1674-470e-bd7b-2ab9f7c2510e";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> CrueltySelection2 = "f5334c9f-58ae-4aa0-be82-1613dd1ef6d2";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> CrueltySelection3 = "8a1f3266-2b42-41fe-ada7-a4ba604e996e";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> CrueltySelection4 = "eae1f9f3-226f-49a4-aaea-7cbc7b286007";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DreadKnightCompanionSelection = "87baeac4-f38e-46b8-a2e2-656c865ac46a";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ProfaneBoonSelection = "3f05d12d-164c-4f3a-bd22-1de1aabb2f53";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> ElvenPantheonSelection = "d85c1cd9-edfa-45e7-a39a-1002dd13d506";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> TheEldestSelection = "5b7b628a-4522-40f0-87c8-68cfaafd8cfd";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> MonitorsSelection = "156a6a1e-62a2-4504-a47c-4d1e8b44982e";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OrcPantheonSelection = "4f38ddbc-703f-41f4-a40a-81831fe3a139";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> TheElderMythosSelection = "2a9ee5e4-e745-461e-bddf-361a0aab060b";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DrakeCompanionSelection = "d78cdd3d-d370-473e-a1ee-3003ea6e83f2";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DrakePowersSelection = "a281a465-8967-47d3-a9ea-cc9ea612d64d";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OracleRevelationDraconicResistancesSelection = "b7c727fb-48e6-40fc-9f44-b201816f1335";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OracleRevelationDragonBreathWeaponSelection = "2e65346c-0b6a-4460-af77-2bc93828beb7";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OracleRevelationDragonTalonsSelection = "cc1feff4-7fc9-4f71-9f5a-672025acae70";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OracleRevelationWingsOfTheDragonSelection = "decc72bb-4f80-468e-a8c4-f2f78ba6bfa7";
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> OceansEchoMysterySelection = "a8044859-fd51-414e-972f-a74c4ccf9068";
+    // ************************** //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -144,6 +175,37 @@ namespace BlueprintCore.Blueprints.ModReferences
         // **** WOTR_PATH_OF_RAGE **** //
         DemonSpecialSelection,
         // *************************** //
+
+        // **** Expanded Content **** //
+        DemonLordSelection,
+        ArchdevilSelection,
+        EmpyrealLordSelection,
+        DeitiesSelection,
+        DraconicDeitySelection,
+        DeitiesofAncientOsirionSelection,
+        DeitiesofTianXiaSelection,
+        PhilosophiesSelection,
+        PantheonSelection,
+        ScalykindCompanionSelectionDomain,
+        CrueltySelection1,
+        CrueltySelection2,
+        CrueltySelection3,
+        CrueltySelection4,
+        DreadKnightCompanionSelection,
+        ProfaneBoonSelection,
+        ElvenPantheonSelection,
+        TheEldestSelection,
+        MonitorsSelection,
+        OrcPantheonSelection,
+        TheElderMythosSelection,
+        DrakeCompanionSelection,
+        DrakePowersSelection,
+        OracleRevelationDraconicResistancesSelection,
+        OracleRevelationDragonBreathWeaponSelection,
+        OracleRevelationDragonTalonsSelection,
+        OracleRevelationWingsOfTheDragonSelection,
+        OceansEchoMysterySelection,
+        // ************************** //
       };
   }
 }
