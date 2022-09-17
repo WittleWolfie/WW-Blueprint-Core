@@ -2,6 +2,7 @@
 
 ## v2.2.4 Release
 
+* Updated for latest game version
 * Added blueprint references to populate content mods, including auto config for BlueprintFeatureSelection
     * Microscopic Content Expansion
     * TTT-Base, TTT-Reworks
