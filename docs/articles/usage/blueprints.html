@@ -103,6 +103,34 @@ FeatureSelectionConfigurator.For(BasicFeatSelectionGuid)
   // logs a warning.
   .Configure();
 </code></pre>
+<h4 id="delayed-configuration-aka-cross-mod-support">Delayed Configuration aka Cross Mod Support</h4>
+<p>You may add a new feat or spell in your mod which should be present in a <code>BlueprintFeatureSelection</code> or <code>BlueprintSpellList</code> defined in another mod. You could handle this by declaring that mod as a requirement, or you can use BPCore's delayed configuration.</p>
+<p>When calling <code>Configure()</code> just pass in <code>delayed: true</code>, then after all <code>BlueprintCache.Init()</code> patches run call <a href="xref:BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator.ConfigureDelayedBlueprints">RootConfigurator.ConfigureDelayedBlueprints()</a>:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroups.Feat, FeatureGroups.CombatFeat)
+  .Configure(delayed: true);
+
+// This is the interface method defined in TTT-Core's IBlueprintCacheInitHandler
+public void AfterBlueprintCachePatches()
+{
+  // Now the feature is configured. Any mods that add BlueprintFeatureSelections matching FeatureGroup.Feat or
+  // FeatureGroup.CombatFeat will include your feat.
+  RootConfigurator.ConfigureDelayed();
+}
+</code></pre>
+<p>BPCore maintains a list of known mod feature selections in &quot;Mod&quot; refs classes. When <code>Configure()</code> is called for a
+feature, its groups are checked against all known mod feature selections. If the selections are present and match then
+the feature is automatically added.</p>
+<p>If you need to add your feat to a specific mod feature selection:</p>
+<pre><code class="lang-C#">FeatureConfigurator.New(FeatName, FeatGuid, FeatureGroups.Feat, FeatureGroups.CombatFeat)
+  // Adds to AntipaladinServantSelection from Microscopic Content Expansion
+  .AddToFeatureSelection(ModFeatureSelectionRefs.AntipaladinServantSelection)
+  .Configure(delayed: true);
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can specify blueprints not included in BPCore's &quot;Mod&quot; refs classes normally. Any selections not present when the feature is configured are ignored.</p>
+</div>
+<p>Since it is standard to create blueprints in <code>BlueprintCache.Init()</code> you should call <code>ConfigureDelayed()</code> after. You can call it in <code>AfterBlueprintCachePatches()</code> from TTT-Core's IBlueprintCacheInitHandler or in a postfix patch of <code>StartGameLoader.LoadPackTOC()</code>.</p>
 <h3 id="adding-components">Adding Components</h3>
 <p>Every supported component has at least one AddX method where X is the component type, e.g. <code>AddBuffSkillBonus</code> in <code>FeatureConfigurator</code>. Through community contributions Some components have multiple methods based on usage. For example, <code>PrerequisiteParametrizedFeature</code> is implemented in three methods: AddPrerequisiteParametrizedSpellFeature, AddPrerequisiteParametrizedWeaponFeature, and AddPrerequisiteParametrizedWeaponFeature.</p>
 <p>Some component types are unique: only one component should exist in a given blueprint. By default adding a second unique component will result in a failure but you can override this to skip or provide a merging function to combine the two components. For more details see <a class="xref" href="../../api/BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge.html">ComponentMerge</a>.</p>
