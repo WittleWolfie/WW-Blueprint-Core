@@ -70,6 +70,10 @@ namespace BlueprintCore.Blueprints.ModReferences
     public static readonly Blueprint<BlueprintFeatureSelectionReference> TricksterTTTAnimalCompanionSelectionDomain = "38342bea-7587-4985-90c3-80ce60db0a44";
     // ********************* //
 
+    // **** WOTR_PATH_OF_RAGE **** //
+    public static readonly Blueprint<BlueprintFeatureSelectionReference> DemonSpecialSelection = "1df9edd3-e5f4-4857-93e5-7a40e1d567f2";
+    // *************************** //
+
     public static readonly List<Blueprint<BlueprintFeatureSelectionReference>> All =
       new()
       {
@@ -136,6 +140,10 @@ namespace BlueprintCore.Blueprints.ModReferences
         // **** TTT-Reworks **** //
         TricksterTTTAnimalCompanionSelectionDomain,
         // ********************* //
+
+        // **** WOTR_PATH_OF_RAGE **** //
+        DemonSpecialSelection,
+        // *************************** //
       };
   }
 }
