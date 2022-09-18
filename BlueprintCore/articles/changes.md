@@ -3,6 +3,7 @@
 ## v2.2.5 Release
 
 * Added support for multiple strings files and embedded resources
+* Features with `FeatureGroup.TeamworkFeat` are automatically added to Tactical Leader's Share Feat Buff
 
 ## v2.2.4 Release
 

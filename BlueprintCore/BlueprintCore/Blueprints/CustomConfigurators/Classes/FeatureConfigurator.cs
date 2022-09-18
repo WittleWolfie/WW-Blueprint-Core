@@ -1,11 +1,13 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.ModReferences;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.UnitLogic.FactLogic;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -203,6 +205,15 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
 
       foreach (var selection in additionalFeatureSelections)
         FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
+
+      // Ensures that teamwork feats are shared by Tactical Leader's share feature
+      if (Blueprint.HasGroup(FeatureGroup.TeamworkFeat))
+      {
+        BuffConfigurator.For(BuffRefs.TacticalLeaderFeatShareBuff)
+          .EditComponent<AddFactsFromCaster>(
+            c => c.m_Facts = CommonTool.Append(c.m_Facts, Blueprint.ToReference<BlueprintUnitFactReference>()))
+          .Configure();
+      }
     }
   }
 
