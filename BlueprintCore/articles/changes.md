@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.2.5 Release
+
+* Added support for multiple strings files and embedded resources
+
 ## v2.2.4 Release
 
 * Updated for latest game version
