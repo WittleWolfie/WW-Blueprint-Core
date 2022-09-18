@@ -17,7 +17,7 @@ namespace BlueprintCore.Utils.Localization
     /// </summary>
     internal readonly Dictionary<string, MultiLocaleString> Strings = new();
 
-    internal MultiLocalizationPack(List<MultiLocaleString> strings)
+    internal void AddStrings(List<MultiLocaleString> strings)
     {
       foreach (var entry in strings)
       {

@@ -28,10 +28,8 @@ namespace BlueprintCore.Utils
       {
         if (localizationPack is null)
         {
-          LoadLocalizationPack(
-            Path.Combine(
-              Path.GetDirectoryName(Assembly.GetAssembly(typeof(LocalizationTool)).Location),
-              "LocalizedStrings.json"));
+          var dir = Path.GetDirectoryName(Assembly.GetAssembly(typeof(LocalizationTool)).Location);
+          LoadLocalizationPacks(Directory.GetFiles(dir, "*Strings.json"));
         }
         return localizationPack!;
       }
@@ -42,25 +40,80 @@ namespace BlueprintCore.Utils
     /// Loads localized strings from a JSON file.
     /// </summary>
     /// 
-    /// <remarks>
-    /// Only a single file will be loaded at once; you shouldn't need to call this multiple times.
-    /// </remarks>
+    /// <remarks></remarks>
     /// 
     /// <param name="localizedStringsFile">JSON file with an array of <see cref="MultiLocaleString"/> values</param>
     public static void LoadLocalizationPack(string localizedStringsFile)
     {
-      if (!File.Exists(localizedStringsFile))
+      LoadLocalizationPacks(localizedStringsFile);
+    }
+
+    /// <summary>
+    /// Loads localized strings from an array of JSON files.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// Use only this or <see cref="LoadEmbeddedLocalizationPacks(string[])"/>. Using both will result in errors. By
+    /// default all files ending in "Strings.json" in the assembly directory are loaded.
+    /// </remarks>
+    /// 
+    /// <param name="stringFiles">
+    /// Array of file paths, each of which is a JSON file with an array of <see cref="MultiLocaleString"/> values
+    /// </param>
+    public static void LoadLocalizationPacks(params string[] stringFiles)
+    {
+      localizationPack = new();
+      foreach (var file in stringFiles)
       {
-        Logger.Warn($"No localized strings found at {localizedStringsFile}");
-        localizationPack = new(new());
-        return;
+        if (!File.Exists(file))
+          Logger.Warn($"File does not exist: {file}");
+
+        JArray array = JArray.Parse(File.ReadAllText(file));
+        localizationPack!.AddStrings(array.ToObject<List<MultiLocaleString>>());
+        Logger.Info($"Localized strings loaded from file: {file}");
       }
 
-      JArray array = JArray.Parse(File.ReadAllText(localizedStringsFile));
-      localizationPack = new(array.ToObject<List<MultiLocaleString>>());
       // This registers the strings with the game library.
       LocalizationManager.CurrentPack.AddStrings(localizationPack.GetCurrentPack());
-      Logger.Info($"Localized strings loaded from {localizedStringsFile}");
+    }
+
+    /// <summary>
+    /// Loads localized strings from an array of embedded JSON files.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// It is recommended to only use this or <see cref="LoadLocalizationPack(string)"/>. Load performance is improved
+    /// using this method. Using both will result in errors. By default all files ending in "Strings.json" in the
+    /// assembly directory are loaded.
+    /// </remarks>
+    /// 
+    /// <param name="resourceNames">
+    /// Array of resource names, each of which is a JSON file with an array of <see cref="MultiLocaleString"/> values
+    /// </param>
+    public static void LoadEmbeddedLocalizationPacks(params string[] resourceNames)
+    {
+      localizationPack = new();
+      var assembly = Assembly.GetExecutingAssembly();
+      foreach (var resource in resourceNames)
+      {
+        using (var stream = assembly.GetManifestResourceStream(resource))
+        {
+          if (stream is null)
+          {
+            Logger.Warn($"Resource does not exist: {resource}");
+            continue;
+          }
+          using (var reader = new StreamReader(stream))
+          {
+            JArray array = JArray.Parse(reader.ReadToEnd());
+            localizationPack!.AddStrings(array.ToObject<List<MultiLocaleString>>());
+            Logger.Info($"Localized strings loaded from resource: {resource}");
+          }
+        }
+      }
+
+      // This registers the strings with the game library.
+      LocalizationManager.CurrentPack.AddStrings(localizationPack.GetCurrentPack());
     }
 
     /// <summary>
