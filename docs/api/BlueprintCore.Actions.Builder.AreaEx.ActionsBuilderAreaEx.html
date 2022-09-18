@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ActionsBuilderAreaEx
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx" class="text-break">Class ActionsBuilderAreaEx
   </h1>
-  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> for actions involving the game map, dungeons, or locations. See also <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a>.</p>
+  <div class="markdown level0 summary"><p>Extension to <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a> for actions involving the game map, dungeons, or locations. See also <a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a>.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -92,7 +92,7 @@
 Actions are supported using extension methods. Include the extension namespaces as needed.
 </p>
 <p>
-When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
 If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
 </p>
 <p>
@@ -101,31 +101,31 @@ Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.h
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">AreaEx</a></td><td>
     Actions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a> for location related actions specifically
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a> for location related actions specifically
 tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a></td><td>
   Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">ActionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related actions not included in
-<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
-extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a> or
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a></td><td>
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Actions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">ActionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">MiscEx</a></td><td>
   Actions without a better extension container such as achievements and CustomEvent.
 </td></tr><tr><td><see cref="!:NewEx.ActionsBuilderNewEx">NewEx</see></td><td>
   Actions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">ActionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">StoryEx</a></td><td>
   Actions related to the story such as companion stories, quests, name changes, and etudes.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">ActionsBuilderUpgraderEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">UpgraderEx</a></td><td>
   All UpgraderOnlyActions.
 </td></tr></tbody></table>
 <example>
@@ -178,7 +178,7 @@ ActionsBuilder.New()
         <td><p>
 Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -200,7 +200,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_AddCampingEncounter_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampingEncounterReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_0247ac5dd1491a051a64b9bc4ff283c8b128</li><li>LannRomanced9baf40d38ceaf248bd5306f0e344bdb</li><li>WenduagRomance39c388b5f2ab0f14b90030bab1b676b9</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_0247ac5dd1491a051a64b9bc4ff283c8b128</li><li>LannRomance_LannTrue26a13b7c436f5fb548b6475106d88de1c</li><li>WenduagRomance39c388b5f2ab0f14b90030bab1b676b9</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -251,7 +251,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -328,7 +328,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -497,7 +497,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintAbilityAreaEffect. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -529,7 +529,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_EndAreaEffects_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityAreaEffectReference___System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Actions_EndAreaEffects_FilterType__System_Nullable_Kingmaker_UnitLogic_Abilities_Blueprints_AreaEffectTags___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandActionc2fba818bb632aa4bb5908337b9f5b51</li><li>CommandActionafb33d70ca6047b78f1b76db9c9088bc</li><li>FourthPart24417ce44ab52e24388edd18d6b5e115</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandActionc2fba818bb632aa4bb5908337b9f5b51</li><li>CommandAction4286b17faaf948f79bad431506aad27f</li><li>FourthPart24417ce44ab52e24388edd18d6b5e115</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -787,7 +787,7 @@ InfoBox: Note: Locking should be launched once, or it will lock isle forever! An
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/HideMapObject
 </p>
-<p><strong></strong></p><ul><li>02_TargonaSearch34246eb4ed22ea44cb2e84c278d9e14d</li><li>Fane_MutafenLab_Mechanic48eecf216b5111f4291e30beabae19b2</li><li>ZigguratUpgradedInsidee531191d4ecff7b44a18f614b5ec1e1a</li></ul>
+<p><strong></strong></p><ul><li>02_TargonaSearch34246eb4ed22ea44cb2e84c278d9e14d</li><li>DoorDown_CheckPassedActions7f2715fba23390d4996bd0a139e9b4f7</li><li>ZigguratUpgradedInsidee531191d4ecff7b44a18f614b5ec1e1a</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -841,7 +841,7 @@ ComponentName: Actions/HideMapObject
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/LocalMapSetDirty
 </p>
-<p><strong></strong></p><ul><li>Alushinyrra_HigherCity_MainIsland_FirstStateEnter31588bd2dcef49b7a09b340df68696aa</li><li>Alushinyrra_MediumCity_MainAndWesternIsland_SecondStateEnter8529d7038f594bbc879dd1c33b8d4389</li><li>CommandActionef51fbbe5cb604747a7edff9112e9583</li></ul>
+<p><strong></strong></p><ul><li>Alushinyrra_HigherCity_MainIsland_FirstStateEnter31588bd2dcef49b7a09b340df68696aa</li><li>Alushinyrra_MediumCity_MainIsland_FirstStateEnter6fec3b8d9ad74ed8a9b09631a01f09c4</li><li>Elevator_CheckFailedActionsee8ceb87afe04362917bdeea08b8558f</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -897,7 +897,7 @@ ComponentName: Actions/LocalMapSetDirty
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_MakeServiceCaster_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DrezenCapital_DefaultMechanic30862a76dd4a11049be42d3de26159fb</li><li>WarCamp_DefaultPeaceful_Outdoor27d07416c620e0e48865bd88d74cbb82</li><li>WarCamp_EarlyBeginning4be1dcbb5f0a05f43b8915e14251b76c</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DLC3_SpellServiceb51f4e2d99ff4c889a665b6a195596de</li><li>Nexus_DivineServicebe1c434716bd35e4bba2c5631ca77ee3</li><li>WarCamp_EarlyBeginning4be1dcbb5f0a05f43b8915e14251b76c</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -941,7 +941,7 @@ ComponentName: Actions/LocalMapSetDirty
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -963,7 +963,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_MarkLocationClosed_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AeonKenabresRebuilded470c835355608c34fa4571ba4f65cbc3</li><li>Cue_01233034d21124a9d5a43969b119cada65c5</li><li>TheBridgeIsBuilt048ce8550994326429f73b6119270293</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AeonKenabresRebuilded470c835355608c34fa4571ba4f65cbc3</li><li>DLC3_SteersmanIsDead90a98fca882f4d91b06fb562ccd24c44</li><li>TheBridgeIsBuilt048ce8550994326429f73b6119270293</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1007,7 +1007,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1308,7 +1308,7 @@ ComponentName: Actions/OpenLootContainer
         <td><p>
 Blueprint of type BlueprintArea. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1318,7 +1318,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintAreaMechanics. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1379,7 +1379,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintCampingEncounter. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1401,7 +1401,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_RemoveCampingEncounter_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCampingEncounterReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>ArueshalaeAfterLab_CampingEncounterb1501473507eb00418ab14db5fd9f23a</li><li>PlayerDreamSummons112ed8664358d9ba49b2a246bef5865c1</li><li>WenduRom_SomeThingsAboutMyFather_CampingEncountera659923cdc1497044a2e385212c114f6</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>ArueshalaeAfterLab_CampingEncounterb1501473507eb00418ab14db5fd9f23a</li><li>Locust_DeskariDreamdfbc6d9a48144c08b3172e6aebe38310</li><li>WenduRom_SomeThingsAboutMyFather_CampingEncountera659923cdc1497044a2e385212c114f6</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1491,7 +1491,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1522,19 +1522,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneActivate(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneActivate(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L768">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L774">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneActivate*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneActivate(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference)">ScriptZoneActivate(ActionsBuilder, EntityReference)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_">ScriptZoneActivate(ActionsBuilder, EntityReference)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneActivate(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Nullable{System.Boolean})">ScriptZoneActivate(ActionsBuilder, EntityReference, MapObjectEvaluator, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__">ScriptZoneActivate(ActionsBuilder, EntityReference, MapObjectEvaluator, Nullable&lt;Boolean&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder ScriptZoneActivate(this ActionsBuilder builder, EntityReference scriptZone = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ScriptZoneActivate(this ActionsBuilder builder, EntityReference scriptZone = null, MapObjectEvaluator scriptZoneEvaluator = null, bool? useEvaluator = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1556,6 +1556,19 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><span class="parametername">scriptZone</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
+        <td><span class="parametername">scriptZoneEvaluator</span></td>
+        <td><p>
+InfoBox: NOTE: Should evaluate scriptZone!
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">useEvaluator</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1573,27 +1586,27 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneActivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/ScriptZoneActivate
 </p>
-<p><strong></strong></p><ul><li>AddAeonEyeActionsHolderc6738bf1a8f74dc8b0a1762a721e1eb6</li><li>CommandAction757586b2b26d743879e46ebfc310d4d6e</li><li>WoundWormLair_Event_Mechanicsfa1e44ec4639c4242b745b9b7c72cc03</li></ul>
+<p><strong></strong></p><ul><li>AddAeonEyeActionsHolderc6738bf1a8f74dc8b0a1762a721e1eb6</li><li>CommandAction66b42ba77f3ac4b309aa3a146623cd92e</li><li>WoundWormLair_Event_Mechanicsfa1e44ec4639c4242b745b9b7c72cc03</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneDeactivate(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneDeactivate(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L795">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L812">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneDeactivate*"></a>
-  <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneDeactivate(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference)">ScriptZoneDeactivate(ActionsBuilder, EntityReference)</h4>
-  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_">ScriptZoneDeactivate(ActionsBuilder, EntityReference)</a></p>
+  <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScriptZoneDeactivate(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Nullable{System.Boolean})">ScriptZoneDeactivate(ActionsBuilder, EntityReference, MapObjectEvaluator, Nullable&lt;Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html#BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean__">ScriptZoneDeactivate(ActionsBuilder, EntityReference, MapObjectEvaluator, Nullable&lt;Boolean&gt;)</a></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static ActionsBuilder ScriptZoneDeactivate(this ActionsBuilder builder, EntityReference scriptZone = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder ScriptZoneDeactivate(this ActionsBuilder builder, EntityReference scriptZone = null, MapObjectEvaluator scriptZoneEvaluator = null, bool? useEvaluator = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1615,6 +1628,19 @@ ComponentName: Actions/ScriptZoneActivate
         <td><span class="parametername">scriptZone</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.MapObjectEvaluator</span></td>
+        <td><span class="parametername">scriptZoneEvaluator</span></td>
+        <td><p>
+InfoBox: NOTE: Should evaluate scriptZone!
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">useEvaluator</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h5 class="returns">Returns</h5>
@@ -1632,18 +1658,18 @@ ComponentName: Actions/ScriptZoneActivate
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference__remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScriptZoneDeactivate_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/ScriptZoneDeactivate
 </p>
-<p><strong></strong></p><ul><li>AeonQ3Scene_DayTimeffb3b99adfa368444b4a46ea36e5aec9</li><li>DHDefended_Mechanicd9042ef7dd8941d8b71b2e4f66684f03</li><li>WP_1_ScriptZone0613d54edb72463e8bcada03f359bf91</li></ul>
+<p><strong></strong></p><ul><li>AeonQ3Scene_DayTimeffb3b99adfa368444b4a46ea36e5aec9</li><li>Desnits03a_Sleepa5b4e591c5965074799c91d53f8eef47</li><li>WP_1_ScriptZone0613d54edb72463e8bcada03f359bf91</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScripZoneUnits_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScripZoneUnits(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L822">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L844">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScripZoneUnits_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScripZoneUnits*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ScripZoneUnits_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ScripZoneUnits(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference)">ScripZoneUnits(ActionsBuilder, ActionsBuilder, EntityReference)</h4>
@@ -1700,14 +1726,14 @@ ComponentName: Actions/ScriptZoneDeactivate
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/ScripZoneUnits
 </p>
-<p><strong></strong></p><ul><li>CommandActiond36dcab7631c4ad0b4d71ed4483b1973</li><li>CommandAction2263060b2c1934de6b0ff59da6e4a2ed8</li><li>Oil_Debuff4c83baec3825401ebaf66f501013f5e1</li></ul>
+<p><strong></strong></p><ul><li>CommandActiond36dcab7631c4ad0b4d71ed4483b1973</li><li>CommandAction19df78bb01373451bab52aa8b3e53255a</li><li>Poisons_dmg_zone3a98b6c45026a4845b7827c767a832dde</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_IntEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceState(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CKingmaker.ElementsSystem.IntEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L855">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L877">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceState_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceState*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceState_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_IntEvaluator_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceState(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,Kingmaker.ElementsSystem.IntEvaluator)">SetDeviceState(ActionsBuilder, MapObjectEvaluator, IntEvaluator)</h4>
@@ -1771,7 +1797,7 @@ ComponentName: Actions/SetDeviceState
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceTrigger(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L885">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L907">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceTrigger_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceTrigger*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDeviceTrigger_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_String_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDeviceTrigger(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.String)">SetDeviceTrigger(ActionsBuilder, MapObjectEvaluator, String)</h4>
@@ -1835,7 +1861,7 @@ ComponentName: Actions/SetDeviceTrigger
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDisableDevice_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDisableDevice(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L918">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L940">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDisableDevice_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDisableDevice*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SetDisableDevice_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Int32__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SetDisableDevice(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.MapObjectEvaluator,System.Nullable{System.Int32})">SetDisableDevice(ActionsBuilder, MapObjectEvaluator, Nullable&lt;Int32&gt;)</h4>
@@ -1902,7 +1928,7 @@ ComponentName: Actions/SetDisableDevice
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ShowMultiEntrance_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintMultiEntranceReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ShowMultiEntrance(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintMultiEntranceReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L956">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L978">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ShowMultiEntrance_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ShowMultiEntrance*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_ShowMultiEntrance_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintMultiEntranceReference__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.ShowMultiEntrance(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintMultiEntranceReference})">ShowMultiEntrance(ActionsBuilder, Blueprint&lt;BlueprintMultiEntranceReference&gt;)</h4>
@@ -1934,7 +1960,7 @@ ComponentName: Actions/SetDisableDevice
         <td><p>
 Blueprint of type BlueprintMultiEntrance. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1963,7 +1989,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotMapObject_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotMapObject(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.MapObjectEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L982">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1004">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotMapObject_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotMapObject*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotMapObject_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotMapObject(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.MapObjectEvaluator)">SpotMapObject(ActionsBuilder, UnitEvaluator, MapObjectEvaluator)</h4>
@@ -2024,7 +2050,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotUnit_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotUnit(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1008">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1030">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotUnit_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotUnit*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_SpotUnit_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.SpotUnit(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">SpotUnit(ActionsBuilder, UnitEvaluator, UnitEvaluator)</h4>
@@ -2085,7 +2111,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TeleportParty_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_EntitySystem_Persistence_AutoSaveMode__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TeleportParty(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BKingmaker.EntitySystem.Persistence.AutoSaveMode%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAreaEnterPointReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1051">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1073">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TeleportParty_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TeleportParty*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TeleportParty_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_EntitySystem_Persistence_AutoSaveMode__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaEnterPointReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TeleportParty(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{Kingmaker.EntitySystem.Persistence.AutoSaveMode},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAreaEnterPointReference},System.Nullable{System.Boolean})">TeleportParty(ActionsBuilder, ActionsBuilder, Nullable&lt;AutoSaveMode&gt;, Blueprint&lt;BlueprintAreaEnterPointReference&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -2127,7 +2153,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -2157,14 +2183,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/TeleportParty
 </p>
-<p><strong></strong></p><ul><li>2ALR_BlueprintAreaTransitioncaa1a113bb2c18e4bb187348664d4c99</li><li>Cue_0011ea7edba7b4f85564095f06aac7325006</li><li>ZigguratNoMoreLichca82ea555e8408c4e8839cdd5079e099</li></ul>
+<p><strong></strong></p><ul><li>2ALR_BlueprintAreaTransitioncaa1a113bb2c18e4bb187348664d4c99</li><li>Cue_0012dc93ae9209903e041a10baff7d50da5f</li><li>ZigguratNoMoreLichca82ea555e8408c4e8839cdd5079e099</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocatePlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocatePlayer(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1097">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1119">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocatePlayer_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocatePlayer*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocatePlayer_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocatePlayer(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},Kingmaker.Blueprints.EntityReference)">TranslocatePlayer(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, EntityReference)</h4>
@@ -2236,7 +2262,7 @@ ComponentName: Actions/TranslocatePlayer
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocateUnit_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_PositionEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocateUnit(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.FloatEvaluator%2CKingmaker.Blueprints.EntityReference%2CKingmaker.ElementsSystem.PositionEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1134">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1156">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocateUnit_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocateUnit*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TranslocateUnit_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_FloatEvaluator_Kingmaker_Blueprints_EntityReference_Kingmaker_ElementsSystem_PositionEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TranslocateUnit(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},Kingmaker.ElementsSystem.FloatEvaluator,Kingmaker.Blueprints.EntityReference,Kingmaker.ElementsSystem.PositionEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">TranslocateUnit(ActionsBuilder, Nullable&lt;Boolean&gt;, FloatEvaluator, EntityReference, PositionEvaluator, UnitEvaluator)</h4>
@@ -2311,14 +2337,14 @@ Tooltip: Locator View
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/TranslocateUnit
 </p>
-<p><strong></strong></p><ul><li>AeonQ10_EndKTC4caf982d4440ee9409b809f10b7796ff</li><li>CommandAction 6eb0ed044c6d7c8b4a9f8e986b48decb4</li><li>ZigguratActive6716edd224e0d4049a55030f4d01c8ed</li></ul>
+<p><strong></strong></p><ul><li>AeonQ10_EndKTC4caf982d4440ee9409b809f10b7796ff</li><li>CommandAction 62abd66007a170e04fa94ea49ca610401</li><li>ZigguratActive6716edd224e0d4049a55030f4d01c8ed</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TrapCastSpell_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_PositionEvaluator_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference__System_Nullable_System_Int32__Kingmaker_ElementsSystem_PositionEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TrapCastSpell(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.ElementsSystem.PositionEvaluator%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAbilityReference%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CKingmaker.ElementsSystem.PositionEvaluator%2CKingmaker.ElementsSystem.MapObjectEvaluator%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1191">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1213">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TrapCastSpell_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TrapCastSpell*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_TrapCastSpell_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_PositionEvaluator_System_Nullable_System_Int32__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference__System_Nullable_System_Int32__Kingmaker_ElementsSystem_PositionEvaluator_Kingmaker_ElementsSystem_MapObjectEvaluator_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.TrapCastSpell(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.ElementsSystem.PositionEvaluator,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAbilityReference},System.Nullable{System.Int32},Kingmaker.ElementsSystem.PositionEvaluator,Kingmaker.ElementsSystem.MapObjectEvaluator,Kingmaker.ElementsSystem.UnitEvaluator)">TrapCastSpell(ActionsBuilder, PositionEvaluator, Nullable&lt;Int32&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintAbilityReference&gt;, Nullable&lt;Int32&gt;, PositionEvaluator, MapObjectEvaluator, UnitEvaluator)</h4>
@@ -2375,7 +2401,7 @@ ComponentName: Actions/TranslocateUnit
         <td><p>
 Blueprint of type BlueprintAbility. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -2430,7 +2456,7 @@ InfoBox: Required if Spell can not target Point (like Scorching ray)
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockLocation(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1256">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1278">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockLocation_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockLocation*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockLocation_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapPoint_Reference__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockLocation(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapPoint.Reference})">UnlockLocation(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintGlobalMapPoint.Reference&gt;)</h4>
@@ -2472,7 +2498,7 @@ InfoBox: Required if Spell can not target Point (like Scorching ray)
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -2497,14 +2523,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/UnlockLocation
 </p>
-<p><strong></strong></p><ul><li>01_GoToCamp10d044829fd19a54eb85cae569fc009f</li><li>Cue_0026aa27c300479f5be4d9475a3c1ed851f2</li><li>WenduagKTC_WenduagComeNeathholmd6793bcea861d3b49857067532fcedc0</li></ul>
+<p><strong></strong></p><ul><li>01_GoToCamp10d044829fd19a54eb85cae569fc009f</li><li>Cue_0023058f685f053b66748a2fe1d382466910</li><li>WenduagKTC_WenduagComeNeathholmd6793bcea861d3b49857067532fcedc0</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockMapEdge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapEdge_Reference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockMapEdge(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge.Reference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1304">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/AreaEx/ActionsBuilderAreaEx.cs/#L1326">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockMapEdge_" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockMapEdge*"></a>
   <h4 id="BlueprintCore_Actions_Builder_AreaEx_ActionsBuilderAreaEx_UnlockMapEdge_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Globalmap_Blueprints_BlueprintGlobalMapEdge_Reference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.UnlockMapEdge(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Globalmap.Blueprints.BlueprintGlobalMapEdge.Reference},System.Nullable{System.Boolean})">UnlockMapEdge(ActionsBuilder, Blueprint&lt;BlueprintGlobalMapEdge.Reference&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -2536,7 +2562,7 @@ ComponentName: Actions/UnlockLocation
         <td><p>
 Blueprint of type BlueprintGlobalMapEdge. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>

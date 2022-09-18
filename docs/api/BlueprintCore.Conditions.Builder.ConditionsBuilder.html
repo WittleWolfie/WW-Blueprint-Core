@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConditionsBuilder
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -101,26 +101,26 @@ Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBui
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">ConditionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">AreaEx</a></td><td>
     Conditions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a> for location related conditions
+<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a> for location related conditions
 specifically tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">ConditionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related conditions not included in
-<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more
-specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a></td><td>
+specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Conditions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">ConditionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">MiscEx</a></td><td>
   Conditions without a better extension container such as game difficulty.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">ConditionsBuilderNewEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">NewEx</a></td><td>
   Conditions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">ConditionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">StoryEx</a></td><td>
   Conditions related to the story such as companion stories, quests, name changes, and etudes.
 </td></tr></tbody></table>
 <example>
@@ -1022,6 +1022,9 @@ warning. Do not call twice on the same builder.</p>
       <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_AreaVisited_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_">ConditionsBuilderAreaEx.AreaVisited(ConditionsBuilder, Blueprint&lt;BlueprintAreaReference&gt;, Boolean)</a>
   </div>
   <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_DungeonStage_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Int32__System_Nullable_System_Int32__System_Boolean_">ConditionsBuilderAreaEx.DungeonStage(ConditionsBuilder, Nullable&lt;Int32&gt;, Nullable&lt;Int32&gt;, Boolean)</a>
+  </div>
+  <div>
       <a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html#BlueprintCore_Conditions_Builder_AreaEx_ConditionsBuilderAreaEx_CurrentAreaIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAreaReference__System_Boolean_">ConditionsBuilderAreaEx.CurrentAreaIs(ConditionsBuilder, Blueprint&lt;BlueprintAreaReference&gt;, Boolean)</a>
   </div>
   <div>
@@ -1107,6 +1110,9 @@ warning. Do not call twice on the same builder.</p>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_ItemBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__Kingmaker_ElementsSystem_ItemEvaluator_System_Boolean_">ConditionsBuilderBasicEx.ItemBlueprint(ConditionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, ItemEvaluator, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_ItemFromCollectionCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_ItemsCollectionEvaluator_System_Boolean_">ConditionsBuilderBasicEx.ItemFromCollectionCondition(ConditionsBuilder, Nullable&lt;Boolean&gt;, ConditionsBuilder, ItemsCollectionEvaluator, Boolean)</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_ItemsEnough_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__System_Boolean_System_Nullable_System_Int32__">ConditionsBuilderBasicEx.ItemsEnough(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;Int32&gt;)</a>

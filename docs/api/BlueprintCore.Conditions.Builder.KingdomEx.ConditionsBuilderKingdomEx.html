@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConditionsBuilderKingdomEx
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -101,26 +101,26 @@ Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBui
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">ConditionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">AreaEx</a></td><td>
     Conditions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a> for location related conditions
+<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a> for location related conditions
 specifically tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">ConditionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related conditions not included in
-<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more
-specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a></td><td>
+specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Conditions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">ConditionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">MiscEx</a></td><td>
   Conditions without a better extension container such as game difficulty.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">ConditionsBuilderNewEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">NewEx</a></td><td>
   Conditions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">ConditionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">StoryEx</a></td><td>
   Conditions related to the story such as companion stories, quests, name changes, and etudes.
 </td></tr></tbody></table>
 <example>
@@ -232,7 +232,7 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -315,7 +315,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_AutoKingdom_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Add3_SearchMoltenScar39a11378f06fff740b8211686247d943</li><li>Cue_0252_playerheira8764b751e8fb1240b998546ec6ed292</li><li>PF-232045e117b759ee6647e2a156d4c7f0637142</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Add3_SearchMoltenScar39a11378f06fff740b8211686247d943</li><li>Cue_0252_playerheira8764b751e8fb1240b998546ec6ed292</li><li>WarCamp_CrusadeAnnouncementd95152499fa0696478cc6af83e44f029</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -354,7 +354,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -476,7 +476,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintKingdomBuff. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -491,7 +491,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintRegion. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -616,7 +616,7 @@ InfoBox: Week number from chapter start. To check chapter use etude checker.
         <td><p>
 Blueprint of type BlueprintKingdomEventBase. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -650,7 +650,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomExists(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L305">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L306">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomExists_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomExists*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomExists(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean)">KingdomExists(ConditionsBuilder, Boolean)</h4>
@@ -699,14 +699,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Chapter0315e0048c7daf0ac4999c2313b58df0e3</li><li>CrusadeTutorial_01_Chapter2Intro20073002e0594c88b5af911060e8dde8</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Chapter0315e0048c7daf0ac4999c2313b58df0e3</li><li>CrusadeTutorial_01_Chapter2Intro20073002e0594c88b5af911060e8dde8</li><li>CrusadeTutorial_01_Chapter2Intro_Gamepada7ddb70f04c74468b7c05cb6b4275c65</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomLeaderIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_LeaderType__System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomLeaderIs(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BKingmaker.Kingdom.LeaderType%7D%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L340">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L341">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomLeaderIs_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomLeaderIs*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomLeaderIs_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Kingdom_LeaderType__System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomLeaderIs(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Nullable{Kingmaker.Kingdom.LeaderType},System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitReference})">KingdomLeaderIs(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;LeaderType&gt;, Boolean, Blueprint&lt;BlueprintUnitReference&gt;)</h4>
@@ -753,7 +753,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintUnit. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -782,7 +782,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomMoraleFlagCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Flags_BlueprintKingdomMoraleFlag_Reference__System_Boolean_System_Nullable_Kingmaker_Kingdom_Flags_KingdomMoraleFlag_State__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomMoraleFlagCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag.Reference%7D%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.Kingdom.Flags.KingdomMoraleFlag.State%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L384">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L385">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomMoraleFlagCondition_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomMoraleFlagCondition*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomMoraleFlagCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Kingdom_Flags_BlueprintKingdomMoraleFlag_Reference__System_Boolean_System_Nullable_Kingmaker_Kingdom_Flags_KingdomMoraleFlag_State__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomMoraleFlagCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Kingdom.Flags.BlueprintKingdomMoraleFlag.Reference},System.Boolean,System.Nullable{Kingmaker.Kingdom.Flags.KingdomMoraleFlag.State})">KingdomMoraleFlagCondition(ConditionsBuilder, Blueprint&lt;BlueprintKingdomMoraleFlag.Reference&gt;, Boolean, Nullable&lt;KingdomMoraleFlag.State&gt;)</h4>
@@ -814,7 +814,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintKingdomMoraleFlag. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -853,7 +853,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsAvailable_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsAvailable(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L427">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L428">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsAvailable_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsAvailable*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsAvailable_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsAvailable(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">KingdomProjectIsAvailable(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Boolean, Blueprint&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -905,7 +905,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -934,7 +934,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsDone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintKingdomProjectReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsDone(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintKingdomProjectReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L474">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L475">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsDone_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsDone*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsDone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintKingdomProjectReference__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomProjectIsDone(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintKingdomProjectReference})">KingdomProjectIsDone(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintKingdomProjectReference&gt;)</h4>
@@ -971,7 +971,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintKingdomProject. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -993,14 +993,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomProjectIsDone_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintKingdomProjectReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CreateSettlementFort210b7377f7c46c6aa43bf66af6ec618836</li><li>CreateSettlementNearRegill8b4cd3ebd7b3f3b4ea201bbfed62fa28</li><li>PF-300995f25549e2b0654ca6b20335c374e2258d</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CreateSettlementFort210b7377f7c46c6aa43bf66af6ec618836</li><li>CreateSettlementNearRegill8b4cd3ebd7b3f3b4ea201bbfed62fa28</li><li>PF-4127038cddb1adab904075a656a7d4bf226271</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRankUpConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_Kingdom_KingdomStats_Type__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRankUpConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BKingmaker.Kingdom.KingdomStats.Type%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L502">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L503">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRankUpConditions_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRankUpConditions*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRankUpConditions_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_System_Nullable_System_Int32__System_Nullable_Kingmaker_Kingdom_KingdomStats_Type__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRankUpConditions(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,System.Nullable{System.Int32},System.Nullable{Kingmaker.Kingdom.KingdomStats.Type})">KingdomRankUpConditions(ConditionsBuilder, Boolean, Nullable&lt;Int32&gt;, Nullable&lt;KingdomStats.Type&gt;)</h4>
@@ -1066,7 +1066,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRegionIsConquered_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintRegionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRegionIsConquered(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintRegionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L541">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L542">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRegionIsConquered_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRegionIsConquered*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomRegionIsConquered_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintRegionReference__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomRegionIsConquered(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintRegionReference})">KingdomRegionIsConquered(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintRegionReference&gt;)</h4>
@@ -1103,7 +1103,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintRegion. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1132,7 +1132,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomSettlementCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Int32__System_Nullable_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomSettlementCount(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Nullable%7BKingmaker.Kingdom.Settlements.SettlementState.LevelType%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L567">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L568">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomSettlementCount_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomSettlementCount*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomSettlementCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Int32__System_Nullable_Kingmaker_Kingdom_Settlements_SettlementState_LevelType__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomSettlementCount(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Int32},System.Nullable{Kingmaker.Kingdom.Settlements.SettlementState.LevelType},System.Boolean)">KingdomSettlementCount(ConditionsBuilder, Nullable&lt;Int32&gt;, Nullable&lt;SettlementState.LevelType&gt;, Boolean)</h4>
@@ -1198,7 +1198,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomStatCheck_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_Kingdom_KingdomStats_Type__System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomStatCheck(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.Kingdom.KingdomStats.Type%7D%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L593">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L594">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomStatCheck_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomStatCheck*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_KingdomStatCheck_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_Kingdom_KingdomStats_Type__System_Nullable_System_Int32__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.KingdomStatCheck(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean,System.Nullable{Kingmaker.Kingdom.KingdomStats.Type},System.Nullable{System.Int32})">KingdomStatCheck(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;KingdomStats.Type&gt;, Nullable&lt;Int32&gt;)</h4>
@@ -1274,7 +1274,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TacticalCombatSquadHitPointsCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_UnitLogic_Mechanics_CompareOperation_Type__Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TacticalCombatSquadHitPointsCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.UnitLogic.Mechanics.CompareOperation.Type%7D%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L629">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L630">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TacticalCombatSquadHitPointsCondition_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TacticalCombatSquadHitPointsCondition*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TacticalCombatSquadHitPointsCondition_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_UnitLogic_Mechanics_CompareOperation_Type__Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TacticalCombatSquadHitPointsCondition(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Boolean,System.Nullable{Kingmaker.UnitLogic.Mechanics.CompareOperation.Type},Kingmaker.UnitLogic.Mechanics.ContextValue)">TacticalCombatSquadHitPointsCondition(ConditionsBuilder, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;CompareOperation.Type&gt;, ContextValue)</h4>
@@ -1348,7 +1348,7 @@ InfoBox: Compares with target&amp;apos;s HP by default
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TargetHasArmyTag_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_Armies_Components_ArmyProperties__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TargetHasArmyTag(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.Armies.Components.ArmyProperties%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L661">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/KingdomEx/ConditionsBuilderKingdomEx.cs/#L662">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TargetHasArmyTag_" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TargetHasArmyTag*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_KingdomEx_ConditionsBuilderKingdomEx_TargetHasArmyTag_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Boolean_System_Nullable_Kingmaker_Armies_Components_ArmyProperties__" data-uid="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.TargetHasArmyTag(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Boolean,System.Nullable{Kingmaker.Armies.Components.ArmyProperties})">TargetHasArmyTag(ConditionsBuilder, Nullable&lt;Boolean&gt;, Boolean, Nullable&lt;ArmyProperties&gt;)</h4>

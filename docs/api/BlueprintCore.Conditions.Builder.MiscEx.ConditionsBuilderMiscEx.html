@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ConditionsBuilderMiscEx
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -101,26 +101,26 @@ Do not call <a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBui
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">ConditionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.AreaEx.ConditionsBuilderAreaEx.html">AreaEx</a></td><td>
     Conditions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a> for location related conditions
+<a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a> for location related conditions
 specifically tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">ConditionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related conditions not included in
-<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ConditionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.ContextEx.ConditionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Conditions.ContextCondition</span> types are in more
-specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">ConditionsBuilderKingdomEx</a></td><td>
+specific extensions such as <a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.KingdomEx.ConditionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Conditions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">ConditionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.MiscEx.ConditionsBuilderMiscEx.html">MiscEx</a></td><td>
   Conditions without a better extension container such as game difficulty.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">ConditionsBuilderNewEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.NewEx.ConditionsBuilderNewEx.html">NewEx</a></td><td>
   Conditions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">ConditionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Conditions.Builder.StoryEx.ConditionsBuilderStoryEx.html">StoryEx</a></td><td>
   Conditions related to the story such as companion stories, quests, name changes, and etudes.
 </td></tr></tbody></table>
 <example>
@@ -198,7 +198,7 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_DifficultyHigherThan_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Settings_Difficulty_DifficultyPresetAsset_System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandAction 3651c3ea9f9323e943823ed497736ac74</li><li>CommandSetCombatMode4c804cbf4f3e9427ca72b9800042cacb3</li><li>Valmallos_Feature_CombatTriggerf4621cc70bec4fe7b0373ed152e40570</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandAction 3651c3ea9f9323e943823ed497736ac74</li><li>CommandSetCombatMode778179ec3b28b41f1b7c72f44bd190cbf</li><li>Valmallos_Feature_CombatTriggerf4621cc70bec4fe7b0373ed152e40570</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -391,7 +391,7 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_GameModeActive_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_GameModes_GameModeType_Enum__System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CrusadeTutorial_01_Chapter2Intro20073002e0594c88b5af911060e8dde8</li><li>Tutorials_Chapter031b59d48741cbf9945adde5dc62f968d8</li><li>Tutorials_Chapter046321277cfb08bb5469b148e2a7a7cc12</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CrusadeTutorial_01_Chapter2Intro20073002e0594c88b5af911060e8dde8</li><li>Tutorials_Chapter02b21b9dcb071cb2e4eaf91c66c0431e6d</li><li>Tutorials_Chapter046321277cfb08bb5469b148e2a7a7cc12</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -542,7 +542,7 @@ ifTrue: ActionsBuilder.New().MeleeAttack())
         <td><p>
 Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -608,7 +608,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -635,7 +635,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_MiscEx_ConditionsBuilderMiscEx_IsDLCEnabled_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintDlcRewardReference__System_Boolean__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AasimarRaceb7f02ba92b363064fb873963bec275ee</li><li>Edge_SarkorianWedding_Chapter05_Army21f5867b88ae4d4b189c025df9161e75d4</li><li>Location_SarkorianWeddingda3e19fa23f94fa3a563bd866189e9da</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AasimarRaceb7f02ba92b363064fb873963bec275ee</li><li>Edge_SarkorianWedding_Chapter05_Army14b3c8bd9291a34edc88b62353f2f847f9</li><li>Location_SarkorianWeddingda3e19fa23f94fa3a563bd866189e9da</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -745,7 +745,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintItemsList. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>

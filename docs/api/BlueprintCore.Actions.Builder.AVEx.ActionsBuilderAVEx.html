@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ActionsBuilderAVEx
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -92,7 +92,7 @@
 Actions are supported using extension methods. Include the extension namespaces as needed.
 </p>
 <p>
-When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
 If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
 </p>
 <p>
@@ -101,31 +101,31 @@ Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.h
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">AreaEx</a></td><td>
     Actions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a> for location related actions specifically
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a> for location related actions specifically
 tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a></td><td>
   Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">ActionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related actions not included in
-<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
-extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a> or
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a></td><td>
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Actions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">ActionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">MiscEx</a></td><td>
   Actions without a better extension container such as achievements and CustomEvent.
 </td></tr><tr><td><see cref="!:NewEx.ActionsBuilderNewEx">NewEx</see></td><td>
   Actions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">ActionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">StoryEx</a></td><td>
   Actions related to the story such as companion stories, quests, name changes, and etudes.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">ActionsBuilderUpgraderEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">UpgraderEx</a></td><td>
   All UpgraderOnlyActions.
 </td></tr></tbody></table>
 <example>
@@ -198,7 +198,7 @@ ActionsBuilder.New()
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/CameraToPosition
 </p>
-<p><strong></strong></p><ul><li>CommandAction6264845f5654cdd48809fe36f5dc4ffb</li><li>Cue_0024c43f80ef0e950c3449a74dd8e403bf6e</li><li>Wardstone_SoldiersAndDemonsFight76de06039af340ddba4ed13149ecb72a</li></ul>
+<p><strong></strong></p><ul><li>CommandAction6264845f5654cdd48809fe36f5dc4ffb</li><li>Cue_002430437eab305b3864586674692c526a4e</li><li>Wardstone_SoldiersAndDemonsFight76de06039af340ddba4ed13149ecb72a</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -333,7 +333,7 @@ Tooltip: Ak event name from Wwise library
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/Play2DSound
 </p>
-<p><strong></strong></p><ul><li>AirAdventures_BookEventa07f6d1f93531e048928c5c9de328a92</li><li>CommandAction1ffd7ece2931543b08711654f927b28c8</li><li>WillSaveGhoulCheckPassed_Actions0a39e8f4368328949aca5616589abe5d</li></ul>
+<p><strong></strong></p><ul><li>AirAdventures_BookEventa07f6d1f93531e048928c5c9de328a92</li><li>CommandAction13f124a9e750344119c1ad1385bb29e61</li><li>WillSaveGhoulCheckPassed_Actions0a39e8f4368328949aca5616589abe5d</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -424,7 +424,7 @@ Tooltip: Ak event name from Wwise library
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/Play3DSound
 </p>
-<p><strong></strong></p><ul><li>Answer_0004979c0288728143d4cadd65e43eb70f77</li><li>CommandAction2bf0933f5898f4fd280fbb4638979be84</li><li>Tools_CheckPassedActions2db695eb808004014b25ad3475123d544</li></ul>
+<p><strong></strong></p><ul><li>Answer_0004979c0288728143d4cadd65e43eb70f77</li><li>CommandAction2a19f4c8ed6e24e808e3c09ed3d2a0d0c</li><li>Tools_CheckPassedActions2db695eb808004014b25ad3475123d544</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -496,7 +496,7 @@ ComponentName: Actions/Play3DSound
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_PlayAnimationOneShot_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_AnimationClipWrapperLink__System_Nullable_System_Single__System_Nullable_System_Single__Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_0005058d6563b283ae04294ba2c729383663</li><li>Cue_0016bb7b3fbefbb88e34a97bc895f76c368e</li><li>Vrok_Chainedb04649a8dd8abf741a51728a4ba9c746</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Answer_0005058d6563b283ae04294ba2c729383663</li><li>Cue_00165ca6507997f72204ca0babb22f93966a</li><li>Vrok_Chainedb04649a8dd8abf741a51728a4ba9c746</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -560,7 +560,7 @@ ComponentName: Actions/Play3DSound
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/PlayCustomMusic
 </p>
-<p><strong></strong></p><ul><li>Abducted_dialogue43c9a316be2e45678606133610e80063</li><li>FirstCultistAttack_dialogue5d0e5f6591424935983d03c587618ba9</li><li>ZachariusLostChapel_dialogue484953d7dfcc1244fadfdeab34a363ff</li></ul>
+<p><strong></strong></p><ul><li>Abducted_dialogue43c9a316be2e45678606133610e80063</li><li>EvilAbrogail_dialogue712211a84a7fcfb49a8aa4b69ba59e14</li><li>ZachariusLostChapel_dialogue484953d7dfcc1244fadfdeab34a363ff</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -604,7 +604,7 @@ ComponentName: Actions/PlayCustomMusic
         <td><p>
 Blueprint of type Cutscene. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -639,7 +639,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/Play cutscene
 </p>
-<p><strong></strong></p><ul><li>(CR 6) Necromancer_SpawnActions966067be66094e699fd7247f4507dd1a</li><li>Cue_00495a2c83b1758ca624bbd3d87d7a3e15c2</li><li>Zone3_Epigraph_SZfde009ee2ae62024baaac478de277b28</li></ul>
+<p><strong></strong></p><ul><li>(CR 6) Necromancer_SpawnActions966067be66094e699fd7247f4507dd1a</li><li>Cue_004987aeabd05d4de3e4c881930088c729ce</li><li>Zone3_Epigraph_SZfde009ee2ae62024baaac478de277b28</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1048,7 +1048,7 @@ Tooltip: Bark duration depends on text length
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/ShowBark
 </p>
-<p><strong></strong></p><ul><li>!Octavia_Companion_Warrior_Test0f5938a10fd0d3644be33747d6d2b11c</li><li>GreyborEnterZone547cc0d248f5f6b459d09a4820f83831</li><li>ZombiesOnStreetsffcf5bca11694784686d9947ed226a88</li></ul>
+<p><strong></strong></p><ul><li>!Octavia_Companion_Warrior_Test0f5938a10fd0d3644be33747d6d2b11c</li><li>GrayGarrison_FirstVisit_Etude5cf468c3a40684e4fa6e1a8982d6c9fe</li><li>ZombiesOnStreetsffcf5bca11694784686d9947ed226a88</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1105,7 +1105,7 @@ ComponentName: Actions/ShowBark
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_PrefabLink___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Aeon_TrueForm_Cutscene18d9251a3c5682a429e1c3769431f4ee</li><li>InflictModerateWoundsMass03944622fbe04824684ec29ff2cec6a7</li><li>ZeroStatec6195ff24255d3f46a26323de9f1187a</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Aeon_TrueForm_Cutscene18d9251a3c5682a429e1c3769431f4ee</li><li>InevitableDarkness_Feature_Dispel879b5de95ddb4fbfb61ca2d40cbd0743</li><li>ZombieDispelExplosionbcd9277193ef41dfb8d3b292ee33c828</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1167,7 +1167,7 @@ ComponentName: Actions/ShowBark
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_SpawnFx_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_PrefabLink__Kingmaker_ElementsSystem_TransformEvaluator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AdditionalAtmosphericScenese04f6b926f3350d41ab2d07c55d9814d</li><li>CommandAction18db12bd249514acaa8233858c4669d60</li><li>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActionsa53e004ccda24065b81f49c9ee3b0e49</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>AdditionalAtmosphericScenese04f6b926f3350d41ab2d07c55d9814d</li><li>CommandAction11582be7d6642244de94f20e32b7d2d324</li><li>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActionsa53e004ccda24065b81f49c9ee3b0e49</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1218,7 +1218,7 @@ ComponentName: Actions/ShowBark
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_StopCustomMusic_BlueprintCore_Actions_Builder_ActionsBuilder__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Abducted_dialogue43c9a316be2e45678606133610e80063</li><li>Hepzamirah_MainDialogue5662c8bcb913b3842a10f67034c096f3</li><li>ZachariusLostChapel_dialogue484953d7dfcc1244fadfdeab34a363ff</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Abducted_dialogue43c9a316be2e45678606133610e80063</li><li>HalDragonForm_dialogue47d85fe3492d724498753d668267d495</li><li>ZachariusLostChapel_dialogue484953d7dfcc1244fadfdeab34a363ff</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1265,7 +1265,7 @@ InfoBox: If set to &amp;apos;Controlled&amp;apos;, stops all cutscenes that mark
         <td><p>
 Blueprint of type Cutscene. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1295,7 +1295,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
   <div class="markdown level1 remarks"><p>
 ComponentName: Actions/Stop cutscene
 </p>
-<p><strong></strong></p><ul><li>Abad_state_052edc4f040174899850aaeb0b853b1d8</li><li>Cue_00267a0d1af8491b4c84d9355fa555c942e9</li><li>ZombiesDeadc042c6cb0eaaafc418c94615e4aac891</li></ul>
+<p><strong></strong></p><ul><li>Abad_state_052edc4f040174899850aaeb0b853b1d8</li><li>Cue_0022ecbf22d2f1fcae04c8a3bd17c2045d09</li><li>ZombiesDeadc042c6cb0eaaafc418c94615e4aac891</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1356,7 +1356,7 @@ ComponentName: Actions/Stop cutscene
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_AVEx_ActionsBuilderAVEx_ToggleObjectFx_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_MapObjectEvaluator_System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>2ArenaCombatbdd2b9ebe0ec2f240b9ac1d6b4c430ab</li><li>CommandAction336a68c2f8f96483ea8d42bf9a25089df</li><li>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActionsa53e004ccda24065b81f49c9ee3b0e49</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>2ArenaCombatbdd2b9ebe0ec2f240b9ac1d6b4c430ab</li><li>CommandAction320c62d83ec19645f2a765ea885d0c8056</li><li>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActionsa53e004ccda24065b81f49c9ee3b0e49</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>

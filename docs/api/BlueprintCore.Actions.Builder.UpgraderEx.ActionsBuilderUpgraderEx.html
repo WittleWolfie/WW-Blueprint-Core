@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ActionsBuilderUpgraderEx
    ">
-    <meta name="generator" content="docfx 2.59.3.0">
+    <meta name="generator" content="docfx 2.59.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -92,7 +92,7 @@
 Actions are supported using extension methods. Include the extension namespaces as needed.
 </p>
 <p>
-When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build(Validator)</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
+When <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html#BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_">Build</a> is called the <span class="xref">Kingmaker.ElementsSystem.ActionList</span> is constructed, validated, and returned.
 If any errors are detected by <a class="xref" href="BlueprintCore.Utils.Validator.html">Validator</a> they will be logged as a warning.
 </p>
 <p>
@@ -101,31 +101,31 @@ Do not call <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.h
 <p>
 If a method calls for a string to represent any type of blueprint, you can pass the blueprint&apos;s
 <span class="xref">Kingmaker.Blueprints.SimpleBlueprint.AssetGuid</span> as a string or as a name you already
-provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName(Dictionary&lt;String, String&gt;)</a>.
+provided using <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html#BlueprintCore_Utils_BlueprintTool_AddGuidsByName_System_Collections_Generic_Dictionary_System_String_System_String__">AddGuidsByName()</a>.
 </p>
-<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">ActionsBuilderAreaEx</a></td><td>
+<table><thead><tr></tr></thead><tbody><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AreaEx.ActionsBuilderAreaEx.html">AreaEx</a></td><td>
     Actions involving the game map, dungeons, or locations. See also
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a> for location related actions specifically
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a> for location related actions specifically
 tied to the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a></td><td>
   Actions involving audiovisual effects such as dialogs, camera, cutscenes, and sounds.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">ActionsBuilderBasicEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html">BasicEx</a></td><td>
   Most game mechanics related actions not included in
-<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ActionsBuilderContextEx</a></td><td>
+<a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.html">ContextEx</a></td><td>
   Most <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types. Some
 <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextAction</span> types are in more specific
-extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">ActionsBuilderAVEx</a> or
-<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a>.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">ActionsBuilderKingdomEx</a></td><td>
+extensions such as <a class="xref" href="BlueprintCore.Actions.Builder.AVEx.ActionsBuilderAVEx.html">AVEx</a> or
+<a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a>.
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.KingdomEx.ActionsBuilderKingdomEx.html">KingdomEx</a></td><td>
   Actions involving the Kingdom and Crusade system.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">ActionsBuilderMiscEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.MiscEx.ActionsBuilderMiscEx.html">MiscEx</a></td><td>
   Actions without a better extension container such as achievements and CustomEvent.
 </td></tr><tr><td><see cref="!:NewEx.ActionsBuilderNewEx">NewEx</see></td><td>
   Actions defined in BlueprintCore and not available in the base game.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">ActionsBuilderStoryEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html">StoryEx</a></td><td>
   Actions related to the story such as companion stories, quests, name changes, and etudes.
-</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">ActionsBuilderUpgraderEx</a></td><td>
+</td></tr><tr><td><a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html">UpgraderEx</a></td><td>
   All UpgraderOnlyActions.
 </td></tr></tbody></table>
 <example>
@@ -178,7 +178,7 @@ ActionsBuilder.New()
         <td><p>
 Blueprint of type BlueprintEtude. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -188,7 +188,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -254,7 +254,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -269,7 +269,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintProgression. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -279,7 +279,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -289,7 +289,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -299,7 +299,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintProgression. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -314,7 +314,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeatureSelection. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -343,7 +343,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixItemInInventory_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixItemInInventory(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintItemReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L608">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L609">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixItemInInventory_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixItemInInventory*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixItemInInventory_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintItemReference__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixItemInInventory(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintItemReference},System.Nullable{System.Boolean})">FixItemInInventory(ActionsBuilder, Blueprint&lt;BlueprintItemReference&gt;, Blueprint&lt;BlueprintItemReference&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -375,7 +375,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -388,7 +388,7 @@ InfoBox: If both ToRemove and ToAdd specified but ToRemove is missing in unit&am
 <p>
 Blueprint of type BlueprintItem. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -422,7 +422,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixKingdomSystemBuffsAndStats(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D%2CSystem.Nullable%7BSystem.Single%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L640">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L641">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixKingdomSystemBuffsAndStats*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_FixKingdomSystemBuffsAndStats_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__System_Nullable_System_Single__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.FixKingdomSystemBuffsAndStats(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Single})">FixKingdomSystemBuffsAndStats(ActionsBuilder, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;, Nullable&lt;Single&gt;)</h4>
@@ -530,7 +530,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintEtude. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -564,7 +564,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RecreateOnLoad_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RecreateOnLoad(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L670">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L671">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RecreateOnLoad_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RecreateOnLoad*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RecreateOnLoad_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RecreateOnLoad(BlueprintCore.Actions.Builder.ActionsBuilder)">RecreateOnLoad(ActionsBuilder)</h4>
@@ -671,7 +671,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshAllArmyLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshAllArmyLeaders(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L688">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L689">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshAllArmyLeaders_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshAllArmyLeaders*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshAllArmyLeaders_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshAllArmyLeaders(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean})">RefreshAllArmyLeaders(ActionsBuilder, Nullable&lt;Boolean&gt;)</h4>
@@ -727,7 +727,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshArmyLeadersBaseSkills_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshArmyLeadersBaseSkills(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L708">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L709">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshArmyLeadersBaseSkills_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshArmyLeadersBaseSkills*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshArmyLeadersBaseSkills_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshArmyLeadersBaseSkills(BlueprintCore.Actions.Builder.ActionsBuilder)">RefreshArmyLeadersBaseSkills(ActionsBuilder)</h4>
@@ -778,7 +778,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshCrusadeLogistic_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshCrusadeLogistic(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L724">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L725">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshCrusadeLogistic_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshCrusadeLogistic*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshCrusadeLogistic_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshCrusadeLogistic(BlueprintCore.Actions.Builder.ActionsBuilder)">RefreshCrusadeLogistic(ActionsBuilder)</h4>
@@ -829,7 +829,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshSettingsPreset_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshSettingsPreset(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L740">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L741">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshSettingsPreset_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshSettingsPreset*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RefreshSettingsPreset_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RefreshSettingsPreset(BlueprintCore.Actions.Builder.ActionsBuilder)">RefreshSettingsPreset(ActionsBuilder)</h4>
@@ -880,7 +880,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveBrokenSummon_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveBrokenSummon(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L756">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L757">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveBrokenSummon_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveBrokenSummon*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveBrokenSummon_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveBrokenSummon(BlueprintCore.Actions.Builder.ActionsBuilder)">RemoveBrokenSummon(ActionsBuilder)</h4>
@@ -963,7 +963,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -973,7 +973,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 <p>
 If the target has any of these facts then the fact is not removed.
@@ -1003,7 +1003,7 @@ If the target has any of these facts then the fact is not removed.
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-220021_NegativeEnergyAffinityDhampir8d6a65a9774e4cbbbbd71f6547139b1b</li><li>PF-25602921c80029f09f46c89ee4ec36d0deea37</li><li>PF-402644bc8586d9cda14137a66c82b601092132</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-220021_NegativeEnergyAffinityDhampir8d6a65a9774e4cbbbbd71f6547139b1b</li><li>PF-27649645a18b7f7c3841238a94d23e45022d98</li><li>PF-438834e7b19beb9233455bb676436b464113b3</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1042,7 +1042,7 @@ If the target has any of these facts then the fact is not removed.
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1057,7 +1057,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintProgression. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1067,7 +1067,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintArchetype. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1077,7 +1077,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1099,14 +1099,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveFeatureFromProgression_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__System_Int32_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-111273344ce9c06961426f95c109ce243d8c35</li><li>PF-339343adc22eb66c2f43798c9824ac05fb60f4</li><li>PF-96002eb741196d9ce49768ca5adac488f65ef</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-111273344ce9c06961426f95c109ce243d8c35</li><li>PF-2527178bacf8493b904c3ebd11dcd885b1ff41</li><li>PF-96002eb741196d9ce49768ca5adac488f65ef</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveSpell_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSpellbookReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveSpell(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintAbilityReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSpellbookReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L800">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L801">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveSpell_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveSpell*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveSpell_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintAbilityReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSpellbookReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RemoveSpell(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintAbilityReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSpellbookReference})">RemoveSpell(ActionsBuilder, Blueprint&lt;BlueprintAbilityReference&gt;, Blueprint&lt;BlueprintSpellbookReference&gt;)</h4>
@@ -1138,7 +1138,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintAbility. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1151,7 +1151,7 @@ InfoBox: Remove from all spellbooks if not specified
 <p>
 Blueprint of type BlueprintSpellbook. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1180,7 +1180,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ReplaceFeature(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintProgressionReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L474">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L475">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ReplaceFeature_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ReplaceFeature*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ReplaceFeature(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintProgressionReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitReference})">ReplaceFeature(ActionsBuilder, Blueprint&lt;BlueprintProgressionReference&gt;, Blueprint&lt;BlueprintFeatureReference&gt;, Blueprint&lt;BlueprintFeatureReference&gt;, Blueprint&lt;BlueprintFeatureReference&gt;, Blueprint&lt;BlueprintUnitReference&gt;)</h4>
@@ -1212,7 +1212,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintProgression. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1222,7 +1222,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1232,7 +1232,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1242,7 +1242,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1255,7 +1255,7 @@ InfoBox: Checks in Blueprint and OriginalBlueprint
 <p>
 Blueprint of type BlueprintUnit. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1277,14 +1277,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ReplaceFeature_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-19126990edf140bf514ebaa3fff74c4f576e4d</li><li>PF-38227550ad5ea849874e8abd47f0e5a088119c</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-19126990edf140bf514ebaa3fff74c4f576e4d</li><li>PF-38227550ad5ea849874e8abd47f0e5a088119c</li><li>PF-4007438c5f56e6b06641828d1611402f847e5c</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ResetMinDifficulty_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ResetMinDifficulty(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L831">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L832">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ResetMinDifficulty_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ResetMinDifficulty*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ResetMinDifficulty_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.ResetMinDifficulty(BlueprintCore.Actions.Builder.ActionsBuilder)">ResetMinDifficulty(ActionsBuilder)</h4>
@@ -1335,7 +1335,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RespawnNewUnit_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RespawnNewUnit(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L855">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L856">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RespawnNewUnit_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RespawnNewUnit*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RespawnNewUnit_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RespawnNewUnit(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.Blueprints.EntityReference)">RespawnNewUnit(ActionsBuilder, EntityReference)</h4>
@@ -1394,7 +1394,7 @@ InfoBox: Don&amp;apos;t call this action if you dont understand what it&amp;apos
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestartTacticalCombat_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestartTacticalCombat(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L878">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L879">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestartTacticalCombat_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestartTacticalCombat*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestartTacticalCombat_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestartTacticalCombat(BlueprintCore.Actions.Builder.ActionsBuilder)">RestartTacticalCombat(ActionsBuilder)</h4>
@@ -1445,7 +1445,7 @@ InfoBox: Don&amp;apos;t call this action if you dont understand what it&amp;apos
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestoreClassFeature_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestoreClassFeature(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L908">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L909">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestoreClassFeature_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestoreClassFeature*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RestoreClassFeature_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.RestoreClassFeature(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference})">RestoreClassFeature(ActionsBuilder, Blueprint&lt;BlueprintFeatureReference&gt;)</h4>
@@ -1477,7 +1477,7 @@ InfoBox: Don&amp;apos;t call this action if you dont understand what it&amp;apos
         <td><p>
 Blueprint of type BlueprintFeature. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1506,7 +1506,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetHandsFromBlueprint_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetHandsFromBlueprint(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L932">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L933">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetHandsFromBlueprint_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetHandsFromBlueprint*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetHandsFromBlueprint_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetHandsFromBlueprint(BlueprintCore.Actions.Builder.ActionsBuilder)">SetHandsFromBlueprint(ActionsBuilder)</h4>
@@ -1557,7 +1557,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetRaceFromBlueprint_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetRaceFromBlueprint(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L949">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L950">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetRaceFromBlueprint_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetRaceFromBlueprint*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_SetRaceFromBlueprint_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.SetRaceFromBlueprint(BlueprintCore.Actions.Builder.ActionsBuilder)">SetRaceFromBlueprint(ActionsBuilder)</h4>
@@ -1608,7 +1608,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_StartEtudeForced_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.StartEtudeForced(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintEtudeReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L525">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L526">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_StartEtudeForced_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.StartEtudeForced*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_StartEtudeForced_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.StartEtudeForced(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintEtudeReference})">StartEtudeForced(ActionsBuilder, Blueprint&lt;BlueprintEtudeReference&gt;)</h4>
@@ -1640,7 +1640,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintEtude. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1669,7 +1669,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UnStartEtude(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintEtudeReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L560">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L561">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UnStartEtude_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UnStartEtude*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UnStartEtude(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintEtudeReference})">UnStartEtude(ActionsBuilder, Blueprint&lt;BlueprintEtudeReference&gt;)</h4>
@@ -1701,7 +1701,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintEtude. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
@@ -1723,14 +1723,14 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UnStartEtude_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintEtudeReference___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-215564185be5e1ae964cee94428816eec0d210</li><li>PF-302757dfa8f27b512d479eb53c1cca12ee6ff2</li><li>PF-382355b7415799a01c43b7b1e1c5d7c908c590</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-215564185be5e1ae964cee94428816eec0d210</li><li>PF-302757dfa8f27b512d479eb53c1cca12ee6ff2</li><li>PF-383958_HilorNotDeadInTavern1f341cf5b5ba4b9ebc52199cf1fb8c80</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UpdateProgression_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UpdateProgression(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintProgressionReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L979">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/UpgraderEx/ActionsBuilderUpgraderEx.cs/#L980">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UpdateProgression_" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UpdateProgression*"></a>
   <h4 id="BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_UpdateProgression_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__" data-uid="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.UpdateProgression(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintProgressionReference})">UpdateProgression(ActionsBuilder, Blueprint&lt;BlueprintProgressionReference&gt;)</h4>
@@ -1762,7 +1762,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRe
         <td><p>
 Blueprint of type BlueprintProgression. You can pass in the blueprint using:
 <ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
-See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint&lt;TRef&gt;</a> for more details.
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
 </p>
 </td>
       </tr>
