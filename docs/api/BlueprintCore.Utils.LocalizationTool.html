@@ -99,7 +99,7 @@ directory as the assembly. If you keep it in a different location you can call
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.CreateString(System.String%2CSystem.String%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L81">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L134">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_CreateString_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_CreateString_System_String_System_String_System_Boolean_" data-uid="BlueprintCore.Utils.LocalizationTool.CreateString(System.String,System.String,System.Boolean)">CreateString(String, String, Boolean)</h4>
@@ -167,7 +167,7 @@ Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintC
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_GetString_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.GetString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L119">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L172">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_GetString_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_GetString_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.GetString(System.String)">GetString(String)</h4>
@@ -212,10 +212,49 @@ Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintC
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_LoadEmbeddedLocalizationPacks_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.LoadEmbeddedLocalizationPacks(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L93">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_LocalizationTool_LoadEmbeddedLocalizationPacks_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadEmbeddedLocalizationPacks*"></a>
+  <h4 id="BlueprintCore_Utils_LocalizationTool_LoadEmbeddedLocalizationPacks_System_String___" data-uid="BlueprintCore.Utils.LocalizationTool.LoadEmbeddedLocalizationPacks(System.String[])">LoadEmbeddedLocalizationPacks(String[])</h4>
+  <div class="markdown level1 summary"><p>Loads localized strings from an array of embedded JSON files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void LoadEmbeddedLocalizationPacks(params string[] resourceNames)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">resourceNames</span></td>
+        <td><p>Array of resource names, each of which is a JSON file with an array of <a class="xref" href="BlueprintCore.Utils.Localization.MultiLocaleString.html">MultiLocaleString</a> values</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Utils_LocalizationTool_LoadEmbeddedLocalizationPacks_System_String____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>It is recommended to only use this or <a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_">LoadLocalizationPack(String)</a>. Load performance is improved
+using this method. Using both will result in errors. By default all files ending in &quot;Strings.json&quot; in the
+assembly directory are loaded.</p>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L50">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L46">View Source</a>
   </span>
   <a id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack*"></a>
   <h4 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPack(System.String)">LoadLocalizationPack(String)</h4>
@@ -244,8 +283,43 @@ Calls <a class="xref" href="BlueprintCore.Utils.EncyclopediaTool.html#BlueprintC
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPack_System_String__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Only a single file will be loaded at once; you shouldn't need to call this multiple times.</p>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_LocalizationTool_LoadLocalizationPacks_System_String___.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.LocalizationTool.LoadLocalizationPacks(System.String%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/LocalizationTool.cs/#L63">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPacks_" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPacks*"></a>
+  <h4 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPacks_System_String___" data-uid="BlueprintCore.Utils.LocalizationTool.LoadLocalizationPacks(System.String[])">LoadLocalizationPacks(String[])</h4>
+  <div class="markdown level1 summary"><p>Loads localized strings from an array of JSON files.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void LoadLocalizationPacks(params string[] stringFiles)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span>[]</td>
+        <td><span class="parametername">stringFiles</span></td>
+        <td><p>Array of file paths, each of which is a JSON file with an array of <a class="xref" href="BlueprintCore.Utils.Localization.MultiLocaleString.html">MultiLocaleString</a> values</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Utils_LocalizationTool_LoadLocalizationPacks_System_String____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use only this or <a class="xref" href="BlueprintCore.Utils.LocalizationTool.html#BlueprintCore_Utils_LocalizationTool_LoadEmbeddedLocalizationPacks_System_String___">LoadEmbeddedLocalizationPacks(String[])</a>. Using both will result in errors. By
+default all files ending in &quot;Strings.json&quot; in the assembly directory are loaded.</p>
 </div>
 </article>
           </div>
