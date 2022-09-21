@@ -1,15 +1,29 @@
-﻿using BlueprintCore.Blueprints.Configurators.Classes;
+﻿using BlueprintCore.Actions.Builder;
+using BlueprintCore.Actions.Builder.ContextEx;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
+using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.ModReferences;
 using BlueprintCore.Blueprints.References;
+using BlueprintCore.Conditions.Builder;
+using BlueprintCore.Conditions.Builder.ContextEx;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.ActivatableAbilities;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.FactLogic;
+using Kingmaker.UnitLogic.Mechanics;
 using System.Collections.Generic;
 using System.Linq;
+using static Kingmaker.UnitLogic.Commands.Base.UnitCommand;
 
 namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
 {
@@ -21,6 +35,19 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     : BaseFeatureConfigurator<BlueprintFeature, FeatureConfigurator>
   {
     private FeatureConfigurator(Blueprint<BlueprintReference<BlueprintFeature>> blueprint) : base(blueprint) { }
+
+    private bool IsTeamworkFeat = false;
+
+    private string CavalierBuffGuid = string.Empty;
+
+    private string VanguardBuffGuid = string.Empty;
+    private string VanguardAbilityGuid = string.Empty;
+
+    private string PackRagerBuffGuid = string.Empty;
+    private string PackRagerAreaGuid = string.Empty;
+    private string PackRagerAreaBuffGuid = string.Empty;
+    private string PackRagerToggleBuffGuid = string.Empty;
+    private string PackRagerToggleGuid = string.Empty;
 
     /// <summary>
     /// Returns a configurator to modify the specified blueprint.
@@ -73,6 +100,66 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         configurator.SetIsClassFeature();
       }
       return configurator;
+    }
+
+    /// <summary>
+    /// Populates all the necessary blueprints to make sure the teamwork feat is shared appropriately by various class
+    /// and archetype abilities.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// **IMPORTANT**: This generates blueprints using these GUIDs. That means they are a save dependency just like any
+    /// other blueprint you create. Once you start using these you cannot stop, or you'll at least need to create
+    /// dummy blueprints in their place.
+    /// </para>
+    /// 
+    /// <para>
+    /// If you only set <c>FeatureGroup.TeamworkFeat</c> Monster Tactician, Tactical Leader, Hunter Tactics, Sacred
+    /// Huntsmaster Tactics, and Battle Prowess are configured automatically. This function is required to update
+    /// Raging Tactician, Cavalier Tactics, and Vanguard Tactician which all require additional blueprints.
+    /// </para>
+    /// 
+    /// <para>
+    /// All created blueprints will inherit the name, description, and icon from this feature.
+    /// </para>
+    /// </remarks>
+    /// 
+    /// <param name="cavalierBuffGuid">Used to generate a buff which applies the feat for Cavalier Tactician.</param>
+    /// 
+    /// <param name="vanguardBuffGuid">Used to generate a buff which applies the feat for Vanguard Tactician.</param>
+    /// <param name="vanguardAbilityGuid">Used to generate an ability which applies the vanguard buff.</param>
+    /// 
+    /// <param name="packRagerBuffGuid">Used to generate a buff which applies the feat for Raging Tactician.</param>
+    /// <param name="packRagerAreaGuid">Used to generate an area which applies the pack rager buff.</param>
+    /// <param name="packRagerAreaBuffGuid">Used to generate a buff which creates the pack rager area.</param>
+    /// <param name="packRagerToggleBuffGuid">Used to generate a buff which turns on the pack rager area buff.</param>
+    /// <param name="packRagerToggleGuid">Used to generate an ability which toggles the pack rager toggle buff.</param>
+    public FeatureConfigurator AddAsTeamworkFeat(
+      string cavalierBuffGuid,
+
+      string vanguardBuffGuid,
+      string vanguardAbilityGuid,
+
+      string packRagerBuffGuid,
+      string packRagerAreaGuid,
+      string packRagerAreaBuffGuid,
+      string packRagerToggleBuffGuid,
+      string packRagerToggleGuid)
+    {
+      IsTeamworkFeat = true;
+
+      CavalierBuffGuid = cavalierBuffGuid;
+
+      VanguardBuffGuid = vanguardBuffGuid;
+      VanguardAbilityGuid = vanguardAbilityGuid;
+
+      PackRagerBuffGuid = packRagerBuffGuid;
+      PackRagerAreaGuid = packRagerAreaGuid;
+      PackRagerAreaBuffGuid = packRagerAreaBuffGuid;
+      PackRagerToggleBuffGuid = packRagerToggleBuffGuid;
+      PackRagerToggleGuid = packRagerToggleGuid;
+      return this;
     }
 
     /// <summary>
@@ -206,14 +293,146 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       foreach (var selection in additionalFeatureSelections)
         FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
 
-      // Ensures that teamwork feats are shared by Tactical Leader's share feature
-      if (Blueprint.HasGroup(FeatureGroup.TeamworkFeat))
+      var isTeamworkFeat = IsTeamworkFeat || Blueprint.HasGroup(FeatureGroup.TeamworkFeat);
+      // Ensures that teamwork feats are shared by the various features
+      if (isTeamworkFeat)
       {
-        BuffConfigurator.For(BuffRefs.TacticalLeaderFeatShareBuff)
+        AddFactsFromCaster(BuffRefs.BattleProwessEffectBuff);
+        AddFactsFromCaster(BuffRefs.MonsterTacticsBuff);
+        AddFactsFromCaster(BuffRefs.TacticalLeaderFeatShareBuff);
+
+        ShareFeatureWithPet(FeatureRefs.HunterTactics);
+        ShareFeatureWithPet(FeatureRefs.SacredHuntsmasterTactics);
+
+        #region Cavalier Tactician
+        var cavalierBuff = BuffConfigurator.New($"CavalierTactician_{Blueprint.name}_Buff", CavalierBuffGuid)
+          .SetDisplayName(Blueprint.m_DisplayName)
+          .SetDescription(Blueprint.m_Description)
+          .SetIcon(Blueprint.Icon)
+          .SetIsClassFeature()
+          .SetStacking(StackingType.Ignore)
+          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: Blueprint, not: true)
+          .Configure();
+
+        AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbility);
+        AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbilitySwift);
+
+        FeatureConfigurator.For(FeatureRefs.CavalierTacticianFeature)
+          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: cavalierBuff)
+          .Configure();
+        #endregion
+
+        #region Vanguard Tactician
+        var vanguardBuff = BuffConfigurator.New($"VanguardTactician_{Blueprint.name}_Buff", VanguardBuffGuid)
+          .SetDisplayName(Blueprint.m_DisplayName)
+          .SetDescription(Blueprint.m_Description)
+          .SetIcon(Blueprint.Icon)
+          .SetIsClassFeature()
+          .AddFactsFromCaster(facts: new() { Blueprint })
+          .Configure();
+
+        var vanguardAbility =
+          AbilityConfigurator.New($"VanguardTactician_{Blueprint.name}_Ability", VanguardAbilityGuid)
+            .SetDisplayName(Blueprint.m_DisplayName)
+            .SetDescription(Blueprint.m_Description)
+            .SetIcon(Blueprint.Icon)
+            .SetRange(AbilityRange.Personal)
+            .SetType(AbilityType.Extraordinary)
+            .SetParent(AbilityRefs.VanguardTacticianBaseAbility.ToString())
+            .AddAbilityEffectRunAction(
+              ActionsBuilder.New()
+                .Conditional(
+                  ConditionsBuilder.New().HasFact(Blueprint, negate: true),
+                  ifTrue:
+                    ActionsBuilder.New().ApplyBuff(vanguardBuff, ContextDuration.Variable(ContextValues.Rank()))))
+            .AddContextRankConfig(
+              ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SlayerClass.ToString() })
+                .WithDiv2Progression(3))
+            .AddAbilityTargetsAround(targetType: TargetType.Ally, radius: new(30))
+            .AddAbilityShowIfCasterHasFact(unitFact: Blueprint)
+            .AddAbilityResourceLogic(
+              isSpendResource: true, requiredResource: AbilityResourceRefs.VanguardTacticianResource.ToString())
+            .Configure();
+
+        AbilityConfigurator.For(AbilityRefs.VanguardTacticianBaseAbility)
+          .EditComponent<AbilityVariants>(
+            c => c.m_Variants =
+              CommonTool.Append(c.m_Variants, vanguardAbility.ToReference<BlueprintAbilityReference>()))
+          .Configure();
+        #endregion
+
+        #region PackRager
+        var ragerBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_Buff", PackRagerBuffGuid)
+          .SetDisplayName(Blueprint.m_DisplayName)
+          .SetDescription(Blueprint.m_Description)
+          .SetIcon(Blueprint.Icon)
+          .SetIsClassFeature()
+          .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
+          .SetFrequency(DurationRate.Minutes)
+          .AddTemporaryFeat(Blueprint)
+          .Configure();
+
+        var ragerArea = AbilityAreaEffectConfigurator.New($"PackRager_{Blueprint.name}_Area", PackRagerAreaGuid)
+          .SetAggroEnemies(false)
+          .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Ally)
+          .AddAbilityAreaEffectRunAction(
+            unitEnter: ActionsBuilder.New().ApplyBuffPermanent(ragerBuff),
+            unitExit: ActionsBuilder.New().RemoveBuff(ragerBuff))
+          .Configure();
+
+        var ragerAreaBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_AreaBuff", PackRagerAreaBuffGuid)
+          .SetIcon(Blueprint.Icon)
+          .SetIsClassFeature()
+          .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
+          .AddAreaEffect(areaEffect: ragerArea)
+          .Configure();
+
+        var ragerToggleBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_ToggleBuff", PackRagerToggleBuffGuid)
+          .SetIcon(Blueprint.Icon)
+          .SetIsClassFeature()
+          .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
+          .AddBuffExtraEffects(checkedBuff: BuffRefs.StandartRageBuff.ToString(), extraEffectBuff: ragerAreaBuff)
+          .Configure();
+
+        var ragerToggle = ActivatableAbilityConfigurator.New($"PackRager_{Blueprint.name}_Toggle", PackRagerToggleGuid)
+          .SetDisplayName(Blueprint.m_DisplayName)
+          .SetDescription(Blueprint.m_Description)
+          .SetIcon(Blueprint.Icon)
+          .SetIsOnByDefault()
+          .SetActivateWithUnitCommand(CommandType.Standard)
+          .SetGroup(ActivatableAbilityGroup.RagingTactician)
+          .SetBuff(ragerToggleBuff)
+          .Configure();
+
+        FeatureConfigurator.For(FeatureRefs.PackRagerRagingTacticianBaseFeature)
+          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: ragerToggle)
+          .Configure();
+        #endregion
+      }
+    }
+
+    private void AddFactsFromCaster(Blueprint<BlueprintReference<BlueprintBuff>> buff)
+    {
+      BuffConfigurator.For(buff)
           .EditComponent<AddFactsFromCaster>(
             c => c.m_Facts = CommonTool.Append(c.m_Facts, Blueprint.ToReference<BlueprintUnitFactReference>()))
           .Configure();
-      }
+    }
+
+    private void ShareFeatureWithPet(Blueprint<BlueprintReference<BlueprintFeature>> feature)
+    {
+      FeatureConfigurator.For(feature)
+        .EditComponent<ShareFeaturesWithPet>(
+          c => c.m_Features = CommonTool.Append(c.m_Features, Blueprint.ToReference<BlueprintFeatureReference>()))
+        .Configure();
+    }
+
+    private void AddBuffToAbilityApplyFact(BlueprintBuff buff, Blueprint<BlueprintReference<BlueprintAbility>> ability)
+    {
+      AbilityConfigurator.For(ability)
+        .EditComponent<AbilityApplyFact>(
+          c => c.m_Facts = CommonTool.Append(c.m_Facts, buff.ToReference<BlueprintUnitFactReference>()))
+        .Configure();
     }
   }
 
