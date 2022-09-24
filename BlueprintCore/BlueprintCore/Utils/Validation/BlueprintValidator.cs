@@ -27,22 +27,16 @@ namespace BlueprintCore.Utils.Validation
     {
       CheckComponents(blueprint, context);
 
-      if (blueprint is BlueprintAbility ability)
-      {
+      if (blueprint is BlueprintAbilityAreaEffect areaEffect)
+        Check(areaEffect, context);
+      else if (blueprint is BlueprintAbility ability)
         Check(ability, context);
-      }
       else if (blueprint is BlueprintBuff buff)
-      {
         Check(buff, context);
-      }
       else if (blueprint is BlueprintFeature feature)
-      {
         Check(feature, context);
-      }
       else if (blueprint is BlueprintUnitProperty unitProperty)
-      {
         Check(unitProperty, context);
-      }
     }
 
     private static HashSet<Type> AllowMultipleComponents = new() { typeof(RecalculateOnStatChange) };
@@ -111,8 +105,17 @@ namespace BlueprintCore.Utils.Validation
         context.AddError("Multiple {0} components present. Only the first is used.", typeof(T).Name);
       }
     }
-
+    
     private static readonly Feet ZeroFeet = new(0);
+    private static void Check(BlueprintAbilityAreaEffect areaEffect, ValidationContext context)
+    {
+      if (areaEffect.Shape == 0)
+        context.AddError("Area effect does not have shape set.");
+
+      if (areaEffect.Size == ZeroFeet && areaEffect.m_SizeInCells == 0)
+        context.AddError("Area effect has no size set and will not affect an area.");
+    }
+
     /// <summary>
     /// Custom validation for BlueprintAbility.
     /// </summary>
