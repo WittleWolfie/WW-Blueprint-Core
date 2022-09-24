@@ -15,7 +15,7 @@ namespace BlueprintCore.Test.Patches
 
       static bool LoadLocalizationPack()
       {
-        AccessTools.StaticFieldRefAccess<LocalizationTool, MultiLocalizationPack>("localizationPack") = new(new());
+        AccessTools.StaticFieldRefAccess<LocalizationTool, MultiLocalizationPack>("localizationPack") = new();
         return false;
       }
 
