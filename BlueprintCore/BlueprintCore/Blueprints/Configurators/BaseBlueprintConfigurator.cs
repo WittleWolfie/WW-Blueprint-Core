@@ -47,57 +47,6 @@ namespace BlueprintCore.Blueprints.Configurators
     protected BaseBlueprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
     /// <summary>
-    /// Adds <see cref="BashingFinish"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>BashingFinish</term><description>0b442a7b4aa598d4e912a4ecee0500ff</description></item>
-    /// </list>
-    /// </remarks>
-    [Obsolete("File an issue on GitHub if you need this.")]
-    public TBuilder AddBashingFinish()
-    {
-      return AddComponent(new BashingFinish());
-    }
-
-    /// <summary>
-    /// Adds <see cref="DestructiveShockwave"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DestructiveShockwaveMythicFeat</term><description>263a65c1e92dd964192ba7d41a76b4e3</description></item>
-    /// </list>
-    /// </remarks>
-    [Obsolete("File an issue on GitHub if you need this.")]
-    public TBuilder AddDestructiveShockwave()
-    {
-      return AddComponent(new DestructiveShockwave());
-    }
-
-    /// <summary>
-    /// Adds <see cref="ShieldMaster"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>ShieldMaster</term><description>dbec636d84482944f87435bd31522fcc</description></item>
-    /// </list>
-    /// </remarks>
-    [Obsolete("File an issue on GitHub if you need this.")]
-    public TBuilder AddShieldMaster()
-    {
-      return AddComponent(new ShieldMaster());
-    }
-
-    /// <summary>
     /// Adds <see cref="DlcCondition"/>
     /// </summary>
     ///

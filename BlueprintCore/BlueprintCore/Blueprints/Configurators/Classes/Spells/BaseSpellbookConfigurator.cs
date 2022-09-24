@@ -479,33 +479,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
-    /// Adds <see cref="IsAlchemistSpellbook"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>AlchemistSpellbook</term><description>027d37761f3804042afa96fe3e9086cc</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    [Obsolete("File an issue on GitHub if you need this.")]
-    public TBuilder AddIsAlchemistSpellbook(
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new IsAlchemistSpellbook();
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="AddCustomSpells"/>
     /// </summary>
     ///
