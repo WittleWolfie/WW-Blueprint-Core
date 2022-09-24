@@ -69,6 +69,27 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v230-release">v2.3.0 Release</h2>
+<ul>
+<li>Added more support for <code>FeatureGroup.TeamworkFeat</code> so it can be configured for sharing features. Note that you need to use the method <code>AddAsTeamworkFeat()</code> since configuring for some class features requires GUIDs used to generate additional blueprints.
+<ul>
+<li>Battle Scion's Battle Prowess</li>
+<li>Monster Tactician Tactics</li>
+<li>Tactical Leader Feat Sharing</li>
+<li>Hunter Tactics</li>
+<li>Sacred Huntsmaster Tactics</li>
+<li>Cavalier Tactician</li>
+<li>Vanguard Tactician</li>
+<li>Pack Rager's Raging Tactician</li>
+</ul>
+</li>
+<li>Updated for the latest game version</li>
+<li>Removed obsolete components flagged in the 2.2 release</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>All components flagged obsolete have been removed</li>
+</ul>
 <h2 id="v225-release">v2.2.5 Release</h2>
 <ul>
 <li>Added support for multiple strings files and embedded resources</li>
@@ -95,7 +116,7 @@
 <li>Hand tuned more components</li>
 <li>Added <code>BlueprintTool.TryGet&lt;T&gt;()</code> to check for presence of a blueprint</li>
 </ul>
-<h3 id="breaking-changes">Breaking Changes</h3>
+<h3 id="breaking-changes-1">Breaking Changes</h3>
 <ul>
 <li><code>AddReplaceStatForPrerequisites</code> has been modified</li>
 </ul>
@@ -149,7 +170,7 @@
 <li>Fixed type specific overrides to apply to Lists and Arrays</li>
 <li>Fixed LogWrapper to respect <code>EnableInternalVerboseLogs</code></li>
 </ul>
-<h3 id="breaking-changes-1">Breaking Changes</h3>
+<h3 id="breaking-changes-2">Breaking Changes</h3>
 <ul>
 <li>If you are using ILStrip there are new patches, add the following entry points:
 <ul>
@@ -192,7 +213,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>If you updated code references you'll have to revert. This was an accidental / change introduced when params became a standard API.</li>
 </ul>
@@ -214,7 +235,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-3">Breaking Changes</h3>
+<h3 id="breaking-changes-4">Breaking Changes</h3>
 <ul>
 <li>If you were using any <code>RemoveFromX(Func&lt;Blueprint,bool&gt;)</code> functions the logic is now reversed. This matches the API design but not the function.</li>
 </ul>
@@ -259,7 +280,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-4">Breaking Changes</h3>
+<h3 id="breaking-changes-5">Breaking Changes</h3>
 <ul>
 <li>ProgressionConfigurator changed namespace
 <ul>
@@ -314,7 +335,7 @@
 <ul>
 <li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
 </ul>
-<h3 id="breaking-changes-5">Breaking Changes</h3>
+<h3 id="breaking-changes-6">Breaking Changes</h3>
 <ul>
 <li>Fixed a bug incorrectly identifying unique and non-unique components
 <ul>
@@ -323,7 +344,7 @@
 </li>
 </ul>
 <h2 id="v203-release">v2.0.3 Release</h2>
-<h3 id="breaking-changes-6">Breaking Changes</h3>
+<h3 id="breaking-changes-7">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -346,7 +367,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-7">Breaking Changes</h3>
+<h3 id="breaking-changes-8">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -402,7 +423,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-8">Breaking Changes</h3>
+<h3 id="breaking-changes-9">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>
