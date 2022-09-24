@@ -136,6 +136,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC3_Modificators_Tutorial = "7a4107e456684bab97005a7e8b886203";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC3_Port_tutorial = "862ffff02b5945b093d4bb9b1918b246";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC3_Reward_Tutorial = "fac0cc7aa5bc44a790744e241e1cbb79";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC3_TierEnd_Tutorial = "2e5cab7c65d24b39ae8c38c16cb8314b";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_0_BugReport = "2e58613683d509c4c83dd3efa78ec893";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_0_BugReport_Gamepad = "10ee1a0d76614eb7813d9e4a5bc1b31c";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_0_DangerousMonster = "744dbfbd1f3f46fcb8812af13cc67c5b";
@@ -348,6 +349,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_Modificators_Tutorial,
           DLC3_Port_tutorial,
           DLC3_Reward_Tutorial,
+          DLC3_TierEnd_Tutorial,
           NewTutorial_0_BugReport,
           NewTutorial_0_BugReport_Gamepad,
           NewTutorial_0_DangerousMonster,

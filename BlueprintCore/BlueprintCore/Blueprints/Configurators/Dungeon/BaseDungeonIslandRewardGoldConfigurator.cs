@@ -80,6 +80,24 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonIslandRewardGold.m_Multiplier"/>
+    /// </summary>
+    ///
+    /// <param name="multiplier">
+    /// <para>
+    /// Tooltip: Multiplier for the base price of a whole chest for current area CR.
+    /// </para>
+    /// </param>
+    public TBuilder SetMultiplier(float multiplier)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Multiplier = multiplier;
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();

@@ -17,6 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanist = "7cab956d45dc51c4ea9e71bba366a250";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistEldritchFont = "a732797826db0b54ea123d91b4cdaad5";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistNatureMage = "ec0512811a404e4daed06ac64af08d8f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistUnletteredArcanist = "760f927485da2194da1e97f2ded0d0ca";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterBard = "3e3c01c9d3eb24c4b9e83ee7ba6af15a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterBloodrager = "3729468ce930e124885ccdf348c37d5f";
@@ -169,6 +170,7 @@ namespace BlueprintCore.Blueprints.References
       {
           ArcaneTricksterArcanist,
           ArcaneTricksterArcanistEldritchFont,
+          ArcaneTricksterArcanistNatureMage,
           ArcaneTricksterArcanistUnletteredArcanist,
           ArcaneTricksterBard,
           ArcaneTricksterBloodrager,

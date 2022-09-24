@@ -207,13 +207,14 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
+    /// <item><term>Klaem_Position</term><description>a2e6fe47c853417a8fb165d4c19bb409</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudePlayTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
+        bool? isActivateOnLoadArea = null,
         bool? once = null)
     {
       var component = new EtudePlayTrigger();
@@ -227,6 +228,7 @@ namespace BlueprintCore.Blueprints.Configurators
       {
         component.Conditions = Utils.Constants.Empty.Conditions;
       }
+      component.IsActivateOnLoadArea = isActivateOnLoadArea ?? component.IsActivateOnLoadArea;
       component.m_Once = once ?? component.m_Once;
       return AddComponent(component);
     }

@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>87aeabd05d4de3e4c881930088c729ce</description></item>
+    /// <item><term>Cue_0050</term><description>c71d79e6048d8b14c8bb173e7e97e2e6</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -476,7 +476,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GrayGarrison_FirstVisit_Etude</term><description>5cf468c3a40684e4fa6e1a8982d6c9fe</description></item>
+    /// <item><term>GrayGarrison_FinalSiege_Etude</term><description>a7a2e9a56072fad4d93ab976d23086ac</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

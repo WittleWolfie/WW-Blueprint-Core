@@ -1528,83 +1528,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintDungeonArmy.Squads"/>
-    /// </summary>
-    public TBuilder SetSquads(params BlueprintDungeonArmy.Squad[] squads)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(squads);
-          bp.Squads = squads;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintDungeonArmy.Squads"/>
-    /// </summary>
-    public TBuilder AddToSquads(params BlueprintDungeonArmy.Squad[] squads)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.Squads = bp.Squads ?? new BlueprintDungeonArmy.Squad[0];
-          bp.Squads = CommonTool.Append(bp.Squads, squads);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintDungeonArmy.Squads"/>
-    /// </summary>
-    public TBuilder RemoveFromSquads(params BlueprintDungeonArmy.Squad[] squads)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.Squads is null) { return; }
-          bp.Squads = bp.Squads.Where(val => !squads.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintDungeonArmy.Squads"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromSquads(Func<BlueprintDungeonArmy.Squad, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.Squads is null) { return; }
-          bp.Squads = bp.Squads.Where(e => !predicate(e)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintDungeonArmy.Squads"/>
-    /// </summary>
-    public TBuilder ClearSquads()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.Squads = new BlueprintDungeonArmy.Squad[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonArmy.Squads"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifySquads(Action<BlueprintDungeonArmy.Squad> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.Squads is null) { return; }
-          bp.Squads.ForEach(action);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonArmy.m_CrUnitsFromPseudoCR"/>
     /// </summary>
     public TBuilder SetCrUnitsFromPseudoCR(Dictionary<int,BlueprintDungeonArmy.CrUnits> crUnitsFromPseudoCR)
@@ -1685,10 +1608,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       if (Blueprint.PseudoCRUnits is null)
       {
         Blueprint.PseudoCRUnits = new BlueprintDungeonArmy.CrUnits[0];
-      }
-      if (Blueprint.Squads is null)
-      {
-        Blueprint.Squads = new BlueprintDungeonArmy.Squad[0];
       }
     }
   }

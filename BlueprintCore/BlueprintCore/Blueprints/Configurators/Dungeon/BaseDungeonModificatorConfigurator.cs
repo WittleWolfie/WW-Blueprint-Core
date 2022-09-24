@@ -612,6 +612,31 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </list>
     /// </remarks>
     ///
+    /// <param name="maxStage">
+    /// <para>
+    /// Tooltip: This army should appear not after this stage.
+    /// </para>
+    /// </param>
+    /// <param name="minStage">
+    /// <para>
+    /// Tooltip: This army should appear not before this stage.
+    /// </para>
+    /// </param>
+    /// <param name="tiers">
+    /// <para>
+    /// Tooltip: This army should appear only in these tiers.
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintDungeonTier. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     /// <param name="units">
     /// <para>
     /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
@@ -626,7 +651,13 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// </param>
     public TBuilder AddDungeonModificatorSpawnUnits(
         IntegerWeighted[]? count = null,
+        bool? limitMaxStage = null,
+        bool? limitMinStage = null,
+        bool? limitTiers = null,
+        int? maxStage = null,
+        int? minStage = null,
         bool? overrideCount = null,
+        List<Blueprint<BlueprintDungeonTierReference>>? tiers = null,
         List<Blueprint<BlueprintUnitReference>>? units = null)
     {
       var component = new DungeonModificatorSpawnUnits();
@@ -636,7 +667,17 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       {
         component.Count = new IntegerWeighted[0];
       }
+      component.LimitMaxStage = limitMaxStage ?? component.LimitMaxStage;
+      component.LimitMinStage = limitMinStage ?? component.LimitMinStage;
+      component.LimitTiers = limitTiers ?? component.LimitTiers;
+      component.MaxStage = maxStage ?? component.MaxStage;
+      component.MinStage = minStage ?? component.MinStage;
       component.OverrideCount = overrideCount ?? component.OverrideCount;
+      component.m_Tiers = tiers?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Tiers;
+      if (component.m_Tiers is null)
+      {
+        component.m_Tiers = new BlueprintDungeonTierReference[0];
+      }
       component.m_Units = units?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Units;
       if (component.m_Units is null)
       {

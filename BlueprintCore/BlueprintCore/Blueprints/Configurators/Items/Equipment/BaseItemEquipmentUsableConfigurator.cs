@@ -25,12 +25,36 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentUsable.Type"/>
     /// </summary>
+    ///
+    /// <param name="type">
+    /// <para>
+    /// InfoBox: If the Cost property is set to 0, it&amp;apos;ll be recalculated using formula (Caster Level) * (Spell Level) * (Charges) * X, where X is a type-dependent constant.
+    /// </para>
+    /// </param>
     public TBuilder SetType(UsableItemType type)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.Type = type;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemEquipmentUsable.m_IsCostZero"/>
+    /// </summary>
+    ///
+    /// <param name="isCostZero">
+    /// <para>
+    /// InfoBox: If his checkbox is set, the Cost will be considered 0 and won&amp;apos;t be recalculated.
+    /// </para>
+    /// </param>
+    public TBuilder SetIsCostZero(bool isCostZero = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsCostZero = isCostZero;
         });
     }
 

@@ -298,7 +298,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GraspingFrostEnchantment</term><description>3e9a8fdd71ea0b64d8aeaa44b8b6ea3b</description></item>
+    /// <item><term>GraspOfDevotionEnchantment</term><description>b9e8e48e661c422b82bba4495184b7b0</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -1330,7 +1330,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ActivatingSwordOfValor</term><description>071f4953d481d5242b250b1aa7482dce</description></item>
-    /// <item><term>Graveyard_GraverobbersAgro1</term><description>0940392b6893433b83f9935f1848fde8</description></item>
+    /// <item><term>GargoyleAttack_ComponentList</term><description>973e83220db9f474289a572f1d953987</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

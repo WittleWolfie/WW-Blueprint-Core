@@ -367,7 +367,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DoorDown_CheckPassedActions</term><description>7f2715fba23390d4996bd0a139e9b4f7</description></item>
+    /// <item><term>DoorSwich_Section_1_2</term><description>7e7112b9ba1cf2749b0d53f235655e84</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -761,7 +761,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction6</term><description>6b42ba77f3ac4b309aa3a146623cd92e</description></item>
+    /// <item><term>CommandAction7</term><description>ac9df44f8e2c47e596f6c5f37cdad048</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>

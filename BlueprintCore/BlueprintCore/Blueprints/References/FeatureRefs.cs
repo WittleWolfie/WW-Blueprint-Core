@@ -6451,6 +6451,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellMasterItemBondSpecializationFeature = "88fe74c940ce41a0ac62b9b22774be3f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellPenetration = "ee7dc126939e4d9438357fbd5980d459";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellPenetrationMythicFeat = "51b6b22ff184eef46a675449e837365d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellPenetrationMythicFeatBase = "73283d50ed8b4385ba5615238a3c79a6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellResistance10plusCR = "fe1ad1d1add9a8746b7f3b49cb31de92";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellResistance11plusCR = "205205053a2915d4782cf48dc0cc3c09";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SpellResistance12plusCR = "89ee9c2dae34dbb4b8dd96b55384b600";
@@ -14185,6 +14186,7 @@ namespace BlueprintCore.Blueprints.References
           SpellMasterItemBondSpecializationFeature,
           SpellPenetration,
           SpellPenetrationMythicFeat,
+          SpellPenetrationMythicFeatBase,
           SpellResistance10plusCR,
           SpellResistance11plusCR,
           SpellResistance12plusCR,

@@ -101,6 +101,18 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonTier.CorruptionGrowth"/>
+    /// </summary>
+    public TBuilder SetCorruptionGrowth(int corruptionGrowth)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CorruptionGrowth = corruptionGrowth;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonTier.m_MapBackgroundLink"/>
     /// </summary>
     ///

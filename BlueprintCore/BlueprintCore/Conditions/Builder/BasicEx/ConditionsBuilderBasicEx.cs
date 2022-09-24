@@ -713,7 +713,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Chimera_ReforgeProject</term><description>8ed7a2977b9abe148bcf9cd75d4c3b53</description></item>
+    /// <item><term>ColorlessRemains_ReforgeProject</term><description>7c220a527d84433d9a7b01fe3e3fffba</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>

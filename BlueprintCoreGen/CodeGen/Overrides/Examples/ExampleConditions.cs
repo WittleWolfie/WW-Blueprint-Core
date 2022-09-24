@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Chimera_ReforgeProject", "8ed7a2977b9abe148bcf9cd75d4c3b53"),
+            new Blueprint("ColorlessRemains_ReforgeProject", "7c220a527d84433d9a7b01fe3e3fffba"),
             new Blueprint("ZeorisDagger_ReforgeProject", "22e8219563e84f11b6aed62661030770"),
           }
         },
@@ -46,7 +46,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArcanistExploitArmoredMaskAbility", "2d7d510c6e2e3e54ab9eee84a41fa2cf"),
-            new Blueprint("EnlargeSelf", "549e9fcaadc861348b05bf01624387aa"),
+            new Blueprint("EnlargePerson", "c60969e7f264e6d4b84a1499fdcf9039"),
             new Blueprint("Valmallos_Area_Gaze", "d031e701dee3487f8a8b7da39e722267"),
           }
         },
@@ -66,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBomb", "fd101fbc4aacf5d48b76a65e3aa5db6d"),
-            new Blueprint("GrandMutagenConstitutionDexterityBuff", "0d51a2ff0a6ce85458309affbc00b933"),
+            new Blueprint("GrandMutagenDexterityConstitutionBuff", "8d4357118c75a5746802a3582a937376"),
             new Blueprint("WrathOfAncestorEnchantment", "4dbc03bd6223b484d8cd9afc3e0369b0"),
           }
         },
@@ -96,7 +96,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("GreaterCognatogenCharismaWisdom", "0d51cf14921631c40b17b6e6a3b6b1ab"),
+            new Blueprint("GreaterCognatogenCharismaIntelligence", "bd98572b88bdea94d9eb23ccf06ecfd8"),
             new Blueprint("ZeorisDaggerRing_GoverningAllyBuff", "02680be495534b629d543daa89b47079"),
           }
         },
@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0006", "5e11f97d90cc9994a8d3196838c0b3c0"),
+            new Blueprint("Cue_0006", "550c596182d305941991e5dabfafdc82"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -394,7 +394,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0068", "9a7eb4e4d7ff1d345bdb299aa65d46c6"),
+            new Blueprint("Cue_0073", "69419c73bc31e714f9616b84602049e5"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -549,6 +549,16 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
+          // Flag for review
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.SettingBoolValue),
+          new()
+          {
+            new Blueprint("AutoSave_Interaction_ForceDisable", "3e60eb76712c47b492ef33da5e8f12d8"),
+            new Blueprint("SaveTutorial", "9e1cc5dc3d5945b6a19f9de0cf7d1373"),
+          }
+        },
+
+        {
           typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsTierReached),
           new()
           {
@@ -601,7 +611,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0012", "6ce4c8c57d804eee8d63c76e3924d323"),
+            new Blueprint("Cue_0013", "fa0dec5fa0544e05b1b9f2598a6f9790"),
             new Blueprint("ZigguratRiot", "5ecb3695c95e4bd4b836a0deac1ecfd7"),
           }
         },
@@ -659,7 +669,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0008_ArenaQuestGiver", "49171a3dfce5f5741936b4b7629278ce"),
+            new Blueprint("Cue_0009", "3e1b60a5b844db143a92298a88a40f37"),
             new Blueprint("Ziggurat_ZachariusBeginRitual", "8a020a9f01405ae4fa417500e1efd2e6"),
           }
         },
@@ -689,7 +699,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions", "7f8be13550ec4db894002cae58c9b811"),
-            new Blueprint("Banter_NenioVenduag_banter2", "70643b831c3af9e4980b8a36fcd29944"),
+            new Blueprint("Banter_NenioVenduag_banter4_pack2", "5f58209d46d1bc7409879fcf82e3a09c"),
             new Blueprint("ZigguratDeadRomanceTimer", "587df869a564f7046a48bbf27f017619"),
           }
         },
@@ -699,7 +709,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Kerz]_BarkCondition", "59c232c2fa5e7c54baa235fee0e049d6"),
-            new Blueprint("Check_0014", "fa7abf38e76c406585395892749a7b9a"),
+            new Blueprint("Check_0025", "98a0913d1d99b9548b364fa6f26e7963"),
             new Blueprint("ZanedraInTemple", "0d22fd186d557a049b46c0fb3d623f04"),
           }
         },
@@ -1043,7 +1053,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0006", "13e54e84a1344930b2d35ec4fba205ff"),
-            new Blueprint("Cue_0010", "281d32d85bed40658aee9ae363de3ae8"),
+            new Blueprint("Cue_0010", "a1603875bf0243519908e67165cfc956"),
             new Blueprint("Ship_translocate", "2b46c98f1687478e93b8625670f996ba"),
           }
         },

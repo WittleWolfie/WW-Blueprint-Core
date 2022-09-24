@@ -2163,6 +2163,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBarrageColdBuff = "c5e9031099d3e8d4788d3e51f7ffb8a0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBarrageElectricityBuff = "0b8ed343b989bbb4c8d059366a7c2d01";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBarrageFireBuff = "7db8ad7b035c2f244951cbef3c9909df";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBarrageSonicBuff = "49aebc21c7b9406da84c545ed0b8b5b3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBastionBuff = "99953956704788444964899b5b8e96ab";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBodyIAirBuff = "70828d40058f2d3428bb767eb6e3e561";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ElementalBodyIEarthlBuff = "f9b392e80df99734eb689cbb08cadba5";
@@ -7538,6 +7539,7 @@ namespace BlueprintCore.Blueprints.References
           ElementalBarrageColdBuff,
           ElementalBarrageElectricityBuff,
           ElementalBarrageFireBuff,
+          ElementalBarrageSonicBuff,
           ElementalBastionBuff,
           ElementalBodyIAirBuff,
           ElementalBodyIEarthlBuff,

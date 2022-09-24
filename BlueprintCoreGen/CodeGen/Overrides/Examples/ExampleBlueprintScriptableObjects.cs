@@ -95,7 +95,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Mage_Test", "f9161aa0b3f519c47acbce01f53ee217"),
-            new Blueprint("DLC3_CR_22MythicShadow_Trickster", "7fbfd11dd5bc49c299e21b0a87824867"),
+            new Blueprint("DLC3_CR_28DemonMythicShadow", "0eab823dca4f46778c9fd4f889f658aa"),
             new Blueprint("Ziforian_normal", "7ef2998dbeb7fda43a47ce842f4d142d"),
           }
         },
@@ -813,7 +813,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArcaneTricksterArcanist", "7cab956d45dc51c4ea9e71bba366a250"),
-            new Blueprint("HellknightSigniferSwordSaint", "7f7acf3e53b7b6240a93c634b2c02926"),
+            new Blueprint("HellknightSigniferSorcerer", "c23c2b3bb15411a489a945fe71648fde"),
             new Blueprint("WinterWitchWitchLeyLineGuardian", "56adf819599827f4695395924a060996"),
           }
         },
@@ -1217,7 +1217,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AlchemistsClothItem", "004e05369fd13e2428bf7eb84bcd38ec"),
-            new Blueprint("PilgrimClothItem", "de9188750de58a64ca8c9886359d274b"),
+            new Blueprint("Robe2ST2DC_CorrectItem", "a5160a52ad404bd6a3a3eef8f1a455f3"),
             new Blueprint("WanderingConmanItem", "fdc89dbe3502c7843ac5685099aac211"),
           }
         },
@@ -1754,7 +1754,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_DevouredByDarkness", "67d3321ed01a4e58a9ed3e13f94f1d04"),
-            new Blueprint("Impostor_InTheCell", "0e2fc56219b0da142ae12ba98dd7f1c4"),
+            new Blueprint("ImportantStates", "42d42d2a61c44df41beee8af4333eec4"),
             new Blueprint("ZosielQ0", "6d1bb3f8743892a4aaf498f7fc5212f0"),
           }
         },
@@ -2408,7 +2408,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1stFight_Final", "8ef514ae57a6c704ba2e125a4e0f78ad"),
-            new Blueprint("HilorKyadoToPrison", "a5e50abb3a904f1ea73211ab2dc94f77"),
+            new Blueprint("HilorPrisonLeave", "10e78b3f2fdc4bb4a641501bb5f97439"),
             new Blueprint("Zone3_Epigraph", "00f1dceaedf422e41f2d9cd0d9c6e571"),
           }
         },
@@ -2418,7 +2418,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("gate", "fc268500370d415da9cf27c32043ace3"),
-            new Blueprint("gate 2", "486038c8133904d4fab9de56e2715848"),
+            new Blueprint("gate 2", "1c50b799fc0078c4dab504bf169ce2d5"),
             new Blueprint("gate9", "5b1a0b6731eb475692ebef9f02f1808b"),
           }
         },

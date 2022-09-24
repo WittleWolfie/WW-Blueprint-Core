@@ -161,6 +161,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.Mechanics.Facts.SaturationAuraComponent),
         typeof(Kingmaker.Designers.Mechanics.Facts.SpellFixedCL),
         typeof(Kingmaker.Designers.Mechanics.Facts.SpellLevelByRank),
+        typeof(Kingmaker.Designers.Mechanics.Facts.SpellPenetrationMythicBonus),
         typeof(Kingmaker.Designers.Mechanics.Facts.SpendChargesOnSpellCast),
         typeof(Kingmaker.Designers.Mechanics.Facts.SwitchOffAtCombatEnd),
         typeof(Kingmaker.Designers.Mechanics.Facts.TwoWeaponDefense),

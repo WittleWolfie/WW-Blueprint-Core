@@ -214,7 +214,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR27M_NabasuRogueAssasin</term><description>a77fe4457c11407499419896690c1e9b</description></item>
+    /// <item><term>DLC3_CR27_SuccubusRangedFighter</term><description>20891f43613349a595785a1f444498bf</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -3140,51 +3140,6 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     }
 
     /// <summary>
-    /// Adds <see cref="SpellPenetrationMythicBonus"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>SpellPenetrationMythicFeat</term><description>51b6b22ff184eef46a675449e837365d</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="greater">
-    /// <para>
-    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="merge">
-    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
-    /// </param>
-    /// <param name="mergeBehavior">
-    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
-    /// </param>
-    [Obsolete("File an issue on GitHub if you need this.")]
-    public TBuilder AddSpellPenetrationMythicBonus(
-        Blueprint<BlueprintUnitFactReference>? greater = null,
-        Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
-    {
-      var component = new SpellPenetrationMythicBonus();
-      component.m_Greater = greater?.Reference ?? component.m_Greater;
-      if (component.m_Greater is null)
-      {
-        component.m_Greater = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
-      }
-      return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
     /// Adds <see cref="StonyStepTerrainBonus"/>
     /// </summary>
     ///
@@ -4167,7 +4122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC1_JewelerTrader</term><description>e969dd0934d94dc4b9b8954b5bb0cb43</description></item>
+    /// <item><term>DLC1_Mephistopheles_Prosecutor</term><description>5c74deb59cfc46df8ee0806997677119</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -4601,7 +4556,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>GowrowSonicShortspearFeature</term><description>b0b7b2b56b0c75841bab1861724d3a99</description></item>
+    /// <item><term>GreaterDimensionalRideFeature</term><description>d7ad915605954b35846cd2f0a4207fc8</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -4658,6 +4613,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? checkAoE = null,
         bool? checkDescriptor = null,
         bool? checkRange = null,
+        bool? checkSourceItemType = null,
         bool? checkSpellSchool = null,
         bool? exactSpellLevel = null,
         int? exactSpellLevelLimit = null,
@@ -4669,6 +4625,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? minSpellLevel = null,
         int? minSpellLevelLimit = null,
         AbilityRange? range = null,
+        AddAbilityUseTrigger.SourceTypeFlag? sourceItemType = null,
+        bool? sourceItemTypeExclude = null,
         List<Blueprint<BlueprintSpellbookReference>>? spellbooks = null,
         SpellDescriptorWrapper? spellDescriptor = null,
         AbilityType? type = null,
@@ -4697,6 +4655,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.CheckAoE = checkAoE ?? component.CheckAoE;
       component.CheckDescriptor = checkDescriptor ?? component.CheckDescriptor;
       component.CheckRange = checkRange ?? component.CheckRange;
+      component.CheckSourceItemType = checkSourceItemType ?? component.CheckSourceItemType;
       component.CheckSpellSchool = checkSpellSchool ?? component.CheckSpellSchool;
       component.ExactSpellLevel = exactSpellLevel ?? component.ExactSpellLevel;
       component.ExactSpellLevelLimit = exactSpellLevelLimit ?? component.ExactSpellLevelLimit;
@@ -4708,6 +4667,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.MinSpellLevel = minSpellLevel ?? component.MinSpellLevel;
       component.MinSpellLevelLimit = minSpellLevelLimit ?? component.MinSpellLevelLimit;
       component.Range = range ?? component.Range;
+      component.SourceItemType = sourceItemType ?? component.SourceItemType;
+      component.SourceItemTypeExclude = sourceItemTypeExclude ?? component.SourceItemTypeExclude;
       component.m_Spellbooks = spellbooks?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Spellbooks;
       if (component.m_Spellbooks is null)
       {
@@ -8360,7 +8321,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Archpriest_PossessionBuff_ShadowBalorEncounter</term><description>4fc454d17bbc41e7aac430dd570e61c6</description></item>
-    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
+    /// <item><term>DLC3_MindControllModDebuff</term><description>326c3fe92f84408c85564f2418e39fa3</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -8410,7 +8371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR7_SkeletalChampionArcherLowAgro</term><description>fb46919b30fd7e8499b618a207073fea</description></item>
+    /// <item><term>CR7_SkeletalChampionArcherLongBow1</term><description>1aa966d93e6949a7b7a07c3d0344ba36</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>
@@ -14626,7 +14587,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcerbicRingFeature</term><description>094b291d04fdde84b963b07400c0df80</description></item>
-    /// <item><term>DragonDiscipleFormFeatureWings</term><description>aa36f82ab9a046c4a853dccf0cdbaf53</description></item>
+    /// <item><term>EarthBlastFeature</term><description>7f5f82c1108b961459c9884a0fa0f5c4</description></item>
     /// <item><term>ZenArcherReflexiveShotFeature</term><description>e6a3ade07ee84144a90203f5699c07ef</description></item>
     /// </list>
     /// </remarks>
@@ -16112,7 +16073,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbrogailMetamagicFeature</term><description>f976da658b1344538cfb867e6a3329ec</description></item>
-    /// <item><term>HolyChampion</term><description>eff3b63f744868845a2f511e9929f0de</description></item>
+    /// <item><term>HokugolQuickenedFeature</term><description>3cf2f004ce0f16c46a1841b67d2fbcda</description></item>
     /// <item><term>Zanedra_Metamagic</term><description>ad77aded6888c69458669e5ecd2fa979</description></item>
     /// </list>
     /// </remarks>
@@ -21762,7 +21723,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelHolyHymnBuff</term><description>f865b385586fe0a4996e081a96de4f0f</description></item>
-    /// <item><term>KnightsEmblemSunsetShortswordFeature</term><description>277fd4291f558fd458e3c73c9b658f6c</description></item>
+    /// <item><term>LocustNPCArcaneBonus</term><description>49114237a7b04975af2ddb3611be38f2</description></item>
     /// <item><term>WhiteroseOystersBuff</term><description>45082bf27cf15e94ca0fae92dc3db992</description></item>
     /// </list>
     /// </remarks>
@@ -23741,7 +23702,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonNormalizeSizeGazeEnemyGargantuaBuff</term><description>39ce7de50e1e43439a205cfef8059f5e</description></item>
-    /// <item><term>DLC3_LegendaryProportionsBuff</term><description>51afcb44344a45569fec113ce99916dd</description></item>
+    /// <item><term>DLC3_GiantDungeonTemplateBuff_CR1</term><description>8f60fbc6b1714fdaac46f4fc74ff769c</description></item>
     /// <item><term>TricksterMicroscopicProportionsBuff</term><description>1dfc2f933e7833f41922411962e1d58a</description></item>
     /// </list>
     /// </remarks>

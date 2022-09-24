@@ -71,6 +71,42 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonIslandRewardLoot.PriceMultiplierMin"/>
+    /// </summary>
+    ///
+    /// <param name="priceMultiplierMin">
+    /// <para>
+    /// Tooltip: Lowest price multiplier of a single item. Base price is the price of a whole chest for current area CR.
+    /// </para>
+    /// </param>
+    public TBuilder SetPriceMultiplierMin(float priceMultiplierMin)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PriceMultiplierMin = priceMultiplierMin;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonIslandRewardLoot.PriceMultiplierMax"/>
+    /// </summary>
+    ///
+    /// <param name="priceMultiplierMax">
+    /// <para>
+    /// Tooltip: Highest price multiplier of a single item. Base price is the price of a whole chest for current area CR.
+    /// </para>
+    /// </param>
+    public TBuilder SetPriceMultiplierMax(float priceMultiplierMax)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PriceMultiplierMax = priceMultiplierMax;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandRewardLoot.DoNotGiveDuplicates"/>
     /// </summary>
     public TBuilder SetDoNotGiveDuplicates(bool doNotGiveDuplicates = true)

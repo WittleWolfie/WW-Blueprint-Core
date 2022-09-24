@@ -3492,10 +3492,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9M_MythicCrazySchir = "dc0609bd35d44b79924e079bf5a6dec1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_DeathsnatcherSummonedWildMagic = "2e1360ba801647dbafb6328981ae7d68";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalAirStoneUnit = "742d223bd1ef4e51b8dbd2d719dfca29";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalAirStoneUnitTier2 = "92a9b2be96584f8f98a4911072f5318d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalAirStoneUnitTier3 = "6dd9b324583541278db8f8b2980cfcf3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalEarthStoneUnit = "779978218d984e55a502bb3c3400718b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalEarthStoneUnitTier2 = "61c7e68795df41809371c980e3a150d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalEarthStoneUnitTier3 = "181d5960dab74ed4872e85cb7bb04244";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalFireStoneUnit = "8d184ed173ae4e51a924e96c37cb1326";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalFireStoneUnitTier2 = "4ff6c9f149ca4c1785953a4b5d079cf9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalFireStoneUnitTier3 = "003b375deb22497286ab9d3ecd72b96b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalLocusLightningUnit = "f9e6dd8716fd45f2b508f477e65cb397";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalWaterStoneUnit = "3fb539287922430c8397b7685af5f744";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalWaterStoneUnitTier2 = "36f6485d33204f4790caaa60a494dc96";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_ElementalWaterStoneUnitTier3 = "7ce26ae30b7d45a9aeb98e555a9236fb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_Falconium_tier1_original1 = "2a2e73631326473bb43abda08475380b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_Falconium_tier2_original = "078e4d1bd2c64817a0fdb361a1e75356";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_Falconium_tier3_original = "95bbd372681d419abe7d1b39830c06dd";
@@ -8780,10 +8788,18 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR9M_MythicCrazySchir,
           DLC3_DeathsnatcherSummonedWildMagic,
           DLC3_ElementalAirStoneUnit,
+          DLC3_ElementalAirStoneUnitTier2,
+          DLC3_ElementalAirStoneUnitTier3,
           DLC3_ElementalEarthStoneUnit,
+          DLC3_ElementalEarthStoneUnitTier2,
+          DLC3_ElementalEarthStoneUnitTier3,
           DLC3_ElementalFireStoneUnit,
+          DLC3_ElementalFireStoneUnitTier2,
+          DLC3_ElementalFireStoneUnitTier3,
           DLC3_ElementalLocusLightningUnit,
           DLC3_ElementalWaterStoneUnit,
+          DLC3_ElementalWaterStoneUnitTier2,
+          DLC3_ElementalWaterStoneUnitTier3,
           DLC3_Falconium_tier1_original1,
           DLC3_Falconium_tier2_original,
           DLC3_Falconium_tier3_original,
