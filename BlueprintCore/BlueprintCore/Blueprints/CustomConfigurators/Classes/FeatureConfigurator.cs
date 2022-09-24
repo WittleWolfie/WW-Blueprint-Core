@@ -83,6 +83,11 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// </example>
     /// 
     /// <para>
+    /// If FeatureGroup.TeamworkFeat is specified you should call <see cref="AddAsTeamworkFeat(string, string, string, string, string, string, string, string)"/>
+    /// to make sure it functions correctly with all character features that share teamwork feats.
+    /// </para>
+    /// 
+    /// <para>
     /// If FeatureGroup.Feat is specified then <see cref="BlueprintFeature.IsClassFeature"/> is set to true.
     /// </para>
     /// </remarks>
@@ -317,7 +322,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbility);
         AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbilitySwift);
 
-        FeatureConfigurator.For(FeatureRefs.CavalierTacticianFeature)
+        FeatureConfigurator.For(FeatureRefs.CavalierTacticianSupportFeature)
           .AddFeatureIfHasFact(checkedFact: Blueprint, feature: cavalierBuff)
           .Configure();
         #endregion
@@ -362,10 +367,11 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         #endregion
 
         #region PackRager
+        var icon = ActivatableAbilityRefs.PackRagerAlliedSpellcasterToggleAbility.Reference.Get().Icon;
         var ragerBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_Buff", PackRagerBuffGuid)
           .SetDisplayName(Blueprint.m_DisplayName)
           .SetDescription(Blueprint.m_Description)
-          .SetIcon(Blueprint.Icon)
+          .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .SetFrequency(DurationRate.Minutes)
@@ -378,17 +384,19 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           .AddAbilityAreaEffectRunAction(
             unitEnter: ActionsBuilder.New().ApplyBuffPermanent(ragerBuff),
             unitExit: ActionsBuilder.New().RemoveBuff(ragerBuff))
+          .SetSize(new(50))
+          .SetShape(AreaEffectShape.Cylinder)
           .Configure();
 
         var ragerAreaBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_AreaBuff", PackRagerAreaBuffGuid)
-          .SetIcon(Blueprint.Icon)
+          .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .AddAreaEffect(areaEffect: ragerArea)
           .Configure();
 
         var ragerToggleBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_ToggleBuff", PackRagerToggleBuffGuid)
-          .SetIcon(Blueprint.Icon)
+          .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .AddBuffExtraEffects(checkedBuff: BuffRefs.StandartRageBuff.ToString(), extraEffectBuff: ragerAreaBuff)
@@ -397,7 +405,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         var ragerToggle = ActivatableAbilityConfigurator.New($"PackRager_{Blueprint.name}_Toggle", PackRagerToggleGuid)
           .SetDisplayName(Blueprint.m_DisplayName)
           .SetDescription(Blueprint.m_Description)
-          .SetIcon(Blueprint.Icon)
+          .SetIcon(icon)
           .SetIsOnByDefault()
           .SetActivateWithUnitCommand(CommandType.Standard)
           .SetGroup(ActivatableAbilityGroup.RagingTactician)
