@@ -1,5 +1,23 @@
 ﻿# Changelog
 
+## v2.3.0 Release
+
+* Added more support for `FeatureGroup.TeamworkFeat` so it can be configured for sharing features. Note that you need to use the method `AddAsTeamworkFeat()` since configuring for some class features requires GUIDs used to generate additional blueprints.
+    * Battle Scion's Battle Prowess
+    * Monster Tactician Tactics
+    * Tactical Leader Feat Sharing
+    * Hunter Tactics
+    * Sacred Huntsmaster Tactics
+    * Cavalier Tactician
+    * Vanguard Tactician
+    * Pack Rager's Raging Tactician
+* Updated for the latest game version
+* Removed obsolete components flagged in the 2.2 release
+
+### Breaking Changes
+
+* All components flagged obsolete have been removed
+
 ## v2.2.5 Release
 
 * Added support for multiple strings files and embedded resources
