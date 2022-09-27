@@ -23,7 +23,9 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.QA.Arbiter;
 using Kingmaker.UI;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Customization;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
@@ -60,9 +62,16 @@ namespace BlueprintCoreGen.Analysis
 		{
 			new()
 			{
-				Name = "RunInReasonContext",
-				ComponentFilter = typeof(AddOutgoingDamageTrigger),
-				FieldNameFilter = "RunInReasonContext",
+				Name = "ReadPreRolledFromSharedValue",
+				ElementFilter = typeof(ContextActionDealDamage),
+				FieldNameFilter = "ReadPreRolledFromSharedValue",
+				StringFieldValue = "True",
+			},
+			new()
+			{
+				Name = "IsTargeted",
+        BlueprintFilter = typeof(BlueprintActivatableAbility),
+				FieldNameFilter = "IsTargeted",
 				StringFieldValue = "True",
 			}
 		};
