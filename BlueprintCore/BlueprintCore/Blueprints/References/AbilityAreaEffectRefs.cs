@@ -173,6 +173,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalEarthAreaEffect = "5e9ee0ac464d499aaa74ae1c344b4522";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalFireAreaEffect = "b4b0114b22d64e059233378b8ce547ac";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalLocusAreaEffect = "a7e320519348419fb7f8cede05692535";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalSummonAggroAreaEffect = "7fc12eee6f5f4b918246b3504831d420";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_ElementalWaterStormAreaEffect = "652bfe12354b46d3b4e181943ed455ed";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_GlassesOfundeniableTruthSetAreaEffect = "3b0073d0b992438db2380551dfcb894e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_HitDieHPRegainAreaEffect = "45d78f04951d41c7a6f9be4cabfa33c9";
@@ -663,6 +664,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ElementalEarthAreaEffect,
           DLC3_ElementalFireAreaEffect,
           DLC3_ElementalLocusAreaEffect,
+          DLC3_ElementalSummonAggroAreaEffect,
           DLC3_ElementalWaterStormAreaEffect,
           DLC3_GlassesOfundeniableTruthSetAreaEffect,
           DLC3_HitDieHPRegainAreaEffect,

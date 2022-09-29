@@ -931,6 +931,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> StinkyBombItem = "5cfefb23c13e9dc4f808cbb00fd29353";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> StunBombItem = "fe1f6817eba33d24b99c4d1763ee1eb7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TerendelevScaleItem = "816f244523b5455a85ae06db452d4330";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TokenOfHonor = "905ec00744cd4627b0e00f187e215d4b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfClearThoughtPlus2 = "3584c2a2f8b5b1b43ae11128f0ff1583";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfLeadershipAndInfluencePlus2 = "37e2f09923a96234ca486bc9db0b6ad6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfUnderstandingPlus2 = "419a486154514594c99193da785d4302";
@@ -2085,6 +2086,7 @@ namespace BlueprintCore.Blueprints.References
           StinkyBombItem,
           StunBombItem,
           TerendelevScaleItem,
+          TokenOfHonor,
           TomeOfClearThoughtPlus2,
           TomeOfLeadershipAndInfluencePlus2,
           TomeOfUnderstandingPlus2,

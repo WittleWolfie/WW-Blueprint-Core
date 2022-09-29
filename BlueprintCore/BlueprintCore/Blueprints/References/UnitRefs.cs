@@ -693,6 +693,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CorruptedHerald_Phase2_CR25 = "e17a94be7b3a1924c806e91e85b0d4e2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CorruptionActor = "397d852d23ae439e9dfce99611868a74";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Corruptor = "02584a50ef5139548a7ebd2b30475e8b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Courier_NPC = "d091592bf59045f5947ebebc39960db9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Courtesan_Female = "2c10fa15f7a357340a72649359a24703";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Courtesan_Female_2 = "2964bb999b940f74db13361176502897";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Courtesan_FemaleDressed = "ab0996ffe9d94ffc954ad01808e10d91";
@@ -1596,6 +1597,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_ModifiedMandragoraSuicide = "8a5c62f7012e78f499b6b40fb926ce66";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_MythicNalfeshneeShaman = "28c865bc6615e474783bb2cf41722931";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_OmoxShaman = "d1aa51367ecb4f2f8a86dde6d1a968e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_StrongBeerElementalElder = "059b710cf9bc41bea70a0ea62ad3e27a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_SuccubusAdvancedFighter = "2db556136eac2544fa9744314c2a5713";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_SuccubusAdvancedFighter_RE_high = "958a7e03d5e04cb1aebae6374b8554fc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR20_SuccubusRangedFighter = "025c60c6f6a9459c8adc753a694bf1e5";
@@ -1615,6 +1617,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_ColoxusCaster_RE_high = "47c032c3ca2b42d5bedf3c36a4158dfe";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_EcorcheTorturer = "938fff1c489c464485517960f650dead";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_GalluAdvanced = "6c786c202513e8a458ad0e3b8324291c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_HamadryadBard = "be858d11bc414d2aa1db4cd9d4ecea7f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_IncubusAssassin_Guild = "1590ecbb39f74d0db508b45b2026666f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_IncubusAssassin_Slayer = "33d039c5eec49ec4fb19b0f87b106b95";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR21_MarilithMythic4_Slayer = "a4738fdde19441b45873ca290e7bf14b";
@@ -3547,6 +3550,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_PALADIN_TRAILER_MID = "21e99cbd632e4f65b063af093a349fa4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_PortHalflingFemale = "fd7ce6b000d24ffca13647d4fa631179";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_PortHalflingMale = "a6aba861efd1435685ae7c2a2293904e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_QuasitCourier = "8336986f9e9c4f7eabfbe49d319027b1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_Raveneer = "fcad9e5535ae4c44af21564dcf97c7e7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_RecruitOnIsland = "a0850fa85b784bf89113934a4e8e7a94";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_RedDragon = "cdfed05b475241028737f7576dbdf2f0";
@@ -3832,6 +3836,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GoldDragon_Drezen = "95a3f73b04c24c5cb120712d07df6810";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemAdamantineDestructable = "3f11d3c1f5b9994498feb367ab71a0db";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemAdamantineDestructableSummon = "8e0cf54771f8b7948af9553977716177";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemGold_Reforger = "cbe36bd024d64c5e97c3895808b680dd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemGold_VendorJewelry = "556cb5163785e0b46b3a7e72810d522e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemGoldSummon = "c69947e8bf4dbc245ade952f54264c25";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GolemIronSummon = "6a706bf502d310a49b4fdd9e45b199b1";
@@ -4796,6 +4801,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShamiraAlushinyrra = "6b2da4c5fc0ced447a7a6ceec15b8b6b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShamiraMythic = "ae66d9252d56497e928808fa8c22effd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShaxahVendor = "5898048aee2488247a1ae80c80f85a64";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shifter_CompanionDraft = "42f0d5ec3dc844feb44b04507a7c1bfc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShopOwner = "ad3b85360ce4a83498267e57d901b2dc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shrine_Glabrezu_Caster = "c9f6d2ab9ec68354b9e60adebfd7f744";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shrine_Incubus_Melee = "239dafccadeb194488fc61ed15a89a22";
@@ -4829,6 +4835,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Soana_Wintersun = "64805abb52739e44280a758f850b300c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Socothbenoth = "dcd200c627536c449bc8258eada65c9f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SocothbenothEnemy = "d3da9ec08e08492fae63f04713b502ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Caarel = "0050d0bc09024f2aa500f9e3d5d03901";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Curchain = "e30e6f1267a14709a768e51eea8bf575";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Dummy = "3521001ef35f47b4a4ed154a80ee03f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Hill = "8b054eadf4f5459ebd59b5889209f485";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Kayden = "77e801b1c4054af5aff3734d68ec2cf5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Lannica = "80ff2d14441c4ef09c47539596d4c501";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Lo = "0b3900cd329a4f10bbdc06eae0139c0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Tanne = "37c822a600ba490e9cf4facf8bdbecfd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Venko = "763355662dbe47c9a5bec716c544971a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Viggsbard = "fd56762c939c45d99771b608d950746f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Sorcerer_Level1 = "0f5898fa6ecf48be88faf39b2888d385";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Sorcerer_Level1_0 = "56aa5456b0534e4daaa2b9a56b61cafb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Sorcerer_Level3 = "a0f6dc7fa99c443f9c5f7d7f5d862c6f";
@@ -5989,6 +6005,7 @@ namespace BlueprintCore.Blueprints.References
           CorruptedHerald_Phase2_CR25,
           CorruptionActor,
           Corruptor,
+          Courier_NPC,
           Courtesan_Female,
           Courtesan_Female_2,
           Courtesan_FemaleDressed,
@@ -6892,6 +6909,7 @@ namespace BlueprintCore.Blueprints.References
           CR20_ModifiedMandragoraSuicide,
           CR20_MythicNalfeshneeShaman,
           CR20_OmoxShaman,
+          CR20_StrongBeerElementalElder,
           CR20_SuccubusAdvancedFighter,
           CR20_SuccubusAdvancedFighter_RE_high,
           CR20_SuccubusRangedFighter,
@@ -6911,6 +6929,7 @@ namespace BlueprintCore.Blueprints.References
           CR21_ColoxusCaster_RE_high,
           CR21_EcorcheTorturer,
           CR21_GalluAdvanced,
+          CR21_HamadryadBard,
           CR21_IncubusAssassin_Guild,
           CR21_IncubusAssassin_Slayer,
           CR21_MarilithMythic4_Slayer,
@@ -8843,6 +8862,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_PALADIN_TRAILER_MID,
           DLC3_PortHalflingFemale,
           DLC3_PortHalflingMale,
+          DLC3_QuasitCourier,
           DLC3_Raveneer,
           DLC3_RecruitOnIsland,
           DLC3_RedDragon,
@@ -9128,6 +9148,7 @@ namespace BlueprintCore.Blueprints.References
           GoldDragon_Drezen,
           GolemAdamantineDestructable,
           GolemAdamantineDestructableSummon,
+          GolemGold_Reforger,
           GolemGold_VendorJewelry,
           GolemGoldSummon,
           GolemIronSummon,
@@ -10092,6 +10113,7 @@ namespace BlueprintCore.Blueprints.References
           ShamiraAlushinyrra,
           ShamiraMythic,
           ShaxahVendor,
+          Shifter_CompanionDraft,
           ShopOwner,
           Shrine_Glabrezu_Caster,
           Shrine_Incubus_Melee,
@@ -10125,6 +10147,16 @@ namespace BlueprintCore.Blueprints.References
           Soana_Wintersun,
           Socothbenoth,
           SocothbenothEnemy,
+          SoldierParty_Caarel,
+          SoldierParty_Curchain,
+          SoldierParty_Dummy,
+          SoldierParty_Hill,
+          SoldierParty_Kayden,
+          SoldierParty_Lannica,
+          SoldierParty_Lo,
+          SoldierParty_Tanne,
+          SoldierParty_Venko,
+          SoldierParty_Viggsbard,
           Sorcerer_Level1,
           Sorcerer_Level1_0,
           Sorcerer_Level3,

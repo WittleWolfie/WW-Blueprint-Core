@@ -58,6 +58,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> FaxonReportToMinagho = "3472e5d002db4489b0d395613a95f13a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> FearlessCrusaderBriggie = "790977474b2e7744bb05e0c428506e35";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> FunnyText_HowTo = "4435f0233fa6ae04bad0cbfa1207a398";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GalfreyContract = "d9d93775719044ca95cda068c654d416";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GalfreyGoodbyeMessage = "e03b3cfcb01670c47b102855982c23c6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GearsRuleNote = "150cd8e6ce9859b4586e721cbc4cc86f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GentyCrusader = "d4951735396c101499daa2b1cdb0b651";
@@ -181,6 +182,7 @@ namespace BlueprintCore.Blueprints.References
           FaxonReportToMinagho,
           FearlessCrusaderBriggie,
           FunnyText_HowTo,
+          GalfreyContract,
           GalfreyGoodbyeMessage,
           GearsRuleNote,
           GentyCrusader,

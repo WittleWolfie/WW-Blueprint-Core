@@ -943,6 +943,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AssassinPoisonResistance = "4e600de3bede421469bd0c8911eaf1d6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AssassinProficiencies = "4f5ba283da1232a458234d228fab5d48";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AssassinsChainshirtFeature = "bb04a43775d12b344a36ae8850cefa0c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AssertionOfDominanceFeature = "cd09201e456345e7a39c983ff8912e58";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AstringentPacifierFeature = "0734c66cdb7842828e9380893521c4b8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AthachPoisonFeature = "366f54decfc4c08438fa66427cd92939";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AtheismFeature = "92c0d2da0a836ce418a267093c09ca54";
@@ -969,6 +970,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AxiomiteMeleeMiniboss_Feature_CombatPrebuff = "1f945ddc82d44c068de58e44ca632228";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AxiomiteMeleeMiniboss_Feature_CombatTrigger = "7e258cbfe94b41a0bee9e343d96bec30";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AxiomiteMeleeMiniboss_Feature_Prebuff = "64923357a7294ab4afc28e7d2e4c0998";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AzataBrokenChainsAllSongsFeature = "22325988b75141d292843366648e230c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AzataFirstAscension = "d2cfbbb941e07b04299b617017e369f1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AzataForSpellsCollateralFeature = "a7a4ae18dc57b8c4791221323812899a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> AzataForSpellsDevilFeature = "6d330ba4e39fdb647bd34df9810d0a4c";
@@ -2128,6 +2130,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CavalierTacticianGreater = "c7913a6c300cb994b8e800e1096f9280";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CavalierTacticianSupportFeature = "37c496c0c2f04544b83a8d013409fd47";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CaveExplorersArmorFeature = "ac18609f30891bb48adb473ebbeebe29";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Cayden_Prebuff = "53a82a9c73fb4ca5b6d64ad9d941b2d3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CaydenCaileanFeature = "300e212868bca984687c92bcb66d381b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CaydenCaileanSacredWeaponFeature = "f793cb43d2d22cf468c2c3f1088d7540";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CaydenRapierFeature = "bec8e2199b5559c46be0c806cf308831";
@@ -2572,6 +2575,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonicRegent = "44bf6c687f8049d6957492b58241b640";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonicResentmentFeature = "4a83b67d4f24bba4a8d881340185bff0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonicVerminTemplate = "c98d087554803054e8e1ca1d670ad9ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonImmortalityFeature = "c9f614d68ff64142b0a25254989e2880";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonImmunities = "9f8125204ab6c68439e8f66c539442af";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonImprovedImmunities = "13a1b5e9054343ba9ab56f2cf596d518";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DemonNaturalAttackFeatureLevel5 = "66285313d89a863469cd056f2d6e32a0";
@@ -2809,6 +2813,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElementalistHiddenFeature = "cb35141854864b24a4946de7a9a076ea";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElementalLocus = "dbc5c9749d434382841b78b7d5d0a708";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElementalRampagerHiddenFeature = "bc258601d01a4f338c53d26f89f4c766";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElementalSummonAggroFeature = "65c9ea27f0df408285fd4522df81c047";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElementalWitchHiddenFeature = "e90ffb20cabd4589a68bcb0a14243211";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ElvenBlessingFeature = "c564f72f28d34892aafd42ce10560d68";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_FAB_DimensionalRetribution_Stage1 = "71b60f56c56145708981f5e71af39b63";
@@ -2865,6 +2870,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_Features = "1af82391db22467580a54baaae3bc164";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_Immunities = "a6414663fa974b9183ef2b1ca389c315";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_SpellTurning = "32bf05e17a1c422b8aeed93055275a26";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShieldAAttackBlueprintFeature = "e30c63d0aef044c4b604b49fab0c3bdd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_SickessIslandMod = "299aa699f537477ebc336db59f0fa5ef";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_SicknessIslandEnemyFeature = "4e3c59651ddf4654a21df5405fddf4a5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_SinmageMaximisedChainLightingMetamagicFeature = "32fddcbfac564e2e83641a25836d18d1";
@@ -3056,6 +3062,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREpic20 = "54ee91c4b655d4441a4f5ad3eb92d245";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREpicAndEvil10 = "7a3b222859e177542bde0138d3956516";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREpicAndEvil20 = "6cb10cb8884d22a42999bb54519351f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREpicAndGood10 = "caf508eff896489c8413ecb45e47e0b8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREvil10 = "f0937c058e82a2146adadff86887f014";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREvil15 = "aa7d988b1abb88f468a4bcb8022e6cec";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DREvil5 = "dab5290c632eb1a49bff9343144c9829";
@@ -3902,6 +3909,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreatFortitudeMythicFeat = "8bc4dbea992b6bd489ac5b66fd41e380";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreatswordProficiency = "f35e15b1fdff0c54087746c2da80a053";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenFaithFeature = "99a7a8f13c1300c42878558fa9471e2f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenFaithSacredWeaponFeature = "b7ae105c0f0e4c35baccd10b55bd2fe7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenragerFuriousSummoning = "eabdfba5d63bf164aa7f847eff8ca1af";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenragerSummoningRager = "ee9356da2f43ce144bee7e034760fbe7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenragerSummoningRager10 = "c8d3a1f34b8c4a348a41fcfb213da466";
@@ -3960,6 +3968,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Hardness10 = "937ada06eb15412a8d80a96d1cca4dc2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Hardness20 = "64f281fa5a6c46e597f501d9ed4a2d23";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Hardness30 = "51c7b076333a471ab69ff783ad155f9b";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HardnessObject10 = "01a49a95711446d09bc6fcb96e5134d1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HardnessObject20 = "8de936caf0414bbabf64853248a43cac";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HardnessObject30 = "8685aca045794c2e8d945b1ab8305038";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Hardy = "f75d3b6110f04d1409564b9d7647db60";
@@ -8678,6 +8687,7 @@ namespace BlueprintCore.Blueprints.References
           AssassinPoisonResistance,
           AssassinProficiencies,
           AssassinsChainshirtFeature,
+          AssertionOfDominanceFeature,
           AstringentPacifierFeature,
           AthachPoisonFeature,
           AtheismFeature,
@@ -8704,6 +8714,7 @@ namespace BlueprintCore.Blueprints.References
           AxiomiteMeleeMiniboss_Feature_CombatPrebuff,
           AxiomiteMeleeMiniboss_Feature_CombatTrigger,
           AxiomiteMeleeMiniboss_Feature_Prebuff,
+          AzataBrokenChainsAllSongsFeature,
           AzataFirstAscension,
           AzataForSpellsCollateralFeature,
           AzataForSpellsDevilFeature,
@@ -9863,6 +9874,7 @@ namespace BlueprintCore.Blueprints.References
           CavalierTacticianGreater,
           CavalierTacticianSupportFeature,
           CaveExplorersArmorFeature,
+          Cayden_Prebuff,
           CaydenCaileanFeature,
           CaydenCaileanSacredWeaponFeature,
           CaydenRapierFeature,
@@ -10307,6 +10319,7 @@ namespace BlueprintCore.Blueprints.References
           DemonicRegent,
           DemonicResentmentFeature,
           DemonicVerminTemplate,
+          DemonImmortalityFeature,
           DemonImmunities,
           DemonImprovedImmunities,
           DemonNaturalAttackFeatureLevel5,
@@ -10544,6 +10557,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ElementalistHiddenFeature,
           DLC3_ElementalLocus,
           DLC3_ElementalRampagerHiddenFeature,
+          DLC3_ElementalSummonAggroFeature,
           DLC3_ElementalWitchHiddenFeature,
           DLC3_ElvenBlessingFeature,
           DLC3_FAB_DimensionalRetribution_Stage1,
@@ -10600,6 +10614,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ShadowBalorNahindry_Features,
           DLC3_ShadowBalorNahindry_Immunities,
           DLC3_ShadowBalorNahindry_SpellTurning,
+          DLC3_ShieldAAttackBlueprintFeature,
           DLC3_SickessIslandMod,
           DLC3_SicknessIslandEnemyFeature,
           DLC3_SinmageMaximisedChainLightingMetamagicFeature,
@@ -10791,6 +10806,7 @@ namespace BlueprintCore.Blueprints.References
           DREpic20,
           DREpicAndEvil10,
           DREpicAndEvil20,
+          DREpicAndGood10,
           DREvil10,
           DREvil15,
           DREvil5,
@@ -11637,6 +11653,7 @@ namespace BlueprintCore.Blueprints.References
           GreatFortitudeMythicFeat,
           GreatswordProficiency,
           GreenFaithFeature,
+          GreenFaithSacredWeaponFeature,
           GreenragerFuriousSummoning,
           GreenragerSummoningRager,
           GreenragerSummoningRager10,
@@ -11695,6 +11712,7 @@ namespace BlueprintCore.Blueprints.References
           Hardness10,
           Hardness20,
           Hardness30,
+          HardnessObject10,
           HardnessObject20,
           HardnessObject30,
           Hardy,

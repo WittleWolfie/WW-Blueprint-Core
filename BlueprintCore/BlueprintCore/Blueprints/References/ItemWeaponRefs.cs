@@ -2662,6 +2662,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TrapDagger_Lvl28 = "4893dd559f8c1b4488abe9f2241aae9f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TrapDagger_Lvl29 = "28cd31f0bc0f45a46ae01f577eedc446";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TrapDagger_Lvl30 = "a61d59acf63979d45b123864bf050d88";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TreacherousKissItem = "71531e47a73547a396621a8bee961ec8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TridentArmyNormalItem = "ffe8ae794fe34294fb565ed3f677ece0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TridentCallOfOceanItem = "25c40b30a0a8d94439db9a07c89f5331";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TridentPlus1 = "3163e4240ffcbc04da05a718c8151fe3";
@@ -5470,6 +5471,7 @@ namespace BlueprintCore.Blueprints.References
           TrapDagger_Lvl28,
           TrapDagger_Lvl29,
           TrapDagger_Lvl30,
+          TreacherousKissItem,
           TridentArmyNormalItem,
           TridentCallOfOceanItem,
           TridentPlus1,

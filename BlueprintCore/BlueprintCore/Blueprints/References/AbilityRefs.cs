@@ -766,6 +766,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CaveFangsStalagmites = "3f2192a2b1324a6469d4de19cd600449";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CaveFangsStalagmitesAbility = "8ec73d388f0875640af8df799f7f16b5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CaybenTankardAbility = "feb8c07feb4ec624685fa0ba4ed4f76a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CaydenBreathWeapon = "66a72e31aedc4209bb66831c446c0631";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Celerity = "80e7e30cdf96be0418a615ebb38ea4b9";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CelerityBase = "4e85d35a76525e1439aeb8086af53809";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CelerityShort = "b09bba47d93632b478cace0f57cec527";
@@ -4323,6 +4324,7 @@ namespace BlueprintCore.Blueprints.References
           CaveFangsStalagmites,
           CaveFangsStalagmitesAbility,
           CaybenTankardAbility,
+          CaydenBreathWeapon,
           Celerity,
           CelerityBase,
           CelerityShort,

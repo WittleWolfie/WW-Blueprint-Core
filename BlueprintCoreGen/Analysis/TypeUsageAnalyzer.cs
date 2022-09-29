@@ -26,7 +26,6 @@ using Kingmaker.UI;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Customization;
 using Kingmaker.UnitLogic.Mechanics.Actions;
-using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.Visual.CharacterSystem;
 using Kingmaker.Visual.Sound;
 using Newtonsoft.Json;

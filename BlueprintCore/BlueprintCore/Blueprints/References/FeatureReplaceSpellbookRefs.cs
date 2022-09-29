@@ -17,7 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanist = "7cab956d45dc51c4ea9e71bba366a250";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistEldritchFont = "a732797826db0b54ea123d91b4cdaad5";
-    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistNatureMage = "ec0512811a404e4daed06ac64af08d8f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistNatureMage = "7cb23fae66c54c6eb698c151aba54c0c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterArcanistUnletteredArcanist = "760f927485da2194da1e97f2ded0d0ca";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterBard = "3e3c01c9d3eb24c4b9e83ee7ba6af15a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterBloodrager = "3729468ce930e124885ccdf348c37d5f";
@@ -28,6 +28,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterExploiterWizard = "728db95d811518b4096588a39d6d7fb5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterMagus = "f10f1ddf993f6224b8b744ac8c89b82d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterSageSorcerer = "2b847b0cadb54834aaa9246912f5b4ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterSkald = "a7cc447172c74c069ad13bf886ae97fe";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterSorcerer = "9ff7ad30e5a074346a40f80efda277c8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterSwordSaint = "0ca5677a90acbcc45b33f5e0deb9e29e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> ArcaneTricksterThassilonianAbjuration = "4f1c84009308ca645b7e4a44d7861e49";
@@ -46,12 +47,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleBard = "3953c62cb7fcc4441ad0cd450b19eec7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleBloodrager = "4d61f1581befd99419a72a9d0d528242";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleCrossbloodedSorcerer = "de01c813460e4eebb545edfce0c815b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleEldritch_Font = "404785fe7e3c4e40afbfd2b75007b041";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleEldritchScion = "3e4fe982362730f469044e20ad319cc6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleLeyLineGuardianWitch = "4020be12b2ce4b218d007425b2a111b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleNatureMage = "bd7628e052e34745b89324ee822f6458";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleSkald = "619efbecadad4830980df503b7e37da0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleSorcerer = "fa2a2469c9ba6d54b8fc2356f4fc0e9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> DragonDiscipleUnletteredArcanist = "592aaa48fdae49dd909c330fb9f8a963";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightArcanist = "3cf0797f9afb2c746913a5c3e941abdc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightArcanistEldritchFont = "769e7592c25304a4a9ee8d37e8e4d49c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightArcanistNatureMage = "7fb0b603d7d1470ab843dc3d4299732f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightArcanistUnletteredArcanist = "a3fe9d03508063e4ea510af16fe4e6cd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightBard = "603a6fec35faa6e40be7129867a683b0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> EldritchKnightBloodrager = "144df2269b72c3d47a9f840591262f5c";
@@ -89,6 +94,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferExploiterWizard = "01e25e5d3c3ddc647b157f4b5b9b992e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferMagus = "0615ae4a3d7fe7045a3b59bf1df7c3e1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferSageSorcerer = "9ff63ae68eb6f8f4296f63dced80da50";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferSkald = "af80b189fcbc46ac9b63523e16f27f51";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferSorcerer = "c23c2b3bb15411a489a945fe71648fde";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferSwordSaint = "7f7acf3e53b7b6240a93c634b2c02926";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferThassilonianAbjuration = "e704d700460ce724f88103cdbe6f7235";
@@ -104,6 +110,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> HellknightSigniferWizard = "8f7813692c24f4241bbb3f212a97ca3c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterArcanist = "39d9362873634e24c8f7a1932e425340";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterArcanistEldritchFont = "cd7d1617d34d96a48b53e3cc21daf734";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterArcanistNatureMage = "db337066f14a443d9c60ff5a842d45c7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterArcanistUnletteredArcanist = "babe721f43f95f740a81534d339d3c7f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterBard = "8692be2866501634dab99f4b9c5ae002";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterBloodrager = "05f9f14d2989b094a9e5502edda26ed5";
@@ -130,6 +137,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> LoremasterWizard = "46293f124a0735342ae4c063f5aedd1a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeArcanist = "376fb45ad15500a4a88bf8120000e221";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeArcanistEldritchFont = "ebb6e1bf6aac4464dae4c82ae74a9543";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeArcanistNatureMage = "4f120cb78c4545e6a82e3a2ed9f182c3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeArcanistUnletteredArcanist = "b3cd528e69792014aafc5eccf1f84d7f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeBard = "43db94cae1fad3242bc50723ced715ef";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> MysticTheurgeBloodrager = "fe5f2ed255c736f47b110611db98da46";
@@ -181,6 +189,7 @@ namespace BlueprintCore.Blueprints.References
           ArcaneTricksterExploiterWizard,
           ArcaneTricksterMagus,
           ArcaneTricksterSageSorcerer,
+          ArcaneTricksterSkald,
           ArcaneTricksterSorcerer,
           ArcaneTricksterSwordSaint,
           ArcaneTricksterThassilonianAbjuration,
@@ -199,12 +208,16 @@ namespace BlueprintCore.Blueprints.References
           DragonDiscipleBard,
           DragonDiscipleBloodrager,
           DragonDiscipleCrossbloodedSorcerer,
+          DragonDiscipleEldritch_Font,
           DragonDiscipleEldritchScion,
           DragonDiscipleLeyLineGuardianWitch,
+          DragonDiscipleNatureMage,
           DragonDiscipleSkald,
           DragonDiscipleSorcerer,
+          DragonDiscipleUnletteredArcanist,
           EldritchKnightArcanist,
           EldritchKnightArcanistEldritchFont,
+          EldritchKnightArcanistNatureMage,
           EldritchKnightArcanistUnletteredArcanist,
           EldritchKnightBard,
           EldritchKnightBloodrager,
@@ -242,6 +255,7 @@ namespace BlueprintCore.Blueprints.References
           HellknightSigniferExploiterWizard,
           HellknightSigniferMagus,
           HellknightSigniferSageSorcerer,
+          HellknightSigniferSkald,
           HellknightSigniferSorcerer,
           HellknightSigniferSwordSaint,
           HellknightSigniferThassilonianAbjuration,
@@ -257,6 +271,7 @@ namespace BlueprintCore.Blueprints.References
           HellknightSigniferWizard,
           LoremasterArcanist,
           LoremasterArcanistEldritchFont,
+          LoremasterArcanistNatureMage,
           LoremasterArcanistUnletteredArcanist,
           LoremasterBard,
           LoremasterBloodrager,
@@ -283,6 +298,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterWizard,
           MysticTheurgeArcanist,
           MysticTheurgeArcanistEldritchFont,
+          MysticTheurgeArcanistNatureMage,
           MysticTheurgeArcanistUnletteredArcanist,
           MysticTheurgeBard,
           MysticTheurgeBloodrager,

@@ -645,6 +645,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityKillBuff = "3740fdf85036ec34bbd0b09f218a9cce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityKillBuffEffect = "fa7cf97ea4dfc4d4aa600e18fd7d419b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityParalyzeBuff = "b6ebb41266c137c4384b4b279a7f631c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssertionOfDominanceBuff = "063e215c1a654e87b47628e0fa6b3f09";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssertionOfDominanceBuffResist = "1abb45d21dd047549f6ff57ecbd13f1a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AthachPoisonBuff = "ba914859d6189fe4ebd178ccd212f96e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AttachAeonEyeBuffIfPlayerIsAeon = "79440ddeb1b844818c0834d77ae68dae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AttachAeonEyeBuffIfPlayerIsAeonAfterQ5 = "a04423aecfab40f2865560e7fae4baf3";
@@ -690,6 +692,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Azata5SongOfTheLastStepTeleportBuff = "2b1c9935ca2f4e7aaaa8b0712411be30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Azata5SongOfTheSecondBreathBuff = "15b8f3ae18074926a8b3657d293cee31";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Azata5SongOfTheSecondBreathLeaderBuff = "ed0f75d856b84a75a98d97887e478de6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AzataBrokenChainsAllSongsBuff = "8c6e07ce03384cd4af365daec47ee10f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AzataFirstAscensionBuff = "7351025c8e4913c4783aae10580e8fa1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AzataGhaelGazeBuff = "4cb7e56e1fa618246828c9b83395cd97";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AzataGhaelGazeImmunity = "b604659b3bbdb6643bb197b355ada771";
@@ -1876,6 +1879,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalLocusBuff = "dc5afd226fdd4f2a88fc2b2c98641a03";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalLocusBuff_OnInvisible = "4abbd863ae62439cb426f854ba45da8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalLocusPointBlankShot = "bbcc01de4f494a029b842b052088d995";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalSummonAggroAreaBuff = "04a45dc020d343a1b6f6b695f6d7aee2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalSummonAggroBuff = "735e15cad0404f3ea31fd2f31835d95c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalWaterBuff = "51ea12a8e61b4a9d9805ca383bec438d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElementalWaterBurnBuff = "d9f783c49a3f468b87368eadf7a190f2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ElvenBlessingBuff = "8b845d7f13c4402fb70f50e90bd407ad";
@@ -1982,6 +1987,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_SeeInvisibilitytBuff = "97c42c745a7c4dab8e7c2ba0ca0f2cd4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_SenseVitalsBuff = "cd7f15a60bb5420492d279c239394729";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ShadowBalorNahindry_WeaponFX = "a5c75eead5a8425297252d5377599045";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ShieldAttackACBuff = "82653ca576f14eb79f008f376a4f0ea0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ShieldAttackBuff = "6a36688ef79c441e8e10e922442ca487";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ShieldAttackBuff_0 = "d6ff254e2f824d86b38677b9d3925f6d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_ShieldOfFaithBuff = "7a12964b7bc848678989840c32b042aa";
@@ -2898,6 +2904,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HepzamirahSummonsBE_Cooldown = "222829a37640ceb47a810be9996b6159";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Herald_IllusionBuff = "5a1517175b344e99a0d42b5b258bdfa4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldGeasBuff = "b16c70cd802447f45bc83c7a5a40e307";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldHeart_EE_Buff = "0fd68a7e0f9e4979a473e9e9a0c873c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldHeart_EE_Buff_2 = "c3ac3480660340d1ad544996fd6bfa02";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HermitKnightBracersShakenBuff = "f9a1497640775e74f9b57758cf83fe09";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HermitRevelationFadeFromMemory14Buff = "6f1be280836ffa848bf81620c7524bc7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HermitRevelationFadeFromMemoryAreaBuff = "68dd44cadf55a1240828ed13105a37ee";
@@ -3912,6 +3920,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PoxPustulesBuff = "a8a28fd665c3d49428463cfee78b79d1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrayerBuff = "789bae3802e7b6b4c8097aaf566a1cf5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrayerDebuff = "890182fa30a5f724c86ce41f237cf95f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Precast = "98c658ed13d4429d83f2c8333db264cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Precast1 = "11677344c79e4151803823453ab99e2c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Precast2 = "76b9f0c9f490450aaa4e879c9ad87d3f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrecastBuff_Hold_Cutscene = "2d96d0c38bc8b894795e3d836ce73028";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrecastBuff_Protection_Cutscene = "67c00ae1ba983be4192605fbea6554a3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrecastBuff_ScorchingRay_Cutscene = "55200ec09a214cd4b8d6abfa19c82166";
@@ -4975,6 +4986,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TightGripOfAnguishBuff = "2be5c9d017fb420428040539a2238761";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TimelyAssistanceBuff = "a98732802108473e9b01e59a8dee7617";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TiringCriticalBuff = "f9c038203b03ea14498d811b6a61af0a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TokenOfHonorBuff = "ab092ad237384b46b2fb192e6305f673";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Torag_Buff = "670c68d09634481faec2cc6d948471d1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TouchOfFlawBuff = "f9feed229f370e747b999617ffc6dadd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TouchOfGracelessnessBuff = "dc2fb898c3d07a546b31bd5d49ffadba";
@@ -6021,6 +6033,8 @@ namespace BlueprintCore.Blueprints.References
           AssassinDeathAttackAbilityKillBuff,
           AssassinDeathAttackAbilityKillBuffEffect,
           AssassinDeathAttackAbilityParalyzeBuff,
+          AssertionOfDominanceBuff,
+          AssertionOfDominanceBuffResist,
           AthachPoisonBuff,
           AttachAeonEyeBuffIfPlayerIsAeon,
           AttachAeonEyeBuffIfPlayerIsAeonAfterQ5,
@@ -6066,6 +6080,7 @@ namespace BlueprintCore.Blueprints.References
           Azata5SongOfTheLastStepTeleportBuff,
           Azata5SongOfTheSecondBreathBuff,
           Azata5SongOfTheSecondBreathLeaderBuff,
+          AzataBrokenChainsAllSongsBuff,
           AzataFirstAscensionBuff,
           AzataGhaelGazeBuff,
           AzataGhaelGazeImmunity,
@@ -7252,6 +7267,8 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ElementalLocusBuff,
           DLC3_ElementalLocusBuff_OnInvisible,
           DLC3_ElementalLocusPointBlankShot,
+          DLC3_ElementalSummonAggroAreaBuff,
+          DLC3_ElementalSummonAggroBuff,
           DLC3_ElementalWaterBuff,
           DLC3_ElementalWaterBurnBuff,
           DLC3_ElvenBlessingBuff,
@@ -7358,6 +7375,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_SeeInvisibilitytBuff,
           DLC3_SenseVitalsBuff,
           DLC3_ShadowBalorNahindry_WeaponFX,
+          DLC3_ShieldAttackACBuff,
           DLC3_ShieldAttackBuff,
           DLC3_ShieldAttackBuff_0,
           DLC3_ShieldOfFaithBuff,
@@ -8274,6 +8292,8 @@ namespace BlueprintCore.Blueprints.References
           HepzamirahSummonsBE_Cooldown,
           Herald_IllusionBuff,
           HeraldGeasBuff,
+          HeraldHeart_EE_Buff,
+          HeraldHeart_EE_Buff_2,
           HermitKnightBracersShakenBuff,
           HermitRevelationFadeFromMemory14Buff,
           HermitRevelationFadeFromMemoryAreaBuff,
@@ -9288,6 +9308,9 @@ namespace BlueprintCore.Blueprints.References
           PoxPustulesBuff,
           PrayerBuff,
           PrayerDebuff,
+          Precast,
+          Precast1,
+          Precast2,
           PrecastBuff_Hold_Cutscene,
           PrecastBuff_Protection_Cutscene,
           PrecastBuff_ScorchingRay_Cutscene,
@@ -10351,6 +10374,7 @@ namespace BlueprintCore.Blueprints.References
           TightGripOfAnguishBuff,
           TimelyAssistanceBuff,
           TiringCriticalBuff,
+          TokenOfHonorBuff,
           Torag_Buff,
           TouchOfFlawBuff,
           TouchOfGracelessnessBuff,

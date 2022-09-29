@@ -631,6 +631,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_CaveEntrance = "84e73ed886cd49fcb202c680452ae5a8";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_Enter = "325f54a63e294fdeace8b260b7fab8ea";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_Outdoor = "2f70741655554fcf9c91feaa04b16076";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_BackFromDungeon_AreaEnetrPoint = "d0275c0bf45440b7b34f665edac8293c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_BacktoFirstPart_FromDungeon_AreaEnterPoint = "a47571a9f84a48c3b2e1ef1bdd68111a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromFirstPart_ToSmallIndoor_AreaEnterPoint = "906892ff7ebb4f7da8df6719693113a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromSecondPart_ToDungeon_AreaEnterPoint = "2e7e3200be964c75aa9f6c82130d5131";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromSmallIndoor_ToFirstPart_AreaEnterPoint = "26d2f8f8eac646c99ba350a5cbf249b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromStoneIndoor_ToSecondPart_AreaEnterPoint = "b44bc63709694dbdbeac29d05d3ae228";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_Enter = "1f555f5440df417194be861d3bf00bf8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Enter = "74fedf3d3a3743aea5bd0daf276c4d36";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Indoor_AreaEnterPoint = "2baf2484b0bc44db84a9d8d359a488aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_WayDown_AreaEnterPoint = "653a376d08b94fdfafd10495fe43de6b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_WayUp_AreaEnterPoint = "959cd01244b341e2a45e511eb427d3b3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_ToStoneIndoor_AreaEnterPoint = "ff895a61eace42dab2817e148324f2da";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_Bridge = "dd57f22149ec2d2488c94b10c73e3b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveIn = "6b6cc86f36384bc4db11397c51a50eaf";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveOut = "82c6efc0397398945be7a9deb3d81679";
@@ -1051,6 +1063,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> LC_AfterFightYHS = "989a424bbb784874ab2192f19a4de8cc";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> LC_InsideChurch = "6c589b98d1368ba4183412adcdc85c2c";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> LC_IrabethDialogue = "60d28a5881d8e9542b8c19ea795e7539";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Legend_SoldiersParty_Enter = "f96660fb6a7749ef9589dbe058078118";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Lich_UnloyalCounselor_Enter = "ddb388b7825a0bc439265ad38ef0db69";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> LostChapel_Enter = "c1a625957bd1e2e40a9961f81e9c3db4";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> LostChapel_Legend_ShadowCutscene = "8daf00cf76194f1980fc875a9cc19215";
@@ -1338,6 +1351,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_BeforeComandanteRoom = "f1c248cf8d0b4dd4f8ca8a6bc7a0240a";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_BlockOneAfter = "2e38e8f2263526847a070290889d3eca";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_BlockOneBefore = "3987a5a3a6a0ad84a9379a0cc414639f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_Demon_EE = "30303e74d98b4f6fa7f013106928eb1b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_Enter = "368f291bb13f59a499a1c557ef44c883";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_FromGhost = "f9eebb64e2ea99b48928529eff5c9d0c";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> TheIvoryLabyrinth_TheIvoryLabyrinth_FromNightcrawlerOne = "49f2b7d35b750c542985fdeba79b3abf";
@@ -2069,6 +2083,18 @@ namespace BlueprintCore.Blueprints.References
           DLC3_TwilightWaters_CaveEntrance,
           DLC3_TwilightWaters_Enter,
           DLC3_TwilightWaters_Outdoor,
+          DLC4_BackFromDungeon_AreaEnetrPoint,
+          DLC4_BacktoFirstPart_FromDungeon_AreaEnterPoint,
+          DLC4_FromFirstPart_ToSmallIndoor_AreaEnterPoint,
+          DLC4_FromSecondPart_ToDungeon_AreaEnterPoint,
+          DLC4_FromSmallIndoor_ToFirstPart_AreaEnterPoint,
+          DLC4_FromStoneIndoor_ToSecondPart_AreaEnterPoint,
+          DLC4_Gundrun_Enter,
+          DLC4_RuinedVillage_Enter,
+          DLC4_RuinedVillage_Indoor_AreaEnterPoint,
+          DLC4_RuinedVillage_WayDown_AreaEnterPoint,
+          DLC4_RuinedVillage_WayUp_AreaEnterPoint,
+          DLC4_ToStoneIndoor_AreaEnterPoint,
           DragonsGraveyard_Bridge,
           DragonsGraveyard_CaveIn,
           DragonsGraveyard_CaveOut,
@@ -2489,6 +2515,7 @@ namespace BlueprintCore.Blueprints.References
           LC_AfterFightYHS,
           LC_InsideChurch,
           LC_IrabethDialogue,
+          Legend_SoldiersParty_Enter,
           Lich_UnloyalCounselor_Enter,
           LostChapel_Enter,
           LostChapel_Legend_ShadowCutscene,
@@ -2776,6 +2803,7 @@ namespace BlueprintCore.Blueprints.References
           TheIvoryLabyrinth_TheIvoryLabyrinth_BeforeComandanteRoom,
           TheIvoryLabyrinth_TheIvoryLabyrinth_BlockOneAfter,
           TheIvoryLabyrinth_TheIvoryLabyrinth_BlockOneBefore,
+          TheIvoryLabyrinth_TheIvoryLabyrinth_Demon_EE,
           TheIvoryLabyrinth_TheIvoryLabyrinth_Enter,
           TheIvoryLabyrinth_TheIvoryLabyrinth_FromGhost,
           TheIvoryLabyrinth_TheIvoryLabyrinth_FromNightcrawlerOne,

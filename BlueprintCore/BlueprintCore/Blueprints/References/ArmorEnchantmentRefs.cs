@@ -63,6 +63,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> ArrowDeflectionEnchantment = "faf86f0f02b30884c860b675a0df8e2e";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> Artifact_TigerArmorEnchantment = "700b46713b3ff484c80b0df5f4674377";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AssassinsChainshirtEnchant = "c85f21bc700e11b45bb117d3fce33491";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AssertionOfDominanceArmorEnchantment = "4f0700bdbf8c4c99a4bb491377caf5ca";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AugmentedPlateEnchant = "def6e6e78b2bf0842b2fb075704c2739";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BaphometFireCloth_AnimalisticFireEnchantment = "b94b8fa6ba2e41589319b9f7fd0460d0";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BaphometFireCloth_BurningCunningEnchantment = "4cad65a642af4533a7b8215a422dd3e7";
@@ -357,6 +358,7 @@ namespace BlueprintCore.Blueprints.References
           ArrowDeflectionEnchantment,
           Artifact_TigerArmorEnchantment,
           AssassinsChainshirtEnchant,
+          AssertionOfDominanceArmorEnchantment,
           AugmentedPlateEnchant,
           BaphometFireCloth_AnimalisticFireEnchantment,
           BaphometFireCloth_BurningCunningEnchantment,

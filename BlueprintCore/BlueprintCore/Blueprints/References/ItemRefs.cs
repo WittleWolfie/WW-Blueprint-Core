@@ -412,6 +412,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Golem_Gem = "9fa8fd3a039fd174bba432b0aa4d68ec";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoodSkin = "3a1409ea792309145837719182f217e0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GreenQuartz = "550aee738b3c3fc40b7be5dba9d152c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> GreyborContract = "855d0f8556ac4e78b07c5290a4ae83a2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GreyborHotelKey = "8e06a71897126184d9a88e1afc8914e6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GrimborLetter = "d92348a92ffbc3c42967851203f6e4e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GrimoireOfTheBeast = "beaa7a8b2f5bfd8459042db7f81867d7";
@@ -476,6 +477,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LiLuraManuscript = "2fcc38d949ca48647b41b3df83e08afa";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LinnormPelt = "ba2f26d2188cc5641b1db51e20b5cb5c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LinnormTenderloin = "735627add0780bf40a36eaaf1545ed52";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> LostWine_item = "07d9a69fd9d04a35919a3f339917b16f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LuckyHandSandwitch_item = "7789b058cf5aabb4d9ede1f54599b984";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MadSurgeonsNotes = "653a2e26fc752f849ac6fcfd37d70ce2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MagicAccumItem = "1fabd5886aaa4b619d1730870d684152";
@@ -536,6 +538,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> NocticulaUnholyKey = "313373ec91b4c5f4db86a5278801b912";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> NotBurnedPage = "1961019e715e55e4ca69cf7de4c8b73e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> NotBurnedPage_0 = "f5774141ca880b94295b25aa1da0a9ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> NoteAboutGemGolem_item = "ad45314cbbd748438aa394164e576e09";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> NoteFromAreelu1 = "3a97195e89f910a4281487f43e586cb3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> NoteFromAreelu2 = "3f0409371db5846498ee77cb68f60ba5";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Nuts = "a8f054d586bd41c41acb0b5193eb2f42";
@@ -708,6 +711,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> WrongCheese3 = "35cf35559aaac5442b5d474f4d8f2203";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> WyvernMeat = "e34c8847e4172ad46be8e15d13a73037";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> WyvernPelt = "47c119efd92c6904f9543b685d1e2bdc";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> XorgesLetter = "3a84aaa6a1374f50bb74d9e746171595";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ZachariusFallenWand_temp = "c39d731c2407d264d874c20179099ab3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ZiforianKey = "de5232676eefe4148bae9de86bf7d16a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ZiforianKeyFromBody = "fa40105cc9180d640aa8c26835af3436";
@@ -1116,6 +1120,7 @@ namespace BlueprintCore.Blueprints.References
           Golem_Gem,
           GoodSkin,
           GreenQuartz,
+          GreyborContract,
           GreyborHotelKey,
           GrimborLetter,
           GrimoireOfTheBeast,
@@ -1180,6 +1185,7 @@ namespace BlueprintCore.Blueprints.References
           LiLuraManuscript,
           LinnormPelt,
           LinnormTenderloin,
+          LostWine_item,
           LuckyHandSandwitch_item,
           MadSurgeonsNotes,
           MagicAccumItem,
@@ -1240,6 +1246,7 @@ namespace BlueprintCore.Blueprints.References
           NocticulaUnholyKey,
           NotBurnedPage,
           NotBurnedPage_0,
+          NoteAboutGemGolem_item,
           NoteFromAreelu1,
           NoteFromAreelu2,
           Nuts,
@@ -1412,6 +1419,7 @@ namespace BlueprintCore.Blueprints.References
           WrongCheese3,
           WyvernMeat,
           WyvernPelt,
+          XorgesLetter,
           ZachariusFallenWand_temp,
           ZiforianKey,
           ZiforianKeyFromBody,

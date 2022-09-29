@@ -691,6 +691,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ThanadaemonFearGazeToggleAbility = "a9e31b97ff4aeff438f67726c5b64f52";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ThugBrutalBeatingAbility = "3f05fd6f6c88f22419c89a2550e5632f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TiringCriticalToggleAbility = "7591096bfe825e04bbece9051bdcc946";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TokenOfHonorActivatableAbility = "0887a189866f4ac39ed890831dfdcb85";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TransmutationPhysicalEnhancementToggleConstitution = "99cf556b967c2074ca284e127d815711";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TransmutationPhysicalEnhancementToggleDexterity = "3553bda4d6dfe6344ad89b25f7be939a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TransmutationPhysicalEnhancementToggleStrength = "c7773d1b408fea24dbbb0f7bf3eb864e";
@@ -1423,6 +1424,7 @@ namespace BlueprintCore.Blueprints.References
           ThanadaemonFearGazeToggleAbility,
           ThugBrutalBeatingAbility,
           TiringCriticalToggleAbility,
+          TokenOfHonorActivatableAbility,
           TransmutationPhysicalEnhancementToggleConstitution,
           TransmutationPhysicalEnhancementToggleDexterity,
           TransmutationPhysicalEnhancementToggleStrength,
