@@ -6,6 +6,8 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Dungeon.Actions;
+using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
@@ -225,6 +227,297 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="DLC3CampaignMap"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/CampaignMap
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_NoTier_NextIsland_Actions</term><description>576a6aa6c0ea4342a67fc8423d0d7d2d</description></item>
+    /// <item><term>DLC3_Tier_2_NextIsland_Actions</term><description>caf83c3f65df4c5595a51fb2fa1d41d1</description></item>
+    /// <item><term>DLC3_Tier_3_NextIsland_Actions</term><description>d380e23062864561b6963f9eaf691e9b</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DLC3CampaignMap(
+        this ActionsBuilder builder,
+        int? tierIndex = null)
+    {
+      var element = ElementTool.Create<DLC3CampaignMap>();
+      element.TierIndex = tierIndex ?? element.TierIndex;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonFinishCurrentIsland"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_ToxicPrison_Exit</term><description>cb065eb340a74c61b2d805109cff19c1</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonFinishCurrentIsland(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonFinishCurrentIsland>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonLevelUpNextCharacter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_RewardStatueLegacy_Actions</term><description>a84bfcbb31f444078e18484061dd66f2</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonLevelUpNextCharacter(
+        this ActionsBuilder builder,
+        IntEvaluator? advancedLevels = null)
+    {
+      var element = ElementTool.Create<DungeonLevelUpNextCharacter>();
+      builder.Validate(advancedLevels);
+      element.AdvancedLevels = advancedLevels ?? element.AdvancedLevels;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonLoadBossHealth"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>fb8eab9f4c5e400ab38562ae491f843e</description></item>
+    /// <item><term>CommandAction17</term><description>ce866e9058514c4fab0de44752baed52</description></item>
+    /// <item><term>CommandSpawnUnits1</term><description>ddb2b653994048bcb83bac85b5b8dff6</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonLoadBossHealth(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonLoadBossHealth>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonMoveToNextExpedition"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction4</term><description>4d5ef33e94fb415d9ffd1848b9218986</description></item>
+    /// <item><term>Next_expidition</term><description>35a9bd65fd264c358d9ee8b70a1b8369</description></item>
+    /// <item><term>Next_expidition_Tier_3</term><description>70b3311941cc4d1a9b5a37790b5e5bb9</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonMoveToNextExpedition(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonMoveToNextExpedition>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonOverrideBesmaritToBossLocation"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_BesmarQuest_PT2</term><description>513f653affb04035b879406578334d2e</description></item>
+    /// <item><term>DungeonRoot</term><description>096f36d4e55b49129ddd2211b2c50513</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonOverrideBesmaritToBossLocation(
+        this ActionsBuilder builder,
+        bool? overrideValue = null)
+    {
+      var element = ElementTool.Create<DungeonOverrideBesmaritToBossLocation>();
+      element.Override = overrideValue ?? element.Override;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonRewardReveal"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_DungeonReward_SZ</term><description>38dfa89689804c08a1f31debe136353c</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonRewardReveal(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonRewardReveal>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonRunActionHolderForNextParty"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_AlushinyrraWhorehouse_Portal</term><description>4319d090d03444d68b8d8ffe41b875ea</description></item>
+    /// <item><term>DLC3_Kohh_Portal</term><description>9a97d36c8b1b4f5396518e7828aae78e</description></item>
+    /// <item><term>DLC3_ToxicPrison_Portal</term><description>d6ccd4dba45a438bb859a074bd0c43e7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="holder">
+    /// <para>
+    /// Blueprint of type ActionsHolder. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder DungeonRunActionHolderForNextParty(
+        this ActionsBuilder builder,
+        string? comment = null,
+        Blueprint<ActionsReference>? holder = null)
+    {
+      var element = ElementTool.Create<DungeonRunActionHolderForNextParty>();
+      element.Comment = comment ?? element.Comment;
+      element.Holder = holder?.Reference ?? element.Holder;
+      if (element.Holder is null)
+      {
+        element.Holder = BlueprintTool.GetRef<ActionsReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonSaveBossHealth"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Balor_save_health</term><description>ad452511a21544c384af7d640ceb105b</description></item>
+    /// <item><term>DarkBalorFight_HideUnits</term><description>5bc605a8f4624ec08d857dcc52378eb5</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonSaveBossHealth(
+        this ActionsBuilder builder,
+        bool? reset = null)
+    {
+      var element = ElementTool.Create<DungeonSaveBossHealth>();
+      element.Reset = reset ?? element.Reset;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonSetModificatorIcon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Int_Tier_1_Island_10</term><description>9a1e689e6c0046eba81b05be0086442a</description></item>
+    /// <item><term>DLC3_Int_Tier_2_Island_2</term><description>9673a525df1d4f0aa659f7a3191cd444</description></item>
+    /// <item><term>DLC3_Int_Tier_3_Island_6</term><description>d6dcb7d0e14949dcab6343d4d89e8860</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="modificators">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonModificator. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder DungeonSetModificatorIcon(this ActionsBuilder builder, params Blueprint<BlueprintDungeonModificatorReference>[] modificators)
+    {
+      var element = ElementTool.Create<DungeonSetModificatorIcon>();
+      element.m_Modificators = modificators.Select(bp => bp.Reference).ToArray();
+      if (element.m_Modificators is null)
+      {
+        element.m_Modificators = new BlueprintDungeonModificatorReference[0];
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonShowBoons"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction2</term><description>f2dfaee4521342c9bb777feecfa943a3</description></item>
+    /// <item><term>CommandAction2</term><description>97a69941c5ca4083ae319769dbd23934</description></item>
+    /// <item><term>CommandAction2</term><description>7c90919f3e8745ae9920fd81e2d6a80b</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonShowBoons(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonShowBoons>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonShowMap"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Map_interaction</term><description>118c96de738b4bc8a91ba59de1173acc</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonShowMap(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<DungeonShowMap>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonShowResults"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0010</term><description>2a963629dcc546698375453a9f1f6c87</description></item>
+    /// <item><term>CommandAction5</term><description>7b931f2bde4b4000a856621e3daa7e3a</description></item>
+    /// <item><term>Cue_38</term><description>f0d4fe8dc81c4d78a52c94b3e93fe43b</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonShowResults(
+        this ActionsBuilder builder,
+        DungeonShowResults.Result? result = null)
+    {
+      var element = ElementTool.Create<DungeonShowResults>();
+      element.result = result ?? element.result;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="EndAreaEffects"/>
     /// </summary>
     ///
@@ -367,7 +660,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DoorSwich_Section_1_2</term><description>7e7112b9ba1cf2749b0d53f235655e84</description></item>
+    /// <item><term>Domino_3_1_Art_4_3</term><description>5c75dfe8a6aa0dc43b5f9991815c3d8e</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -437,7 +730,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonKenabresRebuilded</term><description>470c835355608c34fa4571ba4f65cbc3</description></item>
-    /// <item><term>DLC3_SteersmanIsDead</term><description>90a98fca882f4d91b06fb562ccd24c44</description></item>
+    /// <item><term>DLC3_TwilightWaters</term><description>b5779a222f98475b87ffb13337cdffda</description></item>
     /// <item><term>TheBridgeIsBuilt</term><description>048ce8550994326429f73b6119270293</description></item>
     /// </list>
     /// </remarks>
@@ -1143,7 +1436,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction 6</term><description>2abd66007a170e04fa94ea49ca610401</description></item>
+    /// <item><term>CommandAction 6</term><description>ab0dccf6562e4114037acdcf3809ed65</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1258,7 +1551,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Cue_0023</term><description>058f685f053b66748a2fe1d382466910</description></item>
+    /// <item><term>Cue_0023</term><description>70618d5c5a0dfbb4eb17031bba1972a5</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>d6793bcea861d3b49857067532fcedc0</description></item>
     /// </list>
     /// </remarks>

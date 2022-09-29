@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
@@ -147,7 +148,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_HigherCity_VellodusMansion</term><description>d062cf7333b145b8bb85d4400dbea44d</description></item>
-    /// <item><term>Cue_0029</term><description>69f07e71ce13da3419f7d7aec40ca9e3</description></item>
+    /// <item><term>Cue_0029</term><description>7308a507f514d9649a835f2c39b561e9</description></item>
     /// <item><term>Yozz_GreyborQ2Bark_Conditions</term><description>e25cbb4124873114ba3b75176e004517</description></item>
     /// </list>
     /// </remarks>
@@ -336,7 +337,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>3d7ba59b443f44e1b6a830cd0c3e9550</description></item>
-    /// <item><term>Answer_0433</term><description>696e0573ba64e7e4faead4809bdaf009</description></item>
+    /// <item><term>Answer_4</term><description>5fe7ff0859534f38a690709cff12c3d5</description></item>
     /// <item><term>ThirdElementWater</term><description>86eff374d040404438ad97fedd7218bc</description></item>
     /// </list>
     /// </remarks>
@@ -412,7 +413,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>ElectricBlastAbility</term><description>24f26ac07d21a0e4492899085d1302f6</description></item>
+    /// <item><term>MagmaBlastAbility</term><description>a0f05637428cbca4bab8bc9122b9e3b9</description></item>
     /// <item><term>XO_Puzzle_2_complete</term><description>8288ad6ec196461f963d6160edbfaca4</description></item>
     /// </list>
     /// </remarks>
@@ -440,7 +441,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AneviaDialog</term><description>85d9ab0f99b3f914bb10671c9c63f6a3</description></item>
-    /// <item><term>Graveyard_WP1Skipped_SZ</term><description>7d45e27f9bd148cb8514ad85df04f537</description></item>
+    /// <item><term>Graveyard_WatchPoint1_SZ2</term><description>586e640454ec4f48a671ccad27eeb8c9</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -713,7 +714,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>ColorlessRemains_ReforgeProject</term><description>7c220a527d84433d9a7b01fe3e3fffba</description></item>
+    /// <item><term>Chimera_ReforgeProject</term><description>8ed7a2977b9abe148bcf9cd75d4c3b53</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>
@@ -934,6 +935,43 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="UnitArmor"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_VeryHotIslandBuff</term><description>8c61a2a184da402daac616cfc5f77273</description></item>
+    /// <item><term>DLC3_VeryHotIslandBuff_TEST</term><description>92f6e7811ae74e32a0cc0ac90aad0c60</description></item>
+    /// <item><term>DLC3_VeryHotIslandMod</term><description>a9352268e6a74a9fb7db6defb71cc55a</description></item>
+    /// </list>
+    /// </remarks>
+    public static ConditionsBuilder UnitArmor(
+        this ConditionsBuilder builder,
+        ArmorProficiencyGroup[]? excludeArmorCategories = null,
+        ArmorProficiencyGroup[]? includeArmorCategories = null,
+        bool negate = false,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<UnitArmor>();
+      element.ExcludeArmorCategories = excludeArmorCategories ?? element.ExcludeArmorCategories;
+      if (element.ExcludeArmorCategories is null)
+      {
+        element.ExcludeArmorCategories = new ArmorProficiencyGroup[0];
+      }
+      element.IncludeArmorCategories = includeArmorCategories ?? element.IncludeArmorCategories;
+      if (element.IncludeArmorCategories is null)
+      {
+        element.IncludeArmorCategories = new ArmorProficiencyGroup[0];
+      }
+      element.Not = negate;
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnitIsDead"/>
     /// </summary>
     ///
@@ -1108,7 +1146,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlarmZone</term><description>a7081ca4e21e8594f93bc84a4eb2a7a8</description></item>
-    /// <item><term>FulsomeQueen_scene_2</term><description>e9d3c4433905f9941a381abbf1793ebc</description></item>
+    /// <item><term>FulsomeQueen_scene_1</term><description>c109fa2e7b43c7c4d9ab5291980637b2</description></item>
     /// <item><term>Ziggurat_ZachariusBeginRitual</term><description>8a020a9f01405ae4fa417500e1efd2e6</description></item>
     /// </list>
     /// </remarks>

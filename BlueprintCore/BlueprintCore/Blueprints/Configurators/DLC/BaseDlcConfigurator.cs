@@ -175,7 +175,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcPreorder</term><description>cce1376687d1452c9f451b0d921bcd4e</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -275,7 +275,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcPreorder</term><description>cce1376687d1452c9f451b0d921bcd4e</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -297,6 +297,38 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
+    /// Adds <see cref="DlcStorePS4"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
+    /// <item><term>Dlc2</term><description>4f7ae2d1e6e74a0c807b4020e9e99354</description></item>
+    /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDlcStorePS4(
+        string? entitlementLabel = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? serviceLabel = null)
+    {
+      var component = new DlcStorePS4();
+      component.m_EntitlementLabel = entitlementLabel ?? component.m_EntitlementLabel;
+      component.m_ServiceLabel = serviceLabel ?? component.m_ServiceLabel;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="DlcStoreSteam"/>
     /// </summary>
     ///
@@ -305,7 +337,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcPreorder</term><description>cce1376687d1452c9f451b0d921bcd4e</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -323,6 +355,40 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     {
       var component = new DlcStoreSteam();
       component.m_SteamId = steamId ?? component.m_SteamId;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DlcStoreXbox"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
+    /// <item><term>Dlc2</term><description>4f7ae2d1e6e74a0c807b4020e9e99354</description></item>
+    /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDlcStoreXbox(
+        string? displayName = null,
+        string? identityName = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        string? productId = null)
+    {
+      var component = new DlcStoreXbox();
+      component.m_DisplayName = displayName ?? component.m_DisplayName;
+      component.m_IdentityName = identityName ?? component.m_IdentityName;
+      component.m_ProductId = productId ?? component.m_ProductId;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

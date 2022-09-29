@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <listheader>Used by</listheader>
     /// <item><term>Cue_0224</term><description>150a2e3902592f640a2e9feb1f8a5e0b</description></item>
     /// <item><term>Cue_0416</term><description>80b227612511fe74db93f3bf28c9a032</description></item>
-    /// <item><term>Cue_0539</term><description>b53a2cc59cf1715488cc23e729a04ab3</description></item>
+    /// <item><term>Cue_43</term><description>c629b93b4e404b679348efa5d5f7a156</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -258,7 +258,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
-    /// <item><term>CommandAction2</term><description>a19f4c8ed6e24e808e3c09ed3d2a0d0c</description></item>
+    /// <item><term>CommandAction2</term><description>1a51048fb2674de091dcf9d7054a8d84</description></item>
     /// <item><term>Tools_CheckPassedActions2</term><description>db695eb808004014b25ad3475123d544</description></item>
     /// </list>
     /// </remarks>
@@ -310,7 +310,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>058d6563b283ae04294ba2c729383663</description></item>
-    /// <item><term>Cue_0016</term><description>5ca6507997f72204ca0babb22f93966a</description></item>
+    /// <item><term>Cue_0016</term><description>3ddffc15d1a2b8949afe3f7d13a1f091</description></item>
     /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
     /// </list>
     /// </remarks>
@@ -347,7 +347,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>EvilAbrogail_dialogue</term><description>712211a84a7fcfb49a8aa4b69ba59e14</description></item>
+    /// <item><term>Epilogues_afterlogues_dialogue</term><description>57e18f5158904030a84a772fb361ceb4</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0050</term><description>c71d79e6048d8b14c8bb173e7e97e2e6</description></item>
+    /// <item><term>Cue_0049</term><description>7353179e65d03984dbf323b201b958f8</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -476,7 +476,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GrayGarrison_FinalSiege_Etude</term><description>a7a2e9a56072fad4d93ab976d23086ac</description></item>
+    /// <item><term>GrayGarrison_FirstVisit_Etude</term><description>5cf468c3a40684e4fa6e1a8982d6c9fe</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -522,7 +522,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction11</term><description>582be7d6642244de94f20e32b7d2d324</description></item>
+    /// <item><term>CommandAction11</term><description>01d4d4c3202845149fd43a0c2f242821</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
@@ -547,6 +547,23 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
+    /// Adds <see cref="StartChangeVisual"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0012</term><description>49c56a16ef034d86810143cd4e5283d1</description></item>
+    /// <item><term>Cue_0015</term><description>f58a3ad5bd4f4f05a988b12d9875df1a</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder StartChangeVisual(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<StartChangeVisual>());
+    }
+
+    /// <summary>
     /// Adds <see cref="StopCustomMusic"/>
     /// </summary>
     ///
@@ -555,7 +572,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>HalDragonForm_dialogue</term><description>47d85fe3492d724498753d668267d495</description></item>
+    /// <item><term>GrandFinal_dialog</term><description>f125dc501dc6e984385332e67f324f01</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -626,7 +643,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
-    /// <item><term>CommandAction32</term><description>0c62d83ec19645f2a765ea885d0c8056</description></item>
+    /// <item><term>CommandAction32</term><description>f2916f4885b94807ac38ad277a84bafe</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

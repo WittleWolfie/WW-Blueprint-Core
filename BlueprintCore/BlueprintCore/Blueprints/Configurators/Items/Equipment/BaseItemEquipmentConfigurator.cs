@@ -546,7 +546,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <listheader>Used by</listheader>
     /// <item><term>DoublingAnnoyanceItem</term><description>63c9d4fc0810432aa6d85111d345aa84</description></item>
     /// <item><term>MaskOfNothingItem</term><description>8344b46a6e404227b72d129073383a6c</description></item>
-    /// <item><term>RingOfProtection1_Prologue</term><description>80bb1c22e06b57c4ba9557e0ed2996c0</description></item>
+    /// <item><term>TokenOfHonor</term><description>905ec00744cd4627b0e00f187e215d4b</description></item>
     /// </list>
     /// </remarks>
     ///

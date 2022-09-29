@@ -163,7 +163,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
+    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -217,7 +217,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
+    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -273,7 +273,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
+    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2259,7 +2259,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GrenadierAlchemistFireSwift</term><description>b0fc5c1ac640458428a8930a72987a7a</description></item>
+    /// <item><term>GrenadierAcidFlaskFree</term><description>c7598f3f5a00e9c4f8beded952748fd2</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2582,7 +2582,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIFrightfulPresenceArea</term><description>5d44a8408f6907a4eb19a28ae24fb5fe</description></item>
+    /// <item><term>ForcePunchEffect</term><description>130e0b433e205294c964c5ce3e0c17ed</description></item>
     /// <item><term>ZachariusFearAuraArea</term><description>d363527fe31581149b2d53686075c14d</description></item>
     /// </list>
     /// </remarks>
@@ -3200,6 +3200,87 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionAddRandomFeatureFromList"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_RewardStatueFeature_Actions</term><description>c8c8615f04914bb3b958058b24f87f6f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="customBattleLogMessage">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="permanentFeatures">
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="setRankFrom">
+    /// <para>
+    /// InfoBox: Can be null. Force set PermanentFeature rank to be equal to SetRankFrom rank
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder AddRandomFeatureFromList(
+        this ActionsBuilder builder,
+        bool? battleLog = null,
+        bool? calculateSeed = null,
+        LocalString? customBattleLogMessage = null,
+        bool? hasCustomBattleLogMessage = null,
+        List<Blueprint<BlueprintFeatureReference>>? permanentFeatures = null,
+        IntEvaluator? salt = null,
+        IntEvaluator? seed = null,
+        Blueprint<BlueprintFeatureReference>? setRankFrom = null,
+        ContextActionAddRandomFeatureFromList.TargetEntry? targets = null)
+    {
+      var element = ElementTool.Create<ContextActionAddRandomFeatureFromList>();
+      element.BattleLog = battleLog ?? element.BattleLog;
+      element.CalculateSeed = calculateSeed ?? element.CalculateSeed;
+      element.CustomBattleLogMessage = customBattleLogMessage?.LocalizedString ?? element.CustomBattleLogMessage;
+      if (element.CustomBattleLogMessage is null)
+      {
+        element.CustomBattleLogMessage = Utils.Constants.Empty.String;
+      }
+      element.HasCustomBattleLogMessage = hasCustomBattleLogMessage ?? element.HasCustomBattleLogMessage;
+      element.m_PermanentFeatures = permanentFeatures?.Select(bp => bp.Reference)?.ToArray() ?? element.m_PermanentFeatures;
+      if (element.m_PermanentFeatures is null)
+      {
+        element.m_PermanentFeatures = new BlueprintFeatureReference[0];
+      }
+      builder.Validate(salt);
+      element.Salt = salt ?? element.Salt;
+      builder.Validate(seed);
+      element.Seed = seed ?? element.Seed;
+      element.m_SetRankFrom = setRankFrom?.Reference ?? element.m_SetRankFrom;
+      if (element.m_SetRankFrom is null)
+      {
+        element.m_SetRankFrom = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
+      }
+      element.m_Targets = targets ?? element.m_Targets;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionBatteringBlast"/>
     /// </summary>
     ///
@@ -3264,7 +3345,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GiantSpiderPoisonFeature</term><description>094714bb08f4e1943a8e9d2384ebe573</description></item>
+    /// <item><term>GiantFrogPoisonousFeature</term><description>1a3f2f384bbef804d8f52db1f9aa62d3</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>

@@ -186,6 +186,18 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.PartySpeedFactor"/>
+    /// </summary>
+    public TBuilder SetPartySpeedFactor(float partySpeedFactor)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PartySpeedFactor = partySpeedFactor;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.RandomEncounterTimer"/>
     /// </summary>
     ///

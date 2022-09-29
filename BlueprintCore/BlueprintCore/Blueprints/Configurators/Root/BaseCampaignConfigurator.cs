@@ -140,6 +140,18 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.HideInUI"/>
+    /// </summary>
+    public TBuilder SetHideInUI(bool hideInUI = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HideInUI = hideInUI;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.ToBeContinued"/>
     /// </summary>
     public TBuilder SetToBeContinued(bool toBeContinued = true)

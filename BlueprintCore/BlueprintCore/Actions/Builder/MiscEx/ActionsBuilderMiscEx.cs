@@ -6,6 +6,7 @@ using Kingmaker.Achievements.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
@@ -218,6 +219,43 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="ClearSharedVendorTable"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DungeonRoot</term><description>096f36d4e55b49129ddd2211b2c50513</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="sharedTable">
+    /// <para>
+    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ClearSharedVendorTable(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSharedVendorTableReference>? sharedTable = null)
+    {
+      var element = ElementTool.Create<ClearSharedVendorTable>();
+      element.m_SharedTable = sharedTable?.Reference ?? element.m_SharedTable;
+      if (element.m_SharedTable is null)
+      {
+        element.m_SharedTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="CreateCustomCompanion"/>
     /// </summary>
     ///
@@ -275,6 +313,93 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       var element = ElementTool.Create<DebugLog>();
       element.Break = breakValue ?? element.Break;
       element.Log = log ?? element.Log;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FillSharedVendorTable"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DungeonRoot</term><description>096f36d4e55b49129ddd2211b2c50513</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="sharedTable">
+    /// <para>
+    /// InfoBox: We take AddLootToVendorTable and DungeonAddLootToVendor components from the SourceVendor and add goods to the SharedTable
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintSharedVendorTable. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="sourceVendor">
+    /// <para>
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder FillSharedVendorTable(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintSharedVendorTableReference>? sharedTable = null,
+        Blueprint<BlueprintUnitReference>? sourceVendor = null)
+    {
+      var element = ElementTool.Create<FillSharedVendorTable>();
+      element.m_SharedTable = sharedTable?.Reference ?? element.m_SharedTable;
+      if (element.m_SharedTable is null)
+      {
+        element.m_SharedTable = BlueprintTool.GetRef<BlueprintSharedVendorTableReference>(null);
+      }
+      element.m_SourceVendor = sourceVendor?.Reference ?? element.m_SourceVendor;
+      if (element.m_SourceVendor is null)
+      {
+        element.m_SourceVendor = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="GameLog"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_RewardStatueLegacy_Actions</term><description>a84bfcbb31f444078e18484061dd66f2</description></item>
+    /// <item><term>DLC3_RewardStatueRest_Actions</term><description>ba6419bd0f844d3fa3911ac8ce1fd78f</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="message">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public static ActionsBuilder GameLog(
+        this ActionsBuilder builder,
+        LocalString? message = null)
+    {
+      var element = ElementTool.Create<GameLog>();
+      element.Message = message?.LocalizedString ?? element.Message;
+      if (element.Message is null)
+      {
+        element.Message = Utils.Constants.Empty.String;
+      }
       return builder.Add(element);
     }
 
@@ -462,7 +587,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>CheliaxWaitingInRuins</term><description>1fb5dba7e2beabe4ebf631c07559f64d</description></item>
     /// <item><term>CommandAction1</term><description>bb530e9345434933ba412402ca787bf1</description></item>
-    /// <item><term>CommandAction4</term><description>0deaaa94f48e4efea9fc654d1c3d42f2</description></item>
+    /// <item><term>Cue_43</term><description>a859441b3830497dbdbf9782a7059fef</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -515,7 +640,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0037</term><description>75d7b6574a8eb4244b98c84f39ec838a</description></item>
+    /// <item><term>Cue_0036</term><description>91645746b99d12646af479beace7ec9d</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>

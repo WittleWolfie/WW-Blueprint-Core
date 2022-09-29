@@ -104,7 +104,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>Gorum_Buff</term><description>e3a9786b626d4b50ac58a8b3cbdc00f4</description></item>
+    /// <item><term>GoldGolemSlowBuff</term><description>cd26887813a2a684a911082ea41377c8</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

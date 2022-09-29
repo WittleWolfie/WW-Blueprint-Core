@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Blueprints.Configurators.Facts;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
@@ -575,6 +576,50 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           if (bp.GraphCache is null) { return; }
           action.Invoke(bp.GraphCache);
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="AdditionalPreloadComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Prologue_Kenabres_CitizenIdle</term><description>bffcc04cd70a5db44b1d8c1477b10cc9</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="resources">
+    /// <para>
+    /// Blueprint of type ResourceListForPreload. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AdditionalPreloadComponent(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<ResourceListForPreload.Ref>? resources = null)
+    {
+      var component = new AdditionalPreloadComponent();
+      component.Resources = resources?.Reference ?? component.Resources;
+      if (component.Resources is null)
+      {
+        component.Resources = BlueprintTool.GetRef<ResourceListForPreload.Ref>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     protected override void OnConfigureCompleted()

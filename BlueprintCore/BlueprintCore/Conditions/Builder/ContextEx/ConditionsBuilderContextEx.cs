@@ -30,7 +30,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GrandMutagenDexterityConstitutionBuff</term><description>8d4357118c75a5746802a3582a937376</description></item>
+    /// <item><term>GrandMutagenConstitutionDexterityBuff</term><description>0d51a2ff0a6ce85458309affbc00b933</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>
@@ -398,7 +398,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Areelu_UnbreakableDefenseBuff</term><description>57572f514d5b49bf98432026c80382c3</description></item>
-    /// <item><term>DragonLevel1MaxAbilityStrengthFeature</term><description>6a7f8ee85c7f42228c83bb9d2f1711f2</description></item>
+    /// <item><term>DragonLevel1MaxAbilityIntelligenceFeature</term><description>888573ac51ec48ecabbeb32d380f68a9</description></item>
     /// <item><term>TransmutationSchoolStrengthAbility</term><description>aadee249a033b2747b63344a758e91be</description></item>
     /// </list>
     /// </remarks>
@@ -537,7 +537,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>GoodHopeTrailblazer</term><description>0082c3ed87626204f9b46d84cec1518d</description></item>
+    /// <item><term>GoodHope</term><description>a5e23522eda32dc45801e32c05dc9f96</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -1472,7 +1472,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitArmoredMaskAbility</term><description>2d7d510c6e2e3e54ab9eee84a41fa2cf</description></item>
-    /// <item><term>EnlargePerson</term><description>c60969e7f264e6d4b84a1499fdcf9039</description></item>
+    /// <item><term>EnlargeSelf</term><description>549e9fcaadc861348b05bf01624387aa</description></item>
     /// <item><term>Valmallos_Area_Gaze</term><description>d031e701dee3487f8a8b7da39e722267</description></item>
     /// </list>
     /// </remarks>

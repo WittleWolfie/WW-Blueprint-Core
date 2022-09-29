@@ -1039,7 +1039,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>HurricaneBow</term><description>3e9d1119d43d07c4c8ba9ebfd1671952</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -3702,53 +3702,15 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
-    /// <param name="mythicBlueprint">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    /// <param name="rowdyFeature">
-    /// <para>
-    /// Blueprint of type BlueprintFeature. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
     public TBuilder AddAbilityCustomMeleeAttack(
         bool? hasIsAllyEffectRunConditions = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        Blueprint<BlueprintFeatureReference>? mythicBlueprint = null,
-        Blueprint<BlueprintFeatureReference>? rowdyFeature = null,
-        AbilityCustomMeleeAttack.AttackType? type = null,
-        int? vitalStrikeMod = null)
+        AbilityCustomMeleeAttack.AttackType? type = null)
     {
       var component = new AbilityCustomMeleeAttack();
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
-      component.m_MythicBlueprint = mythicBlueprint?.Reference ?? component.m_MythicBlueprint;
-      if (component.m_MythicBlueprint is null)
-      {
-        component.m_MythicBlueprint = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
-      component.m_RowdyFeature = rowdyFeature?.Reference ?? component.m_RowdyFeature;
-      if (component.m_RowdyFeature is null)
-      {
-        component.m_RowdyFeature = BlueprintTool.GetRef<BlueprintFeatureReference>(null);
-      }
       component.m_Type = type ?? component.m_Type;
-      component.VitalStrikeMod = vitalStrikeMod ?? component.VitalStrikeMod;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -4203,7 +4165,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>ForceBomb</term><description>557898e059f5ff644848b0a4df087391</description></item>
+    /// <item><term>FlamesOfTheAbyssRay</term><description>1f62a2340209bfb49843a9cdc08635e7</description></item>
     /// <item><term>Yozz_Ability_DirtyTrickBomb</term><description>5caabe7c38d24e7f905bb6f723d1eccc</description></item>
     /// </list>
     /// </remarks>
@@ -5718,7 +5680,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>RemoveCurse 3</term><description>668f4d1ff4dbfc442bd75f9b6f69e05e</description></item>
+    /// <item><term>RemoveCurse 4</term><description>55b85c03103de184091a96eeaed4de25</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>

@@ -507,7 +507,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-222018</term><description>c9d5dee61d1b4587b99da9caa3e238df</description></item>
     /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
-    /// <item><term>PF-371696</term><description>a0f733cee766493abdc9af254028d9ed</description></item>
+    /// <item><term>PF-441932</term><description>2052955ce7f44022bc663ee46cf58101</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -541,8 +541,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-215564</term><description>185be5e1ae964cee94428816eec0d210</description></item>
-    /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
-    /// <item><term>PF-383958_HilorNotDeadInTavern</term><description>1f341cf5b5ba4b9ebc52199cf1fb8c80</description></item>
+    /// <item><term>PF-308720</term><description>8e9433dfcf7143fd80814b2302a971b9</description></item>
+    /// <item><term>PF-441932</term><description>2052955ce7f44022bc663ee46cf58101</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -564,6 +564,28 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     {
       var element = ElementTool.Create<UnStartEtude>();
       element.Etude = etude?.Reference;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonFixExpeditionRemoval"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-441331</term><description>5d47ec2bcb324d7fa22a129c4510ba86</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DungeonFixExpeditionRemoval(this ActionsBuilder builder, params int[] removedExpeditionIndexes)
+    {
+      var element = ElementTool.Create<DungeonFixExpeditionRemoval>();
+      element.RemovedExpeditionIndexes = removedExpeditionIndexes;
+      if (element.RemovedExpeditionIndexes is null)
+      {
+        element.RemovedExpeditionIndexes = new int[0];
+      }
       return builder.Add(element);
     }
 
@@ -671,6 +693,27 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     public static ActionsBuilder RecreateOnLoad(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<RecreateOnLoad>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecreateOnLoadVissariyRatimus"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-418068-RecreateVissariyRatimus</term><description>761fd2604960453da5cbbd10e39d1abd</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder RecreateOnLoadVissariyRatimus(
+        this ActionsBuilder builder,
+        BlueprintUnit? chapter1Unit = null)
+    {
+      var element = ElementTool.Create<RecreateOnLoadVissariyRatimus>();
+      builder.Validate(chapter1Unit);
+      element.chapter1Unit = chapter1Unit ?? element.chapter1Unit;
+      return builder.Add(element);
     }
 
     /// <summary>

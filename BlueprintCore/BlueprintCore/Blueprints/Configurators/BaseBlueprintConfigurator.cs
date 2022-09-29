@@ -25,6 +25,7 @@ using Kingmaker.Kingdom.Buffs;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -661,6 +662,33 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="MarkUsableWhileCan"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PotionOfCureCriticalWounds</term><description>1f45a09f2e072ea4e8d52fadcd7e66f3</description></item>
+    /// <item><term>ScrollOfCureCriticalWoundsMass</term><description>13bf4126b147cfe41b669fd2258f9ebd</description></item>
+    /// <item><term>ScrollOfHeal</term><description>fb822a8d451d91b438514541a9a986de</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddMarkUsableWhileCan(
+        ConditionsBuilder? conditions = null,
+        bool? not = null)
+    {
+      var component = new MarkUsableWhileCan();
+      component.m_Conditions = conditions?.Build() ?? component.m_Conditions;
+      if (component.m_Conditions is null)
+      {
+        component.m_Conditions = Utils.Constants.Empty.Conditions;
+      }
+      component.m_Not = not ?? component.m_Not;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="ArmyBattleResultsTrigger"/>
     /// </summary>
     ///
@@ -1173,7 +1201,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
+    /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
     /// <item><term>DLC2_Sv_Bureaucrat_DeadBody</term><description>fbb763a4fb6c4df99b79b48b8c5682ef</description></item>
     /// <item><term>InvitedToWedding</term><description>d239b8b2e21331942a1a042b97d0082d</description></item>
     /// </list>
@@ -1279,7 +1307,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ActivatingSwordOfValor</term><description>071f4953d481d5242b250b1aa7482dce</description></item>
-    /// <item><term>GargoyleAttack_ComponentList</term><description>973e83220db9f474289a572f1d953987</description></item>
+    /// <item><term>GiantsLair_Default</term><description>af83c5654679cd14b9eda5ce7bfc4f85</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

@@ -1163,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GibrilethSummon</term><description>cffe1c1aff5ca5c468b78ede814d6d78</description></item>
+    /// <item><term>GolemAdamantineDestructableSummon</term><description>8e0cf54771f8b7948af9553977716177</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -1723,7 +1723,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR1_WolfStandard_Jezelda</term><description>85d21f7231ac47b79dc8a80efcdf2177</description></item>
+    /// <item><term>DLC3_CR10_Bandit_Human_RogueMelee_Male</term><description>24bcb4884f2248959895d11ac42e8a6a</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -1938,7 +1938,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Octavia_Companion_BlackDragon</term><description>b8f5dee95746a744b9d27362e9d00d4e</description></item>
+    /// <item><term>Octavia_Companion_Athach</term><description>c613fb61c8d981f4b878af21264393b7</description></item>
     /// <item><term>TestTrader</term><description>38c90d65490c1c143a9f1f0fde6bbe20</description></item>
     /// </list>
     /// </remarks>
@@ -2209,7 +2209,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
-    /// <item><term>DLC3_CR11_BabauElite</term><description>b7731198c1044dcfa7fa8cb5b7b4f53b</description></item>
+    /// <item><term>DLC3_CR11_AirElementalElder</term><description>5053b7e1d7ee486583396a8637de8105</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>

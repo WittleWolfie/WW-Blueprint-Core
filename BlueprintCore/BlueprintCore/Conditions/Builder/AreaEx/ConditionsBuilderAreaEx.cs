@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
@@ -121,6 +122,127 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
         element.m_Area = BlueprintTool.GetRef<BlueprintAreaReference>(null);
       }
       element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonIsBoon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CheckBoonFlags</term><description>87a65a30a6f5424b86fed226dbc2d101</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="boon">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonBoon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder DungeonIsBoon(
+        this ConditionsBuilder builder,
+        Blueprint<Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference>? boon = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<DungeonIsBoon>();
+      element.m_Boon = boon?.Reference ?? element.m_Boon;
+      if (element.m_Boon is null)
+      {
+        element.m_Boon = BlueprintTool.GetRef<Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference>(null);
+      }
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonIsTier"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Blessing_Interaction</term><description>ff4a347df77e4cad971249c25d9a1589</description></item>
+    /// <item><term>RewardObject_PermanentACBuff</term><description>7b9cedafa82b432f8e797c3cb3f5b245</description></item>
+    /// <item><term>RewardTrader_Tier3</term><description>b92e487220524c0f945a36436994d2f8</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="tier">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonTier. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder DungeonIsTier(
+        this ConditionsBuilder builder,
+        bool negate = false,
+        Blueprint<BlueprintDungeonTierReference>? tier = null)
+    {
+      var element = ElementTool.Create<DungeonIsTier>();
+      element.Not = negate;
+      element.m_Tier = tier?.Reference ?? element.m_Tier;
+      if (element.m_Tier is null)
+      {
+        element.m_Tier = BlueprintTool.GetRef<BlueprintDungeonTierReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DungeonIsTierReached"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RewardLoot_BesmaraBoss</term><description>bc8bf25e3038475e9a2cc9cfddfc1ee6</description></item>
+    /// <item><term>RewardLoot_ConsumablePotion_Tier1_close</term><description>f96a1f37fcd6427d81c85cf0cd7ba92b</description></item>
+    /// <item><term>RewardObject_LegacyExp_close</term><description>36158ab6a3f54e75bdbb462453871efa</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="tier">
+    /// <para>
+    /// Blueprint of type BlueprintDungeonTier. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder DungeonIsTierReached(
+        this ConditionsBuilder builder,
+        bool negate = false,
+        Blueprint<BlueprintDungeonTierReference>? tier = null)
+    {
+      var element = ElementTool.Create<DungeonIsTierReached>();
+      element.Not = negate;
+      element.m_Tier = tier?.Reference ?? element.m_Tier;
+      if (element.m_Tier is null)
+      {
+        element.m_Tier = BlueprintTool.GetRef<BlueprintDungeonTierReference>(null);
+      }
       return builder.Add(element);
     }
 
@@ -353,8 +475,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>CommandMoveUnit3</term><description>dfa1abb2ed114f65bc42a31d2b6a71f5</description></item>
+    /// <item><term>AreeluLabFalseName</term><description>2bbe2729cac14033a4aa094f2df60fdc</description></item>
+    /// <item><term>PF-217333</term><description>e99f249471e442279e2687a1a5ef5264</description></item>
     /// <item><term>Venduag_Q2_interlude_spawnConditions</term><description>7d2e7755a041e0241ad6babe959f8454</description></item>
     /// </list>
     /// </remarks>

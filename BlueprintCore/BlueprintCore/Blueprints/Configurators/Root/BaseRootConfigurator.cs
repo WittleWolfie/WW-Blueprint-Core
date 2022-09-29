@@ -1031,28 +1031,66 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintRoot.PhotoModeRoot"/>
+    /// Sets the value of <see cref="BlueprintRoot.UIPhotoModeRoot"/>
     /// </summary>
-    public TBuilder SetPhotoModeRoot(UIPhotoModeRoot photoModeRoot)
+    public TBuilder SetUIPhotoModeRoot(UIPhotoModeRoot uIPhotoModeRoot)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(photoModeRoot);
-          bp.PhotoModeRoot = photoModeRoot;
+          Validate(uIPhotoModeRoot);
+          bp.UIPhotoModeRoot = uIPhotoModeRoot;
         });
     }
 
     /// <summary>
-    /// Modifies <see cref="BlueprintRoot.PhotoModeRoot"/> by invoking the provided action.
+    /// Modifies <see cref="BlueprintRoot.UIPhotoModeRoot"/> by invoking the provided action.
     /// </summary>
-    public TBuilder ModifyPhotoModeRoot(Action<UIPhotoModeRoot> action)
+    public TBuilder ModifyUIPhotoModeRoot(Action<UIPhotoModeRoot> action)
     {
       return OnConfigureInternal(
         bp =>
         {
-          if (bp.PhotoModeRoot is null) { return; }
-          action.Invoke(bp.PhotoModeRoot);
+          if (bp.UIPhotoModeRoot is null) { return; }
+          action.Invoke(bp.UIPhotoModeRoot);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_PhotoModeRoot"/>
+    /// </summary>
+    ///
+    /// <param name="photoModeRoot">
+    /// <para>
+    /// Blueprint of type BlueprintPhotoModeRoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPhotoModeRoot(Blueprint<BlueprintPhotoModeRootReference> photoModeRoot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PhotoModeRoot = photoModeRoot?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_PhotoModeRoot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPhotoModeRoot(Action<BlueprintPhotoModeRootReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PhotoModeRoot is null) { return; }
+          action.Invoke(bp.m_PhotoModeRoot);
         });
     }
 
@@ -2511,6 +2549,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_CoinItem is null)
       {
         Blueprint.m_CoinItem = BlueprintTool.GetRef<BlueprintItemReference>(null);
+      }
+      if (Blueprint.m_PhotoModeRoot is null)
+      {
+        Blueprint.m_PhotoModeRoot = BlueprintTool.GetRef<BlueprintPhotoModeRootReference>(null);
       }
       if (Blueprint.m_CutscenesRoot is null)
       {

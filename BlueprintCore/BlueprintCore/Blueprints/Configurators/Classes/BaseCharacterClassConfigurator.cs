@@ -1518,7 +1518,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GozrehFeature</term><description>4af983eec2d821b40a3065eb5e8c3a72</description></item>
+    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1554,7 +1554,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanistEldritchFont</term><description>a732797826db0b54ea123d91b4cdaad5</description></item>
-    /// <item><term>HellknightSigniferSageSorcerer</term><description>9ff63ae68eb6f8f4296f63dced80da50</description></item>
+    /// <item><term>HellknightSigniferFeyspeakerProgression</term><description>b98c346e2e7333742a51f5de3667ef8a</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -1761,7 +1761,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanist</term><description>7cab956d45dc51c4ea9e71bba366a250</description></item>
-    /// <item><term>HellknightSigniferThassilonianIllusion</term><description>444211da5e9592f41a4334825eb7ea2c</description></item>
+    /// <item><term>HellknightSigniferThassilonianEvocation</term><description>f8ed1800725b3e74ebb86783dbde933a</description></item>
     /// <item><term>WinterWitchWitchLeyLineGuardian</term><description>56adf819599827f4695395924a060996</description></item>
     /// </list>
     /// </remarks>
@@ -1980,7 +1980,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodlineSerpentineSpellLevel7</term><description>7b442d746153bad49b855226b9e0b64e</description></item>
+    /// <item><term>BloodlineSerpentineSpellLevel8</term><description>df1b1eedae152b541bc1b09fd5041fe9</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -2074,7 +2074,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>HeatAdaptationFeature</term><description>2825e3a53c76ad944a47c5c44fb6109f</description></item>
+    /// <item><term>HellboundCurseNoPenaltyProgression</term><description>d1457c03dff2887409b92f88b9c9fcf0</description></item>
     /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
     /// </list>
     /// </remarks>

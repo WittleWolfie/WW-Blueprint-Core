@@ -178,7 +178,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp03_Option02</term><description>daa2d4c1f08e0be47b98e33011fb8f51</description></item>
+    /// <item><term>MythicAeon_RankUp03_Option01</term><description>f8794eb6fa9590342868a3f3d11373b3</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -207,7 +207,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Klaem_Position</term><description>a2e6fe47c853417a8fb165d4c19bb409</description></item>
+    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -332,7 +332,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>DrezenCapital_MythicArea_AzataTrasformationCutscene_Audio</term><description>b789f94015304230bd942195066293de</description></item>
+    /// <item><term>GhostsLair_SideBoss_GhostOracle_Audio</term><description>e5c316917b72473fb60eb55305f25499</description></item>
     /// <item><term>ZigguratSound</term><description>f2035ebb6d074f33aaa1ec362d0f1929</description></item>
     /// </list>
     /// </remarks>

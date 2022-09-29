@@ -7,6 +7,7 @@ using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;
+using Kingmaker.UI.SettingsUI;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
 
 namespace BlueprintCore.Conditions.Builder.MiscEx
@@ -376,6 +377,32 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     {
       var element = ElementTool.Create<RespecIsFree>();
       element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SettingBoolValue"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AutoSave_Interaction_ForceDisable</term><description>3e60eb76712c47b492ef33da5e8f12d8</description></item>
+    /// <item><term>SaveTutorial</term><description>9e1cc5dc3d5945b6a19f9de0cf7d1373</description></item>
+    /// </list>
+    /// </remarks>
+    public static ConditionsBuilder SettingBoolValue(
+        this ConditionsBuilder builder,
+        bool negate = false,
+        UISettingsEntityBool? setting = null,
+        bool? settingValue = null)
+    {
+      var element = ElementTool.Create<SettingBoolValue>();
+      element.Not = negate;
+      builder.Validate(setting);
+      element.m_Setting = setting ?? element.m_Setting;
+      element.m_SettingValue = settingValue ?? element.m_SettingValue;
       return builder.Add(element);
     }
   }

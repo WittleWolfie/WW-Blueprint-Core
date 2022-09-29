@@ -310,7 +310,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FirstWorldMincePieBuffDexterity</term><description>79570395efbcdc8449e3037a7d1cd3ee</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -1283,7 +1283,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeBaseBuff</term><description>da22fac7ee174766a1d924749245b8e9</description></item>
-    /// <item><term>GolemSummerEntangleAuraBuff</term><description>f8ff09d49cdc6a64dbfeca21031bca49</description></item>
+    /// <item><term>GolemClaySlipperyMudBuff</term><description>63dae02bf1d436142a75387b0713ef73</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalAreaBuff</term><description>b2b739c6e18b457d9ba30ab389b0520f</description></item>
     /// </list>
     /// </remarks>
@@ -1530,7 +1530,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AxiomiteMeleeMiniboss_Buff_LegendaryProportions</term><description>acf2b59d0d374711b969c5ea864e9656</description></item>
-    /// <item><term>LegendaryProportionsBuffMorveg</term><description>015a7e1c3af88ea4cb6189fbe52b4863</description></item>
+    /// <item><term>LegendaryProportionsBuff</term><description>4ce640f9800d444418779a214598d0a3</description></item>
     /// <item><term>TrueStrikeBuff</term><description>a3ce3b226c1817846b0419fa182e6ea0</description></item>
     /// </list>
     /// </remarks>
@@ -1702,8 +1702,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>HoldAnimalBuff</term><description>2090955a573cec3438db7f47707610f9</description></item>
+    /// <item><term>AnomalyDistortionBodyDesynchronizationBuff</term><description>71d9285c18274bf6a8123ccd3272e20d</description></item>
+    /// <item><term>HoldMonsterBuff</term><description>2cfcce5b62d3e6d4082ec31b58468cc8</description></item>
     /// <item><term>VinetrapEntangledBuff</term><description>231a622f767e8ed4e9b3e435265a3e99</description></item>
     /// </list>
     /// </remarks>
@@ -2402,7 +2402,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>GuardianOfLifeFeature</term><description>9dd2ce2f909e1fc4db95e118ac8171c8</description></item>
+    /// <item><term>GendarmeTransfixingCharge</term><description>72a0bde01943f824faa98bd55f04c06d</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>

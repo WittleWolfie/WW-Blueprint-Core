@@ -131,7 +131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <listheader>Used by</listheader>
     /// <item><term>DungeonBoon_Aoe</term><description>5424ec0ee1ef4c06be0b2a847ca77c16</description></item>
     /// <item><term>DungeonBoon_Elven</term><description>dbb242c6be10406799fd659feb40d266</description></item>
-    /// <item><term>DungeonBoon_MixedMagic</term><description>9ba760c24cd8458a9e408462972bff12</description></item>
+    /// <item><term>DungeonBoon_Shieldbuff</term><description>e0a3d1009fd549fe97c57683b0e6cfe8</description></item>
     /// </list>
     /// </remarks>
     ///

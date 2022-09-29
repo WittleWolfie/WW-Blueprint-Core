@@ -11,12 +11,14 @@ using Kingmaker.Corruption;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
+using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -40,7 +42,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[core++][Melazmera]_SpawnActions</term><description>9a3e4288325998c429b38b024fc710c7</description></item>
-    /// <item><term>Cue_17</term><description>c3c277fbe80748378a9f7f2db9802318</description></item>
+    /// <item><term>Cue_17</term><description>b670839aac1b4ff085c665f874d3a952</description></item>
     /// <item><term>Yozz_SpawnActions</term><description>fd9c741b62d849e8bf451cdf8ad9751d</description></item>
     /// </list>
     /// </remarks>
@@ -405,7 +407,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add2Pool_SpawnActions</term><description>28ded583139864e428a5646acf7d97d4</description></item>
-    /// <item><term>CommandAction8</term><description>c95966979def42e7bdd8c17570d63b12</description></item>
+    /// <item><term>CommandAction9</term><description>6fde0d93e61244de949479e5f766c8ae</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -551,6 +553,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>34415d0af612475fbae6e67c90d25a13</description></item>
     /// <item><term>CommandAction7</term><description>e601c30adfa34b988621b8bcaa68af7c</description></item>
+    /// <item><term>Legend_DenleanBF</term><description>f591ec0f3e17473987c84a5718b0676a</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder ClearUnitReturnPosition(
@@ -573,6 +576,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>34415d0af612475fbae6e67c90d25a13</description></item>
     /// <item><term>CommandAction7</term><description>e601c30adfa34b988621b8bcaa68af7c</description></item>
+    /// <item><term>Legend_DenleanBF</term><description>f591ec0f3e17473987c84a5718b0676a</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder ClearAllUnitReturnPosition(this ActionsBuilder builder)
@@ -832,7 +836,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobaticCheckS1_CheckFailedActions</term><description>024cfea8fa605e5438485ae1bdb6c4f8</description></item>
-    /// <item><term>Cue_0002</term><description>0bcc673bb9dcdd6479c9cf177934bbd6</description></item>
+    /// <item><term>Cue_0001</term><description>dbdc99649fad472fa0ba2227841c16f2</description></item>
     /// <item><term>YeribethHall_ResetCipher</term><description>6613c051209b7ef49a3653bc1d87fa36</description></item>
     /// </list>
     /// </remarks>
@@ -845,6 +849,104 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.Actions = actions?.Build();
       element.m_UnitsList = unitsList;
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActionNahyndriSmash"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Nahyndri_TurnOffIK</term><description>d5f46a3906ed4e7e8973c82b44ff383c</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder NahyndriSmash(
+        this ActionsBuilder builder,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<ActionNahyndriSmash>();
+      builder.Validate(unit);
+      element.unit = unit ?? element.unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActionNahyndriUnsmash"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Nahyndri_TurnOnIK</term><description>6aafff293fd04adca541756690472877</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder NahyndriUnsmash(
+        this ActionsBuilder builder,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<ActionNahyndriUnsmash>();
+      builder.Validate(unit);
+      element.unit = unit ?? element.unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeBrain"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Nahyndri3rdPhase_SZ</term><description>d0c5f5ff808647c8ad72c29a25b19b97</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="brain">
+    /// <para>
+    /// Blueprint of type BlueprintBrain. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ChangeBrain(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintBrainReference>? brain = null,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<ChangeBrain>();
+      element.m_Brain = brain?.Reference ?? element.m_Brain;
+      if (element.m_Brain is null)
+      {
+        element.m_Brain = BlueprintTool.GetRef<BlueprintBrainReference>(null);
+      }
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ClearChestsLootAction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DungeonRoot</term><description>096f36d4e55b49129ddd2211b2c50513</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder ClearChestsLootAction(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearChestsLootAction>());
     }
 
     /// <summary>
@@ -874,7 +976,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>CommandAction46</term><description>8e3d9e6107ba4dde81d662803b0bbda5</description></item>
+    /// <item><term>CommandAction46</term><description>02a7ed1ef7314ceebbdbca782e29f8b1</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1039,7 +1141,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0029</term><description>385f63ce5de55114e9b63099dafd3967</description></item>
+    /// <item><term>Cue_0028</term><description>5ea4515a64699c843a282df111148bf3</description></item>
     /// <item><term>WatchPoint_SZHouse_Camera</term><description>782f3b6f96c840f99b785c32bdfb5e98</description></item>
     /// </list>
     /// </remarks>
@@ -1177,7 +1279,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_4</term><description>b08d18580c6a4e41b803ca3f48a58c01</description></item>
-    /// <item><term>CommandAction 6</term><description>894d85b3b48495342826c255fca4d6b3</description></item>
+    /// <item><term>CommandAction 6</term><description>4b25d2308c23d8341be7ebea1729ccc6</description></item>
     /// <item><term>Woljif_Q3_AbandonedMansion_Default</term><description>7a56583bbe8854d44a0d9fde9ee3acee</description></item>
     /// </list>
     /// </remarks>
@@ -1292,7 +1394,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0015</term><description>72050eac97c4b944f9a99ce16a680f16</description></item>
-    /// <item><term>Epilogues_afterlogues_dialogue</term><description>57e18f5158904030a84a772fb361ceb4</description></item>
+    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
     /// <item><term>ZigguratDeadRomance</term><description>f792eb37f0e41bb4aa23332e892ad6b1</description></item>
     /// </list>
     /// </remarks>
@@ -1333,7 +1435,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarSlaveGirlBarks</term><description>efdea0fb268e5e14391ef8bf672f25e5</description></item>
-    /// <item><term>Gladiator_SpawnActions</term><description>b2fe802a05b6e774087a74e44ffa561c</description></item>
+    /// <item><term>FisherMourn_Actions</term><description>9cfc85be3dba1d041aa702df754fc43d</description></item>
     /// <item><term>ZiforianBeggar_Actions</term><description>a741a5da0622e434e9e8da521a34e4e6</description></item>
     /// </list>
     /// </remarks>
@@ -1390,7 +1492,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AutoAggroBuff_SpawnActions</term><description>68073f3e7d394c56961c6143b20ff8d8</description></item>
-    /// <item><term>DLC3_BesmaraMod_IsPB2</term><description>d461960c88b44b4a8d7a4ed3e5bfd143</description></item>
+    /// <item><term>DLC3_ArceneMod</term><description>9e1d3b8cb3c745a48ad3f2fdccd078fe</description></item>
     /// <item><term>Valmallos_Stage2</term><description>511aa03d9a17499d9a6c71e0ab8bd47a</description></item>
     /// </list>
     /// </remarks>
@@ -1774,7 +1876,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>4486e3afc7bc44fa8058e10e22220268</description></item>
+    /// <item><term>CommandAction2</term><description>f441ab250ed94cac80523e8b82d47852</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1932,6 +2034,29 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="UnitDismount"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>c1b6866b5fa94e0a9435eea0d7b4d142</description></item>
+    /// <item><term>CommandAction1</term><description>1d28ee87fe1d4d7281a7a876e10a4f28</description></item>
+    /// <item><term>CommandAction6</term><description>8d574cdef5914a438b5957d7b227867b</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder UnitDismount(
+        this ActionsBuilder builder,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<UnitDismount>();
+      builder.Validate(unit);
+      element.Unit = unit ?? element.Unit;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnitsFromSpawnersInUnitGroup"/>
     /// </summary>
     ///
@@ -1940,7 +2065,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_AxiomitesAndInevitable</term><description>0e9add6a45f445cf8a9f9c71ea2d789d</description></item>
-    /// <item><term>Cue_0012</term><description>e5b6a3b105d0ea94da93642b85e08bdf</description></item>
+    /// <item><term>Cue_0011</term><description>44ee9682e69b87b4d9e2be411d1e7117</description></item>
     /// <item><term>YouOnlyMortalsCombatStart_Actions</term><description>9ee2523b28aa61e498d1eb0ef8ea3b3c</description></item>
     /// </list>
     /// </remarks>

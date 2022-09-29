@@ -63,83 +63,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintFeature.m_NameModifiersCache"/>
-    /// </summary>
-    public TBuilder SetNameModifiersCache(params NameModifier[] nameModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(nameModifiersCache);
-          bp.m_NameModifiersCache = nameModifiersCache;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintFeature.m_NameModifiersCache"/>
-    /// </summary>
-    public TBuilder AddToNameModifiersCache(params NameModifier[] nameModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_NameModifiersCache = bp.m_NameModifiersCache ?? new NameModifier[0];
-          bp.m_NameModifiersCache = CommonTool.Append(bp.m_NameModifiersCache, nameModifiersCache);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeature.m_NameModifiersCache"/>
-    /// </summary>
-    public TBuilder RemoveFromNameModifiersCache(params NameModifier[] nameModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_NameModifiersCache is null) { return; }
-          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(val => !nameModifiersCache.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeature.m_NameModifiersCache"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromNameModifiersCache(Func<NameModifier, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_NameModifiersCache is null) { return; }
-          bp.m_NameModifiersCache = bp.m_NameModifiersCache.Where(e => !predicate(e)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintFeature.m_NameModifiersCache"/>
-    /// </summary>
-    public TBuilder ClearNameModifiersCache()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_NameModifiersCache = new NameModifier[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeature.m_NameModifiersCache"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyNameModifiersCache(Action<NameModifier> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_NameModifiersCache is null) { return; }
-          bp.m_NameModifiersCache.ForEach(action);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
     /// </summary>
     public TBuilder SetDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
@@ -444,7 +367,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FirstWorldMincePieBuffDexterity</term><description>79570395efbcdc8449e3037a7d1cd3ee</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -495,7 +418,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GozrehFeature</term><description>4af983eec2d821b40a3065eb5e8c3a72</description></item>
+    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -531,7 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanistEldritchFont</term><description>a732797826db0b54ea123d91b4cdaad5</description></item>
-    /// <item><term>HellknightSigniferSageSorcerer</term><description>9ff63ae68eb6f8f4296f63dced80da50</description></item>
+    /// <item><term>HellknightSigniferFeyspeakerProgression</term><description>b98c346e2e7333742a51f5de3667ef8a</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -738,7 +661,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanist</term><description>7cab956d45dc51c4ea9e71bba366a250</description></item>
-    /// <item><term>HellknightSigniferThassilonianIllusion</term><description>444211da5e9592f41a4334825eb7ea2c</description></item>
+    /// <item><term>HellknightSigniferThassilonianEvocation</term><description>f8ed1800725b3e74ebb86783dbde933a</description></item>
     /// <item><term>WinterWitchWitchLeyLineGuardian</term><description>56adf819599827f4695395924a060996</description></item>
     /// </list>
     /// </remarks>
@@ -957,7 +880,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodlineSerpentineSpellLevel7</term><description>7b442d746153bad49b855226b9e0b64e</description></item>
+    /// <item><term>BloodlineSerpentineSpellLevel8</term><description>df1b1eedae152b541bc1b09fd5041fe9</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1051,7 +974,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>HeatAdaptationFeature</term><description>2825e3a53c76ad944a47c5c44fb6109f</description></item>
+    /// <item><term>HellboundCurseNoPenaltyProgression</term><description>d1457c03dff2887409b92f88b9c9fcf0</description></item>
     /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
     /// </list>
     /// </remarks>
@@ -3049,7 +2972,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>GuardianOfLifeFeature</term><description>9dd2ce2f909e1fc4db95e118ac8171c8</description></item>
+    /// <item><term>GendarmeTransfixingCharge</term><description>72a0bde01943f824faa98bd55f04c06d</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -3145,10 +3068,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       base.OnConfigureCompleted();
     
-      if (Blueprint.m_NameModifiersCache is null)
-      {
-        Blueprint.m_NameModifiersCache = new NameModifier[0];
-      }
       if (Blueprint.m_DescriptionModifiersCache is null)
       {
         Blueprint.m_DescriptionModifiersCache = new DescriptionModifier[0];
