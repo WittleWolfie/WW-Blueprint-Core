@@ -334,6 +334,116 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddRandomFeatureFromList_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_LocalString_System_Nullable_System_Boolean__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__System_Nullable_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionAddRandomFeatureFromList_TargetEntry__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddRandomFeatureFromList(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CBlueprintCore.Utils.LocalString%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%7D%2CKingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintFeatureReference%7D%2CSystem.Nullable%7BKingmaker.UnitLogic.Mechanics.Actions.ContextActionAddRandomFeatureFromList.TargetEntry%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3244">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddRandomFeatureFromList_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddRandomFeatureFromList*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddRandomFeatureFromList_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_LocalString_System_Nullable_System_Boolean__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__System_Nullable_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionAddRandomFeatureFromList_TargetEntry__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddRandomFeatureFromList(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},BlueprintCore.Utils.LocalString,System.Nullable{System.Boolean},System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference}},Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintFeatureReference},System.Nullable{Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAddRandomFeatureFromList.TargetEntry})">AddRandomFeatureFromList(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, LocalString, Nullable&lt;Boolean&gt;, List&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt;, IntEvaluator, IntEvaluator, Blueprint&lt;BlueprintFeatureReference&gt;, Nullable&lt;ContextActionAddRandomFeatureFromList.TargetEntry&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAddRandomFeatureFromList</span></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ActionsBuilder AddRandomFeatureFromList(this ActionsBuilder builder, bool? battleLog = null, bool? calculateSeed = null, LocalString customBattleLogMessage = null, bool? hasCustomBattleLogMessage = null, List&lt;Blueprint&lt;BlueprintFeatureReference&gt;&gt; permanentFeatures = null, IntEvaluator salt = null, IntEvaluator seed = null, Blueprint&lt;BlueprintFeatureReference&gt; setRankFrom = null, ContextActionAddRandomFeatureFromList.TargetEntry? targets = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">battleLog</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">calculateSeed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.LocalString.html">LocalString</a></td>
+        <td><span class="parametername">customBattleLogMessage</span></td>
+        <td><p>You can pass in the string using a LocalizedString or the Key to a LocalizedString.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">hasCustomBattleLogMessage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintFeatureReference</span>&gt;&gt;</td>
+        <td><span class="parametername">permanentFeatures</span></td>
+        <td><p>
+Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">salt</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.IntEvaluator</span></td>
+        <td><span class="parametername">seed</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintFeatureReference</span>&gt;</td>
+        <td><span class="parametername">setRankFrom</span></td>
+        <td><p>
+InfoBox: Can be null. Force set PermanentFeature rank to be equal to SetRankFrom rank
+</p>
+<p>
+Blueprint of type BlueprintFeature. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAddRandomFeatureFromList.TargetEntry</span>&gt;</td>
+        <td><span class="parametername">targets</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddRandomFeatureFromList_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Utils_LocalString_System_Nullable_System_Boolean__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference___Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__System_Nullable_Kingmaker_UnitLogic_Mechanics_Actions_ContextActionAddRandomFeatureFromList_TargetEntry___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>DLC3_RewardStatueFeature_Actionsc8c8615f04914bb3b958058b24f87f6f</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_AddRandomTrashItem_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Enums_TrashLootType_System_Int32_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.AddRandomTrashItem(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.Enums.TrashLootType%2CSystem.Int32%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -500,7 +610,7 @@ InfoBox: By default all effects that were created from area effect will be destr
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ApplyBuff_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__Kingmaker_UnitLogic_Mechanics_ContextDurationValue_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeavyCrossbowOfDegradationAbility24948f9879f673e41a7f664a2c775bd7</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeartOfIcebergAbility38d7bac2134ff0a48968dc2aacfc5973</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -594,7 +704,7 @@ InfoBox: By default all effects that were created from area effect will be destr
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ApplyBuffPermanent_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeavyCrossbowOfDegradationAbility24948f9879f673e41a7f664a2c775bd7</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeartOfIcebergAbility38d7bac2134ff0a48968dc2aacfc5973</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -693,7 +803,7 @@ InfoBox: By default all effects that were created from area effect will be destr
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ApplyBuffWithDurationSeconds_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Single_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeavyCrossbowOfDegradationAbility24948f9879f673e41a7f664a2c775bd7</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>HeartOfIcebergAbility38d7bac2134ff0a48968dc2aacfc5973</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -799,7 +909,7 @@ The caster&apos;s armor is enchanted based on its available enhancement bonus. e
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BatteringBlast_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BatteringBlast(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3213">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3294">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BatteringBlast_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BatteringBlast*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BatteringBlast_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BatteringBlast(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean})">BatteringBlast(ActionsBuilder, Nullable&lt;Boolean&gt;)</h4>
@@ -855,7 +965,7 @@ The caster&apos;s armor is enchanted based on its available enhancement bonus. e
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BreakFree_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BreakFree(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3235">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3316">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BreakFree_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BreakFree*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_BreakFree_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.BreakFree(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">BreakFree(ActionsBuilder, ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -1770,7 +1880,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ConditionalSaved_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ConditionalSaved(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3271">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3352">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ConditionalSaved_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ConditionalSaved*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ConditionalSaved_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ConditionalSaved(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">ConditionalSaved(ActionsBuilder, ActionsBuilder, ActionsBuilder)</h4>
@@ -1824,7 +1934,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ConditionalSaved_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>GiantSpiderPoisonFeature094714bb08f4e1943a8e9d2384ebe573</li><li>ZachariusParalyzingTouchAbilitydbd157bc98c11a341b3b605ad58d5a57</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>GiantFrogPoisonousFeature1a3f2f384bbef804d8f52db1f9aa62d3</li><li>ZachariusParalyzingTouchAbilitydbd157bc98c11a341b3b605ad58d5a57</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -2497,7 +2607,7 @@ InfoBox: Fact that holds action should be the reason rather than attack roll fro
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DealWeaponDamage_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealWeaponDamage(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3309">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3390">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DealWeaponDamage_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealWeaponDamage*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DealWeaponDamage_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DealWeaponDamage(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean})">DealWeaponDamage(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -2679,7 +2789,7 @@ Applied on success when the caster has a feature that adds a greater effect. Def
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DetachFromSpawner_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DetachFromSpawner(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3331">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3412">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DetachFromSpawner_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DetachFromSpawner*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DetachFromSpawner_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DetachFromSpawner(BlueprintCore.Actions.Builder.ActionsBuilder)">DetachFromSpawner(ActionsBuilder)</h4>
@@ -2730,7 +2840,7 @@ Applied on success when the caster has a feature that adds a greater effect. Def
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DevourBySwarm_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DevourBySwarm(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3349">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3430">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DevourBySwarm_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DevourBySwarm*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DevourBySwarm_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DevourBySwarm(BlueprintCore.Actions.Builder.ActionsBuilder)">DevourBySwarm(ActionsBuilder)</h4>
@@ -2781,7 +2891,7 @@ Applied on success when the caster has a feature that adds a greater effect. Def
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Disarm_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Disarm(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3366">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3447">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Disarm_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Disarm*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Disarm_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Disarm(BlueprintCore.Actions.Builder.ActionsBuilder)">Disarm(ActionsBuilder)</h4>
@@ -2832,7 +2942,7 @@ Applied on success when the caster has a feature that adds a greater effect. Def
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DismissAreaEffect_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DismissAreaEffect(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3383">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3464">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DismissAreaEffect_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DismissAreaEffect*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DismissAreaEffect_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DismissAreaEffect(BlueprintCore.Actions.Builder.ActionsBuilder)">DismissAreaEffect(ActionsBuilder)</h4>
@@ -2883,7 +2993,7 @@ Applied on success when the caster has a feature that adds a greater effect. Def
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Dismount_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Dismount(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3401">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3482">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Dismount_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Dismount*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Dismount_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Dismount(BlueprintCore.Actions.Builder.ActionsBuilder)">Dismount(ActionsBuilder)</h4>
@@ -3077,7 +3187,7 @@ Tooltip: Empty means &amp;apos;All&amp;apos;
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DropItems_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DropItems(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3418">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3499">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DropItems_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DropItems*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_DropItems_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.DropItems(BlueprintCore.Actions.Builder.ActionsBuilder)">DropItems(ActionsBuilder)</h4>
@@ -3565,7 +3675,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_GiveExperience_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.GiveExperience(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3435">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3516">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_GiveExperience_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.GiveExperience*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_GiveExperience_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.GiveExperience(BlueprintCore.Actions.Builder.ActionsBuilder)">GiveExperience(ActionsBuilder)</h4>
@@ -3693,7 +3803,7 @@ Buff applied to the target for the duration of the grapple check
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealBurn_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealBurn(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3451">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3532">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealBurn_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealBurn*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealBurn_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealBurn(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)">HealBurn(ActionsBuilder, ContextValue)</h4>
@@ -3749,7 +3859,7 @@ Buff applied to the target for the duration of the grapple check
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealEnergyDrain_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_RuleSystem_Rules_EnergyDrainHealType__System_Nullable_Kingmaker_RuleSystem_Rules_EnergyDrainHealType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealEnergyDrain(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BKingmaker.RuleSystem.Rules.EnergyDrainHealType%7D%2CSystem.Nullable%7BKingmaker.RuleSystem.Rules.EnergyDrainHealType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3477">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3558">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealEnergyDrain_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealEnergyDrain*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HealEnergyDrain_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_RuleSystem_Rules_EnergyDrainHealType__System_Nullable_Kingmaker_RuleSystem_Rules_EnergyDrainHealType__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HealEnergyDrain(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{Kingmaker.RuleSystem.Rules.EnergyDrainHealType},System.Nullable{Kingmaker.RuleSystem.Rules.EnergyDrainHealType})">HealEnergyDrain(ActionsBuilder, Nullable&lt;EnergyDrainHealType&gt;, Nullable&lt;EnergyDrainHealType&gt;)</h4>
@@ -3945,7 +4055,7 @@ Required when the heal type is StatDamageHealType.Dice
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HideInPlainSight_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HideInPlainSight(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3501">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3582">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HideInPlainSight_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HideInPlainSight*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_HideInPlainSight_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.HideInPlainSight(BlueprintCore.Actions.Builder.ActionsBuilder)">HideInPlainSight(ActionsBuilder)</h4>
@@ -4067,7 +4177,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_IncreaseSwarmThatWalksStrength_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.IncreaseSwarmThatWalksStrength(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.ContextValue)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3517">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3598">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_IncreaseSwarmThatWalksStrength_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.IncreaseSwarmThatWalksStrength*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_IncreaseSwarmThatWalksStrength_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.IncreaseSwarmThatWalksStrength(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue)">IncreaseSwarmThatWalksStrength(ActionsBuilder, ContextValue)</h4>
@@ -4123,7 +4233,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Kill_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_UnitLogic_UnitState_DismemberType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Kill(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BKingmaker.UnitLogic.UnitState.DismemberType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3543">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3624">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Kill_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Kill*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Kill_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_UnitLogic_UnitState_DismemberType__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Kill(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{Kingmaker.UnitLogic.UnitState.DismemberType})">Kill(ActionsBuilder, Nullable&lt;UnitState.DismemberType&gt;)</h4>
@@ -4179,7 +4289,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_KnockdownTarget_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.KnockdownTarget(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3565">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3646">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_KnockdownTarget_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.KnockdownTarget*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_KnockdownTarget_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.KnockdownTarget(BlueprintCore.Actions.Builder.ActionsBuilder)">KnockdownTarget(ActionsBuilder)</h4>
@@ -4230,7 +4340,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MakeKnowledgeCheck_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MakeKnowledgeCheck(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3582">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3663">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MakeKnowledgeCheck_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MakeKnowledgeCheck*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MakeKnowledgeCheck_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MakeKnowledgeCheck(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">MakeKnowledgeCheck(ActionsBuilder, ActionsBuilder, ActionsBuilder)</h4>
@@ -4291,7 +4401,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MarkForceDismemberOwner_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_UnitLogic_UnitState_DismemberType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MarkForceDismemberOwner(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BKingmaker.UnitLogic.UnitState.DismemberType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3618">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3699">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MarkForceDismemberOwner_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MarkForceDismemberOwner*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MarkForceDismemberOwner_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_UnitLogic_UnitState_DismemberType__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MarkForceDismemberOwner(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{Kingmaker.UnitLogic.UnitState.DismemberType})">MarkForceDismemberOwner(ActionsBuilder, Nullable&lt;UnitState.DismemberType&gt;)</h4>
@@ -4350,7 +4460,7 @@ ComponentName: Actions/Mark Force Dismember
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MeleeAttack_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MeleeAttack(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3640">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3721">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MeleeAttack_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MeleeAttack*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_MeleeAttack_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.MeleeAttack(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">MeleeAttack(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -4436,7 +4546,7 @@ ComponentName: Actions/Mark Force Dismember
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Mount_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Mount(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3673">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3754">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Mount_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Mount*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Mount_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Mount(BlueprintCore.Actions.Builder.ActionsBuilder)">Mount(ActionsBuilder)</h4>
@@ -4862,7 +4972,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_OnTargetPoint_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.OnTargetPoint(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3691">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3772">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_OnTargetPoint_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.OnTargetPoint*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_OnTargetPoint_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.OnTargetPoint(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">OnTargetPoint(ActionsBuilder, ActionsBuilder)</h4>
@@ -5035,7 +5145,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackFromCaster_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackFromCaster(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3716">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3797">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackFromCaster_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackFromCaster*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackFromCaster_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackFromCaster(BlueprintCore.Actions.Builder.ActionsBuilder)">ProvokeAttackFromCaster(ActionsBuilder)</h4>
@@ -5086,7 +5196,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackOfOpportunity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackOfOpportunity(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3734">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3815">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackOfOpportunity_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackOfOpportunity*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ProvokeAttackOfOpportunity_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ProvokeAttackOfOpportunity(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean})">ProvokeAttackOfOpportunity(ActionsBuilder, Nullable&lt;Boolean&gt;)</h4>
@@ -5142,7 +5252,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Push_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Push(BlueprintCore.Actions.Builder.ActionsBuilder%2CKingmaker.UnitLogic.Mechanics.ContextValue%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3756">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3837">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Push_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Push*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Push_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Push(BlueprintCore.Actions.Builder.ActionsBuilder,Kingmaker.UnitLogic.Mechanics.ContextValue,System.Nullable{System.Boolean})">Push(ActionsBuilder, ContextValue, Nullable&lt;Boolean&gt;)</h4>
@@ -5331,7 +5441,7 @@ List of a pair mapping to ContextActionRandomize.ActionWrapper. Weight represent
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RangedAttack_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RangedAttack(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3784">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3865">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RangedAttack_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RangedAttack*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RangedAttack_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RangedAttack(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Nullable{System.Boolean})">RangedAttack(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</h4>
@@ -5554,7 +5664,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ReduceDebilitatingBuffsDuration_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Settings_StatsAdjustmentsType__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ReduceDebilitatingBuffsDuration(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BKingmaker.Settings.StatsAdjustmentsType%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3816">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3897">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ReduceDebilitatingBuffsDuration_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ReduceDebilitatingBuffsDuration*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ReduceDebilitatingBuffsDuration_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_Kingmaker_Settings_StatsAdjustmentsType__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ReduceDebilitatingBuffsDuration(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{Kingmaker.Settings.StatsAdjustmentsType})">ReduceDebilitatingBuffsDuration(ActionsBuilder, Nullable&lt;StatsAdjustmentsType&gt;)</h4>
@@ -5685,7 +5795,7 @@ InfoBox: Apply this action to caster = Remove buff From caster of context
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveBuff_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstDeathAbility4445d9d1c21141c6a0bb24baf373ef78</li><li>GrenadierAlchemistFireSwiftb0fc5c1ac640458428a8930a72987a7a</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstDeathAbility4445d9d1c21141c6a0bb24baf373ef78</li><li>GrenadierAcidFlaskFreec7598f3f5a00e9c4f8beded952748fd2</li><li>ZeorisDaggerRing_GoverningFeature0faee0a55f634902895b4e1faf828502</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -5814,7 +5924,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveDeathDoor_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveDeathDoor(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3838">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3919">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveDeathDoor_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveDeathDoor*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveDeathDoor_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveDeathDoor(BlueprintCore.Actions.Builder.ActionsBuilder)">RemoveDeathDoor(ActionsBuilder)</h4>
@@ -5865,7 +5975,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveSelf_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveSelf(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3856">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3937">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveSelf_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveSelf*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RemoveSelf_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RemoveSelf(BlueprintCore.Actions.Builder.ActionsBuilder)">RemoveSelf(ActionsBuilder)</h4>
@@ -5977,7 +6087,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ResetAlignment_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ResetAlignment(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3878">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3959">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ResetAlignment_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ResetAlignment*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_ResetAlignment_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.ResetAlignment(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean})">ResetAlignment(ActionsBuilder, Nullable&lt;Boolean&gt;)</h4>
@@ -6087,7 +6197,7 @@ InfoBox: If true also removes lock from mythic restriction
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RestoreAllSpellSlots_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSpellbookReference___Kingmaker_ElementsSystem_UnitEvaluator_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Collections.Generic.List%7BBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSpellbookReference%7D%7D%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3912">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3993">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RestoreAllSpellSlots_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RestoreAllSpellSlots*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_RestoreAllSpellSlots_BlueprintCore_Actions_Builder_ActionsBuilder_System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSpellbookReference___Kingmaker_ElementsSystem_UnitEvaluator_System_Nullable_System_Int32__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.RestoreAllSpellSlots(BlueprintCore.Actions.Builder.ActionsBuilder,System.Collections.Generic.List{BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSpellbookReference}},Kingmaker.ElementsSystem.UnitEvaluator,System.Nullable{System.Int32})">RestoreAllSpellSlots(ActionsBuilder, List&lt;Blueprint&lt;BlueprintSpellbookReference&gt;&gt;, UnitEvaluator, Nullable&lt;Int32&gt;)</h4>
@@ -6507,7 +6617,7 @@ InfoBox: If context already had saving throw use DC from it (for example if this
     </tbody>
   </table>
   <h5 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SavingThrow_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_EntitySystem_Stats_SavingThrowType_System_Collections_Generic_List_System_ValueTuple_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_UnitLogic_Mechanics_ContextValue___Kingmaker_UnitLogic_Mechanics_ContextValue_System_Nullable_System_Boolean__BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean___remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>FormOfTheDragonIIIFrightfulPresenceArea5d44a8408f6907a4eb19a28ae24fb5fe</li><li>ZachariusFearAuraAread363527fe31581149b2d53686075c14d</li></ul>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>1_FirstStage_AcidBuff6afe27c9a2d64eb890673ff3649dacb3</li><li>ForcePunchEffect130e0b433e205294c964c5ce3e0c17ed</li><li>ZachariusFearAuraAread363527fe31581149b2d53686075c14d</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -7392,7 +7502,7 @@ InfoBox: Target buff should have at least one of the descriptors to be stolen
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwallowWhole_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwallowWhole(BlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintBuffReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3956">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4037">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwallowWhole_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwallowWhole*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwallowWhole_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintBuffReference__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwallowWhole(BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintBuffReference})">SwallowWhole(ActionsBuilder, Blueprint&lt;BlueprintBuffReference&gt;)</h4>
@@ -7509,7 +7619,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwarmTarget_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwarmTarget(BlueprintCore.Actions.Builder.ActionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L3982">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4063">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwarmTarget_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwarmTarget*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwarmTarget_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwarmTarget(BlueprintCore.Actions.Builder.ActionsBuilder,System.Nullable{System.Boolean})">SwarmTarget(ActionsBuilder, Nullable&lt;Boolean&gt;)</h4>
@@ -7626,7 +7736,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwordlordAdaptiveTacticsClear_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwordlordAdaptiveTacticsClear(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4020">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4101">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwordlordAdaptiveTacticsClear_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwordlordAdaptiveTacticsClear*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_SwordlordAdaptiveTacticsClear_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.SwordlordAdaptiveTacticsClear(BlueprintCore.Actions.Builder.ActionsBuilder)">SwordlordAdaptiveTacticsClear(ActionsBuilder)</h4>
@@ -7677,7 +7787,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Unsummon_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Unsummon(BlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4004">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ContextEx/ActionsBuilderContextEx.cs/#L4085">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Unsummon_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Unsummon*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ContextEx_ActionsBuilderContextEx_Unsummon_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ContextEx.ActionsBuilderContextEx.Unsummon(BlueprintCore.Actions.Builder.ActionsBuilder)">Unsummon(ActionsBuilder)</h4>
