@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.3.1 Release
+
+* Updated for EE
+
 ## v2.3.0 Release
 
 * Added more support for `FeatureGroup.TeamworkFeat` so it can be configured for sharing features. Note that you need to use the method `AddAsTeamworkFeat()` since configuring for some class features requires GUIDs used to generate additional blueprints.
