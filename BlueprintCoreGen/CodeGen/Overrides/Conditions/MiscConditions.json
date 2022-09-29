@@ -25,5 +25,7 @@
 
   { "TypeName": "Paused" },
 
-  { "TypeName": "RespecIsFree" }
+  { "TypeName": "RespecIsFree" },
+
+  { "TypeName": "SettingBoolValue" }
 ]

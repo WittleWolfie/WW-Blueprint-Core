@@ -5,6 +5,16 @@
 
   { "TypeName": "CurrentAreaIs" },
 
+  { "TypeName": "DungeonIsBoon" },
+
+  { "TypeName": "DungeonIsExpedition" },
+
+  { "TypeName": "DungeonIsIslandCurrentFinished" },
+
+  { "TypeName": "DungeonIsTier" },
+
+  { "TypeName": "DungeonIsTierReached" },
+
   { "TypeName": "InCapital" },
 
   { "TypeName": "IsLootEmpty" },

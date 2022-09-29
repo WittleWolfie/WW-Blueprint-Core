@@ -41,6 +41,8 @@
 
   { "TypeName": "ActionEnterToDungeon" },
 
+  { "TypeName": "ActionGiveIslandReward" },
+
   { "TypeName": "ActionGoDeeperIntoDungeon" },
 
   { "TypeName": "ActionIncreaseDungeonStage" },
@@ -52,6 +54,38 @@
   { "TypeName": "CapitalExit" },
 
   { "TypeName": "DecreaseCorruptionLevelAction" },
+
+  { "TypeName": "DLC3CampaignMap" },
+
+  { "TypeName": "DungeonEnterCurrentIsland" },
+
+  { "TypeName": "DungeonFinishCurrentIsland" },
+
+  { "TypeName": "DungeonLevelUpNextCharacter" },
+
+  { "TypeName": "DungeonLoadBossHealth" },
+
+  { "TypeName": "DungeonMoveToNextExpedition" },
+
+  { "TypeName": "DungeonMoveToNextIsland" },
+
+  { "TypeName": "DungeonOverrideBesmaritToBossLocation" },
+
+  { "TypeName": "DungeonRestart" },
+
+  { "TypeName": "DungeonRewardReveal" },
+
+  { "TypeName": "DungeonRunActionHolderForNextParty" },
+
+  { "TypeName": "DungeonSaveBossHealth" },
+
+  { "TypeName": "DungeonSetModificatorIcon" },
+
+  { "TypeName": "DungeonShowBoons" },
+
+  { "TypeName": "DungeonShowMap" },
+
+  { "TypeName": "DungeonShowResults" },
 
   { "TypeName": "EndAreaEffects" },
 

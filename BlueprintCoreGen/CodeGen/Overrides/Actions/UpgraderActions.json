@@ -64,11 +64,15 @@
     "RequiredFields": [ "Etude" ]
   },
 
+  { "TypeName": "DungeonFixExpeditionRemoval" },
+
   { "TypeName": "FixItemInInventory" },
 
   { "TypeName": "FixKingdomSystemBuffsAndStats" },
 
   { "TypeName": "RecreateOnLoad" },
+
+  { "TypeName": "RecreateOnLoadVissariyRatimus" },
 
   { "TypeName": "RefreshAllArmyLeaders" },
 

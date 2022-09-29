@@ -59,6 +59,8 @@
 
   { "TypeName": "SpawnFx" },
 
+  { "TypeName": "StartChangeVisual" },
+
   { "TypeName": "StopCustomMusic" },
 
   { "TypeName": "StopCutscene" },

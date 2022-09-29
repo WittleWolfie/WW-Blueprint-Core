@@ -65,6 +65,8 @@
 
   { "TypeName": "SummonPoolExistsAndEmpty" },
 
+  { "TypeName": "UnitArmor" },
+
   { "TypeName": "UnitIsDead" },
 
   { "TypeName": "UnitIsHidden" },

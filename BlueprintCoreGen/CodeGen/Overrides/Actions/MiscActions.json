@@ -20,9 +20,15 @@
 
   { "TypeName": "ClearVendorTable" },
 
+  { "TypeName": "ClearSharedVendorTable" },
+
   { "TypeName": "CreateCustomCompanion" },
 
   { "TypeName": "DebugLog" },
+
+  { "TypeName": "FillSharedVendorTable" },
+
+  { "TypeName": "GameLog" },
 
   { "TypeName": "GameOver" },
 

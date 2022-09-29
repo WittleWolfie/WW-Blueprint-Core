@@ -223,6 +223,14 @@
     "RequiredFields": [ "m_UnitsList", "Actions" ]
   },
 
+  { "TypeName": "ActionNahyndriSmash" },
+
+  { "TypeName": "ActionNahyndriUnsmash" },
+
+  { "TypeName": "ChangeBrain" },
+
+  { "TypeName": "ClearChestsLootAction" },
+
   { "TypeName": "ClearCorruptionLevelAction" },
 
   { "TypeName": "Conditional" },
@@ -271,6 +279,8 @@
 
   { "TypeName": "RunActionHolder" },
 
+  { "TypeName": "RunActionList" },
+
   { "TypeName": "Spawn" },
 
   { "TypeName": "SpawnBySummonPool" },
@@ -288,6 +298,8 @@
   { "TypeName": "SwitchActivatableAbility" },
 
   { "TypeName": "SwitchDualCompanion" },
+
+  { "TypeName": "UnitDismount" },
 
   { "TypeName": "UnitsFromSpawnersInUnitGroup" }
 ]

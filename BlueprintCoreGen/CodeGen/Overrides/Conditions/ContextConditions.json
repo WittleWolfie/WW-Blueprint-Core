@@ -55,6 +55,8 @@
 
   { "TypeName": "ContextConditionHasBuffWithDescriptor" },
 
+  { "TypeName": "ContextConditionHasBuffWithSpellSchool" },
+
   { "TypeName": "ContextConditionHasItem" },
 
   { "TypeName": "ContextConditionHasTouchSpellCharge" },

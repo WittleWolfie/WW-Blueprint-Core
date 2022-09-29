@@ -1180,6 +1180,8 @@
 
   { "TypeName": "ContextActionAcceptBurn" },
 
+  { "TypeName": "ContextActionAddRandomFeatureFromList" },
+
   { "TypeName": "ContextActionAeonRollbackToSavedState" },
 
   { "TypeName": "ContextActionBatteringBlast" },
