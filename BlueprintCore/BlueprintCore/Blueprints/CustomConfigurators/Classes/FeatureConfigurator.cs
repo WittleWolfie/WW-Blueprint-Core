@@ -284,6 +284,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);
       foreach (var selection in FeatureSelections.Except(additionalFeatureSelections))
       {
+        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(Blueprint.AssetGuid))
+          continue;
         if (Blueprint.HasGroup(selection.Group, selection.Group2))
           FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
@@ -291,6 +293,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       var modFeatureSelections = ModFeatureSelectionRefs.All.Select(s => s.Reference.Get()).Where(s => s is not null);
       foreach (var selection in modFeatureSelections.Except(additionalFeatureSelections))
       {
+        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(Blueprint.AssetGuid))
+          continue;
         if (Blueprint.HasGroup(selection.Group, selection.Group2))
           FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
       }
