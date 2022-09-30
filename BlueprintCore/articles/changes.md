@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.3.2 Release
+
+* Prevents features from being added to Feature Selection lists they're already on
+
 ## v2.3.1 Release
 
 * Updated for EE
