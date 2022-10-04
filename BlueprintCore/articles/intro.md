@@ -67,6 +67,41 @@ Some users reported an issue where Unity "locks" files. This prevents the rename
 
 Otherwise try opening powershell and running the script from there. This allows you to see any errors.
 
+#### Deploying and Releasing
+
+Every time you build the project your mod is automatically installed on your local machine.
+
+When you want to release your mod for others to install, select the `Release` build configuration and build. The release zip is automatically created in the output directory. You can navigate to the directory by right clicking your project in Visual Studio, selecting **Open Folder in File Explorer**, then navigating to the `bin/Release/net472` directory:
+
+![Opening project files](~/images/quick_start/open_files.png)
+
+![Release output directory](~/images/quick_start/release_zip.png)
+
+If you want to generate the release zip in another folder just double click on your project file to edit, scroll to the bottom, and change `DestinationFile` in the `ZipDirectory` command:
+
+```xml
+<!-- Automatically creates a release zip -->
+<Target Name="ZipRelease" AfterTargets="ILRepack" Condition="'$(Configuration)' == 'Release'">
+  <ItemGroup>
+    <Assembly Include="$(OutputPath)\$(AssemblyName).dll" />
+    <ModConfig Include="$(OutputPath)\Info.json" />
+    <Strings Include="$(OutputPath)\LocalizedStrings.json" />
+    <Assets Include="$(OutputPath)\*_assets" />
+  </ItemGroup>
+
+  <Copy SourceFiles="@(Assembly)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+  <Copy SourceFiles="@(ModConfig)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+  <Copy SourceFiles="@(Strings)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+  <Copy SourceFiles="@(Assets)" DestinationFolder="$(OutputPath)\$(AssemblyName)" />
+  <ZipDirectory
+    SourceDirectory="$(OutputPath)\$(AssemblyName)"
+    DestinationFile="$(OutputPath)\$(AssemblyName).zip"
+    Overwrite="true"/>
+</Target>
+```
+
+If you need to add additional files just add them as a new item under the `ItemGroup`, then add a copy command for that item.
+
 ### Full Setup
 
 This assumes you have already created a C# project and are familiar with the basic mod setup in the [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide).
