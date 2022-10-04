@@ -147,6 +147,32 @@
 <h4 id="troubleshooting">Troubleshooting</h4>
 <p>Some users reported an issue where Unity &quot;locks&quot; files. This prevents the rename from happening. If this happens just follow the instructions in the <a href="tutorials/advanced/skalds_vigor.html#create-an-assetbundle">Skald's Vigor Tutorial</a>.</p>
 <p>Otherwise try opening powershell and running the script from there. This allows you to see any errors.</p>
+<h4 id="deploying-and-releasing">Deploying and Releasing</h4>
+<p>Every time you build the project your mod is automatically installed on your local machine.</p>
+<p>When you want to release your mod for others to install, select the <code>Release</code> build configuration and build. The release zip is automatically created in the output directory. You can navigate to the directory by right clicking your project in Visual Studio, selecting <strong>Open Folder in File Explorer</strong>, then navigating to the <code>bin/Release/net472</code> directory:</p>
+<p><img src="../images/quick_start/open_files.png" alt="Opening project files"></p>
+<p><img src="../images/quick_start/release_zip.png" alt="Release output directory"></p>
+<p>If you want to generate the release zip in another folder just double click on your project file to edit, scroll to the bottom, and change <code>DestinationFile</code> in the <code>ZipDirectory</code> command:</p>
+<pre><code class="lang-xml">&lt;!-- Automatically creates a release zip --&gt;
+&lt;Target Name=&quot;ZipRelease&quot; AfterTargets=&quot;ILRepack&quot; Condition=&quot;'$(Configuration)' == 'Release'&quot;&gt;
+  &lt;ItemGroup&gt;
+    &lt;Assembly Include=&quot;$(OutputPath)\$(AssemblyName).dll&quot; /&gt;
+    &lt;ModConfig Include=&quot;$(OutputPath)\Info.json&quot; /&gt;
+    &lt;Strings Include=&quot;$(OutputPath)\LocalizedStrings.json&quot; /&gt;
+    &lt;Assets Include=&quot;$(OutputPath)\*_assets&quot; /&gt;
+  &lt;/ItemGroup&gt;
+
+  &lt;Copy SourceFiles=&quot;@(Assembly)&quot; DestinationFolder=&quot;$(OutputPath)\$(AssemblyName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(ModConfig)&quot; DestinationFolder=&quot;$(OutputPath)\$(AssemblyName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(Strings)&quot; DestinationFolder=&quot;$(OutputPath)\$(AssemblyName)&quot; /&gt;
+  &lt;Copy SourceFiles=&quot;@(Assets)&quot; DestinationFolder=&quot;$(OutputPath)\$(AssemblyName)&quot; /&gt;
+  &lt;ZipDirectory
+    SourceDirectory=&quot;$(OutputPath)\$(AssemblyName)&quot;
+    DestinationFile=&quot;$(OutputPath)\$(AssemblyName).zip&quot;
+    Overwrite=&quot;true&quot;/&gt;
+&lt;/Target&gt;
+</code></pre>
+<p>If you need to add additional files just add them as a new item under the <code>ItemGroup</code>, then add a copy command for that item.</p>
 <h3 id="full-setup">Full Setup</h3>
 <p>This assumes you have already created a C# project and are familiar with the basic mod setup in the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a>.</p>
 <ol>
