@@ -1,5 +1,6 @@
 ﻿using BlueprintCore.Utils;
 using BlueprintCoreGen.CodeGen.Overrides.Examples;
+using BlueprintCoreGen.CodeGen.Overrides.Ignored;
 using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
@@ -70,7 +71,11 @@ namespace BlueprintCoreGen.CodeGen.Methods
     public static IMethod CreateCopyFrom(Type blueprintType, List<FieldMethod> fields, string returnType)
     {
       var method = new MethodImpl();
-      var body = fields.Select(field => $"Blueprint.{field!.FieldName} = blueprint.{field.FieldName};").ToList();
+      var body =
+        fields.Select(field => blueprintType.GetField(field.FieldName))
+          .Where(field => !Ignored.ShouldIgnoreField(field, blueprintType))
+          .Select(field => $"Blueprint.{field.Name} = blueprint.{field.Name};")
+          .ToList();
 
       body.Add($"");
       body.Add($"var componentsToAdd = new List<BlueprintComponent>();");
