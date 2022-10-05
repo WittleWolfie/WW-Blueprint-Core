@@ -74,20 +74,23 @@ namespace BlueprintCoreGen.CodeGen.Methods
       var body =
         fields.Select(field => blueprintType.GetField(field.FieldName))
           .Where(field => !Ignored.ShouldIgnoreField(field, blueprintType))
-          .Select(field => $"Blueprint.{field.Name} = blueprint.{field.Name};")
+          .Select(field => $"bp.{field.Name} = copyFrom.{field.Name};")
           .ToList();
 
-      body.Add($"");
-      body.Add($"var componentsToAdd = new List<BlueprintComponent>();");
-      body.Add($"foreach (var type in componentTypes)");
-      body.Add($"  componentsToAdd.AddRange(blueprint.Components.Where(c => c.GetType() == type));");
-      body.Add($"Blueprint.Components = CommonTool.Append(Blueprint.Components, componentsToAdd.Distinct().ToArray());");
-
-      method.AddLine($"public override {returnType} CopyFrom({TypeTool.GetName(blueprintType)} blueprint, params Type[] componentTypes)");
+      method.AddLine($"public {returnType} CopyFrom(");
+      method.AddLine($"  Blueprint<BlueprintReference<{TypeTool.GetName(blueprintType)}>> blueprint, params Type[] componentTypes)");
       method.AddLine($"{{");
-      method.AddLine($"  base.CopyFrom(blueprint, componentTypes);");
-      method.AddLine($"");
-      AddOnConfigure(method, body, new() { });
+      method.AddLine($"  base.CopyFrom(blueprint.ToString(), componentTypes);");
+      if (body.Any())
+      {
+        body.Insert(0, $"var copyFrom = blueprint.Reference.Get();");
+        method.AddLine($"");
+        AddOnConfigure(method, body, new() { });
+      }
+      else
+      {
+        method.AddLine($"return Self;");
+      }
       method.AddLine($"}}");
 
       return method;

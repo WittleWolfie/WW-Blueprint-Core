@@ -141,6 +141,7 @@ namespace BlueprintCoreGen.CodeGen.Class
       if (copyFrom.GetLines().Any())
       {
         configuratorClass.AddLine("");
+        configuratorClass.AddImport("System");
         copyFrom.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
       }
 
