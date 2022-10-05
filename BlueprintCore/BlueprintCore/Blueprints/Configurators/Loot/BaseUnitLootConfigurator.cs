@@ -19,6 +19,19 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   {
     protected BaseUnitLootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitLoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Dummy = copyFrom.m_Dummy;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitLoot.m_Dummy"/>
     /// </summary>

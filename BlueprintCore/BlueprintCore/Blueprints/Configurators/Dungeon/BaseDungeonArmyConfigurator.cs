@@ -23,6 +23,43 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonArmyConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonArmy>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ProbabilityWeight = copyFrom.m_ProbabilityWeight;
+          bp.LimitMaxRooms = copyFrom.LimitMaxRooms;
+          bp.MaxRooms = copyFrom.MaxRooms;
+          bp.OverrideUnitsCount = copyFrom.OverrideUnitsCount;
+          bp.UnitsCount = copyFrom.UnitsCount;
+          bp.LimitMinStage = copyFrom.LimitMinStage;
+          bp.MinStage = copyFrom.MinStage;
+          bp.LimitMaxStage = copyFrom.LimitMaxStage;
+          bp.MaxStage = copyFrom.MaxStage;
+          bp.m_Tiers = copyFrom.m_Tiers;
+          bp.m_MinDifficulty = copyFrom.m_MinDifficulty;
+          bp.m_MaxDifficulty = copyFrom.m_MaxDifficulty;
+          bp.m_Themes = copyFrom.m_Themes;
+          bp.m_ModificatorsInclude = copyFrom.m_ModificatorsInclude;
+          bp.m_ModificatorsExclude = copyFrom.m_ModificatorsExclude;
+          bp.m_SettingsInclude = copyFrom.m_SettingsInclude;
+          bp.m_SettingsExclude = copyFrom.m_SettingsExclude;
+          bp.m_IncludeTags = copyFrom.m_IncludeTags;
+          bp.m_ExcludeTags = copyFrom.m_ExcludeTags;
+          bp.m_ExcludeUnits = copyFrom.m_ExcludeUnits;
+          bp.m_IncludeUnits = copyFrom.m_IncludeUnits;
+          bp.Units = copyFrom.Units;
+          bp.PseudoCRUnits = copyFrom.PseudoCRUnits;
+          bp.PseudoCRMultiplier = copyFrom.PseudoCRMultiplier;
+          bp.m_CrUnitsFromPseudoCR = copyFrom.m_CrUnitsFromPseudoCR;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonArmy.m_ProbabilityWeight"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.CharGen
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
       return For(name);
     }
 
+
+    public RaceVisualPresetConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

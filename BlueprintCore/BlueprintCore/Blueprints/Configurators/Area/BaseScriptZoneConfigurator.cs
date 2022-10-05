@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseScriptZoneConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptZone>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.TriggerConditions = copyFrom.TriggerConditions;
+          bp.EnterActions = copyFrom.EnterActions;
+          bp.ExitActions = copyFrom.ExitActions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintScriptZone.TriggerConditions"/>
     /// </summary>

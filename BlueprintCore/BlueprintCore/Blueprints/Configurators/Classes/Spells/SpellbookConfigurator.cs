@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       return For(name);
     }
 
+
+    public SpellbookConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpellbook>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

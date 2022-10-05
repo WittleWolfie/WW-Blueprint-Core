@@ -26,6 +26,53 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseTacticalCombatRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ProbabilitySampler = copyFrom.m_ProbabilitySampler;
+          bp.m_CrusadersFaction = copyFrom.m_CrusadersFaction;
+          bp.m_DemonsFaction = copyFrom.m_DemonsFaction;
+          bp.m_DefaultBrain = copyFrom.m_DefaultBrain;
+          bp.m_DefaultLeaderBrain = copyFrom.m_DefaultLeaderBrain;
+          bp.m_AiSpellCastWeight = copyFrom.m_AiSpellCastWeight;
+          bp.m_AiCanUseRituals = copyFrom.m_AiCanUseRituals;
+          bp.m_DelayBetweenTurns = copyFrom.m_DelayBetweenTurns;
+          bp.m_DelayAfterMoraleEffect = copyFrom.m_DelayAfterMoraleEffect;
+          bp.m_DelayBeforeBattleEnd = copyFrom.m_DelayBeforeBattleEnd;
+          bp.m_MaxTurnDuration = copyFrom.m_MaxTurnDuration;
+          bp.m_MoveSpeed = copyFrom.m_MoveSpeed;
+          bp.m_MaxSquadsCount = copyFrom.m_MaxSquadsCount;
+          bp.m_BuffPrefix = copyFrom.m_BuffPrefix;
+          bp.m_ArmyLossesCoefOnRetreat = copyFrom.m_ArmyLossesCoefOnRetreat;
+          bp.m_DiceRollResultsDistribution = copyFrom.m_DiceRollResultsDistribution;
+          bp.m_BannedUnitFacts = copyFrom.m_BannedUnitFacts;
+          bp.m_DefaultZone = copyFrom.m_DefaultZone;
+          bp.m_ZoneSettings = copyFrom.m_ZoneSettings;
+          bp.m_LeaderManaResource = copyFrom.m_LeaderManaResource;
+          bp.m_UnitTiersByBaseHealth = copyFrom.m_UnitTiersByBaseHealth;
+          bp.m_AutoVictoryCoefficient = copyFrom.m_AutoVictoryCoefficient;
+          bp.m_PlayerLossesCoefficientA = copyFrom.m_PlayerLossesCoefficientA;
+          bp.m_PlayerLossesCoefficientB = copyFrom.m_PlayerLossesCoefficientB;
+          bp.m_PlayerLossesCoefficientC = copyFrom.m_PlayerLossesCoefficientC;
+          bp.m_EnemyLossesCoefficientA = copyFrom.m_EnemyLossesCoefficientA;
+          bp.m_EnemyLossesCoefficientB = copyFrom.m_EnemyLossesCoefficientB;
+          bp.m_MaxTierLossesPercent = copyFrom.m_MaxTierLossesPercent;
+          bp.m_LowLossesPercent = copyFrom.m_LowLossesPercent;
+          bp.m_HighLossesPercent = copyFrom.m_HighLossesPercent;
+          bp.m_DismembermentDamageCoefficient = copyFrom.m_DismembermentDamageCoefficient;
+          bp.m_WinnerCutscene = copyFrom.m_WinnerCutscene;
+          bp.m_PositiveMoraleFx = copyFrom.m_PositiveMoraleFx;
+          bp.m_NegativeMoraleFx = copyFrom.m_NegativeMoraleFx;
+          bp.m_AudioScalingFactor = copyFrom.m_AudioScalingFactor;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_ProbabilitySampler"/>
     /// </summary>

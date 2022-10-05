@@ -20,6 +20,22 @@ namespace BlueprintCore.Blueprints.Configurators.UI
   {
     protected BaseUISoundConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUISound>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Sounds = copyFrom.Sounds;
+          bp.ArmyManagement = copyFrom.ArmyManagement;
+          bp.Tooltip = copyFrom.Tooltip;
+          bp.CardInterface = copyFrom.CardInterface;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.Sounds"/>
     /// </summary>

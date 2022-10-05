@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseConditionConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ConditionConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Condition = copyFrom.Condition;
+          bp.ConditionTrueScore = copyFrom.ConditionTrueScore;
+          bp.ConditionFlaseScore = copyFrom.ConditionFlaseScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ConditionConsideration.Condition"/>
     /// </summary>

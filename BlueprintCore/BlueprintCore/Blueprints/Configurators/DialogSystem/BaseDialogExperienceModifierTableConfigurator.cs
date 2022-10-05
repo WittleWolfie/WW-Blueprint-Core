@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -16,6 +17,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where TBuilder : BaseDialogExperienceModifierTableConfigurator<T, TBuilder>
   {
     protected BaseDialogExperienceModifierTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDialogExperienceModifierTable>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MultiplierLow = copyFrom.MultiplierLow;
+          bp.MultiplierNormal = copyFrom.MultiplierNormal;
+          bp.MultiplierHigh = copyFrom.MultiplierHigh;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/>

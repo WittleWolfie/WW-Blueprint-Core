@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseCueBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCueBase>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ShowOnce = copyFrom.ShowOnce;
+          bp.ShowOnceCurrentDialog = copyFrom.ShowOnceCurrentDialog;
+          bp.Conditions = copyFrom.Conditions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCueBase.ShowOnce"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UI;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UI
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.UI
       return For(name);
     }
 
+
+    public UISoundConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUISound>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

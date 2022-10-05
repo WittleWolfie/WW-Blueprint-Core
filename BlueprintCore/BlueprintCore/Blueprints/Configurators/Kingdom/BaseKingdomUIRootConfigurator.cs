@@ -21,6 +21,33 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomUIRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<KingdomUIRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DefaultOpportunityMapMarker = copyFrom.DefaultOpportunityMapMarker;
+          bp.DefaultProblemMapMarker = copyFrom.DefaultProblemMapMarker;
+          bp.Stats = copyFrom.Stats;
+          bp.Resources = copyFrom.Resources;
+          bp.RavenTexts = copyFrom.RavenTexts;
+          bp.LeaderDescriptions = copyFrom.LeaderDescriptions;
+          bp.Texts = copyFrom.Texts;
+          bp.EventResultMarginDescriptions = copyFrom.EventResultMarginDescriptions;
+          bp.Settlement = copyFrom.Settlement;
+          bp.Tooltip = copyFrom.Tooltip;
+          bp.Motto = copyFrom.Motto;
+          bp.KingdomStatusChangeReasons = copyFrom.KingdomStatusChangeReasons;
+          bp.KingdomHistoryEntitisCount = copyFrom.KingdomHistoryEntitisCount;
+          bp.ExResourceStateTypeStrings = copyFrom.ExResourceStateTypeStrings;
+          bp.KingdomStautsDesriptions = copyFrom.KingdomStautsDesriptions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="KingdomUIRoot.DefaultOpportunityMapMarker"/>
     /// </summary>

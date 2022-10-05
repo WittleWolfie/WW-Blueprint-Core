@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.BarkBanters
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
       return For(name);
     }
 
+
+    public BarkBanterConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBarkBanter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

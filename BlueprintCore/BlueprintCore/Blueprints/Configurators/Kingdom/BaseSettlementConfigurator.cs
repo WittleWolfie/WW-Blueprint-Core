@@ -21,6 +21,30 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseSettlementConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSettlement>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_StartLevel = copyFrom.m_StartLevel;
+          bp.m_MaxSettlementLevel = copyFrom.m_MaxSettlementLevel;
+          bp.m_HasWaterSlot = copyFrom.m_HasWaterSlot;
+          bp.m_DefaultSettlementName = copyFrom.m_DefaultSettlementName;
+          bp.m_SettlementBuildArea = copyFrom.m_SettlementBuildArea;
+          bp.m_SettlementBuildAreaWithWater = copyFrom.m_SettlementBuildAreaWithWater;
+          bp.m_CustomSettlementEntrance = copyFrom.m_CustomSettlementEntrance;
+          bp.m_SettlementIsPrebuilt = copyFrom.m_SettlementIsPrebuilt;
+          bp.m_SettlementEntrance = copyFrom.m_SettlementEntrance;
+          bp.m_SettlementEntrances = copyFrom.m_SettlementEntrances;
+          bp.m_CustomSiegeDurationDays = copyFrom.m_CustomSiegeDurationDays;
+          bp.m_NeedOwnMarker = copyFrom.m_NeedOwnMarker;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlement.m_StartLevel"/>
     /// </summary>

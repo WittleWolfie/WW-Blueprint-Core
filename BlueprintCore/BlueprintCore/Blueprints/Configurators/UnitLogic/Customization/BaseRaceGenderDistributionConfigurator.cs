@@ -20,6 +20,22 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
   {
     protected BaseRaceGenderDistributionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<RaceGenderDistribution>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Races = copyFrom.Races;
+          bp.LeftHandedChance = copyFrom.LeftHandedChance;
+          bp.MaleBaseWeight = copyFrom.MaleBaseWeight;
+          bp.FemaleBaseWeight = copyFrom.FemaleBaseWeight;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.Races"/>
     /// </summary>

@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseLevelUpPlanFeaturesListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLevelUpPlanFeaturesList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Features = copyFrom.Features;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLevelUpPlanFeaturesList.Features"/>
     /// </summary>

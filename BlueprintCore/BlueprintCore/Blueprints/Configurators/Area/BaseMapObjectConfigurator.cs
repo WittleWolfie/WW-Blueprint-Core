@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseMapObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMapObject>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Prefab = copyFrom.Prefab;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMapObject.Prefab"/>
     /// </summary>

@@ -23,6 +23,33 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   {
     protected BaseRandomEncounterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRandomEncounter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ExcludeFromREList = copyFrom.ExcludeFromREList;
+          bp.IsPeaceful = copyFrom.IsPeaceful;
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.AvoidType = copyFrom.AvoidType;
+          bp.AvoidDC = copyFrom.AvoidDC;
+          bp.EncountersLimit = copyFrom.EncountersLimit;
+          bp.Conditions = copyFrom.Conditions;
+          bp.PawnPrefab = copyFrom.PawnPrefab;
+          bp.Type = copyFrom.Type;
+          bp.DisableAutoSave = copyFrom.DisableAutoSave;
+          bp.OnEnter = copyFrom.OnEnter;
+          bp.CanBeCampingEncounter = copyFrom.CanBeCampingEncounter;
+          bp.m_AreaEntrance = copyFrom.m_AreaEntrance;
+          bp.m_BookEvent = copyFrom.m_BookEvent;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRandomEncounter.ExcludeFromREList"/>
     /// </summary>

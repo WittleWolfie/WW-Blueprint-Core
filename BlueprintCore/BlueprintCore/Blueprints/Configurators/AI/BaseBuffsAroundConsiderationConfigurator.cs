@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseBuffsAroundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BuffsAroundConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Buffs = copyFrom.m_Buffs;
+          bp.CheckAbsence = copyFrom.CheckAbsence;
+          bp.FromCaster = copyFrom.FromCaster;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BuffsAroundConsideration.m_Buffs"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Achievements
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
       return For(name);
     }
 
+
+    public AchievementDataConfigurator CopyFrom(
+      Blueprint<BlueprintReference<AchievementData>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

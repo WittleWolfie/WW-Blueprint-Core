@@ -20,6 +20,29 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
   {
     protected BaseInteractionRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintInteractionRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_InteractionDCVariation = copyFrom.m_InteractionDCVariation;
+          bp.m_MagicPowerCost = copyFrom.m_MagicPowerCost;
+          bp.m_MagicPowerItem = copyFrom.m_MagicPowerItem;
+          bp.m_DestructionFx = copyFrom.m_DestructionFx;
+          bp.m_FxDenominator = copyFrom.m_FxDenominator;
+          bp.m_DefaultDestructionSuccessSound = copyFrom.m_DefaultDestructionSuccessSound;
+          bp.m_LockpickStartSound = copyFrom.m_LockpickStartSound;
+          bp.m_LockpickEndSound = copyFrom.m_LockpickEndSound;
+          bp.m_LockpickSuccessSound = copyFrom.m_LockpickSuccessSound;
+          bp.m_LockpickFailSound = copyFrom.m_LockpickFailSound;
+          bp.m_LockpickCriticalFailSound = copyFrom.m_LockpickCriticalFailSound;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintInteractionRoot.m_InteractionDCVariation"/>
     /// </summary>

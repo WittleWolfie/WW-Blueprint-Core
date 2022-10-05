@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseCrusadeEventTimelineConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCrusadeEventTimeline>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Chapters = copyFrom.Chapters;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEventTimeline.Chapters"/>
     /// </summary>

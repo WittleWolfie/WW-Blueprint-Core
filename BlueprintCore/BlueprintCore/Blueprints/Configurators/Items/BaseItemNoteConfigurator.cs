@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -16,5 +17,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where TBuilder : BaseItemNoteConfigurator<T, TBuilder>
   {
     protected BaseItemNoteConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemNote>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

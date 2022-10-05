@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root.Fx;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Root.Fx
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
       return For(name);
     }
 
+
+    public FxRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<FxRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

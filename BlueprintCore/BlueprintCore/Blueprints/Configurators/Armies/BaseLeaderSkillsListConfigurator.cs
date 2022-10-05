@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseLeaderSkillsListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLeaderSkillsList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Skills = copyFrom.m_Skills;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkillsList.m_Skills"/>
     /// </summary>

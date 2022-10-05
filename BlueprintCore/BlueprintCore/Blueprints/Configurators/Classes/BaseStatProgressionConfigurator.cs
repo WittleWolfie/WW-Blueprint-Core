@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseStatProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintStatProgression>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Bonuses = copyFrom.Bonuses;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintStatProgression.Bonuses"/>
     /// </summary>

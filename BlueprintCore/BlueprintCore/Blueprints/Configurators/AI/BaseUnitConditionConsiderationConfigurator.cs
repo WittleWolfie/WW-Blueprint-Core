@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseUnitConditionConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitConditionConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Conditions = copyFrom.Conditions;
+          bp.HasCondition = copyFrom.HasCondition;
+          bp.NoCondition = copyFrom.NoCondition;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitConditionConsideration.Conditions"/>
     /// </summary>

@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -17,6 +18,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseActiveCommandConsiderationConfigurator<T, TBuilder>
   {
     protected BaseActiveCommandConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ActiveCommandConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CommandType = copyFrom.CommandType;
+          bp.HasCommandScore = copyFrom.HasCommandScore;
+          bp.NoCommandScore = copyFrom.NoCommandScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="ActiveCommandConsideration.CommandType"/>

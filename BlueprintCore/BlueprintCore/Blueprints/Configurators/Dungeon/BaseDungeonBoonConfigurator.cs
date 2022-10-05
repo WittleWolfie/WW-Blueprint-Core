@@ -22,6 +22,22 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonBoonConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonBoon>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Icon = copyFrom.Icon;
+          bp.m_Description = copyFrom.m_Description;
+          bp.MinStage = copyFrom.MinStage;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonBoon.Name"/>
     /// </summary>

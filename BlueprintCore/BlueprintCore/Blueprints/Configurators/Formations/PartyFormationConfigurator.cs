@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Formations;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Formations
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
       return For(name);
     }
 
+
+    public PartyFormationConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPartyFormation>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

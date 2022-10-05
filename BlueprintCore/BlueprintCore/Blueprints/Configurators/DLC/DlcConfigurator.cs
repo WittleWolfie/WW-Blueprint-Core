@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       return For(name);
     }
 
+
+    public DlcConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlc>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

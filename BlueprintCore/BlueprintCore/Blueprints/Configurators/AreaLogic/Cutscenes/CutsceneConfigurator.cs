@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       return For(name);
     }
 
+
+    public CutsceneConfigurator CopyFrom(
+      Blueprint<BlueprintReference<Cutscene>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

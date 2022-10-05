@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Commands.Base;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -17,6 +18,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseCommandCooldownConsiderationConfigurator<T, TBuilder>
   {
     protected BaseCommandCooldownConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CommandCooldownConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CommandType = copyFrom.CommandType;
+          bp.OnCooldownScore = copyFrom.OnCooldownScore;
+          bp.OffCooldownScore = copyFrom.OffCooldownScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="CommandCooldownConsideration.CommandType"/>

@@ -22,6 +22,30 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   {
     protected BaseHitSystemRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<HitSystemRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DamageTypes = copyFrom.DamageTypes;
+          bp.EnergyTypes = copyFrom.EnergyTypes;
+          bp.BloodTypes = copyFrom.BloodTypes;
+          bp.DefaultDamage = copyFrom.DefaultDamage;
+          bp.DefaultAoeDamage = copyFrom.DefaultAoeDamage;
+          bp.OverrideHitDirectionPrefabFromAnimationStyle = copyFrom.OverrideHitDirectionPrefabFromAnimationStyle;
+          bp.MaxHeightIncrease = copyFrom.MaxHeightIncrease;
+          bp.EnergyResistance = copyFrom.EnergyResistance;
+          bp.RagdollDistanceForLootBag = copyFrom.RagdollDistanceForLootBag;
+          bp.BlowUpDismembermentChance = copyFrom.BlowUpDismembermentChance;
+          bp.LimbsApartDismembermentChance = copyFrom.LimbsApartDismembermentChance;
+          bp.m_Initialized = copyFrom.m_Initialized;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="HitSystemRoot.DamageTypes"/>
     /// </summary>

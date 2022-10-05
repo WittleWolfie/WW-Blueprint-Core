@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Controllers.Rest.Cooking;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Cooking
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
       return For(name);
     }
 
+
+    public CookingRecipeConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

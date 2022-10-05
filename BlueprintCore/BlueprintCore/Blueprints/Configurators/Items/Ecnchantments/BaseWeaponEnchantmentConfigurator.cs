@@ -37,6 +37,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   {
     protected BaseWeaponEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.WeaponFxPrefab = copyFrom.WeaponFxPrefab;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponEnchantment.WeaponFxPrefab"/>
     /// </summary>

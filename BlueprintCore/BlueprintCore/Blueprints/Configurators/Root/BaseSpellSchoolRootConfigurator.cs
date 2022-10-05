@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   {
     protected BaseSpellSchoolRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<SpellSchoolRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_OppositeSchools = copyFrom.m_OppositeSchools;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="SpellSchoolRoot.m_OppositeSchools"/>
     /// </summary>

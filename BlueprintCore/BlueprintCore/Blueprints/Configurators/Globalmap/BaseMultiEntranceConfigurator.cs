@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   {
     protected BaseMultiEntranceConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMultiEntrance>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Map = copyFrom.Map;
+          bp.Name = copyFrom.Name;
+          bp.m_Entries = copyFrom.m_Entries;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntrance.Map"/>
     /// </summary>

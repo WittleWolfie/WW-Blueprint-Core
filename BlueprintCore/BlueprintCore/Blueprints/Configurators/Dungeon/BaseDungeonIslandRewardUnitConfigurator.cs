@@ -18,6 +18,19 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonIslandRewardUnitConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIslandRewardUnit>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Blueprint = copyFrom.m_Blueprint;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandRewardUnit.m_Blueprint"/>
     /// </summary>

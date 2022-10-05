@@ -22,6 +22,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
   {
     protected BaseItemArmorConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemArmor>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Type = copyFrom.m_Type;
+          bp.m_Size = copyFrom.m_Size;
+          bp.m_VisualParameters = copyFrom.m_VisualParameters;
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_OverrideShardItem = copyFrom.m_OverrideShardItem;
+          bp.m_OverrideDestructible = copyFrom.m_OverrideDestructible;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemArmor.m_Type"/>
     /// </summary>

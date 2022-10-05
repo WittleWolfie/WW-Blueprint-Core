@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       return For(name);
     }
 
+
+    public FeatureSelectionConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

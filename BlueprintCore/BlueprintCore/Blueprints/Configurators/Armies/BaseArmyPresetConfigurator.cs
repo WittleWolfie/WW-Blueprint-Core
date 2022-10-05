@@ -20,6 +20,22 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseArmyPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyPreset>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Morale = copyFrom.Morale;
+          bp.Squads = copyFrom.Squads;
+          bp.m_Leader = copyFrom.m_Leader;
+          bp.m_ArmyType = copyFrom.m_ArmyType;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPreset.Morale"/>
     /// </summary>

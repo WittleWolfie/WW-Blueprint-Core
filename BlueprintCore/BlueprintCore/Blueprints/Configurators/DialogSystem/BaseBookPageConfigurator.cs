@@ -25,6 +25,24 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseBookPageConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBookPage>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Cues = copyFrom.Cues;
+          bp.Answers = copyFrom.Answers;
+          bp.OnShow = copyFrom.OnShow;
+          bp.ImageLink = copyFrom.ImageLink;
+          bp.ForeImageLink = copyFrom.ForeImageLink;
+          bp.Title = copyFrom.Title;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintBookPage.Cues"/>
     /// </summary>

@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -17,5 +18,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where TBuilder : BaseTacticalCombatAiActionConfigurator<T, TBuilder>
   {
     protected BaseTacticalCombatAiActionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatAiAction>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

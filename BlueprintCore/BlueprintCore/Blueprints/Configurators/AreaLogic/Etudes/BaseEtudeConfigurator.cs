@@ -41,6 +41,33 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
   {
     protected BaseEtudeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEtude>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Parent = copyFrom.m_Parent;
+          bp.ActivationCondition = copyFrom.ActivationCondition;
+          bp.CompletionCondition = copyFrom.CompletionCondition;
+          bp.m_Synchronized = copyFrom.m_Synchronized;
+          bp.m_AllowActionStart = copyFrom.m_AllowActionStart;
+          bp.m_LinkedAreaPart = copyFrom.m_LinkedAreaPart;
+          bp.m_LinkedCampaigns = copyFrom.m_LinkedCampaigns;
+          bp.m_IncludeAreaParts = copyFrom.m_IncludeAreaParts;
+          bp.m_AddedAreaMechanics = copyFrom.m_AddedAreaMechanics;
+          bp.m_StartsWith = copyFrom.m_StartsWith;
+          bp.m_StartsOnComplete = copyFrom.m_StartsOnComplete;
+          bp.m_StartsParent = copyFrom.m_StartsParent;
+          bp.m_CompletesParent = copyFrom.m_CompletesParent;
+          bp.m_ConflictingGroups = copyFrom.m_ConflictingGroups;
+          bp.Priority = copyFrom.Priority;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintEtude.m_Parent"/>
     /// </summary>

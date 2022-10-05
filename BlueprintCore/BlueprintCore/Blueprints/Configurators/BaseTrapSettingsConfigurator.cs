@@ -17,6 +17,23 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseTrapSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTrapSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ActorLevel = copyFrom.ActorLevel;
+          bp.ActorStatMod = copyFrom.ActorStatMod;
+          bp.TrapActor = copyFrom.TrapActor;
+          bp.DisableDC = copyFrom.DisableDC;
+          bp.PerceptionDC = copyFrom.PerceptionDC;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettings.ActorLevel"/>
     /// </summary>

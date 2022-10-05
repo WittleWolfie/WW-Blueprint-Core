@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Root;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       return For(name);
     }
 
+
+    public CutscenesRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<CutscenesRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

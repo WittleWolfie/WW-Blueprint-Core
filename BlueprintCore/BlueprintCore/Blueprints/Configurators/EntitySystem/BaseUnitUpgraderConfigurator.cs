@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
   {
     protected BaseUnitUpgraderConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitUpgrader>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ApplyFromPlaceholder = copyFrom.ApplyFromPlaceholder;
+          bp.Actions = copyFrom.Actions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/>
     /// </summary>

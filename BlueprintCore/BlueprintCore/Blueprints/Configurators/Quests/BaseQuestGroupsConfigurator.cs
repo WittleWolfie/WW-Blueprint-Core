@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   {
     protected BaseQuestGroupsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuestGroups>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Groups = copyFrom.Groups;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuestGroups.Groups"/>
     /// </summary>

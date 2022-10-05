@@ -20,6 +20,36 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseAiCastSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiCastSpell>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MinCasterSqrDistanceToLocator = copyFrom.m_MinCasterSqrDistanceToLocator;
+          bp.m_MinPartySqrDistanceToLocator = copyFrom.m_MinPartySqrDistanceToLocator;
+          bp.m_MaxPartySqrDistanceToLocator = copyFrom.m_MaxPartySqrDistanceToLocator;
+          bp.m_AffectedByImpatience = copyFrom.m_AffectedByImpatience;
+          bp.m_Ability = copyFrom.m_Ability;
+          bp.m_ForceTargetSelf = copyFrom.m_ForceTargetSelf;
+          bp.m_ForceTargetEnemy = copyFrom.m_ForceTargetEnemy;
+          bp.m_TargetPointUnderTarget = copyFrom.m_TargetPointUnderTarget;
+          bp.m_DeadTargetType = copyFrom.m_DeadTargetType;
+          bp.m_RandomVariant = copyFrom.m_RandomVariant;
+          bp.m_Variant = copyFrom.m_Variant;
+          bp.m_VariantsSet = copyFrom.m_VariantsSet;
+          bp.Locators = copyFrom.Locators;
+          bp.CheckCasterDistance = copyFrom.CheckCasterDistance;
+          bp.MinCasterDistanceToLocator = copyFrom.MinCasterDistanceToLocator;
+          bp.CheckPartyDistance = copyFrom.CheckPartyDistance;
+          bp.MinPartyDistanceToLocator = copyFrom.MinPartyDistanceToLocator;
+          bp.MaxPartyDistanceToLocator = copyFrom.MaxPartyDistanceToLocator;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiCastSpell.m_MinCasterSqrDistanceToLocator"/>
     /// </summary>

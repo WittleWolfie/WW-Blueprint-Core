@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,24 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseHealthConsiderationConfigurator<T, TBuilder>
   {
     protected BaseHealthConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<HealthConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.FullBorder = copyFrom.FullBorder;
+          bp.DeadBorder = copyFrom.DeadBorder;
+          bp.AboveFullScore = copyFrom.AboveFullScore;
+          bp.BelowDeadScore = copyFrom.BelowDeadScore;
+          bp.FullScore = copyFrom.FullScore;
+          bp.DeadScore = copyFrom.DeadScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="HealthConsideration.FullBorder"/>

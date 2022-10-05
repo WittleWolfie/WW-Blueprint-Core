@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseFactConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FactConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Fact = copyFrom.m_Fact;
+          bp.HasFactScore = copyFrom.HasFactScore;
+          bp.NoFactScore = copyFrom.NoFactScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FactConsideration.m_Fact"/>
     /// </summary>

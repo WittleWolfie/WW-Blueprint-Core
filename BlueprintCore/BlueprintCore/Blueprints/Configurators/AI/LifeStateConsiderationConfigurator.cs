@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       return For(name);
     }
 
+
+    public LifeStateConsiderationConfigurator CopyFrom(
+      Blueprint<BlueprintReference<LifeStateConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

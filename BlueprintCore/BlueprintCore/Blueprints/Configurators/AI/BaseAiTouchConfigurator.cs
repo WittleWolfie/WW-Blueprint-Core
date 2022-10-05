@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,5 +17,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseAiTouchConfigurator<T, TBuilder>
   {
     protected BaseAiTouchConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiTouch>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

@@ -45,6 +45,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseFeatureConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeature>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsClassFeature = copyFrom.IsClassFeature;
+          bp.m_DescriptionModifiersCache = copyFrom.m_DescriptionModifiersCache;
+          bp.Groups = copyFrom.Groups;
+          bp.Ranks = copyFrom.Ranks;
+          bp.ReapplyOnLevelUp = copyFrom.ReapplyOnLevelUp;
+          bp.IsPrerequisiteFor = copyFrom.IsPrerequisiteFor;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.IsClassFeature"/>
     /// </summary>

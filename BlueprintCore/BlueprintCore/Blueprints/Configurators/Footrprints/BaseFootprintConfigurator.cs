@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
   {
     protected BaseFootprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFootprint>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.LeftFootPrint = copyFrom.LeftFootPrint;
+          bp.RightFootPrint = copyFrom.RightFootPrint;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
     /// </summary>

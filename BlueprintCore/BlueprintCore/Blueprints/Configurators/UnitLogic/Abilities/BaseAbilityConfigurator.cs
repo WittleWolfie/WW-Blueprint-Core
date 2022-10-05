@@ -58,6 +58,58 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
   {
     protected BaseAbilityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAbility>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_DefaultAiAction = copyFrom.m_DefaultAiAction;
+          bp.Range = copyFrom.Range;
+          bp.m_Parent = copyFrom.m_Parent;
+          bp.Type = copyFrom.Type;
+          bp.IgnoreMinimalRangeLimit = copyFrom.IgnoreMinimalRangeLimit;
+          bp.CustomRange = copyFrom.CustomRange;
+          bp.ShowNameForVariant = copyFrom.ShowNameForVariant;
+          bp.OnlyForAllyCaster = copyFrom.OnlyForAllyCaster;
+          bp.CanTargetPoint = copyFrom.CanTargetPoint;
+          bp.CanTargetEnemies = copyFrom.CanTargetEnemies;
+          bp.CanTargetFriends = copyFrom.CanTargetFriends;
+          bp.CanTargetSelf = copyFrom.CanTargetSelf;
+          bp.ShouldTurnToTarget = copyFrom.ShouldTurnToTarget;
+          bp.SpellResistance = copyFrom.SpellResistance;
+          bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
+          bp.Hidden = copyFrom.Hidden;
+          bp.NeedEquipWeapons = copyFrom.NeedEquipWeapons;
+          bp.NotOffensive = copyFrom.NotOffensive;
+          bp.EffectOnAlly = copyFrom.EffectOnAlly;
+          bp.EffectOnEnemy = copyFrom.EffectOnEnemy;
+          bp.Animation = copyFrom.Animation;
+          bp.HasFastAnimation = copyFrom.HasFastAnimation;
+          bp.m_TargetMapObjects = copyFrom.m_TargetMapObjects;
+          bp.ActionType = copyFrom.ActionType;
+          bp.AvailableMetamagic = copyFrom.AvailableMetamagic;
+          bp.m_IsFullRoundAction = copyFrom.m_IsFullRoundAction;
+          bp.LocalizedDuration = copyFrom.LocalizedDuration;
+          bp.LocalizedSavingThrow = copyFrom.LocalizedSavingThrow;
+          bp.MaterialComponent = copyFrom.MaterialComponent;
+          bp.DisableLog = copyFrom.DisableLog;
+          bp.ResourceAssetIds = copyFrom.ResourceAssetIds;
+          bp.m_SpellComponent = copyFrom.m_SpellComponent;
+          bp.m_AbilityIsFullRoundInTurnBased = copyFrom.m_AbilityIsFullRoundInTurnBased;
+          bp.m_StickyTouch = copyFrom.m_StickyTouch;
+          bp.m_AbilityVariants = copyFrom.m_AbilityVariants;
+          bp.m_AbilityShadowSpell = copyFrom.m_AbilityShadowSpell;
+          bp.m_AbilityKineticist = copyFrom.m_AbilityKineticist;
+          bp.m_HasVariants = copyFrom.m_HasVariants;
+          bp.m_IsCantrip = copyFrom.m_IsCantrip;
+          bp.m_SpellDescriptor = copyFrom.m_SpellDescriptor;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.m_DefaultAiAction"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       return For(name);
     }
 
+
+    public StatProgressionConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintStatProgression>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

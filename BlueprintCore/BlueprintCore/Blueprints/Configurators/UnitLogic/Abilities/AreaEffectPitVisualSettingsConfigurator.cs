@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       return For(name);
     }
 
+
+    public AreaEffectPitVisualSettingsConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

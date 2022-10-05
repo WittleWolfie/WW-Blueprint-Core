@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       return For(name);
     }
 
+
+    public ArmyLeaderConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyLeader>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

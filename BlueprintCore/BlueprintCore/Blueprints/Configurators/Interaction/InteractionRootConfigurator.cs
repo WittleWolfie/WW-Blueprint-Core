@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Interaction;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Interaction
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Interaction
       return For(name);
     }
 
+
+    public InteractionRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintInteractionRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

@@ -26,6 +26,26 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   {
     protected BaseQuestConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuest>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Description = copyFrom.Description;
+          bp.Title = copyFrom.Title;
+          bp.CompletionText = copyFrom.CompletionText;
+          bp.m_Group = copyFrom.m_Group;
+          bp.m_DescriptionPriority = copyFrom.m_DescriptionPriority;
+          bp.m_Type = copyFrom.m_Type;
+          bp.m_LastChapter = copyFrom.m_LastChapter;
+          bp.m_Objectives = copyFrom.m_Objectives;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.Description"/>
     /// </summary>

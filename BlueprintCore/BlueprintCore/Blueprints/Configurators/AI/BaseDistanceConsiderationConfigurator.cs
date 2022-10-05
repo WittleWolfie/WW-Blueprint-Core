@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseDistanceConsiderationConfigurator<T, TBuilder>
   {
     protected BaseDistanceConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<DistanceConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MinDistance = copyFrom.MinDistance;
+          bp.MaxDistance = copyFrom.MaxDistance;
+          bp.MaxDistanceScore = copyFrom.MaxDistanceScore;
+          bp.MinDistanceScore = copyFrom.MinDistanceScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="DistanceConsideration.MinDistance"/>

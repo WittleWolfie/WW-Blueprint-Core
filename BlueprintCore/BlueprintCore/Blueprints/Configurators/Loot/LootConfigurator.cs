@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
       return For(name);
     }
 
+
+    public LootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

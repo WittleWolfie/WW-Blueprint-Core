@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseInRangeConsiderationConfigurator<T, TBuilder>
   {
     protected BaseInRangeConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<InRangeConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.InRangeScore = copyFrom.InRangeScore;
+          bp.OutOfRangeScore = copyFrom.OutOfRangeScore;
+          bp.OnlyIfThreated = copyFrom.OnlyIfThreated;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="InRangeConsideration.InRangeScore"/>

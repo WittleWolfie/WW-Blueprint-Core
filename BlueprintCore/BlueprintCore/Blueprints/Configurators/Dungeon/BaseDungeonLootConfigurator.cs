@@ -20,6 +20,28 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonLootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonLoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Items = copyFrom.m_Items;
+          bp.Filter = copyFrom.Filter;
+          bp.DoNotRepeat = copyFrom.DoNotRepeat;
+          bp.DoNotRepeatInSameRun = copyFrom.DoNotRepeatInSameRun;
+          bp.Budgeting = copyFrom.Budgeting;
+          bp.m_Budget = copyFrom.m_Budget;
+          bp.CountOfItemsPerIsland = copyFrom.CountOfItemsPerIsland;
+          bp.CountOfItemsPerChest = copyFrom.CountOfItemsPerChest;
+          bp.m_LootIncompatible = copyFrom.m_LootIncompatible;
+          bp.OptionalItems = copyFrom.OptionalItems;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLoot.m_Items"/>
     /// </summary>

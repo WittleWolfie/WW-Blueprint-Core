@@ -23,6 +23,35 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   {
     protected BaseGlobalMapConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMap>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_StartLocation = copyFrom.m_StartLocation;
+          bp.m_GlobalMapEnterPoint = copyFrom.m_GlobalMapEnterPoint;
+          bp.m_RegionsMask = copyFrom.m_RegionsMask;
+          bp.VisualSpeedBase = copyFrom.VisualSpeedBase;
+          bp.MechanicsSpeedBase = copyFrom.MechanicsSpeedBase;
+          bp.ArmySpeedFactor = copyFrom.ArmySpeedFactor;
+          bp.ArmyGoToPointSpeedMultiplier = copyFrom.ArmyGoToPointSpeedMultiplier;
+          bp.PartySpeedFactor = copyFrom.PartySpeedFactor;
+          bp.RandomEncounterTimer = copyFrom.RandomEncounterTimer;
+          bp.ExploreDistance = copyFrom.ExploreDistance;
+          bp.RestrictTravelingToClosedLocations = copyFrom.RestrictTravelingToClosedLocations;
+          bp.Points = copyFrom.Points;
+          bp.Edges = copyFrom.Edges;
+          bp.EnterWarCampAction = copyFrom.EnterWarCampAction;
+          bp.EnterAzataIslandAction = copyFrom.EnterAzataIslandAction;
+          bp.IsKenabres = copyFrom.IsKenabres;
+          bp.CampLocation = copyFrom.CampLocation;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMap.m_StartLocation"/>
     /// </summary>

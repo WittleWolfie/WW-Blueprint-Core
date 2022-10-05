@@ -21,6 +21,19 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   {
     protected BaseUnitAsksListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitAsksList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DisplayName = copyFrom.DisplayName;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitAsksList.DisplayName"/>
     /// </summary>

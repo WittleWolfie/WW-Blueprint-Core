@@ -17,6 +17,21 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseRomanceCounterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRomanceCounter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_CounterFlag = copyFrom.m_CounterFlag;
+          bp.m_MinValueFlag = copyFrom.m_MinValueFlag;
+          bp.m_MaxValueFlag = copyFrom.m_MaxValueFlag;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRomanceCounter.m_CounterFlag"/>
     /// </summary>

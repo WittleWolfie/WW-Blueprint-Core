@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -46,5 +47,12 @@ namespace BlueprintCore.Blueprints.Configurators
       return For(name);
     }
 
+
+    public PortraitConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPortrait>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

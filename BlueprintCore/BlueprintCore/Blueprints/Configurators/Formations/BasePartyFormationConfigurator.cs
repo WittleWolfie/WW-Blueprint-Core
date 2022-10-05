@@ -22,6 +22,21 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
   {
     protected BasePartyFormationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPartyFormation>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Positions = copyFrom.Positions;
+          bp.Type = copyFrom.Type;
+          bp.Name = copyFrom.Name;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintPartyFormation.Positions"/>
     /// </summary>

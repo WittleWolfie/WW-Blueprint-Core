@@ -25,6 +25,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
   {
     protected BaseFeatureSelectionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IgnorePrerequisites = copyFrom.IgnorePrerequisites;
+          bp.Obligatory = copyFrom.Obligatory;
+          bp.Mode = copyFrom.Mode;
+          bp.Group = copyFrom.Group;
+          bp.Group2 = copyFrom.Group2;
+          bp.m_AllFeatures = copyFrom.m_AllFeatures;
+          bp.ShowThisSelection = copyFrom.ShowThisSelection;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.IgnorePrerequisites"/>
     /// </summary>

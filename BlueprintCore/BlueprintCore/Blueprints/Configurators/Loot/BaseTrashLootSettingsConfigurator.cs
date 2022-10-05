@@ -20,6 +20,23 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
   {
     protected BaseTrashLootSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TrashLootSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CRToCost = copyFrom.CRToCost;
+          bp.ChanceToIncreaseItemsCount = copyFrom.ChanceToIncreaseItemsCount;
+          bp.Types = copyFrom.Types;
+          bp.Table = copyFrom.Table;
+          bp.SuperTrashLoot = copyFrom.SuperTrashLoot;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.CRToCost"/>
     /// </summary>

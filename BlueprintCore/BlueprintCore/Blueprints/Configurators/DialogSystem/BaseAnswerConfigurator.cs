@@ -26,6 +26,33 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseAnswerConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAnswer>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Text = copyFrom.Text;
+          bp.NextCue = copyFrom.NextCue;
+          bp.ShowOnce = copyFrom.ShowOnce;
+          bp.ShowOnceCurrentDialog = copyFrom.ShowOnceCurrentDialog;
+          bp.ShowCheck = copyFrom.ShowCheck;
+          bp.Experience = copyFrom.Experience;
+          bp.DebugMode = copyFrom.DebugMode;
+          bp.CharacterSelection = copyFrom.CharacterSelection;
+          bp.ShowConditions = copyFrom.ShowConditions;
+          bp.SelectConditions = copyFrom.SelectConditions;
+          bp.RequireValidCue = copyFrom.RequireValidCue;
+          bp.AddToHistory = copyFrom.AddToHistory;
+          bp.OnSelect = copyFrom.OnSelect;
+          bp.FakeChecks = copyFrom.FakeChecks;
+          bp.AlignmentShift = copyFrom.AlignmentShift;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.Text"/>
     /// </summary>

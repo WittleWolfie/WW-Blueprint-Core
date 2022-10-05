@@ -76,6 +76,23 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
   {
     protected BaseUnitFactConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitFact>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AllowNonContextActions = copyFrom.m_AllowNonContextActions;
+          bp.m_DisplayName = copyFrom.m_DisplayName;
+          bp.m_Description = copyFrom.m_Description;
+          bp.m_DescriptionShort = copyFrom.m_DescriptionShort;
+          bp.m_Icon = copyFrom.m_Icon;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitFact.m_AllowNonContextActions"/>
     /// </summary>

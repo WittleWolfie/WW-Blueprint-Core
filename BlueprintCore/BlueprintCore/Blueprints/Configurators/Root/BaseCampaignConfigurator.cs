@@ -28,6 +28,34 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   {
     protected BaseCampaignConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCampaign>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Title = copyFrom.Title;
+          bp.Description = copyFrom.Description;
+          bp.KeyArtLink = copyFrom.KeyArtLink;
+          bp.ComingSoon = copyFrom.ComingSoon;
+          bp.HideInRelease = copyFrom.HideInRelease;
+          bp.HideInUI = copyFrom.HideInUI;
+          bp.ToBeContinued = copyFrom.ToBeContinued;
+          bp.IsDungeon = copyFrom.IsDungeon;
+          bp.AllowMythicChange = copyFrom.AllowMythicChange;
+          bp.AudioChunk = copyFrom.AudioChunk;
+          bp.m_StartGamePreset = copyFrom.m_StartGamePreset;
+          bp.m_Pregens = copyFrom.m_Pregens;
+          bp.IsMainGameContent = copyFrom.IsMainGameContent;
+          bp.m_IsAvailable = copyFrom.m_IsAvailable;
+          bp.m_DlcReward = copyFrom.m_DlcReward;
+          bp.ImportSettings = copyFrom.ImportSettings;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampaign.Title"/>
     /// </summary>

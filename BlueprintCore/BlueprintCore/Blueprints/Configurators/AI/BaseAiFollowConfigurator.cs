@@ -19,6 +19,20 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseAiFollowConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiFollow>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.TargetType = copyFrom.TargetType;
+          bp.ApproachRange = copyFrom.ApproachRange;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiFollow.TargetType"/>
     /// </summary>

@@ -22,6 +22,47 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseArmyRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ArmyRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_TravelingArmiesByChapter = copyFrom.m_TravelingArmiesByChapter;
+          bp.m_MaxTravelingArmiesOnMap = copyFrom.m_MaxTravelingArmiesOnMap;
+          bp.ResourceIcon = copyFrom.ResourceIcon;
+          bp.m_NobilitySettlementsProgression = copyFrom.m_NobilitySettlementsProgression;
+          bp.m_NobilityBuildingsProgression = copyFrom.m_NobilityBuildingsProgression;
+          bp.m_NobilityIncomeProgression = copyFrom.m_NobilityIncomeProgression;
+          bp.m_NobilityArmyStrengthProgression = copyFrom.m_NobilityArmyStrengthProgression;
+          bp.m_RoyalCourtLeadersProgression = copyFrom.m_RoyalCourtLeadersProgression;
+          bp.m_RoyalCourtRanksProgression = copyFrom.m_RoyalCourtRanksProgression;
+          bp.m_RoyalCourtMissionProgressionChapter2 = copyFrom.m_RoyalCourtMissionProgressionChapter2;
+          bp.m_RoyalCourtMissionProgressionChapter3 = copyFrom.m_RoyalCourtMissionProgressionChapter3;
+          bp.m_NobilityPresetReward = copyFrom.m_NobilityPresetReward;
+          bp.m_SummonArmiesMap = copyFrom.m_SummonArmiesMap;
+          bp.m_MercenaryFreeRerollsStart = copyFrom.m_MercenaryFreeRerollsStart;
+          bp.m_MercenaryStartSlots = copyFrom.m_MercenaryStartSlots;
+          bp.m_RerollStartPrice = copyFrom.m_RerollStartPrice;
+          bp.m_MercenaryDefaultCountFormula = copyFrom.m_MercenaryDefaultCountFormula;
+          bp.m_MercenaryDefaultCountBonus = copyFrom.m_MercenaryDefaultCountBonus;
+          bp.m_MercenaryDefaultCountDivider = copyFrom.m_MercenaryDefaultCountDivider;
+          bp.m_OverpricedMercenaryCountMultiplier = copyFrom.m_OverpricedMercenaryCountMultiplier;
+          bp.m_OverpricedMercenaryPriceMultiplier = copyFrom.m_OverpricedMercenaryPriceMultiplier;
+          bp.m_MercenaryPriceMoraleModifierCoefficient = copyFrom.m_MercenaryPriceMoraleModifierCoefficient;
+          bp.m_MercenaryFormulaMoraleCap = copyFrom.m_MercenaryFormulaMoraleCap;
+          bp.m_ExperienceFinancesCoef = copyFrom.m_ExperienceFinancesCoef;
+          bp.m_ExperienceMaterialsCoef = copyFrom.m_ExperienceMaterialsCoef;
+          bp.m_ExperienceFavorsCoef = copyFrom.m_ExperienceFavorsCoef;
+          bp.m_ArmyDangerBonus = copyFrom.m_ArmyDangerBonus;
+          bp.m_ArmyDangerMultiplier = copyFrom.m_ArmyDangerMultiplier;
+          bp.m_ArmyStrings = copyFrom.m_ArmyStrings;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ArmyRoot.m_TravelingArmiesByChapter"/>
     /// </summary>

@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
@@ -17,5 +18,12 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     where TBuilder : BaseSettlementAreaConfigurator<T, TBuilder>
   {
     protected BaseSettlementAreaConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<SettlementBlueprintArea>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

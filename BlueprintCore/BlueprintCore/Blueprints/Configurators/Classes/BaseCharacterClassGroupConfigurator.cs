@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseCharacterClassGroupConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCharacterClassGroup>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_CharacterClasses = copyFrom.m_CharacterClasses;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClassGroup.m_CharacterClasses"/>
     /// </summary>

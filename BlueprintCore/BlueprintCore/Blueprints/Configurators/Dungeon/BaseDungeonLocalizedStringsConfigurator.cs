@@ -21,6 +21,22 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonLocalizedStringsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonLocalizedStrings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.StageNameParameterized = copyFrom.StageNameParameterized;
+          bp.ExperienceGained = copyFrom.ExperienceGained;
+          bp.LeaderboardRecordValues = copyFrom.LeaderboardRecordValues;
+          bp.LeaderboardCharacterValues = copyFrom.LeaderboardCharacterValues;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/>
     /// </summary>

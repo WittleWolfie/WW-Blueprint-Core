@@ -38,6 +38,37 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
   {
     protected BaseTutorialConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTutorial>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Picture = copyFrom.m_Picture;
+          bp.m_Video = copyFrom.m_Video;
+          bp.m_XBox = copyFrom.m_XBox;
+          bp.m_PS4 = copyFrom.m_PS4;
+          bp.m_BlueprintTutorialConsoleRef = copyFrom.m_BlueprintTutorialConsoleRef;
+          bp.m_TitleText = copyFrom.m_TitleText;
+          bp.m_TriggerText = copyFrom.m_TriggerText;
+          bp.m_DescriptionText = copyFrom.m_DescriptionText;
+          bp.m_SolutionFoundText = copyFrom.m_SolutionFoundText;
+          bp.m_SolutionNotFoundText = copyFrom.m_SolutionNotFoundText;
+          bp.Tag = copyFrom.Tag;
+          bp.Priority = copyFrom.Priority;
+          bp.Limit = copyFrom.Limit;
+          bp.Frequency = copyFrom.Frequency;
+          bp.SetCooldown = copyFrom.SetCooldown;
+          bp.IgnoreCooldown = copyFrom.IgnoreCooldown;
+          bp.Windowed = copyFrom.Windowed;
+          bp.DisableAnalyticsTracking = copyFrom.DisableAnalyticsTracking;
+          bp.EncyclopediaReference = copyFrom.EncyclopediaReference;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTutorial.m_Picture"/>
     /// </summary>

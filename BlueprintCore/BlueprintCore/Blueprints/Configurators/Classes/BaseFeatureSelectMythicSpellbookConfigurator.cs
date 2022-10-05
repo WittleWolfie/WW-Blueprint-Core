@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseFeatureSelectMythicSpellbookConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelectMythicSpellbook>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AllowedSpellbooks = copyFrom.m_AllowedSpellbooks;
+          bp.m_MythicSpellList = copyFrom.m_MythicSpellList;
+          bp.m_SpellKnownForSpontaneous = copyFrom.m_SpellKnownForSpontaneous;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/>
     /// </summary>

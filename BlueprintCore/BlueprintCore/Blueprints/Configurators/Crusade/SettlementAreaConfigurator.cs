@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
       return For(name);
     }
 
+
+    public SettlementAreaConfigurator CopyFrom(
+      Blueprint<BlueprintReference<SettlementBlueprintArea>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

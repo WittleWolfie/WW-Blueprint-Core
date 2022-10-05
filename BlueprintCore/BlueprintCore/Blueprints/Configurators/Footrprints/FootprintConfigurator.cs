@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Footrprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Footrprints
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
       return For(name);
     }
 
+
+    public FootprintConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFootprint>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.AI;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -17,6 +18,20 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where TBuilder : BaseTacticalCombatCanAttackThisTurnConsiderationConfigurator<T, TBuilder>
   {
     protected BaseTacticalCombatCanAttackThisTurnConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TacticalCombatCanAttackThisTurnConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CanAttackScore = copyFrom.CanAttackScore;
+          bp.CanNotAttackScore = copyFrom.CanNotAttackScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/>

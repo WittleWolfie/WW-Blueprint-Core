@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseAreaMechanicsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaMechanics>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Area = copyFrom.Area;
+          bp.Scene = copyFrom.Scene;
+          bp.AdditionalDataBank = copyFrom.AdditionalDataBank;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaMechanics.Area"/>
     /// </summary>

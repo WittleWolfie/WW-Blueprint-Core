@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.Loot;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items
 {
@@ -17,6 +18,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     where TBuilder : BaseSharedVendorTableConfigurator<T, TBuilder>
   {
     protected BaseSharedVendorTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSharedVendorTable>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.AutoIdentifyAllItems = copyFrom.AutoIdentifyAllItems;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/>

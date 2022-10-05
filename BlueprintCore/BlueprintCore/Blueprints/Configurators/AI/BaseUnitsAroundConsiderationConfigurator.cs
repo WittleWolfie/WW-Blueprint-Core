@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -17,6 +18,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseUnitsAroundConsiderationConfigurator<T, TBuilder>
   {
     protected BaseUnitsAroundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitsAroundConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_SqrCustomRadius = copyFrom.m_SqrCustomRadius;
+          bp.Filter = copyFrom.Filter;
+          bp.FilterDead = copyFrom.FilterDead;
+          bp.MinCount = copyFrom.MinCount;
+          bp.MaxCount = copyFrom.MaxCount;
+          bp.IncludeUnconscious = copyFrom.IncludeUnconscious;
+          bp.BelowMinScore = copyFrom.BelowMinScore;
+          bp.MinScore = copyFrom.MinScore;
+          bp.MaxScore = copyFrom.MaxScore;
+          bp.ExtraTargetScore = copyFrom.ExtraTargetScore;
+          bp.UseAbilityShape = copyFrom.UseAbilityShape;
+          bp.UseCustomRadius = copyFrom.UseCustomRadius;
+          bp.CustomRadiusInMeters = copyFrom.CustomRadiusInMeters;
+          bp.CheckRadiusFromCaster = copyFrom.CheckRadiusFromCaster;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="UnitsAroundConsideration.m_SqrCustomRadius"/>

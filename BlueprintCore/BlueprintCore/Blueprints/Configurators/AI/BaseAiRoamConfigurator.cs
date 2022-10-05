@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseAiRoamConfigurator<T, TBuilder>
   {
     protected BaseAiRoamConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiRoam>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.TargetType = copyFrom.TargetType;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiRoam.TargetType"/>

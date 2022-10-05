@@ -23,6 +23,38 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonIslandConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIsland>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ImageLink = copyFrom.m_ImageLink;
+          bp.m_ImageSkippedLink = copyFrom.m_ImageSkippedLink;
+          bp.m_ImageVisitedLink = copyFrom.m_ImageVisitedLink;
+          bp.m_ImageHoverLink = copyFrom.m_ImageHoverLink;
+          bp.m_Settings = copyFrom.m_Settings;
+          bp.m_ModificatorsInclude = copyFrom.m_ModificatorsInclude;
+          bp.m_ModificatorsExclude = copyFrom.m_ModificatorsExclude;
+          bp.m_Themes = copyFrom.m_Themes;
+          bp.m_Tiers = copyFrom.m_Tiers;
+          bp.LimitMinStage = copyFrom.LimitMinStage;
+          bp.MinStage = copyFrom.MinStage;
+          bp.LimitMaxStage = copyFrom.LimitMaxStage;
+          bp.MaxStage = copyFrom.MaxStage;
+          bp.Stages = copyFrom.Stages;
+          bp.m_ArmiesExclude = copyFrom.m_ArmiesExclude;
+          bp.m_ArmiesInclude = copyFrom.m_ArmiesInclude;
+          bp.m_UnitTagsExclude = copyFrom.m_UnitTagsExclude;
+          bp.m_UnitTagsInclude = copyFrom.m_UnitTagsInclude;
+          bp.IncludeOtherArmies = copyFrom.IncludeOtherArmies;
+          bp.m_Area = copyFrom.m_Area;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIsland.m_ImageLink"/>
     /// </summary>

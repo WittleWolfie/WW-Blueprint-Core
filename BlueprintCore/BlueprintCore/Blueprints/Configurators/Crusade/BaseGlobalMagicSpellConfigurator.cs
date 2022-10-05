@@ -24,6 +24,26 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
   {
     protected BaseGlobalMagicSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_SpellName = copyFrom.m_SpellName;
+          bp.m_Description = copyFrom.m_Description;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_VFX = copyFrom.m_VFX;
+          bp.m_HoursCooldown = copyFrom.m_HoursCooldown;
+          bp.m_Executor = copyFrom.m_Executor;
+          bp.m_SpellActions = copyFrom.m_SpellActions;
+          bp.m_SetCooldownManually = copyFrom.m_SetCooldownManually;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMagicSpell.m_SpellName"/>
     /// </summary>

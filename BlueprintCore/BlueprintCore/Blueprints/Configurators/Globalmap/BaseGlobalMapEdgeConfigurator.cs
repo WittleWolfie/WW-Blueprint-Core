@@ -20,6 +20,24 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   {
     protected BaseGlobalMapEdgeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMapEdge>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Type = copyFrom.Type;
+          bp.Priority = copyFrom.Priority;
+          bp.m_Point1 = copyFrom.m_Point1;
+          bp.m_Point2 = copyFrom.m_Point2;
+          bp.LockCondition = copyFrom.LockCondition;
+          bp.Length = copyFrom.Length;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapEdge.Type"/>
     /// </summary>

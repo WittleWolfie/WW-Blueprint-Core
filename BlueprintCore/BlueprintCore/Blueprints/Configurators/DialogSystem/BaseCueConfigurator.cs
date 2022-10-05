@@ -25,6 +25,29 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseCueConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCue>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Text = copyFrom.Text;
+          bp.Experience = copyFrom.Experience;
+          bp.Speaker = copyFrom.Speaker;
+          bp.TurnSpeaker = copyFrom.TurnSpeaker;
+          bp.Animation = copyFrom.Animation;
+          bp.m_Listener = copyFrom.m_Listener;
+          bp.OnShow = copyFrom.OnShow;
+          bp.OnStop = copyFrom.OnStop;
+          bp.AlignmentShift = copyFrom.AlignmentShift;
+          bp.Answers = copyFrom.Answers;
+          bp.Continue = copyFrom.Continue;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Text"/>
     /// </summary>

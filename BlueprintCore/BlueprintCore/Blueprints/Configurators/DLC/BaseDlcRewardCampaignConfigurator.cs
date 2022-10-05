@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   {
     protected BaseDlcRewardCampaignConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlcRewardCampaign>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ScreenshotForImportSave = copyFrom.ScreenshotForImportSave;
+          bp.m_Campaign = copyFrom.m_Campaign;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/>
     /// </summary>

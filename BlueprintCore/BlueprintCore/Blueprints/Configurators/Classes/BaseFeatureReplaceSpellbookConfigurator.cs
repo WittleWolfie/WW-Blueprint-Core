@@ -18,6 +18,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseFeatureReplaceSpellbookConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureReplaceSpellbook>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Spellbook = copyFrom.m_Spellbook;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureReplaceSpellbook.m_Spellbook"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.CharacterSystem;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return For(name);
     }
 
+
+    public KingmakerEquipmentEntityConfigurator CopyFrom(
+      Blueprint<BlueprintReference<KingmakerEquipmentEntity>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

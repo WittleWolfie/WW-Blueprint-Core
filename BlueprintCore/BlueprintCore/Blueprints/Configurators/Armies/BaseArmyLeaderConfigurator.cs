@@ -21,6 +21,24 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseArmyLeaderConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyLeader>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_LeaderName = copyFrom.m_LeaderName;
+          bp.m_Portrait = copyFrom.m_Portrait;
+          bp.m_StartingLevel = copyFrom.m_StartingLevel;
+          bp.m_LeaderProgression = copyFrom.m_LeaderProgression;
+          bp.m_Unit = copyFrom.m_Unit;
+          bp.m_baseSkills = copyFrom.m_baseSkills;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyLeader.m_LeaderName"/>
     /// </summary>

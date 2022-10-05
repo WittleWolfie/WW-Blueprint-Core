@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -16,6 +17,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where TBuilder : BaseTacticalCombatAiAttackConfigurator<T, TBuilder>
   {
     protected BaseTacticalCombatAiAttackConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatAiAttack>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CanAttackAllies = copyFrom.CanAttackAllies;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiAttack.CanAttackAllies"/>

@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   {
     protected BaseItemEquipmentSimpleConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentSimple>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_InventoryEquipSound = copyFrom.m_InventoryEquipSound;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/>
     /// </summary>

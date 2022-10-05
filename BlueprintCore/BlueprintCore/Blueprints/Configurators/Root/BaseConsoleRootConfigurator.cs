@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   {
     protected BaseConsoleRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ConsoleRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Icons = copyFrom.Icons;
+          bp.Texts = copyFrom.Texts;
+          bp.InGameMenuIcons = copyFrom.InGameMenuIcons;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ConsoleRoot.Icons"/>
     /// </summary>

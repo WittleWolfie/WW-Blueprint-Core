@@ -20,6 +20,25 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonIslandRewardLootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIslandRewardLoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Container = copyFrom.m_Container;
+          bp.Count = copyFrom.Count;
+          bp.PriceMultiplierMin = copyFrom.PriceMultiplierMin;
+          bp.PriceMultiplierMax = copyFrom.PriceMultiplierMax;
+          bp.DoNotGiveDuplicates = copyFrom.DoNotGiveDuplicates;
+          bp.RespectAreaCR = copyFrom.RespectAreaCR;
+          bp.m_Items = copyFrom.m_Items;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandRewardLoot.m_Container"/>
     /// </summary>

@@ -25,6 +25,27 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
   {
     protected BaseGlobalMapPointVariationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMapPointVariation>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Conditions = copyFrom.Conditions;
+          bp.Name = copyFrom.Name;
+          bp.NameFromSettlement = copyFrom.NameFromSettlement;
+          bp.Description = copyFrom.Description;
+          bp.FakeName = copyFrom.FakeName;
+          bp.FakeDescription = copyFrom.FakeDescription;
+          bp.m_AreaEntrance = copyFrom.m_AreaEntrance;
+          bp.m_Entrances = copyFrom.m_Entrances;
+          bp.m_BookEvent = copyFrom.m_BookEvent;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPointVariation.Conditions"/>
     /// </summary>

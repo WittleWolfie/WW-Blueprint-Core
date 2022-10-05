@@ -21,6 +21,22 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseMythicsSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMythicsSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MythicsInfos = copyFrom.m_MythicsInfos;
+          bp.m_MythicAlignments = copyFrom.m_MythicAlignments;
+          bp.m_TutorialChooseMythic = copyFrom.m_TutorialChooseMythic;
+          bp.CharcaterLevelRestrictions = copyFrom.CharcaterLevelRestrictions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.m_MythicsInfos"/>
     /// </summary>

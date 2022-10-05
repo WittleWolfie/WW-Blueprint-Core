@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       return For(name);
     }
 
+
+    public ScriptZoneConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptZone>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

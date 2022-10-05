@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseCueSequenceConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCueSequence>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Cues = copyFrom.Cues;
+          bp.m_Exit = copyFrom.m_Exit;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCueSequence.Cues"/>
     /// </summary>

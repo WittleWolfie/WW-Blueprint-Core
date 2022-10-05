@@ -21,6 +21,19 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   {
     protected BaseTacticalCombatBrainConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatBrain>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_TacticalActions = copyFrom.m_TacticalActions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatBrain.m_TacticalActions"/>
     /// </summary>

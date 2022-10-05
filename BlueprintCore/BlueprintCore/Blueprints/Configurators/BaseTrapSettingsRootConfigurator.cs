@@ -19,6 +19,23 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseTrapSettingsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTrapSettingsRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_DefaultPerceptionRadius = copyFrom.m_DefaultPerceptionRadius;
+          bp.m_DisableDCMargin = copyFrom.m_DisableDCMargin;
+          bp.m_Settings = copyFrom.m_Settings;
+          bp.EasyDisableDCDelta = copyFrom.EasyDisableDCDelta;
+          bp.HardDisableDCDelta = copyFrom.HardDisableDCDelta;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettingsRoot.m_DefaultPerceptionRadius"/>
     /// </summary>

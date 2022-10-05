@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
 {
@@ -16,5 +17,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     where TBuilder : BaseItemEquipmentWristConfigurator<T, TBuilder>
   {
     protected BaseItemEquipmentWristConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

@@ -32,6 +32,31 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
   {
     protected BaseSettlementBuildingConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSettlementBuilding>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.MechanicalDescription = copyFrom.MechanicalDescription;
+          bp.CompletedPrefab = copyFrom.CompletedPrefab;
+          bp.UnfinishedPrefab = copyFrom.UnfinishedPrefab;
+          bp.BuildCost = copyFrom.BuildCost;
+          bp.StatChanges = copyFrom.StatChanges;
+          bp.MinLevel = copyFrom.MinLevel;
+          bp.SlotSizeX = copyFrom.SlotSizeX;
+          bp.SlotSizeY = copyFrom.SlotSizeY;
+          bp.BuildTime = copyFrom.BuildTime;
+          bp.SpecialSlot = copyFrom.SpecialSlot;
+          bp.m_UpgradesTo = copyFrom.m_UpgradesTo;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.Name"/>
     /// </summary>

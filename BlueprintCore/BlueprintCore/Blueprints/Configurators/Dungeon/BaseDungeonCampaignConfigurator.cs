@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonCampaignConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonCampaign>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_IsShowMap = copyFrom.m_IsShowMap;
+          bp.Expeditions = copyFrom.Expeditions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonCampaign.m_IsShowMap"/>
     /// </summary>

@@ -23,6 +23,27 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomProjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomProject>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ProjectType = copyFrom.ProjectType;
+          bp.ProjectStartCost = copyFrom.ProjectStartCost;
+          bp.m_MechanicalDescription = copyFrom.m_MechanicalDescription;
+          bp.SpendRulerTimeDays = copyFrom.SpendRulerTimeDays;
+          bp.Repeatable = copyFrom.Repeatable;
+          bp.Cooldown = copyFrom.Cooldown;
+          bp.IsRankUpProject = copyFrom.IsRankUpProject;
+          bp.RankupProjectFor = copyFrom.RankupProjectFor;
+          bp.AIPriority = copyFrom.AIPriority;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomProject.ProjectType"/>
     /// </summary>

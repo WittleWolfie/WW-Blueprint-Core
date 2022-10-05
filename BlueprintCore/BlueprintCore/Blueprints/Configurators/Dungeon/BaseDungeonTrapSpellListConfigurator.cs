@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonTrapSpellListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonTrapSpellList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Spells = copyFrom.m_Spells;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonTrapSpellList.m_Spells"/>
     /// </summary>

@@ -22,6 +22,27 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonMapConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonMap>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.ShouldAddDecorations = copyFrom.ShouldAddDecorations;
+          bp.OverrideMapStartIslandPawnPosition = copyFrom.OverrideMapStartIslandPawnPosition;
+          bp.MapStartIslandPawnPosition = copyFrom.MapStartIslandPawnPosition;
+          bp.OverrideMapFinalIslandPawnPosition = copyFrom.OverrideMapFinalIslandPawnPosition;
+          bp.MapFinalIslandPawnPosition = copyFrom.MapFinalIslandPawnPosition;
+          bp.m_ArrowsLink = copyFrom.m_ArrowsLink;
+          bp.Layout = copyFrom.Layout;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonMap.Name"/>
     /// </summary>

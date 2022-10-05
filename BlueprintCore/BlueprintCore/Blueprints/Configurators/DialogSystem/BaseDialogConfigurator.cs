@@ -22,6 +22,29 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseDialogConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDialog>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.FirstCue = copyFrom.FirstCue;
+          bp.StartPosition = copyFrom.StartPosition;
+          bp.Conditions = copyFrom.Conditions;
+          bp.StartActions = copyFrom.StartActions;
+          bp.FinishActions = copyFrom.FinishActions;
+          bp.ReplaceActions = copyFrom.ReplaceActions;
+          bp.TurnPlayer = copyFrom.TurnPlayer;
+          bp.TurnFirstSpeaker = copyFrom.TurnFirstSpeaker;
+          bp.IsLockCameraRotationButtons = copyFrom.IsLockCameraRotationButtons;
+          bp.Type = copyFrom.Type;
+          bp.m_OverrideAreaCR = copyFrom.m_OverrideAreaCR;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialog.FirstCue"/>
     /// </summary>

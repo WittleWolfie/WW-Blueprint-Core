@@ -23,6 +23,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseClassAdditionalVisualSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Conditions = copyFrom.m_Conditions;
+          bp.ColorRamps = copyFrom.ColorRamps;
+          bp.OverrideFootprintType = copyFrom.OverrideFootprintType;
+          bp.FootprintType = copyFrom.FootprintType;
+          bp.CommonSettings = copyFrom.CommonSettings;
+          bp.InGameSettings = copyFrom.InGameSettings;
+          bp.DollRoomSettings = copyFrom.DollRoomSettings;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.m_Conditions"/>
     /// </summary>

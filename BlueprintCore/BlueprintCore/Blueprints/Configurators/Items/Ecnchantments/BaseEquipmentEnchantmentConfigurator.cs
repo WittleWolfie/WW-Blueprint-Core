@@ -22,6 +22,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   {
     protected BaseEquipmentEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
+
     /// <summary>
     /// Adds <see cref="AllSavesBonusEquipment"/>
     /// </summary>

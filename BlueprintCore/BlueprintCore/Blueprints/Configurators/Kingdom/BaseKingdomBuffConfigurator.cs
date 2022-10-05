@@ -34,6 +34,25 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomBuffConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomBuff>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DisplayName = copyFrom.DisplayName;
+          bp.Description = copyFrom.Description;
+          bp.Icon = copyFrom.Icon;
+          bp.DurationDays = copyFrom.DurationDays;
+          bp.StatChanges = copyFrom.StatChanges;
+          bp.OnApply = copyFrom.OnApply;
+          bp.OnRemove = copyFrom.OnRemove;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.DisplayName"/>
     /// </summary>

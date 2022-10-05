@@ -21,6 +21,20 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseCustomAiConsiderationsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CustomAiConsiderationsRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_TargetConsiderations = copyFrom.m_TargetConsiderations;
+          bp.m_ActorConsiderations = copyFrom.m_ActorConsiderations;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/>
     /// </summary>

@@ -22,6 +22,31 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseRegionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRegion>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Id = copyFrom.m_Id;
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.ClaimedDescription = copyFrom.ClaimedDescription;
+          bp.m_Adjacent = copyFrom.m_Adjacent;
+          bp.m_ClaimEvent = copyFrom.m_ClaimEvent;
+          bp.StatsWhenClaimed = copyFrom.StatsWhenClaimed;
+          bp.UpgradeEvents = copyFrom.UpgradeEvents;
+          bp.Artisans = copyFrom.Artisans;
+          bp.CR = copyFrom.CR;
+          bp.HardEncountersDisabled = copyFrom.HardEncountersDisabled;
+          bp.OverrideCorruption = copyFrom.OverrideCorruption;
+          bp.CorruptionGrowth = copyFrom.CorruptionGrowth;
+          bp.m_GlobalMap = copyFrom.m_GlobalMap;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRegion.m_Id"/>
     /// </summary>

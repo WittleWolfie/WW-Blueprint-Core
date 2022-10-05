@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseSettlementAreaPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSettlementAreaPreset>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_StartSettlement = copyFrom.m_StartSettlement;
+          bp.m_StartSettlementPoint = copyFrom.m_StartSettlementPoint;
+          bp.m_StartSettlementLevel = copyFrom.m_StartSettlementLevel;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/>
     /// </summary>

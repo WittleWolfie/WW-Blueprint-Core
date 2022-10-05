@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
       return For(name);
     }
 
+
+    public SpawnableObjectConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpawnableObject>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

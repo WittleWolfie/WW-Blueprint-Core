@@ -18,6 +18,20 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
   {
     protected BaseCastsGroupConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CastsGroup>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ArcaneCasts = copyFrom.m_ArcaneCasts;
+          bp.m_DivineCasts = copyFrom.m_DivineCasts;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CastsGroup.m_ArcaneCasts"/>
     /// </summary>

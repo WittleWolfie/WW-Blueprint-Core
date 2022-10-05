@@ -22,6 +22,20 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   {
     protected BaseDlcConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlc>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Description = copyFrom.Description;
+          bp.RewardReferences = copyFrom.RewardReferences;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlc.Description"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -16,5 +17,12 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where TBuilder : BaseDynamicMapObjectConfigurator<T, TBuilder>
   {
     protected BaseDynamicMapObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDynamicMapObject>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

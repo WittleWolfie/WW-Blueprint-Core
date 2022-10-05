@@ -31,6 +31,26 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseLeaderSkillConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLeaderSkill>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Icon = copyFrom.Icon;
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.LocalizedDescription = copyFrom.LocalizedDescription;
+          bp.BonusAttributes = copyFrom.BonusAttributes;
+          bp.Type = copyFrom.Type;
+          bp.StackTag = copyFrom.StackTag;
+          bp.m_PrerequisiteLevel = copyFrom.m_PrerequisiteLevel;
+          bp.m_Prerequisites = copyFrom.m_Prerequisites;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderSkill.Icon"/>
     /// </summary>

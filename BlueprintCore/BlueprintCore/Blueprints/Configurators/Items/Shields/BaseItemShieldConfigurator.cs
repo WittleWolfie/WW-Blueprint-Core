@@ -19,6 +19,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
   {
     protected BaseItemShieldConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemShield>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_WeaponComponent = copyFrom.m_WeaponComponent;
+          bp.m_ArmorComponent = copyFrom.m_ArmorComponent;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemShield.m_WeaponComponent"/>
     /// </summary>

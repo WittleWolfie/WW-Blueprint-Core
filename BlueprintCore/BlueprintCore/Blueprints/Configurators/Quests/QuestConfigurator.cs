@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Quests;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       return For(name);
     }
 
+
+    public QuestConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuest>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

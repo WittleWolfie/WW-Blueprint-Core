@@ -24,6 +24,30 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   {
     protected BaseCutsceneConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<Cutscene>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Priority = copyFrom.Priority;
+          bp.NonSkippable = copyFrom.NonSkippable;
+          bp.ForbidDialogs = copyFrom.ForbidDialogs;
+          bp.ForbidRandomIdles = copyFrom.ForbidRandomIdles;
+          bp.IsBackground = copyFrom.IsBackground;
+          bp.Sleepless = copyFrom.Sleepless;
+          bp.AllowCopies = copyFrom.AllowCopies;
+          bp.AwakeRange = copyFrom.AwakeRange;
+          bp.Anchors = copyFrom.Anchors;
+          bp.MarkedUnitHandling = copyFrom.MarkedUnitHandling;
+          bp.DefaultParameters = copyFrom.DefaultParameters;
+          bp.OnStopped = copyFrom.OnStopped;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="Cutscene.Priority"/>
     /// </summary>

@@ -19,6 +19,19 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   {
     protected BaseItemEquipmentHandConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentHand>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_VisualParameters = copyFrom.m_VisualParameters;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentHand.m_VisualParameters"/>
     /// </summary>

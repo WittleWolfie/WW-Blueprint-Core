@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Flags;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
       return For(name);
     }
 
+
+    public KingdomMoraleFlagConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomMoraleFlag>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

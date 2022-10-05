@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Collections;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Collections
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
       return For(name);
     }
 
+
+    public BuffCollectionConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BuffCollection>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

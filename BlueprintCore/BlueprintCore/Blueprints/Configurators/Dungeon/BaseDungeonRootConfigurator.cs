@@ -29,6 +29,103 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DebugOutput = copyFrom.DebugOutput;
+          bp.Test = copyFrom.Test;
+          bp.m_DungeonCampaign = copyFrom.m_DungeonCampaign;
+          bp.m_Localization = copyFrom.m_Localization;
+          bp.QuestItemPerStageChance = copyFrom.QuestItemPerStageChance;
+          bp.m_UnitsWithQuestItems = copyFrom.m_UnitsWithQuestItems;
+          bp.m_MainVendorTable = copyFrom.m_MainVendorTable;
+          bp.m_DivineVendorTable = copyFrom.m_DivineVendorTable;
+          bp.TravelSpeedMin = copyFrom.TravelSpeedMin;
+          bp.TravelSpeedMax = copyFrom.TravelSpeedMax;
+          bp.TravelTimeHours = copyFrom.TravelTimeHours;
+          bp.m_MapPlayerPawnLink = copyFrom.m_MapPlayerPawnLink;
+          bp.m_Maps = copyFrom.m_Maps;
+          bp.MapStartIslandPawnPosition = copyFrom.MapStartIslandPawnPosition;
+          bp.MapFinalIslandPawnPosition = copyFrom.MapFinalIslandPawnPosition;
+          bp.MapDecorationGroups = copyFrom.MapDecorationGroups;
+          bp.m_Expeditions = copyFrom.m_Expeditions;
+          bp.m_Islands = copyFrom.m_Islands;
+          bp.m_Modificators = copyFrom.m_Modificators;
+          bp.CountOfObjectsPerModificator = copyFrom.CountOfObjectsPerModificator;
+          bp.CountOfSecretRooms = copyFrom.CountOfSecretRooms;
+          bp.m_Ship = copyFrom.m_Ship;
+          bp.m_Port = copyFrom.m_Port;
+          bp.m_RandomEncounterIslandIndexNotBefore = copyFrom.m_RandomEncounterIslandIndexNotBefore;
+          bp.m_RandomEncounterChance = copyFrom.m_RandomEncounterChance;
+          bp.CountOfUnitsInRandomEncounter = copyFrom.CountOfUnitsInRandomEncounter;
+          bp.m_RandomEncounterArmies = copyFrom.m_RandomEncounterArmies;
+          bp.ActionsOnRandomEncounter = copyFrom.ActionsOnRandomEncounter;
+          bp.ExperienceMultiplierEasy = copyFrom.ExperienceMultiplierEasy;
+          bp.ExperienceMultiplierNormal = copyFrom.ExperienceMultiplierNormal;
+          bp.ExperienceMultiplierHard = copyFrom.ExperienceMultiplierHard;
+          bp.Experience = copyFrom.Experience;
+          bp.m_Tiers = copyFrom.m_Tiers;
+          bp.m_Boons = copyFrom.m_Boons;
+          bp.ActionsBeforeRestart = copyFrom.ActionsBeforeRestart;
+          bp.ActionsAfterRestart = copyFrom.ActionsAfterRestart;
+          bp.ActionsAfterChargen = copyFrom.ActionsAfterChargen;
+          bp.ActionsBeforeWinRestart = copyFrom.ActionsBeforeWinRestart;
+          bp.ActionsBeforeExpeditionRestart = copyFrom.ActionsBeforeExpeditionRestart;
+          bp.ActionsAfterExpeditionRestart = copyFrom.ActionsAfterExpeditionRestart;
+          bp.SpreadDC = copyFrom.SpreadDC;
+          bp.SavingThrowMinimalDC = copyFrom.SavingThrowMinimalDC;
+          bp.SkillCheckMinimalDC = copyFrom.SkillCheckMinimalDC;
+          bp.MicroBossCRBonus = copyFrom.MicroBossCRBonus;
+          bp.CrToExperience = copyFrom.CrToExperience;
+          bp.m_DifficultyCurves = copyFrom.m_DifficultyCurves;
+          bp.m_Templates = copyFrom.m_Templates;
+          bp.CountOfRandomTemplates = copyFrom.CountOfRandomTemplates;
+          bp.m_DifficultyToCurve = copyFrom.m_DifficultyToCurve;
+          bp.RoomEnterExcludesEnemies = copyFrom.RoomEnterExcludesEnemies;
+          bp.RoomExitExcludesEnemies = copyFrom.RoomExitExcludesEnemies;
+          bp.RoomArmyCountProbabilities = copyFrom.RoomArmyCountProbabilities;
+          bp.SecretRoomSpecialArmyProbability = copyFrom.SecretRoomSpecialArmyProbability;
+          bp.CountOfUnitsInRoom = copyFrom.CountOfUnitsInRoom;
+          bp.CountOfRoomsWithUnits = copyFrom.CountOfRoomsWithUnits;
+          bp.CountOfRoomsWithLoot = copyFrom.CountOfRoomsWithLoot;
+          bp.CountOfChestLocked = copyFrom.CountOfChestLocked;
+          bp.CountOfTraps = copyFrom.CountOfTraps;
+          bp.m_MobFaction = copyFrom.m_MobFaction;
+          bp.m_MobSummonPool = copyFrom.m_MobSummonPool;
+          bp.RoamingProbability = copyFrom.RoamingProbability;
+          bp.Roaming = copyFrom.Roaming;
+          bp.m_OverrideCountByUnitTagEntries = copyFrom.m_OverrideCountByUnitTagEntries;
+          bp.m_Armies = copyFrom.m_Armies;
+          bp.m_TrapSpells = copyFrom.m_TrapSpells;
+          bp.MinimalGoldRelativeAmountInChest = copyFrom.MinimalGoldRelativeAmountInChest;
+          bp.m_Loot = copyFrom.m_Loot;
+          bp.m_LootContainers = copyFrom.m_LootContainers;
+          bp.m_BesmaritBossIsland = copyFrom.m_BesmaritBossIsland;
+          bp.m_BesmaritModificator = copyFrom.m_BesmaritModificator;
+          bp.m_BesmaritIslands = copyFrom.m_BesmaritIslands;
+          bp.m_BesmaritChest = copyFrom.m_BesmaritChest;
+          bp.m_BesmaritSceneChests = copyFrom.m_BesmaritSceneChests;
+          bp.m_BesmaritBossReward = copyFrom.m_BesmaritBossReward;
+          bp.m_BesmaritReward = copyFrom.m_BesmaritReward;
+          bp.m_BesmaritFinishFlag = copyFrom.m_BesmaritFinishFlag;
+          bp.m_ModifierSubeffects = copyFrom.m_ModifierSubeffects;
+          bp.m_AddedDCForRest = copyFrom.m_AddedDCForRest;
+          bp.CrToChestCost = copyFrom.CrToChestCost;
+          bp.RewardRevealFx = copyFrom.RewardRevealFx;
+          bp.TrapDisabledEvent = copyFrom.TrapDisabledEvent;
+          bp.TrapDisableFailedEvent = copyFrom.TrapDisableFailedEvent;
+          bp.TrapInteractionStartedEvent = copyFrom.TrapInteractionStartedEvent;
+          bp.TrapInteractionEndedEvent = copyFrom.TrapInteractionEndedEvent;
+          bp.BoonsAvailableCount = copyFrom.BoonsAvailableCount;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonRoot.DebugOutput"/>
     /// </summary>

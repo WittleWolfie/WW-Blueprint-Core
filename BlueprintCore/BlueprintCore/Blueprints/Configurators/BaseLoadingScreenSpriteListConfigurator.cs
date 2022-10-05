@@ -21,6 +21,20 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseLoadingScreenSpriteListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLoadingScreenSpriteList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_GenericSpritesLink = copyFrom.m_GenericSpritesLink;
+          bp.m_SettingTypeScreensList = copyFrom.m_SettingTypeScreensList;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>

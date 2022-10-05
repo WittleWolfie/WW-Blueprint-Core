@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseArmyPresetListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyPresetList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Presets = copyFrom.m_Presets;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPresetList.m_Presets"/>
     /// </summary>

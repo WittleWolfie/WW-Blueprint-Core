@@ -20,6 +20,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
   {
     protected BaseUnitCustomizationPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitCustomizationPreset>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.PresetObjects = copyFrom.PresetObjects;
+          bp.VariationsCount = copyFrom.VariationsCount;
+          bp.m_Distribution = copyFrom.m_Distribution;
+          bp.m_Units = copyFrom.m_Units;
+          bp.ClothesSelections = copyFrom.ClothesSelections;
+          bp.UnitVariations = copyFrom.UnitVariations;
+          bp.MaleVoices = copyFrom.MaleVoices;
+          bp.FemaleVoices = copyFrom.FemaleVoices;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.PresetObjects"/>
     /// </summary>

@@ -20,6 +20,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseTargetClassConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TargetClassConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_FirstPriorityClasses = copyFrom.m_FirstPriorityClasses;
+          bp.FirstPriorityScore = copyFrom.FirstPriorityScore;
+          bp.m_SecondPriorityClasses = copyFrom.m_SecondPriorityClasses;
+          bp.SecondPriorityScore = copyFrom.SecondPriorityScore;
+          bp.NoPriorityScore = copyFrom.NoPriorityScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TargetClassConsideration.m_FirstPriorityClasses"/>
     /// </summary>

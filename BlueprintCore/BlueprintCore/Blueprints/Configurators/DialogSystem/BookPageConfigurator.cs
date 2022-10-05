@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return For(name);
     }
 
+
+    public BookPageConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBookPage>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.AI
       return For(name);
     }
 
+
+    public AiSwitchWeaponConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiSwitchWeapon>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

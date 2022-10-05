@@ -30,6 +30,35 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
   {
     protected BaseActivatableAbilityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintActivatableAbility>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Buff = copyFrom.m_Buff;
+          bp.Group = copyFrom.Group;
+          bp.WeightInGroup = copyFrom.WeightInGroup;
+          bp.IsOnByDefault = copyFrom.IsOnByDefault;
+          bp.DeactivateIfCombatEnded = copyFrom.DeactivateIfCombatEnded;
+          bp.DeactivateAfterFirstRound = copyFrom.DeactivateAfterFirstRound;
+          bp.DeactivateImmediately = copyFrom.DeactivateImmediately;
+          bp.IsTargeted = copyFrom.IsTargeted;
+          bp.DeactivateIfOwnerDisabled = copyFrom.DeactivateIfOwnerDisabled;
+          bp.DeactivateIfOwnerUnconscious = copyFrom.DeactivateIfOwnerUnconscious;
+          bp.OnlyInCombat = copyFrom.OnlyInCombat;
+          bp.DoNotTurnOffOnRest = copyFrom.DoNotTurnOffOnRest;
+          bp.ActivationType = copyFrom.ActivationType;
+          bp.m_ActivateWithUnitCommand = copyFrom.m_ActivateWithUnitCommand;
+          bp.m_ActivateOnUnitAction = copyFrom.m_ActivateOnUnitAction;
+          bp.m_SelectTargetAbility = copyFrom.m_SelectTargetAbility;
+          bp.ResourceAssetIds = copyFrom.ResourceAssetIds;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintActivatableAbility.m_Buff"/>
     /// </summary>

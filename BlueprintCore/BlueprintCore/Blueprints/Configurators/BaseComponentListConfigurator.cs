@@ -16,6 +16,7 @@ using Kingmaker.Sound;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Etudes;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,6 +32,13 @@ namespace BlueprintCore.Blueprints.Configurators
     where TBuilder : BaseComponentListConfigurator<T, TBuilder>
   {
     protected BaseComponentListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintComponentList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
 
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/>

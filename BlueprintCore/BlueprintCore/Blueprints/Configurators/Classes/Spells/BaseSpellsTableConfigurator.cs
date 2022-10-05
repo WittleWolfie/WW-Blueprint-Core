@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
   {
     protected BaseSpellsTableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpellsTable>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Levels = copyFrom.Levels;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellsTable.Levels"/>
     /// </summary>

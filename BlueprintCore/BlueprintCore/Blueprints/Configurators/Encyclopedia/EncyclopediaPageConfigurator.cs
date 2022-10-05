@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
       return For(name);
     }
 
+
+    public EncyclopediaPageConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

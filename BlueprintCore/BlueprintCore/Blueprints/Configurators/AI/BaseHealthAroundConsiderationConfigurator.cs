@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,20 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseHealthAroundConsiderationConfigurator<T, TBuilder>
   {
     protected BaseHealthAroundConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<HealthAroundConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.RequiredMissingHealth = copyFrom.RequiredMissingHealth;
+          bp.RequiredHealthLeft = copyFrom.RequiredHealthLeft;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="HealthAroundConsideration.RequiredMissingHealth"/>

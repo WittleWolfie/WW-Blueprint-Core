@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       return For(name);
     }
 
+
+    public EtudeConflictingGroupConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEtudeConflictingGroup>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

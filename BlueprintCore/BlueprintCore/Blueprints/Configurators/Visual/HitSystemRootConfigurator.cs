@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.HitSystem;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
       return For(name);
     }
 
+
+    public HitSystemRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<HitSystemRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

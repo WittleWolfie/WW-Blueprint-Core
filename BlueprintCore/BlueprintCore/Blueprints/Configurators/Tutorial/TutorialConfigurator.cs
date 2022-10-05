@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Tutorial;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Tutorial
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
       return For(name);
     }
 
+
+    public TutorialConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTutorial>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

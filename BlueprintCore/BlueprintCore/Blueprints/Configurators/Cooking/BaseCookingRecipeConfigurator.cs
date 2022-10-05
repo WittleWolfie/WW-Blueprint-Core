@@ -21,6 +21,24 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
   {
     protected BaseCookingRecipeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Ingredients = copyFrom.Ingredients;
+          bp.CookingDC = copyFrom.CookingDC;
+          bp.BuffDurationHours = copyFrom.BuffDurationHours;
+          bp.m_PartyBuffs = copyFrom.m_PartyBuffs;
+          bp.UnitBuffs = copyFrom.UnitBuffs;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.Name"/>
     /// </summary>

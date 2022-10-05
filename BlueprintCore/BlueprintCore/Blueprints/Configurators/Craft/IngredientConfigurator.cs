@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
       return For(name);
     }
 
+
+    public IngredientConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintIngredient>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

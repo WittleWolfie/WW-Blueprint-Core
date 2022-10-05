@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,20 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseTargetMainCharacterConfigurator<T, TBuilder>
   {
     protected BaseTargetMainCharacterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TargetMainCharacter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsMainCharacterScore = copyFrom.IsMainCharacterScore;
+          bp.OthersScore = copyFrom.OthersScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="TargetMainCharacter.IsMainCharacterScore"/>

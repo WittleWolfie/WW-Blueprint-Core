@@ -21,6 +21,19 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   {
     protected BaseEncyclopediaChapterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEncyclopediaChapter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Platforms = copyFrom.Platforms;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaChapter.Platforms"/>
     /// </summary>

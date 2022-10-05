@@ -18,6 +18,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomEventTimelineConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomEventTimeline>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Entries = copyFrom.Entries;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventTimeline.Entries"/>
     /// </summary>

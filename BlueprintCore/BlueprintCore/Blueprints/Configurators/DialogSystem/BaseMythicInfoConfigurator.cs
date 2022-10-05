@@ -19,6 +19,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseMythicInfoConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMythicInfo>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp._mythic = copyFrom._mythic;
+          bp._etudeReference = copyFrom._etudeReference;
+          bp._mythicName = copyFrom._mythicName;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicInfo._mythic"/>
     /// </summary>

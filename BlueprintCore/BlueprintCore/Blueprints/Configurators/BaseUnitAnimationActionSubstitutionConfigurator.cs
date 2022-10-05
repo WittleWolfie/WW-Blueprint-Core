@@ -18,6 +18,20 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseUnitAnimationActionSubstitutionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitAnimationActionSubstitution>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ChangeFrom = copyFrom.ChangeFrom;
+          bp.ChangeTo = copyFrom.ChangeTo;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitAnimationActionSubstitution.ChangeFrom"/>
     /// </summary>

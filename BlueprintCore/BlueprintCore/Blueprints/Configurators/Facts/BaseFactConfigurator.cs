@@ -6,6 +6,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
@@ -19,6 +20,13 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     where TBuilder : BaseFactConfigurator<T, TBuilder>
   {
     protected BaseFactConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFact>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
 
     /// <summary>
     /// Adds <see cref="ComponentsList"/>

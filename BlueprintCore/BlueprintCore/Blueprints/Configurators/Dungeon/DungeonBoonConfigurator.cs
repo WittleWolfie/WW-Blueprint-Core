@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Dungeon.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Dungeon
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       return For(name);
     }
 
+
+    public DungeonBoonConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonBoon>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

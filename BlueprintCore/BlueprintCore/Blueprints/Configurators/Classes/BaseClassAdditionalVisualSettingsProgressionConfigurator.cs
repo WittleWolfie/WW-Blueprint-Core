@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseClassAdditionalVisualSettingsProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Entries = copyFrom.Entries;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettingsProgression.Entries"/>
     /// </summary>

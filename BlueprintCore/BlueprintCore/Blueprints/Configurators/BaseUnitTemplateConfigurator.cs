@@ -19,6 +19,22 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseUnitTemplateConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitTemplate>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_RemoveFacts = copyFrom.m_RemoveFacts;
+          bp.m_AddFacts = copyFrom.m_AddFacts;
+          bp.StatAdjustments = copyFrom.StatAdjustments;
+          bp.CrBonus = copyFrom.CrBonus;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitTemplate.m_RemoveFacts"/>
     /// </summary>

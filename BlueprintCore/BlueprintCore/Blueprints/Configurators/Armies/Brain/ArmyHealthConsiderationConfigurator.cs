@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
       return For(name);
     }
 
+
+    public ArmyHealthConsiderationConfigurator CopyFrom(
+      Blueprint<BlueprintReference<ArmyHealthConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

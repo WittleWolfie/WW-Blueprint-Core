@@ -22,6 +22,26 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseMoraleRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<MoraleRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MoraleBorder = copyFrom.m_MoraleBorder;
+          bp.m_DevineForNegative = copyFrom.m_DevineForNegative;
+          bp.m_DevineForPositive = copyFrom.m_DevineForPositive;
+          bp.m_NegativeFacts = copyFrom.m_NegativeFacts;
+          bp.m_GlobalArmiesMoraleBuff = copyFrom.m_GlobalArmiesMoraleBuff;
+          bp.BaseMoraleValue = copyFrom.BaseMoraleValue;
+          bp.ArmyEffectOnSquad = copyFrom.ArmyEffectOnSquad;
+          bp.UnitNotHaveMorale = copyFrom.UnitNotHaveMorale;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="MoraleRoot.m_MoraleBorder"/>
     /// </summary>

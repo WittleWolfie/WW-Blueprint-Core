@@ -56,6 +56,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
   {
     protected BaseBuffConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBuff>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Stacking = copyFrom.Stacking;
+          bp.IsClassFeature = copyFrom.IsClassFeature;
+          bp.m_Flags = copyFrom.m_Flags;
+          bp.Ranks = copyFrom.Ranks;
+          bp.TickEachSecond = copyFrom.TickEachSecond;
+          bp.Frequency = copyFrom.Frequency;
+          bp.FxOnStart = copyFrom.FxOnStart;
+          bp.FxOnRemove = copyFrom.FxOnRemove;
+          bp.ResourceAssetIds = copyFrom.ResourceAssetIds;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
     /// </summary>

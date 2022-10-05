@@ -20,6 +20,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintProgression>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Classes = copyFrom.m_Classes;
+          bp.m_Archetypes = copyFrom.m_Archetypes;
+          bp.m_AlternateProgressionClasses = copyFrom.m_AlternateProgressionClasses;
+          bp.ForAllOtherClasses = copyFrom.ForAllOtherClasses;
+          bp.UIGroups = copyFrom.UIGroups;
+          bp.m_UIDeterminatorsGroup = copyFrom.m_UIDeterminatorsGroup;
+          bp.m_FeaturesRankIncrease = copyFrom.m_FeaturesRankIncrease;
+          bp.LevelEntries = copyFrom.LevelEntries;
+          bp.m_ExclusiveProgression = copyFrom.m_ExclusiveProgression;
+          bp.GiveFeaturesForPreviousLevels = copyFrom.GiveFeaturesForPreviousLevels;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintProgression.m_Classes"/>
     /// </summary>

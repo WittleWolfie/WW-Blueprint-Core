@@ -7,6 +7,7 @@ using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -22,6 +23,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     where TBuilder : BaseUnitPropertyConfigurator<T, TBuilder>
   {
     protected BaseUnitPropertyConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitProperty>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.BaseValue = copyFrom.BaseValue;
+          bp.OperationOnComponents = copyFrom.OperationOnComponents;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitProperty.BaseValue"/>

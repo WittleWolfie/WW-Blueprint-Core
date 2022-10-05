@@ -18,6 +18,20 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BasePortraitConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPortrait>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Data = copyFrom.Data;
+          bp.m_BackupPortrait = copyFrom.m_BackupPortrait;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintPortrait.Data"/>
     /// </summary>

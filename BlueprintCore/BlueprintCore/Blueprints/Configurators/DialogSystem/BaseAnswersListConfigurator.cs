@@ -22,6 +22,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseAnswersListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAnswersList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ShowOnce = copyFrom.ShowOnce;
+          bp.Conditions = copyFrom.Conditions;
+          bp.Answers = copyFrom.Answers;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswersList.ShowOnce"/>
     /// </summary>

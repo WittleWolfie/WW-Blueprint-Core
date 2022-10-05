@@ -23,6 +23,24 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonIslandRewardConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIslandReward>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_ImageLink = copyFrom.m_ImageLink;
+          bp.Conditions = copyFrom.Conditions;
+          bp.ForceFirstIsland = copyFrom.ForceFirstIsland;
+          bp.CustomRevealFx = copyFrom.CustomRevealFx;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandReward.Name"/>
     /// </summary>

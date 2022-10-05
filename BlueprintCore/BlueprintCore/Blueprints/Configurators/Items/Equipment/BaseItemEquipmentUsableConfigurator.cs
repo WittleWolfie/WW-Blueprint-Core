@@ -22,6 +22,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   {
     protected BaseItemEquipmentUsableConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Type = copyFrom.Type;
+          bp.m_IsCostZero = copyFrom.m_IsCostZero;
+          bp.m_IdentifyDC = copyFrom.m_IdentifyDC;
+          bp.m_InventoryEquipSound = copyFrom.m_InventoryEquipSound;
+          bp.m_BeltItemPrefab = copyFrom.m_BeltItemPrefab;
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentUsable.Type"/>
     /// </summary>

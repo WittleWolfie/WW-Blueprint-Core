@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       return For(name);
     }
 
+
+    public ActivatableAbilityConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintActivatableAbility>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

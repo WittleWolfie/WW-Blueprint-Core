@@ -37,6 +37,53 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseCharacterClassConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCharacterClass>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.LocalizedDescription = copyFrom.LocalizedDescription;
+          bp.LocalizedDescriptionShort = copyFrom.LocalizedDescriptionShort;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.SkillPoints = copyFrom.SkillPoints;
+          bp.HitDie = copyFrom.HitDie;
+          bp.HideIfRestricted = copyFrom.HideIfRestricted;
+          bp.HideInUI = copyFrom.HideInUI;
+          bp.PrestigeClass = copyFrom.PrestigeClass;
+          bp.IsMythic = copyFrom.IsMythic;
+          bp.m_IsHigherMythic = copyFrom.m_IsHigherMythic;
+          bp.m_BaseAttackBonus = copyFrom.m_BaseAttackBonus;
+          bp.m_FortitudeSave = copyFrom.m_FortitudeSave;
+          bp.m_ReflexSave = copyFrom.m_ReflexSave;
+          bp.m_WillSave = copyFrom.m_WillSave;
+          bp.m_Progression = copyFrom.m_Progression;
+          bp.m_Spellbook = copyFrom.m_Spellbook;
+          bp.ClassSkills = copyFrom.ClassSkills;
+          bp.IsDivineCaster = copyFrom.IsDivineCaster;
+          bp.IsArcaneCaster = copyFrom.IsArcaneCaster;
+          bp.m_Archetypes = copyFrom.m_Archetypes;
+          bp.StartingGold = copyFrom.StartingGold;
+          bp.m_StartingItems = copyFrom.m_StartingItems;
+          bp.PrimaryColor = copyFrom.PrimaryColor;
+          bp.SecondaryColor = copyFrom.SecondaryColor;
+          bp.m_EquipmentEntities = copyFrom.m_EquipmentEntities;
+          bp.MaleEquipmentEntities = copyFrom.MaleEquipmentEntities;
+          bp.FemaleEquipmentEntities = copyFrom.FemaleEquipmentEntities;
+          bp.m_Difficulty = copyFrom.m_Difficulty;
+          bp.RecommendedAttributes = copyFrom.RecommendedAttributes;
+          bp.NotRecommendedAttributes = copyFrom.NotRecommendedAttributes;
+          bp.m_SignatureAbilities = copyFrom.m_SignatureAbilities;
+          bp.m_DefaultBuild = copyFrom.m_DefaultBuild;
+          bp.m_AdditionalVisualSettings = copyFrom.m_AdditionalVisualSettings;
+          bp.VisualSettingsPriority = copyFrom.VisualSettingsPriority;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCharacterClass.LocalizedName"/>
     /// </summary>

@@ -6,6 +6,7 @@ using Kingmaker.Armies.Components;
 using Kingmaker.Armies.TacticalCombat.Brain.Considerations;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
+using System;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
@@ -20,6 +21,22 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
     where TBuilder : BaseTacticalCombatTagConsiderationConfigurator<T, TBuilder>
   {
     protected BaseTacticalCombatTagConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TacticalCombatTagConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HasTagScore = copyFrom.HasTagScore;
+          bp.DoesNotHaveTagScore = copyFrom.DoesNotHaveTagScore;
+          bp.Tag = copyFrom.Tag;
+          bp.ShouldHaveAllTags = copyFrom.ShouldHaveAllTags;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatTagConsideration.HasTagScore"/>

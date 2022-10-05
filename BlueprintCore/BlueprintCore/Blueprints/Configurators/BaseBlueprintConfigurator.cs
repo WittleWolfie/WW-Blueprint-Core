@@ -47,6 +47,13 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseBlueprintConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptableObject>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
+
     /// <summary>
     /// Adds <see cref="DlcCondition"/>
     /// </summary>

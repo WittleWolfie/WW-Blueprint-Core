@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseLeaderProgressionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLeaderProgression>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ProgressionType = copyFrom.m_ProgressionType;
+          bp.m_ProgressionName = copyFrom.m_ProgressionName;
+          bp.m_Levels = copyFrom.m_Levels;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLeaderProgression.m_ProgressionType"/>
     /// </summary>

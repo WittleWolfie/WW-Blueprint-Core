@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.AI;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
       return For(name);
     }
 
+
+    public SettlementBuildListConfigurator CopyFrom(
+      Blueprint<BlueprintReference<SettlementBuildList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

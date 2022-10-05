@@ -20,6 +20,23 @@ namespace BlueprintCore.Blueprints.Configurators.Root
   {
     protected BaseFormationsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FormationsRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_PredefinedFormations = copyFrom.m_PredefinedFormations;
+          bp.m_FollowersFormation = copyFrom.m_FollowersFormation;
+          bp.FormationsScale = copyFrom.FormationsScale;
+          bp.MinSpaceFactor = copyFrom.MinSpaceFactor;
+          bp.AutoFormation = copyFrom.AutoFormation;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FormationsRoot.m_PredefinedFormations"/>
     /// </summary>

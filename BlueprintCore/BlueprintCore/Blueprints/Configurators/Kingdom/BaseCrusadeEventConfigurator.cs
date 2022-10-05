@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseCrusadeEventConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCrusadeEvent>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_EventSolutions = copyFrom.m_EventSolutions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEvent.m_EventSolutions"/>
     /// </summary>

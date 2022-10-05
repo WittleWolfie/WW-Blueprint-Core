@@ -19,6 +19,22 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
   {
     protected BaseRaceVisualPresetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.RaceId = copyFrom.RaceId;
+          bp.MaleSkeleton = copyFrom.MaleSkeleton;
+          bp.FemaleSkeleton = copyFrom.FemaleSkeleton;
+          bp.m_Skin = copyFrom.m_Skin;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRaceVisualPreset.RaceId"/>
     /// </summary>

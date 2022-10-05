@@ -22,6 +22,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
   {
     protected BaseFeatureBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureBase>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HideInUI = copyFrom.HideInUI;
+          bp.HideInCharacterSheetAndLevelUp = copyFrom.HideInCharacterSheetAndLevelUp;
+          bp.HideNotAvailibleInUI = copyFrom.HideNotAvailibleInUI;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureBase.HideInUI"/>
     /// </summary>

@@ -22,6 +22,22 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   {
     protected BaseKingmakerEquipmentEntityConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<KingmakerEquipmentEntity>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MaleArray = copyFrom.m_MaleArray;
+          bp.m_FemaleArray = copyFrom.m_FemaleArray;
+          bp.m_RaceDependent = copyFrom.m_RaceDependent;
+          bp.m_RaceDependentArrays = copyFrom.m_RaceDependentArrays;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="KingmakerEquipmentEntity.m_MaleArray"/>
     /// </summary>

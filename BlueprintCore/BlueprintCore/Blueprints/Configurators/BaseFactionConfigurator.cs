@@ -19,6 +19,27 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseFactionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFaction>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AttackFactions = copyFrom.m_AttackFactions;
+          bp.m_AllyFactions = copyFrom.m_AllyFactions;
+          bp.m_AllyFactionsBehaviour = copyFrom.m_AllyFactionsBehaviour;
+          bp.Peaceful = copyFrom.Peaceful;
+          bp.AlwaysEnemy = copyFrom.AlwaysEnemy;
+          bp.EnemyForEveryone = copyFrom.EnemyForEveryone;
+          bp.Neutral = copyFrom.Neutral;
+          bp.IsDirectlyControllable = copyFrom.IsDirectlyControllable;
+          bp.NeverJoinCombat = copyFrom.NeverJoinCombat;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFaction.m_AttackFactions"/>
     /// </summary>

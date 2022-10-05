@@ -21,6 +21,37 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
   {
     protected BaseSpellbookConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpellbook>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.IsMythic = copyFrom.IsMythic;
+          bp.m_SpellsPerDay = copyFrom.m_SpellsPerDay;
+          bp.m_SpellsKnown = copyFrom.m_SpellsKnown;
+          bp.m_SpellSlots = copyFrom.m_SpellSlots;
+          bp.m_SpellList = copyFrom.m_SpellList;
+          bp.m_MythicSpellList = copyFrom.m_MythicSpellList;
+          bp.m_CharacterClass = copyFrom.m_CharacterClass;
+          bp.CastingAttribute = copyFrom.CastingAttribute;
+          bp.Spontaneous = copyFrom.Spontaneous;
+          bp.SpellsPerLevel = copyFrom.SpellsPerLevel;
+          bp.AllSpellsKnown = copyFrom.AllSpellsKnown;
+          bp.CantripsType = copyFrom.CantripsType;
+          bp.CasterLevelModifier = copyFrom.CasterLevelModifier;
+          bp.CanCopyScrolls = copyFrom.CanCopyScrolls;
+          bp.IsArcane = copyFrom.IsArcane;
+          bp.IsArcanist = copyFrom.IsArcanist;
+          bp.HasSpecialSpellList = copyFrom.HasSpecialSpellList;
+          bp.SpecialSpellListName = copyFrom.SpecialSpellListName;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.Name"/>
     /// </summary>

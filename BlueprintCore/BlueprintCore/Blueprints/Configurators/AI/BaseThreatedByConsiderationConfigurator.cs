@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.AI
 {
@@ -16,6 +17,24 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     where TBuilder : BaseThreatedByConsiderationConfigurator<T, TBuilder>
   {
     protected BaseThreatedByConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ThreatedByConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MinCount = copyFrom.MinCount;
+          bp.MaxCount = copyFrom.MaxCount;
+          bp.BelowMinScore = copyFrom.BelowMinScore;
+          bp.MinScore = copyFrom.MinScore;
+          bp.MaxScore = copyFrom.MaxScore;
+          bp.ExtraTargetScore = copyFrom.ExtraTargetScore;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="ThreatedByConsideration.MinCount"/>

@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Craft
 {
@@ -17,5 +18,12 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     where TBuilder : BaseIngredientConfigurator<T, TBuilder>
   {
     protected BaseIngredientConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintIngredient>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

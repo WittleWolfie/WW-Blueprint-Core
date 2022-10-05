@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseComplexConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ComplexConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Considerations = copyFrom.m_Considerations;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ComplexConsideration.m_Considerations"/>
     /// </summary>

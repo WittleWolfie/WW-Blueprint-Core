@@ -24,6 +24,21 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonDifficultyCurveConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonDifficultyCurve>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Difficulty = copyFrom.m_Difficulty;
+          bp.m_ChallengeRatings = copyFrom.m_ChallengeRatings;
+          bp.m_IconLink = copyFrom.m_IconLink;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonDifficultyCurve.m_Difficulty"/>
     /// </summary>

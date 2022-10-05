@@ -26,6 +26,31 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
   {
     protected BaseItemWeaponConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemWeapon>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Type = copyFrom.m_Type;
+          bp.m_Size = copyFrom.m_Size;
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_OverrideDamageDice = copyFrom.m_OverrideDamageDice;
+          bp.m_DamageDice = copyFrom.m_DamageDice;
+          bp.m_OverrideDamageType = copyFrom.m_OverrideDamageType;
+          bp.m_DamageType = copyFrom.m_DamageType;
+          bp.Double = copyFrom.Double;
+          bp.m_SecondWeapon = copyFrom.m_SecondWeapon;
+          bp.KeepInPolymorph = copyFrom.KeepInPolymorph;
+          bp.m_OverrideShardItem = copyFrom.m_OverrideShardItem;
+          bp.m_OverrideDestructible = copyFrom.m_OverrideDestructible;
+          bp.m_AlwaysPrimary = copyFrom.m_AlwaysPrimary;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemWeapon.m_Type"/>
     /// </summary>

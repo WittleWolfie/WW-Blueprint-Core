@@ -21,6 +21,20 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseSequenceExitConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSequenceExit>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Answers = copyFrom.Answers;
+          bp.Continue = copyFrom.Continue;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSequenceExit.Answers"/>
     /// </summary>

@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Corruption;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Corruption
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
       return For(name);
     }
 
+
+    public CorruptionRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCorruptionRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

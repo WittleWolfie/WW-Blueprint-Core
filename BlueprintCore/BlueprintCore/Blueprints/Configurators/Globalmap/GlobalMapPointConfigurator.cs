@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Globalmap.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       return For(name);
     }
 
+
+    public GlobalMapPointConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMapPoint>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

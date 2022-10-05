@@ -20,6 +20,21 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonThemeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonTheme>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.SceneAudio = copyFrom.SceneAudio;
+          bp.Bank = copyFrom.Bank;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonTheme.Name"/>
     /// </summary>

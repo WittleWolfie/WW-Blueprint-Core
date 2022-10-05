@@ -7,6 +7,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
 using Kingmaker.Enums.Damage;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -20,6 +21,13 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     where TBuilder : BaseLogicConnectorConfigurator<T, TBuilder>
   {
     protected BaseLogicConnectorConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLogicConnector>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
 
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/>

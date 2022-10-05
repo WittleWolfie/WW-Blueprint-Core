@@ -21,6 +21,24 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
   {
     protected BaseBarkBanterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBarkBanter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_SpeakerType = copyFrom.m_SpeakerType;
+          bp.m_Unit = copyFrom.m_Unit;
+          bp.Conditions = copyFrom.Conditions;
+          bp.m_Weight = copyFrom.m_Weight;
+          bp.FirstPhrase = copyFrom.FirstPhrase;
+          bp.Responses = copyFrom.Responses;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintBarkBanter.m_SpeakerType"/>
     /// </summary>

@@ -21,6 +21,23 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   {
     protected BaseDlcRewardConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlcReward>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Description = copyFrom.Description;
+          bp.m_IncludeAssetPaths = copyFrom.m_IncludeAssetPaths;
+          bp.m_IncludeObjects = copyFrom.m_IncludeObjects;
+          bp.m_Dlcs = copyFrom.m_Dlcs;
+          bp.m_IsAvailable = copyFrom.m_IsAvailable;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.Description"/>
     /// </summary>

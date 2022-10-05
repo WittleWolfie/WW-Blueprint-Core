@@ -20,6 +20,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseBuffConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BuffConsideration>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Buffs = copyFrom.m_Buffs;
+          bp.HasBuffScore = copyFrom.HasBuffScore;
+          bp.NoBuffScore = copyFrom.NoBuffScore;
+          bp.FromCaster = copyFrom.FromCaster;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BuffConsideration.m_Buffs"/>
     /// </summary>

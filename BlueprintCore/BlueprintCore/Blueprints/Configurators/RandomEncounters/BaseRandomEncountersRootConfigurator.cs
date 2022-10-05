@@ -21,6 +21,31 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   {
     protected BaseRandomEncountersRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<RandomEncountersRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.EncountersEnabled = copyFrom.EncountersEnabled;
+          bp.m_Chapters = copyFrom.m_Chapters;
+          bp.EncounterPawnPrefab = copyFrom.EncounterPawnPrefab;
+          bp.EncounterPawnOffset = copyFrom.EncounterPawnOffset;
+          bp.EncounterPawnDistanceFromLocation = copyFrom.EncounterPawnDistanceFromLocation;
+          bp.m_TrashLootSettings = copyFrom.m_TrashLootSettings;
+          bp.ZoneSettings = copyFrom.ZoneSettings;
+          bp.m_Encounters = copyFrom.m_Encounters;
+          bp.Armies = copyFrom.Armies;
+          bp.m_Vendor = copyFrom.m_Vendor;
+          bp.MaxExperiencePerUnitDivisor = copyFrom.MaxExperiencePerUnitDivisor;
+          bp.MinExperiencePerUnitDivisor = copyFrom.MinExperiencePerUnitDivisor;
+          bp.MaxTargetExperienceDivisor = copyFrom.MaxTargetExperienceDivisor;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="RandomEncountersRoot.EncountersEnabled"/>
     /// </summary>

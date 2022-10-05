@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomDeckConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomDeck>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Events = copyFrom.Events;
+          bp.IsPriority = copyFrom.IsPriority;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomDeck.Events"/>
     /// </summary>

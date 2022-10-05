@@ -21,6 +21,26 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
   {
     protected BaseAreaEffectPitVisualSettingsConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DepthMeters = copyFrom.DepthMeters;
+          bp.HoleEdgeMeters = copyFrom.HoleEdgeMeters;
+          bp.UnitDisappearFx = copyFrom.UnitDisappearFx;
+          bp.UnitAppearFx = copyFrom.UnitAppearFx;
+          bp.FallXZCurve = copyFrom.FallXZCurve;
+          bp.FallYCurve = copyFrom.FallYCurve;
+          bp.ClimbXZCurve = copyFrom.ClimbXZCurve;
+          bp.ClimbYCurve = copyFrom.ClimbYCurve;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/>
     /// </summary>

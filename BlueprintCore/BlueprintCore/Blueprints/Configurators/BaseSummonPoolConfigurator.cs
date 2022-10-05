@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -15,6 +16,20 @@ namespace BlueprintCore.Blueprints.Configurators
     where TBuilder : BaseSummonPoolConfigurator<T, TBuilder>
   {
     protected BaseSummonPoolConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSummonPool>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Limit = copyFrom.Limit;
+          bp.DoNotRemoveDeadUnits = copyFrom.DoNotRemoveDeadUnits;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintSummonPool.Limit"/>

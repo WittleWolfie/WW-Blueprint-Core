@@ -20,6 +20,28 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
   {
     protected BaseCraftRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CraftRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_CraftCostMultiplyer = copyFrom.m_CraftCostMultiplyer;
+          bp.m_CostForCraftDay = copyFrom.m_CostForCraftDay;
+          bp.m_BaseCraftedAbilityDC = copyFrom.m_BaseCraftedAbilityDC;
+          bp.m_BaseCraftDC = copyFrom.m_BaseCraftDC;
+          bp.m_PotionRequirements = copyFrom.m_PotionRequirements;
+          bp.m_ScrollsRequirements = copyFrom.m_ScrollsRequirements;
+          bp.m_PotionsItems = copyFrom.m_PotionsItems;
+          bp.m_ScrollsItems = copyFrom.m_ScrollsItems;
+          bp.m_IngredientTable = copyFrom.m_IngredientTable;
+          bp.m_CollectingRoot = copyFrom.m_CollectingRoot;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CraftRoot.m_CraftCostMultiplyer"/>
     /// </summary>

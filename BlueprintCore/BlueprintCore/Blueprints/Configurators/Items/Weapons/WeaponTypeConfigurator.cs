@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
       return For(name);
     }
 
+
+    public WeaponTypeConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintWeaponType>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

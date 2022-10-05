@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Customization;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
       return For(name);
     }
 
+
+    public RaceGenderDistributionConfigurator CopyFrom(
+      Blueprint<BlueprintReference<RaceGenderDistribution>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

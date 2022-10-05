@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
   {
     protected BaseEncyclopediaPageConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ParentAsset = copyFrom.m_ParentAsset;
+          bp.Blocks = copyFrom.Blocks;
+          bp.ConsoleBlocks = copyFrom.ConsoleBlocks;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaPage.m_ParentAsset"/>
     /// </summary>

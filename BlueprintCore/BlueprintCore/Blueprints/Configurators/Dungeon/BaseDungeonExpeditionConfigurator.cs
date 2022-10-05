@@ -21,6 +21,23 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonExpeditionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonExpedition>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_FinalIsland = copyFrom.m_FinalIsland;
+          bp.m_ModificatorProbability = copyFrom.m_ModificatorProbability;
+          bp.m_Rewards = copyFrom.m_Rewards;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonExpedition.Name"/>
     /// </summary>

@@ -21,6 +21,25 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
   {
     protected BaseCampingEncounterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCampingEncounter>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Chance = copyFrom.Chance;
+          bp.Conditions = copyFrom.Conditions;
+          bp.EncounterActions = copyFrom.EncounterActions;
+          bp.InterruptsRest = copyFrom.InterruptsRest;
+          bp.PartyTired = copyFrom.PartyTired;
+          bp.MainCharacterTired = copyFrom.MainCharacterTired;
+          bp.NotOnGlobalMap = copyFrom.NotOnGlobalMap;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.Chance"/>
     /// </summary>

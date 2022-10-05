@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade.GlobalMagic;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Crusade
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
       return For(name);
     }
 
+
+    public GlobalMagicSpellConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

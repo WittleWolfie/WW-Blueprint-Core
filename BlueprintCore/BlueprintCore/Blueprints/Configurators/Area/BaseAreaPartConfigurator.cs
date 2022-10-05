@@ -27,6 +27,39 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseAreaPartConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaPart>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_DynamicScene = copyFrom.m_DynamicScene;
+          bp.m_StaticScene = copyFrom.m_StaticScene;
+          bp.m_StaticSceneConsoleOverride = copyFrom.m_StaticSceneConsoleOverride;
+          bp.m_LightScene = copyFrom.m_LightScene;
+          bp.m_LightSceneConsoleOverride = copyFrom.m_LightSceneConsoleOverride;
+          bp.m_Bounds = copyFrom.m_Bounds;
+          bp.m_AudioTimeOfDayVariants = copyFrom.m_AudioTimeOfDayVariants;
+          bp.m_SoundBankNames = copyFrom.m_SoundBankNames;
+          bp.m_ManageBanksSeparately = copyFrom.m_ManageBanksSeparately;
+          bp.m_UnloadBanksDelay = copyFrom.m_UnloadBanksDelay;
+          bp.MusicTheme = copyFrom.MusicTheme;
+          bp.MusicThemeStop = copyFrom.MusicThemeStop;
+          bp.m_IndoorType = copyFrom.m_IndoorType;
+          bp.m_WeatherProfile = copyFrom.m_WeatherProfile;
+          bp.m_WeatherInclemencyMin = copyFrom.m_WeatherInclemencyMin;
+          bp.m_WeatherInclemencyMax = copyFrom.m_WeatherInclemencyMax;
+          bp.IsSingleLightScene = copyFrom.IsSingleLightScene;
+          bp.LocalMapRotation = copyFrom.LocalMapRotation;
+          bp.Setting = copyFrom.Setting;
+          bp.AreaLocalName = copyFrom.AreaLocalName;
+          bp.GraphCache = copyFrom.GraphCache;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPart.m_DynamicScene"/>
     /// </summary>

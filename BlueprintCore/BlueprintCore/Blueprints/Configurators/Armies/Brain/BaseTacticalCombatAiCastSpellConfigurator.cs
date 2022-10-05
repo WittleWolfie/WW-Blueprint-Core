@@ -18,6 +18,21 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
   {
     protected BaseTacticalCombatAiCastSpellConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatAiCastSpell>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Ability = copyFrom.m_Ability;
+          bp.m_ForceTargetSelf = copyFrom.m_ForceTargetSelf;
+          bp.m_ForceTargetEnemy = copyFrom.m_ForceTargetEnemy;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiCastSpell.m_Ability"/>
     /// </summary>

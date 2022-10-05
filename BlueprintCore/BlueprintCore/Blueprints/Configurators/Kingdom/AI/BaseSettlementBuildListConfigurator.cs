@@ -21,6 +21,21 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.AI
   {
     protected BaseSettlementBuildListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<SettlementBuildList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_BuildArea = copyFrom.m_BuildArea;
+          bp.SlotSetupPrefab = copyFrom.SlotSetupPrefab;
+          bp.List = copyFrom.List;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="SettlementBuildList.m_BuildArea"/>
     /// </summary>

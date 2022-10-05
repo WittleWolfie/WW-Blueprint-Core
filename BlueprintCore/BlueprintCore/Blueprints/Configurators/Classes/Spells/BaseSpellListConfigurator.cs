@@ -20,6 +20,29 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
   {
     protected BaseSpellListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpellList>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsMythic = copyFrom.IsMythic;
+          bp.SpellsByLevel = copyFrom.SpellsByLevel;
+          bp.m_FilteredList = copyFrom.m_FilteredList;
+          bp.FilterByMaxLevel = copyFrom.FilterByMaxLevel;
+          bp.FilterByDescriptor = copyFrom.FilterByDescriptor;
+          bp.Descriptor = copyFrom.Descriptor;
+          bp.FilterBySchool = copyFrom.FilterBySchool;
+          bp.ExcludeFilterSchool = copyFrom.ExcludeFilterSchool;
+          bp.FilterSchool = copyFrom.FilterSchool;
+          bp.FilterSchool2 = copyFrom.FilterSchool2;
+          bp.m_MaxLevel = copyFrom.m_MaxLevel;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellList.IsMythic"/>
     /// </summary>

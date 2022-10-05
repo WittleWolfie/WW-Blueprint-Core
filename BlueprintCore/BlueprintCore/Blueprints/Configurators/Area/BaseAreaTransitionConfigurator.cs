@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseAreaTransitionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaTransition>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Actions = copyFrom.m_Actions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaTransition.m_Actions"/>
     /// </summary>

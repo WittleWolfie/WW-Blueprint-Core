@@ -20,6 +20,19 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonLootBudgetConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CrToLootCost = copyFrom.CrToLootCost;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLootBudget.CrToLootCost"/>
     /// </summary>

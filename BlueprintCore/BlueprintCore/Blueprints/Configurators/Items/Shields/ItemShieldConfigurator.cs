@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Shields;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Shields
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
       return For(name);
     }
 
+
+    public ItemShieldConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemShield>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

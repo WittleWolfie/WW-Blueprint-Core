@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
   {
     protected BaseFootprintTypeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFootprintType>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.FootprintType = copyFrom.FootprintType;
+          bp.Footprints = copyFrom.Footprints;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprintType.FootprintType"/>
     /// </summary>

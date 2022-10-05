@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       return For(name);
     }
 
+
+    public WeaponEnchantmentConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

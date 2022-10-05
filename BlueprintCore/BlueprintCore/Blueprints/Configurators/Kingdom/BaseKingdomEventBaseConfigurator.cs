@@ -23,6 +23,33 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomEventBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomEventBase>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.InfoType = copyFrom.InfoType;
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.LocalizedDescription = copyFrom.LocalizedDescription;
+          bp.TriggerCondition = copyFrom.TriggerCondition;
+          bp.ResolutionTime = copyFrom.ResolutionTime;
+          bp.ResolveAutomatically = copyFrom.ResolveAutomatically;
+          bp.NeedToVisitTheThroneRoom = copyFrom.NeedToVisitTheThroneRoom;
+          bp.AICanCheat = copyFrom.AICanCheat;
+          bp.SkipRoll = copyFrom.SkipRoll;
+          bp.ResolutionDC = copyFrom.ResolutionDC;
+          bp.AutoResolveResult = copyFrom.AutoResolveResult;
+          bp.Solutions = copyFrom.Solutions;
+          bp.DefaultResolutionType = copyFrom.DefaultResolutionType;
+          bp.DefaultResolutionDescription = copyFrom.DefaultResolutionDescription;
+          bp.AIStopping = copyFrom.AIStopping;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEventBase.InfoType"/>
     /// </summary>

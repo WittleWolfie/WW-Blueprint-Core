@@ -21,6 +21,19 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BasePhotoModeRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPhotoModeRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_WeatherProfiles = copyFrom.m_WeatherProfiles;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintPhotoModeRoot.m_WeatherProfiles"/>
     /// </summary>

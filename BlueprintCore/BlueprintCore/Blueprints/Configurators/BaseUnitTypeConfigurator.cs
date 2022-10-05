@@ -23,6 +23,23 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseUnitTypeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitType>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.KnowledgeStat = copyFrom.KnowledgeStat;
+          bp.Image = copyFrom.Image;
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_SignatureAbilities = copyFrom.m_SignatureAbilities;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitType.KnowledgeStat"/>
     /// </summary>

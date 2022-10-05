@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
@@ -15,5 +16,12 @@ namespace BlueprintCore.Blueprints.Configurators
     where TBuilder : BaseUnlockableFlagConfigurator<T, TBuilder>
   {
     protected BaseUnlockableFlagConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnlockableFlag>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }

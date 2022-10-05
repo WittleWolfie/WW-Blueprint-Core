@@ -20,6 +20,20 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
   {
     protected BaseBuffCollectionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BuffCollection>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CheckHidden = copyFrom.CheckHidden;
+          bp.m_BuffList = copyFrom.m_BuffList;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BuffCollection.CheckHidden"/>
     /// </summary>

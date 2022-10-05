@@ -20,6 +20,25 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseControllableProjectileConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintControllableProjectile>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_OnCreatureCastPrefab = copyFrom.m_OnCreatureCastPrefab;
+          bp.m_OnCreaturePrefab = copyFrom.m_OnCreaturePrefab;
+          bp.m_HeightOffset = copyFrom.m_HeightOffset;
+          bp.m_RotationLifetime = copyFrom.m_RotationLifetime;
+          bp.m_RotationCurve = copyFrom.m_RotationCurve;
+          bp.m_PreparationStartSound = copyFrom.m_PreparationStartSound;
+          bp.m_PreparationEndSound = copyFrom.m_PreparationEndSound;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintControllableProjectile.m_OnCreatureCastPrefab"/>
     /// </summary>

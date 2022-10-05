@@ -24,6 +24,32 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseAiActionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAiAction>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.AdditionalBehaviour = copyFrom.AdditionalBehaviour;
+          bp.MinDifficulty = copyFrom.MinDifficulty;
+          bp.InvertDifficultyRequirements = copyFrom.InvertDifficultyRequirements;
+          bp.OncePerRound = copyFrom.OncePerRound;
+          bp.CooldownRounds = copyFrom.CooldownRounds;
+          bp.CooldownDice = copyFrom.CooldownDice;
+          bp.StartCooldownRounds = copyFrom.StartCooldownRounds;
+          bp.CombatCount = copyFrom.CombatCount;
+          bp.UseWhenAIDisabled = copyFrom.UseWhenAIDisabled;
+          bp.UseOnLimitedAI = copyFrom.UseOnLimitedAI;
+          bp.BaseScore = copyFrom.BaseScore;
+          bp.m_ActorConsiderations = copyFrom.m_ActorConsiderations;
+          bp.m_TargetConsiderations = copyFrom.m_TargetConsiderations;
+          bp.Actions = copyFrom.Actions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAiAction.AdditionalBehaviour"/>
     /// </summary>

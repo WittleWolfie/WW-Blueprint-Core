@@ -23,6 +23,26 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
   {
     protected BaseCheckConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCheck>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Type = copyFrom.Type;
+          bp.DC = copyFrom.DC;
+          bp.Hidden = copyFrom.Hidden;
+          bp.DCModifiers = copyFrom.DCModifiers;
+          bp.m_Success = copyFrom.m_Success;
+          bp.m_Fail = copyFrom.m_Fail;
+          bp.m_UnitEvaluator = copyFrom.m_UnitEvaluator;
+          bp.Experience = copyFrom.Experience;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.Type"/>
     /// </summary>

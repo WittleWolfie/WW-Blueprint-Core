@@ -4,6 +4,7 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Enums;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
 {
@@ -17,6 +18,20 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     where TBuilder : BaseAnswerBaseConfigurator<T, TBuilder>
   {
     protected BaseAnswerBaseConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
+
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAnswerBase>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MythicRequirement = copyFrom.MythicRequirement;
+          bp.AlignmentRequirement = copyFrom.AlignmentRequirement;
+        });
+    }
 
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswerBase.MythicRequirement"/>

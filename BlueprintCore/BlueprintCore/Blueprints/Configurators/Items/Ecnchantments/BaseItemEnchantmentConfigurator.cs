@@ -34,6 +34,26 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   {
     protected BaseItemEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEnchantment>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AllowNonContextActions = copyFrom.m_AllowNonContextActions;
+          bp.m_EnchantName = copyFrom.m_EnchantName;
+          bp.m_Description = copyFrom.m_Description;
+          bp.m_Prefix = copyFrom.m_Prefix;
+          bp.m_Suffix = copyFrom.m_Suffix;
+          bp.m_EnchantmentCost = copyFrom.m_EnchantmentCost;
+          bp.m_IdentifyDC = copyFrom.m_IdentifyDC;
+          bp.m_HiddenInUI = copyFrom.m_HiddenInUI;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEnchantment.m_AllowNonContextActions"/>
     /// </summary>

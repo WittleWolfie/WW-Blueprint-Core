@@ -24,6 +24,78 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<KingdomRoot>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_BlueprintRegionCapital = copyFrom.m_BlueprintRegionCapital;
+          bp.m_CapitalSettlement = copyFrom.m_CapitalSettlement;
+          bp.m_ThroneRoom = copyFrom.m_ThroneRoom;
+          bp.SettlementEmptyMarker = copyFrom.SettlementEmptyMarker;
+          bp.m_StartingEventDecks = copyFrom.m_StartingEventDecks;
+          bp.m_KingdomProjectEvents = copyFrom.m_KingdomProjectEvents;
+          bp.m_Buildings = copyFrom.m_Buildings;
+          bp.m_UnrestPriorityDeck = copyFrom.m_UnrestPriorityDeck;
+          bp.UnrestDeckTrigger = copyFrom.UnrestDeckTrigger;
+          bp.m_UnrestMitigationEvents = copyFrom.m_UnrestMitigationEvents;
+          bp.m_UIRoot = copyFrom.m_UIRoot;
+          bp.LeaderSlots = copyFrom.LeaderSlots;
+          bp.m_StartingNPCLeaders = copyFrom.m_StartingNPCLeaders;
+          bp.m_Timeline = copyFrom.m_Timeline;
+          bp.m_CrusadeEventsTimeline = copyFrom.m_CrusadeEventsTimeline;
+          bp.m_RegionUpgradesAvailable = copyFrom.m_RegionUpgradesAvailable;
+          bp.m_BpVendorItem = copyFrom.m_BpVendorItem;
+          bp.m_ConsumableEventBonusVendorItem = copyFrom.m_ConsumableEventBonusVendorItem;
+          bp.StatIncreaseOnEvent = copyFrom.StatIncreaseOnEvent;
+          bp.StatMaxRankInBarony = copyFrom.StatMaxRankInBarony;
+          bp.ResourcesPerEconomyRank = copyFrom.ResourcesPerEconomyRank;
+          bp.SettlementCost = copyFrom.SettlementCost;
+          bp.KingdomStatRankStep = copyFrom.KingdomStatRankStep;
+          bp.BaronySubsidy = copyFrom.BaronySubsidy;
+          bp.BaronyResourcesModifier = copyFrom.BaronyResourcesModifier;
+          bp.ResourcesAtStart = copyFrom.ResourcesAtStart;
+          bp.ResourcesAtStartPerTurn = copyFrom.ResourcesAtStartPerTurn;
+          bp.ConsumableEventBonusAtStart = copyFrom.ConsumableEventBonusAtStart;
+          bp.ConsumableEventBonusPerRankUp = copyFrom.ConsumableEventBonusPerRankUp;
+          bp.ConsumableEventBonusModifierValue = copyFrom.ConsumableEventBonusModifierValue;
+          bp.CustomLeaderPenalty = copyFrom.CustomLeaderPenalty;
+          bp.BuildingSequenceCostMultiplier = copyFrom.BuildingSequenceCostMultiplier;
+          bp.DefaultMapResourceCost = copyFrom.DefaultMapResourceCost;
+          bp.RavenVisitDelayDays = copyFrom.RavenVisitDelayDays;
+          bp.DefaultName = copyFrom.DefaultName;
+          bp.MoraleMaxValue = copyFrom.MoraleMaxValue;
+          bp.MoraleDefaultMaxValue = copyFrom.MoraleDefaultMaxValue;
+          bp.MoraleMinValue = copyFrom.MoraleMinValue;
+          bp.MoraleStartValue = copyFrom.MoraleStartValue;
+          bp.StartArmySquadsCount = copyFrom.StartArmySquadsCount;
+          bp.MaxArmySquadsCount = copyFrom.MaxArmySquadsCount;
+          bp.m_StoryModeBuff = copyFrom.m_StoryModeBuff;
+          bp.m_CasualModeBuff = copyFrom.m_CasualModeBuff;
+          bp.Village = copyFrom.Village;
+          bp.Town = copyFrom.Town;
+          bp.City = copyFrom.City;
+          bp.Stats = copyFrom.Stats;
+          bp.m_EntryPoint = copyFrom.m_EntryPoint;
+          bp.m_Regions = copyFrom.m_Regions;
+          bp.m_Locations = copyFrom.m_Locations;
+          bp.ArtisanTierChances = copyFrom.ArtisanTierChances;
+          bp.ArtisanTierChancesRequest = copyFrom.ArtisanTierChancesRequest;
+          bp.ArtisanMasterpieceChance = copyFrom.ArtisanMasterpieceChance;
+          bp.DifficultyDCMod = copyFrom.DifficultyDCMod;
+          bp.AutoCheatResources = copyFrom.AutoCheatResources;
+          bp.AutoCheatResourcesPerDay = copyFrom.AutoCheatResourcesPerDay;
+          bp.AviaryTimeReduction = copyFrom.AviaryTimeReduction;
+          bp.ProjectRefundFactor = copyFrom.ProjectRefundFactor;
+          bp.RankUps = copyFrom.RankUps;
+          bp.SiegeCooldownHours = copyFrom.SiegeCooldownHours;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="KingdomRoot.m_BlueprintRegionCapital"/>
     /// </summary>

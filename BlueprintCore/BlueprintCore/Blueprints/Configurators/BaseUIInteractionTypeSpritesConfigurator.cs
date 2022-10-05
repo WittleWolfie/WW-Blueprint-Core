@@ -19,6 +19,21 @@ namespace BlueprintCore.Blueprints.Configurators
   {
     protected BaseUIInteractionTypeSpritesConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUIInteractionTypeSprites>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Main = copyFrom.Main;
+          bp.Active = copyFrom.Active;
+          bp.Hover = copyFrom.Hover;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Main"/>
     /// </summary>

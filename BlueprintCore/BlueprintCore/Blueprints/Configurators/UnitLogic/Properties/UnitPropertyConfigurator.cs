@@ -3,6 +3,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Properties;
+using System;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
 {
@@ -47,5 +48,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
       return For(name);
     }
 
+
+    public UnitPropertyConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitProperty>> blueprint, params Type[] componentTypes)
+    {
+      base.CopyFrom(blueprint.ToString(), componentTypes);
+    return Self;
+    }
   }
 }
