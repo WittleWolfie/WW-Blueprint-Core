@@ -311,10 +311,18 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// are shared by both blueprints.
     /// </param>
     /// <returns></returns>
-    public TBuilder CopyFrom(BlueprintScriptableObject blueprint, params Type[] componentTypes)
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptableObject>> blueprint, params Type[] componentTypes)
     {
-      
-      return Self;
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          var componentsToAdd = new List<BlueprintComponent>();
+          foreach (var type in componentTypes)
+            componentsToAdd.AddRange(copyFrom.Components.Where(c => c.GetType() == type));
+          bp.Components = CommonTool.Append(bp.Components, componentsToAdd.Distinct().ToArray());
+        });
     }
 
     /// <summary>Internal function comparable to <see cref="OnConfigure(Action{T}[])"/>.</summary>
