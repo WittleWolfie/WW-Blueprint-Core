@@ -92,7 +92,8 @@ namespace BlueprintCore.Utils.Types
                 propertyList?
                     .Select(property => BlueprintTool.GetRef<BlueprintUnitPropertyReference>(property))
                     .ToArray(),
-            m_Progression = ContextRankProgression.AsIs
+            m_Progression = ContextRankProgression.AsIs,
+            Archetype = BlueprintTool.GetRef<BlueprintArchetypeReference>(null)
           };
       if (max is not null)
       {
