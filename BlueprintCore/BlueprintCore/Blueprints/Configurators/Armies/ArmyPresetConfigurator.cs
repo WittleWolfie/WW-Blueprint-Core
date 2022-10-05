@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Blueprints;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public ArmyPresetConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintArmyPreset>> blueprint, params Type[] componentTypes)
     {

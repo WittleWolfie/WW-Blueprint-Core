@@ -22,6 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
   {
     protected BaseDlcConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintDlc>> blueprint, params Type[] componentTypes)
     {

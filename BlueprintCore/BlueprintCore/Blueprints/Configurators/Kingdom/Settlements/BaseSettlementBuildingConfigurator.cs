@@ -32,6 +32,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
   {
     protected BaseSettlementBuildingConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintSettlementBuilding>> blueprint, params Type[] componentTypes)
     {

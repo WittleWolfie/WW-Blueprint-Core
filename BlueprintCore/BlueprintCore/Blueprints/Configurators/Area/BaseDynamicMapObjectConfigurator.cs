@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
@@ -18,6 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseDynamicMapObjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintDynamicMapObject>> blueprint, params Type[] componentTypes)
     {

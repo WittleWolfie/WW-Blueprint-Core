@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
@@ -18,6 +19,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseLineOfSightConsiderationConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<LineOfSightConsideration>> blueprint, params Type[] componentTypes)
     {

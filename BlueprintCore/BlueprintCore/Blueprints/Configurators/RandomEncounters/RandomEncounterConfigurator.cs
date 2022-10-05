@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.RandomEncounters.Settings;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public RandomEncounterConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintRandomEncounter>> blueprint, params Type[] componentTypes)
     {

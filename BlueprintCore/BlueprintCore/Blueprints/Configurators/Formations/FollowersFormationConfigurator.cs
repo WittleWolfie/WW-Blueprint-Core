@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Formations;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public FollowersFormationConfigurator CopyFrom(
       Blueprint<BlueprintReference<FollowersFormation>> blueprint, params Type[] componentTypes)
     {

@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Equipment;
@@ -19,6 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
   {
     protected BaseItemEquipmentHandConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintItemEquipmentHand>> blueprint, params Type[] componentTypes)
     {

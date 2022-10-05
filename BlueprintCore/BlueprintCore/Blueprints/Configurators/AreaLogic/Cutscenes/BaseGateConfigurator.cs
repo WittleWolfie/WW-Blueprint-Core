@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Blueprints;
@@ -22,6 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
   {
     protected BaseGateConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<Gate>> blueprint, params Type[] componentTypes)
     {

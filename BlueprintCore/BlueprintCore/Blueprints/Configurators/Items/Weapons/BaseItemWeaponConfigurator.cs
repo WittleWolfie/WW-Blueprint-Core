@@ -26,6 +26,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
   {
     protected BaseItemWeaponConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintItemWeapon>> blueprint, params Type[] componentTypes)
     {

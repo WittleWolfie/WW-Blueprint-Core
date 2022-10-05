@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.LightSelector;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TimeOfDaySettingsConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintTimeOfDaySettings>> blueprint, params Type[] componentTypes)
     {

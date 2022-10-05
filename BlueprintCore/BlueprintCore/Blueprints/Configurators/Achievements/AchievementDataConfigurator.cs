@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public AchievementDataConfigurator CopyFrom(
       Blueprint<BlueprintReference<AchievementData>> blueprint, params Type[] componentTypes)
     {

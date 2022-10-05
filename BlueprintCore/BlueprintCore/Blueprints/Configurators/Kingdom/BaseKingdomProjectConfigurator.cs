@@ -23,6 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
   {
     protected BaseKingdomProjectConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintKingdomProject>> blueprint, params Type[] componentTypes)
     {

@@ -33,6 +33,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseAreaConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintArea>> blueprint, params Type[] componentTypes)
     {

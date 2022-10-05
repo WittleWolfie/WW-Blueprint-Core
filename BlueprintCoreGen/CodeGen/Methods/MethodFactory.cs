@@ -77,6 +77,7 @@ namespace BlueprintCoreGen.CodeGen.Methods
           .Select(field => $"bp.{field.Name} = copyFrom.{field.Name};")
           .ToList();
 
+      method.AddLine(@"/// <inheritdoc cref=""RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])""/>");
       method.AddLine($"public {returnType} CopyFrom(");
       method.AddLine($"  Blueprint<BlueprintReference<{TypeTool.GetName(blueprintType)}>> blueprint, params Type[] componentTypes)");
       method.AddLine($"{{");

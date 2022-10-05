@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UI;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.UI
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public UISoundConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintUISound>> blueprint, params Type[] componentTypes)
     {

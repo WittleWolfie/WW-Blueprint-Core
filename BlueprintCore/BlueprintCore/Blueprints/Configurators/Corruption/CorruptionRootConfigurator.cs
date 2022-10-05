@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Corruption;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public CorruptionRootConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintCorruptionRoot>> blueprint, params Type[] componentTypes)
     {

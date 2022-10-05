@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Encyclopedia;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public EncyclopediaChapterConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintEncyclopediaChapter>> blueprint, params Type[] componentTypes)
     {

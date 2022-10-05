@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints.Considerations;
 using Kingmaker.Blueprints;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public ConditionConsiderationConfigurator CopyFrom(
       Blueprint<BlueprintReference<ConditionConsideration>> blueprint, params Type[] componentTypes)
     {

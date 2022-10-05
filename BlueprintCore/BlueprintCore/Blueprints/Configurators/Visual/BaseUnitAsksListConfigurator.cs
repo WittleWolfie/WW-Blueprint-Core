@@ -21,6 +21,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
   {
     protected BaseUnitAsksListConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintUnitAsksList>> blueprint, params Type[] componentTypes)
     {

@@ -25,6 +25,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
   {
     protected BaseFeatureSelectionConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint, params Type[] componentTypes)
     {

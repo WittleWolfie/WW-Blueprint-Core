@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Blueprints;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TacticalCombatRootConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintTacticalCombatRoot>> blueprint, params Type[] componentTypes)
     {

@@ -299,18 +299,25 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     /// <c>ContextRankConfig</c>.
     /// </para>
     /// 
-    /// <para>
     /// <example>
-    /// 
+    /// <code>
+    /// // Copy the Undead Bloodline's Incorporeal Form ability, replacing the duration w/ Character Level rounds
+    /// AbilityConfigurator.New(NewIncorporealForm, Guids.NewIncorporealForm)
+    ///   .CopyFrom(
+    ///     AbilityRefs.BloodlineUndeadIncorporealFormAbility,
+    ///     typeof(AbilityEffectRunAction),
+    ///     typeof(AbilityResourceLogic),
+    ///     typeof(SpellComponent))
+    ///   .AddContextRankConfig(ContextRankConfigs.CharacterLevel())
+    ///   .Configure();
+    /// </code>
     /// </example>
-    /// </para>
     /// 
     /// </remarks>
     /// <param name="componentTypes">
     /// Any components in <paramref name="blueprint"/> of the listed types are copied. These are shallow copies that 
     /// are shared by both blueprints.
     /// </param>
-    /// <returns></returns>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintScriptableObject>> blueprint, params Type[] componentTypes)
     {

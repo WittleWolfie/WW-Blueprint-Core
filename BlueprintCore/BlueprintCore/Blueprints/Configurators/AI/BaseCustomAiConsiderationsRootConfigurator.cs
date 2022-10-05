@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.AI.Blueprints;
 using Kingmaker.AI.Blueprints.Considerations;
@@ -21,6 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.AI
   {
     protected BaseCustomAiConsiderationsRootConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<CustomAiConsiderationsRoot>> blueprint, params Type[] componentTypes)
     {

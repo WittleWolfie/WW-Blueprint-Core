@@ -30,6 +30,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
   {
     protected BaseQuestObjectiveConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintQuestObjective>> blueprint, params Type[] componentTypes)
     {

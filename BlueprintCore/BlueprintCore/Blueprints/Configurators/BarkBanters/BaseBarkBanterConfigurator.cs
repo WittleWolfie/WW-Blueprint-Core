@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.BarkBanters;
 using Kingmaker.Blueprints;
@@ -21,6 +22,7 @@ namespace BlueprintCore.Blueprints.Configurators.BarkBanters
   {
     protected BaseBarkBanterConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintBarkBanter>> blueprint, params Type[] componentTypes)
     {

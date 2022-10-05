@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Settlements;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public SettlementBuildingConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintSettlementBuilding>> blueprint, params Type[] componentTypes)
     {

@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Visual.CharacterSystem;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public KingmakerEquipmentEntityConfigurator CopyFrom(
       Blueprint<BlueprintReference<KingmakerEquipmentEntity>> blueprint, params Type[] componentTypes)
     {

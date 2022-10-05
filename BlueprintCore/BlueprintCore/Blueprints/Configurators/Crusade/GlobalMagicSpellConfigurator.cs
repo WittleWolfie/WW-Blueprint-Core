@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Crusade.GlobalMagic;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Crusade
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public GlobalMagicSpellConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintGlobalMagicSpell>> blueprint, params Type[] componentTypes)
     {

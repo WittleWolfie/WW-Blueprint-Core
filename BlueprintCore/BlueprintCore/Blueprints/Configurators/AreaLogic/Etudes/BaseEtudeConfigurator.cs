@@ -41,6 +41,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
   {
     protected BaseEtudeConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintEtude>> blueprint, params Type[] componentTypes)
     {

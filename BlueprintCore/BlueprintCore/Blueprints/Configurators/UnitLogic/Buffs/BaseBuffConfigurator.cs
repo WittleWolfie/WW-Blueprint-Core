@@ -56,6 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
   {
     protected BaseBuffConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintBuff>> blueprint, params Type[] componentTypes)
     {

@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public ItemNoteConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintItemNote>> blueprint, params Type[] componentTypes)
     {

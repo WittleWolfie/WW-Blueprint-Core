@@ -34,6 +34,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   {
     protected BaseItemEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintItemEnchantment>> blueprint, params Type[] componentTypes)
     {

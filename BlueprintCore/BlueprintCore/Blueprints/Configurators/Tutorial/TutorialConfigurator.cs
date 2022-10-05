@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Tutorial;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TutorialConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintTutorial>> blueprint, params Type[] componentTypes)
     {

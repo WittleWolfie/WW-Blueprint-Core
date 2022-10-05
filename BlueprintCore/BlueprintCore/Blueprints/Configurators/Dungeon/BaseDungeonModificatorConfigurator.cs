@@ -28,6 +28,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
   {
     protected BaseDungeonModificatorConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintDungeonModificator>> blueprint, params Type[] componentTypes)
     {

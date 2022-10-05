@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using System;
@@ -48,6 +49,7 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public UnitAnimationActionSubstitutionConfigurator CopyFrom(
       Blueprint<BlueprintReference<UnitAnimationActionSubstitution>> blueprint, params Type[] componentTypes)
     {

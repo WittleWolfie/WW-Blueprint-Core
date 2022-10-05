@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.CharGen;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public RaceVisualPresetConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> blueprint, params Type[] componentTypes)
     {

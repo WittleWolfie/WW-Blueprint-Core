@@ -2,6 +2,7 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
@@ -22,6 +23,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseLogicConnectorConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintLogicConnector>> blueprint, params Type[] componentTypes)
     {

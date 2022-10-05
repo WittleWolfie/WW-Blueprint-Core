@@ -38,6 +38,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
   {
     protected BaseTutorialConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintTutorial>> blueprint, params Type[] componentTypes)
     {

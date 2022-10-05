@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Selection;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public ParametrizedFeatureConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintParametrizedFeature>> blueprint, params Type[] componentTypes)
     {

@@ -20,6 +20,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
   {
     protected BaseArmorEnchantmentConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintArmorEnchantment>> blueprint, params Type[] componentTypes)
     {

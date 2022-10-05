@@ -31,6 +31,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
   {
     protected BaseLeaderSkillConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintLeaderSkill>> blueprint, params Type[] componentTypes)
     {

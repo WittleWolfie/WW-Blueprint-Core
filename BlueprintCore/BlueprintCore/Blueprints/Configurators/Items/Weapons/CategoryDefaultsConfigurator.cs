@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Weapons;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public CategoryDefaultsConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintCategoryDefaults>> blueprint, params Type[] componentTypes)
     {

@@ -27,6 +27,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
   {
     protected BaseAreaPartConfigurator(Blueprint<BlueprintReference<T>> blueprint) : base(blueprint) { }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public TBuilder CopyFrom(
       Blueprint<BlueprintReference<BlueprintAreaPart>> blueprint, params Type[] componentTypes)
     {

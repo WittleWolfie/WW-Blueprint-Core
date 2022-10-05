@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Properties;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public UnitPropertyConfigurator CopyFrom(
       Blueprint<BlueprintReference<BlueprintUnitProperty>> blueprint, params Type[] componentTypes)
     {

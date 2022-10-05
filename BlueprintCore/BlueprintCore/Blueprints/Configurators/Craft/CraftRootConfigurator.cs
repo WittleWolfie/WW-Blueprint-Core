@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Craft;
@@ -49,6 +50,7 @@ namespace BlueprintCore.Blueprints.Configurators.Craft
     }
 
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
     public CraftRootConfigurator CopyFrom(
       Blueprint<BlueprintReference<CraftRoot>> blueprint, params Type[] componentTypes)
     {
