@@ -3,6 +3,7 @@ using BlueprintCoreGen.CodeGen.Overrides.Examples;
 using BlueprintCoreGen.CodeGen.Params;
 using Kingmaker.Blueprints;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -64,6 +65,27 @@ namespace BlueprintCoreGen.CodeGen.Methods
       forBp.AddLine($"}}");
 
       return new() { forBp, newBp };
+    }
+
+    public static IMethod CreateCopyFrom(Type blueprintType, List<FieldMethod> fields, string returnType)
+    {
+      var method = new MethodImpl();
+      var body = fields.Select(field => $"Blueprint.{field!.FieldName} = blueprint.{field.FieldName};").ToList();
+
+      body.Add($"");
+      body.Add($"var componentsToAdd = new List<BlueprintComponent>();");
+      body.Add($"foreach (var type in componentTypes)");
+      body.Add($"  componentsToAdd.AddRange(blueprint.Components.Where(c => c.GetType() == type));");
+      body.Add($"Blueprint.Components = CommonTool.Append(Blueprint.Components, componentsToAdd.Distinct().ToArray());");
+
+      method.AddLine($"public override {returnType} CopyFrom({TypeTool.GetName(blueprintType)} blueprint, params Type[] componentTypes)");
+      method.AddLine($"{{");
+      method.AddLine($"  base.CopyFrom(blueprint, componentTypes);");
+      method.AddLine($"");
+      AddOnConfigure(method, body, new() { });
+      method.AddLine($"}}");
+
+      return method;
     }
 
     public static IMethod CreateConfiguratorOnConfigureCompleted(Type blueprintType, List<FieldMethod> fields)
