@@ -284,6 +284,39 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       return Self;
     }
 
+    /// <summary>
+    /// Copies fields and components of the specified types from the blueprint.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// NOT A DEEP COPY. This means objects copied are shared between blueprints. Changes to copied objects affect both
+    /// blueprints.
+    /// </para>
+    /// 
+    /// <para>
+    /// Recommended when you need to create a nearly identical ability but change some parts such as a
+    /// <c>ContextRankConfig</c>.
+    /// </para>
+    /// 
+    /// <para>
+    /// <example>
+    /// 
+    /// </example>
+    /// </para>
+    /// 
+    /// </remarks>
+    /// <param name="componentTypes">
+    /// Any components in <paramref name="blueprint"/> of the listed types are copied. These are shallow copies that 
+    /// are shared by both blueprints.
+    /// </param>
+    /// <returns></returns>
+    public TBuilder CopyFrom(BlueprintScriptableObject blueprint, params Type[] componentTypes)
+    {
+      
+      return Self;
+    }
+
     /// <summary>Internal function comparable to <see cref="OnConfigure(Action{T}[])"/>.</summary>
     /// 
     /// <remarks>
