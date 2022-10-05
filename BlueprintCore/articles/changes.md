@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.3.3 Release
+
+* Fixes a bug preventin archetypes from working properly in ContextRankConfigs
+
 ## v2.3.2 Release
 
 * Prevents features from being added to Feature Selection lists they're already on
