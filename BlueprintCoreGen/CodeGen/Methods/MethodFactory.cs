@@ -68,33 +68,53 @@ namespace BlueprintCoreGen.CodeGen.Methods
       return new() { forBp, newBp };
     }
 
-    public static IMethod CreateCopyFrom(Type blueprintType, List<FieldMethod> fields, string returnType)
+    public static List<IMethod> CreateCopyFrom(Type blueprintType, List<FieldMethod> fields, string returnType)
     {
-      var method = new MethodImpl();
       var body =
         fields.Select(field => blueprintType.GetField(field.FieldName))
           .Where(field => !Ignored.ShouldIgnoreField(field, blueprintType))
           .Select(field => $"bp.{field.Name} = copyFrom.{field.Name};")
           .ToList();
-
-      method.AddLine(@"/// <inheritdoc cref=""RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])""/>");
-      method.AddLine($"public {returnType} CopyFrom(");
-      method.AddLine($"  Blueprint<BlueprintReference<{TypeTool.GetName(blueprintType)}>> blueprint, params Type[] componentTypes)");
-      method.AddLine($"{{");
-      method.AddLine($"  base.CopyFrom(blueprint.ToString(), componentTypes);");
       if (body.Any())
       {
         body.Insert(0, $"var copyFrom = blueprint.Reference.Get();");
-        method.AddLine($"");
-        AddOnConfigure(method, body, new() { });
+      }
+
+      var byComponentTypes = new MethodImpl();
+      byComponentTypes.AddLine(@"/// <inheritdoc cref=""RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])""/>");
+      byComponentTypes.AddLine($"public {returnType} CopyFrom(");
+      byComponentTypes.AddLine($"  Blueprint<BlueprintReference<{TypeTool.GetName(blueprintType)}>> blueprint, params Type[] componentTypes)");
+      byComponentTypes.AddLine($"{{");
+      byComponentTypes.AddLine($"  base.CopyFrom(blueprint.ToString(), componentTypes);");
+      if (body.Any())
+      {
+        byComponentTypes.AddLine($"");
+        AddOnConfigure(byComponentTypes, body, new() { });
       }
       else
       {
-        method.AddLine($"return Self;");
+        byComponentTypes.AddLine($"return Self;");
       }
-      method.AddLine($"}}");
+      byComponentTypes.AddLine($"}}");
 
-      return method;
+      var byPredicate = new MethodImpl();
+      byPredicate.AddLine(@"/// <inheritdoc cref=""RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})""/>");
+      byPredicate.AddLine($"public {returnType} CopyFrom(");
+      byPredicate.AddLine($"  Blueprint<BlueprintReference<{TypeTool.GetName(blueprintType)}>> blueprint, Predicate<BlueprintComponent> componentMatcher)");
+      byPredicate.AddLine($"{{");
+      byPredicate.AddLine($"  base.CopyFrom(blueprint.ToString(), componentMatcher);");
+      if (body.Any())
+      {
+        byPredicate.AddLine($"");
+        AddOnConfigure(byPredicate, body, new() { });
+      }
+      else
+      {
+        byPredicate.AddLine($"return Self;");
+      }
+      byPredicate.AddLine($"}}");
+
+      return new() { byComponentTypes, byPredicate };
     }
 
     public static IMethod CreateConfiguratorOnConfigureCompleted(Type blueprintType, List<FieldMethod> fields)

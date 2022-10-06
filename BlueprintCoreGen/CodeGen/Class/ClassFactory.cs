@@ -133,17 +133,17 @@ namespace BlueprintCoreGen.CodeGen.Class
       }
 
       // Copy From method
-      var copyFrom =
-        MethodFactory.CreateCopyFrom(
+      MethodFactory.CreateCopyFrom(
           configurator.BlueprintType,
           configurator.FieldMethods,
-          configurator.IsAbstract ? "TBuilder" : configurator.ClassName);
-      if (copyFrom.GetLines().Any())
-      {
-        configuratorClass.AddLine("");
-        configuratorClass.AddImport("System");
-        copyFrom.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
-      }
+          configurator.IsAbstract ? "TBuilder" : configurator.ClassName)
+        .ForEach(
+          method =>
+          {
+            configuratorClass.AddLine("");
+            configuratorClass.AddImport("System");
+            method.GetLines().ForEach(line => configuratorClass.AddLine($"    {line}"));
+          });
 
       // Field Methods
       configurator.FieldMethods.ForEach(
