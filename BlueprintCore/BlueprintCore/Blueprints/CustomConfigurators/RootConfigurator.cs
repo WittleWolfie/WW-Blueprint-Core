@@ -125,12 +125,24 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     {
       try
       {
-        DelayedConfigurators.ForEach(c => c.BaseConfigure());
+        DelayedConfigurators.ForEach(
+          c =>
+          {
+            try
+            {
+              c.BaseConfigure();
+            }
+            catch (Exception e)
+            {
+              Logger.Warn("Failed to configure a delayed blueprint.");
+              Logger.Warn(e.ToString());
+            }
+          });
         DelayedConfigurators.Clear();
       }
-      catch (Exception e)
+      catch (Exception ex)
       {
-        Logger.Error("Exception thrown while configuring delayed blueprints.", e);
+        Logger.Error("Exception thrown while configuring delayed blueprints.", ex);
       }
     }
 

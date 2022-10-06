@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.4.1 Release
+
+* A single delayed configurator failure no longer prevents other delayed configurators from being processed
+
 ##  v2.4.0 Release
 
 * Added blueprint copying methods: `CopyFrom()`
