@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+##  v2.4.0 Release
+
+* Added blueprint copying methods: `CopyFrom()`
+    * These are shallow copies that copy all fields
+    * Components are only copied if specified, either by type or using a predicate
+
 ## v2.3.3 Release
 
 * Fixes a bug preventin archetypes from working properly in ContextRankConfigs
