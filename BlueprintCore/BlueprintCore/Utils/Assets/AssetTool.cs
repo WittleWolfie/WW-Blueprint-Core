@@ -155,7 +155,7 @@ namespace BlueprintCore.Utils.Assets
 
     public static implicit operator Asset<T>(T asset)
     {
-      return new(asset);
+      return asset is null ? null : new(asset);
     }
 
     public static implicit operator Asset<T>(string assetId)
