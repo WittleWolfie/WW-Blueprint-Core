@@ -548,6 +548,158 @@ RootConfigurator.ConfigureDelayed();
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Predicate_Kingmaker_Blueprints_BlueprintComponent__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.CopyFrom(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7BKingmaker.Blueprints.BlueprintScriptableObject%7D%7D%2CSystem.Predicate%7BKingmaker.Blueprints.BlueprintComponent%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L340">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.CopyFrom*"></a>
+  <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Predicate_Kingmaker_Blueprints_BlueprintComponent__" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.CopyFrom(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{Kingmaker.Blueprints.BlueprintScriptableObject}},System.Predicate{Kingmaker.Blueprints.BlueprintComponent})">CopyFrom(Blueprint&lt;BlueprintReference&lt;BlueprintScriptableObject&gt;&gt;, Predicate&lt;BlueprintComponent&gt;)</h4>
+  <div class="markdown level1 summary"><p>Copies fields and components of the specified types from the blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder CopyFrom(Blueprint&lt;BlueprintReference&lt;BlueprintScriptableObject&gt;&gt; blueprint, Predicate&lt;BlueprintComponent&gt; componentMatcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintReference</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>&gt;&gt;</td>
+        <td><span class="parametername">blueprint</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Predicate</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintComponent</span>&gt;</td>
+        <td><span class="parametername">componentMatcher</span></td>
+        <td><p>Any components in <code data-dev-comment-type="paramref" class="paramref">blueprint</code> matching the predicate are copied. These are shallow copies that
+are shared by both blueprints.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Predicate_Kingmaker_Blueprints_BlueprintComponent___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+NOT A DEEP COPY. This means objects copied are shared between blueprints. Changes to copied objects affect both
+blueprints.
+</p>
+<p>
+Recommended when you need to create a nearly identical ability but change some parts such as a
+<code>ContextRankConfig</code>.
+</p>
+<example>
+<pre><code>// Copy the Undead Bloodline&apos;s Incorporeal Form ability, replacing the duration w/ Character Level rounds
+AbilityConfigurator.New(NewIncorporealForm, Guids.NewIncorporealForm)
+  .CopyFrom(
+    AbilityRefs.BloodlineUndeadIncorporealFormAbility,
+    typeof(AbilityEffectRunAction),
+    typeof(AbilityResourceLogic),
+    typeof(SpellComponent))
+  .AddContextRankConfig(ContextRankConfigs.CharacterLevel())
+  .Configure();</code></pre>
+</example>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Type___.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.CopyFrom(BlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintReference%7BKingmaker.Blueprints.BlueprintScriptableObject%7D%7D%2CSystem.Type%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L321">View Source</a>
+  </span>
+  <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.CopyFrom*"></a>
+  <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Type___" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.CopyFrom(BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintReference{Kingmaker.Blueprints.BlueprintScriptableObject}},System.Type[])">CopyFrom(Blueprint&lt;BlueprintReference&lt;BlueprintScriptableObject&gt;&gt;, Type[])</h4>
+  <div class="markdown level1 summary"><p>Copies fields and components of the specified types from the blueprint.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TBuilder CopyFrom(Blueprint&lt;BlueprintReference&lt;BlueprintScriptableObject&gt;&gt; blueprint, params Type[] componentTypes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintReference</span>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintScriptableObject</span>&gt;&gt;</td>
+        <td><span class="parametername">blueprint</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span>[]</td>
+        <td><span class="parametername">componentTypes</span></td>
+        <td><p>Any components in <code data-dev-comment-type="paramref" class="paramref">blueprint</code> of the listed types are copied. These are shallow copies that
+are shared by both blueprints.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TBuilder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_CopyFrom_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintReference_Kingmaker_Blueprints_BlueprintScriptableObject___System_Type____remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>
+NOT A DEEP COPY. This means objects copied are shared between blueprints. Changes to copied objects affect both
+blueprints.
+</p>
+<p>
+Recommended when you need to create a nearly identical ability but change some parts such as a
+<code>ContextRankConfig</code>.
+</p>
+<example>
+<pre><code>// Copy the Undead Bloodline&apos;s Incorporeal Form ability, replacing the duration w/ Character Level rounds
+AbilityConfigurator.New(NewIncorporealForm, Guids.NewIncorporealForm)
+  .CopyFrom(
+    AbilityRefs.BloodlineUndeadIncorporealFormAbility,
+    typeof(AbilityEffectRunAction),
+    typeof(AbilityResourceLogic),
+    typeof(SpellComponent))
+  .AddContextRankConfig(ContextRankConfigs.CharacterLevel())
+  .Configure();</code></pre>
+</example>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_EditComponent__1_System_Action___0__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.EditComponent%60%601(System.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
@@ -737,7 +889,7 @@ RootConfigurator.ConfigureDelayed();
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L302">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L368">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureCompleted*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
@@ -752,7 +904,7 @@ RootConfigurator.ConfigureDelayed();
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.OnConfigureInternal(System.Action%7B%600%7D%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L293">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L359">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureInternal*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_OnConfigureInternal_System_Action__0____" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.OnConfigureInternal(System.Action{`0}[])">OnConfigureInternal(Action&lt;T&gt;[])</h4>
@@ -855,7 +1007,7 @@ should use this to ensure the blueprint is configured before user configuration 
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator%602.Validate(System.Object)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L304">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/CustomConfigurators/RootConfigurator.cs/#L370">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validate*"></a>
   <h4 id="BlueprintCore_Blueprints_CustomConfigurators_RootConfigurator_2_Validate_System_Object_" data-uid="BlueprintCore.Blueprints.CustomConfigurators.RootConfigurator`2.Validate(System.Object)">Validate(Object)</h4>
