@@ -64,6 +64,37 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItem>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_DisplayNameText = copyFrom.m_DisplayNameText;
+          bp.m_DescriptionText = copyFrom.m_DescriptionText;
+          bp.m_FlavorText = copyFrom.m_FlavorText;
+          bp.m_NonIdentifiedNameText = copyFrom.m_NonIdentifiedNameText;
+          bp.m_NonIdentifiedDescriptionText = copyFrom.m_NonIdentifiedDescriptionText;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_Cost = copyFrom.m_Cost;
+          bp.m_Weight = copyFrom.m_Weight;
+          bp.m_IsNotable = copyFrom.m_IsNotable;
+          bp.m_IsJunk = copyFrom.m_IsJunk;
+          bp.m_ForceStackable = copyFrom.m_ForceStackable;
+          bp.m_Destructible = copyFrom.m_Destructible;
+          bp.m_ShardItem = copyFrom.m_ShardItem;
+          bp.m_MiscellaneousType = copyFrom.m_MiscellaneousType;
+          bp.m_InventoryPutSound = copyFrom.m_InventoryPutSound;
+          bp.m_InventoryTakeSound = copyFrom.m_InventoryTakeSound;
+          bp.NeedSkinningForCollect = copyFrom.NeedSkinningForCollect;
+          bp.TrashLootTypes = copyFrom.TrashLootTypes;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItem.m_DisplayNameText"/>
     /// </summary>

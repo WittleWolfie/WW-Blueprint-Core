@@ -63,6 +63,45 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FxRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_SingleHandCasts = copyFrom.m_SingleHandCasts;
+          bp.m_DoubleHandCasts = copyFrom.m_DoubleHandCasts;
+          bp.m_HeadCasts = copyFrom.m_HeadCasts;
+          bp.m_TorsoCasts = copyFrom.m_TorsoCasts;
+          bp.FallEventStrings = copyFrom.FallEventStrings;
+          bp.DustOnFallPrefab = copyFrom.DustOnFallPrefab;
+          bp.PoolEntries = copyFrom.PoolEntries;
+          bp.OverrideDeathPrefabsFromEnergy = copyFrom.OverrideDeathPrefabsFromEnergy;
+          bp.IntensityMultiplierMorning = copyFrom.IntensityMultiplierMorning;
+          bp.IntensityMultiplierDay = copyFrom.IntensityMultiplierDay;
+          bp.IntensityMultiplierEvening = copyFrom.IntensityMultiplierEvening;
+          bp.IntensityMultiplierNight = copyFrom.IntensityMultiplierNight;
+          bp.RangeMultiplierMorning = copyFrom.RangeMultiplierMorning;
+          bp.RangeMultiplierDay = copyFrom.RangeMultiplierDay;
+          bp.RangeMultiplierEvening = copyFrom.RangeMultiplierEvening;
+          bp.RangeMultiplierNight = copyFrom.RangeMultiplierNight;
+          bp.RaceFxSnapMapScaleSettings = copyFrom.RaceFxSnapMapScaleSettings;
+          bp.RaceFxSnapToLocatorScaleSettings = copyFrom.RaceFxSnapToLocatorScaleSettings;
+          bp.RaceFxFluidFogInteractionScaleSettings = copyFrom.RaceFxFluidFogInteractionScaleSettings;
+          bp.DefaultLifetimeSeconds = copyFrom.DefaultLifetimeSeconds;
+          bp.FadeOutTimeSeconds = copyFrom.FadeOutTimeSeconds;
+          bp.MaxFootprintsCountPerUnit = copyFrom.MaxFootprintsCountPerUnit;
+          bp.MinDistanceBetweenFootprints = copyFrom.MinDistanceBetweenFootprints;
+          bp.FootprintsReferences = copyFrom.FootprintsReferences;
+          bp.FootprintsLocators = copyFrom.FootprintsLocators;
+          bp.m_DeathFxsInitialized = copyFrom.m_DeathFxsInitialized;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FxRoot.m_SingleHandCasts"/>
     /// </summary>

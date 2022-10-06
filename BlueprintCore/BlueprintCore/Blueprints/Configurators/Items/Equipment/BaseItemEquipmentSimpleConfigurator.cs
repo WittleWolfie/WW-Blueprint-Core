@@ -36,6 +36,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentSimple>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_InventoryEquipSound = copyFrom.m_InventoryEquipSound;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentSimple.m_Enchantments"/>
     /// </summary>

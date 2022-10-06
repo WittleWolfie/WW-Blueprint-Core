@@ -131,6 +131,97 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_DefaultPlayerCharacter = copyFrom.m_DefaultPlayerCharacter;
+          bp.m_SelectablePlayerCharacters = copyFrom.m_SelectablePlayerCharacters;
+          bp.m_PlayerFaction = copyFrom.m_PlayerFaction;
+          bp.CompanionsAI = copyFrom.CompanionsAI;
+          bp.m_KingFlag = copyFrom.m_KingFlag;
+          bp.MinProjectileMissDeviation = copyFrom.MinProjectileMissDeviation;
+          bp.MaxProjectileMissDeviation = copyFrom.MaxProjectileMissDeviation;
+          bp.HumanAnimationSet = copyFrom.HumanAnimationSet;
+          bp.m_NewGamePreset = copyFrom.m_NewGamePreset;
+          bp.StartGameActions = copyFrom.StartGameActions;
+          bp.Dialog = copyFrom.Dialog;
+          bp.Cheats = copyFrom.Cheats;
+          bp.m_RE = copyFrom.m_RE;
+          bp.m_GlobalMap = copyFrom.m_GlobalMap;
+          bp.Progression = copyFrom.Progression;
+          bp.CharGen = copyFrom.CharGen;
+          bp.Prefabs = copyFrom.Prefabs;
+          bp.OccludedCharacterColors = copyFrom.OccludedCharacterColors;
+          bp.UIRoot = copyFrom.UIRoot;
+          bp.Quests = copyFrom.Quests;
+          bp.Vendors = copyFrom.Vendors;
+          bp.SystemMechanics = copyFrom.SystemMechanics;
+          bp.StatusBuffs = copyFrom.StatusBuffs;
+          bp.Cursors = copyFrom.Cursors;
+          bp.WeatherSettings = copyFrom.WeatherSettings;
+          bp.DlcSettings = copyFrom.DlcSettings;
+          bp.NewGameSettings = copyFrom.NewGameSettings;
+          bp.SurfaceTypeData = copyFrom.SurfaceTypeData;
+          bp.m_InvisibleKittenUnit = copyFrom.m_InvisibleKittenUnit;
+          bp.OptimizationDummyUnit = copyFrom.OptimizationDummyUnit;
+          bp.m_CoinItem = copyFrom.m_CoinItem;
+          bp.LocalizedTexts = copyFrom.LocalizedTexts;
+          bp.SettingsRoot = copyFrom.SettingsRoot;
+          bp.UIPhotoModeRoot = copyFrom.UIPhotoModeRoot;
+          bp.m_PhotoModeRoot = copyFrom.m_PhotoModeRoot;
+          bp.m_DifficultyList = copyFrom.m_DifficultyList;
+          bp.SettingsValues = copyFrom.SettingsValues;
+          bp.PhotoModeValues = copyFrom.PhotoModeValues;
+          bp.StealthEffectPrefab = copyFrom.StealthEffectPrefab;
+          bp.ExitStealthEffectPrefab = copyFrom.ExitStealthEffectPrefab;
+          bp.WeaponModelSizing = copyFrom.WeaponModelSizing;
+          bp.BeltItemModelSizing = copyFrom.BeltItemModelSizing;
+          bp.MountModelSizing = copyFrom.MountModelSizing;
+          bp.Sound = copyFrom.Sound;
+          bp.m_CutscenesRoot = copyFrom.m_CutscenesRoot;
+          bp.m_Kingdom = copyFrom.m_Kingdom;
+          bp.m_CorruptionRoot = copyFrom.m_CorruptionRoot;
+          bp.m_ArmyRoot = copyFrom.m_ArmyRoot;
+          bp.m_CraftRoot = copyFrom.m_CraftRoot;
+          bp.m_LeadersRoot = copyFrom.m_LeadersRoot;
+          bp.m_MoraleRoot = copyFrom.m_MoraleRoot;
+          bp.m_TacticalCombat = copyFrom.m_TacticalCombat;
+          bp.Calendar = copyFrom.Calendar;
+          bp.m_Formations = copyFrom.m_Formations;
+          bp.RazerColorData = copyFrom.RazerColorData;
+          bp.Animation = copyFrom.Animation;
+          bp.Camping = copyFrom.Camping;
+          bp.m_FxRoot = copyFrom.m_FxRoot;
+          bp.m_HitSystemRoot = copyFrom.m_HitSystemRoot;
+          bp.m_PlayerUpgradeActions = copyFrom.m_PlayerUpgradeActions;
+          bp.m_CustomCompanion = copyFrom.m_CustomCompanion;
+          bp.CustomCompanionBaseCost = copyFrom.CustomCompanionBaseCost;
+          bp.StandartPerceptionRadius = copyFrom.StandartPerceptionRadius;
+          bp.AreaEffectAutoDestroySeconds = copyFrom.AreaEffectAutoDestroySeconds;
+          bp.AnnoyingConditionsAutoDestroySeconds = copyFrom.AnnoyingConditionsAutoDestroySeconds;
+          bp.DefaultDissolveTexture = copyFrom.DefaultDissolveTexture;
+          bp.Achievements = copyFrom.Achievements;
+          bp.Combat = copyFrom.Combat;
+          bp.m_UnitTypes = copyFrom.m_UnitTypes;
+          bp.TestUIStyles = copyFrom.TestUIStyles;
+          bp.m_Dungeon = copyFrom.m_Dungeon;
+          bp.m_ConsoleRoot = copyFrom.m_ConsoleRoot;
+          bp.m_BlueprintTrapSettingsRoot = copyFrom.m_BlueprintTrapSettingsRoot;
+          bp.m_InteractionRoot = copyFrom.m_InteractionRoot;
+          bp.m_BlueprintMythicsSettingsReference = copyFrom.m_BlueprintMythicsSettingsReference;
+          bp.m_CustomAiConsiderations = copyFrom.m_CustomAiConsiderations;
+          bp.m_BlueprintBugReportTutorialReference = copyFrom.m_BlueprintBugReportTutorialReference;
+          bp.m_SpellSchoolRoot = copyFrom.m_SpellSchoolRoot;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_DefaultPlayerCharacter"/>
     /// </summary>

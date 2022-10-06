@@ -56,5 +56,13 @@ namespace BlueprintCore.Blueprints.Configurators
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public UnitTemplateConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitTemplate>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

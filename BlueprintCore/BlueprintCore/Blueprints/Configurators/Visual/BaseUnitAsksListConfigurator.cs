@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitAsksList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DisplayName = copyFrom.DisplayName;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitAsksList.DisplayName"/>
     /// </summary>

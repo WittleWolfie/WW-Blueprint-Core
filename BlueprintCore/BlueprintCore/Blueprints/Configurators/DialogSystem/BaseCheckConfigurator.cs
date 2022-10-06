@@ -45,6 +45,27 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCheck>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Type = copyFrom.Type;
+          bp.DC = copyFrom.DC;
+          bp.Hidden = copyFrom.Hidden;
+          bp.DCModifiers = copyFrom.DCModifiers;
+          bp.m_Success = copyFrom.m_Success;
+          bp.m_Fail = copyFrom.m_Fail;
+          bp.m_UnitEvaluator = copyFrom.m_UnitEvaluator;
+          bp.Experience = copyFrom.Experience;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCheck.Type"/>
     /// </summary>

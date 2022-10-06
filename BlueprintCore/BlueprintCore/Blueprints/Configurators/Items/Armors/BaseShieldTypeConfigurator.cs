@@ -34,6 +34,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintShieldType>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_HandVisualParameters = copyFrom.m_HandVisualParameters;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintShieldType.m_HandVisualParameters"/>
     /// </summary>

@@ -36,6 +36,24 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTrapSettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ActorLevel = copyFrom.ActorLevel;
+          bp.ActorStatMod = copyFrom.ActorStatMod;
+          bp.TrapActor = copyFrom.TrapActor;
+          bp.DisableDC = copyFrom.DisableDC;
+          bp.PerceptionDC = copyFrom.PerceptionDC;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTrapSettings.ActorLevel"/>
     /// </summary>

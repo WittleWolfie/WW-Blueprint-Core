@@ -35,6 +35,21 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TacticalCombatCanAttackThisTurnConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CanAttackScore = copyFrom.CanAttackScore;
+          bp.CanNotAttackScore = copyFrom.CanNotAttackScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatCanAttackThisTurnConsideration.CanAttackScore"/>
     /// </summary>

@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemsList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Items = copyFrom.m_Items;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemsList.m_Items"/>
     /// </summary>

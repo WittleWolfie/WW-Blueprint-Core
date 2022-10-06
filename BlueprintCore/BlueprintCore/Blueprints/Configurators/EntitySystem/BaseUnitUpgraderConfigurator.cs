@@ -36,6 +36,21 @@ namespace BlueprintCore.Blueprints.Configurators.EntitySystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitUpgrader>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ApplyFromPlaceholder = copyFrom.ApplyFromPlaceholder;
+          bp.Actions = copyFrom.Actions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitUpgrader.ApplyFromPlaceholder"/>
     /// </summary>

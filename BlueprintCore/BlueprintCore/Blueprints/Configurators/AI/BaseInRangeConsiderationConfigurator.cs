@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<InRangeConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.InRangeScore = copyFrom.InRangeScore;
+          bp.OutOfRangeScore = copyFrom.OutOfRangeScore;
+          bp.OnlyIfThreated = copyFrom.OnlyIfThreated;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="InRangeConsideration.InRangeScore"/>
     /// </summary>

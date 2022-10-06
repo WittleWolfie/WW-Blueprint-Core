@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators.Root.Fx
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CastsGroup>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ArcaneCasts = copyFrom.m_ArcaneCasts;
+          bp.m_DivineCasts = copyFrom.m_DivineCasts;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CastsGroup.m_ArcaneCasts"/>
     /// </summary>

@@ -42,6 +42,26 @@ namespace BlueprintCore.Blueprints.Configurators.RandomEncounters
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCampingEncounter>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Chance = copyFrom.Chance;
+          bp.Conditions = copyFrom.Conditions;
+          bp.EncounterActions = copyFrom.EncounterActions;
+          bp.InterruptsRest = copyFrom.InterruptsRest;
+          bp.PartyTired = copyFrom.PartyTired;
+          bp.MainCharacterTired = copyFrom.MainCharacterTired;
+          bp.NotOnGlobalMap = copyFrom.NotOnGlobalMap;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCampingEncounter.Chance"/>
     /// </summary>

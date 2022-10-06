@@ -39,6 +39,23 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonLocalizedStrings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.StageNameParameterized = copyFrom.StageNameParameterized;
+          bp.ExperienceGained = copyFrom.ExperienceGained;
+          bp.LeaderboardRecordValues = copyFrom.LeaderboardRecordValues;
+          bp.LeaderboardCharacterValues = copyFrom.LeaderboardCharacterValues;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLocalizedStrings.StageNameParameterized"/>
     /// </summary>

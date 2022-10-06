@@ -54,6 +54,38 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<LeadersRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ExpTable = copyFrom.m_ExpTable;
+          bp.m_Leaders = copyFrom.m_Leaders;
+          bp.m_AttackLeaderFeature = copyFrom.m_AttackLeaderFeature;
+          bp.m_DeffenceLeaderFeature = copyFrom.m_DeffenceLeaderFeature;
+          bp.m_BaseManaRegen = copyFrom.m_BaseManaRegen;
+          bp.FirstLeadCost = copyFrom.FirstLeadCost;
+          bp.ReducedLeadCost = copyFrom.ReducedLeadCost;
+          bp.LeadCostMultiply = copyFrom.LeadCostMultiply;
+          bp.m_ArmyLeaderAssignmentCooldownDays = copyFrom.m_ArmyLeaderAssignmentCooldownDays;
+          bp.m_CheaperLeadersProject = copyFrom.m_CheaperLeadersProject;
+          bp.m_TalentedLeadersProject = copyFrom.m_TalentedLeadersProject;
+          bp.m_ExperiencedLeadersProject = copyFrom.m_ExperiencedLeadersProject;
+          bp.m_ExcellentLeadersProject = copyFrom.m_ExcellentLeadersProject;
+          bp.SkillsListName = copyFrom.SkillsListName;
+          bp.ManaName = copyFrom.ManaName;
+          bp.AttackBonusName = copyFrom.AttackBonusName;
+          bp.DeffBonusName = copyFrom.DeffBonusName;
+          bp.SpellStrengthName = copyFrom.SpellStrengthName;
+          bp.LeaderHireText = copyFrom.LeaderHireText;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="LeadersRoot.m_ExpTable"/>
     /// </summary>

@@ -37,6 +37,21 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLoadingScreenSpriteList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_GenericSpritesLink = copyFrom.m_GenericSpritesLink;
+          bp.m_SettingTypeScreensList = copyFrom.m_SettingTypeScreensList;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoadingScreenSpriteList.m_GenericSpritesLink"/>
     /// </summary>

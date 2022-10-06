@@ -38,6 +38,23 @@ namespace BlueprintCore.Blueprints.Configurators.UI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUISound>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Sounds = copyFrom.Sounds;
+          bp.ArmyManagement = copyFrom.ArmyManagement;
+          bp.Tooltip = copyFrom.Tooltip;
+          bp.CardInterface = copyFrom.CardInterface;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUISound.Sounds"/>
     /// </summary>

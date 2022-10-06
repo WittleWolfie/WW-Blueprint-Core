@@ -38,6 +38,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BuffConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Buffs = copyFrom.m_Buffs;
+          bp.HasBuffScore = copyFrom.HasBuffScore;
+          bp.NoBuffScore = copyFrom.NoBuffScore;
+          bp.FromCaster = copyFrom.FromCaster;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BuffConsideration.m_Buffs"/>
     /// </summary>

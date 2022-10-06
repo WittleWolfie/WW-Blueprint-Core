@@ -36,6 +36,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<DirectionConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Angle = copyFrom.Angle;
+          bp.Spread = copyFrom.Spread;
+          bp.HasUnitsInDirectionScore = copyFrom.HasUnitsInDirectionScore;
+          bp.NoUnitsInDirectionScore = copyFrom.NoUnitsInDirectionScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="DirectionConsideration.Angle"/>
     /// </summary>

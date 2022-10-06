@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<SwarmTargetsConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HasEnemiesScore = copyFrom.HasEnemiesScore;
+          bp.NoEnemiesScore = copyFrom.NoEnemiesScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="SwarmTargetsConsideration.HasEnemiesScore"/>
     /// </summary>

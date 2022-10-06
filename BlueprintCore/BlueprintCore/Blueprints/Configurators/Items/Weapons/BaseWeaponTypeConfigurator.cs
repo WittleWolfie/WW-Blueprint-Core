@@ -68,6 +68,45 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintWeaponType>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Category = copyFrom.Category;
+          bp.m_TypeNameText = copyFrom.m_TypeNameText;
+          bp.m_DefaultNameText = copyFrom.m_DefaultNameText;
+          bp.m_DescriptionText = copyFrom.m_DescriptionText;
+          bp.m_MasterworkDescriptionText = copyFrom.m_MasterworkDescriptionText;
+          bp.m_MagicDescriptionText = copyFrom.m_MagicDescriptionText;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_VisualParameters = copyFrom.m_VisualParameters;
+          bp.m_AttackType = copyFrom.m_AttackType;
+          bp.m_AttackRange = copyFrom.m_AttackRange;
+          bp.m_BaseDamage = copyFrom.m_BaseDamage;
+          bp.m_DamageType = copyFrom.m_DamageType;
+          bp.m_CriticalRollEdge = copyFrom.m_CriticalRollEdge;
+          bp.m_CriticalModifier = copyFrom.m_CriticalModifier;
+          bp.m_FighterGroupFlags = copyFrom.m_FighterGroupFlags;
+          bp.m_Weight = copyFrom.m_Weight;
+          bp.m_IsTwoHanded = copyFrom.m_IsTwoHanded;
+          bp.m_IsLight = copyFrom.m_IsLight;
+          bp.m_IsMonk = copyFrom.m_IsMonk;
+          bp.m_IsNatural = copyFrom.m_IsNatural;
+          bp.m_IsUnarmed = copyFrom.m_IsUnarmed;
+          bp.m_OverrideAttackBonusStat = copyFrom.m_OverrideAttackBonusStat;
+          bp.m_AttackBonusStatOverride = copyFrom.m_AttackBonusStatOverride;
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_Destructible = copyFrom.m_Destructible;
+          bp.m_ShardItem = copyFrom.m_ShardItem;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintWeaponType.Category"/>
     /// </summary>

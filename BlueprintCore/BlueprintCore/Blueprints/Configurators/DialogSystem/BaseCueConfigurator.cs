@@ -50,6 +50,30 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCue>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Text = copyFrom.Text;
+          bp.Experience = copyFrom.Experience;
+          bp.Speaker = copyFrom.Speaker;
+          bp.TurnSpeaker = copyFrom.TurnSpeaker;
+          bp.Animation = copyFrom.Animation;
+          bp.m_Listener = copyFrom.m_Listener;
+          bp.OnShow = copyFrom.OnShow;
+          bp.OnStop = copyFrom.OnStop;
+          bp.AlignmentShift = copyFrom.AlignmentShift;
+          bp.Answers = copyFrom.Answers;
+          bp.Continue = copyFrom.Continue;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Text"/>
     /// </summary>

@@ -40,6 +40,24 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FollowersFormation>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_PlayerOffset = copyFrom.m_PlayerOffset;
+          bp.m_Formation = copyFrom.m_Formation;
+          bp.m_RepathDistance = copyFrom.m_RepathDistance;
+          bp.m_RepathCooldownSec = copyFrom.m_RepathCooldownSec;
+          bp.m_LookAngleRandomSpread = copyFrom.m_LookAngleRandomSpread;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FollowersFormation.m_PlayerOffset"/>
     /// </summary>

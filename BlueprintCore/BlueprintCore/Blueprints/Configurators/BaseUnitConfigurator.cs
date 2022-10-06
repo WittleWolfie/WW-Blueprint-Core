@@ -100,6 +100,53 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnit>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Type = copyFrom.m_Type;
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.Gender = copyFrom.Gender;
+          bp.Size = copyFrom.Size;
+          bp.IsLeftHanded = copyFrom.IsLeftHanded;
+          bp.Color = copyFrom.Color;
+          bp.m_Race = copyFrom.m_Race;
+          bp.Alignment = copyFrom.Alignment;
+          bp.m_Portrait = copyFrom.m_Portrait;
+          bp.Prefab = copyFrom.Prefab;
+          bp.m_CustomizationPreset = copyFrom.m_CustomizationPreset;
+          bp.Visual = copyFrom.Visual;
+          bp.m_Faction = copyFrom.m_Faction;
+          bp.FactionOverrides = copyFrom.FactionOverrides;
+          bp.m_StartingInventory = copyFrom.m_StartingInventory;
+          bp.m_Brain = copyFrom.m_Brain;
+          bp.AlternativeBrains = copyFrom.AlternativeBrains;
+          bp.Body = copyFrom.Body;
+          bp.Strength = copyFrom.Strength;
+          bp.Dexterity = copyFrom.Dexterity;
+          bp.Constitution = copyFrom.Constitution;
+          bp.Intelligence = copyFrom.Intelligence;
+          bp.Wisdom = copyFrom.Wisdom;
+          bp.Charisma = copyFrom.Charisma;
+          bp.Speed = copyFrom.Speed;
+          bp.BaseAttackBonus = copyFrom.BaseAttackBonus;
+          bp.Skills = copyFrom.Skills;
+          bp.MaxHP = copyFrom.MaxHP;
+          bp.m_AdditionalTemplates = copyFrom.m_AdditionalTemplates;
+          bp.m_AddFacts = copyFrom.m_AddFacts;
+          bp.IsCheater = copyFrom.IsCheater;
+          bp.IsFake = copyFrom.IsFake;
+          bp.m_PS4ChunkId = copyFrom.m_PS4ChunkId;
+          bp.m_HasAssignedChunkId = copyFrom.m_HasAssignedChunkId;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnit.m_Type"/>
     /// </summary>

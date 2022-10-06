@@ -42,6 +42,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitCustomizationPreset>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.PresetObjects = copyFrom.PresetObjects;
+          bp.VariationsCount = copyFrom.VariationsCount;
+          bp.m_Distribution = copyFrom.m_Distribution;
+          bp.m_Units = copyFrom.m_Units;
+          bp.ClothesSelections = copyFrom.ClothesSelections;
+          bp.UnitVariations = copyFrom.UnitVariations;
+          bp.MaleVoices = copyFrom.MaleVoices;
+          bp.FemaleVoices = copyFrom.FemaleVoices;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitCustomizationPreset.PresetObjects"/>
     /// </summary>

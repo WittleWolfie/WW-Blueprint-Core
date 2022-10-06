@@ -38,6 +38,22 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptZone>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.TriggerConditions = copyFrom.TriggerConditions;
+          bp.EnterActions = copyFrom.EnterActions;
+          bp.ExitActions = copyFrom.ExitActions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintScriptZone.TriggerConditions"/>
     /// </summary>

@@ -36,6 +36,21 @@ namespace BlueprintCore.Blueprints.Configurators.Footrprints
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFootprint>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.LeftFootPrint = copyFrom.LeftFootPrint;
+          bp.RightFootPrint = copyFrom.RightFootPrint;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFootprint.LeftFootPrint"/>
     /// </summary>

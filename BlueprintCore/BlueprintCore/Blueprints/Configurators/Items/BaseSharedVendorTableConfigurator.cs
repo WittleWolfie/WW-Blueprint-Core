@@ -34,6 +34,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSharedVendorTable>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.AutoIdentifyAllItems = copyFrom.AutoIdentifyAllItems;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSharedVendorTable.AutoIdentifyAllItems"/>
     /// </summary>

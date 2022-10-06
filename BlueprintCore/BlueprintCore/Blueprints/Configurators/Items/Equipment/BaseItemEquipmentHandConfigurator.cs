@@ -34,6 +34,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipmentHand>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_VisualParameters = copyFrom.m_VisualParameters;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipmentHand.m_VisualParameters"/>
     /// </summary>

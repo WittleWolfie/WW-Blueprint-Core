@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ArmorTypeConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.LightArmorScore = copyFrom.LightArmorScore;
+          bp.HeavyArmorScore = copyFrom.HeavyArmorScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ArmorTypeConsideration.LightArmorScore"/>
     /// </summary>

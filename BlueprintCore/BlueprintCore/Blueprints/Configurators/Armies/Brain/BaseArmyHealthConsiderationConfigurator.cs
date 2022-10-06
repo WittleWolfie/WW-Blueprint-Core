@@ -37,6 +37,23 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ArmyHealthConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.FullBorder = copyFrom.FullBorder;
+          bp.DeadBorder = copyFrom.DeadBorder;
+          bp.FullScore = copyFrom.FullScore;
+          bp.DeadScore = copyFrom.DeadScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ArmyHealthConsideration.FullBorder"/>
     /// </summary>

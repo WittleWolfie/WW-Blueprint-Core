@@ -45,6 +45,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IgnorePrerequisites = copyFrom.IgnorePrerequisites;
+          bp.Obligatory = copyFrom.Obligatory;
+          bp.Mode = copyFrom.Mode;
+          bp.Group = copyFrom.Group;
+          bp.Group2 = copyFrom.Group2;
+          bp.m_AllFeatures = copyFrom.m_AllFeatures;
+          bp.ShowThisSelection = copyFrom.ShowThisSelection;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelection.IgnorePrerequisites"/>
     /// </summary>

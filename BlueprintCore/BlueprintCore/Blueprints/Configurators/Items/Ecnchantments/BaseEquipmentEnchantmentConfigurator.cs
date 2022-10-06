@@ -30,6 +30,14 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     return Self;
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
+
     /// <summary>
     /// Adds <see cref="AllSavesBonusEquipment"/>
     /// </summary>

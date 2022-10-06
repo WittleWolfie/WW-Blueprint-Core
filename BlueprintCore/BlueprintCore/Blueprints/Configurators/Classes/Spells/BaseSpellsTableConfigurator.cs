@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSpellsTable>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Levels = copyFrom.Levels;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSpellsTable.Levels"/>
     /// </summary>

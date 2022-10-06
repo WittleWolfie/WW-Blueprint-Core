@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TargetMainCharacter>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsMainCharacterScore = copyFrom.IsMainCharacterScore;
+          bp.OthersScore = copyFrom.OthersScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TargetMainCharacter.IsMainCharacterScore"/>
     /// </summary>

@@ -78,6 +78,28 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintBuff>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Stacking = copyFrom.Stacking;
+          bp.IsClassFeature = copyFrom.IsClassFeature;
+          bp.m_Flags = copyFrom.m_Flags;
+          bp.Ranks = copyFrom.Ranks;
+          bp.TickEachSecond = copyFrom.TickEachSecond;
+          bp.Frequency = copyFrom.Frequency;
+          bp.FxOnStart = copyFrom.FxOnStart;
+          bp.FxOnRemove = copyFrom.FxOnRemove;
+          bp.ResourceAssetIds = copyFrom.ResourceAssetIds;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintBuff.Stacking"/>
     /// </summary>

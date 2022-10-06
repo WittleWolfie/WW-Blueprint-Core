@@ -40,6 +40,23 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TacticalCombatTagConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HasTagScore = copyFrom.HasTagScore;
+          bp.DoesNotHaveTagScore = copyFrom.DoesNotHaveTagScore;
+          bp.Tag = copyFrom.Tag;
+          bp.ShouldHaveAllTags = copyFrom.ShouldHaveAllTags;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TacticalCombatTagConsideration.HasTagScore"/>
     /// </summary>

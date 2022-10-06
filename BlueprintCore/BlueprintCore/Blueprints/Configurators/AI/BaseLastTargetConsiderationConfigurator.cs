@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<LastTargetConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.SameLastTargetScore = copyFrom.SameLastTargetScore;
+          bp.OtherLastTargetScore = copyFrom.OtherLastTargetScore;
+          bp.NoLastTargetScore = copyFrom.NoLastTargetScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="LastTargetConsideration.SameLastTargetScore"/>
     /// </summary>

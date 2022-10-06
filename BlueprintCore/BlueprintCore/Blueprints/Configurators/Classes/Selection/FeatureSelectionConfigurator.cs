@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public FeatureSelectionConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

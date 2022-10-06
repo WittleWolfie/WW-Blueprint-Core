@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuestGroups>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Groups = copyFrom.Groups;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuestGroups.Groups"/>
     /// </summary>

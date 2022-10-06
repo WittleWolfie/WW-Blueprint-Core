@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TacticalCombatRootConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

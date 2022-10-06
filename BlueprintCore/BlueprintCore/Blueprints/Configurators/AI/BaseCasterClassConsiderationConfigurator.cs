@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CasterClassConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.NotCasterScore = copyFrom.NotCasterScore;
+          bp.ArcaneCasterScore = copyFrom.ArcaneCasterScore;
+          bp.DivineCasterScore = copyFrom.DivineCasterScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CasterClassConsideration.NotCasterScore"/>
     /// </summary>

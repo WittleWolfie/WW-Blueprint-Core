@@ -75,6 +75,47 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArchetype>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.AddFeatures = copyFrom.AddFeatures;
+          bp.RemoveFeatures = copyFrom.RemoveFeatures;
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.LocalizedDescription = copyFrom.LocalizedDescription;
+          bp.LocalizedDescriptionShort = copyFrom.LocalizedDescriptionShort;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_ReplaceSpellbook = copyFrom.m_ReplaceSpellbook;
+          bp.RemoveSpellbook = copyFrom.RemoveSpellbook;
+          bp.BuildChanging = copyFrom.BuildChanging;
+          bp.ReplaceStartingEquipment = copyFrom.ReplaceStartingEquipment;
+          bp.StartingGold = copyFrom.StartingGold;
+          bp.m_StartingItems = copyFrom.m_StartingItems;
+          bp.ReplaceClassSkills = copyFrom.ReplaceClassSkills;
+          bp.ClassSkills = copyFrom.ClassSkills;
+          bp.ChangeCasterType = copyFrom.ChangeCasterType;
+          bp.IsDivineCaster = copyFrom.IsDivineCaster;
+          bp.IsArcaneCaster = copyFrom.IsArcaneCaster;
+          bp.AddSkillPoints = copyFrom.AddSkillPoints;
+          bp.OverrideAttributeRecommendations = copyFrom.OverrideAttributeRecommendations;
+          bp.RecommendedAttributes = copyFrom.RecommendedAttributes;
+          bp.NotRecommendedAttributes = copyFrom.NotRecommendedAttributes;
+          bp.m_SignatureAbilities = copyFrom.m_SignatureAbilities;
+          bp.m_BaseAttackBonus = copyFrom.m_BaseAttackBonus;
+          bp.m_FortitudeSave = copyFrom.m_FortitudeSave;
+          bp.m_ReflexSave = copyFrom.m_ReflexSave;
+          bp.m_WillSave = copyFrom.m_WillSave;
+          bp.m_ParentClass = copyFrom.m_ParentClass;
+          bp.m_Difficulty = copyFrom.m_Difficulty;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArchetype.AddFeatures"/>
     /// </summary>

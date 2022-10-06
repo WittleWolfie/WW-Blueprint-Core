@@ -38,6 +38,25 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitsThreateningConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MinCount = copyFrom.MinCount;
+          bp.MaxCount = copyFrom.MaxCount;
+          bp.BelowMinScore = copyFrom.BelowMinScore;
+          bp.MinScore = copyFrom.MinScore;
+          bp.MaxScore = copyFrom.MaxScore;
+          bp.ExtraTargetScore = copyFrom.ExtraTargetScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitsThreateningConsideration.MinCount"/>
     /// </summary>

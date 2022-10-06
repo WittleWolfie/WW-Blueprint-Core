@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<LifeStateConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.AliveScore = copyFrom.AliveScore;
+          bp.DeadScore = copyFrom.DeadScore;
+          bp.UnconsciousScore = copyFrom.UnconsciousScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="LifeStateConsideration.AliveScore"/>
     /// </summary>

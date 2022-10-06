@@ -43,6 +43,27 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomEvent>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsOpportunity = copyFrom.IsOpportunity;
+          bp.ForceOneTimeOnly = copyFrom.ForceOneTimeOnly;
+          bp.m_DependsOnQuest = copyFrom.m_DependsOnQuest;
+          bp.m_Tags = copyFrom.m_Tags;
+          bp.RequiredTags = copyFrom.RequiredTags;
+          bp.OnTrigger = copyFrom.OnTrigger;
+          bp.StatsOnTrigger = copyFrom.StatsOnTrigger;
+          bp.UnapplyTriggerOnResolve = copyFrom.UnapplyTriggerOnResolve;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomEvent.IsOpportunity"/>
     /// </summary>

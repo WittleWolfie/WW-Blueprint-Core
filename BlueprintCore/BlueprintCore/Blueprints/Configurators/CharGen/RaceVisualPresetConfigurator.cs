@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.CharGen
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public RaceVisualPresetConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRaceVisualPreset>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

@@ -36,6 +36,22 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaMechanics>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Area = copyFrom.Area;
+          bp.Scene = copyFrom.Scene;
+          bp.AdditionalDataBank = copyFrom.AdditionalDataBank;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaMechanics.Area"/>
     /// </summary>

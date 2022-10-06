@@ -44,6 +44,27 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<MoraleRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MoraleBorder = copyFrom.m_MoraleBorder;
+          bp.m_DevineForNegative = copyFrom.m_DevineForNegative;
+          bp.m_DevineForPositive = copyFrom.m_DevineForPositive;
+          bp.m_NegativeFacts = copyFrom.m_NegativeFacts;
+          bp.m_GlobalArmiesMoraleBuff = copyFrom.m_GlobalArmiesMoraleBuff;
+          bp.BaseMoraleValue = copyFrom.BaseMoraleValue;
+          bp.ArmyEffectOnSquad = copyFrom.ArmyEffectOnSquad;
+          bp.UnitNotHaveMorale = copyFrom.UnitNotHaveMorale;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="MoraleRoot.m_MoraleBorder"/>
     /// </summary>

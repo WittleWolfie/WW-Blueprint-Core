@@ -41,6 +41,25 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Ingredients = copyFrom.Ingredients;
+          bp.CookingDC = copyFrom.CookingDC;
+          bp.BuffDurationHours = copyFrom.BuffDurationHours;
+          bp.m_PartyBuffs = copyFrom.m_PartyBuffs;
+          bp.UnitBuffs = copyFrom.UnitBuffs;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCookingRecipe.Name"/>
     /// </summary>

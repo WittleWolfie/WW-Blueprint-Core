@@ -36,6 +36,23 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<DistanceConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MinDistance = copyFrom.MinDistance;
+          bp.MaxDistance = copyFrom.MaxDistance;
+          bp.MaxDistanceScore = copyFrom.MaxDistanceScore;
+          bp.MinDistanceScore = copyFrom.MinDistanceScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="DistanceConsideration.MinDistance"/>
     /// </summary>

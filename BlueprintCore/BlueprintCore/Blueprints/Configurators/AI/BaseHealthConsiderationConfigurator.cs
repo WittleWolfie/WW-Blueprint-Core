@@ -38,6 +38,25 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<HealthConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.FullBorder = copyFrom.FullBorder;
+          bp.DeadBorder = copyFrom.DeadBorder;
+          bp.AboveFullScore = copyFrom.AboveFullScore;
+          bp.BelowDeadScore = copyFrom.BelowDeadScore;
+          bp.FullScore = copyFrom.FullScore;
+          bp.DeadScore = copyFrom.DeadScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="HealthConsideration.FullBorder"/>
     /// </summary>

@@ -44,6 +44,26 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Conditions = copyFrom.m_Conditions;
+          bp.ColorRamps = copyFrom.ColorRamps;
+          bp.OverrideFootprintType = copyFrom.OverrideFootprintType;
+          bp.FootprintType = copyFrom.FootprintType;
+          bp.CommonSettings = copyFrom.CommonSettings;
+          bp.InGameSettings = copyFrom.InGameSettings;
+          bp.DollRoomSettings = copyFrom.DollRoomSettings;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintClassAdditionalVisualSettings.m_Conditions"/>
     /// </summary>

@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCueBase>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ShowOnce = copyFrom.ShowOnce;
+          bp.ShowOnceCurrentDialog = copyFrom.ShowOnceCurrentDialog;
+          bp.Conditions = copyFrom.Conditions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCueBase.ShowOnce"/>
     /// </summary>

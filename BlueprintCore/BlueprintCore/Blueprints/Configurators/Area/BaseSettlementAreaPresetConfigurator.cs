@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSettlementAreaPreset>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_StartSettlement = copyFrom.m_StartSettlement;
+          bp.m_StartSettlementPoint = copyFrom.m_StartSettlementPoint;
+          bp.m_StartSettlementLevel = copyFrom.m_StartSettlementLevel;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementAreaPreset.m_StartSettlement"/>
     /// </summary>

@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDialogExperienceModifierTable>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MultiplierLow = copyFrom.MultiplierLow;
+          bp.MultiplierNormal = copyFrom.MultiplierNormal;
+          bp.MultiplierHigh = copyFrom.MultiplierHigh;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialogExperienceModifierTable.MultiplierLow"/>
     /// </summary>

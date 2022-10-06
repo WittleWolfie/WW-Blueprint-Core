@@ -52,6 +52,33 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemEquipment>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CR = copyFrom.CR;
+          bp.m_Ability = copyFrom.m_Ability;
+          bp.m_ActivatableAbility = copyFrom.m_ActivatableAbility;
+          bp.SpendCharges = copyFrom.SpendCharges;
+          bp.Charges = copyFrom.Charges;
+          bp.RestoreChargesOnRest = copyFrom.RestoreChargesOnRest;
+          bp.CasterLevel = copyFrom.CasterLevel;
+          bp.SpellLevel = copyFrom.SpellLevel;
+          bp.DC = copyFrom.DC;
+          bp.HideAbilityInfo = copyFrom.HideAbilityInfo;
+          bp.IsNonRemovable = copyFrom.IsNonRemovable;
+          bp.m_EquipmentEntity = copyFrom.m_EquipmentEntity;
+          bp.m_EquipmentEntityAlternatives = copyFrom.m_EquipmentEntityAlternatives;
+          bp.m_ForcedRampColorPresetIndex = copyFrom.m_ForcedRampColorPresetIndex;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemEquipment.CR"/>
     /// </summary>

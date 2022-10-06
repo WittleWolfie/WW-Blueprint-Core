@@ -34,6 +34,22 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRomanceCounter>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_CounterFlag = copyFrom.m_CounterFlag;
+          bp.m_MinValueFlag = copyFrom.m_MinValueFlag;
+          bp.m_MaxValueFlag = copyFrom.m_MaxValueFlag;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRomanceCounter.m_CounterFlag"/>
     /// </summary>

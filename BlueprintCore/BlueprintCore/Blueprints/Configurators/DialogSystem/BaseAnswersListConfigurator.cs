@@ -39,6 +39,22 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAnswersList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ShowOnce = copyFrom.ShowOnce;
+          bp.Conditions = copyFrom.Conditions;
+          bp.Answers = copyFrom.Answers;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswersList.ShowOnce"/>
     /// </summary>

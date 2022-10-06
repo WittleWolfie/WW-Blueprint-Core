@@ -33,6 +33,21 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPortrait>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Data = copyFrom.Data;
+          bp.m_BackupPortrait = copyFrom.m_BackupPortrait;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintPortrait.Data"/>
     /// </summary>

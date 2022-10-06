@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public DlcRewardCampaignConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlcRewardCampaign>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

@@ -40,6 +40,24 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonExpedition>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_FinalIsland = copyFrom.m_FinalIsland;
+          bp.m_ModificatorProbability = copyFrom.m_ModificatorProbability;
+          bp.m_Rewards = copyFrom.m_Rewards;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonExpedition.Name"/>
     /// </summary>

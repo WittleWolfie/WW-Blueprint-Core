@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FactConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Fact = copyFrom.m_Fact;
+          bp.HasFactScore = copyFrom.HasFactScore;
+          bp.NoFactScore = copyFrom.NoFactScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FactConsideration.m_Fact"/>
     /// </summary>

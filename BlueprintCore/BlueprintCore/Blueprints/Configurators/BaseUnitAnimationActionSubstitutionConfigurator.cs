@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<UnitAnimationActionSubstitution>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ChangeFrom = copyFrom.ChangeFrom;
+          bp.ChangeTo = copyFrom.ChangeTo;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="UnitAnimationActionSubstitution.ChangeFrom"/>
     /// </summary>

@@ -36,6 +36,20 @@ namespace BlueprintCore.Blueprints.Configurators.Encyclopedia
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEncyclopediaChapter>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Platforms = copyFrom.Platforms;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintEncyclopediaChapter.Platforms"/>
     /// </summary>

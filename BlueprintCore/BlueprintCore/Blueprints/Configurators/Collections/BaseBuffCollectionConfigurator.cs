@@ -36,6 +36,21 @@ namespace BlueprintCore.Blueprints.Configurators.Collections
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BuffCollection>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CheckHidden = copyFrom.CheckHidden;
+          bp.m_BuffList = copyFrom.m_BuffList;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BuffCollection.CheckHidden"/>
     /// </summary>

@@ -57,6 +57,33 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuestObjective>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Addendums = copyFrom.m_Addendums;
+          bp.m_Areas = copyFrom.m_Areas;
+          bp.Title = copyFrom.Title;
+          bp.Locations = copyFrom.Locations;
+          bp.MultiEntranceEntries = copyFrom.MultiEntranceEntries;
+          bp.Description = copyFrom.Description;
+          bp.AutoFailDays = copyFrom.AutoFailDays;
+          bp.IsFakeFail = copyFrom.IsFakeFail;
+          bp.StartOnKingdomTime = copyFrom.StartOnKingdomTime;
+          bp.m_FinishParent = copyFrom.m_FinishParent;
+          bp.m_Hidden = copyFrom.m_Hidden;
+          bp.m_NextObjectives = copyFrom.m_NextObjectives;
+          bp.m_Quest = copyFrom.m_Quest;
+          bp.m_Type = copyFrom.m_Type;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuestObjective.m_Addendums"/>
     /// </summary>

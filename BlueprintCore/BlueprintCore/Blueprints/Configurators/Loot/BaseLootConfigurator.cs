@@ -42,6 +42,26 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Type = copyFrom.Type;
+          bp.IsSuperTrash = copyFrom.IsSuperTrash;
+          bp.Identify = copyFrom.Identify;
+          bp.Setting = copyFrom.Setting;
+          bp.m_Area = copyFrom.m_Area;
+          bp.ContainerName = copyFrom.ContainerName;
+          bp.Items = copyFrom.Items;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintLoot.Type"/>
     /// </summary>

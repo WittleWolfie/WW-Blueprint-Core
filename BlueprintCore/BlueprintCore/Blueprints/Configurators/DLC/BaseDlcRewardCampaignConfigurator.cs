@@ -36,6 +36,21 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlcRewardCampaign>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ScreenshotForImportSave = copyFrom.ScreenshotForImportSave;
+          bp.m_Campaign = copyFrom.m_Campaign;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcRewardCampaign.ScreenshotForImportSave"/>
     /// </summary>

@@ -39,6 +39,24 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCompanionStory>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Companion = copyFrom.m_Companion;
+          bp.Title = copyFrom.Title;
+          bp.Description = copyFrom.Description;
+          bp.m_ImageLink = copyFrom.m_ImageLink;
+          bp.Gender = copyFrom.Gender;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCompanionStory.m_Companion"/>
     /// </summary>

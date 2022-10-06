@@ -49,6 +49,31 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonTier>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.StageFirst = copyFrom.StageFirst;
+          bp.StageLast = copyFrom.StageLast;
+          bp.ModificatorsCount = copyFrom.ModificatorsCount;
+          bp.GoldMultiplier = copyFrom.GoldMultiplier;
+          bp.CorruptionGrowth = copyFrom.CorruptionGrowth;
+          bp.m_MapBackgroundLink = copyFrom.m_MapBackgroundLink;
+          bp.m_MapFrameLink = copyFrom.m_MapFrameLink;
+          bp.m_MapForegroundLink = copyFrom.m_MapForegroundLink;
+          bp.OnReach = copyFrom.OnReach;
+          bp.OnStart = copyFrom.OnStart;
+          bp.OnFinish = copyFrom.OnFinish;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonTier.Name"/>
     /// </summary>

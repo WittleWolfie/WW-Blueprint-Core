@@ -39,6 +39,22 @@ namespace BlueprintCore.Blueprints.Configurators.Formations
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintPartyFormation>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Positions = copyFrom.Positions;
+          bp.Type = copyFrom.Type;
+          bp.Name = copyFrom.Name;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintPartyFormation.Positions"/>
     /// </summary>

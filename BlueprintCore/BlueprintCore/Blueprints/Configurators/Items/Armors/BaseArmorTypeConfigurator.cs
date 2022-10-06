@@ -58,6 +58,40 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmorType>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_TypeNameText = copyFrom.m_TypeNameText;
+          bp.m_DefaultNameText = copyFrom.m_DefaultNameText;
+          bp.m_DescriptionText = copyFrom.m_DescriptionText;
+          bp.m_MagicDescriptionText = copyFrom.m_MagicDescriptionText;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_VisualParameters = copyFrom.m_VisualParameters;
+          bp.m_ArmorBonus = copyFrom.m_ArmorBonus;
+          bp.m_ArmorChecksPenalty = copyFrom.m_ArmorChecksPenalty;
+          bp.m_HasDexterityBonusLimit = copyFrom.m_HasDexterityBonusLimit;
+          bp.m_MaxDexterityBonus = copyFrom.m_MaxDexterityBonus;
+          bp.m_ProficiencyGroup = copyFrom.m_ProficiencyGroup;
+          bp.m_ArcaneSpellFailureChance = copyFrom.m_ArcaneSpellFailureChance;
+          bp.m_Weight = copyFrom.m_Weight;
+          bp.m_IsArmor = copyFrom.m_IsArmor;
+          bp.m_IsShield = copyFrom.m_IsShield;
+          bp.m_EquipmentEntity = copyFrom.m_EquipmentEntity;
+          bp.m_EquipmentEntityAlternatives = copyFrom.m_EquipmentEntityAlternatives;
+          bp.m_Enchantments = copyFrom.m_Enchantments;
+          bp.m_ForcedRampColorPresetIndex = copyFrom.m_ForcedRampColorPresetIndex;
+          bp.m_Destructible = copyFrom.m_Destructible;
+          bp.m_ShardItem = copyFrom.m_ShardItem;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmorType.m_TypeNameText"/>
     /// </summary>

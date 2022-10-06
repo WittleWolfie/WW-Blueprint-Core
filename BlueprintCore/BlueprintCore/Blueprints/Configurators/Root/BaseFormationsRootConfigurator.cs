@@ -39,6 +39,24 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<FormationsRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_PredefinedFormations = copyFrom.m_PredefinedFormations;
+          bp.m_FollowersFormation = copyFrom.m_FollowersFormation;
+          bp.FormationsScale = copyFrom.FormationsScale;
+          bp.MinSpaceFactor = copyFrom.MinSpaceFactor;
+          bp.AutoFormation = copyFrom.AutoFormation;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="FormationsRoot.m_PredefinedFormations"/>
     /// </summary>

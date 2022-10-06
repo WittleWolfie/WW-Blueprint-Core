@@ -52,6 +52,34 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintParametrizedFeature>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.ParameterType = copyFrom.ParameterType;
+          bp.WeaponSubCategory = copyFrom.WeaponSubCategory;
+          bp.SelectionFeatureGroup = copyFrom.SelectionFeatureGroup;
+          bp.RequireProficiency = copyFrom.RequireProficiency;
+          bp.m_SpellList = copyFrom.m_SpellList;
+          bp.m_SpellcasterClass = copyFrom.m_SpellcasterClass;
+          bp.SpecificSpellLevel = copyFrom.SpecificSpellLevel;
+          bp.SpellLevelPenalty = copyFrom.SpellLevelPenalty;
+          bp.SpellLevel = copyFrom.SpellLevel;
+          bp.DisallowSpellsInSpellList = copyFrom.DisallowSpellsInSpellList;
+          bp.m_Prerequisite = copyFrom.m_Prerequisite;
+          bp.CustomParameterVariants = copyFrom.CustomParameterVariants;
+          bp.HasNoSuchFeature = copyFrom.HasNoSuchFeature;
+          bp.IgnoreParameterFeaturePrerequisites = copyFrom.IgnoreParameterFeaturePrerequisites;
+          bp.BlueprintParameterVariants = copyFrom.BlueprintParameterVariants;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintParametrizedFeature.ParameterType"/>
     /// </summary>

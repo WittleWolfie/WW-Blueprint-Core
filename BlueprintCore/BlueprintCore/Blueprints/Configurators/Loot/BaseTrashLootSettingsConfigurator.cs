@@ -39,6 +39,24 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TrashLootSettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CRToCost = copyFrom.CRToCost;
+          bp.ChanceToIncreaseItemsCount = copyFrom.ChanceToIncreaseItemsCount;
+          bp.Types = copyFrom.Types;
+          bp.Table = copyFrom.Table;
+          bp.SuperTrashLoot = copyFrom.SuperTrashLoot;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TrashLootSettings.CRToCost"/>
     /// </summary>

@@ -58,6 +58,32 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Settlements
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSettlementBuilding>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.MechanicalDescription = copyFrom.MechanicalDescription;
+          bp.CompletedPrefab = copyFrom.CompletedPrefab;
+          bp.UnfinishedPrefab = copyFrom.UnfinishedPrefab;
+          bp.BuildCost = copyFrom.BuildCost;
+          bp.StatChanges = copyFrom.StatChanges;
+          bp.MinLevel = copyFrom.MinLevel;
+          bp.SlotSizeX = copyFrom.SlotSizeX;
+          bp.SlotSizeY = copyFrom.SlotSizeY;
+          bp.BuildTime = copyFrom.BuildTime;
+          bp.SpecialSlot = copyFrom.SpecialSlot;
+          bp.m_UpgradesTo = copyFrom.m_UpgradesTo;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSettlementBuilding.Name"/>
     /// </summary>

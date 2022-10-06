@@ -38,6 +38,23 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTimeOfDaySettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Morning = copyFrom.Morning;
+          bp.Day = copyFrom.Day;
+          bp.Evening = copyFrom.Evening;
+          bp.Night = copyFrom.Night;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTimeOfDaySettings.Morning"/>
     /// </summary>

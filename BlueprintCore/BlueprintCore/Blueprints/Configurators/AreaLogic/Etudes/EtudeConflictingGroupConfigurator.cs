@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public EtudeConflictingGroupConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintEtudeConflictingGroup>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

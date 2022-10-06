@@ -36,6 +36,22 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUIInteractionTypeSprites>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Main = copyFrom.Main;
+          bp.Active = copyFrom.Active;
+          bp.Hover = copyFrom.Hover;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUIInteractionTypeSprites.Main"/>
     /// </summary>

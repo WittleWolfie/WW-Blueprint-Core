@@ -38,6 +38,23 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyPreset>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Morale = copyFrom.Morale;
+          bp.Squads = copyFrom.Squads;
+          bp.m_Leader = copyFrom.m_Leader;
+          bp.m_ArmyType = copyFrom.m_ArmyType;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyPreset.Morale"/>
     /// </summary>

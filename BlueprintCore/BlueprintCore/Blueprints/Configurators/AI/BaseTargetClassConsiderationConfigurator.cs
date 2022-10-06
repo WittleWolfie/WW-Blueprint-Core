@@ -39,6 +39,24 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<TargetClassConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_FirstPriorityClasses = copyFrom.m_FirstPriorityClasses;
+          bp.FirstPriorityScore = copyFrom.FirstPriorityScore;
+          bp.m_SecondPriorityClasses = copyFrom.m_SecondPriorityClasses;
+          bp.SecondPriorityScore = copyFrom.SecondPriorityScore;
+          bp.NoPriorityScore = copyFrom.NoPriorityScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="TargetClassConsideration.m_FirstPriorityClasses"/>
     /// </summary>

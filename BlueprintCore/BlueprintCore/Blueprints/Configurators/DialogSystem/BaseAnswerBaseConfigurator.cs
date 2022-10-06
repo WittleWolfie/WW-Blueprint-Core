@@ -35,6 +35,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAnswerBase>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.MythicRequirement = copyFrom.MythicRequirement;
+          bp.AlignmentRequirement = copyFrom.AlignmentRequirement;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswerBase.MythicRequirement"/>
     /// </summary>

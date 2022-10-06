@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCrusadeEvent>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_EventSolutions = copyFrom.m_EventSolutions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCrusadeEvent.m_EventSolutions"/>
     /// </summary>

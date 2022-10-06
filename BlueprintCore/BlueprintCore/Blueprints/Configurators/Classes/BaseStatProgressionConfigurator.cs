@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintStatProgression>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Bonuses = copyFrom.Bonuses;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintStatProgression.Bonuses"/>
     /// </summary>

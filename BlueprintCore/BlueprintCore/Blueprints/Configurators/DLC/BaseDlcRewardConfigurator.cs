@@ -40,6 +40,24 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDlcReward>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Description = copyFrom.Description;
+          bp.m_IncludeAssetPaths = copyFrom.m_IncludeAssetPaths;
+          bp.m_IncludeObjects = copyFrom.m_IncludeObjects;
+          bp.m_Dlcs = copyFrom.m_Dlcs;
+          bp.m_IsAvailable = copyFrom.m_IsAvailable;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDlcReward.Description"/>
     /// </summary>

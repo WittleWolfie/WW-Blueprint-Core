@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ConditionConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Condition = copyFrom.Condition;
+          bp.ConditionTrueScore = copyFrom.ConditionTrueScore;
+          bp.ConditionFlaseScore = copyFrom.ConditionFlaseScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ConditionConsideration.Condition"/>
     /// </summary>

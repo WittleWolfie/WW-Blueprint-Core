@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonTrapSpellList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Spells = copyFrom.m_Spells;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonTrapSpellList.m_Spells"/>
     /// </summary>

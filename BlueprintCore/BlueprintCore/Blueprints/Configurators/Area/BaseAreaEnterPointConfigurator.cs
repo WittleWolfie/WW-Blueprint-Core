@@ -46,6 +46,26 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Area = copyFrom.m_Area;
+          bp.m_AreaPart = copyFrom.m_AreaPart;
+          bp.m_TooltipList = copyFrom.m_TooltipList;
+          bp.m_Tooltip = copyFrom.m_Tooltip;
+          bp.m_CanBeOutsideNavmesh = copyFrom.m_CanBeOutsideNavmesh;
+          bp.Icon = copyFrom.Icon;
+          bp.HoverIcon = copyFrom.HoverIcon;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEnterPoint.m_Area"/>
     /// </summary>

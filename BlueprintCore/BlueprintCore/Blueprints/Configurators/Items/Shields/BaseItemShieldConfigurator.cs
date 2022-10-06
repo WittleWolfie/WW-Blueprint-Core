@@ -35,6 +35,21 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Shields
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemShield>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_WeaponComponent = copyFrom.m_WeaponComponent;
+          bp.m_ArmorComponent = copyFrom.m_ArmorComponent;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintItemShield.m_WeaponComponent"/>
     /// </summary>

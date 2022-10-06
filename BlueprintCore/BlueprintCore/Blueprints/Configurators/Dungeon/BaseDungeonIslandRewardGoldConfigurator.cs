@@ -36,6 +36,23 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIslandRewardGold>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Container = copyFrom.m_Container;
+          bp.Fixed = copyFrom.Fixed;
+          bp.m_Count = copyFrom.m_Count;
+          bp.m_Multiplier = copyFrom.m_Multiplier;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandRewardGold.m_Container"/>
     /// </summary>

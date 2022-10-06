@@ -42,6 +42,24 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitType>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.KnowledgeStat = copyFrom.KnowledgeStat;
+          bp.Image = copyFrom.Image;
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_SignatureAbilities = copyFrom.m_SignatureAbilities;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitType.KnowledgeStat"/>
     /// </summary>

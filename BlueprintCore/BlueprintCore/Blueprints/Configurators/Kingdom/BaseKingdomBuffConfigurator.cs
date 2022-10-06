@@ -54,6 +54,26 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomBuff>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DisplayName = copyFrom.DisplayName;
+          bp.Description = copyFrom.Description;
+          bp.Icon = copyFrom.Icon;
+          bp.DurationDays = copyFrom.DurationDays;
+          bp.StatChanges = copyFrom.StatChanges;
+          bp.OnApply = copyFrom.OnApply;
+          bp.OnRemove = copyFrom.OnRemove;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintKingdomBuff.DisplayName"/>
     /// </summary>

@@ -50,6 +50,31 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintRace>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.SoundKey = copyFrom.SoundKey;
+          bp.RaceId = copyFrom.RaceId;
+          bp.SelectableRaceStat = copyFrom.SelectableRaceStat;
+          bp.Size = copyFrom.Size;
+          bp.m_Features = copyFrom.m_Features;
+          bp.m_Presets = copyFrom.m_Presets;
+          bp.LinkHairAndSkinColorsCondition = copyFrom.LinkHairAndSkinColorsCondition;
+          bp.MaleOptions = copyFrom.MaleOptions;
+          bp.FemaleOptions = copyFrom.FemaleOptions;
+          bp.MaleSpeedSettings = copyFrom.MaleSpeedSettings;
+          bp.FemaleSpeedSettings = copyFrom.FemaleSpeedSettings;
+          bp.SpecialDollTypes = copyFrom.SpecialDollTypes;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintRace.SoundKey"/>
     /// </summary>

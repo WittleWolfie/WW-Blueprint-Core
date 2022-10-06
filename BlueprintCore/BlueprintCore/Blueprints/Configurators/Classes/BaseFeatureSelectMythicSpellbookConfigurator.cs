@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureSelectMythicSpellbook>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AllowedSpellbooks = copyFrom.m_AllowedSpellbooks;
+          bp.m_MythicSpellList = copyFrom.m_MythicSpellList;
+          bp.m_SpellKnownForSpontaneous = copyFrom.m_SpellKnownForSpontaneous;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureSelectMythicSpellbook.m_AllowedSpellbooks"/>
     /// </summary>

@@ -42,6 +42,25 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<Gate>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Color = copyFrom.Color;
+          bp.m_Tracks = copyFrom.m_Tracks;
+          bp.m_Op = copyFrom.m_Op;
+          bp.m_ActivationMode = copyFrom.m_ActivationMode;
+          bp.WhenTrackIsSkipped = copyFrom.WhenTrackIsSkipped;
+          bp.PauseForOneFrame = copyFrom.PauseForOneFrame;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="Gate.Color"/>
     /// </summary>

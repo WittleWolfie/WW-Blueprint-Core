@@ -85,6 +85,59 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintGlobalMapPoint>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_GlobalMap = copyFrom.m_GlobalMap;
+          bp.Type = copyFrom.Type;
+          bp.IsHidden = copyFrom.IsHidden;
+          bp.RevealedOnStart = copyFrom.RevealedOnStart;
+          bp.ExploreOnEnter = copyFrom.ExploreOnEnter;
+          bp.ClosedOnStart = copyFrom.ClosedOnStart;
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.FakeName = copyFrom.FakeName;
+          bp.FakeDescription = copyFrom.FakeDescription;
+          bp.DcPerception = copyFrom.DcPerception;
+          bp.DCModifiers = copyFrom.DCModifiers;
+          bp.OverrideRandomEncounterZoneSize = copyFrom.OverrideRandomEncounterZoneSize;
+          bp.NoRandomEncounterZoneSize = copyFrom.NoRandomEncounterZoneSize;
+          bp.m_AreaEntrance = copyFrom.m_AreaEntrance;
+          bp.m_Entrances = copyFrom.m_Entrances;
+          bp.m_BookEvent = copyFrom.m_BookEvent;
+          bp.PossibleToRevealCondition = copyFrom.PossibleToRevealCondition;
+          bp.LocationVariations = copyFrom.LocationVariations;
+          bp.HasKingdomResource = copyFrom.HasKingdomResource;
+          bp.ResourceStats = copyFrom.ResourceStats;
+          bp.ResourceName = copyFrom.ResourceName;
+          bp.HasIngredients = copyFrom.HasIngredients;
+          bp.Ingredients = copyFrom.Ingredients;
+          bp.HasLoot = copyFrom.HasLoot;
+          bp.Loot = copyFrom.Loot;
+          bp.AdditionalArmyExperience = copyFrom.AdditionalArmyExperience;
+          bp.ResourceFoundDescription = copyFrom.ResourceFoundDescription;
+          bp.m_ArmyObjective = copyFrom.m_ArmyObjective;
+          bp.Region = copyFrom.Region;
+          bp.ForceShowNameInUI = copyFrom.ForceShowNameInUI;
+          bp.OverrideEnterConfirmationText = copyFrom.OverrideEnterConfirmationText;
+          bp.CustomEnterConfirmationText = copyFrom.CustomEnterConfirmationText;
+          bp.OnEnterActions = copyFrom.OnEnterActions;
+          bp.DemonGarrison = copyFrom.DemonGarrison;
+          bp.GarrisonLeader = copyFrom.GarrisonLeader;
+          bp.AutoDefeatData = copyFrom.AutoDefeatData;
+          bp.UseCustomClosedText = copyFrom.UseCustomClosedText;
+          bp.CustomClosedText = copyFrom.CustomClosedText;
+          bp.GlobalMapZone = copyFrom.GlobalMapZone;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintGlobalMapPoint.m_GlobalMap"/>
     /// </summary>

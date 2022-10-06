@@ -38,6 +38,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Customization
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<RaceGenderDistribution>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Races = copyFrom.Races;
+          bp.LeftHandedChance = copyFrom.LeftHandedChance;
+          bp.MaleBaseWeight = copyFrom.MaleBaseWeight;
+          bp.FemaleBaseWeight = copyFrom.FemaleBaseWeight;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="RaceGenderDistribution.Races"/>
     /// </summary>

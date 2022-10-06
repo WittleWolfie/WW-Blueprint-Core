@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMapObject>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Prefab = copyFrom.Prefab;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMapObject.Prefab"/>
     /// </summary>

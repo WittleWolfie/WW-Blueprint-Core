@@ -42,6 +42,14 @@ namespace BlueprintCore.Blueprints.Configurators
     return Self;
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintComponentList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
+
     /// <summary>
     /// Adds <see cref="EtudeBracketEnableTutorialSingle"/>
     /// </summary>

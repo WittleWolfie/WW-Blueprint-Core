@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public KingdomEventTimelineConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomEventTimeline>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

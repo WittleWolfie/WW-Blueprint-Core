@@ -67,6 +67,33 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_AllowNonContextActions = copyFrom.m_AllowNonContextActions;
+          bp.m_TargetType = copyFrom.m_TargetType;
+          bp.m_Tags = copyFrom.m_Tags;
+          bp.SpellResistance = copyFrom.SpellResistance;
+          bp.AffectEnemies = copyFrom.AffectEnemies;
+          bp.AggroEnemies = copyFrom.AggroEnemies;
+          bp.AffectDead = copyFrom.AffectDead;
+          bp.IgnoreSleepingUnits = copyFrom.IgnoreSleepingUnits;
+          bp.Shape = copyFrom.Shape;
+          bp.Size = copyFrom.Size;
+          bp.Fx = copyFrom.Fx;
+          bp.CanBeUsedInTacticalCombat = copyFrom.CanBeUsedInTacticalCombat;
+          bp.m_SizeInCells = copyFrom.m_SizeInCells;
+          bp.m_TickRoundAfterSpawn = copyFrom.m_TickRoundAfterSpawn;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityAreaEffect.m_AllowNonContextActions"/>
     /// </summary>

@@ -37,6 +37,23 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitTemplate>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_RemoveFacts = copyFrom.m_RemoveFacts;
+          bp.m_AddFacts = copyFrom.m_AddFacts;
+          bp.StatAdjustments = copyFrom.StatAdjustments;
+          bp.CrBonus = copyFrom.CrBonus;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitTemplate.m_RemoveFacts"/>
     /// </summary>

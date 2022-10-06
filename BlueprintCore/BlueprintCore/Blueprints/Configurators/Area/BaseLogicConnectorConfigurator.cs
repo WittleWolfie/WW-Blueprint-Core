@@ -31,6 +31,14 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     return Self;
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintLogicConnector>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
+
     /// <summary>
     /// Adds <see cref="DamageToMapObjectTrigger"/>
     /// </summary>

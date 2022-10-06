@@ -39,6 +39,23 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMythicsSettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_MythicsInfos = copyFrom.m_MythicsInfos;
+          bp.m_MythicAlignments = copyFrom.m_MythicAlignments;
+          bp.m_TutorialChooseMythic = copyFrom.m_TutorialChooseMythic;
+          bp.CharcaterLevelRestrictions = copyFrom.CharcaterLevelRestrictions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.m_MythicsInfos"/>
     /// </summary>

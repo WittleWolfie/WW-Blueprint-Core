@@ -37,6 +37,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<CustomAiConsiderationsRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_TargetConsiderations = copyFrom.m_TargetConsiderations;
+          bp.m_ActorConsiderations = copyFrom.m_ActorConsiderations;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="CustomAiConsiderationsRoot.m_TargetConsiderations"/>
     /// </summary>

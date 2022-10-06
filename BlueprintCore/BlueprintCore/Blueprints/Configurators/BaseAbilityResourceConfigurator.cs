@@ -41,6 +41,26 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAbilityResource>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.LocalizedName = copyFrom.LocalizedName;
+          bp.LocalizedDescription = copyFrom.LocalizedDescription;
+          bp.m_Icon = copyFrom.m_Icon;
+          bp.m_MaxAmount = copyFrom.m_MaxAmount;
+          bp.m_UseMax = copyFrom.m_UseMax;
+          bp.m_Max = copyFrom.m_Max;
+          bp.m_Min = copyFrom.m_Min;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAbilityResource.LocalizedName"/>
     /// </summary>

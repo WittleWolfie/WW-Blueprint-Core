@@ -65,6 +65,38 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArea>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Parts = copyFrom.m_Parts;
+          bp.IsGlobalMap = copyFrom.IsGlobalMap;
+          bp.CameraScrollMultiplier = copyFrom.CameraScrollMultiplier;
+          bp.SetDefaultCameraRotation = copyFrom.SetDefaultCameraRotation;
+          bp.CameraRotation = copyFrom.CameraRotation;
+          bp.CampingSettings = copyFrom.CampingSettings;
+          bp.RandomEncounterSettings = copyFrom.RandomEncounterSettings;
+          bp.Designer = copyFrom.Designer;
+          bp.ArtSetting = copyFrom.ArtSetting;
+          bp.AreaName = copyFrom.AreaName;
+          bp.ExcludeFromSave = copyFrom.ExcludeFromSave;
+          bp.PS4ChunkId = copyFrom.PS4ChunkId;
+          bp.LoadingScreenSprites = copyFrom.LoadingScreenSprites;
+          bp.m_DefaultPreset = copyFrom.m_DefaultPreset;
+          bp.CR = copyFrom.CR;
+          bp.OverrideCorruption = copyFrom.OverrideCorruption;
+          bp.CorruptionGrowth = copyFrom.CorruptionGrowth;
+          bp.LootSetting = copyFrom.LootSetting;
+          bp.m_HotAreas = copyFrom.m_HotAreas;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArea.m_Parts"/>
     /// </summary>

@@ -38,6 +38,22 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintMultiEntrance>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Map = copyFrom.Map;
+          bp.Name = copyFrom.Name;
+          bp.m_Entries = copyFrom.m_Entries;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintMultiEntrance.Map"/>
     /// </summary>

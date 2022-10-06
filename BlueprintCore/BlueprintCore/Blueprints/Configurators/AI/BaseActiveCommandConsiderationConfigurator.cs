@@ -36,6 +36,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ActiveCommandConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.CommandType = copyFrom.CommandType;
+          bp.HasCommandScore = copyFrom.HasCommandScore;
+          bp.NoCommandScore = copyFrom.NoCommandScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ActiveCommandConsideration.CommandType"/>
     /// </summary>

@@ -39,6 +39,24 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.UpDirection = copyFrom.UpDirection;
+          bp.PlaneOffset = copyFrom.PlaneOffset;
+          bp.UpOffset = copyFrom.UpOffset;
+          bp.AmplitudeScaleByLifetime = copyFrom.AmplitudeScaleByLifetime;
+          bp.AmplitudeScaleByFullDistance = copyFrom.AmplitudeScaleByFullDistance;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectileTrajectory.UpDirection"/>
     /// </summary>

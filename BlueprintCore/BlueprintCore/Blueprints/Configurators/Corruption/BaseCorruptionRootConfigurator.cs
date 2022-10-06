@@ -40,6 +40,27 @@ namespace BlueprintCore.Blueprints.Configurators.Corruption
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCorruptionRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Progression = copyFrom.m_Progression;
+          bp.m_DefaultCorruptionGrowth = copyFrom.m_DefaultCorruptionGrowth;
+          bp.m_DSSuccessCoefficient = copyFrom.m_DSSuccessCoefficient;
+          bp.m_DSCriticalFailCoefficient = copyFrom.m_DSCriticalFailCoefficient;
+          bp.m_GlobalMapBuff = copyFrom.m_GlobalMapBuff;
+          bp.m_GlobalMapBuffDurationMinutes = copyFrom.m_GlobalMapBuffDurationMinutes;
+          bp.m_SpeedModifierDC = copyFrom.m_SpeedModifierDC;
+          bp.m_SpeedModifierDCIncrement = copyFrom.m_SpeedModifierDCIncrement;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCorruptionRoot.m_Progression"/>
     /// </summary>

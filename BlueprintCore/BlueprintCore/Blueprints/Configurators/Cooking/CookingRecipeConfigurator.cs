@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Cooking
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public CookingRecipeConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCookingRecipe>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

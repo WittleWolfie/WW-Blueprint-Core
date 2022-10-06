@@ -48,6 +48,26 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonModificator>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_ImageLink = copyFrom.m_ImageLink;
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_Weight = copyFrom.m_Weight;
+          bp.m_Tiers = copyFrom.m_Tiers;
+          bp.OnActivate = copyFrom.OnActivate;
+          bp.OnDeactivate = copyFrom.OnDeactivate;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonModificator.m_ImageLink"/>
     /// </summary>

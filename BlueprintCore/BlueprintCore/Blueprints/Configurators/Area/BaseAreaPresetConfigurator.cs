@@ -78,6 +78,54 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaPreset>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Area = copyFrom.m_Area;
+          bp.m_EnterPoint = copyFrom.m_EnterPoint;
+          bp.m_GlobalMapLocation = copyFrom.m_GlobalMapLocation;
+          bp.AlsoLoadMechanics = copyFrom.AlsoLoadMechanics;
+          bp.MakeAutosave = copyFrom.MakeAutosave;
+          bp.m_OverrideGameDifficulty = copyFrom.m_OverrideGameDifficulty;
+          bp.m_PlayerCharacter = copyFrom.m_PlayerCharacter;
+          bp.CharGen = copyFrom.CharGen;
+          bp.Alignment = copyFrom.Alignment;
+          bp.PartyXp = copyFrom.PartyXp;
+          bp.Companions = copyFrom.Companions;
+          bp.CompanionsRemote = copyFrom.CompanionsRemote;
+          bp.ExCompanions = copyFrom.ExCompanions;
+          bp.StartGameActions = copyFrom.StartGameActions;
+          bp.m_Campaign = copyFrom.m_Campaign;
+          bp.UnlockedFlags = copyFrom.UnlockedFlags;
+          bp.StartedQuests = copyFrom.StartedQuests;
+          bp.FinishedQuests = copyFrom.FinishedQuests;
+          bp.FailedQuests = copyFrom.FailedQuests;
+          bp.StartEtudesNonRecursively = copyFrom.StartEtudesNonRecursively;
+          bp.StartEtudes = copyFrom.StartEtudes;
+          bp.ForceCompleteEtudes = copyFrom.ForceCompleteEtudes;
+          bp.CuesSeen = copyFrom.CuesSeen;
+          bp.AnswersSelected = copyFrom.AnswersSelected;
+          bp.HasKingdom = copyFrom.HasKingdom;
+          bp.KingdomManagementIsVisible = copyFrom.KingdomManagementIsVisible;
+          bp.ActiveEvents = copyFrom.ActiveEvents;
+          bp.AddResources = copyFrom.AddResources;
+          bp.AddConsumableEventBonus = copyFrom.AddConsumableEventBonus;
+          bp.m_KingdomDay = copyFrom.m_KingdomDay;
+          bp.m_KingdomIncomePerClaimed = copyFrom.m_KingdomIncomePerClaimed;
+          bp.m_KingdomIncomePerUpgraded = copyFrom.m_KingdomIncomePerUpgraded;
+          bp.m_Stats = copyFrom.m_Stats;
+          bp.m_Regions = copyFrom.m_Regions;
+          bp.m_History = copyFrom.m_History;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaPreset.m_Area"/>
     /// </summary>

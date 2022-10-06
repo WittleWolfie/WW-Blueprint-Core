@@ -35,6 +35,20 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintCategoryDefaults>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Entries = copyFrom.Entries;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintCategoryDefaults.Entries"/>
     /// </summary>

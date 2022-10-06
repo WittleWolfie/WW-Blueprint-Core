@@ -41,6 +41,25 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintArmyLeader>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_LeaderName = copyFrom.m_LeaderName;
+          bp.m_Portrait = copyFrom.m_Portrait;
+          bp.m_StartingLevel = copyFrom.m_StartingLevel;
+          bp.m_LeaderProgression = copyFrom.m_LeaderProgression;
+          bp.m_Unit = copyFrom.m_Unit;
+          bp.m_baseSkills = copyFrom.m_baseSkills;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintArmyLeader.m_LeaderName"/>
     /// </summary>

@@ -35,6 +35,22 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTacticalCombatAiCastSpell>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Ability = copyFrom.m_Ability;
+          bp.m_ForceTargetSelf = copyFrom.m_ForceTargetSelf;
+          bp.m_ForceTargetEnemy = copyFrom.m_ForceTargetEnemy;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTacticalCombatAiCastSpell.m_Ability"/>
     /// </summary>

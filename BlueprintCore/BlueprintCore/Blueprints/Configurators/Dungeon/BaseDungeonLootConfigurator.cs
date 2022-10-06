@@ -44,6 +44,29 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonLoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_Items = copyFrom.m_Items;
+          bp.Filter = copyFrom.Filter;
+          bp.DoNotRepeat = copyFrom.DoNotRepeat;
+          bp.DoNotRepeatInSameRun = copyFrom.DoNotRepeatInSameRun;
+          bp.Budgeting = copyFrom.Budgeting;
+          bp.m_Budget = copyFrom.m_Budget;
+          bp.CountOfItemsPerIsland = copyFrom.CountOfItemsPerIsland;
+          bp.CountOfItemsPerChest = copyFrom.CountOfItemsPerChest;
+          bp.m_LootIncompatible = copyFrom.m_LootIncompatible;
+          bp.OptionalItems = copyFrom.OptionalItems;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonLoot.m_Items"/>
     /// </summary>

@@ -64,6 +64,25 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeature>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.IsClassFeature = copyFrom.IsClassFeature;
+          bp.m_DescriptionModifiersCache = copyFrom.m_DescriptionModifiersCache;
+          bp.Groups = copyFrom.Groups;
+          bp.Ranks = copyFrom.Ranks;
+          bp.ReapplyOnLevelUp = copyFrom.ReapplyOnLevelUp;
+          bp.IsPrerequisiteFor = copyFrom.IsPrerequisiteFor;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeature.IsClassFeature"/>
     /// </summary>

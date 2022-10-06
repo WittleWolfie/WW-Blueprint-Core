@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Armies.Brain
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TacticalCombatCanAttackThisTurnConsiderationConfigurator CopyFrom(
+      Blueprint<BlueprintReference<TacticalCombatCanAttackThisTurnConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Armors
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public ItemArmorConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintItemArmor>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

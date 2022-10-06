@@ -60,6 +60,43 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintProjectile>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Speed = copyFrom.Speed;
+          bp.MinTime = copyFrom.MinTime;
+          bp.View = copyFrom.View;
+          bp.CastFx = copyFrom.CastFx;
+          bp.CastEffectDuration = copyFrom.CastEffectDuration;
+          bp.LifetimeParticlesAfterHit = copyFrom.LifetimeParticlesAfterHit;
+          bp.ProjectileHit = copyFrom.ProjectileHit;
+          bp.DamageHit = copyFrom.DamageHit;
+          bp.SourceBone = copyFrom.SourceBone;
+          bp.SourceBoneOffsetAtTarget = copyFrom.SourceBoneOffsetAtTarget;
+          bp.UseSourceBoneScale = copyFrom.UseSourceBoneScale;
+          bp.SourceBoneCorpulenceOffset = copyFrom.SourceBoneCorpulenceOffset;
+          bp.TargetBone = copyFrom.TargetBone;
+          bp.TargetBoneOnCrit = copyFrom.TargetBoneOnCrit;
+          bp.TargetBoneOffsetMultiplier = copyFrom.TargetBoneOffsetMultiplier;
+          bp.FallsOnMiss = copyFrom.FallsOnMiss;
+          bp.MissMinRadius = copyFrom.MissMinRadius;
+          bp.MissMaxRadius = copyFrom.MissMaxRadius;
+          bp.MissRaycastDistance = copyFrom.MissRaycastDistance;
+          bp.AddRagdollImpulse = copyFrom.AddRagdollImpulse;
+          bp.m_Trajectory = copyFrom.m_Trajectory;
+          bp.FollowTerrain = copyFrom.FollowTerrain;
+          bp.StuckArrowPrefab = copyFrom.StuckArrowPrefab;
+          bp.DeflectedArrowPrefab = copyFrom.DeflectedArrowPrefab;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintProjectile.Speed"/>
     /// </summary>

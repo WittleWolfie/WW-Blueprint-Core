@@ -34,6 +34,21 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<HasManualTargetConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HasManualTargetScore = copyFrom.HasManualTargetScore;
+          bp.NoManualTargetScore = copyFrom.NoManualTargetScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="HasManualTargetConsideration.HasManualTargetScore"/>
     /// </summary>

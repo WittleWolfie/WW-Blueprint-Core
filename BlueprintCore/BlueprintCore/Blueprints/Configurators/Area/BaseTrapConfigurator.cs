@@ -49,6 +49,31 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintTrap>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.PerceptionDC = copyFrom.PerceptionDC;
+          bp.PerceptionRadius = copyFrom.PerceptionRadius;
+          bp.DisableDC = copyFrom.DisableDC;
+          bp.DisableTriggerMargin = copyFrom.DisableTriggerMargin;
+          bp.IsHiddenWhenInactive = copyFrom.IsHiddenWhenInactive;
+          bp.AllowedForRandomEncounters = copyFrom.AllowedForRandomEncounters;
+          bp.DisarmAnimation = copyFrom.DisarmAnimation;
+          bp.m_Actor = copyFrom.m_Actor;
+          bp.TriggerConditions = copyFrom.TriggerConditions;
+          bp.DisableConditions = copyFrom.DisableConditions;
+          bp.TrapActions = copyFrom.TrapActions;
+          bp.DisableActions = copyFrom.DisableActions;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintTrap.PerceptionDC"/>
     /// </summary>

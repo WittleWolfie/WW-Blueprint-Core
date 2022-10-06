@@ -38,6 +38,22 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintFeatureBase>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.HideInUI = copyFrom.HideInUI;
+          bp.HideInCharacterSheetAndLevelUp = copyFrom.HideInCharacterSheetAndLevelUp;
+          bp.HideNotAvailibleInUI = copyFrom.HideNotAvailibleInUI;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintFeatureBase.HideInUI"/>
     /// </summary>

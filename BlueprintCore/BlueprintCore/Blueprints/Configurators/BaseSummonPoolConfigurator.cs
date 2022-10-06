@@ -33,6 +33,21 @@ namespace BlueprintCore.Blueprints.Configurators
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintSummonPool>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Limit = copyFrom.Limit;
+          bp.DoNotRemoveDeadUnits = copyFrom.DoNotRemoveDeadUnits;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintSummonPool.Limit"/>
     /// </summary>

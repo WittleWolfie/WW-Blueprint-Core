@@ -40,6 +40,21 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintUnitProperty>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.BaseValue = copyFrom.BaseValue;
+          bp.OperationOnComponents = copyFrom.OperationOnComponents;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintUnitProperty.BaseValue"/>
     /// </summary>

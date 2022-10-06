@@ -40,6 +40,23 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonBoon>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Icon = copyFrom.Icon;
+          bp.m_Description = copyFrom.m_Description;
+          bp.MinStage = copyFrom.MinStage;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonBoon.Name"/>
     /// </summary>

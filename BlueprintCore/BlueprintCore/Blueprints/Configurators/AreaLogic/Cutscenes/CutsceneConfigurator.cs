@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public CutsceneConfigurator CopyFrom(
+      Blueprint<BlueprintReference<Cutscene>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

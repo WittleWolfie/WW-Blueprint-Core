@@ -47,6 +47,27 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintQuest>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Description = copyFrom.Description;
+          bp.Title = copyFrom.Title;
+          bp.CompletionText = copyFrom.CompletionText;
+          bp.m_Group = copyFrom.m_Group;
+          bp.m_DescriptionPriority = copyFrom.m_DescriptionPriority;
+          bp.m_Type = copyFrom.m_Type;
+          bp.m_LastChapter = copyFrom.m_LastChapter;
+          bp.m_Objectives = copyFrom.m_Objectives;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintQuest.Description"/>
     /// </summary>

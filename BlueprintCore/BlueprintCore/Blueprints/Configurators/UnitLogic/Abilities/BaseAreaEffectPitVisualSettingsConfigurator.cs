@@ -43,6 +43,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintAreaEffectPitVisualSettings>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.DepthMeters = copyFrom.DepthMeters;
+          bp.HoleEdgeMeters = copyFrom.HoleEdgeMeters;
+          bp.UnitDisappearFx = copyFrom.UnitDisappearFx;
+          bp.UnitAppearFx = copyFrom.UnitAppearFx;
+          bp.FallXZCurve = copyFrom.FallXZCurve;
+          bp.FallYCurve = copyFrom.FallYCurve;
+          bp.ClimbXZCurve = copyFrom.ClimbXZCurve;
+          bp.ClimbYCurve = copyFrom.ClimbYCurve;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintAreaEffectPitVisualSettings.DepthMeters"/>
     /// </summary>

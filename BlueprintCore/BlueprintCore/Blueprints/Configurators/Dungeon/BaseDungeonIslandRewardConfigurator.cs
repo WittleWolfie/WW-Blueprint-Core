@@ -43,6 +43,25 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonIslandReward>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.m_ImageLink = copyFrom.m_ImageLink;
+          bp.Conditions = copyFrom.Conditions;
+          bp.ForceFirstIsland = copyFrom.ForceFirstIsland;
+          bp.CustomRevealFx = copyFrom.CustomRevealFx;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonIslandReward.Name"/>
     /// </summary>

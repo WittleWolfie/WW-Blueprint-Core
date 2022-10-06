@@ -57,5 +57,13 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
       base.CopyFrom(blueprint.ToString(), componentTypes);
     return Self;
     }
+
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public KingdomMoraleFlagConfigurator CopyFrom(
+      Blueprint<BlueprintReference<BlueprintKingdomMoraleFlag>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    return Self;
+    }
   }
 }

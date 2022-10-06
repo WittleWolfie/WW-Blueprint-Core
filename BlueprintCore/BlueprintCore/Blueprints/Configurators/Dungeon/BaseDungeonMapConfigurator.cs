@@ -45,6 +45,28 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintDungeonMap>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Name = copyFrom.Name;
+          bp.Description = copyFrom.Description;
+          bp.ShouldAddDecorations = copyFrom.ShouldAddDecorations;
+          bp.OverrideMapStartIslandPawnPosition = copyFrom.OverrideMapStartIslandPawnPosition;
+          bp.MapStartIslandPawnPosition = copyFrom.MapStartIslandPawnPosition;
+          bp.OverrideMapFinalIslandPawnPosition = copyFrom.OverrideMapFinalIslandPawnPosition;
+          bp.MapFinalIslandPawnPosition = copyFrom.MapFinalIslandPawnPosition;
+          bp.m_ArrowsLink = copyFrom.m_ArrowsLink;
+          bp.Layout = copyFrom.Layout;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonMap.Name"/>
     /// </summary>

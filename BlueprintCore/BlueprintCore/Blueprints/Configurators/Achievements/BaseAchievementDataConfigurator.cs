@@ -58,6 +58,38 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<AchievementData>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.m_UnlockedIcon = copyFrom.m_UnlockedIcon;
+          bp.m_LockedIcon = copyFrom.m_LockedIcon;
+          bp.Type = copyFrom.Type;
+          bp.Steam = copyFrom.Steam;
+          bp.GOG = copyFrom.GOG;
+          bp.Epic = copyFrom.Epic;
+          bp.PS4 = copyFrom.PS4;
+          bp.XBoxOne = copyFrom.XBoxOne;
+          bp.Hidden = copyFrom.Hidden;
+          bp.OnlyMainCampaign = copyFrom.OnlyMainCampaign;
+          bp.SpecificCampaign = copyFrom.SpecificCampaign;
+          bp.MinDifficulty = copyFrom.MinDifficulty;
+          bp.MinCrusadeDifficulty = copyFrom.MinCrusadeDifficulty;
+          bp.IronMan = copyFrom.IronMan;
+          bp.AchievementName = copyFrom.AchievementName;
+          bp.EventsCountForUnlock = copyFrom.EventsCountForUnlock;
+          bp.m_FinishGameFlag = copyFrom.m_FinishGameFlag;
+          bp.Flags = copyFrom.Flags;
+          bp.Etudes = copyFrom.Etudes;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="AchievementData.m_UnlockedIcon"/>
     /// </summary>

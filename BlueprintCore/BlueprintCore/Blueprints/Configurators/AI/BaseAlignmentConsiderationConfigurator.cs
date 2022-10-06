@@ -36,6 +36,22 @@ namespace BlueprintCore.Blueprints.Configurators.AI
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<AlignmentConsideration>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Alignment = copyFrom.Alignment;
+          bp.SpecifiedAlignmentScore = copyFrom.SpecifiedAlignmentScore;
+          bp.OtherAlignmentScore = copyFrom.OtherAlignmentScore;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="AlignmentConsideration.Alignment"/>
     /// </summary>

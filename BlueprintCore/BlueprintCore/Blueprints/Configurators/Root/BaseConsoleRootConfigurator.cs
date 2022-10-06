@@ -37,6 +37,22 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<ConsoleRoot>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      base.CopyFrom(blueprint.ToString(), componentMatcher);
+    
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Icons = copyFrom.Icons;
+          bp.Texts = copyFrom.Texts;
+          bp.InGameMenuIcons = copyFrom.InGameMenuIcons;
+        });
+    }
+
     /// <summary>
     /// Sets the value of <see cref="ConsoleRoot.Icons"/>
     /// </summary>
