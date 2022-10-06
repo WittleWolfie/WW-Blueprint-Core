@@ -332,6 +332,24 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
         });
     }
 
+    /// <inheritdoc cref="CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
+    /// <param name="componentMatcher">
+    /// Any components in <paramref name="blueprint"/> matching the predicate are copied. These are shallow copies that 
+    /// are shared by both blueprints.
+    /// </param>
+    public TBuilder CopyFrom(
+      Blueprint<BlueprintReference<BlueprintScriptableObject>> blueprint, Predicate<BlueprintComponent> componentMatcher)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          var copyFrom = blueprint.Reference.Get();
+          bp.Components =
+            CommonTool.Append(
+              bp.Components, bp.Components.Where(c => componentMatcher.Invoke(c)).ToArray());
+        });
+    }
+
     /// <summary>Internal function comparable to <see cref="OnConfigure(Action{T}[])"/>.</summary>
     /// 
     /// <remarks>
