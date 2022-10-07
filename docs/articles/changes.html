@@ -69,6 +69,25 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v241-release">v2.4.1 Release</h2>
+<ul>
+<li>Fix bug causing <code>CopyFrom()</code> to ignore all components when using a predicate</li>
+<li>A single delayed configurator failure no longer prevents other delayed configurators from being processed</li>
+<li>Prevent NPE when calling <code>SetIcon(null)</code>
+<ul>
+<li>You shouldn't do this but sometimes it's convenient for methods to call <code>SetIcon()</code> on arbitrary input</li>
+</ul>
+</li>
+</ul>
+<h2 id="v240-release">v2.4.0 Release</h2>
+<ul>
+<li>Added blueprint copying methods: <code>CopyFrom()</code>
+<ul>
+<li>These are shallow copies that copy all fields</li>
+<li>Components are only copied if specified, either by type or using a predicate</li>
+</ul>
+</li>
+</ul>
 <h2 id="v233-release">v2.3.3 Release</h2>
 <ul>
 <li>Fixes a bug preventin archetypes from working properly in ContextRankConfigs</li>
