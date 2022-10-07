@@ -358,7 +358,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
           var copyFrom = blueprint.Reference.Get();
           bp.Components =
             CommonTool.Append(
-              bp.Components, bp.Components.Where(c => componentMatcher.Invoke(c)).ToArray());
+              bp.Components, copyFrom.Components.Where(c => componentMatcher.Invoke(c)).ToArray());
         });
     }
 
