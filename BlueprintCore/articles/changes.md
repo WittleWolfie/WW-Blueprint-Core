@@ -2,6 +2,7 @@
 
 ## v2.4.1 Release
 
+* Fix bug causing `CopyFrom()` to ignore all components when using a predicate
 * A single delayed configurator failure no longer prevents other delayed configurators from being processed
 * Prevent NPE when calling `SetIcon(null)`
     * You shouldn't do this but sometimes it's convenient for methods to call `SetIcon()` on arbitrary input
