@@ -306,6 +306,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       // Ensures that teamwork feats are shared by the various features
       if (isTeamworkFeat)
       {
+        ParametrizedFeatureConfigurator.For(ParametrizedFeatureRefs.LichSkeletalTeamworkParametrized)
+          .AddToBlueprintParameterVariants(Blueprint)
+          .Configure();
+
         AddFactsFromCaster(BuffRefs.BattleProwessEffectBuff);
         AddFactsFromCaster(BuffRefs.MonsterTacticsBuff);
         AddFactsFromCaster(BuffRefs.TacticalLeaderFeatShareBuff);
