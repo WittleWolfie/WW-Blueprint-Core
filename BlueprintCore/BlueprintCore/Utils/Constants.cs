@@ -32,6 +32,7 @@ namespace BlueprintCore.Utils
       public static readonly ShowCheck ShowCheck = new();
       public static readonly CueSelection CueSelection = new();
       public static readonly CharacterSelection CharacterSelection = new();
+      public static readonly DialogSpeaker DialogSpeaker = new() { NoSpeaker = true };
     }
   }
 }
