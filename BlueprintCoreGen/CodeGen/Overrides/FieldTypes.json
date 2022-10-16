@@ -48,6 +48,14 @@
   },
 
   {
+    "TypeName": "DialogSpeaker",
+    "Comment": [
+      "Create using <see cref=\"Utils.Types.DialogSpeakers\" />"
+    ],
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.DialogSpeakers"
+  },
+
+  {
     "TypeName": "LocalizedString",
     "TypeNameOverride": "LocalString",
     "Imports": [ "LocalizationTool" ],
