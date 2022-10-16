@@ -27,6 +27,27 @@
   },
 
   {
+    "TypeName": "ShowCheck",
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.ShowCheck"
+  },
+
+  {
+    "TypeName": "CueSelection",
+    "Comment": [
+      "Create using <see cref=\"Utils.Types.CueSelections\" />"
+    ],
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.CueSelection"
+  },
+
+  {
+    "TypeName": "CharacterSelection",
+    "Comment": [
+      "Create using <see cref=\"Utils.Types.CharacterSelections\" />"
+    ],
+    "AssignmentIfNullRhs": "Utils.Constants.Empty.CharacterSelection"
+  },
+
+  {
     "TypeName": "LocalizedString",
     "TypeNameOverride": "LocalString",
     "Imports": [ "LocalizationTool" ],

@@ -1,8 +1,12 @@
 ﻿# Changelog
 
-## v2.4.2 Release
+## v2.5.0 Release
 
-* Add option to skip selection processing of features
+* New Type Utils
+    * `CueSelections` - For creating `CueSelection`
+    * `CharacterSelections` - For creating `CharacterSelection`
+* New Empty Constants for working with Cues / Answers
+* Add option to skip selection processing of features, `SkipAddToSelections`
 * Teamwork feats are automatically added to Lich Skeletal Companion's feat selection
 
 ## v2.4.1 Release

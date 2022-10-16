@@ -25,6 +25,23 @@
   },
 
   {
+    "TypeName": "BlueprintAnswer",
+    "Fields": [
+      {
+        "FieldName": "NextCue",
+        "Remarks": [
+          "Create <c>CueSelection</c> using <see cref=\"Utils.Types.CueSelections.New(Utils.Blueprint{TRef})\" />"
+        ],
+        "Set": {
+          "ExtraFmtLines": [
+            "{0}.RequireValidCue = true;"
+          ]
+        }
+      }
+    ]
+  },
+
+  {
     "TypeName": "BlueprintArchetype",
     "Fields": [
       {

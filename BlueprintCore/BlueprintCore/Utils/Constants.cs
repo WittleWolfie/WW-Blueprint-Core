@@ -1,3 +1,5 @@
+using Kingmaker.DialogSystem;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
@@ -27,6 +29,9 @@ namespace BlueprintCore.Utils
       };
       public static readonly LocalizedString String = new();
       public static readonly PrefabLink PrefabLink = new();
+      public static readonly ShowCheck ShowCheck = new();
+      public static readonly CueSelection CueSelection = new();
+      public static readonly CharacterSelection CharacterSelection = new();
     }
   }
 }

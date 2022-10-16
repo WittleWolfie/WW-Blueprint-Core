@@ -11,6 +11,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Facts.Behavior;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.Designers.Mechanics.WeaponEnchants;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom.Settlements.BuildingComponents;
 using Kingmaker.QA.Arbiter;
@@ -57,6 +58,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
         (typeof(BlueprintProgression), new() { "AlternateProgressionType" }),
         (typeof(BlueprintAbility), new() { "AnimationStyle" }),
+        (typeof(BlueprintAnswer), new() { "RequireValidCue" }),
       };
     public static bool ShouldIgnoreField(FieldInfo info, Type sourceType)
     {
