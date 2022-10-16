@@ -2933,6 +2933,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_CambionCleric_Caster1 = "8b08ca42abb94595bbf89249312f1a16";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_ColoxusEmissary = "b864d2dad8e0463eaf317be2f0ab88ac";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_DemodandStringy_level8_MiniBoss = "f82de1e9b5f942328b1a93d621f410ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_DemodandStringy_level8_MiniBoss_Integration = "ee591b78a7934bfe8ccbda51f526f727";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_DemodandStringy_level8_MiniBoss_noItem = "cefbe9bdda2440f9a96bda04d5d05065";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_DemodandStringyStandard = "e40739d22cbe42a48c52cdaaaf93d738";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR15_GolemAutumn = "a400bce627794189aebffc5ac3dc1328";
@@ -3051,6 +3052,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_HalfFiendGuardianMinotaurEnhanced1 = "6556e6082d4b433097cf1e63ef5a2d20";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_MarilithAdvanced = "b48e729b6fbc47f7a76871a26984d5b0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_MinotaurCaster_level13_MiniBoss = "c03ba1dde27048e3bee37412480bec60";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_MinotaurCaster_level13_MiniBoss_Integration = "43117561474447168e674f2f111cce5f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_MinotaurCaster_level13_MiniBoss_noItem = "e9d11ba1ebaa4a12b2ea44d8c04265f1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_NahydrianPurpleWorm_12level_MiniBoss = "bad2c07d56524a0096c8aea45d89bd88";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_OolioddrooInquisitor = "f47b98f27c2c4bf4bbe2cb1922633f1f";
@@ -3068,6 +3070,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_Vrolikai_level12_Miniboss_noItem = "58132a7a567747599c4eeb0a1e0b4473";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_Vrolikai_level12_MinibossIntegration = "320d85e1431c4aea8b362c60edc6b7ea";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_WizardSinmage20_level12_MiniBoss = "2ad235fd688e458a8dab888202bbdc0f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_WizardSinmage20_level12_MiniBoss_Integration = "e1d4bd55afa44cdda1e02634cf4cef6b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_WizardSinmage20_level12_MiniBoss_noItem = "64b1636eda95492cb8c9be0bfb3d6bec";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_ZombieLordFighter_Ranger_SarkorianLevel20 = "b98962258c574e4f8de326bbfb68d0c4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR19_ZombieLordFighter_Skald_Sarkorian_MindFogCast_Level18 = "0092a16e149f48dba4d1e1ca5b2f4c35";
@@ -3139,6 +3142,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_EcorcheTorturer = "d765a69cbf8b454f861a0b0b9cfac071";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_GhoulCreeper_Rogue = "0bc50402f12e4970ba08f2b2c7177ea0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_GhoulCreeper_Rogue1 = "4b3f4015e9234ce0b6b48d3f066a884a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBoss = "1330c261e0a04e01aa33fea07c3c726c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBossIntegration = "e26cb10a034b4e51aa7d7739eb5e1f4e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBossnoItem = "de25090845ed42808fe2f9b73a29e7f1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Slayer = "592488f24b604ff8b443400ef08a81b7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Slayer_level13_MiniBoss = "64623dc301394b6694bba8fb4bf34554";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR21_IncubusAssassin_Slayer_level13_MiniBoss_Integration = "51c1942960994ae9b492f0db2cd255e1";
@@ -3155,6 +3161,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_MinotaurPriest = "1473699353d54b4286db987d17bb5323";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_MythicDerakniFighter = "fdcbee30b91f44bd94a49df60d619377";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_MythicDerakniFighter_level14_MiniBoss = "d561af65d1a747b5bf6e5bc1d2948b5e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_MythicDerakniFighter_level14_MiniBoss_Integration = "4c7419c79eeb4a3ead04aeb27f74d830";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_MythicDerakniFighter_level14_MiniBoss_noItem = "d9ce9575f48f4e26854ae452d593325a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR22_VavakiaMythic6Magus = "46d9ffbb8f894e90815cc3b91a281a6c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR23_AnimatedArmor = "55b9608791934a50a42f72a2a37093b5";
@@ -3215,6 +3222,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28_VrolikaiMythicRogue = "ed694790421547829c48579a1dea5030";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28M_BalorMythicFighter = "9cacc296a2b14d33817abe54776c650a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28M_BalorMythicFighter_17level_Miniboss = "12f29b869b7a456c9bd099b7e5b446f2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28M_BalorMythicFighter_17level_Miniboss_Integration = "230e496429f442acae17cf6c7784e3ea";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28M_BalorMythicFighter_17level_Miniboss_noItem = "d7a0350d720945d89b905362fbcc75b4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR28M_MythicVrock = "328c3ee23cfc4d2097a2e7d56584bd1b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR29_Devastator = "9a786584a9624d939a59825620e319b9";
@@ -3283,6 +3291,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_GalluAdvancedGiantAgile = "f383918496884d3eb9121de950e8683e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_MummyFighter = "cd1c41b1ae5e46c4a306d95a193cefc3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss = "830cc806556b4c8f8aa49ca4157086b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss_Integration = "343fe18a4ee0424eba746074fa67870f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss_noItem = "1e3fdc5e5f304c17857819d979eaf3aa";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_VavakiaMythic_18level_miniboss = "780a3b2841dd4593bb17712419b2937a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR30_VavakiaMythic_18level_miniboss_noItem = "98a5330b4c8d4bb9b117d45f5e6e44c1";
@@ -8245,6 +8254,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR15_CambionCleric_Caster1,
           DLC3_CR15_ColoxusEmissary,
           DLC3_CR15_DemodandStringy_level8_MiniBoss,
+          DLC3_CR15_DemodandStringy_level8_MiniBoss_Integration,
           DLC3_CR15_DemodandStringy_level8_MiniBoss_noItem,
           DLC3_CR15_DemodandStringyStandard,
           DLC3_CR15_GolemAutumn,
@@ -8363,6 +8373,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR19_HalfFiendGuardianMinotaurEnhanced1,
           DLC3_CR19_MarilithAdvanced,
           DLC3_CR19_MinotaurCaster_level13_MiniBoss,
+          DLC3_CR19_MinotaurCaster_level13_MiniBoss_Integration,
           DLC3_CR19_MinotaurCaster_level13_MiniBoss_noItem,
           DLC3_CR19_NahydrianPurpleWorm_12level_MiniBoss,
           DLC3_CR19_OolioddrooInquisitor,
@@ -8380,6 +8391,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR19_Vrolikai_level12_Miniboss_noItem,
           DLC3_CR19_Vrolikai_level12_MinibossIntegration,
           DLC3_CR19_WizardSinmage20_level12_MiniBoss,
+          DLC3_CR19_WizardSinmage20_level12_MiniBoss_Integration,
           DLC3_CR19_WizardSinmage20_level12_MiniBoss_noItem,
           DLC3_CR19_ZombieLordFighter_Ranger_SarkorianLevel20,
           DLC3_CR19_ZombieLordFighter_Skald_Sarkorian_MindFogCast_Level18,
@@ -8451,6 +8463,9 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR21_EcorcheTorturer,
           DLC3_CR21_GhoulCreeper_Rogue,
           DLC3_CR21_GhoulCreeper_Rogue1,
+          DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBoss,
+          DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBossIntegration,
+          DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBossnoItem,
           DLC3_CR21_IncubusAssassin_Slayer,
           DLC3_CR21_IncubusAssassin_Slayer_level13_MiniBoss,
           DLC3_CR21_IncubusAssassin_Slayer_level13_MiniBoss_Integration,
@@ -8467,6 +8482,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR22_MinotaurPriest,
           DLC3_CR22_MythicDerakniFighter,
           DLC3_CR22_MythicDerakniFighter_level14_MiniBoss,
+          DLC3_CR22_MythicDerakniFighter_level14_MiniBoss_Integration,
           DLC3_CR22_MythicDerakniFighter_level14_MiniBoss_noItem,
           DLC3_CR22_VavakiaMythic6Magus,
           DLC3_CR23_AnimatedArmor,
@@ -8527,6 +8543,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR28_VrolikaiMythicRogue,
           DLC3_CR28M_BalorMythicFighter,
           DLC3_CR28M_BalorMythicFighter_17level_Miniboss,
+          DLC3_CR28M_BalorMythicFighter_17level_Miniboss_Integration,
           DLC3_CR28M_BalorMythicFighter_17level_Miniboss_noItem,
           DLC3_CR28M_MythicVrock,
           DLC3_CR29_Devastator,
@@ -8595,6 +8612,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR30_GalluAdvancedGiantAgile,
           DLC3_CR30_MummyFighter,
           DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss,
+          DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss_Integration,
           DLC3_CR30_SkeletalChampionArcher_DLC1_18level_miniboss_noItem,
           DLC3_CR30_VavakiaMythic_18level_miniboss,
           DLC3_CR30_VavakiaMythic_18level_miniboss_noItem,

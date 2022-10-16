@@ -147,7 +147,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0030</term><description>0da09f503379fd645a4be7a22da9c447</description></item>
+    /// <item><term>Cue_0030</term><description>8f325aed1f4383f41a9be616777f8f54</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -246,7 +246,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>BloodCleanMess_CheckActions</term><description>399bb020e0a63db449788f5597526f52</description></item>
+    /// <item><term>Burn_Armory_Actions</term><description>91d20a8a9992de341a9418e26f13e8f4</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -355,7 +355,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC3_Int_FirstCleric</term><description>3075defa2fc34e989d19747019685dbb</description></item>
+    /// <item><term>DLC2_Sv_Ins_Bonfire</term><description>aeb5f43d6af14c7f84c0066c6bfb450a</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -1040,7 +1040,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0028</term><description>3ef584f44ff55954a95f3da542a72e55</description></item>
+    /// <item><term>Cue_0028</term><description>6a9482523b5ac1646823a4866485f0ab</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1436,7 +1436,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0029</term><description>8c2f47307207c1245b650214c7d1c063</description></item>
+    /// <item><term>Cue_0029</term><description>99854f97811aa0b4eac54ccd352decbc</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1873,7 +1873,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0034</term><description>681449e4e3ccc7e4d8bc5d798309a10b</description></item>
+    /// <item><term>Cue_0034</term><description>d0b34afed43bc154e9a83af8e7379218</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

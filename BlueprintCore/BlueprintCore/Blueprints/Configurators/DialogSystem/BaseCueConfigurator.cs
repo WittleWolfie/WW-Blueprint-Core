@@ -118,12 +118,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Speaker"/>
     /// </summary>
+    ///
+    /// <param name="speaker">
+    /// Create using <see cref="Utils.Types.DialogSpeakers" />
+    /// </param>
     public TBuilder SetSpeaker(DialogSpeaker speaker)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(speaker);
           bp.Speaker = speaker;
         });
     }
@@ -400,12 +403,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintCue.Continue"/>
     /// </summary>
+    ///
+    /// <param name="continueValue">
+    /// Create using <see cref="Utils.Types.CueSelections" />
+    /// </param>
     public TBuilder SetContinueValue(CueSelection continueValue)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(continueValue);
           bp.Continue = continueValue;
         });
     }
@@ -431,6 +437,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       {
         Blueprint.Text = Utils.Constants.Empty.String;
       }
+      if (Blueprint.Speaker is null)
+      {
+        Blueprint.Speaker = Utils.Constants.Empty.DialogSpeaker;
+      }
       if (Blueprint.m_Listener is null)
       {
         Blueprint.m_Listener = BlueprintTool.GetRef<BlueprintUnitReference>(null);
@@ -446,6 +456,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       if (Blueprint.Answers is null)
       {
         Blueprint.Answers = new();
+      }
+      if (Blueprint.Continue is null)
+      {
+        Blueprint.Continue = Utils.Constants.Empty.CueSelection;
       }
     }
   }

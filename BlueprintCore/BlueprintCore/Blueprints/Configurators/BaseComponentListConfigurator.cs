@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp03_Option01</term><description>f8794eb6fa9590342868a3f3d11373b3</description></item>
+    /// <item><term>MythicAeon_RankUp04_Option02</term><description>92ad61a3a5da2e14bad0923565816456</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>

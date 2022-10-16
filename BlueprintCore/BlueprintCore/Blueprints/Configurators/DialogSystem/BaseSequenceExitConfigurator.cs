@@ -170,12 +170,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintSequenceExit.Continue"/>
     /// </summary>
+    ///
+    /// <param name="continueValue">
+    /// Create using <see cref="Utils.Types.CueSelections" />
+    /// </param>
     public TBuilder SetContinueValue(CueSelection continueValue)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(continueValue);
           bp.Continue = continueValue;
         });
     }
@@ -200,6 +203,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       if (Blueprint.Answers is null)
       {
         Blueprint.Answers = new();
+      }
+      if (Blueprint.Continue is null)
+      {
+        Blueprint.Continue = Utils.Constants.Empty.CueSelection;
       }
     }
   }

@@ -1683,7 +1683,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Xantir_AreaTransition</term><description>e9b7f82f10b54e4bb624d523a4b3306a</description></item>
-    /// <item><term>CommandAction 6</term><description>9af92f8072927224d880da11f29bb09b</description></item>
+    /// <item><term>CommandAction 6</term><description>71354854e1f7e3746b3c621c9d2c9023</description></item>
     /// <item><term>ZigguratDeadRomance</term><description>f792eb37f0e41bb4aa23332e892ad6b1</description></item>
     /// </list>
     /// </remarks>
@@ -1876,7 +1876,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>f441ab250ed94cac80523e8b82d47852</description></item>
+    /// <item><term>CommandAction2</term><description>c5eb4b36298148b0be4025f10ece1ac9</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

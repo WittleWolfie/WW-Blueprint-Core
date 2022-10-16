@@ -1,6 +1,5 @@
 ﻿using Kingmaker.DialogSystem;
 using Kingmaker.EntitySystem.Stats;
-using System.Linq;
 
 namespace BlueprintCore.Utils.Types
 {

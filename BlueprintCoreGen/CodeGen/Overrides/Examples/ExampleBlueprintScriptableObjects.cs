@@ -66,7 +66,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_Areshkagal_BrainFirst", "c1da4b6948f84bc3b6e87bf3d80be6df"),
-            new Blueprint("GibrilethStandardBrain", "9761cff3240c3a24196f6c2bbffb1c60"),
+            new Blueprint("GibrilethMythicBrain", "da52a999cc764b36936f8572dcaac28d"),
             new Blueprint("ZombieWizardBrain", "015f66fbc3d4dd64197c2ffd4826a214"),
           }
         },
@@ -95,7 +95,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Mage_Test", "f9161aa0b3f519c47acbce01f53ee217"),
-            new Blueprint("DLC3_CR0.25_GiantCentipedeYoung_Fiendish", "b4979d846fad44199bae03f7dc239b18"),
+            new Blueprint("DLC3_CR0.5_Cultist_Cleric", "4f093e4e436f462e81d4a5e8b8c4d125"),
             new Blueprint("Ziforian_normal", "7ef2998dbeb7fda43a47ce842f4d142d"),
           }
         },
@@ -125,7 +125,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("154654654654", "aa49f649d92747e2a632476a8369b18d"),
-            new Blueprint("GreaterFocusedRageFeature", "ce0943a4687f4967966cd4354f12019c"),
+            new Blueprint("GreaterFireElementalBurnFeature", "5129567223dcbc248a4143226ba037f4"),
             new Blueprint("ZonKuthonSacredWeaponFeature", "5c73ec301e1e3094ebb031bda43e6481"),
           }
         },
@@ -510,7 +510,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("5_CritHitBuffTeleportConsideration", "fa020623ab46476a85a1ee938f08f0cc"),
-            new Blueprint("NoBuffFalseLife", "c1aa9635e26f69c42b4eb1271ab2511d"),
+            new Blueprint("NoBuffFalseLifeGreater", "be623d7b7be75434db340052806d8374"),
             new Blueprint("WillOWispInvisibilityConsideration", "ae50f85d7c3051b49b44de1e21424f1b"),
           }
         },
@@ -2169,7 +2169,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_ScoutsDead_objZone", "3ffadf67fe817d444b1cb9c6cff78744"),
-            new Blueprint("IrabethF2_route2", "70c05f4809f513a478f0cadeb2733dac"),
+            new Blueprint("Irabeth_FirstMeeting", "261740dc3750abe42a82421804fb957b"),
             new Blueprint("Zone3_Epigraph_SZ", "fde009ee2ae62024baaac478de277b28"),
           }
         },

@@ -2805,6 +2805,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_CloakOfSweetSpeakFeature = "dc2e4e8226fa4067a5ee8a8d3a07085a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_CombatCastingRewardFeat = "37963565fa7c4e58ad453912d37c2d5e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ConstructImmunities = "9af498131781418ca7c8b95ce7561a61";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBoss_QuickenFeature = "34f8518c5414418c92aa062b620e4c71";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_DivineBlessingFeature = "cdc20c0321314425902a3eec672d6b25";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_DwarvenBlessingFeature = "ef9202f408454e17bb3d0ed16bf59adf";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_EcclesitheurgHiddenFeature = "0ffcd53570ea421492c792e8ffc7fc3e";
@@ -10549,6 +10550,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CloakOfSweetSpeakFeature,
           DLC3_CombatCastingRewardFeat,
           DLC3_ConstructImmunities,
+          DLC3_CR21_IncubusAssassin_Alchemist_level13_MiniBoss_QuickenFeature,
           DLC3_DivineBlessingFeature,
           DLC3_DwarvenBlessingFeature,
           DLC3_EcclesitheurgHiddenFeature,

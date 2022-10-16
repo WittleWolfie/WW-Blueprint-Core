@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Chimera_ReforgeProject", "8ed7a2977b9abe148bcf9cd75d4c3b53"),
+            new Blueprint("Columns_Fall_InstrumentsCheck", "1b228f9c1a9141a08af1686870392d60"),
             new Blueprint("ZeorisDagger_ReforgeProject", "22e8219563e84f11b6aed62661030770"),
           }
         },
@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0007", "59ac2148b08ee7a47912253362ab0b27"),
+            new Blueprint("Cue_0007", "bc24dba18cbd5414596fe951d5d0b5d1"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -245,7 +245,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonEyeEnemyVisualBuff", "9815f77129674e8e886de2d458ecdf49"),
-            new Blueprint("Cue_46", "0b881bc6d37740e2b46a3f3382603736"),
+            new Blueprint("Cue_64", "0e8be804be2a4a97b102a3f36d21f240"),
             new Blueprint("WoljifQ", "d79f05dbd35b468fa16312f30d61a5e1"),
           }
         },
@@ -1053,8 +1053,28 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0006", "13e54e84a1344930b2d35ec4fba205ff"),
-            new Blueprint("Cue_0011", "b360165c7454488c86e8f1bd0300f315"),
+            new Blueprint("Cue_0015", "e5c42bb1bdbe4d59b232759dfe52a447"),
             new Blueprint("Ship_translocate", "2b46c98f1687478e93b8625670f996ba"),
+          }
+        },
+
+        {
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.UnitWithBlueprintExists),
+          new()
+          {
+            new Blueprint("PF-420292_1", "1d5a4ed0b3ba47c2a7718ea0a2bc2a94"),
+            new Blueprint("PF-420292_2", "d47c4adaa34049aa8b5d717874cd03c2"),
+            new Blueprint("PF-420292_3", "98d9def66e2c4e4495fe06c93900fbcf"),
+          }
+        },
+
+        {
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolCount),
+          new()
+          {
+            new Blueprint("PF-449628", "09824bfd5d984155a9b4f455db9ecf9b"),
+            new Blueprint("PF-450311", "6a7fb50a9158487193357b91f43fd7c1"),
+            new Blueprint("PF-450866", "0a4678e8504b4116b3a2f5be15c7d4d1"),
           }
         },
 

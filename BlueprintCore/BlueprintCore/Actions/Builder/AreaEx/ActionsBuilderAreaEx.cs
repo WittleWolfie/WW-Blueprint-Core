@@ -660,7 +660,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>Domino_3_1_Art_4_3</term><description>5c75dfe8a6aa0dc43b5f9991815c3d8e</description></item>
+    /// <item><term>DragonFalseTreasures_Actions</term><description>dd1c93a0ce6e49a5b1fe496b99b5108f</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>

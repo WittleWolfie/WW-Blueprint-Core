@@ -37,8 +37,8 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           var copyFrom = blueprint.Reference.Get();
-          bp.Text = copyFrom.Text;
           bp.NextCue = copyFrom.NextCue;
+          bp.Text = copyFrom.Text;
           bp.ShowOnce = copyFrom.ShowOnce;
           bp.ShowOnceCurrentDialog = copyFrom.ShowOnceCurrentDialog;
           bp.ShowCheck = copyFrom.ShowCheck;
@@ -47,7 +47,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           bp.CharacterSelection = copyFrom.CharacterSelection;
           bp.ShowConditions = copyFrom.ShowConditions;
           bp.SelectConditions = copyFrom.SelectConditions;
-          bp.RequireValidCue = copyFrom.RequireValidCue;
           bp.AddToHistory = copyFrom.AddToHistory;
           bp.OnSelect = copyFrom.OnSelect;
           bp.FakeChecks = copyFrom.FakeChecks;
@@ -65,8 +64,8 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           var copyFrom = blueprint.Reference.Get();
-          bp.Text = copyFrom.Text;
           bp.NextCue = copyFrom.NextCue;
+          bp.Text = copyFrom.Text;
           bp.ShowOnce = copyFrom.ShowOnce;
           bp.ShowOnceCurrentDialog = copyFrom.ShowOnceCurrentDialog;
           bp.ShowCheck = copyFrom.ShowCheck;
@@ -75,11 +74,40 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           bp.CharacterSelection = copyFrom.CharacterSelection;
           bp.ShowConditions = copyFrom.ShowConditions;
           bp.SelectConditions = copyFrom.SelectConditions;
-          bp.RequireValidCue = copyFrom.RequireValidCue;
           bp.AddToHistory = copyFrom.AddToHistory;
           bp.OnSelect = copyFrom.OnSelect;
           bp.FakeChecks = copyFrom.FakeChecks;
           bp.AlignmentShift = copyFrom.AlignmentShift;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAnswer.NextCue"/>
+    /// </summary>
+    ///
+    /// <param name="nextCue">
+    /// Create using <see cref="Utils.Types.CueSelections" />
+    /// </param>
+    public TBuilder SetNextCue(CueSelection nextCue)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NextCue = nextCue;
+          bp.RequireValidCue = true;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAnswer.NextCue"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyNextCue(Action<CueSelection> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.NextCue is null) { return; }
+          action.Invoke(bp.NextCue);
         });
     }
 
@@ -109,32 +137,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         {
           if (bp.Text is null) { return; }
           action.Invoke(bp.Text);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintAnswer.NextCue"/>
-    /// </summary>
-    public TBuilder SetNextCue(CueSelection nextCue)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(nextCue);
-          bp.NextCue = nextCue;
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintAnswer.NextCue"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyNextCue(Action<CueSelection> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.NextCue is null) { return; }
-          action.Invoke(bp.NextCue);
         });
     }
 
@@ -170,7 +172,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       return OnConfigureInternal(
         bp =>
         {
-          Validate(showCheck);
           bp.ShowCheck = showCheck;
         });
     }
@@ -215,12 +216,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintAnswer.CharacterSelection"/>
     /// </summary>
+    ///
+    /// <param name="characterSelection">
+    /// Create using <see cref="Utils.Types.CharacterSelections" />
+    /// </param>
     public TBuilder SetCharacterSelection(CharacterSelection characterSelection)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(characterSelection);
           bp.CharacterSelection = characterSelection;
         });
     }
@@ -285,24 +289,6 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         {
           if (bp.SelectConditions is null) { return; }
           action.Invoke(bp.SelectConditions);
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintAnswer.RequireValidCue"/>
-    /// </summary>
-    ///
-    /// <param name="requireValidCue">
-    /// <para>
-    /// Tooltip: Show this answer only if it is followed by a valid cue.
-    /// </para>
-    /// </param>
-    public TBuilder SetRequireValidCue(bool requireValidCue = true)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.RequireValidCue = requireValidCue;
         });
     }
 
@@ -468,9 +454,21 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     {
       base.OnConfigureCompleted();
     
+      if (Blueprint.NextCue is null)
+      {
+        Blueprint.NextCue = Utils.Constants.Empty.CueSelection;
+      }
       if (Blueprint.Text is null)
       {
         Blueprint.Text = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.ShowCheck is null)
+      {
+        Blueprint.ShowCheck = Utils.Constants.Empty.ShowCheck;
+      }
+      if (Blueprint.CharacterSelection is null)
+      {
+        Blueprint.CharacterSelection = Utils.Constants.Empty.CharacterSelection;
       }
       if (Blueprint.ShowConditions is null)
       {

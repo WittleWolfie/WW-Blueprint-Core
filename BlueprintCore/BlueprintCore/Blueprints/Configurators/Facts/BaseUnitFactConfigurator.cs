@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR27_SuccubusRangedFighter</term><description>20891f43613349a595785a1f444498bf</description></item>
+    /// <item><term>DLC3_CR26_Siabrae</term><description>e26f69d53f5b476ea69e3e3fec26b25d</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -826,7 +826,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC1_Septimus</term><description>e8c65e332e5946618f3691f0c9f867c7</description></item>
+    /// <item><term>DLC1_Soana</term><description>cfb0056ac90c48ad9ee415b9a2abb83b</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -4721,7 +4721,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>DLC3_CR15M_MythicSuccubus</term><description>7ed9341537ea4a708896947aa1c1a64c</description></item>
+    /// <item><term>DLC3_CR15M_MythicSuccubus1</term><description>b0fb53c05bd8424094672ebd1d8f9d87</description></item>
     /// <item><term>Ygefeles</term><description>aedf061b223b6d54e8ffae6175515b29</description></item>
     /// </list>
     /// </remarks>
@@ -5075,7 +5075,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>CR7_SkeletalChampionArcherLongBow1</term><description>1aa966d93e6949a7b7a07c3d0344ba36</description></item>
+    /// <item><term>CR7_SkeletalChampionArcherLowAgro</term><description>fb46919b30fd7e8499b618a207073fea</description></item>
     /// <item><term>WoundWormsLair_BlackDragon</term><description>c540d81c08822c14da75761493427e4c</description></item>
     /// </list>
     /// </remarks>

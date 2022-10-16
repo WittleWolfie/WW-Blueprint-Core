@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("EarthBlastAbility", "b28c336c10eb51c4a8ded0258d5742e1"),
+            new Blueprint("Echo_Threshold_dialogue", "17c5859b99d88a84db22021b0c24c6e2"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -166,7 +166,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("GrenadierAcidFlaskFree", "c7598f3f5a00e9c4f8beded952748fd2"),
+            new Blueprint("GrenadierAcidFlaskMove", "773229df7d1668f4dada188285c48462"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -395,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("Cue_0034", "681449e4e3ccc7e4d8bc5d798309a10b"),
+            new Blueprint("Cue_0034", "d0b34afed43bc154e9a83af8e7379218"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -425,7 +425,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_ScoutsDead_objZone", "3ffadf67fe817d444b1cb9c6cff78744"),
-            new Blueprint("Cue_0028", "3ef584f44ff55954a95f3da542a72e55"),
+            new Blueprint("Cue_0028", "6a9482523b5ac1646823a4866485f0ab"),
             new Blueprint("ZoeyPendantTeleport", "9a90929e2db1be448b495509170a4251"),
           }
         },
@@ -531,7 +531,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_ScoutsDead_objZone", "3ffadf67fe817d444b1cb9c6cff78744"),
-            new Blueprint("Cue_0030", "0da09f503379fd645a4be7a22da9c447"),
+            new Blueprint("Cue_0030", "8f325aed1f4383f41a9be616777f8f54"),
             new Blueprint("ZoeyPendantTeleport", "9a90929e2db1be448b495509170a4251"),
           }
         },
@@ -541,7 +541,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_IzDrezen", "09c503b7a398d49469b9463ee9d22fd4"),
-            new Blueprint("Cue_0029", "8c2f47307207c1245b650214c7d1c063"),
+            new Blueprint("Cue_0029", "99854f97811aa0b4eac54ccd352decbc"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -678,7 +678,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("(CR 6) Necromancer_SpawnActions", "966067be66094e699fd7247f4507dd1a"),
-            new Blueprint("Cue_0049", "7353179e65d03984dbf323b201b958f8"),
+            new Blueprint("Cue_0049", "fb24aedb699a5a246a410fa0cbe915d8"),
             new Blueprint("Zone3_Epigraph_SZ", "fde009ee2ae62024baaac478de277b28"),
           }
         },
@@ -688,7 +688,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("26!_SadisticGD_Checker_restTrigger", "7bc48a5ec7e240e1a059148777166ba7"),
-            new Blueprint("BloodCleanMess_CheckActions", "399bb020e0a63db449788f5597526f52"),
+            new Blueprint("Burn_Armory_Actions", "91d20a8a9992de341a9418e26f13e8f4"),
             new Blueprint("Zacharius_FinalBetrayal_dialogue", "5ec3e47a05de18c46b36f08c8dfbeafb"),
           }
         },
@@ -698,7 +698,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abad_state_0", "52edc4f040174899850aaeb0b853b1d8"),
-            new Blueprint("Cue_0022", "ecbf22d2f1fcae04c8a3bd17c2045d09"),
+            new Blueprint("Cue_0022", "a2a29ef10090e814a8e192b9dec60dec"),
             new Blueprint("ZombiesDead", "c042c6cb0eaaafc418c94615e4aac891"),
           }
         },
@@ -1281,7 +1281,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("DLC3_Int_FirstCleric", "3075defa2fc34e989d19747019685dbb"),
+            new Blueprint("DLC2_Sv_Ins_Bonfire", "aeb5f43d6af14c7f84c0066c6bfb450a"),
             new Blueprint("Wintersun_Default", "87839550c801db944b102f61084fd245"),
           }
         },
@@ -1538,7 +1538,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidButton1_CheckPassedActions", "2a969038211346358597f80d271d9b94"),
-            new Blueprint("Cue_0036", "91645746b99d12646af479beace7ec9d"),
+            new Blueprint("Cue_0036", "ff113c760973da34eaccfdba5940e23d"),
             new Blueprint("ZeorisDaggerRingProject_Enchanting", "0dc3a4e036064970857b3c3e296a7d94"),
           }
         },
@@ -1941,7 +1941,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_TargonaSearch", "34246eb4ed22ea44cb2e84c278d9e14d"),
-            new Blueprint("Domino_3_1_Art_4_3", "5c75dfe8a6aa0dc43b5f9991815c3d8e"),
+            new Blueprint("DragonFalseTreasures_Actions", "dd1c93a0ce6e49a5b1fe496b99b5108f"),
             new Blueprint("ZigguratUpgradedInside", "e531191d4ecff7b44a18f614b5ec1e1a"),
           }
         },
@@ -2059,7 +2059,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Xantir_AreaTransition", "e9b7f82f10b54e4bb624d523a4b3306a"),
-            new Blueprint("CommandAction 6", "9af92f8072927224d880da11f29bb09b"),
+            new Blueprint("CommandAction 6", "71354854e1f7e3746b3c621c9d2c9023"),
             new Blueprint("ZigguratDeadRomance", "f792eb37f0e41bb4aa23332e892ad6b1"),
           }
         },
@@ -2157,7 +2157,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1ArenaCombat", "8e64ed1e12bc30c498402e99c95e75e3"),
-            new Blueprint("CommandAction2", "f441ab250ed94cac80523e8b82d47852"),
+            new Blueprint("CommandAction2", "c5eb4b36298148b0be4025f10ece1ac9"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -2415,11 +2415,30 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         },
 
         {
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName),
+          new()
+          {
+            new Blueprint("AeonQ10_DuringQuest", "fb99a426b8bf1f247a2272920a1fd13d"),
+            new Blueprint("Cue_0030", "97733d68f9413914db2a9b7bb8644b30"),
+            new Blueprint("ThresholdCamp_Scripts03", "21cfdbf1fe184c7e9325ec071d06fbd2"),
+          }
+        },
+
+        {
           // Flag for review
           typeof(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.DungeonFixExpeditionRemoval),
           new()
           {
             new Blueprint("PF-441331", "5d47ec2bcb324d7fa22a129c4510ba86"),
+          }
+        },
+
+        {
+          // Flag for review
+          typeof(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.FixDungeonIntegrationEtudeAndMapDiscrepancy),
+          new()
+          {
+            new Blueprint("PF-444850", "50ff1896fb694116bdb3f3d88a2176c2"),
           }
         },
 
@@ -2932,16 +2951,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
             new Blueprint("Answer_0029", "81f58f56c3737b24b8225ac2597f472b"),
             new Blueprint("Answer_0032", "11a461c5f93e9c04ca0e5b5d70dc8566"),
             new Blueprint("Chapter05", "5b01aa690202e584888dfc600a4aac0a"),
-          }
-        },
-
-        {
-          typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.ChangeUnitName),
-          new()
-          {
-            new Blueprint("AeonQ10_DuringQuest", "fb99a426b8bf1f247a2272920a1fd13d"),
-            new Blueprint("Cue_0030", "97733d68f9413914db2a9b7bb8644b30"),
-            new Blueprint("ThresholdCamp_Scripts03", "21cfdbf1fe184c7e9325ec071d06fbd2"),
           }
         },
 

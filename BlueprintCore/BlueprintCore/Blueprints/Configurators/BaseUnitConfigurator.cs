@@ -1817,7 +1817,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR10_Bandit_Human_RogueMelee_Male</term><description>24bcb4884f2248959895d11ac42e8a6a</description></item>
+    /// <item><term>DLC3_CR10_BesmaraFighter_MaleHuman</term><description>baef88d6cdea472f90c886f428a88d5e</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -2177,7 +2177,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaWizard_Curse</term><description>c0fe3438b11d09841a8717ab55eebe15</description></item>
-    /// <item><term>DLC1_SilkShadow</term><description>b072b04b217546d7916f88ae5e949c6c</description></item>
+    /// <item><term>DLC1AzataIsland_Kobold</term><description>7d524add4f4140b28481b368ff2c451d</description></item>
     /// <item><term>Zanedra_Sanctum</term><description>34c3e14d08f2ff4448b745761cbb846f</description></item>
     /// </list>
     /// </remarks>
@@ -2303,7 +2303,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
-    /// <item><term>DLC3_CR11_AirElementalElder</term><description>5053b7e1d7ee486583396a8637de8105</description></item>
+    /// <item><term>DLC3_CR11_AshGiantStandart</term><description>c497c8ba1e544baf905e72d7f068ef27</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2808,7 +2808,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aasimar_Victim</term><description>dfa634221ff82bf42a3b0a511b6d2e5a</description></item>
-    /// <item><term>Cultist_Wizard_Coronation</term><description>5b5eba3c18cd47689510b3b485655645</description></item>
+    /// <item><term>Cultist_Wizard_DamageFullCaster_Deskari</term><description>d7b9114bfd97ba146b7e8ff787aa1950</description></item>
     /// <item><term>Zerieks</term><description>79674c8c4286cd7498c7bb33fd8dca31</description></item>
     /// </list>
     /// </remarks>

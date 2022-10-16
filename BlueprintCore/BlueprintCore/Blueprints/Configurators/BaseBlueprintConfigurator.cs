@@ -1357,7 +1357,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_CH1_AlchemistLair</term><description>546bf66870894657beb8e058b2702dfb</description></item>
-    /// <item><term>DrezenDefaultAreaMechanic</term><description>53e461cc1c808b546a7df90e671631d8</description></item>
+    /// <item><term>Fleshmarket_Dyunk</term><description>decab5093aaa4e78a36345545b3e094d</description></item>
     /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
     /// </list>
     /// </remarks>
@@ -1989,7 +1989,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Balor_save_health</term><description>ad452511a21544c384af7d640ceb105b</description></item>
-    /// <item><term>DarkBalorFight_HideUnits</term><description>5bc605a8f4624ec08d857dcc52378eb5</description></item>
+    /// <item><term>DarkBalor_Defeat</term><description>0f6b0672abe64a74841c712a214ed746</description></item>
     /// <item><term>ReturnToDrezen</term><description>eb0d42923a0cf6c4281b0925337e8591</description></item>
     /// </list>
     /// </remarks>

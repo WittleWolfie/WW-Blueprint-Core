@@ -2259,7 +2259,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GrenadierAcidFlaskFree</term><description>c7598f3f5a00e9c4f8beded952748fd2</description></item>
+    /// <item><term>GrenadierAcidFlaskMove</term><description>773229df7d1668f4dada188285c48462</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

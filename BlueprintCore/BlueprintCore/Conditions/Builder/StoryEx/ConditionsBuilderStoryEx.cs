@@ -535,7 +535,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[DLC1_Taberdine]_BarkConditions</term><description>c1bbb11f93d44e13b5587d4c9701515d</description></item>
-    /// <item><term>Cue_0007</term><description>59ac2148b08ee7a47912253362ab0b27</description></item>
+    /// <item><term>Cue_0007</term><description>bc24dba18cbd5414596fe951d5d0b5d1</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -693,7 +693,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0006</term><description>13e54e84a1344930b2d35ec4fba205ff</description></item>
-    /// <item><term>Cue_0011</term><description>b360165c7454488c86e8f1bd0300f315</description></item>
+    /// <item><term>Cue_0015</term><description>e5c42bb1bdbe4d59b232759dfe52a447</description></item>
     /// <item><term>Ship_translocate</term><description>2b46c98f1687478e93b8625670f996ba</description></item>
     /// </list>
     /// </remarks>

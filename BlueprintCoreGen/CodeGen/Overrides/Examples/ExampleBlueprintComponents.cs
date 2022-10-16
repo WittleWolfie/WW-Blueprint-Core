@@ -55,7 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Mage_Test", "f9161aa0b3f519c47acbce01f53ee217"),
-            new Blueprint("DLC3_CR27_SuccubusRangedFighter", "20891f43613349a595785a1f444498bf"),
+            new Blueprint("DLC3_CR26_Siabrae", "e26f69d53f5b476ea69e3e3fec26b25d"),
             new Blueprint("ZonKuthonFeature", "f7eed400baa66a744ad361d4df0e6f1b"),
           }
         },
@@ -75,7 +75,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArenaWizard_Curse", "c0fe3438b11d09841a8717ab55eebe15"),
-            new Blueprint("DLC1_SilkShadow", "b072b04b217546d7916f88ae5e949c6c"),
+            new Blueprint("DLC1AzataIsland_Kobold", "7d524add4f4140b28481b368ff2c451d"),
             new Blueprint("Zanedra_Sanctum", "34c3e14d08f2ff4448b745761cbb846f"),
           }
         },
@@ -1487,7 +1487,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarGirlSlave", "848db1dc1890e734d978b0d2ce3775f5"),
-            new Blueprint("DLC1_Septimus", "e8c65e332e5946618f3691f0c9f867c7"),
+            new Blueprint("DLC1_Soana", "cfb0056ac90c48ad9ee415b9a2abb83b"),
             new Blueprint("ZombieLordWizardFeatureListLevel8", "1495a07abb198e54a9b31188c9c6ec47"),
           }
         },
@@ -1497,7 +1497,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aasimar_Victim", "dfa634221ff82bf42a3b0a511b6d2e5a"),
-            new Blueprint("Cultist_Wizard_Coronation", "5b5eba3c18cd47689510b3b485655645"),
+            new Blueprint("Cultist_Wizard_DamageFullCaster_Deskari", "d7b9114bfd97ba146b7e8ff787aa1950"),
             new Blueprint("Zerieks", "79674c8c4286cd7498c7bb33fd8dca31"),
           }
         },
@@ -1700,7 +1700,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("00_FindEchoLair", "876fc5d40aa5d8b47ac0138cf0a680ae"),
-            new Blueprint("DLC3_CR10_Bandit_Human_RogueMelee_Male", "24bcb4884f2248959895d11ac42e8a6a"),
+            new Blueprint("DLC3_CR10_BesmaraFighter_MaleHuman", "baef88d6cdea472f90c886f428a88d5e"),
             new Blueprint("Ziforian_normal", "7ef2998dbeb7fda43a47ce842f4d142d"),
           }
         },
@@ -1770,7 +1770,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonInThePast_DemonLordDeskar", "f896dd504b3509b4abd42f01e26140da"),
-            new Blueprint("CR7_SkeletalChampionArcherLongBow1", "1aa966d93e6949a7b7a07c3d0344ba36"),
+            new Blueprint("CR7_SkeletalChampionArcherLowAgro", "fb46919b30fd7e8499b618a207073fea"),
             new Blueprint("WoundWormsLair_BlackDragon", "c540d81c08822c14da75761493427e4c"),
           }
         },
@@ -2207,7 +2207,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("26!_SadisticGD_CH1_AlchemistLair", "546bf66870894657beb8e058b2702dfb"),
-            new Blueprint("DrezenDefaultAreaMechanic", "53e461cc1c808b546a7df90e671631d8"),
+            new Blueprint("Fleshmarket_Dyunk", "decab5093aaa4e78a36345545b3e094d"),
             new Blueprint("XantirLastCombat", "a885b376ef17bdf4aa1ae37ac6e911f3"),
           }
         },
@@ -3018,7 +3018,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ArchpriestGolemCR23", "fe60facdf4574f599fb5eea50bfffb69"),
-            new Blueprint("DLC3_CR11_AirElementalElder", "5053b7e1d7ee486583396a8637de8105"),
+            new Blueprint("DLC3_CR11_AshGiantStandart", "c497c8ba1e544baf905e72d7f068ef27"),
             new Blueprint("Velhm", "f9c01a9515cd1f347800685ddbfbcc41"),
           }
         },
@@ -8670,7 +8670,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonInThePast_DemonLordDeskar", "f896dd504b3509b4abd42f01e26140da"),
-            new Blueprint("DLC3_CR15M_MythicSuccubus", "7ed9341537ea4a708896947aa1c1a64c"),
+            new Blueprint("DLC3_CR15M_MythicSuccubus1", "b0fb53c05bd8424094672ebd1d8f9d87"),
             new Blueprint("Ygefeles", "aedf061b223b6d54e8ffae6175515b29"),
           }
         },
@@ -12008,7 +12008,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Balor_save_health", "ad452511a21544c384af7d640ceb105b"),
-            new Blueprint("DarkBalorFight_HideUnits", "5bc605a8f4624ec08d857dcc52378eb5"),
+            new Blueprint("DarkBalor_Defeat", "0f6b0672abe64a74841c712a214ed746"),
             new Blueprint("ReturnToDrezen", "eb0d42923a0cf6c4281b0925337e8591"),
           }
         },
@@ -12088,7 +12088,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1ArenaCombat", "8e64ed1e12bc30c498402e99c95e75e3"),
-            new Blueprint("MythicAeon_RankUp03_Option01", "f8794eb6fa9590342868a3f3d11373b3"),
+            new Blueprint("MythicAeon_RankUp04_Option02", "92ad61a3a5da2e14bad0923565816456"),
             new Blueprint("ZigguratRiot", "5ecb3695c95e4bd4b836a0deac1ecfd7"),
           }
         },

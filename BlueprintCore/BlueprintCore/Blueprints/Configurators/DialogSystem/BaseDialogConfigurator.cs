@@ -74,12 +74,15 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     /// <summary>
     /// Sets the value of <see cref="BlueprintDialog.FirstCue"/>
     /// </summary>
+    ///
+    /// <param name="firstCue">
+    /// Create using <see cref="Utils.Types.CueSelections" />
+    /// </param>
     public TBuilder SetFirstCue(CueSelection firstCue)
     {
       return OnConfigureInternal(
         bp =>
         {
-          Validate(firstCue);
           bp.FirstCue = firstCue;
         });
     }
@@ -313,6 +316,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     {
       base.OnConfigureCompleted();
     
+      if (Blueprint.FirstCue is null)
+      {
+        Blueprint.FirstCue = Utils.Constants.Empty.CueSelection;
+      }
       if (Blueprint.Conditions is null)
       {
         Blueprint.Conditions = Utils.Constants.Empty.Conditions;

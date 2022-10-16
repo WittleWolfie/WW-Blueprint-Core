@@ -836,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR10_Bandit_Human_RogueMelee_Male</term><description>24bcb4884f2248959895d11ac42e8a6a</description></item>
+    /// <item><term>DLC3_CR10_BesmaraFighter_MaleHuman</term><description>baef88d6cdea472f90c886f428a88d5e</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
