@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.4.2 Release
+
+* Add option to skip selection processing of features
+
 ## v2.4.1 Release
 
 * Fix bug causing `CopyFrom()` to ignore all components when using a predicate

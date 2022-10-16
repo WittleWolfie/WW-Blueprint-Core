@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
   {
     private FeatureConfigurator(Blueprint<BlueprintReference<BlueprintFeature>> blueprint) : base(blueprint) { }
 
+    private bool SkipSelections = false;
     private bool IsTeamworkFeat = false;
 
     private string CavalierBuffGuid = string.Empty;
@@ -105,6 +106,17 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
         configurator.SetIsClassFeature();
       }
       return configurator;
+    }
+
+    /// <summary>
+    /// Call this to skip the automatic processing of <c>FeatureGroup</c> to add this feature to selections. Useful if
+    /// you are using <c>BlueprintFeatureSelection</c> for a feat so the selected option can have
+    /// <c>FeatureGroup.Feat</c> but only show under the selection.
+    /// </summary>
+    public FeatureConfigurator SkipAddToSelections()
+    {
+      SkipSelections = true;
+      return this;
     }
 
     /// <summary>
@@ -280,6 +292,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
+
+      if (SkipSelections)
+        return;
 
       var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);
       foreach (var selection in FeatureSelections.Except(additionalFeatureSelections))
