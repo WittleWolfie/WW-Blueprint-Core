@@ -3,6 +3,7 @@
 ## v2.4.2 Release
 
 * Add option to skip selection processing of features
+* Teamwork feats are automatically added to Lich Skeletal Companion's feat selection
 
 ## v2.4.1 Release
 
