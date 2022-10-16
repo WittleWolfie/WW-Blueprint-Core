@@ -6,8 +6,8 @@
     * `CueSelections` - For creating `CueSelection`
     * `CharacterSelections` - For creating `CharacterSelection`
     * `DialogSpeakers` - For creating `DialogSpeaker`
-* New Empty Constants for working with Cues / Answers
-* Add option to skip selection processing of features, `SkipAddToSelections`
+* New Empty Constants for working with Answers, Cues, and Dialogs
+* Add option to skip selection processing in `FeatureConfigurator`: `SkipAddToSelections`
 * Teamwork feats are automatically added to Lich Skeletal Companion's feat selection
 
 ## v2.4.1 Release
