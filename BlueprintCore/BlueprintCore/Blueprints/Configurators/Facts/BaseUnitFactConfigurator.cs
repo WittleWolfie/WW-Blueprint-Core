@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR26_Siabrae</term><description>e26f69d53f5b476ea69e3e3fec26b25d</description></item>
+    /// <item><term>DLC3_CR27_GalluAdvanced</term><description>cab86cbebdac43cba2e4d9902388eb62</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1328,6 +1328,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         SpellSchool? isSpellSchool = null,
         bool? minSpellLevel = null,
         int? minSpellLevelLimit = null,
+        bool? onlyOnce = null,
         AbilityRange? range = null,
         SpellSourceTypeFlag? sourceItemType = null,
         bool? sourceItemTypeExclude = null,
@@ -1370,6 +1371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.IsSpellSchool = isSpellSchool ?? component.IsSpellSchool;
       component.MinSpellLevel = minSpellLevel ?? component.MinSpellLevel;
       component.MinSpellLevelLimit = minSpellLevelLimit ?? component.MinSpellLevelLimit;
+      component.OnlyOnce = onlyOnce ?? component.OnlyOnce;
       component.Range = range ?? component.Range;
       component.SourceItemType = sourceItemType ?? component.SourceItemType;
       component.SourceItemTypeExclude = sourceItemTypeExclude ?? component.SourceItemTypeExclude;
@@ -2262,6 +2264,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? bypassedByWeaponType = null,
         Blueprint<BlueprintUnitFactReference>? checkedFactMythic = null,
         PhysicalDamageForm? form = null,
+        bool? isStackable = null,
         PhysicalDamageMaterial? material = null,
         int? minEnhancementBonus = null,
         bool? or = null,
@@ -2287,6 +2290,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         component.m_CheckedFactMythic = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
       component.Form = form ?? component.Form;
+      component.m_IsStackable = isStackable ?? component.m_IsStackable;
       component.Material = material ?? component.Material;
       component.MinEnhancementBonus = minEnhancementBonus ?? component.MinEnhancementBonus;
       component.Or = or ?? component.Or;
@@ -5140,7 +5144,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordHolyDamageEffectBuff</term><description>4b2fa2b2075348b6bde90c3f6ff0b3f1</description></item>
     /// <item><term>DeathOfElementsDeathOfElementsBuff</term><description>7b9e460440993204281169694460ae6c</description></item>
-    /// <item><term>DragonLevel3Immunities</term><description>f1631a20b6f14e58924a32c81da95840</description></item>
+    /// <item><term>JoyOfLifeBuff</term><description>c3adfe620be4a0749904d8942aaabf38</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -10978,7 +10982,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloFeature</term><description>d3f14f00f675a6341a41d2194186835c</description></item>
-    /// <item><term>HermitRevelationFadeFromMemory14</term><description>7bb526fcbbc826048a2a65c1b60fa36d</description></item>
+    /// <item><term>HermitRevelationReclusesStride10</term><description>825f82e6a7d36a1408bd48dd85942848</description></item>
     /// <item><term>WitchWanderingHex</term><description>fb8490d1721bd5a4883c3b6559310351</description></item>
     /// </list>
     /// </remarks>
@@ -20559,7 +20563,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalBlessingMinorBuff</term><description>6c45e13671a7ccb49814bdd1b0b7c2e7</description></item>
     /// <item><term>BloodlineDraconicWhiteClawsBuffLevel4</term><description>7df1a3dd18fe3bb488841d0e411e646a</description></item>
-    /// <item><term>WitchHexNailsFeature</term><description>6a9a6cd57f30ffb4784625742c2f1756</description></item>
+    /// <item><term>WitchHexNailsBuff</term><description>f775d287c96f4fbf9d53a204522f626d</description></item>
     /// </list>
     /// </remarks>
     ///

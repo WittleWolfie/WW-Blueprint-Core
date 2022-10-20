@@ -427,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -988,7 +988,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>ProfaneAscensionCharismaBuff1</term><description>503131ef5904487c86a4dbe51b84b66c</description></item>
+    /// <item><term>ProfaneAscensionCharismaBuff2</term><description>d0f50ea08a4f4f3fb0db79876f0bd3b8</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningBuff</term><description>e248e5ef1ae04d559d5fe82ef719ee47</description></item>
     /// </list>
     /// </remarks>
@@ -1077,6 +1077,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
     /// </list>
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="allowDamageTransfer">
+    /// <para>
+    /// InfoBox: If checked some components can partially transfer damage characteristics from special weapons to the natural weapons of the polymorph.  E.g. component &amp;apos;PolymorphDamageTransfer&amp;apos; used for ShifterClawBuffLevelNN will take some characteristics of the claws and apply them to attacks of the weapons in the SecondaryAdditionalLimbs slots.
     /// </para>
     /// </param>
     /// <param name="facts">
@@ -1175,8 +1180,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="useSizeAsBaseForDamage">
+    /// <para>
+    /// InfoBox: If checked, the Size value will be used as base size instead of the &amp;apos;Medium&amp;apos; size.
+    /// </para>
+    /// </param>
     public TBuilder AddPolymorph(
         List<Blueprint<BlueprintItemWeaponReference>>? additionalLimbs = null,
+        bool? allowDamageTransfer = null,
         int? constitutionBonus = null,
         int? dexterityBonus = null,
         Polymorph.VisualTransitionSettings? enterTransition = null,
@@ -1198,7 +1209,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         Size? size = null,
         SpecialDollType? specialDollType = null,
         int? strengthBonus = null,
-        PolymorphTransitionSettings? transitionExternal = null)
+        PolymorphTransitionSettings? transitionExternal = null,
+        bool? useSizeAsBaseForDamage = null)
     {
       var component = new Polymorph();
       component.m_AdditionalLimbs = additionalLimbs?.Select(bp => bp.Reference)?.ToArray() ?? component.m_AdditionalLimbs;
@@ -1206,6 +1218,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_AdditionalLimbs = new BlueprintItemWeaponReference[0];
       }
+      component.AllowDamageTransfer = allowDamageTransfer ?? component.AllowDamageTransfer;
       component.ConstitutionBonus = constitutionBonus ?? component.ConstitutionBonus;
       component.DexterityBonus = dexterityBonus ?? component.DexterityBonus;
       Validate(enterTransition);
@@ -1257,6 +1270,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       component.StrengthBonus = strengthBonus ?? component.StrengthBonus;
       Validate(transitionExternal);
       component.m_TransitionExternal = transitionExternal ?? component.m_TransitionExternal;
+      component.UseSizeAsBaseForDamage = useSizeAsBaseForDamage ?? component.UseSizeAsBaseForDamage;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1717,7 +1731,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyDistortionImmunityAfterBuff</term><description>938dc00f7c7f4a908feb96d533263f70</description></item>
-    /// <item><term>FreebootersBaneBuffAllies</term><description>8a7fcaeaf69867f40aee02e84c0882d8</description></item>
+    /// <item><term>GolemAutumnGrappledBuff</term><description>077537d7c64aa4e44b559b914693d085</description></item>
     /// <item><term>WitchHexDeathCurseBuff2</term><description>5e6aeb6852a77b3449b37a4bdb9f7bb4</description></item>
     /// </list>
     /// </remarks>
@@ -2931,7 +2945,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmySmiteChaosBuff</term><description>61d753b863aa449e85fa34fb0374f071</description></item>
-    /// <item><term>FiendishSmiteGoodBuff</term><description>a9035e49d6d79a64eaec321f2cb629a8</description></item>
+    /// <item><term>FreebootersBaneBuff</term><description>76dabd40a1c1c644c86ce30e41ad5cab</description></item>
     /// <item><term>VanguardAlliesStudyTargetBuff</term><description>261d47a0e2df6cf4fa6f02ec2cfb528a</description></item>
     /// </list>
     /// </remarks>
@@ -3204,7 +3218,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmySmiteChaosBuff</term><description>61d753b863aa449e85fa34fb0374f071</description></item>
-    /// <item><term>FaithHunterSwornEnemySmiteBuff</term><description>6774a8017c0f8fa4bb14a3dc04276e8b</description></item>
+    /// <item><term>HalfFiendSmiteGoodBuff</term><description>114af78efc58e5a4c86bb12ee1d907cc</description></item>
     /// <item><term>StudentOfWarDeadlyBlowBuff</term><description>7795183a0e72ec14cb2e4d51acc53773</description></item>
     /// </list>
     /// </remarks>

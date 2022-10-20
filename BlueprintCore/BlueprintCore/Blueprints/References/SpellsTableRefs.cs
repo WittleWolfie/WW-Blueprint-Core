@@ -37,6 +37,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> DragonAzataSpellsKnownTable = "4f68f2aa21fed5640980a5c58b05bdc7";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> DruidSpellLevels = "6a45ad1fb1b9f7240aea942b7c22111d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> EldritchFontSpellSlots = "67682cefce9401e469bee46dac597051";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> EldritchFontSpellsPerDayTable = "c0c98a8587a4470cb8c1004d43a7c97d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellsKnownTable = "c133d22305bab964c88a767cc69b1f9b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellSlotsTable = "83d3e15962e5d6949b90b5c226a2b487";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> LichSpellsPerDay = "4924b73038564c543a371b4c4d1def45";
@@ -82,6 +83,7 @@ namespace BlueprintCore.Blueprints.References
           DragonAzataSpellsKnownTable,
           DruidSpellLevels,
           EldritchFontSpellSlots,
+          EldritchFontSpellsPerDayTable,
           InquisitorSpellsKnownTable,
           InquisitorSpellSlotsTable,
           LichSpellsPerDay,

@@ -976,7 +976,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>CommandAction46</term><description>02a7ed1ef7314ceebbdbca782e29f8b1</description></item>
+    /// <item><term>CommandAction47</term><description>5a2e3eb7c6e64410bc5c2dc8623a442d</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -2065,7 +2065,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_AxiomitesAndInevitable</term><description>0e9add6a45f445cf8a9f9c71ea2d789d</description></item>
-    /// <item><term>Cue_0011</term><description>44ee9682e69b87b4d9e2be411d1e7117</description></item>
+    /// <item><term>Cue_0009</term><description>cc1ad7cf88f01cc46b7c645e7248f0b8</description></item>
     /// <item><term>YouOnlyMortalsCombatStart_Actions</term><description>9ee2523b28aa61e498d1eb0ef8ea3b3c</description></item>
     /// </list>
     /// </remarks>

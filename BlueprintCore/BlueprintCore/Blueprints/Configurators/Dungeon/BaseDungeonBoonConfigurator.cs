@@ -165,7 +165,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DungeonBoon_Aoe</term><description>5424ec0ee1ef4c06be0b2a847ca77c16</description></item>
-    /// <item><term>DungeonBoon_Elven</term><description>dbb242c6be10406799fd659feb40d266</description></item>
+    /// <item><term>DungeonBoon_Gnome</term><description>3c86efed41f7426292148ae079d881a6</description></item>
     /// <item><term>DungeonBoon_Shieldbuff</term><description>e0a3d1009fd549fe97c57683b0e6cfe8</description></item>
     /// </list>
     /// </remarks>
@@ -209,7 +209,7 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DungeonBoon_Acid</term><description>30d5a9af67c844eaba0a9eccd0e10c39</description></item>
-    /// <item><term>DungeonBoon_Metamagic</term><description>e8c9809811214863a5aaf4e60ce548ea</description></item>
+    /// <item><term>DungeonBoon_HPRegain</term><description>c80f02b4bb9a47eb951cbb7fe18b8668</description></item>
     /// <item><term>DungeonBoon_UnarmedStrikes</term><description>5c7a5a0220e84b3fa5d78d427d10bf6b</description></item>
     /// </list>
     /// </remarks>

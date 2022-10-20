@@ -1269,7 +1269,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
+    /// <item><term>KlejmOnWintersun</term><description>62b65c567fd0df9429292cba66d5aa17</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -2391,7 +2391,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArueshalaeRomance_Dream</term><description>5b50f78e40004fb4dafa71f13452b855</description></item>
-    /// <item><term>GalfreyInDH</term><description>bcba97110780285489da48e728acd806</description></item>
+    /// <item><term>GoddessesSummit</term><description>81851815200b9d545bec82a65332a1b9</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>

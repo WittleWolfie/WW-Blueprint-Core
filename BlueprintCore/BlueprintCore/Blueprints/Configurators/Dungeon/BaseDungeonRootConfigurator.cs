@@ -77,9 +77,10 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
           bp.ActionsBeforeRestart = copyFrom.ActionsBeforeRestart;
           bp.ActionsAfterRestart = copyFrom.ActionsAfterRestart;
           bp.ActionsAfterChargen = copyFrom.ActionsAfterChargen;
-          bp.ActionsBeforeWinRestart = copyFrom.ActionsBeforeWinRestart;
           bp.ActionsBeforeExpeditionRestart = copyFrom.ActionsBeforeExpeditionRestart;
           bp.ActionsAfterExpeditionRestart = copyFrom.ActionsAfterExpeditionRestart;
+          bp.CarryOverItemsCount = copyFrom.CarryOverItemsCount;
+          bp.m_CarryOverItemsBlacklist = copyFrom.m_CarryOverItemsBlacklist;
           bp.SpreadDC = copyFrom.SpreadDC;
           bp.SavingThrowMinimalDC = copyFrom.SavingThrowMinimalDC;
           bp.SkillCheckMinimalDC = copyFrom.SkillCheckMinimalDC;
@@ -175,9 +176,10 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
           bp.ActionsBeforeRestart = copyFrom.ActionsBeforeRestart;
           bp.ActionsAfterRestart = copyFrom.ActionsAfterRestart;
           bp.ActionsAfterChargen = copyFrom.ActionsAfterChargen;
-          bp.ActionsBeforeWinRestart = copyFrom.ActionsBeforeWinRestart;
           bp.ActionsBeforeExpeditionRestart = copyFrom.ActionsBeforeExpeditionRestart;
           bp.ActionsAfterExpeditionRestart = copyFrom.ActionsAfterExpeditionRestart;
+          bp.CarryOverItemsCount = copyFrom.CarryOverItemsCount;
+          bp.m_CarryOverItemsBlacklist = copyFrom.m_CarryOverItemsBlacklist;
           bp.SpreadDC = copyFrom.SpreadDC;
           bp.SavingThrowMinimalDC = copyFrom.SavingThrowMinimalDC;
           bp.SkillCheckMinimalDC = copyFrom.SkillCheckMinimalDC;
@@ -2058,31 +2060,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
     }
 
     /// <summary>
-    /// Sets the value of <see cref="BlueprintDungeonRoot.ActionsBeforeWinRestart"/>
-    /// </summary>
-    public TBuilder SetActionsBeforeWinRestart(ActionsBuilder actionsBeforeWinRestart)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.ActionsBeforeWinRestart = actionsBeforeWinRestart?.Build();
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintDungeonRoot.ActionsBeforeWinRestart"/> by invoking the provided action.
-    /// </summary>
-    public TBuilder ModifyActionsBeforeWinRestart(Action<ActionList> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.ActionsBeforeWinRestart is null) { return; }
-          action.Invoke(bp.ActionsBeforeWinRestart);
-        });
-    }
-
-    /// <summary>
     /// Sets the value of <see cref="BlueprintDungeonRoot.ActionsBeforeExpeditionRestart"/>
     /// </summary>
     public TBuilder SetActionsBeforeExpeditionRestart(ActionsBuilder actionsBeforeExpeditionRestart)
@@ -2129,6 +2106,133 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
         {
           if (bp.ActionsAfterExpeditionRestart is null) { return; }
           action.Invoke(bp.ActionsAfterExpeditionRestart);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonRoot.CarryOverItemsCount"/>
+    /// </summary>
+    public TBuilder SetCarryOverItemsCount(int carryOverItemsCount)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CarryOverItemsCount = carryOverItemsCount;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/>
+    /// </summary>
+    ///
+    /// <param name="carryOverItemsBlacklist">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetCarryOverItemsBlacklist(params Blueprint<BlueprintItemReference>[] carryOverItemsBlacklist)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CarryOverItemsBlacklist = carryOverItemsBlacklist.Select(bp => bp.Reference).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/>
+    /// </summary>
+    ///
+    /// <param name="carryOverItemsBlacklist">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddToCarryOverItemsBlacklist(params Blueprint<BlueprintItemReference>[] carryOverItemsBlacklist)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CarryOverItemsBlacklist = bp.m_CarryOverItemsBlacklist ?? new BlueprintItemReference[0];
+          bp.m_CarryOverItemsBlacklist = CommonTool.Append(bp.m_CarryOverItemsBlacklist, carryOverItemsBlacklist.Select(bp => bp.Reference).ToArray());
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/>
+    /// </summary>
+    ///
+    /// <param name="carryOverItemsBlacklist">
+    /// <para>
+    /// Blueprint of type BlueprintItem. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder RemoveFromCarryOverItemsBlacklist(params Blueprint<BlueprintItemReference>[] carryOverItemsBlacklist)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CarryOverItemsBlacklist is null) { return; }
+          bp.m_CarryOverItemsBlacklist = bp.m_CarryOverItemsBlacklist.Where(val => !carryOverItemsBlacklist.Contains(val)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromCarryOverItemsBlacklist(Func<BlueprintItemReference, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CarryOverItemsBlacklist is null) { return; }
+          bp.m_CarryOverItemsBlacklist = bp.m_CarryOverItemsBlacklist.Where(e => !predicate(e)).ToArray();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/>
+    /// </summary>
+    public TBuilder ClearCarryOverItemsBlacklist()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CarryOverItemsBlacklist = new BlueprintItemReference[0];
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDungeonRoot.m_CarryOverItemsBlacklist"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifyCarryOverItemsBlacklist(Action<BlueprintItemReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_CarryOverItemsBlacklist is null) { return; }
+          bp.m_CarryOverItemsBlacklist.ForEach(action);
         });
     }
 
@@ -4657,10 +4761,6 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       {
         Blueprint.ActionsAfterChargen = Utils.Constants.Empty.Actions;
       }
-      if (Blueprint.ActionsBeforeWinRestart is null)
-      {
-        Blueprint.ActionsBeforeWinRestart = Utils.Constants.Empty.Actions;
-      }
       if (Blueprint.ActionsBeforeExpeditionRestart is null)
       {
         Blueprint.ActionsBeforeExpeditionRestart = Utils.Constants.Empty.Actions;
@@ -4668,6 +4768,10 @@ namespace BlueprintCore.Blueprints.Configurators.Dungeon
       if (Blueprint.ActionsAfterExpeditionRestart is null)
       {
         Blueprint.ActionsAfterExpeditionRestart = Utils.Constants.Empty.Actions;
+      }
+      if (Blueprint.m_CarryOverItemsBlacklist is null)
+      {
+        Blueprint.m_CarryOverItemsBlacklist = new BlueprintItemReference[0];
       }
       if (Blueprint.CrToExperience is null)
       {

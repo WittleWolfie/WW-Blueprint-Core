@@ -375,7 +375,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>fb24aedb699a5a246a410fa0cbe915d8</description></item>
+    /// <item><term>Cue_0049</term><description>4a1d11f041aae8a4bb752848b2f3df08</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -594,7 +594,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>Cue_0022</term><description>a2a29ef10090e814a8e192b9dec60dec</description></item>
+    /// <item><term>Cue_0023</term><description>0badc5e8f275c644b8c7d79fd146a681</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>

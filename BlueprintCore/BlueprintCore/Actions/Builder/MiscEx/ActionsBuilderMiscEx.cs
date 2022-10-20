@@ -33,7 +33,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>CommandAction2</term><description>05c128b409364f22a7c396d88a9a81df</description></item>
+    /// <item><term>CommandAction3</term><description>fc8939b88e6245fda50a80e83601b072</description></item>
     /// <item><term>StarMaraca_dead</term><description>164aa7706c5b4cb9ba6dcd8ff7f31ab6</description></item>
     /// </list>
     /// </remarks>
@@ -383,7 +383,6 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_RewardStatueLegacy_Actions</term><description>a84bfcbb31f444078e18484061dd66f2</description></item>
-    /// <item><term>DLC3_RewardStatueRest_Actions</term><description>ba6419bd0f844d3fa3911ac8ce1fd78f</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -640,7 +639,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0036</term><description>ff113c760973da34eaccfdba5940e23d</description></item>
+    /// <item><term>Cue_0036</term><description>91645746b99d12646af479beace7ec9d</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>

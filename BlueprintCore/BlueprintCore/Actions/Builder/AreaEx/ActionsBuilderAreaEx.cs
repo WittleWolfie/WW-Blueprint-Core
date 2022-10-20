@@ -102,6 +102,22 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     }
 
     /// <summary>
+    /// Adds <see cref="ActionIncreaseDungeonStage"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DungeonRoot</term><description>096f36d4e55b49129ddd2211b2c50513</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder IncreaseDungeonStage(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ActionIncreaseDungeonStage>());
+    }
+
+    /// <summary>
     /// Adds <see cref="AskPlayerForLocationName"/>
     /// </summary>
     ///
@@ -261,6 +277,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_ToxicPrison_Exit</term><description>cb065eb340a74c61b2d805109cff19c1</description></item>
+    /// <item><term>Tier2_IslandCompleted</term><description>2e1ce502a1f44011a3218dcee260dd1a</description></item>
+    /// <item><term>Tier3_IslandCompleted</term><description>a9ee19430d8b461693b1d22a11480846</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder DungeonFinishCurrentIsland(this ActionsBuilder builder)
@@ -510,10 +528,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// </remarks>
     public static ActionsBuilder DungeonShowResults(
         this ActionsBuilder builder,
-        DungeonShowResults.Result? result = null)
+        DungeonShowResults.ResultType? result = null)
     {
       var element = ElementTool.Create<DungeonShowResults>();
-      element.result = result ?? element.result;
+      element.Result = result ?? element.Result;
       return builder.Add(element);
     }
 
@@ -1346,7 +1364,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>dc93ae9209903e041a10baff7d50da5f</description></item>
+    /// <item><term>Cue_0012</term><description>2397458af77dfeb4abce97b8387f91ee</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>

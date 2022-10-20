@@ -614,6 +614,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanBattleSpiritAbility = "7eda685d53423de4281d8bc0f1197442";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanBoneSpiritTrueAbility = "5304d66c1a3f4cf4890b960509d3881d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanHexAuraOfPurityActivatableAbility = "70b02595962addf49b9e51c191546f98";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanHexNailsAbility = "44765548888144c0b7b8f06df68bb5dc";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanWeaponFlamingChoice = "0be99fd6c7dfe604aa427df9be0b99c6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanWeaponFrostChoice = "c84cf9f10e9e6a148aeefb36b468339c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShamanWeaponGhostTouchChoice = "7c96a5203b397744b9429ea3fd010728";
@@ -742,6 +743,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WildShapeElementalAirMediumWhirlwindAbility = "0857c2c729c921943bce4f0b4c81b643";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WildShapeElementalAirSmallWhirlwindAbility = "a1003d933aaca314d9351f9154d47376";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WitchHexAuraOfPurityActivatableAbility = "298edc3bc21e61044bba25f4e767cb8b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WitchHexNailsAbility = "a41c5b7817264a00b80693db852e12f7";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WitheringLifeMentalToggleAbility = "5b2c0f2abdbde654e88dc53552d839b4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> WitheringLifePhysicalToggleAbility = "a294368129a7424488a797137ceb8f45";
 
@@ -1347,6 +1349,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanBattleSpiritAbility,
           ShamanBoneSpiritTrueAbility,
           ShamanHexAuraOfPurityActivatableAbility,
+          ShamanHexNailsAbility,
           ShamanWeaponFlamingChoice,
           ShamanWeaponFrostChoice,
           ShamanWeaponGhostTouchChoice,
@@ -1475,6 +1478,7 @@ namespace BlueprintCore.Blueprints.References
           WildShapeElementalAirMediumWhirlwindAbility,
           WildShapeElementalAirSmallWhirlwindAbility,
           WitchHexAuraOfPurityActivatableAbility,
+          WitchHexNailsAbility,
           WitheringLifeMentalToggleAbility,
           WitheringLifePhysicalToggleAbility,
       };

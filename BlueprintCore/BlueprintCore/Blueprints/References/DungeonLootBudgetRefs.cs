@@ -17,6 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> DungeonLootBudgetCookingRecipes = "ce6647b74e9748c1a73a1a83554b1ac8";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> DungeonLootBudgetPortionsAndScrolls = "ff15335473b9493ba6051aa1ecc24caa";
+    public static readonly Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> DungeonLootBudgetRare = "e8780c70cf944807b72e4add642e89df";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> DungeonLootBudgetRareAndMagic = "fbb31e252bf64169b17ca2886765e833";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLootBudget>> DungeonLootBudgetWands = "c2c67a4c6d264cd8a3b48f4553681df5";
 
@@ -25,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
       {
           DungeonLootBudgetCookingRecipes,
           DungeonLootBudgetPortionsAndScrolls,
+          DungeonLootBudgetRare,
           DungeonLootBudgetRareAndMagic,
           DungeonLootBudgetWands,
       };

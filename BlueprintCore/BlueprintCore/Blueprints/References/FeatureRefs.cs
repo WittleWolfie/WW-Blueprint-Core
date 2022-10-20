@@ -2868,6 +2868,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_RobeOfTheSinmageFeature = "0349b6dfdcd040b993735e240846a925";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_RobeOfUnspeakableTruthFeature = "4fb013afe66249508267542e3f3c11ba";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_RogueArchtypeBlessingFeature = "0cdb9f7a522f4949aa7895a9ccde5aa7";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_RoguesRangersGainDRFeature = "d04f196ba4694bdcb2a8d6a285675db9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_Features = "1af82391db22467580a54baaae3bc164";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_Immunities = "a6414663fa974b9183ef2b1ca389c315";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3_ShadowBalorNahindry_SpellTurning = "32bf05e17a1c422b8aeed93055275a26";
@@ -6355,6 +6356,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmiteChaosAdditionalUse = "fb43a20f3a70f15448e42085bfc4ff2a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmiteChaosFeature = "67d08ed4892de3441a43aae91a7dd7c9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmiteEvilAdditionalUse = "0f5c99ffb9c084545bbbe960b825d137";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmiteEvilCelestiallFeature = "d1eb9af0ade042528a87b9f58344f40d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmiteEvilFeature = "3a6db57fce75b0244a6a5819528ddf26";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmitingJudgmentFeatureAdamantite = "c35eb3e0093960d4998522be47a1bca6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SmitingJudgmentFeatureAlignment = "5d7ba4fad7dc44c4280c78f1fee0099d";
@@ -10613,6 +10615,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_RobeOfTheSinmageFeature,
           DLC3_RobeOfUnspeakableTruthFeature,
           DLC3_RogueArchtypeBlessingFeature,
+          DLC3_RoguesRangersGainDRFeature,
           DLC3_ShadowBalorNahindry_Features,
           DLC3_ShadowBalorNahindry_Immunities,
           DLC3_ShadowBalorNahindry_SpellTurning,
@@ -14100,6 +14103,7 @@ namespace BlueprintCore.Blueprints.References
           SmiteChaosAdditionalUse,
           SmiteChaosFeature,
           SmiteEvilAdditionalUse,
+          SmiteEvilCelestiallFeature,
           SmiteEvilFeature,
           SmitingJudgmentFeatureAdamantite,
           SmitingJudgmentFeatureAlignment,

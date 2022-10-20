@@ -1145,7 +1145,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HurricaneBow</term><description>3e9d1119d43d07c4c8ba9ebfd1671952</description></item>
+    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1259,7 +1259,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -4077,7 +4077,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalChains</term><description>3b86de15c18e4b44bb7315fc6c116b4d</description></item>
-    /// <item><term>MudBlastBladeDamage</term><description>f82cfcf11b94bef49bf1a8f57aad5c13</description></item>
+    /// <item><term>SacredVengenanceArrowsQuiverOnEnemyAbility</term><description>c8e0448336e865648a475cca88654b6c</description></item>
     /// <item><term>WaterBlastBladeDamage</term><description>92724a6d6a6225d4895b41e35e973599</description></item>
     /// </list>
     /// </remarks>
@@ -4480,6 +4480,84 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityDeliverRicochet"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
+    /// <item><term>ExtendedRangeMagmaBlastAbility</term><description>77ed869ab8012df40b64a68ca5125960</description></item>
+    /// <item><term>WaterBlastAbility</term><description>e3f41966c2d662a4e9582a0497621c46</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityDeliverRicochet(
+        ConditionsBuilder? beforeCondition = null,
+        bool? copyAttackRollFromWeaponEvent = null,
+        bool? hasIsAllyEffectRunConditions = null,
+        int? layer = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintProjectileReference>? projectile = null,
+        Feet? radius = null,
+        ConditionsBuilder? targetCondition = null,
+        bool? targetDead = null,
+        ContextValue? targetsCount = null,
+        Kingmaker.UnitLogic.Abilities.Components.TargetType? targetType = null,
+        bool? usedTargetsAgain = null)
+    {
+      var component = new AbilityDeliverRicochet();
+      component.m_BeforeCondition = beforeCondition?.Build() ?? component.m_BeforeCondition;
+      if (component.m_BeforeCondition is null)
+      {
+        component.m_BeforeCondition = Utils.Constants.Empty.Conditions;
+      }
+      component.m_CopyAttackRollFromWeaponEvent = copyAttackRollFromWeaponEvent ?? component.m_CopyAttackRollFromWeaponEvent;
+      component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      component.m_Layer = layer ?? component.m_Layer;
+      component.m_Projectile = projectile?.Reference ?? component.m_Projectile;
+      if (component.m_Projectile is null)
+      {
+        component.m_Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.Radius = radius ?? component.Radius;
+      component.m_TargetCondition = targetCondition?.Build() ?? component.m_TargetCondition;
+      if (component.m_TargetCondition is null)
+      {
+        component.m_TargetCondition = Utils.Constants.Empty.Conditions;
+      }
+      component.TargetDead = targetDead ?? component.TargetDead;
+      component.TargetsCount = targetsCount ?? component.TargetsCount;
+      if (component.TargetsCount is null)
+      {
+        component.TargetsCount = ContextValues.Constant(0);
+      }
+      component.m_TargetType = targetType ?? component.m_TargetType;
+      component.m_UsedTargetsAgain = usedTargetsAgain ?? component.m_UsedTargetsAgain;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityDeliverTouch"/>
     /// </summary>
     ///
@@ -4829,7 +4907,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbjurationResistanceAcidAbility</term><description>9b415e09847398644ad6e57a9e3ab06a</description></item>
-    /// <item><term>HellsSealVariantDevouringFlames</term><description>0130bffa460e0b4439e7283b68db025c</description></item>
+    /// <item><term>HellsSealVariantFearEater</term><description>36e1f480c0d6f0f4cbff67fcc2e88c78</description></item>
     /// <item><term>WitchWanderingHexAbility</term><description>b209beab784d93546b40a2fa2a09ffa8</description></item>
     /// </list>
     /// </remarks>
@@ -6451,7 +6529,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>HagboundWitchVileCurseFeebleBody</term><description>9c3c5329d49df524b885f9ccce392cad</description></item>
+    /// <item><term>HagboundWitchVileCurseIdiocy</term><description>498e88b582818014b8bdc77ee90972fa</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>

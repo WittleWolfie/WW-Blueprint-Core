@@ -2915,6 +2915,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> SlowMud = "6b30813c3709fc44b92dc8fd8191f345";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> SmiteChaosAbility = "a4df3ed7ef5aa9148a69e8364ad359c5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> SmiteEvilAbility = "7bb9eb2042e67bf489ccd1374423cdec";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> SmiteEvilCeleatialAbility = "bdfa4cec85cc4b22a3667dc60bdc1dc6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> SmokingKillerAbility = "577b6cc1883b36847967dfb5d44c2e88";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Snowball = "9f10909f0be1f5141bf1c102041f93d9";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Snowball_Cutscene = "9d37f032e82c2344b90746a5b44ad197";
@@ -6473,6 +6474,7 @@ namespace BlueprintCore.Blueprints.References
           SlowMud,
           SmiteChaosAbility,
           SmiteEvilAbility,
+          SmiteEvilCeleatialAbility,
           SmokingKillerAbility,
           Snowball,
           Snowball_Cutscene,

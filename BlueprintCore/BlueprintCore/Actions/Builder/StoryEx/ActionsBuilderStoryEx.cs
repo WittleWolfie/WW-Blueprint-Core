@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0049</term><description>9948565aca0d84644b1c00de118af389</description></item>
+    /// <item><term>Cue_0049</term><description>4a1d11f041aae8a4bb752848b2f3df08</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -290,7 +290,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ch5_QueenInDrezen_Mechanic</term><description>46bd4af031b869248b305629b396d6c2</description></item>
-    /// <item><term>CommandAction 3</term><description>919e1dc652bbe8d4db8b508644866899</description></item>
+    /// <item><term>CommandAction 4</term><description>81f0c1eec29b46e4997e429c81f84256</description></item>
     /// <item><term>WayUp_Actions</term><description>83d0eb422bd7e774eb1710025088ed0f</description></item>
     /// </list>
     /// </remarks>
@@ -355,7 +355,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC2_Sv_Ins_Bonfire</term><description>aeb5f43d6af14c7f84c0066c6bfb450a</description></item>
+    /// <item><term>DLC2_Sv_Out_Bonfire </term><description>d749f04e94ad4bf3bdf3d78832f1497d</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -926,6 +926,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-349340_Sosiel</term><description>b9d83ab5df1e435fb1197bd882478d7d</description></item>
+    /// <item><term>PF-450866 - 2</term><description>6eeab145c0b54f3b8f61cc46ccb6731e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1040,7 +1041,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0028</term><description>6a9482523b5ac1646823a4866485f0ab</description></item>
+    /// <item><term>Cue_0028</term><description>8de6517c801c87b4db8f97c3910c367c</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1436,7 +1437,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0029</term><description>99854f97811aa0b4eac54ccd352decbc</description></item>
+    /// <item><term>Cue_0029</term><description>860e98d931913dd41a77be32912d5bf6</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1574,7 +1575,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>Cue_0008</term><description>ab948ab9f9eab9a4ca4edfecbafa5076</description></item>
+    /// <item><term>Cue_0008</term><description>3197df8ce22124f4189850a7be2abd64</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

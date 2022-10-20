@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-276496</term><description>45a18b7f7c3841238a94d23e45022d98</description></item>
-    /// <item><term>PF-438834</term><description>e7b19beb9233455bb676436b464113b3</description></item>
+    /// <item><term>PF-292234</term><description>cf1de09f787141f2b915b31a8eafaaa5</description></item>
+    /// <item><term>PF-442816</term><description>621cdb4c6f3c436bb6a1943edac72c3e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -542,7 +542,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-215564</term><description>185be5e1ae964cee94428816eec0d210</description></item>
     /// <item><term>PF-308720</term><description>8e9433dfcf7143fd80814b2302a971b9</description></item>
-    /// <item><term>PF-441932</term><description>2052955ce7f44022bc663ee46cf58101</description></item>
+    /// <item><term>PF-450866 - 2</term><description>6eeab145c0b54f3b8f61cc46ccb6731e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -585,6 +585,113 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
       if (element.RemovedExpeditionIndexes is null)
       {
         element.RemovedExpeditionIndexes = new int[0];
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FixConditionForceMove"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-441773</term><description>00f23330f2034d3db0fc456126c7180c</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder FixConditionForceMove(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<FixConditionForceMove>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="FixDungeonIntegrationEtudeAndMapDiscrepancy"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-444850</term><description>50ff1896fb694116bdb3f3d88a2176c2</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="campaign">
+    /// <para>
+    /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="etudesForHardStart">
+    /// <para>
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="etudesForSoftStart">
+    /// <para>
+    /// Blueprint of type BlueprintEtude. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="seaHubEnterPoint">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder FixDungeonIntegrationEtudeAndMapDiscrepancy(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintCampaignReference>? campaign = null,
+        List<Blueprint<BlueprintEtudeReference>>? etudesForHardStart = null,
+        List<Blueprint<BlueprintEtudeReference>>? etudesForSoftStart = null,
+        Blueprint<BlueprintAreaEnterPointReference>? seaHubEnterPoint = null)
+    {
+      var element = ElementTool.Create<FixDungeonIntegrationEtudeAndMapDiscrepancy>();
+      element.m_Campaign = campaign?.Reference ?? element.m_Campaign;
+      if (element.m_Campaign is null)
+      {
+        element.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+      element.m_EtudesForHardStart = etudesForHardStart?.Select(bp => bp.Reference)?.ToArray() ?? element.m_EtudesForHardStart;
+      if (element.m_EtudesForHardStart is null)
+      {
+        element.m_EtudesForHardStart = new BlueprintEtudeReference[0];
+      }
+      element.m_EtudesForSoftStart = etudesForSoftStart?.Select(bp => bp.Reference)?.ToArray() ?? element.m_EtudesForSoftStart;
+      if (element.m_EtudesForSoftStart is null)
+      {
+        element.m_EtudesForSoftStart = new BlueprintEtudeReference[0];
+      }
+      element.m_SeaHubEnterPoint = seaHubEnterPoint?.Reference ?? element.m_SeaHubEnterPoint;
+      if (element.m_SeaHubEnterPoint is null)
+      {
+        element.m_SeaHubEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
       return builder.Add(element);
     }

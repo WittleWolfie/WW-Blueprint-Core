@@ -30,6 +30,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AssassinDeathAttackAbilityProperty = "857ddbe8d4a742c49a933b893653649f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AzataSongOfSecondBreathHPProperty = "84a51dc89557463791164b49ae338ae9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BearerOfSorrowProperty = "5f462b3f7c405f24fac73c3e46e8c326";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BleedingInfusionDamageProperty = "f5ad23c48f5244de88a1fc7ba12d855c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BootsOfStampedeProperty = "d6aa267ef9be46b49b5b6ea7e3982f67";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BrimorakAspectEffectProperty = "d6a524d190f04a7ca3f920d2f96fa21b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BurnNumberProperty = "02c5943c77717974cb7fa1b7c0dc51f8";
@@ -241,6 +242,7 @@ namespace BlueprintCore.Blueprints.References
           AssassinDeathAttackAbilityProperty,
           AzataSongOfSecondBreathHPProperty,
           BearerOfSorrowProperty,
+          BleedingInfusionDamageProperty,
           BootsOfStampedeProperty,
           BrimorakAspectEffectProperty,
           BurnNumberProperty,

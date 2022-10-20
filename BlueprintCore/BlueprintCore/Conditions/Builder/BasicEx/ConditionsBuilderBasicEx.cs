@@ -413,7 +413,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>MagmaBlastAbility</term><description>a0f05637428cbca4bab8bc9122b9e3b9</description></item>
+    /// <item><term>ExtendedRangeSteamBlastAbility</term><description>2f37688defd32d740be8bfc21b3b00fe</description></item>
     /// <item><term>XO_Puzzle_2_complete</term><description>8288ad6ec196461f963d6160edbfaca4</description></item>
     /// </list>
     /// </remarks>
@@ -894,6 +894,53 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="SummonPoolCount"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-449628</term><description>09824bfd5d984155a9b4f455db9ecf9b</description></item>
+    /// <item><term>PF-450866</term><description>0a4678e8504b4116b3a2f5be15c7d4d1</description></item>
+    /// <item><term>PF-451380</term><description>a1300420a29a4695b657c545812930ae</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="summonPoll">
+    /// <para>
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder SummonPoolCount(
+        this ConditionsBuilder builder,
+        bool? aliveOnly = null,
+        int? count = null,
+        bool negate = false,
+        SummonPoolCount.Operation? operation = null,
+        Blueprint<BlueprintSummonPoolReference>? summonPoll = null)
+    {
+      var element = ElementTool.Create<SummonPoolCount>();
+      element.m_AliveOnly = aliveOnly ?? element.m_AliveOnly;
+      element.m_Count = count ?? element.m_Count;
+      element.Not = negate;
+      element.m_Operation = operation ?? element.m_Operation;
+      element.m_SummonPoll = summonPoll?.Reference ?? element.m_SummonPoll;
+      if (element.m_SummonPoll is null)
+      {
+        element.m_SummonPoll = BlueprintTool.GetRef<BlueprintSummonPoolReference>(null);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="SummonPoolExistsAndEmpty"/>
     /// </summary>
     ///
@@ -1286,6 +1333,51 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
       element.Not = negate;
       builder.Validate(target);
       element.Target = target ?? element.Target;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="UnitWithBlueprintExists"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-420292_1</term><description>1d5a4ed0b3ba47c2a7718ea0a2bc2a94</description></item>
+    /// <item><term>PF-420292_2</term><description>d47c4adaa34049aa8b5d717874cd03c2</description></item>
+    /// <item><term>PF-420292_3</term><description>98d9def66e2c4e4495fe06c93900fbcf</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="blueprint">
+    /// <para>
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder UnitWithBlueprintExists(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintUnitReference>? blueprint = null,
+        bool? includeDead = null,
+        bool? includeHidden = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<UnitWithBlueprintExists>();
+      element.m_Blueprint = blueprint?.Reference ?? element.m_Blueprint;
+      if (element.m_Blueprint is null)
+      {
+        element.m_Blueprint = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      element.m_IncludeDead = includeDead ?? element.m_IncludeDead;
+      element.m_IncludeHidden = includeHidden ?? element.m_IncludeHidden;
+      element.Not = negate;
       return builder.Add(element);
     }
   }

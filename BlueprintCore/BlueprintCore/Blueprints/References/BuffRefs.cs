@@ -4475,6 +4475,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexMetalCurseCooldownBuff = "cca470fbc764ba645b07d855c6af431b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexMisfortuneBuff = "a04238ff3ffc6ac4e9ae866e6eb2d793";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexMisfortuneCooldownBuff = "b20644cbc292adf4ca2007a5ccd27c65";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexNailsNailsBuff = "f80b892453454f4ea615eef2a560699d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexProtectiveLuckBuff = "9e7a13c71f6be1749af81afc57640ccf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexProtectiveLuckEffectBuff = "812abe50972c1c0419bcef2938e546c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanHexSlumberBuff = "e614a0ac05312a94c994be9f866d5cc5";
@@ -4676,6 +4677,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmiteEvilBuff = "b6570b8cbb32eaf4ca8255d0ec3310b0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmiteEvilBuff_NoScabbard = "1d3d516aba641f04a930017341cc38e2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmiteEvilBuff_Scabbard = "d0261b79ea01d73418eaf3307352792c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmiteEvilCelestialBuff = "2ae640a23a114b749239ed172963f6b1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmitingJudgmentBuffAdamantite = "2e3f01df36b508b4e9186bab7a337dfa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmitingJudgmentBuffAlignment = "481b03bc6cbc5af448b1f6cb70d88859";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmitingJudgmentBuffMagic = "4594286e4a565cd41ad9475f6c903fda";
@@ -5341,6 +5343,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexMajorHealingCooldownBuff = "245d0006a26235a4f9d8bfdb5d5e303d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexMisfortuneBuff = "101d5ae5477029e4bac167b3557cb25f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexMisfortuneCooldownBuff = "f3dced28095610f459fef4441012ffc1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexNailsBuff = "f775d287c96f4fbf9d53a204522f626d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexProtectiveLuckBuff = "1ba3d3a0942d080448ce6aa865bbbd65";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexProtectiveLuckEffectBuff = "ffa995f03d87a214ab9de1dd898497ca";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WitchHexRegenerativeSinewCooldownBuff = "6d1f2d9d46484ba4ab052f65f5d0b422";
@@ -9863,6 +9866,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanHexMetalCurseCooldownBuff,
           ShamanHexMisfortuneBuff,
           ShamanHexMisfortuneCooldownBuff,
+          ShamanHexNailsNailsBuff,
           ShamanHexProtectiveLuckBuff,
           ShamanHexProtectiveLuckEffectBuff,
           ShamanHexSlumberBuff,
@@ -10064,6 +10068,7 @@ namespace BlueprintCore.Blueprints.References
           SmiteEvilBuff,
           SmiteEvilBuff_NoScabbard,
           SmiteEvilBuff_Scabbard,
+          SmiteEvilCelestialBuff,
           SmitingJudgmentBuffAdamantite,
           SmitingJudgmentBuffAlignment,
           SmitingJudgmentBuffMagic,
@@ -10729,6 +10734,7 @@ namespace BlueprintCore.Blueprints.References
           WitchHexMajorHealingCooldownBuff,
           WitchHexMisfortuneBuff,
           WitchHexMisfortuneCooldownBuff,
+          WitchHexNailsBuff,
           WitchHexProtectiveLuckBuff,
           WitchHexProtectiveLuckEffectBuff,
           WitchHexRegenerativeSinewCooldownBuff,

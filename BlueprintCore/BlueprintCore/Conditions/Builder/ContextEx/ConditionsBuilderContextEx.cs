@@ -30,7 +30,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GrandMutagenConstitutionDexterityBuff</term><description>0d51a2ff0a6ce85458309affbc00b933</description></item>
+    /// <item><term>GrandMutagenDexterityConstitutionBuff</term><description>8d4357118c75a5746802a3582a937376</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>
@@ -67,7 +67,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyDistortionBuff</term><description>599b46d94d454526bf5893a4724d4fbe</description></item>
-    /// <item><term>Gibrileth_StenchAreaEffect</term><description>d7a38ef5bd1fffa4aa85a69ff6fe23d4</description></item>
+    /// <item><term>FrightfulAspectBuff</term><description>906262fda0fbda442b27f9b0a04e5aa0</description></item>
     /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
     /// </list>
     /// </remarks>
@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GreaterCognatogenCharismaIntelligence</term><description>bd98572b88bdea94d9eb23ccf06ecfd8</description></item>
+    /// <item><term>GreaterCognatogenCharismaWisdom</term><description>0d51cf14921631c40b17b6e6a3b6b1ab</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -191,7 +191,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeArea</term><description>bc346635e3d04df7968249d59ea756ba</description></item>
-    /// <item><term>HolyWhisper</term><description>5f1ca17be3ba44949be427f18e696d9b</description></item>
+    /// <item><term>HolyWord</term><description>4737294a66c91b844842caee8cf505c8</description></item>
     /// <item><term>WordOfChaos</term><description>69f2e7aff2d1cd148b8075ee476515b1</description></item>
     /// </list>
     /// </remarks>
@@ -398,7 +398,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Areelu_UnbreakableDefenseBuff</term><description>57572f514d5b49bf98432026c80382c3</description></item>
-    /// <item><term>DragonLevel1MaxAbilityIntelligenceFeature</term><description>888573ac51ec48ecabbeb32d380f68a9</description></item>
+    /// <item><term>DragonLevel1MaxAbilityDexterityFeature</term><description>a1208cc0d08b4cbdbec522bd26310cf8</description></item>
     /// <item><term>TransmutationSchoolStrengthAbility</term><description>aadee249a033b2747b63344a758e91be</description></item>
     /// </list>
     /// </remarks>
@@ -536,8 +536,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>GoodHope</term><description>a5e23522eda32dc45801e32c05dc9f96</description></item>
+    /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
+    /// <item><term>FlameAoe</term><description>69e3532f0321e4144bcc0d0d3f372ca5</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>

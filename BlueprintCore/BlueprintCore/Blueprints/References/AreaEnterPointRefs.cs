@@ -1222,6 +1222,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Regill_HellknightsVsGargoyles_Enter = "1c2de1a45c27cdd4dabee69d2facc45b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_BarracksFromFane = "b054370c73979fe45a41906394a5310e";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_BarracksFromOutside = "c5e628d002c21164195cd682bd02b39d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_CleanUp_Enter = "ed41cbfbe0424e72ba560e19ae70ccf0";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_ClimbDownInThroneRoom = "2d87bb8cec05af140b132f92982cfe72";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_DeadMinagoPlayerEnterPoint = "673c695eca194415b6878a752f47caa6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> ReturnToDrezen_EnterPoint_AfterUltimate = "73859ffca69f4a8d962ab7ed7018dd30";
@@ -2674,6 +2675,7 @@ namespace BlueprintCore.Blueprints.References
           Regill_HellknightsVsGargoyles_Enter,
           ReturnToDrezen_BarracksFromFane,
           ReturnToDrezen_BarracksFromOutside,
+          ReturnToDrezen_CleanUp_Enter,
           ReturnToDrezen_ClimbDownInThroneRoom,
           ReturnToDrezen_DeadMinagoPlayerEnterPoint,
           ReturnToDrezen_EnterPoint_AfterUltimate,

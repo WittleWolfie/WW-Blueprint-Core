@@ -163,7 +163,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -217,7 +217,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -273,7 +273,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -745,6 +745,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         Blueprint<BlueprintAbilityReference> spell,
         bool? castByTarget = null,
         bool? logIfCanNotTarget = null,
+        bool? markAsChild = null,
         ContextValue? overrideDC = null,
         ContextValue? overrideSpellLevel = null)
     {
@@ -752,6 +753,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.m_Spell = spell?.Reference;
       element.CastByTarget = castByTarget ?? element.CastByTarget;
       element.LogIfCanNotTarget = logIfCanNotTarget ?? element.LogIfCanNotTarget;
+      element.MarkAsChild = markAsChild ?? element.MarkAsChild;
       element.DC = overrideDC ?? element.DC;
       element.OverrideDC = overrideDC is not null;
       if (element.DC is null)
@@ -1028,7 +1030,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIGoldBreathWeaponAbility</term><description>6722219d5c8205c4d8ee4c2f41c31e4e</description></item>
+    /// <item><term>FormOfTheDragonIIIBrassBreathWeaponAbility</term><description>1d7dc61e43c0cfc43be835bb62d0c785</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1100,7 +1102,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIGoldBreathWeaponAbility</term><description>6722219d5c8205c4d8ee4c2f41c31e4e</description></item>
+    /// <item><term>FormOfTheDragonIIIBrassBreathWeaponAbility</term><description>1d7dc61e43c0cfc43be835bb62d0c785</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1173,7 +1175,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIGoldBreathWeaponAbility</term><description>6722219d5c8205c4d8ee4c2f41c31e4e</description></item>
+    /// <item><term>FormOfTheDragonIIIBrassBreathWeaponAbility</term><description>1d7dc61e43c0cfc43be835bb62d0c785</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1235,7 +1237,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIGoldBreathWeaponAbility</term><description>6722219d5c8205c4d8ee4c2f41c31e4e</description></item>
+    /// <item><term>FormOfTheDragonIIIBrassBreathWeaponAbility</term><description>1d7dc61e43c0cfc43be835bb62d0c785</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1298,7 +1300,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIIGoldBreathWeaponAbility</term><description>6722219d5c8205c4d8ee4c2f41c31e4e</description></item>
+    /// <item><term>FormOfTheDragonIIIBrassBreathWeaponAbility</term><description>1d7dc61e43c0cfc43be835bb62d0c785</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2582,7 +2584,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>ForcePunchEffect</term><description>130e0b433e205294c964c5ce3e0c17ed</description></item>
+    /// <item><term>FormOfTheDragonIIIFrightfulPresenceArea</term><description>5d44a8408f6907a4eb19a28ae24fb5fe</description></item>
     /// <item><term>ZachariusFearAuraArea</term><description>d363527fe31581149b2d53686075c14d</description></item>
     /// </list>
     /// </remarks>
@@ -3345,7 +3347,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GiantFrogPoisonousFeature</term><description>1a3f2f384bbef804d8f52db1f9aa62d3</description></item>
+    /// <item><term>GiantSpiderPoisonFeature</term><description>094714bb08f4e1943a8e9d2384ebe573</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
@@ -3930,7 +3932,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceBuff</term><description>4cf7aa3c1b2e2354b877135e4b4f32b2</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEnchantmentBuff</term><description>e9e8867539c2b664d9e23de7c18dc912</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>
