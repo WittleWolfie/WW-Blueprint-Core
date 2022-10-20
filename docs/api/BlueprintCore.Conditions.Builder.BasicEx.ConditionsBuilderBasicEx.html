@@ -865,7 +865,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
   <div class="markdown level1 remarks"><p>
 ComponentName: Condition/IsEqual
 </p>
-<p><strong></strong></p><ul><li>AirBlastAbility31f668b12011e344aa542aa07ab6c8d9</li><li>MagmaBlastAbilitya0f05637428cbca4bab8bc9122b9e3b9</li><li>XO_Puzzle_2_complete8288ad6ec196461f963d6160edbfaca4</li></ul>
+<p><strong></strong></p><ul><li>AirBlastAbility31f668b12011e344aa542aa07ab6c8d9</li><li>ExtendedRangeSteamBlastAbility2f37688defd32d740be8bfc21b3b00fe</li><li>XO_Puzzle_2_complete8288ad6ec196461f963d6160edbfaca4</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
@@ -1891,10 +1891,91 @@ ComponentName: Condition/PartyUnits
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolExistsAndEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolExistsAndEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPoolReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Boolean_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_SummonPoolCount_Operation__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolCount(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Int32%7D%2CSystem.Boolean%2CSystem.Nullable%7BKingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolCount.Operation%7D%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPoolReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L922">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolCount_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolCount*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Boolean_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_SummonPoolCount_Operation__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolCount(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{System.Boolean},System.Nullable{System.Int32},System.Boolean,System.Nullable{Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolCount.Operation},BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSummonPoolReference})">SummonPoolCount(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Int32&gt;, Boolean, Nullable&lt;SummonPoolCount.Operation&gt;, Blueprint&lt;BlueprintSummonPoolReference&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Boolean_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_SummonPoolCount_Operation__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__">SummonPoolCount(ConditionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Int32&gt;, Boolean, Nullable&lt;SummonPoolCount.Operation&gt;, Blueprint&lt;BlueprintSummonPoolReference&gt;)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder SummonPoolCount(this ConditionsBuilder builder, bool? aliveOnly = null, int? count = null, bool negate = false, SummonPoolCount.Operation? operation = null, Blueprint&lt;BlueprintSummonPoolReference&gt; summonPoll = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">aliveOnly</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">count</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">Kingmaker.Designers.EventConditionActionSystem.Conditions.SummonPoolCount.Operation</span>&gt;</td>
+        <td><span class="parametername">operation</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintSummonPoolReference</span>&gt;</td>
+        <td><span class="parametername">summonPoll</span></td>
+        <td><p>
+Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
+</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolCount_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Int32__System_Boolean_System_Nullable_Kingmaker_Designers_EventConditionActionSystem_Conditions_SummonPoolCount_Operation__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-44962809824bfd5d984155a9b4f455db9ecf9b</li><li>PF-4508660a4678e8504b4116b3a2f5be15c7d4d1</li><li>PF-451380a1300420a29a4695b657c545812930ae</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolExistsAndEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolExistsAndEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPoolReference%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L969">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolExistsAndEmpty_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolExistsAndEmpty*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_SummonPoolExistsAndEmpty_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.SummonPoolExistsAndEmpty(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSummonPoolReference})">SummonPoolExistsAndEmpty(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintSummonPoolReference&gt;)</h4>
@@ -1960,7 +2041,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitArmor_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitArmor(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup%5B%5D%2CKingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup%5B%5D%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L950">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L997">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitArmor_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitArmor*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitArmor_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___Kingmaker_Blueprints_Items_Armors_ArmorProficiencyGroup___System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitArmor(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[],Kingmaker.Blueprints.Items.Armors.ArmorProficiencyGroup[],System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitArmor(ConditionsBuilder, ArmorProficiencyGroup[], ArmorProficiencyGroup[], Boolean, UnitEvaluator)</h4>
@@ -2031,7 +2112,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitReference%7D%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1064">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1111">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitBlueprint_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitBlueprint*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitBlueprint_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitBlueprint(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitReference},System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitBlueprint(ConditionsBuilder, Blueprint&lt;BlueprintUnitReference&gt;, Boolean, UnitEvaluator)</h4>
@@ -2105,7 +2186,7 @@ ComponentName: Condition/UnitBlueprint
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintCharacterClassReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CKingmaker.ElementsSystem.IntEvaluator%2CKingmaker.ElementsSystem.IntEvaluator%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1108">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1155">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitClass_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintCharacterClassReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__Kingmaker_ElementsSystem_IntEvaluator_Kingmaker_ElementsSystem_IntEvaluator_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitClass(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintCharacterClassReference},System.Nullable{System.Boolean},System.Nullable{System.Boolean},Kingmaker.ElementsSystem.IntEvaluator,Kingmaker.ElementsSystem.IntEvaluator,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitClass(ConditionsBuilder, Blueprint&lt;BlueprintCharacterClassReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, IntEvaluator, IntEvaluator, Boolean, UnitEvaluator)</h4>
@@ -2196,7 +2277,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CKingmaker.ElementsSystem.UnitEvaluator%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1153">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1200">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitEqual_BlueprintCore_Conditions_Builder_ConditionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitEqual(BlueprintCore.Conditions.Builder.ConditionsBuilder,Kingmaker.ElementsSystem.UnitEvaluator,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitEqual(ConditionsBuilder, UnitEvaluator, Boolean, UnitEvaluator)</h4>
@@ -2265,7 +2346,7 @@ ComponentName: Condition/UnitEqual
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_Blueprints_EntityReference_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.Blueprints.EntityReference)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1185">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1232">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSpawnerIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_Blueprints_EntityReference_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSpawnerIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.Blueprints.EntityReference)">UnitFromSpawnerIsDead(ConditionsBuilder, Boolean, EntityReference)</h4>
@@ -2329,7 +2410,7 @@ ComponentName: Condition/UnitFromSpawnerIsDead
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintSummonPoolReference%7D%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1223">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1270">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitFromSummonPool_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference__Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitFromSummonPool(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintSummonPoolReference},Kingmaker.ElementsSystem.UnitEvaluator)">UnitFromSummonPool(ConditionsBuilder, Boolean, Blueprint&lt;BlueprintSummonPoolReference&gt;, UnitEvaluator)</h4>
@@ -2400,7 +2481,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Blueprints_Gender__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Nullable%7BKingmaker.Blueprints.Gender%7D%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1253">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1300">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitGender_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Nullable_Kingmaker_Blueprints_Gender__System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitGender(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Nullable{Kingmaker.Blueprints.Gender},System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitGender(ConditionsBuilder, Nullable&lt;Gender&gt;, Boolean, UnitEvaluator)</h4>
@@ -2466,7 +2547,7 @@ See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> fo
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L997">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1044">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsDead_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsDead*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsDead_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsDead(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitIsDead(ConditionsBuilder, Boolean, UnitEvaluator)</h4>
@@ -2533,7 +2614,7 @@ ComponentName: Condition/UnitIsDead
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsHidden_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsHidden(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1022">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1069">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsHidden_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsHidden*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsHidden_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsHidden(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitIsHidden(ConditionsBuilder, Boolean, UnitEvaluator)</h4>
@@ -2594,7 +2675,7 @@ ComponentName: Condition/UnitIsDead
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CSystem.Boolean%2CKingmaker.ElementsSystem.UnitEvaluator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1280">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1327">View Source</a>
   </span>
   <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull*"></a>
   <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitIsNull(BlueprintCore.Conditions.Builder.ConditionsBuilder,System.Boolean,Kingmaker.ElementsSystem.UnitEvaluator)">UnitIsNull(ConditionsBuilder, Boolean, UnitEvaluator)</h4>
@@ -2649,6 +2730,82 @@ ComponentName: Condition/UnitIsDead
   </table>
   <h5 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitIsNull_BlueprintCore_Conditions_Builder_ConditionsBuilder_System_Boolean_Kingmaker_ElementsSystem_UnitEvaluator__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>CommandActionbc9bee1516bd40d4aa0ca4e70e753cf3</li><li>CommandMoveUnit20a6690d97d0c94d5da5eb8415437b48bb</li><li>Sitting_Param02c9b508081b1954e4329af6db335091</li></ul>
+</div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitWithBlueprintExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_.md&amp;value=---%0Auid%3A%20BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitWithBlueprintExists(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Utils.Blueprint%7BKingmaker.Blueprints.BlueprintUnitReference%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Nullable%7BSystem.Boolean%7D%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Conditions/Builder/BasicEx/ConditionsBuilderBasicEx.cs/#L1365">View Source</a>
+  </span>
+  <a id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitWithBlueprintExists_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitWithBlueprintExists*"></a>
+  <h4 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitWithBlueprintExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_" data-uid="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.UnitWithBlueprintExists(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Utils.Blueprint{Kingmaker.Blueprints.BlueprintUnitReference},System.Nullable{System.Boolean},System.Nullable{System.Boolean},System.Boolean)">UnitWithBlueprintExists(ConditionsBuilder, Blueprint&lt;BlueprintUnitReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Adds <a class="xref" href="BlueprintCore.Conditions.Builder.BasicEx.ConditionsBuilderBasicEx.html#BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitWithBlueprintExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean_">UnitWithBlueprintExists(ConditionsBuilder, Blueprint&lt;BlueprintUnitReference&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Boolean)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ConditionsBuilder UnitWithBlueprintExists(this ConditionsBuilder builder, Blueprint&lt;BlueprintUnitReference&gt; blueprint = null, bool? includeDead = null, bool? includeHidden = null, bool negate = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td><span class="parametername">builder</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a>&lt;<span class="xref">Kingmaker.Blueprints.BlueprintUnitReference</span>&gt;</td>
+        <td><span class="parametername">blueprint</span></td>
+        <td><p>
+Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+<ul><li>A blueprint instance</li><li>A blueprint reference</li><li>A blueprint id as a string, Guid, or BlueprintGuid</li><li>A blueprint name registered with <a class="xref" href="BlueprintCore.Utils.BlueprintTool.html">BlueprintTool</a></li></ul>
+See <a class="xref" href="BlueprintCore.Utils.Blueprint-1.html">Blueprint</a> for more details.
+</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">includeDead</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">includeHidden</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">negate</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Conditions.Builder.ConditionsBuilder.html">ConditionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Conditions_Builder_BasicEx_ConditionsBuilderBasicEx_UnitWithBlueprintExists_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Boolean__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>PF-420292_11d5a4ed0b3ba47c2a7718ea0a2bc2a94</li><li>PF-420292_2d47c4adaa34049aa8b5d717874cd03c2</li><li>PF-420292_398d9def66e2c4e4495fe06c93900fbcf</li></ul>
 </div>
 </article>
           </div>
