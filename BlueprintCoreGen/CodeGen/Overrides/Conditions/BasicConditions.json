@@ -63,6 +63,8 @@
 
   { "TypeName": "PcRace" },
 
+  { "TypeName": "SummonPoolCount" },
+
   { "TypeName": "SummonPoolExistsAndEmpty" },
 
   { "TypeName": "UnitArmor" },
@@ -83,5 +85,7 @@
 
   { "TypeName": "UnitGender" },
 
-  { "TypeName": "UnitIsNull" }
+  { "TypeName": "UnitIsNull" },
+
+  { "TypeName": "UnitWithBlueprintExists" }
 ]

@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GoodHopeBuff", "85af9f0c5d29e5e4fa2e75ca70442487"),
+            new Blueprint("GoodRestInBrothelBuff", "56da6328d76224e4a9f6e3edecac199e"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -155,7 +155,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarHaloToggleAbility", "248bbb747c273684d9fdf2ed38935def"),
-            new Blueprint("KineticBladeBlueFlameBlastAbility", "4005fc2cd91860142ba55a369fbbec23"),
+            new Blueprint("KineticBladeChargeWaterBlastAbility", "371b160cbb2ce9c4a8d6c28e61393f6d"),
             new Blueprint("WitheringLifePhysicalToggleAbility", "a294368129a7424488a797137ceb8f45"),
           }
         },
@@ -783,7 +783,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonSpellKnownTable", "7f2e1369e05a9ab4982fa1f05c8f95bd"),
-            new Blueprint("DruidSpellLevels", "6a45ad1fb1b9f7240aea942b7c22111d"),
+            new Blueprint("EldritchFontSpellSlots", "67682cefce9401e469bee46dac597051"),
             new Blueprint("WizardSpellLevels", "78bb94ed2e75122428232950bb09e97b"),
           }
         },
@@ -1059,7 +1059,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("DungeonLootBudgetCookingRecipes", "ce6647b74e9748c1a73a1a83554b1ac8"),
-            new Blueprint("DungeonLootBudgetRareAndMagic", "fbb31e252bf64169b17ca2886765e833"),
+            new Blueprint("DungeonLootBudgetRare", "e8780c70cf944807b72e4add642e89df"),
             new Blueprint("DungeonLootBudgetWands", "c2c67a4c6d264cd8a3b48f4553681df5"),
           }
         },
@@ -1447,7 +1447,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aeon_AreeluLabHouseInThePast", "5d975faa81f871c4da6d96485721dd7c"),
-            new Blueprint("DLC3_ToxicPrison_3", "b3bd89f710b14cf89cabd85b0d3a95a9"),
+            new Blueprint("DLC3_ToxicPrison_4", "1e7441536df34762b260cc477997cad2"),
             new Blueprint("Ziggurat", "e8f1160e960935344a8aa7466484506d"),
           }
         },
@@ -2159,7 +2159,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AgressiveEnd", "6d321264a441daf498f1493c9f13dba1"),
-            new Blueprint("Cue_0030", "b3f080a9ca6274041871b1097b110cb3"),
+            new Blueprint("Cue_0030", "9e13e4293e91dd54cb436252c738d723"),
             new Blueprint("Xorges_shared12_2", "518e96fc4479fec44b98fa1f35c42da1"),
           }
         },
@@ -2427,7 +2427,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("gate", "fc268500370d415da9cf27c32043ace3"),
-            new Blueprint("gate 2", "edd61d2d5f52b3d43be596e7a8b2a3fc"),
+            new Blueprint("gate 2", "698c70326d6f9f2409085799925c1623"),
             new Blueprint("gate9", "5b1a0b6731eb475692ebef9f02f1808b"),
           }
         },

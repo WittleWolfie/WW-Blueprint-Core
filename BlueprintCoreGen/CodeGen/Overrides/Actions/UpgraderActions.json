@@ -66,6 +66,10 @@
 
   { "TypeName": "DungeonFixExpeditionRemoval" },
 
+  { "TypeName": "FixConditionForceMove" },
+
+  { "TypeName": "FixDungeonIntegrationEtudeAndMapDiscrepancy" },
+
   { "TypeName": "FixItemInInventory" },
 
   { "TypeName": "FixKingdomSystemBuffsAndStats" },

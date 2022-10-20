@@ -15,7 +15,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Dungeon.Actions.ActionEnterToDungeon),
         typeof(Kingmaker.Dungeon.Actions.ActionGiveIslandReward),
         typeof(Kingmaker.Dungeon.Actions.ActionGoDeeperIntoDungeon),
-        typeof(Kingmaker.Dungeon.Actions.ActionIncreaseDungeonStage),
         typeof(Kingmaker.Dungeon.Actions.ActionSetDungeonStage),
         typeof(Kingmaker.Dungeon.Actions.DungeonEnterCurrentIsland),
         typeof(Kingmaker.Dungeon.Actions.DungeonMoveToNextIsland),
