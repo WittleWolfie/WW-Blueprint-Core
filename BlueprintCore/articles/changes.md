@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.5.1 Release
+
+* Update for 2.0.2c game version
+
 ## v2.5.0 Release
 
 * New Type Utils
