@@ -138,6 +138,44 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       return For(name);
     }
 
+    /// <inheritdoc cref="BaseAbilityConfigurator{T, TBuilder}.SetCustomRange(Feet)"/>
+    /// 
+    /// <remarks>
+    /// Sets <see cref="BlueprintAbility.Range"/> to AbilityRange.Custom.
+    /// </remarks>
+    public new AbilityConfigurator SetCustomRange(Feet rangeInFeet)
+    {
+      base.SetCustomRange(rangeInFeet);
+      return OnConfigureInternal(bp => bp.Range = AbilityRange.Custom);
+    }
+
+    /// <inheritdoc cref="SetCustomRange(Feet)"/>
+    public AbilityConfigurator SetCustomRange(int rangeInFeet)
+    {
+      return SetCustomRange(new Feet(rangeInFeet));
+    }
+
+    /// <summary>
+    /// Convenience function to set all targeting behaviors:
+    /// <see cref="BlueprintAbility.CanTargetPoint"/>,
+    /// <see cref="BlueprintAbility.CanTargetEnemies"/>,
+    /// <see cref="BlueprintAbility.CanTargetFriends"/>,
+    /// and <see cref="BlueprintAbility.CanTargetSelf"/>
+    /// </summary>
+    public AbilityConfigurator AllowTargeting(
+        bool? point = null, bool? enemies = null, bool? friends = null, bool? self = null)
+    {
+      OnConfigureInternal(
+          blueprint =>
+          {
+            blueprint.CanTargetPoint = point ?? blueprint.CanTargetPoint;
+            blueprint.CanTargetEnemies = enemies ?? blueprint.CanTargetEnemies;
+            blueprint.CanTargetFriends = friends ?? blueprint.CanTargetFriends;
+            blueprint.CanTargetSelf = self ?? blueprint.CanTargetSelf;
+          });
+      return this;
+    }
+
     /// <summary>
     /// Spell specific version of <see cref="New(string, string)"/>.
     /// </summary>
@@ -170,6 +208,43 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
         configurator.OnConfigure(bp => AddToSpellSpecialization(bp));
 
       return configurator;
+    }
+
+
+    /// <summary>
+    /// Configures this ability as a spell of the specified level for each spell list.
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// <para>
+    /// For each of the <paramref name="spellLists"/> a <c>SpellListComponent</c> is added and the corresponding spell
+    /// list is modified to include the spell at the specified <paramref name="level"/>.
+    /// </para>
+    /// 
+    /// <para>
+    /// Most related spell lists are automatically handled, e.g. Wizard Spell School lists, Thassillonian Spell School
+    /// lists, Prestige Class Spell Lists, etc.
+    /// </para>
+    /// 
+    /// <para>
+    /// If you want to add a spell list not defined in <see cref="SpellList"/> use
+    /// <see cref="AddToSpellList(int, Blueprint{BlueprintSpellListReference}, bool)"/>.
+    /// </para>
+    /// </remarks>
+    public AbilityConfigurator AddToSpellLists(int level, params SpellList[] spellLists)
+    {
+      foreach (var list in spellLists)
+      {
+        AddSpellListComponent(spellLevel: level, spellList: SpellListGuids[list]);
+        OnConfigureInternal(bp => AddToSpellList(bp, level, list));
+      }
+      return Self;
+    }
+
+    public AbilityConfigurator AddToSpellList(
+      int level, Blueprint<BlueprintSpellListReference> spellList, bool addSpellListComponent = true)
+    {
+      return this;
     }
 
     private static readonly Dictionary<SpellList, string> SpellListGuids =
@@ -247,53 +322,65 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
         { SpellList.Witch, SpellListRefs.WitchSpellList.ToString() },
         { SpellList.Wizard, SpellListRefs.WizardSpellList.ToString() },
       };
-
-    /// <summary>
-    /// Configures this ability as a spell of the specified level for each spell list.
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// For each of the <paramref name="spellLists"/> a <c>SpellListComponent</c> is added and the corresponding spell
-    /// list is modified to include the spell at the specified <paramref name="level"/>.
-    /// </para>
-    /// 
-    /// <para>
-    /// Most related spell lists are automatically handled, e.g. Wizard Spell School lists, Thassillonian Spell School
-    /// lists, Prestige Class Spell Lists, etc.
-    /// </para>
-    /// 
-    /// <para>
-    /// If you want to add a spell list not defined in <see cref="SpellList"/> use
-    /// <see cref="AddToSpellList(int, Blueprint{BlueprintSpellListReference}, bool)"/>.
-    /// </para>
-    /// </remarks>
-    public AbilityConfigurator AddToSpellLists(int level, params SpellList[] spellLists)
-    {
-      foreach (var list in spellLists)
-      {
-        AddSpellListComponent(spellLevel: level, spellList: SpellListGuids[list]);
-        OnConfigureInternal(bp => AddToSpellList(bp, level, list));
-      }
-      return Self;
-    }
-
-    public AbilityConfigurator AddToSpellList(
-      int level, Blueprint<BlueprintSpellListReference> spellList, bool addSpellListComponent = true)
-    {
-      return this;
-    }
-
     private static void AddToSpellList(BlueprintAbility spell, int level, SpellList spellList)
     {
-      SpellListConfigurator.For(SpellListGuids[spellList])
-        .ModifySpellsByLevel(list => AddToSpellList(spell, level, list))
-        .Configure();
+      AddToSpellList(spell, level, SpellListGuids[spellList]);
 
       switch (spellList)
       {
-
+        case SpellList.Wizard:
+          AddToWizardLists(spell, level);
+          break;
       }
+    }
+
+    private static readonly List<BlueprintReference<BlueprintSpellList>> WizardSchoolSpellLists =
+      new()
+      {
+        SpellListRefs.WizardAbjurationSpellList.Reference,
+        SpellListRefs.ThassilonianAbjurationSpellList.Reference,
+
+        SpellListRefs.WizardConjurationSpellList.Reference,
+        SpellListRefs.ThassilonianConjurationSpellList.Reference,
+
+        SpellListRefs.WizardDivinationSpellList.Reference,
+
+        SpellListRefs.WizardEnchantmentSpellList.Reference,
+        SpellListRefs.ThassilonianEnchantmentSpellList.Reference,
+
+        SpellListRefs.WizardEvocationSpellList.Reference,
+        SpellListRefs.ThassilonianEvocationSpellList.Reference,
+
+        SpellListRefs.WizardIllusionSpellList.Reference,
+        SpellListRefs.ThassilonianIllusionSpellList.Reference,
+
+        SpellListRefs.WizardNecromancySpellList.Reference,
+        SpellListRefs.ThassilonianNecromancySpellList.Reference,
+
+        SpellListRefs.WizardTransmutationSpellList.Reference,
+        SpellListRefs.ThassilonianTransmutationSpellList.Reference,
+      };
+    private static void AddToWizardLists(BlueprintAbility spell, int level)
+    {
+      var school = spell.GetComponent<SpellComponent>().School;
+      foreach (var list in WizardSchoolSpellLists.Select(l => l.Get()))
+      {
+        if (list.ExcludeFilterSchool)
+        {
+          if (list.FilterSchool != school && list.FilterSchool2 != school)
+            AddToSpellList(spell, level, list);
+        }
+        else if (list.FilterSchool == school || list.FilterSchool2 == school)
+          AddToSpellList(spell, level, list);
+      }
+    }
+
+    private static void AddToSpellList(
+      BlueprintAbility spell, int level, Blueprint<BlueprintReference<BlueprintSpellList>> spellList)
+    {
+      SpellListConfigurator.For(spellList)
+        .ModifySpellsByLevel(list => AddToSpellList(spell, level, list))
+        .Configure();
     }
 
     private static void AddToSpellList(BlueprintAbility spell, int level, SpellLevelList spellList)
@@ -336,44 +423,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
           .AddToBlueprintParameterVariants(spell.ToReference<AnyBlueprintReference>())
           .Configure();
       }
-    }
-
-    /// <inheritdoc cref="BaseAbilityConfigurator{T, TBuilder}.SetCustomRange(Feet)"/>
-    /// 
-    /// <remarks>
-    /// Sets <see cref="BlueprintAbility.Range"/> to AbilityRange.Custom.
-    /// </remarks>
-    public new AbilityConfigurator SetCustomRange(Feet rangeInFeet)
-    {
-      base.SetCustomRange(rangeInFeet);
-      return OnConfigureInternal(bp => bp.Range = AbilityRange.Custom);
-    }
-
-    /// <inheritdoc cref="SetCustomRange(Feet)"/>
-    public AbilityConfigurator SetCustomRange(int rangeInFeet)
-    {
-      return SetCustomRange(new Feet(rangeInFeet));
-    }
-
-    /// <summary>
-    /// Convenience function to set all targeting behaviors:
-    /// <see cref="BlueprintAbility.CanTargetPoint"/>,
-    /// <see cref="BlueprintAbility.CanTargetEnemies"/>,
-    /// <see cref="BlueprintAbility.CanTargetFriends"/>,
-    /// and <see cref="BlueprintAbility.CanTargetSelf"/>
-    /// </summary>
-    public AbilityConfigurator AllowTargeting(
-        bool? point = null, bool? enemies = null, bool? friends = null, bool? self = null)
-    {
-      OnConfigureInternal(
-          blueprint =>
-          {
-            blueprint.CanTargetPoint = point ?? blueprint.CanTargetPoint;
-            blueprint.CanTargetEnemies = enemies ?? blueprint.CanTargetEnemies;
-            blueprint.CanTargetFriends = friends ?? blueprint.CanTargetFriends;
-            blueprint.CanTargetSelf = self ?? blueprint.CanTargetSelf;
-          });
-      return this;
     }
   }
 }
