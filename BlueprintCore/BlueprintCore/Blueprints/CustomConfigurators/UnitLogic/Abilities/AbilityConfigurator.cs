@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.Utility;
@@ -373,6 +374,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
         else if (list.FilterSchool == school || list.FilterSchool2 == school)
           AddToSpellList(spell, level, list);
       }
+
+      if (school == SpellSchool.Enchantment || school == SpellSchool.Illusion)
+        AddToParametrizedFeature(spell, ParametrizedFeatureRefs.FeyspeakerMagicFeature);
     }
 
     private static void AddToSpellList(
@@ -390,39 +394,43 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       spellList.Spells.Add(spell);
     }
 
-    private static readonly List<string> SpellSpecializations =
+    private static readonly List<Blueprint<BlueprintReference<BlueprintParametrizedFeature>>> SpellSpecializations =
       new()
       {
-        ParametrizedFeatureRefs.SpellSpecializationFirst.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization1.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization2.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization3.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization4.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization5.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization6.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization7.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization8.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization9.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization10.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization11.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization12.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization13.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization14.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization15.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization16.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization17.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization18.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization19.ToString(),
-        ParametrizedFeatureRefs.SpellSpecialization20.ToString(),
+        ParametrizedFeatureRefs.SpellSpecializationFirst,
+        ParametrizedFeatureRefs.SpellSpecialization1,
+        ParametrizedFeatureRefs.SpellSpecialization2,
+        ParametrizedFeatureRefs.SpellSpecialization3,
+        ParametrizedFeatureRefs.SpellSpecialization4,
+        ParametrizedFeatureRefs.SpellSpecialization5,
+        ParametrizedFeatureRefs.SpellSpecialization6,
+        ParametrizedFeatureRefs.SpellSpecialization7,
+        ParametrizedFeatureRefs.SpellSpecialization8,
+        ParametrizedFeatureRefs.SpellSpecialization9,
+        ParametrizedFeatureRefs.SpellSpecialization10,
+        ParametrizedFeatureRefs.SpellSpecialization11,
+        ParametrizedFeatureRefs.SpellSpecialization12,
+        ParametrizedFeatureRefs.SpellSpecialization13,
+        ParametrizedFeatureRefs.SpellSpecialization14,
+        ParametrizedFeatureRefs.SpellSpecialization15,
+        ParametrizedFeatureRefs.SpellSpecialization16,
+        ParametrizedFeatureRefs.SpellSpecialization17,
+        ParametrizedFeatureRefs.SpellSpecialization18,
+        ParametrizedFeatureRefs.SpellSpecialization19,
+        ParametrizedFeatureRefs.SpellSpecialization20,
       };
     private static void AddToSpellSpecialization(BlueprintAbility spell)
     {
       foreach (var selection in SpellSpecializations)
-      {
-        ParametrizedFeatureConfigurator.For(selection)
-          .AddToBlueprintParameterVariants(spell.ToReference<AnyBlueprintReference>())
-          .Configure();
-      }
+        AddToParametrizedFeature(spell, selection);
+    }
+
+    private static void AddToParametrizedFeature(
+      BlueprintAbility spell, Blueprint<BlueprintReference<BlueprintParametrizedFeature>> feature)
+    {
+      ParametrizedFeatureConfigurator.For(feature)
+        .AddToBlueprintParameterVariants(spell.ToReference<AnyBlueprintReference>())
+        .Configure();
     }
   }
 }
