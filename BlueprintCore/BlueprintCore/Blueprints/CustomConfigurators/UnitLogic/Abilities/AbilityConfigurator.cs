@@ -1,11 +1,15 @@
 ﻿using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Blueprints.Configurators.Classes.Spells;
 using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.Utility;
 using System.Collections.Generic;
@@ -224,7 +228,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     /// 
     /// <para>
     /// Most related spell lists are automatically handled, e.g. Wizard Spell School lists, Thassillonian Spell School
-    /// lists, Prestige Class Spell Lists, etc.
+    /// lists, Belt of Perfection Enchant, etc.
     /// </para>
     /// 
     /// <para>
@@ -238,6 +242,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       {
         AddSpellListComponent(spellLevel: level, spellList: SpellListGuids[list]);
         OnConfigureInternal(bp => AddToSpellList(bp, level, list));
+        OnConfigureInternal(bp => AddToBeltOfPerfection(bp, level));
       }
       return Self;
     }
@@ -246,6 +251,44 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       int level, Blueprint<BlueprintSpellListReference> spellList, bool addSpellListComponent = true)
     {
       return this;
+    }
+
+    private static void AddToBeltOfPerfection(BlueprintAbility spell, int level)
+    {
+      if (level > 3)
+        return;
+
+      var canEmpower = spell.AvailableMetamagic.HasMetamagic(Metamagic.Empower);
+      var canExtend = spell.AvailableMetamagic.HasMetamagic(Metamagic.Extend);
+
+      if (level > 2)
+      {
+        if (canEmpower)
+          AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsGreaterFeatureEmpower);
+        if (canExtend)
+          AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsGreaterFeatureExtended);
+      }
+
+      if (level > 1)
+      {
+        if (canEmpower)
+          AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsFeatureEmpower);
+        if (canExtend)
+          AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsFeatureExtended);
+      }
+
+      if (canEmpower)
+        AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsLesserFeatureEmpower);
+      if (canExtend)
+        AddToEmpowerFeature(spell, FeatureRefs.BeltOfPerfectComponentsLesserFeatureExtended);
+    }
+
+    private static void AddToEmpowerFeature(
+      BlueprintAbility spell, Blueprint<BlueprintReference<BlueprintFeature>> feature)
+    {
+      FeatureConfigurator.For(feature)
+        .EditComponent<AutoMetamagic>(c => c.Abilities.Add(spell.ToReference<BlueprintAbilityReference>()))
+        .Configure();
     }
 
     private static readonly Dictionary<SpellList, string> SpellListGuids =
@@ -376,7 +419,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       }
 
       if (school == SpellSchool.Enchantment || school == SpellSchool.Illusion)
-        AddToParametrizedFeature(spell, ParametrizedFeatureRefs.FeyspeakerMagicFeature);
+        AddToSpellList(spell, level, SpellListRefs.FeyspeakerSpelllist);
     }
 
     private static void AddToSpellList(
