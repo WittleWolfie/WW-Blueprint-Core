@@ -121,11 +121,6 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     {
       return new AbilityConfigurator(blueprint);
     }
-    
-    // TODO:
-    //  - AddToSpellList(): Create SpellListComponent and update spell list.
-    //    - Make sure to handle things like Thassilonian and MysticTheurge correctly
-    //  - AddCraftInfo(): Setup craft stuff
 
     /// <summary>
     /// Creates a new blueprint and returns a new configurator to modify it.
@@ -190,7 +185,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     /// Sets the ability type to <c>AbilityType.Spell</c>.
     /// </para>
     /// <para>
-    /// TODO: See also the other utility methods for managing spells.
+    /// Use <see cref="AddToSpellLists(int, SpellList[])"/> to add it to the necessary spell lists.
     /// </para>
     /// </remarks>
     /// <param name="school">Adds a matching <c>SpellComponent</c></param>
@@ -228,8 +223,13 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     /// </para>
     /// 
     /// <para>
-    /// Most related spell lists are automatically handled, e.g. Wizard Spell School lists, Thassillonian Spell School
-    /// lists, Belt of Perfection Enchant, etc.
+    /// Automatically populates (if appropriate):
+    /// <list type="bullet">
+    /// <item>Wizard Spell School Lists</item>
+    /// <item>Thassilonian Wizard Spell Lists</item>
+    /// <item>Belt of Perfection</item>
+    /// <item>Rod of Mysticism</item>
+    /// </list>
     /// </para>
     /// 
     /// <para>
@@ -251,7 +251,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     public AbilityConfigurator AddToSpellList(
       int level, Blueprint<BlueprintSpellListReference> spellList, bool addSpellListComponent = true)
     {
-      return this;
+      if (addSpellListComponent)
+        AddSpellListComponent(spellLevel: level, spellList: spellList);
+      OnConfigureInternal(bp => AddToSpellList(bp, level, spellList.ToString()));
+      return Self;
     }
 
     private static void AddToBeltOfPerfection(BlueprintAbility spell, int level)
