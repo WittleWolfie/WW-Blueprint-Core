@@ -2,6 +2,7 @@
 using BlueprintCore.Blueprints.Configurators.Classes.Spells;
 using BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.Classes;
+using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.References;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -372,10 +373,29 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
 
       switch (spellList)
       {
+        case SpellList.Cleric:
+          AddToRodOfMysticism(spell, level);
+          break;
         case SpellList.Wizard:
           AddToWizardLists(spell, level);
           break;
       }
+    }
+
+    private static void AddToRodOfMysticism(BlueprintAbility spell, int level)
+    {
+      if (level > 6)
+        return;
+
+      if (!spell.AvailableMetamagic.HasMetamagic(Metamagic.Maximize))
+        return;
+
+      BuffConfigurator.For(BuffRefs.RodOfMysticismBuff)
+        .EditComponent<MetamagicRodMechanics>(
+          c =>
+            c.m_AbilitiesWhiteList =
+              CommonTool.Append(c.m_AbilitiesWhiteList, spell.ToReference<BlueprintAbilityReference>()))
+        .Configure();
     }
 
     private static readonly List<BlueprintReference<BlueprintSpellList>> WizardSchoolSpellLists =
