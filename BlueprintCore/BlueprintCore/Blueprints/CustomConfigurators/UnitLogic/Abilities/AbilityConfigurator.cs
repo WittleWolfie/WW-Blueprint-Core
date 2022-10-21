@@ -197,7 +197,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       string name,
       string guid,
       SpellSchool school,
-      bool canSpecialize = true,
+      bool canSpecialize,
       params SpellDescriptor[] spellDescriptors)
     {
       var configurator = New(name, guid);
