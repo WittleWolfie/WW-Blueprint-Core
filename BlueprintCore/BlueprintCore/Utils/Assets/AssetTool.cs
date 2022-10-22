@@ -58,49 +58,6 @@ namespace BlueprintCore.Utils.Assets
       AllAssetIds.Add(assetId);
     }
 
-    private static readonly Dictionary<string, (GameObject source, Action<GameObject> init)> DynamicPrefabs = new();
-    /// <summary>
-    /// Registers <paramref name="assetId"/> as an asset. When the asset is requested for load,
-    /// <paramref name="source"/> is loaded and copied, <paramref name="init"/> is called on the copy, and the copy is
-    /// returned.
-    /// </summary>
-    /// 
-    /// <remarks>
-    /// <para>
-    /// This is equivalent to <see cref="RegisterDynamicPrefabLink(string, AssetLink{PrefabLink}, Action{GameObject})"/>,
-    /// but for prefabs that are already loaded, e.g. <c>BlueprintProjectile.StuckArrowPrefab</c>.
-    /// </para>
-    /// 
-    /// <para>
-    /// You must call this <b>before</b> you reference <paramref name="assetId"/>.
-    /// </para>
-    /// 
-    /// <example>
-    /// <code>
-    /// var assetId = "0a2f44a9-0650-452f-8ff6-24fd4e61c7ef"; // New GUID identifying your prefab
-    /// var sourceAsset = ProjectileRefs.Arrow.Reference.Get().StuckArrowPrefab;
-    /// 
-    /// // When assetId is requested: load sourceAsset, copy it, then set its scale to 150%
-    /// RegisterDynamicPrefab(assetId, sourceAsset, prefab => prefab.transform.localScale = new(1.5f, 1.5f));
-    /// 
-    /// // Creates an AOE using the new asset
-    /// ProjectilConfigurator.New(ProjectileName, ProjectileGuid).SetStuckArrowPrefab(assetId).Configure();
-    /// </code>
-    /// </example>
-    /// </remarks>
-    /// <param name="assetId">Unique identifier used to load the asset</param>
-    /// <param name="source">The base game prefab copied to create your prefab.</param>
-    /// <param name="init">Function called passing in a copy of the source prefab. Use this to configure your prefab.</param>
-    /// <exception cref="ArgumentException">If <paramref name="assetId"/> is already in use</exception>
-    public static void RegisterDynamicPrefab(string assetId, Asset<GameObject> source, Action<GameObject> init)
-    {
-      if (DynamicPrefabs.ContainsKey(assetId) || AllAssetIds.Contains(assetId))
-        throw new ArgumentException($"{assetId} is already in use!");
-
-      DynamicPrefabs[assetId] = (source.Get(), init);
-      AllAssetIds.Add(assetId);
-    }
-
     private static readonly HashSet<string> AssetIds = new();
     private static void LoadAssets(string assetFile)
     {
@@ -115,52 +72,41 @@ namespace BlueprintCore.Utils.Assets
       {
         AllAssetIds.Add(assetId);
         if (!AssetIds.Add(assetId))
-        {
           Logger.Warn($"Duplicate asset found: {assetId}");
-        }
         else
-        {
           Logger.Verbose($"Loaded asset: {assetId}");
-        }
       }
     }
 
-    [HarmonyPatch(typeof(ResourcesLibrary))]
-    static class ResourcesLibrary_Patch
+    [HarmonyPatch(typeof(AssetBundle))]
+    static class AssetBundle_Patch
     {
-      [HarmonyPatch(nameof(ResourcesLibrary.LoadResource)), HarmonyPrefix]
-      static bool Prefix(string assetId, ResourcesLibrary.LoadedResource loaded)
+      [HarmonyPatch(nameof(AssetBundle.LoadAsset), typeof(string), typeof(Type)), HarmonyPrefix]
+      static bool LoadAsset(string name, ref UnityEngine.Object __result)
       {
         try
         {
-          if (DynamicPrefabLinks.ContainsKey(assetId))
+          if (DynamicPrefabLinks.ContainsKey(name))
           {
-            (var source, var init) = DynamicPrefabLinks[assetId];
-            Create(source.Loaded ?? ResourcesLibrary.TryGetResource<GameObject>(source.AssetId), init);
-            loaded.AssetId = assetId;
-            return false;
-          }
-
-          if (DynamicPrefabs.ContainsKey(assetId))
-          {
-            (var source, var init) = DynamicPrefabs[assetId];
-            Create(source, init);
-            loaded.AssetId = assetId;
+            Logger.Info($"Creating dynamic prefab: {name}");
+            (var source, var init) = DynamicPrefabLinks[name];
+            __result = Create(source.Load(), init);
             return false;
           }
         }
         catch (Exception e)
         {
-          Logger.Error($"Failed to load dynamic prefab: {assetId}.", e);
+          Logger.Error($"Failed to load asset: {name}", e);
         }
         return true;
       }
 
-      private static void Create(GameObject sourceObject, Action<GameObject> init)
+      private static GameObject Create(GameObject sourceObject, Action<GameObject> init)
       {
         var copyObj = UnityEngine.Object.Instantiate(sourceObject);
         UnityEngine.Object.DontDestroyOnLoad(copyObj);
         init(copyObj);
+        return copyObj;
       }
     }
 
@@ -168,13 +114,20 @@ namespace BlueprintCore.Utils.Assets
     static class BundlesLoadService_Patch
     {
       [HarmonyPatch(nameof(BundlesLoadService.GetBundleNameForAsset)), HarmonyPrefix]
-      static bool Prefix(string assetId, ref string __result)
+      static bool Prefix(string assetId, ref string __result, BundlesLoadService __instance)
       {
         try
         {
           if (AssetIds.Contains(assetId))
           {
             __result = BundleName;
+            return false;
+          }
+
+          if (DynamicPrefabLinks.ContainsKey(assetId))
+          {
+            (var source, _) = DynamicPrefabLinks[assetId];
+            __result = __instance.GetBundleNameForAsset(source.AssetId);
             return false;
           }
         }
