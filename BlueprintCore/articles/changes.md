@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+TODO:
+ - Update docs to reflect new patch for ILStrip
+ - Add links to COP and maybe other BPCore based mods for reference
+ - Add mod spell lists (expanded content)
+
 ## v2.6.0 Release
 
 * New `AbilityConfigurator` util methods for creating spells
