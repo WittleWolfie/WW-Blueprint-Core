@@ -182,6 +182,48 @@ If you want to directly load the resource call `ResourcesLibrary.TryGetResource<
 var myIconSprite = ResourcesLibraryTryGetResource<Sprite>("assets/icons/myicon.png");
 ```
 
+### Modifying Base Game Assets
+
+As of v2.6.0 BPCore allows you to register a fake `PrefabLink` as a placeholder for a modified base game asset. Use this when you want to create a new asset by modifying an asset that already exists in game. See [AssetTool.RegisteryDynamicPrefabLink()](xref:BlueprintCore.Utils.Assets.AssetTool.RegisterDynamicPrefabLink(string, BlueprintCore.Utils.Assets.AssetLink{Kingmaker.ResourcesLinks.PrefabLink}, System.Action{UnityEngine.GameObject})) for more details.
+
+When your fake `PrefabLink` is loaded:
+
+1. The base game asset specified is loaded instead
+2. A new asset is created by copying the base game asset
+3. `init` is called, passing in the new asset
+
+In your `init` function you can modify the `GameObject` to create the resulting asset. Here's a trimmed down example taken from [Ice Slick in Character Options+](https://github.com/WittleWolfie/CharacterOptionsPlus/blob/main/CharacterOptionsPlus/CharacterOptionsPlus/Spells/IceSlick.cs):
+
+```C#
+var sourceFx = "fd21d914e9f6f5e4faa77365549ad0a7"; // A 20-ft cold puddle
+var newFx = "c1ef4fc5-e5ea-43b7-a9d4-cbb4be41516a"; // New GUID used for the fake PrefabLink
+
+AssetTool.RegisterDynamicPrefabLink(newFx, sourceFx, ModifyFx);
+AbilityAreaEffectConfigurator.New(AreaEffectName, AreaEffectGuid)
+  .SetAffectEnemies()
+  .SetAggroEnemies()
+  .SetSize(10.Feet())
+  .SetShape(AreaEffectShape.Cylinder)
+  .SetFx(newFx)
+  .Configure();
+
+private static void ModifyFx(GameObject puddle)
+{
+  UnityEngine.Object.DestroyImmediate(puddle.transform.Find("Transform/ProjectorCollision_big").gameObject); // Remove unwanted particle effects
+  puddle.transform.localScale = new(0.55f, 1.0f, 0.55f); // Scale from 20ft to 10ft
+}
+```
+
+This takes the 20-ft "cold puddle" asset from the base game, removes the ice crystal effects, and scales it down to better represent a 10-ft area effect.
+
+Here is what it looks like if the original game asset is used, unmodified:
+
+![Unmodified game asset](~/images/original_ice_slick.png)
+
+And here is what it looks like with my modifications:
+
+![Modified game asset](~/images/modified_ice_slick.png)
+
 ## Tools
 
 Tool classes provide simple utility functions, usually related to a specific type. See each class for more details, but some notable uses:
