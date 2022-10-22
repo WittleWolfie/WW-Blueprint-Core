@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## v2.6.0 Release
+
+* New `AbilityConfigurator` util methods for creating spells
+    * Use `AbilityConfigurator.NewSpell()` instead of `AbilityConfigurator.New()` and read its docs
+* Added support for dynamically replacing game assets
+    * See `AssetTool.RegisterDynamicPrefabLink()` for details
+    * Use this when you want a modified version of an existing asset
+
 ## v2.5.1 Release
 
 * Update for 2.0.2c game version
