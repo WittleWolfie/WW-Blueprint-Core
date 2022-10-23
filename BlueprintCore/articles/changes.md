@@ -12,6 +12,7 @@ TODO:
 * Added support for dynamically replacing game assets
     * See `AssetTool.RegisterDynamicPrefabLink()` for details
     * Use this when you want a modified version of an existing asset
+* New `ContextDice` and `DamageTypes` utils for creating `ContextDiceValue` and `DamageTypeDescription`, respectively
 
 ## v2.5.1 Release
 
