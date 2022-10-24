@@ -12,9 +12,14 @@ You can do them in any order but the recommended order is:
     * [Skald's Vigor](advanced/skalds_vigor.md)
     * [Furious Focus](advanced/furious_focus.md)
     * [Hurtful](advanced/hurtful.md)
-4. TODO: Class, Archetypes, Spells, Abilities, Activatable Abilities
 
 All tutorial code is [available on GitHub](https://github.com/WittleWolfie/WW-Blueprint-Core/tree/main/BlueprintCoreTutorial). Each tutorial has a challenge not covered in the tutorial. One possible solution to each challenge is available in the `Solutions` folder.
+
+Aside from that you can take a look at these mods built using BPCore:
+
+* [CharacterOptions+](https://github.com/WittleWolfie/CharacterOptionsPlus)
+* [Madison's Metagaming](https://github.com/madisoncfallin/MadisonsMetagaming)
+* [Come and Get Me!](https://github.com/Envibel/ComeAndGetMe)
 
 ### Pre-work
 

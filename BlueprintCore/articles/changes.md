@@ -1,8 +1,5 @@
 ﻿# Changelog
 
-TODO:
- - Add links to COP and maybe other BPCore based mods for reference
-
 ## v2.6.0 Release
 
 * New `AbilityConfigurator` util methods for creating spells
@@ -11,6 +8,7 @@ TODO:
     * See `AssetTool.RegisterDynamicPrefabLink()` for details
     * Use this when you want a modified version of an existing asset
 * New `ContextDice` and `DamageTypes` utils for creating `ContextDiceValue` and `DamageTypeDescription`, respectively
+* Added links to some mods made using BPCore for examples
 
 ### Breaking Changes
 

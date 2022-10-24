@@ -8,6 +8,12 @@ If you're having problems check [Known Issues](usage/issues.md).
 
 If you're interested in contributing see [How to Contribute](contributing.md).
 
+Looking for examples? Here are some mods using BPCore:
+
+* [CharacterOptions+](https://github.com/WittleWolfie/CharacterOptionsPlus)
+* [Madison's Metagaming](https://github.com/madisoncfallin/MadisonsMetagaming)
+* [Come and Get Me!](https://github.com/Envibel/ComeAndGetMe)
+
 For general usage details see the links below:
 
 * [Blueprints](usage/blueprints.md) - Creating, modifying, and referencing blueprints
