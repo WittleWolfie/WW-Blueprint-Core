@@ -240,6 +240,7 @@ The impact of this isn't significant but if you want to keep your assembly small
          <ILStrip Include="&quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&quot;" />
      
          <!-- BlueprintCore Entry Points -->
+         <Entry Include="BlueprintCore.Utils.Assets.AssetTool/AssetBundle_Patch" />
          <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch" />
          <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch" />
          <Entry Include="BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch" />

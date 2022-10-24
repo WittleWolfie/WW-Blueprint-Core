@@ -1,9 +1,7 @@
 ﻿# Changelog
 
 TODO:
- - Update docs to reflect new patch for ILStrip
  - Add links to COP and maybe other BPCore based mods for reference
- - Add mod spell lists (expanded content)
 
 ## v2.6.0 Release
 
@@ -13,6 +11,11 @@ TODO:
     * See `AssetTool.RegisterDynamicPrefabLink()` for details
     * Use this when you want a modified version of an existing asset
 * New `ContextDice` and `DamageTypes` utils for creating `ContextDiceValue` and `DamageTypeDescription`, respectively
+
+### Breaking Changes
+
+* If you are using ILStrip there is a new patch, add the following entry point:
+    * `BlueprintCore.Utils.Assets.AssetTool/AssetBundle_Patch`
 
 ## v2.5.1 Release
 
