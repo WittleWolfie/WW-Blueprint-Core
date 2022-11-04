@@ -86,6 +86,84 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class AssetTool</code></pre>
   </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Assets_AssetTool_RegisterDynamicPrefabLink_System_String_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_PrefabLink__System_Action_UnityEngine_GameObject__.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Assets.AssetTool.RegisterDynamicPrefabLink(System.String%2CBlueprintCore.Utils.Assets.AssetLink%7BKingmaker.ResourceLinks.PrefabLink%7D%2CSystem.Action%7BUnityEngine.GameObject%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Assets/AssetTool.cs/#L52">View Source</a>
+  </span>
+  <a id="BlueprintCore_Utils_Assets_AssetTool_RegisterDynamicPrefabLink_" data-uid="BlueprintCore.Utils.Assets.AssetTool.RegisterDynamicPrefabLink*"></a>
+  <h4 id="BlueprintCore_Utils_Assets_AssetTool_RegisterDynamicPrefabLink_System_String_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_PrefabLink__System_Action_UnityEngine_GameObject__" data-uid="BlueprintCore.Utils.Assets.AssetTool.RegisterDynamicPrefabLink(System.String,BlueprintCore.Utils.Assets.AssetLink{Kingmaker.ResourceLinks.PrefabLink},System.Action{UnityEngine.GameObject})">RegisterDynamicPrefabLink(String, AssetLink&lt;PrefabLink&gt;, Action&lt;GameObject&gt;)</h4>
+  <div class="markdown level1 summary"><p>Registers <code data-dev-comment-type="paramref" class="paramref">assetId</code> as an asset. When the asset is requested for load,
+<code data-dev-comment-type="paramref" class="paramref">source</code> is loaded and copied, <code data-dev-comment-type="paramref" class="paramref">init</code> is called on the copy, and the copy is
+returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void RegisterDynamicPrefabLink(string assetId, AssetLink&lt;PrefabLink&gt; source, Action&lt;GameObject&gt; init)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">assetId</span></td>
+        <td><p>Unique identifier used to load the asset</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Utils.Assets.AssetLink-1.html">AssetLink</a>&lt;<span class="xref">Kingmaker.ResourceLinks.PrefabLink</span>&gt;</td>
+        <td><span class="parametername">source</span></td>
+        <td><p>The base game prefab copied to create your prefab.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Action</span>&lt;<span class="xref">UnityEngine.GameObject</span>&gt;</td>
+        <td><span class="parametername">init</span></td>
+        <td><p>Function called passing in a copy of the source prefab. Use this to configure your prefab.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="BlueprintCore_Utils_Assets_AssetTool_RegisterDynamicPrefabLink_System_String_BlueprintCore_Utils_Assets_AssetLink_Kingmaker_ResourceLinks_PrefabLink__System_Action_UnityEngine_GameObject___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use this to create a new asset based on a base game asset dynamically. You configure the <code>GameObject</code> in
+<code data-dev-comment-type="paramref" class="paramref">init</code> and it will be used whenever an asset with <code data-dev-comment-type="paramref" class="paramref">assetId</code> is requested.</p>
+<example>
+<pre><code>var assetId = &quot;0a2f44a9-0650-452f-8ff6-24fd4e61c7ef&quot;; // New GUID identifying your prefab
+var sourceAssetId = &quot;fd21d914e9f6f5e4faa77365549ad0a7&quot;; // A 20-ft ground ice effect from the base game
+<p>// When assetId is requested: load sourceAssetId, copy it, then set its scale to 50%
+RegisterDynamicPrefabLink(assetId, sourceAssetId, prefab =&gt; prefab.transform.localScale = new(0.5f, 0.5f));</p>
+<p>// Creates an AOE using the new asset
+AbilityAreaEffectConfigurator.New(AreaEffectName, AreaEffectGuid).SetFx(assetId).Configure();</code></pre>
+</example><p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentException</span></td>
+        <td><p>If <code data-dev-comment-type="paramref" class="paramref">assetId</code> is already in use</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </article>
           </div>
           
@@ -97,7 +175,7 @@
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Utils_Assets_AssetTool.md&amp;value=---%0Auid%3A%20BlueprintCore.Utils.Assets.AssetTool%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Assets/AssetTool.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Utils/Assets/AssetTool.cs/#L14" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

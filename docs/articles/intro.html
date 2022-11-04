@@ -73,6 +73,12 @@
 <p>For a step-by-step walkthrough see <a href="tutorials/overview.html">Tutorials</a>.</p>
 <p>If you're having problems check <a href="usage/issues.html">Known Issues</a>.</p>
 <p>If you're interested in contributing see <a href="contributing.html">How to Contribute</a>.</p>
+<p>Looking for examples? Here are some mods using BPCore:</p>
+<ul>
+<li><a href="https://github.com/WittleWolfie/CharacterOptionsPlus">CharacterOptions+</a></li>
+<li><a href="https://github.com/madisoncfallin/MadisonsMetagaming">Madison's Metagaming</a></li>
+<li><a href="https://github.com/Envibel/ComeAndGetMe">Come and Get Me!</a></li>
+</ul>
 <p>For general usage details see the links below:</p>
 <ul>
 <li><a href="usage/blueprints.html">Blueprints</a> - Creating, modifying, and referencing blueprints</li>
@@ -325,6 +331,7 @@ writing.</p>
     &lt;ILStrip Include=&quot;&amp;quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&amp;quot;&quot; /&gt;
 
     &lt;!-- BlueprintCore Entry Points --&gt;
+    &lt;Entry Include=&quot;BlueprintCore.Utils.Assets.AssetTool/AssetBundle_Patch&quot; /&gt;
     &lt;Entry Include=&quot;BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch&quot; /&gt;
     &lt;Entry Include=&quot;BlueprintCore.Utils.Assets.AssetTool/BundlesLoadService_Patch&quot; /&gt;
     &lt;Entry Include=&quot;BlueprintCore.Utils.LocalizationTool/LocalizationManager_Patch&quot; /&gt;
