@@ -1,6 +1,7 @@
 using BlueprintCore.Utils;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 
@@ -144,6 +145,39 @@ namespace BlueprintCore.Conditions.Builder
         Conditions = Conditions.ToArray()
       };
       return checker;
+    }
+
+    /// <summary>
+    /// Adds all conditions from <paramref name="conditionsChecker"/>. This is a shallow copy so changes to those
+    /// conditions affect the original list as well.
+    /// </summary>
+    /// <param name="typesToExclude">Types of conditions which will not be added</param>
+    public ConditionsBuilder AddAll(ConditionsChecker conditionsChecker, params Type[] typesToExclude)
+    {
+      conditionsChecker.Conditions.ForEach(
+        action =>
+        {
+          var type = action.GetType();
+          if (!typesToExclude.Any(type))
+            Add(action);
+        });
+      return this;
+    }
+
+    /// <summary>
+    /// Adds all conditions from <paramref name="conditionsChecker"/>. This is a shallow copy so changes to those
+    /// conditions affect the original list as well.
+    /// </summary>
+    /// <param name="matcher">Only conditions matching this function are added</param>
+    public ConditionsBuilder AddAll(ConditionsChecker conditionsChecker, Func<Condition, bool> matcher)
+    {
+      conditionsChecker.Conditions.ForEach(
+        condition =>
+        {
+          if (matcher.Invoke(condition))
+            Add(condition);
+        });
+      return this;
     }
 
     /// <summary>

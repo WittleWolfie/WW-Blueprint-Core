@@ -2,6 +2,7 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 
@@ -148,6 +149,39 @@ namespace BlueprintCore.Actions.Builder
         RunValidation(parentValidator);
       }
       return new ActionList { Actions = Actions.ToArray() };
+    }
+
+    /// <summary>
+    /// Adds all actions from <paramref name="actionList"/>. This is a shallow copy so changes to those actions affect
+    /// the original list as well.
+    /// </summary>
+    /// <param name="typesToExclude">Types of actions which will not be added</param>
+    public ActionsBuilder AddAll(ActionList actionList, params Type[] typesToExclude)
+    {
+      actionList.Actions.ForEach(
+        action =>
+        {
+          var type = action.GetType();
+          if (!typesToExclude.Any(type))
+            Add(action);
+        });
+      return this;
+    }
+
+    /// <summary>
+    /// Adds all actions from <paramref name="actionList"/>. This is a shallow copy so changes to those actions affect
+    /// the original list as well.
+    /// </summary>
+    /// <param name="matcher">Only actions matching this function are added</param>
+    public ActionsBuilder AddAll(ActionList actionList, Func<GameAction, bool> matcher)
+    {
+      actionList.Actions.ForEach(
+        action =>
+        {
+          if (matcher.Invoke(action))
+            Add(action);
+        });
+      return this;
     }
 
     /// <summary>Adds the specified <see cref="GameAction"/> to the list, with validation.</summary>

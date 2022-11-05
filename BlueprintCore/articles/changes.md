@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.6.1 Release
+
+* New `AddAll` methods for `ActionsBuilder` and `ConditionsBuilder` support copying existing `ActionLists` and `ConditionsCheckers`
+
 ## v2.6.0 Release
 
 * New `AbilityConfigurator` util methods for creating spells
