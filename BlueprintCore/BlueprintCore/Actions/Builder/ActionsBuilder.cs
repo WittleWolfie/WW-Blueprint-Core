@@ -254,5 +254,10 @@ namespace BlueprintCore.Actions.Builder
     {
       ToValidate.ForEach(obj => validator.Check(obj));
     }
+
+    public static implicit operator ActionsBuilder(ActionList actionList)
+    {
+      return New().AddAll(actionList);
+    }
   }
 }

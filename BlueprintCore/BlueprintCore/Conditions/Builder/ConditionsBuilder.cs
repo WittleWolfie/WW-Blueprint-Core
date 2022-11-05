@@ -431,5 +431,12 @@ namespace BlueprintCore.Conditions.Builder
     {
       ToValidate.ForEach(obj => validator.Check(obj));
     }
+
+    public static implicit operator ConditionsBuilder(ConditionsChecker conditionsChecker)
+    {
+      var builder = New().AddAll(conditionsChecker);
+      builder.OperationType = conditionsChecker.Operation;
+      return builder;
+    }
   }
 }

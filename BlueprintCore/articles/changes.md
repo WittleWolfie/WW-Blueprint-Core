@@ -3,6 +3,7 @@
 ## v2.6.1 Release
 
 * New `AddAll` methods for `ActionsBuilder` and `ConditionsBuilder` support copying existing `ActionLists` and `ConditionsCheckers`
+* Implicit operators support passing in `ActionList` for `ActionsBuilder` and `ConditionsChecker` for `ConditionsBuilder`
 
 ## v2.6.0 Release
 
