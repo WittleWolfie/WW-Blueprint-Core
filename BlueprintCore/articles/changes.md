@@ -2,6 +2,7 @@
 
 ## v2.6.1 Release
 
+* Updated to latest game patch (2.0.4k)
 * New `AddAll` methods for `ActionsBuilder` and `ConditionsBuilder` support copying existing `ActionLists` and `ConditionsCheckers`
 * Implicit operators support passing in `ActionList` for `ActionsBuilder` and `ConditionsChecker` for `ConditionsBuilder`
 
