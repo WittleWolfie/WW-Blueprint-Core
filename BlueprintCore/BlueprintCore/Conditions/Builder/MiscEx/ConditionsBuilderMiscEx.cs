@@ -171,7 +171,6 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cue_2</term><description>937c0f8b055c4a6fa95ff341378d191a</description></item>
     /// <item><term>Cue_3</term><description>fd59cd739561481bae00977016d85c67</description></item>
     /// <item><term>Cue_4</term><description>d0421fc2ad1646debb25b9de5e452280</description></item>
     /// </list>

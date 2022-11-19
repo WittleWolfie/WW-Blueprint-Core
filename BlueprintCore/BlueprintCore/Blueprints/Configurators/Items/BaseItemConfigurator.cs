@@ -977,7 +977,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BombAttack2</term><description>22cef8e691a75674d8bc33ea986ea4fa</description></item>
-    /// <item><term>DLCBardicheRustyEnchantment</term><description>d579b18e60ea4d868a4c43f23aba35b8</description></item>
+    /// <item><term>DLC2ShortspearEnchantment</term><description>07de6c83aa2c423f897b6904ba270216</description></item>
     /// <item><term>TouchEnchant2</term><description>2431f5f8d2ffe854784429b989d1e8a3</description></item>
     /// </list>
     /// </remarks>

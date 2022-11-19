@@ -88,7 +88,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add3_SearchMoltenScar</term><description>39a11378f06fff740b8211686247d943</description></item>
-    /// <item><term>Cue_0252_playerheir</term><description>a8764b751e8fb1240b998546ec6ed292</description></item>
+    /// <item><term>Cue_0479_DaeEvilHeir</term><description>72401afde04343f4c898efba4b4d1880</description></item>
     /// <item><term>WarCamp_CrusadeAnnouncement</term><description>d95152499fa0696478cc6af83e44f029</description></item>
     /// </list>
     /// </remarks>

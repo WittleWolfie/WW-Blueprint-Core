@@ -327,6 +327,38 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
+    /// Adds <see cref="DlcStoreNintendo"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
+    /// <item><term>FreeDlc1</term><description>d185af74fc5b4c198600e0202ca11de8</description></item>
+    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDlcStoreNintendo(
+        bool? isFree = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        uint? nintendoId = null)
+    {
+      var component = new DlcStoreNintendo();
+      component.m_IsFree = isFree ?? component.m_IsFree;
+      component.m_NintendoId = nintendoId ?? component.m_NintendoId;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="DlcStorePS4"/>
     /// </summary>
     ///

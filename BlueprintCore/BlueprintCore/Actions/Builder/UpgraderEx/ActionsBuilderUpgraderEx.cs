@@ -259,7 +259,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
     /// <item><term>PF-292234</term><description>cf1de09f787141f2b915b31a8eafaaa5</description></item>
-    /// <item><term>PF-442816</term><description>621cdb4c6f3c436bb6a1943edac72c3e</description></item>
+    /// <item><term>PF-444582_Camelia</term><description>1966b3bca26d48fa90d646569e06dc02</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -290,11 +290,27 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// If the target has any of these facts then the fact is not removed.
     /// </para>
     /// </param>
+    /// <param name="targetPartyUnit">
+    /// <para>
+    /// InfoBox: Checks in Blueprint and OriginalBlueprint
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintUnit. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public static ActionsBuilder RemoveFact(
         this ActionsBuilder builder,
         Blueprint<BlueprintUnitFactReference> fact,
         List<Blueprint<BlueprintUnitFactReference>>? exceptHasFacts = null,
-        bool? excludeExCompanions = null)
+        bool? excludeExCompanions = null,
+        Blueprint<BlueprintUnitReference>? targetPartyUnit = null)
     {
       var element = ElementTool.Create<RemoveFact>();
       element.m_Fact = fact?.Reference;
@@ -304,6 +320,11 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
         element.m_AdditionalExceptHasFacts = new BlueprintUnitFactReference[0];
       }
       element.m_ExcludeExCompanions = excludeExCompanions ?? element.m_ExcludeExCompanions;
+      element.m_TargetPartyUnit = targetPartyUnit?.Reference ?? element.m_TargetPartyUnit;
+      if (element.m_TargetPartyUnit is null)
+      {
+        element.m_TargetPartyUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
       element.m_ExceptHasFact = BlueprintReferenceBase.CreateTyped<BlueprintUnitFactReference>(null);
       return builder.Add(element);
     }
@@ -506,8 +527,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-222018</term><description>c9d5dee61d1b4587b99da9caa3e238df</description></item>
-    /// <item><term>PF-302757</term><description>dfa8f27b512d479eb53c1cca12ee6ff2</description></item>
-    /// <item><term>PF-441932</term><description>2052955ce7f44022bc663ee46cf58101</description></item>
+    /// <item><term>PF-308720</term><description>8e9433dfcf7143fd80814b2302a971b9</description></item>
+    /// <item><term>PF-452112</term><description>cf6bee793763418a9c5078504c29a631</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -541,8 +562,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-215564</term><description>185be5e1ae964cee94428816eec0d210</description></item>
-    /// <item><term>PF-308720</term><description>8e9433dfcf7143fd80814b2302a971b9</description></item>
-    /// <item><term>PF-450866 - 2</term><description>6eeab145c0b54f3b8f61cc46ccb6731e</description></item>
+    /// <item><term>PF-332075_Restart_SosielRoman</term><description>52c5ed8b094e471fbe4eba0b4397082f</description></item>
+    /// <item><term>PF-452112</term><description>cf6bee793763418a9c5078504c29a631</description></item>
     /// </list>
     /// </remarks>
     ///

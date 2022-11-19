@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0049</term><description>4a1d11f041aae8a4bb752848b2f3df08</description></item>
+    /// <item><term>Cue_0049</term><description>03a453d3b13bd7c499ab53be2c2683ca</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -118,6 +118,22 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     }
 
     /// <summary>
+    /// Adds <see cref="ClearQuestsOnAutoKingdom"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-456340</term><description>d4dafb9d6ac9417e8eb8a8b4f13166cc</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder ClearQuestsOnAutoKingdom(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearQuestsOnAutoKingdom>());
+    }
+
+    /// <summary>
     /// Adds <see cref="DismissAllCompanions"/>
     /// </summary>
     ///
@@ -147,7 +163,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0030</term><description>8f325aed1f4383f41a9be616777f8f54</description></item>
+    /// <item><term>Cue_0030</term><description>d65784bbde534de45a3deb8caad59b08</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -290,7 +306,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ch5_QueenInDrezen_Mechanic</term><description>46bd4af031b869248b305629b396d6c2</description></item>
-    /// <item><term>CommandAction 4</term><description>81f0c1eec29b46e4997e429c81f84256</description></item>
+    /// <item><term>CommandAction 3</term><description>919e1dc652bbe8d4db8b508644866899</description></item>
     /// <item><term>WayUp_Actions</term><description>83d0eb422bd7e774eb1710025088ed0f</description></item>
     /// </list>
     /// </remarks>
@@ -355,7 +371,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC2_Sv_Out_Bonfire </term><description>d749f04e94ad4bf3bdf3d78832f1497d</description></item>
+    /// <item><term>DLC3_ExitCheckTier1_SZ</term><description>98f99df23cf44796b0c79b3c2d152da2</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -700,6 +716,45 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     public static ActionsBuilder PartyMembersSwapAttachedAndDetached(this ActionsBuilder builder)
     {
       return builder.Add(ElementTool.Create<PartyMembersSwapAttachedAndDetached>());
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveQuest"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CrusadeMain_Ch2_quest</term><description>fc269c56388944e7ada9a8462abbe2cb</description></item>
+    /// <item><term>Military_RankUp5_errand</term><description>ab663a743d744ac5b0da650d63586016</description></item>
+    /// <item><term>Military_rankUp8_errand</term><description>269bbaea4b7d4098b4fc27df17074490</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="quest">
+    /// <para>
+    /// Blueprint of type BlueprintQuest. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder RemoveQuest(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintQuestReference>? quest = null)
+    {
+      var element = ElementTool.Create<RemoveQuest>();
+      element.m_Quest = quest?.Reference ?? element.m_Quest;
+      if (element.m_Quest is null)
+      {
+        element.m_Quest = BlueprintTool.GetRef<BlueprintQuestReference>(null);
+      }
+      return builder.Add(element);
     }
 
     /// <summary>
@@ -1292,7 +1347,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
-    /// <item><term>CommandAction1</term><description>550294023a134d1281e7b1db51158b16</description></item>
+    /// <item><term>CommandAction1</term><description>7a0d832573504b65bd189ffddf1837d5</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -1546,7 +1601,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
-    /// <item><term>CommandAction1</term><description>14270dfe211c41ca8ba51cd6d7e856c2</description></item>
+    /// <item><term>CommandAction1</term><description>c39f85ffa09144ee9570ecc8f9029f82</description></item>
     /// <item><term>Zantir_Switch</term><description>9fb1869b916481d49a39a9ba82bf6051</description></item>
     /// </list>
     /// </remarks>
@@ -1575,7 +1630,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>Cue_0008</term><description>3197df8ce22124f4189850a7be2abd64</description></item>
+    /// <item><term>Cue_0008</term><description>ab948ab9f9eab9a4ca4edfecbafa5076</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1621,7 +1676,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DoorToKB_CheckPassedActions</term><description>e16485ef06cc2dd4a94db114939109fa</description></item>
+    /// <item><term>DoorToSecret_CheckPassedActions</term><description>9fbd1302f9b54df4f87deb14b8de55a5</description></item>
     /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
     /// </list>
     /// </remarks>

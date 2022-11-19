@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
@@ -44,6 +45,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
           bp.m_Type = copyFrom.m_Type;
           bp.m_LastChapter = copyFrom.m_LastChapter;
           bp.m_Objectives = copyFrom.m_Objectives;
+          bp.OnSetAutoKingdom = copyFrom.OnSetAutoKingdom;
         });
     }
 
@@ -65,6 +67,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
           bp.m_Type = copyFrom.m_Type;
           bp.m_LastChapter = copyFrom.m_LastChapter;
           bp.m_Objectives = copyFrom.m_Objectives;
+          bp.OnSetAutoKingdom = copyFrom.OnSetAutoKingdom;
         });
     }
 
@@ -319,6 +322,31 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintQuest.OnSetAutoKingdom"/>
+    /// </summary>
+    public TBuilder SetOnSetAutoKingdom(ActionsBuilder onSetAutoKingdom)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OnSetAutoKingdom = onSetAutoKingdom?.Build();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintQuest.OnSetAutoKingdom"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOnSetAutoKingdom(Action<ActionList> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.OnSetAutoKingdom is null) { return; }
+          action.Invoke(bp.OnSetAutoKingdom);
+        });
+    }
+
+    /// <summary>
     /// Adds <see cref="Experience"/>
     /// </summary>
     ///
@@ -383,6 +411,10 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
       if (Blueprint.m_Objectives is null)
       {
         Blueprint.m_Objectives = new();
+      }
+      if (Blueprint.OnSetAutoKingdom is null)
+      {
+        Blueprint.OnSetAutoKingdom = Utils.Constants.Empty.Actions;
       }
     }
   }

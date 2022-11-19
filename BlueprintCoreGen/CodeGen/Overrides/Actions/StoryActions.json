@@ -40,6 +40,8 @@
 
   { "TypeName": "AlignmentSelector" },
 
+  { "TypeName": "ClearQuestsOnAutoKingdom" },
+
   { "TypeName": "DismissAllCompanions" },
 
   { "TypeName": "GiveObjective" },
@@ -75,6 +77,8 @@
   { "TypeName": "PartyMembersDetachEvaluated" },
 
   { "TypeName": "PartyMembersSwapAttachedAndDetached" },
+
+  { "TypeName": "RemoveQuest" },
 
   { "TypeName": "Recruit" },
 

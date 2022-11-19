@@ -82,6 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.CanTargetSelf = copyFrom.CanTargetSelf;
           bp.ShouldTurnToTarget = copyFrom.ShouldTurnToTarget;
           bp.SpellResistance = copyFrom.SpellResistance;
+          bp.IgnoreSpellResistanceForAlly = copyFrom.IgnoreSpellResistanceForAlly;
           bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
           bp.Hidden = copyFrom.Hidden;
           bp.NeedEquipWeapons = copyFrom.NeedEquipWeapons;
@@ -135,6 +136,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.CanTargetSelf = copyFrom.CanTargetSelf;
           bp.ShouldTurnToTarget = copyFrom.ShouldTurnToTarget;
           bp.SpellResistance = copyFrom.SpellResistance;
+          bp.IgnoreSpellResistanceForAlly = copyFrom.IgnoreSpellResistanceForAlly;
           bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
           bp.Hidden = copyFrom.Hidden;
           bp.NeedEquipWeapons = copyFrom.NeedEquipWeapons;
@@ -436,6 +438,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.SpellResistance = spellResistance;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.IgnoreSpellResistanceForAlly"/>
+    /// </summary>
+    public TBuilder SetIgnoreSpellResistanceForAlly(bool ignoreSpellResistanceForAlly = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IgnoreSpellResistanceForAlly = ignoreSpellResistanceForAlly;
         });
     }
 
@@ -1259,7 +1273,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -2786,7 +2800,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFog</term><description>dbf99b00cd35d0a4491c6cc9e771b487</description></item>
-    /// <item><term>HungryPit</term><description>f63f4d1806b78604a952b3958892ce1c</description></item>
+    /// <item><term>MephitWaterStinkingCloud</term><description>34283d686f5f5a847b4d0d6470b52a65</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -4077,8 +4091,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalChains</term><description>3b86de15c18e4b44bb7315fc6c116b4d</description></item>
-    /// <item><term>SacredVengenanceArrowsQuiverOnEnemyAbility</term><description>c8e0448336e865648a475cca88654b6c</description></item>
-    /// <item><term>WaterBlastBladeDamage</term><description>92724a6d6a6225d4895b41e35e973599</description></item>
+    /// <item><term>SpindleChargedWaterBlastAbility</term><description>680fe1162cff5294a8375f6eb32652ce</description></item>
+    /// <item><term>SpindleWaterBlastAbility</term><description>7021bbe4dca437440a41da4552dce28e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -4488,8 +4502,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>ExtendedRangeMagmaBlastAbility</term><description>77ed869ab8012df40b64a68ca5125960</description></item>
-    /// <item><term>WaterBlastAbility</term><description>e3f41966c2d662a4e9582a0497621c46</description></item>
+    /// <item><term>ExtendedRangeMetalBlastAbility</term><description>d88c351a3425ee64f80e2fb836a8acf7</description></item>
+    /// <item><term>WaterBlastBladeDamage</term><description>92724a6d6a6225d4895b41e35e973599</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -5181,7 +5195,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellknightCommandGreaterFlee</term><description>e79bc406d19f69447b9dae2efc6803ab</description></item>
+    /// <item><term>HellknightCommandGreaterFall</term><description>e720d9932f2f374429524c426d362942</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -5864,7 +5878,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>RemoveCurse 4</term><description>55b85c03103de184091a96eeaed4de25</description></item>
+    /// <item><term>RemoveCurse 3</term><description>668f4d1ff4dbfc442bd75f9b6f69e05e</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>

@@ -337,7 +337,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>3d7ba59b443f44e1b6a830cd0c3e9550</description></item>
-    /// <item><term>Answer_4</term><description>5fe7ff0859534f38a690709cff12c3d5</description></item>
+    /// <item><term>BanditLightMaceEnchantment</term><description>801f3c4448a9955428ee16bd32166370</description></item>
     /// <item><term>ThirdElementWater</term><description>86eff374d040404438ad97fedd7218bc</description></item>
     /// </list>
     /// </remarks>
@@ -413,7 +413,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>ExtendedRangeSteamBlastAbility</term><description>2f37688defd32d740be8bfc21b3b00fe</description></item>
+    /// <item><term>FireBlastBladeDamage</term><description>6e24958866ac8a9498fa6a7396d87270</description></item>
     /// <item><term>XO_Puzzle_2_complete</term><description>8288ad6ec196461f963d6160edbfaca4</description></item>
     /// </list>
     /// </remarks>
@@ -902,8 +902,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-449628</term><description>09824bfd5d984155a9b4f455db9ecf9b</description></item>
-    /// <item><term>PF-450866</term><description>0a4678e8504b4116b3a2f5be15c7d4d1</description></item>
     /// <item><term>PF-451380</term><description>a1300420a29a4695b657c545812930ae</description></item>
+    /// <item><term>PF-456830</term><description>1867835a7e34421ea43d294a63934bb5</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1135,7 +1135,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>Cue_0552</term><description>b94bc10e9ba905643a51d0a2fb8ff279</description></item>
+    /// <item><term>Cue_2</term><description>562499d73b674af092c21797c7c1a85a</description></item>
     /// <item><term>Timer_Before_KTC_MythicDemonRankUp2</term><description>5caab08042b37f641ad9ff9ad411c44e</description></item>
     /// </list>
     /// </remarks>

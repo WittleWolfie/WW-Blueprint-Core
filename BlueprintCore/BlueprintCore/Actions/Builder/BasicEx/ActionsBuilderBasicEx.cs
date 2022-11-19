@@ -22,6 +22,7 @@ using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Actions.Builder.BasicEx
@@ -42,7 +43,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[core++][Melazmera]_SpawnActions</term><description>9a3e4288325998c429b38b024fc710c7</description></item>
-    /// <item><term>Cue_17</term><description>b670839aac1b4ff085c665f874d3a952</description></item>
+    /// <item><term>Cue_17</term><description>c3c277fbe80748378a9f7f2db9802318</description></item>
     /// <item><term>Yozz_SpawnActions</term><description>fd9c741b62d849e8bf451cdf8ad9751d</description></item>
     /// </list>
     /// </remarks>
@@ -407,7 +408,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add2Pool_SpawnActions</term><description>28ded583139864e428a5646acf7d97d4</description></item>
-    /// <item><term>CommandAction9</term><description>6fde0d93e61244de949479e5f766c8ae</description></item>
+    /// <item><term>CommandAction8</term><description>c95966979def42e7bdd8c17570d63b12</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -769,7 +770,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0048_Merge</term><description>19f6bd3c47d39f040a523cdb591209fb</description></item>
-    /// <item><term>Cue_0008</term><description>3c7cb627b3874dd9b018b0e6cc1e76fb</description></item>
+    /// <item><term>Cue_0002</term><description>cccae5c1d9a34da8825e4a7982e1176c</description></item>
     /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
     /// </list>
     /// </remarks>
@@ -976,7 +977,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>CommandAction47</term><description>5a2e3eb7c6e64410bc5c2dc8623a442d</description></item>
+    /// <item><term>CommandAction47</term><description>d7400a0ffdad49a1895e8cf8287f1578</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1109,6 +1110,52 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
+    /// Adds <see cref="ForceFillSummonPools"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/HideMapObject
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-452112</term><description>cf6bee793763418a9c5078504c29a631</description></item>
+    /// <item><term>PF-454960</term><description>c47b5da4964e44daabbd69f4afb75952</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="summonPoolsUnits">
+    /// <para>
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ForceFillSummonPools(
+        this ActionsBuilder builder,
+        bool? isAliveOnly = null,
+        bool? isPreClear = null,
+        List<Blueprint<BlueprintSummonPoolReference>>? summonPoolsUnits = null)
+    {
+      var element = ElementTool.Create<ForceFillSummonPools>();
+      element.IsAliveOnly = isAliveOnly ?? element.IsAliveOnly;
+      element.IsPreClear = isPreClear ?? element.IsPreClear;
+      element.SummonPoolsUnits = summonPoolsUnits?.Select(bp => bp.Reference)?.ToList() ?? element.SummonPoolsUnits;
+      if (element.SummonPoolsUnits is null)
+      {
+        element.SummonPoolsUnits = new();
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ForceLevelup"/>
     /// </summary>
     ///
@@ -1121,12 +1168,17 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// </remarks>
     public static ActionsBuilder ForceLevelup(
         this ActionsBuilder builder,
-        ActionsHolder? actions = null,
+        ActionsBuilder? actions = null,
+        bool? ignoreDifficultySettings = null,
         UnitEvaluator? unit = null)
     {
       var element = ElementTool.Create<ForceLevelup>();
-      builder.Validate(actions);
-      element.Actions = actions ?? element.Actions;
+      element.Actions = actions?.Build() ?? element.Actions;
+      if (element.Actions is null)
+      {
+        element.Actions = Utils.Constants.Empty.Actions;
+      }
+      element.IgnoreDifficultySettings = ignoreDifficultySettings ?? element.IgnoreDifficultySettings;
       builder.Validate(unit);
       element.Unit = unit ?? element.Unit;
       return builder.Add(element);

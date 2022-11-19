@@ -15,6 +15,7 @@ using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
@@ -52,6 +53,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
           bp.DeactivateIfOwnerUnconscious = copyFrom.DeactivateIfOwnerUnconscious;
           bp.OnlyInCombat = copyFrom.OnlyInCombat;
           bp.DoNotTurnOffOnRest = copyFrom.DoNotTurnOffOnRest;
+          bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
+          bp.IsRuntimeOnly = copyFrom.IsRuntimeOnly;
+          bp.HiddenInUI = copyFrom.HiddenInUI;
           bp.ActivationType = copyFrom.ActivationType;
           bp.m_ActivateWithUnitCommand = copyFrom.m_ActivateWithUnitCommand;
           bp.m_ActivateOnUnitAction = copyFrom.m_ActivateOnUnitAction;
@@ -82,6 +86,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
           bp.DeactivateIfOwnerUnconscious = copyFrom.DeactivateIfOwnerUnconscious;
           bp.OnlyInCombat = copyFrom.OnlyInCombat;
           bp.DoNotTurnOffOnRest = copyFrom.DoNotTurnOffOnRest;
+          bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
+          bp.IsRuntimeOnly = copyFrom.IsRuntimeOnly;
+          bp.HiddenInUI = copyFrom.HiddenInUI;
           bp.ActivationType = copyFrom.ActivationType;
           bp.m_ActivateWithUnitCommand = copyFrom.m_ActivateWithUnitCommand;
           bp.m_ActivateOnUnitAction = copyFrom.m_ActivateOnUnitAction;
@@ -257,6 +264,54 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         bp =>
         {
           bp.DoNotTurnOffOnRest = doNotTurnOffOnRest;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.ActionBarAutoFillIgnored"/>
+    /// </summary>
+    public TBuilder SetActionBarAutoFillIgnored(bool actionBarAutoFillIgnored = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ActionBarAutoFillIgnored = actionBarAutoFillIgnored;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.IsRuntimeOnly"/>
+    /// </summary>
+    ///
+    /// <param name="isRuntimeOnly">
+    /// <para>
+    /// InfoBox: Disables drag and drop for the ability icon in the action bar
+    /// </para>
+    /// </param>
+    public TBuilder SetIsRuntimeOnly(bool isRuntimeOnly = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsRuntimeOnly = isRuntimeOnly;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintActivatableAbility.HiddenInUI"/>
+    /// </summary>
+    ///
+    /// <param name="hiddenInUI">
+    /// <para>
+    /// InfoBox: Hides the ability in action bar and character info
+    /// </para>
+    /// </param>
+    public TBuilder SetHiddenInUI(bool hiddenInUI = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.HiddenInUI = hiddenInUI;
         });
     }
 
@@ -635,6 +690,76 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     {
       var component = new ActivatableAbilityUnitCommand();
       component.Type = type ?? component.Type;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActivatableAbilityVariants"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cavalier_Charge_ToggleVariants</term><description>958d3be1ce234ce1ac86e439feb8080c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="variants">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddActivatableAbilityVariants(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        List<Blueprint<BlueprintActivatableAbilityReference>>? variants = null)
+    {
+      var component = new ActivatableAbilityVariants();
+      component.m_Variants = variants?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Variants;
+      if (component.m_Variants is null)
+      {
+        component.m_Variants = new BlueprintActivatableAbilityReference[0];
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActivationDisable"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Cavalier_Charge_ToggleVariants</term><description>958d3be1ce234ce1ac86e439feb8080c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddActivationDisable(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ActivationDisable();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

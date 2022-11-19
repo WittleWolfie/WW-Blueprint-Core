@@ -264,7 +264,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GraspOfDevotionEnchantment</term><description>b9e8e48e661c422b82bba4495184b7b0</description></item>
+    /// <item><term>GraspingFrostEnchantment</term><description>3e9a8fdd71ea0b64d8aeaa44b8b6ea3b</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -687,7 +687,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>PotionOfCureCriticalWounds</term><description>1f45a09f2e072ea4e8d52fadcd7e66f3</description></item>
     /// <item><term>ScrollOfCureCriticalWoundsMass</term><description>13bf4126b147cfe41b669fd2258f9ebd</description></item>
-    /// <item><term>ScrollOfHeal</term><description>fb822a8d451d91b438514541a9a986de</description></item>
+    /// <item><term>ScrollOfInflictSeriousWounds</term><description>47d41dd302a14d04faa7df70697d23ec</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddMarkUsableWhileCan(

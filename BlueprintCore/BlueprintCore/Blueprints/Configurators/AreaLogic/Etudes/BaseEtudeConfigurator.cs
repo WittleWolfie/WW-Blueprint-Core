@@ -1198,7 +1198,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp04_Option02</term><description>92ad61a3a5da2e14bad0923565816456</description></item>
+    /// <item><term>MythicAeon_RankUp04_Option03</term><description>8238eac513cd8a348a3c54b12fe363cb</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>

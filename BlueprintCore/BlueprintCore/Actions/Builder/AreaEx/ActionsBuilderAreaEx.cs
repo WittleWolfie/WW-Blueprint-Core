@@ -678,7 +678,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DragonFalseTreasures_Actions</term><description>dd1c93a0ce6e49a5b1fe496b99b5108f</description></item>
+    /// <item><term>DragonsCave</term><description>f55af784bd1d8344c8631b5bf5b45730</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -724,8 +724,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_SpellService</term><description>b51f4e2d99ff4c889a665b6a195596de</description></item>
-    /// <item><term>Nexus_DivineService</term><description>be1c434716bd35e4bba2c5631ca77ee3</description></item>
+    /// <item><term>DLC3_AlushinyrraPort_Citizens</term><description>15a9d4b5e6f348b8a87151f2b643ef81</description></item>
+    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
@@ -1110,7 +1110,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
-    /// <item><term>Desnits03a_Sleep</term><description>a5b4e591c5965074799c91d53f8eef47</description></item>
+    /// <item><term>DHLost_Mechanic</term><description>e5961409f47c4d0f9c19e7af184a8eb6</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>

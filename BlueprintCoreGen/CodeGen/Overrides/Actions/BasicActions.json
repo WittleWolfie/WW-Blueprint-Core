@@ -243,6 +243,8 @@
 
   { "TypeName": "FakePartyRest" },
 
+  { "TypeName": "ForceFillSummonPools" },
+
   { "TypeName": "ForceLevelup" },
 
   { "TypeName": "GainExp" },

@@ -1257,7 +1257,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GolemAdamantineDestructableSummon</term><description>8e0cf54771f8b7948af9553977716177</description></item>
+    /// <item><term>GibrilethSummon</term><description>cffe1c1aff5ca5c468b78ede814d6d78</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -2102,7 +2102,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>Melazmera</term><description>85c7a3fd80f93db43a3e588ba5f5f9bc</description></item>
+    /// <item><term>MountTestCharacter_DwarfMale</term><description>3f91112205256b647a299192601d6f26</description></item>
     /// <item><term>WillOWispYellowSummon_cr8</term><description>25a09e126dba4fcb90b3f95bbe61cd0d</description></item>
     /// </list>
     /// </remarks>
@@ -2303,7 +2303,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
-    /// <item><term>DLC3_CR11_AshGiantStandart</term><description>c497c8ba1e544baf905e72d7f068ef27</description></item>
+    /// <item><term>DLC3_CR11_BlackDragonAdult</term><description>cc4eb195647948e3947ecc0493f64425</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>

@@ -249,7 +249,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR27_GalluAdvanced</term><description>cab86cbebdac43cba2e4d9902388eb62</description></item>
+    /// <item><term>DLC3_CR26_Siabrae</term><description>e26f69d53f5b476ea69e3e3fec26b25d</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -826,7 +826,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC1_Soana</term><description>cfb0056ac90c48ad9ee415b9a2abb83b</description></item>
+    /// <item><term>DLC1_TailorlTrader</term><description>1295b0c8064e419294be6356c5f2a712</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -1938,7 +1938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HoldMonsterBuff_Cutscene</term><description>d77b4982cc0d8eb4f9210d1350199e91</description></item>
+    /// <item><term>HideousLaughterBuff</term><description>4b1f07a71a982824988d7f48cd49f3f8</description></item>
     /// <item><term>ZachariusFearAuraEffectBuff</term><description>384831c7bbbbe62469a9e3247545d73d</description></item>
     /// </list>
     /// </remarks>
@@ -2240,6 +2240,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="or">
+    /// <para>
+    /// InfoBox: &amp;apos;Or&amp;apos; used only for bypassed options!
+    /// </para>
+    /// </param>
     /// <param name="weaponType">
     /// <para>
     /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
@@ -2271,6 +2276,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? pool = null,
         DamageRealityType? reality = null,
         bool? usePool = null,
+        AttackTypeFlag? validWeaponAttackTypes = null,
+        AddDamageResistancePhysical.WeaponFactFilter? validWeaponFact = null,
         ContextValue? value = null,
         Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
@@ -2301,6 +2308,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       }
       component.Reality = reality ?? component.Reality;
       component.UsePool = usePool ?? component.UsePool;
+      component.ValidWeaponAttackTypes = validWeaponAttackTypes ?? component.ValidWeaponAttackTypes;
+      component.ValidWeaponFact = validWeaponFact ?? component.ValidWeaponFact;
       component.Value = value ?? component.Value;
       if (component.Value is null)
       {
@@ -4333,7 +4342,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GroetusFeature</term><description>c3e4d5681906d5246ab8b0637b98cbfe</description></item>
+    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -5029,7 +5038,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Archpriest_PossessionBuff_ShadowBalorEncounter</term><description>4fc454d17bbc41e7aac430dd570e61c6</description></item>
-    /// <item><term>CR4_Marauder_Thiefling_Melee_Male_Neutral_DLC2</term><description>23a36462fbd64041bdf02d75093ceb62</description></item>
+    /// <item><term>DLC3_MindControllModDebuff</term><description>326c3fe92f84408c85564f2418e39fa3</description></item>
     /// <item><term>WitchHexAnimalServantBuff</term><description>c976bf2495a8d854ca4593318de1664d</description></item>
     /// </list>
     /// </remarks>
@@ -10982,7 +10991,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloFeature</term><description>d3f14f00f675a6341a41d2194186835c</description></item>
-    /// <item><term>HermitRevelationReclusesStride10</term><description>825f82e6a7d36a1408bd48dd85942848</description></item>
+    /// <item><term>HermitRevelationFadeFromMemory14</term><description>7bb526fcbbc826048a2a65c1b60fa36d</description></item>
     /// <item><term>WitchWanderingHex</term><description>fb8490d1721bd5a4883c3b6559310351</description></item>
     /// </list>
     /// </remarks>
@@ -11295,7 +11304,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcerbicRingFeature</term><description>094b291d04fdde84b963b07400c0df80</description></item>
-    /// <item><term>EarthBlastFeature</term><description>7f5f82c1108b961459c9884a0fa0f5c4</description></item>
+    /// <item><term>DragonDiscipleFormFeatureWings</term><description>aa36f82ab9a046c4a853dccf0cdbaf53</description></item>
     /// <item><term>ZenArcherReflexiveShotFeature</term><description>e6a3ade07ee84144a90203f5699c07ef</description></item>
     /// </list>
     /// </remarks>
@@ -15542,12 +15551,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         ModifierDescriptor? modifierDescriptor = null,
+        bool? onlyOnce = null,
         bool? spellsOnly = null,
         ContextValue? value = null)
     {
       var component = new IncreaseSpellContextDescriptorDC();
       component.Descriptor = descriptor ?? component.Descriptor;
       component.ModifierDescriptor = modifierDescriptor ?? component.ModifierDescriptor;
+      component.OnlyOnce = onlyOnce ?? component.OnlyOnce;
       component.SpellsOnly = spellsOnly ?? component.SpellsOnly;
       component.Value = value ?? component.Value;
       if (component.Value is null)
@@ -15644,17 +15655,24 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="spellsOnly">
+    /// <para>
+    /// InfoBox: Turn on to increase caster level only for spells from spellbook
+    /// </para>
+    /// </param>
     public TBuilder AddIncreaseSpellDescriptorCasterLevel(
         int? bonusCasterLevel = null,
         SpellDescriptorWrapper? descriptor = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        ModifierDescriptor? modifierDescriptor = null)
+        ModifierDescriptor? modifierDescriptor = null,
+        bool? spellsOnly = null)
     {
       var component = new IncreaseSpellDescriptorCasterLevel();
       component.BonusCasterLevel = bonusCasterLevel ?? component.BonusCasterLevel;
       component.Descriptor = descriptor ?? component.Descriptor;
       component.ModifierDescriptor = modifierDescriptor ?? component.ModifierDescriptor;
+      component.SpellsOnly = spellsOnly ?? component.SpellsOnly;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -16245,7 +16263,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HawksEyesFeature</term><description>b8a670ba3d1346345bb8ad118ba8f1c3</description></item>
+    /// <item><term>IntenseSpellsPenetration</term><description>f50f2336ee59d004c8a37f9c8665bb98</description></item>
     /// <item><term>WitchHexProtectiveLuckEffectBuff</term><description>ffa995f03d87a214ab9de1dd898497ca</description></item>
     /// </list>
     /// </remarks>
@@ -18664,11 +18682,18 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <item><term>KnightOfTheWallSoulShield</term><description>896040a4ae977124bb68ddeca398fcac</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="maxBonus">
+    /// <para>
+    /// InfoBox: When MaxBonus == 0 value will not be limited
+    /// </para>
+    /// </param>
     public TBuilder AddTransferDescriptorBonusToSavingThrow(
         ArmorProficiencyGroup? category = null,
         bool? checkArmorCategory = null,
         ModifierDescriptor? descriptor = null,
         int? maxBonus = null,
+        bool? onlyBaseValue = null,
         SavingThrowType? type = null)
     {
       var component = new TransferDescriptorBonusToSavingThrow();
@@ -18676,6 +18701,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       component.CheckArmorCategory = checkArmorCategory ?? component.CheckArmorCategory;
       component.Descriptor = descriptor ?? component.Descriptor;
       component.MaxBonus = maxBonus ?? component.MaxBonus;
+      component.OnlyBaseValue = onlyBaseValue ?? component.OnlyBaseValue;
       component.Type = type ?? component.Type;
       return AddComponent(component);
     }
@@ -18860,7 +18886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalAspectGreaterMonkeyBuff</term><description>6bf59a6fca16f6d4887e3544e5c2f689</description></item>
-    /// <item><term>ElementalOverflowBuff 3</term><description>ce1c529679744a54f840d4408d21e0b4</description></item>
+    /// <item><term>ElementalOverflowBuff 4</term><description>eea9c3a8e8b169b4a83a75613e350b56</description></item>
     /// <item><term>ThrowAnything</term><description>65c538dcfd91930489ad3ab18ad9204b</description></item>
     /// </list>
     /// </remarks>
@@ -19494,7 +19520,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BaphometPreacherBookFeature</term><description>6be2815963114cc0ac2b85a287d7ae83</description></item>
-    /// <item><term>WeaponSpecializationGreaterScimitar</term><description>890c468f9fba6ca4dbcb86a5d0cf4c86</description></item>
+    /// <item><term>WeaponSpecializationGreaterRay</term><description>c22badbb1101ebb46af588f7c166bbb2</description></item>
     /// <item><term>WeaponSpecializationUnarmed</term><description>74028e94b236a9c4ca9ba67e57299547</description></item>
     /// </list>
     /// </remarks>
@@ -20168,7 +20194,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CursedThornArrowsQuiverOnEnemyBuff</term><description>307f462d5aa3766409a0b6aaff24e83c</description></item>
-    /// <item><term>DLC3_VeryHotIslandMediumArmorBuffFeature</term><description>9ff678df97794d8c8b1c76907231caba</description></item>
+    /// <item><term>DLC3_VeryHotIslandMediumArmorBuff</term><description>c14aad21265a4b309d2b1d2754285863</description></item>
     /// <item><term>RevoltAttackBuff</term><description>ad48caada2fd3b14eae09fcb62cf07c5</description></item>
     /// </list>
     /// </remarks>
@@ -20433,7 +20459,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonNormalizeSizeGazeEnemyGargantuaBuff</term><description>39ce7de50e1e43439a205cfef8059f5e</description></item>
-    /// <item><term>DLC3_LegendaryProportionsBuff</term><description>51afcb44344a45569fec113ce99916dd</description></item>
+    /// <item><term>DLC3_CR0.5_GiantSpiderYoung</term><description>e53018df0d02460abb0b81ce9cd485ea</description></item>
     /// <item><term>TricksterMicroscopicProportionsBuff</term><description>1dfc2f933e7833f41922411962e1d58a</description></item>
     /// </list>
     /// </remarks>
