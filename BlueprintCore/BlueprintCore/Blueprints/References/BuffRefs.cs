@@ -1200,6 +1200,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CauldronWitchMixtureAbilityStrengthBuff = "04aee691ba089674d888c054f1dd63fe";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CauldronWitchMixtureAbilityWisdomBuff = "08cc6b3581c4e1647b9964feb37313d5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CausticEruptionBuff = "02a4d7303f0eeee408d7c7e5908ba339";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Cavalier_Charge_ToggleBullrushBuff = "332bbac770f54b6494ab488ae98a1715";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Cavalier_Charge_ToggleTripBuff = "cffc45504fae48749f92ad39ba2b737d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierBannerAreaBuff = "a84046efed9a4ec439abcca3cf3ed510";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierBannerBuff = "4d3b79e464282af4897c1d860bf9e9b3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierBannerGreaterBuff = "2f4f532386870824d8f586ae18666f11";
@@ -2388,6 +2390,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfFlowersBuffAsleep = "9c7109caf7794d843bd4e14d6e1e21df";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfFlowersBuffDistracted = "cfe72018943bcd446803fc8a825bb391";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfFlowersBuffImmunity = "2edcd52dc77e89145b2817d23606c1b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfFlowersBuffStaggered = "372db369ba214b60b3451f909f28e303";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfTreantsBuff = "7ede3d71b289a4247bb8be98b8006fe7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfTreantsEffectBuff = "dc25c809560616740a89391bf8f20f5f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishMaw1d6Buff = "6f005e04ff8199f4c946ae74c1c1f8b0";
@@ -6591,6 +6594,8 @@ namespace BlueprintCore.Blueprints.References
           CauldronWitchMixtureAbilityStrengthBuff,
           CauldronWitchMixtureAbilityWisdomBuff,
           CausticEruptionBuff,
+          Cavalier_Charge_ToggleBullrushBuff,
+          Cavalier_Charge_ToggleTripBuff,
           CavalierBannerAreaBuff,
           CavalierBannerBuff,
           CavalierBannerGreaterBuff,
@@ -7779,6 +7784,7 @@ namespace BlueprintCore.Blueprints.References
           FieldOfFlowersBuffAsleep,
           FieldOfFlowersBuffDistracted,
           FieldOfFlowersBuffImmunity,
+          FieldOfFlowersBuffStaggered,
           FieldOfTreantsBuff,
           FieldOfTreantsEffectBuff,
           FiendishMaw1d6Buff,

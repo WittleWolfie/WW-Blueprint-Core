@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GoodRestInBrothelBuff", "56da6328d76224e4a9f6e3edecac199e"),
+            new Blueprint("GoodHopeBuff", "85af9f0c5d29e5e4fa2e75ca70442487"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -115,7 +115,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidFogArea", "f4dc3f53090627945b83f16ebf3146a6"),
-            new Blueprint("IncenseFogArea", "4aeb5ae7923dac74d91069f13a7f0a95"),
+            new Blueprint("InciteRageAllArea", "d63dce0f272ba2d4aa13000470398d63"),
             new Blueprint("ZoneOfPredeterminationArea", "1ff4dfed4f7eb504fa0447e93d1bcf64"),
           }
         },
@@ -125,7 +125,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("154654654654", "aa49f649d92747e2a632476a8369b18d"),
-            new Blueprint("GreaterFireElementalBurnFeature", "5129567223dcbc248a4143226ba037f4"),
+            new Blueprint("GreaterFocusedRageFeature", "ce0943a4687f4967966cd4354f12019c"),
             new Blueprint("ZonKuthonSacredWeaponFeature", "5c73ec301e1e3094ebb031bda43e6481"),
           }
         },
@@ -155,7 +155,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarHaloToggleAbility", "248bbb747c273684d9fdf2ed38935def"),
-            new Blueprint("KineticBladeChargeWaterBlastAbility", "371b160cbb2ce9c4a8d6c28e61393f6d"),
+            new Blueprint("KineticBladeBlueFlameBlastAbility", "4005fc2cd91860142ba55a369fbbec23"),
             new Blueprint("WitheringLifePhysicalToggleAbility", "a294368129a7424488a797137ceb8f45"),
           }
         },
@@ -1287,7 +1287,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1Wave_FirstCleric", "38be8d6ddc3d450db71ae17ae895afa3"),
-            new Blueprint("FornGetsUp", "5df2c0be1028c344491aed7a1868578f"),
+            new Blueprint("ForestQuestFirstDIalog_flag", "b923477c9a9dd3f4ba2b2d98eb6ae3af"),
             new Blueprint("ZombieRoomEnter2", "61f52bd1057441adbf7ce9901f535e3e"),
           }
         },
@@ -1447,7 +1447,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aeon_AreeluLabHouseInThePast", "5d975faa81f871c4da6d96485721dd7c"),
-            new Blueprint("DLC3_ToxicPrison_4", "1e7441536df34762b260cc477997cad2"),
+            new Blueprint("DLC3_ToxicPrison_3", "b3bd89f710b14cf89cabd85b0d3a95a9"),
             new Blueprint("Ziggurat", "e8f1160e960935344a8aa7466484506d"),
           }
         },
@@ -2169,7 +2169,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("02_ScoutsDead_objZone", "3ffadf67fe817d444b1cb9c6cff78744"),
-            new Blueprint("Irabeth_FirstMeeting", "261740dc3750abe42a82421804fb957b"),
+            new Blueprint("Irabeth_FirstAttack", "7f744b26db329304a94c6d0d3dac2f39"),
             new Blueprint("Zone3_Epigraph_SZ", "fde009ee2ae62024baaac478de277b28"),
           }
         },
@@ -2417,7 +2417,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1stFight_Final", "8ef514ae57a6c704ba2e125a4e0f78ad"),
-            new Blueprint("Horgus_GoesBack", "aa44f93e23a0e4e4e9cedbeabf88234d"),
+            new Blueprint("Horgus_Comes", "761e97240b3e7a34b81a1921b33bf498"),
             new Blueprint("Zone3_Epigraph", "00f1dceaedf422e41f2d9cd0d9c6e571"),
           }
         },

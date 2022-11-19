@@ -2075,6 +2075,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CauldronWitchExtendPotion = "11aa7cda680b8c74896506dc5e9d7241";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CauldronWitchMixtureFeature = "7df78fc79e1ecff40b601512e3dd2976";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CautiousFighter = "4a6fbe77a4a2ce24db0cd0b1e4d93db1";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Cavalier_Charge_ToggleFeature = "f2a70b347525419296133b0d7ef7dbb1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CavalierAnimalCompanion = "711590e681a04f34a60544ed5c6af379";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CavalierBanner = "2d957edad0adb3d49991cfcd3ac4cbf8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CavalierBannerGreater = "457a2fcd5c27c504caeb6a61e6060702";
@@ -3910,6 +3911,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreatFortitudeImproved = "f5db1cc7ad48d794f85252fa4a64157b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreatFortitudeMythicFeat = "8bc4dbea992b6bd489ac5b66fd41e380";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreatswordProficiency = "f35e15b1fdff0c54087746c2da80a053";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenFaithCameliaFeature = "ca763809e01f4247a3639965364c26cb";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenFaithFeature = "99a7a8f13c1300c42878558fa9471e2f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenFaithSacredWeaponFeature = "b7ae105c0f0e4c35baccd10b55bd2fe7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GreenragerFuriousSummoning = "eabdfba5d63bf164aa7f847eff8ca1af";
@@ -5150,6 +5152,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NabasuSpellResistanceFeature = "371730b46c32ea441b8a2eac57e223b3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NahCollarFeature = "48d6cf10a24c43c0bc0fb15a87faf18b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NahRingFeature = "847729dbb1f27044e900e93bcda1a04e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Nahyndri_Feature_Prebuff = "405f83470a554741a30436f2fbe0c984";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NahyndrianDarkness_Featire_Immunities = "306781cb798b40048c2c13405ae7e54c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NahyndrianDarkness_Feature_CombatPrebuff = "727ca1017d054d6fb542cbe0e743ddc4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> NahyndrianDarkness_Feature_CombatTrigger = "5116a64c5548429fb3de82809f7bf116";
@@ -9822,6 +9825,7 @@ namespace BlueprintCore.Blueprints.References
           CauldronWitchExtendPotion,
           CauldronWitchMixtureFeature,
           CautiousFighter,
+          Cavalier_Charge_ToggleFeature,
           CavalierAnimalCompanion,
           CavalierBanner,
           CavalierBannerGreater,
@@ -11657,6 +11661,7 @@ namespace BlueprintCore.Blueprints.References
           GreatFortitudeImproved,
           GreatFortitudeMythicFeat,
           GreatswordProficiency,
+          GreenFaithCameliaFeature,
           GreenFaithFeature,
           GreenFaithSacredWeaponFeature,
           GreenragerFuriousSummoning,
@@ -12897,6 +12902,7 @@ namespace BlueprintCore.Blueprints.References
           NabasuSpellResistanceFeature,
           NahCollarFeature,
           NahRingFeature,
+          Nahyndri_Feature_Prebuff,
           NahyndrianDarkness_Featire_Immunities,
           NahyndrianDarkness_Feature_CombatPrebuff,
           NahyndrianDarkness_Feature_CombatTrigger,

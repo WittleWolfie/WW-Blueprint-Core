@@ -374,6 +374,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RatSwarmDamageArea = "7dcabca455afd9a44bb008330180f5c8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RavenSwarmDamageArea = "5ca91a30fe86a2349838bd5be321d638";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RealmProtectorArea = "0e5102ce4d899284181302e3757f9705";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RedDragonFireAuraEffect = "195fe6f1bc014a18995cf181df0ba3a0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RepellingBracersAreaEffect = "073005a9a72c433c83e4cd8d7869d5a8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ReposeDomainGreaterAura = "7269a28475a91d84486749bf47443c72";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RepulsiveNatureArea = "e2182d05755d9a54fa4967a5f6b3ecdf";
@@ -865,6 +866,7 @@ namespace BlueprintCore.Blueprints.References
           RatSwarmDamageArea,
           RavenSwarmDamageArea,
           RealmProtectorArea,
+          RedDragonFireAuraEffect,
           RepellingBracersAreaEffect,
           ReposeDomainGreaterAura,
           RepulsiveNatureArea,

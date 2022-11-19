@@ -206,6 +206,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> CarnivorousCrystal_Ability_SubsonicHum = "90199f8ca2352d949b83d16a00fd8d37";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Cat_Ability = "23f2e05546c86e14e9600df82c505325";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> CatFamiliarAbility = "39f45f50742fe8a4aa6b295d036e4c28";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Cavalier_Charge_ToggleBullrush = "f40883b0b70140b590a83de1f39de956";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Cavalier_Charge_ToggleTrip = "95bf5a18b4ff46faac9fb22167f0de16";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Cavalier_Charge_ToggleVariants = "958d3be1ce234ce1ac86e439feb8080c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> CentipedeFamiliarAbility = "5d10f11da3db0a142a4b8e9e9a260cfe";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChangeShapeKitsuneToggleAbility = "4252c9d9a25549146b8683c5ea45e14e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChangeShapeKitsuneToggleAbility_Nenio = "52bed4c5617625e4faf029b5c750667f";
@@ -941,6 +944,9 @@ namespace BlueprintCore.Blueprints.References
           CarnivorousCrystal_Ability_SubsonicHum,
           Cat_Ability,
           CatFamiliarAbility,
+          Cavalier_Charge_ToggleBullrush,
+          Cavalier_Charge_ToggleTrip,
+          Cavalier_Charge_ToggleVariants,
           CentipedeFamiliarAbility,
           ChangeShapeKitsuneToggleAbility,
           ChangeShapeKitsuneToggleAbility_Nenio,
