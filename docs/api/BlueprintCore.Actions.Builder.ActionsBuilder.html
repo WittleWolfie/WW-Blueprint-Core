@@ -146,7 +146,7 @@ ActionsBuilder.New()
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_Add_Kingmaker_ElementsSystem_GameAction_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.Add(Kingmaker.ElementsSystem.GameAction)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L159">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L193">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ActionsBuilder_Add_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Add*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_Add_Kingmaker_ElementsSystem_GameAction_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Add(Kingmaker.ElementsSystem.GameAction)">Add(GameAction)</h4>
@@ -198,7 +198,7 @@ builder.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_Add__1_System_Action___0__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.Add%60%601(System.Action%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L171">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L205">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ActionsBuilder_Add_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Add*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_Add__1_System_Action___0__" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Add``1(System.Action{``0})">Add&lt;A&gt;(Action&lt;A&gt;)</h4>
@@ -263,10 +263,120 @@ builder.</p>
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_Kingmaker_ElementsSystem_ActionList_System_Func_Kingmaker_ElementsSystem_GameAction_System_Boolean__.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.AddAll(Kingmaker.ElementsSystem.ActionList%2CSystem.Func%7BKingmaker.ElementsSystem.GameAction%2CSystem.Boolean%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L176">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.AddAll*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_Kingmaker_ElementsSystem_ActionList_System_Func_Kingmaker_ElementsSystem_GameAction_System_Boolean__" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.AddAll(Kingmaker.ElementsSystem.ActionList,System.Func{Kingmaker.ElementsSystem.GameAction,System.Boolean})">AddAll(ActionList, Func&lt;GameAction, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"><p>Adds all actions from <code data-dev-comment-type="paramref" class="paramref">actionList</code>. This is a shallow copy so changes to those actions affect
+the original list as well.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionsBuilder AddAll(ActionList actionList, Func&lt;GameAction, bool&gt; matcher)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ActionList</span></td>
+        <td><span class="parametername">actionList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<span class="xref">Kingmaker.ElementsSystem.GameAction</span>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">matcher</span></td>
+        <td><p>Only actions matching this function are added</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_Kingmaker_ElementsSystem_ActionList_System_Type___.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.AddAll(Kingmaker.ElementsSystem.ActionList%2CSystem.Type%5B%5D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L159">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.AddAll*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_AddAll_Kingmaker_ElementsSystem_ActionList_System_Type___" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.AddAll(Kingmaker.ElementsSystem.ActionList,System.Type[])">AddAll(ActionList, Type[])</h4>
+  <div class="markdown level1 summary"><p>Adds all actions from <code data-dev-comment-type="paramref" class="paramref">actionList</code>. This is a shallow copy so changes to those actions affect
+the original list as well.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ActionsBuilder AddAll(ActionList actionList, params Type[] typesToExclude)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ActionList</span></td>
+        <td><span class="parametername">actionList</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Type</span>[]</td>
+        <td><span class="parametername">typesToExclude</span></td>
+        <td><p>Types of actions which will not be added</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.Build(BlueprintCore.Utils.Validator)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L134">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L135">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ActionsBuilder_Build_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Build*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_Build_BlueprintCore_Utils_Validator_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Build(BlueprintCore.Utils.Validator)">Build(Validator)</h4>
@@ -317,7 +427,7 @@ not call twice on the same builder.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_Conditional_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.Conditional(BlueprintCore.Conditions.Builder.ConditionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder%2CBlueprintCore.Actions.Builder.ActionsBuilder)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L182">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L216">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ActionsBuilder_Conditional_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Conditional*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_Conditional_BlueprintCore_Conditions_Builder_ConditionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.Conditional(BlueprintCore.Conditions.Builder.ConditionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder,BlueprintCore.Actions.Builder.ActionsBuilder)">Conditional(ConditionsBuilder, ActionsBuilder, ActionsBuilder)</h4>
@@ -375,7 +485,7 @@ not call twice on the same builder.</p>
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_New.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.New%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L123">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L124">View Source</a>
   </span>
   <a id="BlueprintCore_Actions_Builder_ActionsBuilder_New_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.New*"></a>
   <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_New" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.New">New()</h4>
@@ -398,6 +508,55 @@ not call twice on the same builder.</p>
         <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
         <td><p>A new <a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder_op_Implicit_Kingmaker_ElementsSystem_ActionList__BlueprintCore_Actions_Builder_ActionsBuilder.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder.op_Implicit(Kingmaker.ElementsSystem.ActionList)~BlueprintCore.Actions.Builder.ActionsBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L258">View Source</a>
+  </span>
+  <a id="BlueprintCore_Actions_Builder_ActionsBuilder_op_Implicit_" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.op_Implicit*"></a>
+  <h4 id="BlueprintCore_Actions_Builder_ActionsBuilder_op_Implicit_Kingmaker_ElementsSystem_ActionList__BlueprintCore_Actions_Builder_ActionsBuilder" data-uid="BlueprintCore.Actions.Builder.ActionsBuilder.op_Implicit(Kingmaker.ElementsSystem.ActionList)~BlueprintCore.Actions.Builder.ActionsBuilder">Implicit(ActionList to ActionsBuilder)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ActionsBuilder(ActionList actionList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Kingmaker.ElementsSystem.ActionList</span></td>
+        <td><span class="parametername">actionList</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="BlueprintCore.Actions.Builder.ActionsBuilder.html">ActionsBuilder</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -706,7 +865,10 @@ not call twice on the same builder.</p>
       <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_FakePartyRest_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Nullable_System_Boolean__">ActionsBuilderBasicEx.FakePartyRest(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_ForceLevelup_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_ActionsHolder_Kingmaker_ElementsSystem_UnitEvaluator_">ActionsBuilderBasicEx.ForceLevelup(ActionsBuilder, ActionsHolder, UnitEvaluator)</a>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_ForceFillSummonPools_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintSummonPoolReference___">ActionsBuilderBasicEx.ForceFillSummonPools(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, List&lt;Blueprint&lt;BlueprintSummonPoolReference&gt;&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_ForceLevelup_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__Kingmaker_ElementsSystem_UnitEvaluator_">ActionsBuilderBasicEx.ForceLevelup(ActionsBuilder, ActionsBuilder, Nullable&lt;Boolean&gt;, UnitEvaluator)</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.BasicEx.ActionsBuilderBasicEx.html#BlueprintCore_Actions_Builder_BasicEx_ActionsBuilderBasicEx_GainExp_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_IntEvaluator_System_Nullable_System_Int32__BlueprintCore_Utils_LocalString_System_Nullable_System_Boolean__System_Nullable_Kingmaker_Blueprints_Classes_Experience_EncounterType__System_Nullable_System_Boolean__System_Nullable_System_Single__System_Nullable_System_Boolean__">ActionsBuilderBasicEx.GainExp(ActionsBuilder, IntEvaluator, Nullable&lt;Int32&gt;, LocalString, Nullable&lt;Boolean&gt;, Nullable&lt;EncounterType&gt;, Nullable&lt;Boolean&gt;, Nullable&lt;Single&gt;, Nullable&lt;Boolean&gt;)</a>
@@ -1471,6 +1633,9 @@ not call twice on the same builder.</p>
       <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_ResetUnitName_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_ElementsSystem_UnitEvaluator_">ActionsBuilderStoryEx.ResetUnitName(ActionsBuilder, UnitEvaluator)</a>
   </div>
   <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_ClearQuestsOnAutoKingdom_BlueprintCore_Actions_Builder_ActionsBuilder_">ActionsBuilderStoryEx.ClearQuestsOnAutoKingdom(ActionsBuilder)</a>
+  </div>
+  <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_DismissAllCompanions_BlueprintCore_Actions_Builder_ActionsBuilder_">ActionsBuilderStoryEx.DismissAllCompanions(ActionsBuilder)</a>
   </div>
   <div>
@@ -1520,6 +1685,9 @@ not call twice on the same builder.</p>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_PartyMembersSwapAttachedAndDetached_BlueprintCore_Actions_Builder_ActionsBuilder_">ActionsBuilderStoryEx.PartyMembersSwapAttachedAndDetached(ActionsBuilder)</a>
+  </div>
+  <div>
+      <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_RemoveQuest_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintQuestReference__">ActionsBuilderStoryEx.RemoveQuest(ActionsBuilder, Blueprint&lt;BlueprintQuestReference&gt;)</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.StoryEx.ActionsBuilderStoryEx.html#BlueprintCore_Actions_Builder_StoryEx_ActionsBuilderStoryEx_Recruit_BlueprintCore_Actions_Builder_ActionsBuilder_System_Nullable_System_Boolean__System_Nullable_System_Boolean__BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Designers_EventConditionActionSystem_Actions_Recruit_RecruitData___">ActionsBuilderStoryEx.Recruit(ActionsBuilder, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, ActionsBuilder, ActionsBuilder, Recruit.RecruitData[])</a>
@@ -1639,7 +1807,7 @@ not call twice on the same builder.</p>
       <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_ReenterScriptzone_BlueprintCore_Actions_Builder_ActionsBuilder_Kingmaker_Blueprints_EntityReference_">ActionsBuilderUpgraderEx.ReenterScriptzone(ActionsBuilder, EntityReference)</a>
   </div>
   <div>
-      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Nullable_System_Boolean__">ActionsBuilderUpgraderEx.RemoveFact(ActionsBuilder, Blueprint&lt;BlueprintUnitFactReference&gt;, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt;, Nullable&lt;Boolean&gt;)</a>
+      <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveFact_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference__System_Collections_Generic_List_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitFactReference___System_Nullable_System_Boolean__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintUnitReference__">ActionsBuilderUpgraderEx.RemoveFact(ActionsBuilder, Blueprint&lt;BlueprintUnitFactReference&gt;, List&lt;Blueprint&lt;BlueprintUnitFactReference&gt;&gt;, Nullable&lt;Boolean&gt;, Blueprint&lt;BlueprintUnitReference&gt;)</a>
   </div>
   <div>
       <a class="xref" href="BlueprintCore.Actions.Builder.UpgraderEx.ActionsBuilderUpgraderEx.html#BlueprintCore_Actions_Builder_UpgraderEx_ActionsBuilderUpgraderEx_RemoveFeatureFromProgression_BlueprintCore_Actions_Builder_ActionsBuilder_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__System_Int32_BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintProgressionReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintArchetypeReference__BlueprintCore_Utils_Blueprint_Kingmaker_Blueprints_BlueprintFeatureReference__">ActionsBuilderUpgraderEx.RemoveFeatureFromProgression(ActionsBuilder, Blueprint&lt;BlueprintFeatureReference&gt;, Int32, Blueprint&lt;BlueprintProgressionReference&gt;, Blueprint&lt;BlueprintArchetypeReference&gt;, Blueprint&lt;BlueprintFeatureReference&gt;)</a>
@@ -1724,7 +1892,7 @@ not call twice on the same builder.</p>
                     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Actions_Builder_ActionsBuilder.md&amp;value=---%0Auid%3A%20BlueprintCore.Actions.Builder.ActionsBuilder%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L113" class="contribution-link">View Source</a>
+                    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Actions/Builder/ActionsBuilder.cs/#L114" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>
