@@ -530,8 +530,12 @@
       {
         "MethodName": "DealDamagePreRolled",
         "RequiredFields": [ "DamageType" ],
-        "IgnoredFields": [ "IsAoE", "Drain", "Value", "Duration", "AbilityType", "EnergyDrainType" ],
+        "IgnoredFields": [ "IsAoE", "Drain", "Duration", "AbilityType", "EnergyDrainType" ],
         "ConstantFields": [
+          {
+            "FieldName": "Value",
+            "Value": "Constants.Empty.DiceValue"
+          },
           {
             "FieldName": "m_Type",
             "Value": "ContextActionDealDamage.Type.Damage"

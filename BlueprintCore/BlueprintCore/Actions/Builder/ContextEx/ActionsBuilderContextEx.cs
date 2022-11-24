@@ -1163,6 +1163,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.UseWeaponDamageModifiers = useWeaponDamageModifiers ?? element.UseWeaponDamageModifiers;
       element.WriteRawResultToSharedValue = writeRawResultToSharedValue ?? element.WriteRawResultToSharedValue;
       element.m_Type = ContextActionDealDamage.Type.Damage;
+      element.Value = Constants.Empty.DiceValue;
       return builder.Add(element);
     }
 

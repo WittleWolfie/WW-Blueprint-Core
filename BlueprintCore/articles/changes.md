@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.6.2 Release
+
+* Fixes NPE with DealDamagePreRolled action
+
 ## v2.6.1 Release
 
 * Updated to latest game patch (2.0.4k)
