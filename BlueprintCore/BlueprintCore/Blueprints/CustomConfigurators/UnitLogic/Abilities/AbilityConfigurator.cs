@@ -10,9 +10,11 @@ using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -96,6 +98,21 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     WindSpirit,
     Witch,
     Wizard,
+  }
+
+  /// <summary>
+  /// Maps to standard values for LocalizedDuration. Set with <see cref="AbilityConfigurator.SetLocalizedDuration(Duration)"/>.
+  /// </summary>
+  public enum Duration
+  {
+    OneRound,
+    OneMinute,
+    TenMinutes,
+    TwentyFourHours,
+    RoundPerLevel,
+    MinutePerLevel,
+    TenMinutesPerLevel,
+    HourPerLevel
   }
 
   /// <summary>
@@ -254,6 +271,28 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
       if (addSpellListComponent)
         AddSpellListComponent(spellLevel: level, spellList: spellList);
       OnConfigureInternal(bp => AddToSpellList(bp, level, spellList.ToString()));
+      return Self;
+    }
+
+    /// <summary>
+    /// Use this if you have an ability with standard duration text. If you need something custom use
+    /// <see cref="BaseAbilityConfigurator{T, TBuilder}.SetLocalizedDuration(LocalString)"/>.
+    /// </summary>
+    public AbilityConfigurator SetLocalizedDuration(Duration duration)
+    {
+      var durationText = duration switch
+      {
+        Duration.OneRound => AbilityRefs.Daze.Reference.Get().LocalizedDuration,
+        Duration.OneMinute => AbilityRefs.DivineFavor.Reference.Get().LocalizedDuration,
+        Duration.TenMinutes => AbilityRefs.RemoveFear.Reference.Get().LocalizedDuration,
+        Duration.TwentyFourHours => AbilityRefs.MindBlank.Reference.Get().LocalizedDuration,
+        Duration.MinutePerLevel => AbilityRefs.Bless.Reference.Get().LocalizedDuration,
+        Duration.RoundPerLevel => AbilityRefs.Haste.Reference.Get().LocalizedDuration,
+        Duration.TenMinutesPerLevel => AbilityRefs.Barkskin.Reference.Get().LocalizedDuration,
+        Duration.HourPerLevel => AbilityRefs.MageArmor.Reference.Get().LocalizedDuration,
+        _ => throw new NotImplementedException($"Unrecognized duration: {duration}")
+      };
+      OnConfigureInternal(bp => bp.LocalizedDuration = durationText);
       return Self;
     }
 

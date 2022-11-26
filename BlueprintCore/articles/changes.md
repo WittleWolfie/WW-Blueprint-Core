@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.6.3 Release
+
+* Added `SetLocalizedDuration` utility to `AbilityConfigurator` for easy reference of standard duration strings
+
 ## v2.6.2 Release
 
 * Fixes NPE with DealDamagePreRolled action
