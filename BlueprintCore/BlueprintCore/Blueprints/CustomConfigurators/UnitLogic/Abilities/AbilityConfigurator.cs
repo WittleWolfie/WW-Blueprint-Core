@@ -487,6 +487,11 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
     private static void AddToSpellList(
       BlueprintAbility spell, int level, Blueprint<BlueprintReference<BlueprintSpellList>> spellList)
     {
+      if (!BlueprintTool.TryGet<BlueprintSpellList>(spellList.ToString(), out _))
+      {
+        Logger.Verbose($"Requested spell list does not exist: {spellList}");
+        return;
+      }
       SpellListConfigurator.For(spellList)
         .ModifySpellsByLevel(list => AddToSpellList(spell, level, list))
         .Configure();

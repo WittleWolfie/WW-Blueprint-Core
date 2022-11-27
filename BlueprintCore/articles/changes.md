@@ -3,6 +3,8 @@
 ## v2.6.3 Release
 
 * Added `SetLocalizedDuration` utility to `AbilityConfigurator` for easy reference of standard duration strings
+* Adding a spell to a mod spell list will no longer cause an NPE if the mod is not present
+    * An error is still logged in BPCore using the Verbose channel
 
 ## v2.6.2 Release
 
