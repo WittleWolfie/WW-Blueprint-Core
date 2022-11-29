@@ -79,7 +79,7 @@ namespace BlueprintCore.Utils
 
       if (obj is IValidated validated)
       {
-        validated.Validate(Context, /* parentIndex= */ 0);
+        validated.Validate(Context, Context.CurrentIndex);
       }
 
       AttributeValidator.Check(obj, Context);
