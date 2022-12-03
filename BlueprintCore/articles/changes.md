@@ -1,7 +1,9 @@
 ﻿# Changelog
 
-## v2.6.3 Release
+## v2.7.0 Release
 
+* New `AssetExtensions` class for Unity extension methods (stolen shamelessly from Bubbles)
+    * Includes new class `SnapToTransformWithRotation` and accompanying extensions, `AnchorTo()` and `AnchorToUnit()` for anchoring Unity objects to follow other objects
 * Added `SetLocalizedDuration` utility to `AbilityConfigurator` for easy reference of standard duration strings
 * Adding a spell to a mod spell list will no longer cause an NPE if the mod is not present
     * An error is still logged in BPCore using the Verbose channel
