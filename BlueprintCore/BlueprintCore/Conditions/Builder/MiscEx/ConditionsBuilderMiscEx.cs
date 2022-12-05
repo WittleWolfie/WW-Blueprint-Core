@@ -164,46 +164,6 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
-    /// Adds <see cref="IsDlcActive"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>Cue_3</term><description>fd59cd739561481bae00977016d85c67</description></item>
-    /// <item><term>Cue_4</term><description>d0421fc2ad1646debb25b9de5e452280</description></item>
-    /// </list>
-    /// </remarks>
-    ///
-    /// <param name="blueprintDlcReward">
-    /// <para>
-    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
-    /// <list type ="bullet">
-    ///   <item><term>A blueprint instance</term></item>
-    ///   <item><term>A blueprint reference</term></item>
-    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
-    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
-    /// </list>
-    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
-    /// </para>
-    /// </param>
-    public static ConditionsBuilder IsDlcActive(
-        this ConditionsBuilder builder,
-        Blueprint<BlueprintDlcRewardReference>? blueprintDlcReward = null,
-        bool negate = false)
-    {
-      var element = ElementTool.Create<IsDlcActive>();
-      element.m_BlueprintDlcReward = blueprintDlcReward?.Reference ?? element.m_BlueprintDlcReward;
-      if (element.m_BlueprintDlcReward is null)
-      {
-        element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(null);
-      }
-      element.Not = negate;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="IsDLCEnabled"/>
     /// </summary>
     ///

@@ -1150,6 +1150,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_HasteIslandStacks</term><description>a1aecb0c003a49b9ae385035875f1b92</description></item>
     /// <item><term>MediumCity_FlyingIslesControls_Etude</term><description>fa16edfae00b94048a71bab6ef5463d4</description></item>
     /// </list>
     /// </remarks>

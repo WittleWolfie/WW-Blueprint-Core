@@ -148,7 +148,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_HigherCity_VellodusMansion</term><description>d062cf7333b145b8bb85d4400dbea44d</description></item>
-    /// <item><term>Cue_0029</term><description>7308a507f514d9649a835f2c39b561e9</description></item>
+    /// <item><term>Cue_0029</term><description>b02622fb993e5e146a4e13afd8980c84</description></item>
     /// <item><term>Yozz_GreyborQ2Bark_Conditions</term><description>e25cbb4124873114ba3b75176e004517</description></item>
     /// </list>
     /// </remarks>
@@ -441,7 +441,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AneviaDialog</term><description>85d9ab0f99b3f914bb10671c9c63f6a3</description></item>
-    /// <item><term>Graveyard_WatchPoint1_SZ2</term><description>586e640454ec4f48a671ccad27eeb8c9</description></item>
+    /// <item><term>Graveyard_TempleApproach_SZ</term><description>67af5f034d3747eaa85bb6179cdc2562</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -714,7 +714,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Columns_Fall_InstrumentsCheck</term><description>1b228f9c1a9141a08af1686870392d60</description></item>
+    /// <item><term>Chimera_ReforgeProject</term><description>8ed7a2977b9abe148bcf9cd75d4c3b53</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>
@@ -902,8 +902,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-449628</term><description>09824bfd5d984155a9b4f455db9ecf9b</description></item>
-    /// <item><term>PF-451380</term><description>a1300420a29a4695b657c545812930ae</description></item>
-    /// <item><term>PF-456830</term><description>1867835a7e34421ea43d294a63934bb5</description></item>
+    /// <item><term>PF-451458</term><description>4379877d373d4d0485f8592ae2ad02ab</description></item>
+    /// <item><term>PF-458621</term><description>fbcdeeb30b1740068c3ea8f122e7e999</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1062,7 +1062,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0017</term><description>e5bf1752b172c084f8b70351d9037e1d</description></item>
-    /// <item><term>CommandMoveUnit9</term><description>6c3bc83b962c4c3d93bfa51b98ff17d1</description></item>
+    /// <item><term>CommandMoveUnit8</term><description>73f8b84cb1164f9fa6a4ecc87d095b7f</description></item>
     /// <item><term>XCOM_StartCutscene</term><description>94342ced3cb04f96bc1f7c2914ee99f4</description></item>
     /// </list>
     /// </remarks>

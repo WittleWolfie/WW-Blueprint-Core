@@ -85,7 +85,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Artifact_HornsOfNaragaUnsummonBuff</term><description>bf24f9a2ae9047029f53ef8c797c50cf</description></item>
-    /// <item><term>DLC3_SicknessHeavyDiseaseBuff</term><description>4a19a78fbde84e03b4547137b11ddc3a</description></item>
+    /// <item><term>DLC3_HasteIslandHaste</term><description>468a512753834f5bb94d7a0b17cff165</description></item>
     /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
     /// </list>
     /// </remarks>

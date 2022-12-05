@@ -2456,6 +2456,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainbowDomeSonic = "07b0170699247f7488381270cafbb865";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainbowPattern = "4b8265132f9c8174f87ce7fa6d0fe47b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainbowStarfall = "0ad356eaf621d9a469e7da0acc552383";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainbowStarfallStormAbility = "86d85db4236547399eb4350be4fcd6ff";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainHeavyLightning = "aeb5c102cf4643efb372ce73d1322d5e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainLightLightning = "def64bcc65d14049bb48b77702546352";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> RainOfArrowsQuiverOnEnemyAbility = "90a59bf97a9db7f4e8b6782bba5be7ef";
@@ -6015,6 +6016,7 @@ namespace BlueprintCore.Blueprints.References
           RainbowDomeSonic,
           RainbowPattern,
           RainbowStarfall,
+          RainbowStarfallStormAbility,
           RainHeavyLightning,
           RainLightLightning,
           RainOfArrowsQuiverOnEnemyAbility,

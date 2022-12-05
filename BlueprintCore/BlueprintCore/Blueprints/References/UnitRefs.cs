@@ -3535,6 +3535,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_IntergationTier1VendorInPort_magic = "f56338b3ae8a4292a3255780728dff48";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_IntergationTier2VendorInPort_magic = "0576409374ea462b83af58b3139bfda3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_IntergationTier3VendorInPort_magic = "bc5b608e16ef4943a6f9f71402d5c081";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_IntergationVendorInPort_potions = "1f34e9076e9d4258bdf5985e556bf2d8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_Invisible_Kitten = "1eb2e56feb304bdfafe240e3a3d84b3c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_MercenaryCaptain = "c69e3d92d04340baae3ae3b92828f802";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_MimicChestStandart1 = "5cc5296dd9c540809b4b149433e14500";
@@ -8856,6 +8857,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_IntergationTier1VendorInPort_magic,
           DLC3_IntergationTier2VendorInPort_magic,
           DLC3_IntergationTier3VendorInPort_magic,
+          DLC3_IntergationVendorInPort_potions,
           DLC3_Invisible_Kitten,
           DLC3_MercenaryCaptain,
           DLC3_MimicChestStandart1,

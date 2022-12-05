@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-292234</term><description>cf1de09f787141f2b915b31a8eafaaa5</description></item>
-    /// <item><term>PF-444582_Camelia</term><description>1966b3bca26d48fa90d646569e06dc02</description></item>
+    /// <item><term>PF-351846</term><description>7a60e7cf06624462bc3fd3a33a59632e</description></item>
+    /// <item><term>PF-461043</term><description>f4df8af41a0c48d796c6498ad12dd4af</description></item>
     /// </list>
     /// </remarks>
     ///

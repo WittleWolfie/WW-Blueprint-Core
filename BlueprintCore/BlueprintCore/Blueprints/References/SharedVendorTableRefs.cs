@@ -85,6 +85,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_Integration_Tier1ShipVendorTable = "40d8d24f775d4a2da41e1e25992d7813";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_Integration_Tier2ShipVendorTable = "1f803f22868146f7b8a4c8a436fa211c";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_Integration_Tier3ShipVendorTable = "4120046f92cb43468778a76a204ad341";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntegrationArcaneScrollsVendorTableI = "7fa9e7b3d20143e8858ec68b29429c96";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntegrationArcaneScrollsVendorTableII = "033ba764a1424f79bacb80f6353f755c";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntegrationArcaneScrollsVendorTableIII = "7a8a2cab141d4decb04c082ab9e13615";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntergationTier1VendorTable_Equipment = "e8a1ad13302744339d0896dfc1eabb9b";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntergationTier1VendorTableMagicShields = "febb251a51954d4cb22198d6655a57b4";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_IntergationTier2VendorTable_Equipment = "81ecdb3eafaa40049849539872b7ff4b";
@@ -377,6 +380,9 @@ namespace BlueprintCore.Blueprints.References
           DLC3_Integration_Tier1ShipVendorTable,
           DLC3_Integration_Tier2ShipVendorTable,
           DLC3_Integration_Tier3ShipVendorTable,
+          DLC3_IntegrationArcaneScrollsVendorTableI,
+          DLC3_IntegrationArcaneScrollsVendorTableII,
+          DLC3_IntegrationArcaneScrollsVendorTableIII,
           DLC3_IntergationTier1VendorTable_Equipment,
           DLC3_IntergationTier1VendorTableMagicShields,
           DLC3_IntergationTier2VendorTable_Equipment,

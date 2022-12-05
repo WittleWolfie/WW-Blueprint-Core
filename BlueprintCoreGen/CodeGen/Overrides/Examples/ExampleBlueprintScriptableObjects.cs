@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GoodHopeBuff", "85af9f0c5d29e5e4fa2e75ca70442487"),
+            new Blueprint("GoodDomainBaseBuff", "f185e4585bda72b479956772944ee665"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -56,7 +56,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("HorridWilting", "08323922485f7e246acb3d2276515526"),
+            new Blueprint("Hosilla_Ability_Bane", "e360f969871818e46b4eceb29817dd71"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -95,7 +95,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Mage_Test", "f9161aa0b3f519c47acbce01f53ee217"),
-            new Blueprint("DLC3_CR0.5_Cultist_Cleric", "4f093e4e436f462e81d4a5e8b8c4d125"),
+            new Blueprint("DLC3_CR0.5_Cultist_FighterMelee", "a04acf0c9afc4afc81121b9216b53887"),
             new Blueprint("Ziforian_normal", "7ef2998dbeb7fda43a47ce842f4d142d"),
           }
         },
@@ -743,7 +743,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aminas_Chapter5VendorTable", "8b2dae3f8da96f640995594f6bcf7a29"),
-            new Blueprint("DLC3_VendorTable_Equipment", "195579adaa20483ca3aad66bb2b06f8f"),
+            new Blueprint("DLC3_VendorFirstTable", "45f027c06962df249b8c014a4b4e95e3"),
             new Blueprint("Weapon_DefendersHeartVendorTable", "5f17d3b47752fb94abe8c98534af8920"),
           }
         },
@@ -1287,7 +1287,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1Wave_FirstCleric", "38be8d6ddc3d450db71ae17ae895afa3"),
-            new Blueprint("ForestQuestFirstDIalog_flag", "b923477c9a9dd3f4ba2b2d98eb6ae3af"),
+            new Blueprint("ForestQuestFirstDIalogHeal_flag", "9b8ccbeaa8d360049b442ecf9b23b5b9"),
             new Blueprint("ZombieRoomEnter2", "61f52bd1057441adbf7ce9901f535e3e"),
           }
         },
@@ -1645,7 +1645,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2wine_bottle (1)", "e7f447e2306708443bcbd6c05983d1e3"),
-            new Blueprint("PF2_Demons_MimicChestObject2", "87f5f1cd7d5c08b4da18961a263cf882"),
+            new Blueprint("PF2_Demons_MimicChestObject1", "d7ff134427e69b540a8a4961b7375336"),
             new Blueprint("ZantirRuneLootContainer", "f65148f38532e0a4ebacad5e5fe18fd7"),
           }
         },
@@ -1939,7 +1939,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0001", "a5ea39b6ccc54b8cbf5f4afee192d860"),
-            new Blueprint("Answer_0022", "70ea9aea1f6d9f94095e9ef9703f9a07"),
+            new Blueprint("Answer_0022", "86c03df059a6a7f4386ab059b63eef2f"),
             new Blueprint("WintersunQuestComplitingIrabeth", "5eef43d4b657ff84b960777b2fa7b53c"),
           }
         },

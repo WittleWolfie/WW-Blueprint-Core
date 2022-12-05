@@ -1169,6 +1169,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CambionFlameShaman_Buff_BoneWard = "86d22b19956f4611b23eeb0a0ce1ddd4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CambionMinibossKineticist_Preheat = "d01773433d2f44878d64aa8af0f031de";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CanNotAttack = "fa98162b0799b2c4a8ddf866fa60b500";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CantAct = "178ca49f3e694f399d267d44a3500577";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CantMove = "fcdb9249b94bd924aae64d2de58e21e3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Cap_no_target = "a3e0a69272784108a4865b69a732df3c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CapeOfWaspsBuff = "fd28ca0fc5461d240a4ddd0c15e81d65";
@@ -1917,6 +1918,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HasteIslandAge3 = "9cab5a802dfd4e3e86a0623046bf88aa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HasteIslandAgeBuff = "18f0678aea3345c0ba481721f022530d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HasteIslandBuff = "5ebf1f33e08f47f89d83bb951248fffa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HasteIslandHaste = "468a512753834f5bb94d7a0b17cff165";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HasteIslandStacks = "a1aecb0c003a49b9ae385035875f1b92";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HelmOfBitterEndBuff = "e9a9cc21a3ec435a9607654562f251c0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_HeroismBuff = "5c5e3501a0b64c5da1b4eb4c302ffde2";
@@ -4057,6 +4059,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainbowDomeFireAreaBuff = "7c77e0372abd03b408e0ce38e5ce6062";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainbowDomeSonicAreaBuff = "23e06724828a3974c89a1cd0e4a1c7be";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainbowPatternBuff = "6477ae917b0ec7a4ca76bc9f36b023ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainbowStarfallBuff = "d5c396a90f7e43e1a3d97b96747dc3cd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainHeavyBuff = "5c315bec0240479d9fafcc65b9efb574";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainLightBuff = "b13768381de549e2a78f502fa65dd613";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RainModerateBuff = "f37b708de9eeb2c4ab248d79bb5b5aa7";
@@ -6563,6 +6566,7 @@ namespace BlueprintCore.Blueprints.References
           CambionFlameShaman_Buff_BoneWard,
           CambionMinibossKineticist_Preheat,
           CanNotAttack,
+          CantAct,
           CantMove,
           Cap_no_target,
           CapeOfWaspsBuff,
@@ -7311,6 +7315,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_HasteIslandAge3,
           DLC3_HasteIslandAgeBuff,
           DLC3_HasteIslandBuff,
+          DLC3_HasteIslandHaste,
           DLC3_HasteIslandStacks,
           DLC3_HelmOfBitterEndBuff,
           DLC3_HeroismBuff,
@@ -9451,6 +9456,7 @@ namespace BlueprintCore.Blueprints.References
           RainbowDomeFireAreaBuff,
           RainbowDomeSonicAreaBuff,
           RainbowPatternBuff,
+          RainbowStarfallBuff,
           RainHeavyBuff,
           RainLightBuff,
           RainModerateBuff,

@@ -826,7 +826,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC1_TailorlTrader</term><description>1295b0c8064e419294be6356c5f2a712</description></item>
+    /// <item><term>DLC1_Terendelev</term><description>c4b7937db69944bcbf92298e40494b0f</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -1175,7 +1175,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensive_ChaoticMindBuff</term><description>2159f35f1dfb4ee78da818f443a086ee</description></item>
-    /// <item><term>DLC3_RageIslandHiddenDispelRestoration</term><description>ba71a64e40484ec7b955e6dcb7e93080</description></item>
+    /// <item><term>DLC3_ShadowBalorNahindry</term><description>f92a0607aa6b43eab1feb6acb17739a4</description></item>
     /// <item><term>WitchHexHoarfrostBuff</term><description>11a4a94204505d84e97154b2fdda234c</description></item>
     /// </list>
     /// </remarks>
@@ -1260,7 +1260,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>GreaterDimensionalRideFeature</term><description>d7ad915605954b35846cd2f0a4207fc8</description></item>
+    /// <item><term>GreyGarrison_SuperMythicBuff</term><description>4b11247a4988c254fb9d1cd67f0b1e4a</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1938,7 +1938,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HideousLaughterBuff</term><description>4b1f07a71a982824988d7f48cd49f3f8</description></item>
+    /// <item><term>HeavensDistressDebuff</term><description>10ed4bb996d24d19a87dc97d94bec7c5</description></item>
     /// <item><term>ZachariusFearAuraEffectBuff</term><description>384831c7bbbbe62469a9e3247545d73d</description></item>
     /// </list>
     /// </remarks>
@@ -4734,7 +4734,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonInThePast_DemonLordDeskar</term><description>f896dd504b3509b4abd42f01e26140da</description></item>
-    /// <item><term>DLC3_CR15M_MythicSuccubus1</term><description>b0fb53c05bd8424094672ebd1d8f9d87</description></item>
+    /// <item><term>DLC3_CR15M_Succubus_level8_MiniBoss</term><description>cd689f696a864b749600a09a4a61bc4c</description></item>
     /// <item><term>Ygefeles</term><description>aedf061b223b6d54e8ffae6175515b29</description></item>
     /// </list>
     /// </remarks>
@@ -16903,8 +16903,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>EyeOfTheSwarmFeature</term><description>73c9302686b957d4dae298061eb9ffe1</description></item>
-    /// <item><term>LocustCloneLevel08Feature</term><description>9af0119d6e194f98b3ebd6732ac81816</description></item>
-    /// <item><term>LocustCloneLevel10Feature</term><description>1e648f7a98d84d71bb28cb4bf7dc0865</description></item>
+    /// <item><term>LocustCloneLevel09Feature</term><description>a4217bf42d8b41429f83663ef4d44a10</description></item>
+    /// <item><term>TheSwarm</term><description>704d7f26933c3784ea28949e0c3511c0</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -18720,6 +18720,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="maxBonus">
+    /// <para>
+    /// InfoBox: Maximum value of bonus with given Descriptor that will be added to Touch AC. MaxBonus = 0 means no boundaries Result bonus will have UntypedStackable Descriptor
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>

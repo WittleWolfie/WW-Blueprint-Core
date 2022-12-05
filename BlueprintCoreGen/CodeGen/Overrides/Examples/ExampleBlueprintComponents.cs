@@ -193,7 +193,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarRedMask_Ability_CombatInstantBuff", "4b8d9931bcfc4a6b8fbe50fd8097ff20"),
-            new Blueprint("GoodHope_LostlarnCutscene", "2704fe47ceeaf2f4496da3fc06355154"),
+            new Blueprint("GoodHopeTrailblazer", "0082c3ed87626204f9b46d84cec1518d"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -333,7 +333,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Abrikandilu_Frozen_Buff", "b2df7031cdad480caddf962c894ca484"),
-            new Blueprint("HideousLaughterBuff", "4b1f07a71a982824988d7f48cd49f3f8"),
+            new Blueprint("HeavensDistressDebuff", "10ed4bb996d24d19a87dc97d94bec7c5"),
             new Blueprint("ZachariusFearAuraEffectBuff", "384831c7bbbbe62469a9e3247545d73d"),
           }
         },
@@ -751,7 +751,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("5_DeadStage_AcidBuff", "96afbbab53c34c549a5313a1f7aed13b"),
-            new Blueprint("HellsSealVariantDevouringFlamesBuff", "5617dbbb3890e2f4b96b47318c5c438b"),
+            new Blueprint("HellsSealVariantDevouringFlamesDamage", "0d40de6855b755c429bf64ecf52c86e0"),
             new Blueprint("ZoneOfPredeterminationArea", "1ff4dfed4f7eb504fa0447e93d1bcf64"),
           }
         },
@@ -1487,7 +1487,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarGirlSlave", "848db1dc1890e734d978b0d2ce3775f5"),
-            new Blueprint("DLC1_TailorlTrader", "1295b0c8064e419294be6356c5f2a712"),
+            new Blueprint("DLC1_Terendelev", "c4b7937db69944bcbf92298e40494b0f"),
             new Blueprint("ZombieLordWizardFeatureListLevel8", "1495a07abb198e54a9b31188c9c6ec47"),
           }
         },
@@ -1671,7 +1671,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonPrimordialMagicSupportGazeAllyBuff", "7e86ccb12393470db3f0fc6757acb17b"),
-            new Blueprint("GreaterDimensionalRideFeature", "d7ad915605954b35846cd2f0a4207fc8"),
+            new Blueprint("GreyGarrison_SuperMythicBuff", "4b11247a4988c254fb9d1cd67f0b1e4a"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -2000,7 +2000,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidBreathSpell_Cutscene", "1153db4515d4f2b4188a13336930c7cb"),
-            new Blueprint("GeniekindEfreeti", "a4864f723e1700d4785ac5ad9aefc5f2"),
+            new Blueprint("GeniekindMarid", "674b653eaa122b94fa08863833ba0917"),
             new Blueprint("WitchOfTheVeilShroudedStepAbility8", "5713b048d3a24959b7a27eac48e69943"),
           }
         },
@@ -2753,7 +2753,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Aminas_Chapter5VendorTable", "8b2dae3f8da96f640995594f6bcf7a29"),
-            new Blueprint("DLC3_VendorTableShields", "f0164e4ab9ef4a4da8d86a0c0e0bc45f"),
+            new Blueprint("DLC3_VendorTableMagicShields", "695e348b2719415f883de90d932aeb66"),
             new Blueprint("WyvernMeatLoot", "abe034c3a49a1854496fa6fe1f439114"),
           }
         },
@@ -3009,7 +3009,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AnomalyTemplateDefensive_ChaoticMindBuff", "2159f35f1dfb4ee78da818f443a086ee"),
-            new Blueprint("DLC3_RageIslandHiddenDispelRestoration", "ba71a64e40484ec7b955e6dcb7e93080"),
+            new Blueprint("DLC3_ShadowBalorNahindry", "f92a0607aa6b43eab1feb6acb17739a4"),
             new Blueprint("WitchHexHoarfrostBuff", "11a4a94204505d84e97154b2fdda234c"),
           }
         },
@@ -3139,8 +3139,18 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Artifact_HornsOfNaragaUnsummonBuff", "bf24f9a2ae9047029f53ef8c797c50cf"),
-            new Blueprint("DLC3_SicknessHeavyDiseaseBuff", "4a19a78fbde84e03b4547137b11ddc3a"),
+            new Blueprint("DLC3_HasteIslandHaste", "468a512753834f5bb94d7a0b17cff165"),
             new Blueprint("LannSparringBuff", "0b87395f642f67048aafeaf65146edb0"),
+          }
+        },
+
+        {
+          // Flag for review
+          typeof(Kingmaker.Designers.EventConditionActionSystem.Events.OnIsleStateExitTrigger),
+          new()
+          {
+            new Blueprint("DLC3_HasteIslandStacks", "a1aecb0c003a49b9ae385035875f1b92"),
+            new Blueprint("MediumCity_FlyingIslesControls_Etude", "fa16edfae00b94048a71bab6ef5463d4"),
           }
         },
 
@@ -3247,7 +3257,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("BootsOfMagicalWhirlCountBuff", "815fa1c6d2dc4c56859bfa84eee96107"),
-            new Blueprint("CallOfTheWildBeastShapeIIIBuff", "db9b5a75449d82b49a6bee944ecf824a"),
+            new Blueprint("DisableArmorInRestEncounterBuff", "acde512870d2bf547b3e4047e5de1206"),
             new Blueprint("ShamiraBurn", "3c7d6b01dace4cd5a7d9948f34239888"),
           }
         },
@@ -4587,8 +4597,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Alertness", "1c04fe9a13a22bc499ffac03e6f79153"),
-            new Blueprint("DragonLevel2DexterityOverride", "e012a843adea3974696233fa91be2729"),
-            new Blueprint("Stealthy", "c7e1d5ef809325943af97f093e149c4f"),
+            new Blueprint("EmpyrealBloodlineArcana", "d9c68634b6f3aad47a03a24984b93520"),
+            new Blueprint("TheSwarm", "704d7f26933c3784ea28949e0c3511c0"),
           }
         },
 
@@ -8709,7 +8719,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonInThePast_DemonLordDeskar", "f896dd504b3509b4abd42f01e26140da"),
-            new Blueprint("DLC3_CR15M_MythicSuccubus1", "b0fb53c05bd8424094672ebd1d8f9d87"),
+            new Blueprint("DLC3_CR15M_Succubus_level8_MiniBoss", "cd689f696a864b749600a09a4a61bc4c"),
             new Blueprint("Ygefeles", "aedf061b223b6d54e8ffae6175515b29"),
           }
         },
@@ -9753,8 +9763,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("EyeOfTheSwarmFeature", "73c9302686b957d4dae298061eb9ffe1"),
-            new Blueprint("LocustCloneLevel08Feature", "9af0119d6e194f98b3ebd6732ac81816"),
-            new Blueprint("LocustCloneLevel10Feature", "1e648f7a98d84d71bb28cb4bf7dc0865"),
+            new Blueprint("LocustCloneLevel09Feature", "a4217bf42d8b41429f83663ef4d44a10"),
+            new Blueprint("TheSwarm", "704d7f26933c3784ea28949e0c3511c0"),
           }
         },
 
@@ -12487,15 +12497,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
         {
           // Flag for review
           typeof(Kingmaker.Designers.EventConditionActionSystem.Events.OnIsleStateEnterTrigger),
-          new()
-          {
-            new Blueprint("MediumCity_FlyingIslesControls_Etude", "fa16edfae00b94048a71bab6ef5463d4"),
-          }
-        },
-
-        {
-          // Flag for review
-          typeof(Kingmaker.Designers.EventConditionActionSystem.Events.OnIsleStateExitTrigger),
           new()
           {
             new Blueprint("MediumCity_FlyingIslesControls_Etude", "fa16edfae00b94048a71bab6ef5463d4"),

@@ -427,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesBuff</term><description>5617dbbb3890e2f4b96b47318c5c438b</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -931,7 +931,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BootsOfMagicalWhirlCountBuff</term><description>815fa1c6d2dc4c56859bfa84eee96107</description></item>
-    /// <item><term>CallOfTheWildBeastShapeIIIBuff</term><description>db9b5a75449d82b49a6bee944ecf824a</description></item>
+    /// <item><term>DisableArmorInRestEncounterBuff</term><description>acde512870d2bf547b3e4047e5de1206</description></item>
     /// <item><term>ShamiraBurn</term><description>3c7d6b01dace4cd5a7d9948f34239888</description></item>
     /// </list>
     /// </remarks>
