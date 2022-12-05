@@ -2,6 +2,7 @@
 
 ## v2.7.0 Release
 
+* Update with latest patch data
 * New `AssetExtensions` class for Unity extension methods (stolen shamelessly from Bubbles)
     * Includes new class `SnapToTransformWithRotation` and accompanying extensions, `AnchorTo()` and `AnchorToUnit()` for anchoring Unity objects to follow other objects
 * Added `SetLocalizedDuration` utility to `AbilityConfigurator` for easy reference of standard duration strings
