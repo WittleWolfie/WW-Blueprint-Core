@@ -69,6 +69,22 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v270-release">v2.7.0 Release</h2>
+<ul>
+<li>Update with latest patch data</li>
+<li>New <code>AssetExtensions</code> class for Unity extension methods (stolen shamelessly from Bubbles)
+<ul>
+<li>Includes new class <code>SnapToTransformWithRotation</code> and accompanying extensions, <code>AnchorTo()</code> and <code>AnchorToUnit()</code> for anchoring Unity objects to follow other objects</li>
+</ul>
+</li>
+<li>Added <code>SetLocalizedDuration</code> utility to <code>AbilityConfigurator</code> for easy reference of standard duration strings</li>
+<li>Adding a spell to a mod spell list will no longer cause an NPE if the mod is not present
+<ul>
+<li>An error is still logged in BPCore using the Verbose channel</li>
+</ul>
+</li>
+<li>Fixed a bug causing validation to always fail for some components</li>
+</ul>
 <h2 id="v262-release">v2.6.2 Release</h2>
 <ul>
 <li>Fixes NPE with DealDamagePreRolled action</li>
