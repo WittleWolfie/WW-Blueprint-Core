@@ -293,7 +293,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     {
       base.OnConfigureCompleted();
 
-      if (SkipSelections)
+      if (SkipSelections || !Configured)
         return;
 
       var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);

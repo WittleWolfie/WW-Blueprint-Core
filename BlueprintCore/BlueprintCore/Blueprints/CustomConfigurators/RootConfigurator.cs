@@ -70,7 +70,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
     protected readonly TBuilder Self;
     protected readonly T Blueprint;
 
-    private bool Configured = false;
+    protected bool Configured = false;
     private readonly Validator Validator;
     private readonly List<object> ToValidate = new();
 
@@ -169,6 +169,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       if (delayed)
       {
         DelayedConfigurators.Add(Self);
+        OnConfigureCompleted(); // Make sure sane defaults are set
         return Blueprint;
       }
 

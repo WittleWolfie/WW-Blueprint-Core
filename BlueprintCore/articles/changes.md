@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v2.7.1 Release
+
+* Delayed configuration now sets sane defaults immediately
+    * This fixes a conflict w/ WorldCrawl
+
 ## v2.7.0 Release
 
 * Update with latest patch data

@@ -211,7 +211,8 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     {
       base.OnConfigureCompleted();
 
-      CharacterClassConfigurator.For(Clazz).AddToArchetypes(Blueprint).Configure();
+      if (Clazz is not null)
+        CharacterClassConfigurator.For(Clazz).AddToArchetypes(Blueprint).Configure();
     }
   }
 }
