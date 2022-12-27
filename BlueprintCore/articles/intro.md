@@ -73,6 +73,14 @@ You're all set! If you want to keep your assembly size small you can additionall
 
 #### Troubleshooting
 
+##### Setup Doesn't Run
+
+This can happen if your security policy prevents running unsigned PowerShell scripts.
+
+1. Start Windows PowerShell with Run as Administartor
+2. Navigate to the `BasicTemplat` directory (containing `Setup.ps1`)
+3. Run this command: `PowerShell -ExecutionPolicy RemoteSigned -file Setup.ps1`
+
 ##### Unity Files Locked
 
 Some users reported an issue where Unity "locks" files. This prevents the rename from happening. If this happens just follow the instructions in the [Skald's Vigor Tutorial](~/articles/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
