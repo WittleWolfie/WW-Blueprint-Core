@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.7.2 Release
+
+* Update with latest patch data
+
 ## v2.7.1 Release
 
 * Delayed configuration now sets sane defaults immediately
