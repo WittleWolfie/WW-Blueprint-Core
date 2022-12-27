@@ -21,9 +21,7 @@ For general usage details see the links below:
 * [Text, Logging, and Utils](usage/utils.md) - General utility classes
 * [Understanding the API](usage/api.md) - Design and creation of the API
 
-## Project Setup
-
-###  Quick-Start
+##  Quick-Start
 
 If you have an existing mod to which you're integrating BPCore you'll need to go through the [Full Setup](#full-setup). If you're starting a new mod you're in luck, BPCore now has [Project Templates](https://github.com/WittleWolfie/BPCoreTemplate)!
 
@@ -70,9 +68,9 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 
 You're all set! If you want to keep your assembly size small you can additionally configure [ILStrip](#optional-reduce-assembly-size-with-ilstrip).
 
-#### Troubleshooting
+### Troubleshooting
 
-##### Setup Doesn't Run
+#### Setup Doesn't Run
 
 This can happen if your security policy prevents running unsigned PowerShell scripts.
 
@@ -80,11 +78,11 @@ This can happen if your security policy prevents running unsigned PowerShell scr
 2. Navigate to the `BasicTemplat` directory (containing `Setup.ps1`)
 3. Run this command: `PowerShell -ExecutionPolicy RemoteSigned -file Setup.ps1`
 
-##### Unity Files Locked
+#### Unity Files Locked
 
 Some users reported an issue where Unity "locks" files. This prevents the rename from happening. If this happens just follow the instructions in the [Skald's Vigor Tutorial](~/articles/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
 
-##### Missing BlueprintCore / Publicizer
+#### Missing BlueprintCore / Publicizer
 
 In Visual Studio open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. Make sure the package source is set to `nuget.org`:
 
@@ -92,7 +90,7 @@ In Visual Studio open **Tools** > **NuGet Package Manager** > **Manage NuGet Pac
 
 Make sure all packages are installed and updated.
 
-#### Deploying and Releasing
+### Deploying and Releasing
 
 Every time you build the project your mod is automatically installed on your local machine.
 
@@ -127,7 +125,7 @@ If you want to generate the release zip in another folder just double click on y
 
 If you need to add additional files just add them as a new item under the `ItemGroup`, then add a copy command for that item.
 
-### Full Setup
+## Full Setup
 
 This assumes you have already created a C# project and are familiar with the basic mod setup in the [Beginner Guide](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide).
 
@@ -243,7 +241,7 @@ Your project file should look almost identical to the tutorial project file, wit
 
 Without these `ILRepack` will fail.
 
-### Optional: Reduce Assembly Size with ILStrip
+## Optional: Reduce Assembly Size with ILStrip
 
 BPCore is a large library with wrappers for thousands of game types. It has a big footprint: 7MB at the time of
 writing.
@@ -285,7 +283,7 @@ The impact of this isn't significant but if you want to keep your assembly small
      * BPCore Patch Notes will call out any new entry points needed
      * ILStrip breaks debugging symbols; disable it when using [Wrath2Debug](https://github.com/thehambeard/Wrath2Debug/releases/latest)
 
-#### Troubleshooting
+### Troubleshooting
 
 You can open your assembly in the decompiler of your choice to sanity check. Make sure you see all the expected namespaces and classes.
 
@@ -306,7 +304,7 @@ If you're not sure what's wrong, remove all `Entry` items and build. In the Buil
 
 ![ILStrip Build Output](~/images/ilstrip_out.png)
 
-### Optional: Automatic Mod Deployment
+## Optional: Automatic Mod Deployment
 
 Using a [Copy task](https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022) you can automatically deploy your mod each time you build.
 
