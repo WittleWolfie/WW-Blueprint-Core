@@ -93,12 +93,18 @@
 <li>Download and install <a href="https://visualstudio.microsoft.com/vs/">Visual Studio</a>, skip if you already have it
 <ul>
 <li>When prompted for Workloads include &quot;.NET desktop development&quot;, anything else is optional</li>
+<li>Instructions were written for Visual Studio 2022</li>
 </ul>
 </li>
 <li>Download and install <a href="https://unity3d.com/get-unity/download/archive">Unity</a> version <code>2020.3.33f1</code>, skip if you already have it</li>
 <li>Open Unity and create a new project with the 3D template, <strong>then close it</strong>
 <ul>
-<li>I recommend putting your Unity project folder in the same directory you put your mod project folder</li>
+<li>I recommend using this directory structure:
+<ul>
+<li><code>pathToMod/MyMod/MyModCode</code> - Directory for your C# solution</li>
+<li><code>pathToMod/MyMod/MyModUnity</code> - Unity project directory</li>
+</ul>
+</li>
 <li><strong>Seriously close it or you'll probably need to do some renaming of things in Unity yourself from BasicTemplate to your mod name</strong></li>
 </ul>
 </li>
@@ -119,7 +125,7 @@
 </ul>
 </li>
 <li>Open the Unity project you created. You should have an <code>Assets</code> folder and an <code>Editor</code> folder now.
-<img src="../images/quick_start/unity.png" alt="Run Setup with powershell">
+<img src="../images/quick_start/unity.png" alt="Unity quick start">
 <ul>
 <li>From the top bar select <strong>Assets</strong> &gt; <strong>Build AssetBundles</strong></li>
 <li>A moment later you should see a <code>StreamingAssets</code> folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called <code>&lt;modname&gt;_assets</code>.</li>
@@ -151,8 +157,19 @@
 </ol>
 <p>You're all set! If you want to keep your assembly size small you can additionally configure <a href="#optional-reduce-assembly-size-with-ilstrip">ILStrip</a>.</p>
 <h4 id="troubleshooting">Troubleshooting</h4>
+<h5 id="setup-doesnt-run">Setup Doesn't Run</h5>
+<p>This can happen if your security policy prevents running unsigned PowerShell scripts.</p>
+<ol>
+<li>Start Windows PowerShell with Run as Administartor</li>
+<li>Navigate to the <code>BasicTemplat</code> directory (containing <code>Setup.ps1</code>)</li>
+<li>Run this command: <code>PowerShell -ExecutionPolicy RemoteSigned -file Setup.ps1</code></li>
+</ol>
+<h5 id="unity-files-locked">Unity Files Locked</h5>
 <p>Some users reported an issue where Unity &quot;locks&quot; files. This prevents the rename from happening. If this happens just follow the instructions in the <a href="tutorials/advanced/skalds_vigor.html#create-an-assetbundle">Skald's Vigor Tutorial</a>.</p>
-<p>Otherwise try opening powershell and running the script from there. This allows you to see any errors.</p>
+<h5 id="missing-blueprintcore--publicizer">Missing BlueprintCore / Publicizer</h5>
+<p>In Visual Studio open <strong>Tools</strong> &gt; <strong>NuGet Package Manager</strong> &gt; <strong>Manage NuGet Packages for Solution</strong>. Make sure the package source is set to <code>nuget.org</code>:</p>
+<p><img src="../images/quick_start/nuget_source.png" alt="NuGet Package Source"></p>
+<p>Make sure all packages are installed and updated.</p>
 <h4 id="deploying-and-releasing">Deploying and Releasing</h4>
 <p>Every time you build the project your mod is automatically installed on your local machine.</p>
 <p>When you want to release your mod for others to install, select the <code>Release</code> build configuration and build. The release zip is automatically created in the output directory. You can navigate to the directory by right clicking your project in Visual Studio, selecting <strong>Open Folder in File Explorer</strong>, then navigating to the <code>bin/Release/net472</code> directory:</p>
