@@ -1262,7 +1262,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>ShamanFlameSpiritWanderingFeature</term><description>d12c230082825b945b92574df6f3caf1</description></item>
+    /// <item><term>ShamanBonesSpiritWanderingFeature</term><description>a3862152ae6010445bc25915ac58fc8e</description></item>
     /// <item><term>WitchHexMajorHealingAbility</term><description>3408c351753aa9049af25af31ebef624</description></item>
     /// </list>
     /// </remarks>

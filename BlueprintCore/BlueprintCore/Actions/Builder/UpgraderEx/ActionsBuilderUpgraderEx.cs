@@ -259,7 +259,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
     /// <item><term>PF-351846</term><description>7a60e7cf06624462bc3fd3a33a59632e</description></item>
-    /// <item><term>PF-461043</term><description>f4df8af41a0c48d796c6498ad12dd4af</description></item>
+    /// <item><term>PF-468855_HasteIsland</term><description>36754205a5894150a680dc98ecbbcfd5</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1015,7 +1015,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-358900</term><description>9d2858bae0fe4c8495075117927c15a5</description></item>
     /// <item><term>PF-367341</term><description>8db934a9b811435a8181905f351ea17c</description></item>
-    /// <item><term>PF-397133</term><description>8da361c37b9b4cf3a476a2fe532adccf</description></item>
+    /// <item><term>PF-462557</term><description>ad94accf10ed4ebe87e508c8d1ec31fc</description></item>
     /// </list>
     /// </remarks>
     ///

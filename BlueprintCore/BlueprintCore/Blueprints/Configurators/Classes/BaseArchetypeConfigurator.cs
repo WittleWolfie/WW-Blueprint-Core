@@ -1793,7 +1793,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>HellboundCurseNoPenaltyProgression</term><description>d1457c03dff2887409b92f88b9c9fcf0</description></item>
+    /// <item><term>FlamesSpiritSpellListFeature</term><description>faa12cd1a5ece2c408d3bd00803fe8a1</description></item>
     /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
     /// </list>
     /// </remarks>

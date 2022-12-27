@@ -311,7 +311,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodOfDragonsSelection</term><description>da48f9d7f697ae44ca891bfc50727988</description></item>
-    /// <item><term>DomainsSelection</term><description>48525e5da45c9c243a343fc6545dbdb9</description></item>
+    /// <item><term>EldritchScionBloodlineSelection</term><description>94c29f69cdc34594a6a4677441ed7375</description></item>
     /// <item><term>SorcererBloodlineSelection</term><description>24bef8d1bee12274686f6da6ccbc8914</description></item>
     /// </list>
     /// </remarks>

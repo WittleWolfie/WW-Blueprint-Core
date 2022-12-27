@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0049</term><description>6fc7ffe5063a88b4aba9ef41ea9fcf28</description></item>
+    /// <item><term>Cue_0050</term><description>4385bf92c4d7caf429f23384a3afa2c7</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -202,7 +202,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Nocticula]_SpawnActions</term><description>d77f996b50fad684bb0435c1d12a526d</description></item>
-    /// <item><term>CommandAction3</term><description>d1f0f778e8bf427b82f57ccd51ed95ec</description></item>
+    /// <item><term>CommandAction3</term><description>f04823e41ae04690990c237cb062e628</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -728,7 +728,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeMain_Ch2_quest</term><description>fc269c56388944e7ada9a8462abbe2cb</description></item>
     /// <item><term>Military_RankUp5_errand</term><description>ab663a743d744ac5b0da650d63586016</description></item>
-    /// <item><term>Military_rankUp8_errand</term><description>269bbaea4b7d4098b4fc27df17074490</description></item>
+    /// <item><term>PF-470017 2</term><description>e6a257c034c64ff289b44b3a4f745c96</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1096,7 +1096,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0028</term><description>8de6517c801c87b4db8f97c3910c367c</description></item>
+    /// <item><term>Cue_0028</term><description>34182b3d19003444b9b412d347524fe4</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>

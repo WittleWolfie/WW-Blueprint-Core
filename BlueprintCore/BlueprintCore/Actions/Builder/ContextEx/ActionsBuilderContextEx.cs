@@ -1467,7 +1467,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BeastTamerInspireFerocity10EffectBuff</term><description>f36ed94198f5d3e4ca238a9731487d10</description></item>
-    /// <item><term>MagicWeaponGreaterPrimary</term><description>a3fe23711486ee9489af1dadd6906149</description></item>
+    /// <item><term>MagicWeaponGreaterSecondary</term><description>89c13df989e5e624692134d55195121a</description></item>
     /// <item><term>ThornBody</term><description>2daf9c5112f16d54ab3cd6904c705c59</description></item>
     /// </list>
     /// </remarks>
@@ -1512,7 +1512,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BeastTamerInspireFerocity10EffectBuff</term><description>f36ed94198f5d3e4ca238a9731487d10</description></item>
-    /// <item><term>MagicWeaponGreaterPrimary</term><description>a3fe23711486ee9489af1dadd6906149</description></item>
+    /// <item><term>MagicWeaponGreaterSecondary</term><description>89c13df989e5e624692134d55195121a</description></item>
     /// <item><term>ThornBody</term><description>2daf9c5112f16d54ab3cd6904c705c59</description></item>
     /// </list>
     /// </remarks>
@@ -1556,7 +1556,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BeastTamerInspireFerocity10EffectBuff</term><description>f36ed94198f5d3e4ca238a9731487d10</description></item>
-    /// <item><term>MagicWeaponGreaterPrimary</term><description>a3fe23711486ee9489af1dadd6906149</description></item>
+    /// <item><term>MagicWeaponGreaterSecondary</term><description>89c13df989e5e624692134d55195121a</description></item>
     /// <item><term>ThornBody</term><description>2daf9c5112f16d54ab3cd6904c705c59</description></item>
     /// </list>
     /// </remarks>
@@ -1599,7 +1599,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BeastTamerInspireFerocity10EffectBuff</term><description>f36ed94198f5d3e4ca238a9731487d10</description></item>
-    /// <item><term>MagicWeaponGreaterPrimary</term><description>a3fe23711486ee9489af1dadd6906149</description></item>
+    /// <item><term>MagicWeaponGreaterSecondary</term><description>89c13df989e5e624692134d55195121a</description></item>
     /// <item><term>ThornBody</term><description>2daf9c5112f16d54ab3cd6904c705c59</description></item>
     /// </list>
     /// </remarks>
@@ -3372,6 +3372,37 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     }
 
     /// <summary>
+    /// Adds <see cref="ContextActionDealBestDamage"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RainbowStarfall</term><description>0ad356eaf621d9a469e7da0acc552383</description></item>
+    /// <item><term>RainbowStarfallStormAbility</term><description>86d85db4236547399eb4350be4fcd6ff</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="damageList">
+    /// <para>
+    /// InfoBox: Choosing based on maximum damage that can be made by target and applying it
+    /// </para>
+    /// </param>
+    public static ActionsBuilder DealBestDamage(
+        this ActionsBuilder builder,
+        ActionsBuilder? damageList = null)
+    {
+      var element = ElementTool.Create<ContextActionDealBestDamage>();
+      element.m_DamageList = damageList?.Build() ?? element.m_DamageList;
+      if (element.m_DamageList is null)
+      {
+        element.m_DamageList = Utils.Constants.Empty.Actions;
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionDealWeaponDamage"/>
     /// </summary>
     ///
@@ -3933,7 +3964,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceBuff</term><description>4cf7aa3c1b2e2354b877135e4b4f32b2</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
+    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>

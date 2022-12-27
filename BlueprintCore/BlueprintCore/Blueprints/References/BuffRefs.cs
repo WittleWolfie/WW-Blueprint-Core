@@ -3304,6 +3304,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicDevourerQuickenedBuff = "6fa4d30b4135c944a93bd27be8ac0e41";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangBuff = "e7646b1dfdd22ce4ab340f295938ab8e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff = "ca90cc4cd9fc592419c5e58f0a9ead64";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff1 = "7bbb153b160b49e69ce33508902ec1c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff2 = "a5f61039340641278f0b803760aecbeb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff3 = "84f583f7fe544f7a8282089d2cef4337";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff4 = "63dc4ce7bd5f4451b244e148be45106c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicFangGreaterBuff5 = "7260b5cfd04e4d85a7aa0ee04e755522";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicWeaponGreaterBuff_CL16 = "ae818dc4d5994cf6a0bb9794b7c34f91";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicWeaponGreaterBuff_CL20 = "31848cce6c6246c19aa050e7e693ddee";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagicWeaponGreaterBuffOffhand_CL20 = "408ce511d8e74fa88abc498a8d9840ea";
@@ -8701,6 +8706,11 @@ namespace BlueprintCore.Blueprints.References
           MagicDevourerQuickenedBuff,
           MagicFangBuff,
           MagicFangGreaterBuff,
+          MagicFangGreaterBuff1,
+          MagicFangGreaterBuff2,
+          MagicFangGreaterBuff3,
+          MagicFangGreaterBuff4,
+          MagicFangGreaterBuff5,
           MagicWeaponGreaterBuff_CL16,
           MagicWeaponGreaterBuff_CL20,
           MagicWeaponGreaterBuffOffhand_CL20,

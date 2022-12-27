@@ -337,7 +337,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>3d7ba59b443f44e1b6a830cd0c3e9550</description></item>
-    /// <item><term>BanditLightMaceEnchantment</term><description>801f3c4448a9955428ee16bd32166370</description></item>
+    /// <item><term>BossCastSpell_zone</term><description>5efbf1ebdf0387041b437ba46fc2773c</description></item>
     /// <item><term>ThirdElementWater</term><description>86eff374d040404438ad97fedd7218bc</description></item>
     /// </list>
     /// </remarks>
@@ -902,8 +902,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-449628</term><description>09824bfd5d984155a9b4f455db9ecf9b</description></item>
-    /// <item><term>PF-451458</term><description>4379877d373d4d0485f8592ae2ad02ab</description></item>
-    /// <item><term>PF-458621</term><description>fbcdeeb30b1740068c3ea8f122e7e999</description></item>
+    /// <item><term>PF-452112</term><description>cf6bee793763418a9c5078504c29a631</description></item>
+    /// <item><term>PF-470146</term><description>c24f2e1f3f55461499bda3f2d634476b</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1225,7 +1225,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>52_TrulyImportantDeed_Checker_Tavern</term><description>5470ea99ea3b4bc7a7048d7f12ecb18e</description></item>
-    /// <item><term>CommandSetCombatMode 6</term><description>d2c4856f5f7a89a48bb35bde01f3554b</description></item>
+    /// <item><term>CommandSetCombatMode 7</term><description>63f7a2c97cbe5bd469eaf3c93d21c575</description></item>
     /// <item><term>SZ_Inquis2</term><description>11903f7d8ea24f9ea9425468adf277f2</description></item>
     /// </list>
     /// </remarks>

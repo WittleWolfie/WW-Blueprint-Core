@@ -1384,6 +1384,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FaerieFire = "4d9bf81b7939b304185d58a09960f589";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FaithBearerAbility = "2968b821d1e641b39d56098ceddd144f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FaithHunterSwornEnemySmiteAbility = "cfc6d1dfe1d110d419c07f41683e6c29";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FakeIcyPrison_DLC2 = "112ba94ea8794f709b8dca3e1266a19f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FalseGrace = "d6b8099f8c7be8f4492b14da84dc06d4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FalseLife = "7a5b5bf845779a941a67251539545762";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FalseLifeGreater = "dc6af3b4fd149f841912d8a3ce0983de";
@@ -4944,6 +4945,7 @@ namespace BlueprintCore.Blueprints.References
           FaerieFire,
           FaithBearerAbility,
           FaithHunterSwornEnemySmiteAbility,
+          FakeIcyPrison_DLC2,
           FalseGrace,
           FalseLife,
           FalseLifeGreater,

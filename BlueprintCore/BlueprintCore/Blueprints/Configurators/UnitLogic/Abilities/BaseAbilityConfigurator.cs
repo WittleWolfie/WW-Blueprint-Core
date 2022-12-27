@@ -1766,7 +1766,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
-    /// <item><term>GoodHopeTrailblazer</term><description>0082c3ed87626204f9b46d84cec1518d</description></item>
+    /// <item><term>GoodHope_LostlarnCutscene</term><description>2704fe47ceeaf2f4496da3fc06355154</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1930,7 +1930,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>InflictCriticalWoundsCast</term><description>651110ed4f117a948b41c05c5c7624c0</description></item>
+    /// <item><term>IcyPrisonMass</term><description>1852a9393a23d5741b650a1ea7078abc</description></item>
     /// <item><term>WrackingRay</term><description>1cde0691195feae45bab5b83ea3f221e</description></item>
     /// </list>
     /// </remarks>
@@ -2491,7 +2491,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
+    /// <item><term>LichChannelNegativeHeal</term><description>bf72d2d60bf0a31429f0d90a9ec667a7</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -4865,6 +4865,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<UnitCondition>? conditionsCache = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        UnitCondition[]? mountConditions = null,
+        List<UnitCondition>? mountConditionsCache = null,
         bool? not = null)
     {
       var component = new AbilityRequirementHasCondition();
@@ -4877,6 +4879,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       if (component.m_ConditionsCache is null)
       {
         component.m_ConditionsCache = new();
+      }
+      component.MountConditions = mountConditions ?? component.MountConditions;
+      if (component.MountConditions is null)
+      {
+        component.MountConditions = new UnitCondition[0];
+      }
+      component.m_MountConditionsCache = mountConditionsCache ?? component.m_MountConditionsCache;
+      if (component.m_MountConditionsCache is null)
+      {
+        component.m_MountConditionsCache = new();
       }
       component.Not = not ?? component.Not;
       return AddUniqueComponent(component, mergeBehavior, merge);
@@ -6341,9 +6353,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="factsPets">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddAbilityCasterHasNoFacts(
         List<Blueprint<BlueprintUnitFactReference>>? facts = null,
-        List<BlueprintUnitFact>? factsPresentedCache = null)
+        List<Blueprint<BlueprintUnitFactReference>>? factsPets = null,
+        List<BlueprintUnitFact>? factsPresentedCache = null,
+        List<BlueprintUnitFact>? mountFactsPresentedCache = null)
     {
       var component = new AbilityCasterHasNoFacts();
       component.m_Facts = facts?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Facts;
@@ -6351,11 +6377,22 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_Facts = new BlueprintUnitFactReference[0];
       }
+      component.m_FactsPets = factsPets?.Select(bp => bp.Reference)?.ToArray() ?? component.m_FactsPets;
+      if (component.m_FactsPets is null)
+      {
+        component.m_FactsPets = new BlueprintUnitFactReference[0];
+      }
       Validate(factsPresentedCache);
       component.m_FactsPresentedCache = factsPresentedCache ?? component.m_FactsPresentedCache;
       if (component.m_FactsPresentedCache is null)
       {
         component.m_FactsPresentedCache = new();
+      }
+      Validate(mountFactsPresentedCache);
+      component.m_MountFactsPresentedCache = mountFactsPresentedCache ?? component.m_MountFactsPresentedCache;
+      if (component.m_MountFactsPresentedCache is null)
+      {
+        component.m_MountFactsPresentedCache = new();
       }
       return AddComponent(component);
     }

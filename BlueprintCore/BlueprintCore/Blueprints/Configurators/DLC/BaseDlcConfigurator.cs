@@ -350,11 +350,13 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         bool? isFree = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
-        uint? nintendoId = null)
+        string? nintendoId = null,
+        uint? nintendoIndex = null)
     {
       var component = new DlcStoreNintendo();
       component.m_IsFree = isFree ?? component.m_IsFree;
       component.m_NintendoId = nintendoId ?? component.m_NintendoId;
+      component.m_NintendoIndex = nintendoIndex ?? component.m_NintendoIndex;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

@@ -450,7 +450,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>CorruptedHeraldPhase_SpawnActions</term><description>7779daca8cb7c8e42b6be3097ccfd8f7</description></item>
+    /// <item><term>CR17_Minagho_FinalCombat_SpawnActions</term><description>4b7165f090dcf804482176f5a16fd2d2</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -977,7 +977,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>CommandAction5</term><description>6033704d7b7b4f069e2c811f8d92e2d2</description></item>
+    /// <item><term>CommandAction47</term><description>18ded29e643a465caf5f9cb933aa7b92</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1106,6 +1106,49 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.m_IgnoreCorruption = ignoreCorruption ?? element.m_IgnoreCorruption;
       element.m_Immediate = immediate ?? element.m_Immediate;
       element.m_RestWithCraft = restWithCraft ?? element.m_RestWithCraft;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ForceClearSummonPools"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/ForceClearSummonPools
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-458621</term><description>fbcdeeb30b1740068c3ea8f122e7e999</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="summonPools">
+    /// <para>
+    /// Blueprint of type BlueprintSummonPool. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ForceClearSummonPools(
+        this ActionsBuilder builder,
+        List<Blueprint<BlueprintSummonPoolReference>>? summonPools = null,
+        ForceClearSummonPools.Type? type = null)
+    {
+      var element = ElementTool.Create<ForceClearSummonPools>();
+      element.m_SummonPools = summonPools?.Select(bp => bp.Reference)?.ToArray() ?? element.m_SummonPools;
+      if (element.m_SummonPools is null)
+      {
+        element.m_SummonPools = new BlueprintSummonPoolReference[0];
+      }
+      element.m_Type = type ?? element.m_Type;
       return builder.Add(element);
     }
 
@@ -1296,8 +1339,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0015</term><description>72050eac97c4b944f9a99ce16a680f16</description></item>
-    /// <item><term>CommandAction1</term><description>6d9657aaeeea4b51ae0cf77de45f6208</description></item>
-    /// <item><term>Revival</term><description>3007b582267846e9a66718459f62a0c3</description></item>
+    /// <item><term>CommandAction1</term><description>8a61b339160447ce92d5e66fbb34f9ce</description></item>
+    /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder HealUnit(
@@ -1928,7 +1971,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>c5eb4b36298148b0be4025f10ece1ac9</description></item>
+    /// <item><term>CommandAction2</term><description>78e3341e7a304008adf34cd1b644196d</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

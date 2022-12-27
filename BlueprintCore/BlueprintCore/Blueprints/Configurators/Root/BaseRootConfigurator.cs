@@ -121,6 +121,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_UnitTypes = copyFrom.m_UnitTypes;
           bp.TestUIStyles = copyFrom.TestUIStyles;
           bp.m_Dungeon = copyFrom.m_Dungeon;
+          bp.m_PersonageLimits = copyFrom.m_PersonageLimits;
           bp.m_ConsoleRoot = copyFrom.m_ConsoleRoot;
           bp.m_BlueprintTrapSettingsRoot = copyFrom.m_BlueprintTrapSettingsRoot;
           bp.m_InteractionRoot = copyFrom.m_InteractionRoot;
@@ -212,6 +213,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_UnitTypes = copyFrom.m_UnitTypes;
           bp.TestUIStyles = copyFrom.TestUIStyles;
           bp.m_Dungeon = copyFrom.m_Dungeon;
+          bp.m_PersonageLimits = copyFrom.m_PersonageLimits;
           bp.m_ConsoleRoot = copyFrom.m_ConsoleRoot;
           bp.m_BlueprintTrapSettingsRoot = copyFrom.m_BlueprintTrapSettingsRoot;
           bp.m_InteractionRoot = copyFrom.m_InteractionRoot;
@@ -2424,6 +2426,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_PersonageLimits"/>
+    /// </summary>
+    ///
+    /// <param name="personageLimits">
+    /// <para>
+    /// Blueprint of type BlueprintPersonageLimits. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPersonageLimits(Blueprint<BlueprintPersonageLimitsReference> personageLimits)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PersonageLimits = personageLimits?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_PersonageLimits"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPersonageLimits(Action<BlueprintPersonageLimitsReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PersonageLimits is null) { return; }
+          action.Invoke(bp.m_PersonageLimits);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_ConsoleRoot"/>
     /// </summary>
     ///
@@ -2796,6 +2836,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_Dungeon is null)
       {
         Blueprint.m_Dungeon = BlueprintTool.GetRef<BlueprintDungeonRootReference>(null);
+      }
+      if (Blueprint.m_PersonageLimits is null)
+      {
+        Blueprint.m_PersonageLimits = BlueprintTool.GetRef<BlueprintPersonageLimitsReference>(null);
       }
       if (Blueprint.m_ConsoleRoot is null)
       {
