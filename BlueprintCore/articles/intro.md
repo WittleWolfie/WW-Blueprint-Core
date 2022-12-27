@@ -29,9 +29,13 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 
 1. Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/), skip if you already have it
     * When prompted for Workloads include ".NET desktop development", anything else is optional
+    * Instructions were written for Visual Studio 2022
 2. Download and install [Unity](https://unity3d.com/get-unity/download/archive) version `2020.3.33f1`, skip if you already have it
 3. Open Unity and create a new project with the 3D template, **then close it**
-    * I recommend putting your Unity project folder in the same directory you put your mod project folder
+    * I recommend using this directory structure:
+        * `pathToMod/MyMod` - Base directory for your mod
+            * `/MyModCode` - Directory for your C# solution
+            * `/MyModUnity` - Unity project directory
     * **Seriously close it or you'll probably need to do some renaming of things in Unity yourself from BasicTemplate to your mod name**
 4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip)
 5. Extract the contents
@@ -47,7 +51,7 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
     * Last prompt is the name of the mod, **no spaces**
     ![Enter mod name](~/images/quick_start/mod_name.png)
 8. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
-    ![Run Setup with powershell](~/images/quick_start/unity.png)
+    ![Unity quick start](~/images/quick_start/unity.png)
     * From the top bar select **Assets** > **Build AssetBundles**
     * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
     * You can close Unity
@@ -69,9 +73,17 @@ You're all set! If you want to keep your assembly size small you can additionall
 
 #### Troubleshooting
 
+##### Unity Files Locked
+
 Some users reported an issue where Unity "locks" files. This prevents the rename from happening. If this happens just follow the instructions in the [Skald's Vigor Tutorial](~/articles/tutorials/advanced/skalds_vigor.md#create-an-assetbundle).
 
-Otherwise try opening powershell and running the script from there. This allows you to see any errors.
+##### Missing BlueprintCore / Publicizer
+
+In Visual Studio open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. Make sure the package source is set to `nuget.org`:
+
+![NuGet Package Source](~/images/quick_start/nuget_source.png)
+
+Make sure all packages are installed and updated.
 
 #### Deploying and Releasing
 
