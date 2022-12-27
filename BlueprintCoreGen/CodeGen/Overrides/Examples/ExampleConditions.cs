@@ -106,7 +106,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AmiriCampBuff", "f04177fdba7bb324589b7f2b0fd67604"),
-            new Blueprint("ShamanFlameSpiritWanderingFeature", "d12c230082825b945b92574df6f3caf1"),
+            new Blueprint("ShamanBonesSpiritWanderingFeature", "a3862152ae6010445bc25915ac58fc8e"),
             new Blueprint("WitchHexMajorHealingAbility", "3408c351753aa9049af25af31ebef624"),
           }
         },
@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0007", "3625b7b683cf87541910c7d2cb0dddda"),
+            new Blueprint("Cue_0007", "9f12f6910ce89ee43ad2a4618ba6691c"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -325,7 +325,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0001", "3d7ba59b443f44e1b6a830cd0c3e9550"),
-            new Blueprint("BanditLightMaceEnchantment", "801f3c4448a9955428ee16bd32166370"),
+            new Blueprint("BossCastSpell_zone", "5efbf1ebdf0387041b437ba46fc2773c"),
             new Blueprint("ThirdElementWater", "86eff374d040404438ad97fedd7218bc"),
           }
         },
@@ -394,7 +394,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0083", "a0d1fbeb8a2ad8443a630443045b5565"),
+            new Blueprint("Cue_0086", "ccde9a8caca6d864e91f12a19e303665"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -659,7 +659,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Cue_0010", "9a397a883c3c0f447948fd10f26cb8fa"),
+            new Blueprint("Cue_0010", "4e1fb44f339e88340b9daee8aca0c463"),
             new Blueprint("Ziggurat_ZachariusBeginRitual", "8a020a9f01405ae4fa417500e1efd2e6"),
           }
         },
@@ -689,7 +689,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions", "7f8be13550ec4db894002cae58c9b811"),
-            new Blueprint("Banter_NenioWoljif_banter2", "f2c885d6188c57d4ab2a4772cc51cd1c"),
+            new Blueprint("Banter_NenioWoljif_banter3", "d7f437c9e1ce77e428894ce0527d6de1"),
             new Blueprint("ZigguratDeadRomanceTimer", "587df869a564f7046a48bbf27f017619"),
           }
         },
@@ -896,7 +896,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AfterNotDate_dialog", "cbe4991d3d5bad14dac33ca4e67ae2ce"),
-            new Blueprint("Answer_0041", "8fd29906cc1fecc41a8ba61c3bd40283"),
+            new Blueprint("Answer_0041", "c022338e891d3c64cab68cf95735dc70"),
             new Blueprint("YozzTeleportsToShamirasPalase", "03e68d18fd2a47fc95917ba3f45d720d"),
           }
         },
@@ -1043,7 +1043,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("52_TrulyImportantDeed_Checker_Tavern", "5470ea99ea3b4bc7a7048d7f12ecb18e"),
-            new Blueprint("CommandSetCombatMode 6", "d2c4856f5f7a89a48bb35bde01f3554b"),
+            new Blueprint("CommandSetCombatMode 7", "63f7a2c97cbe5bd469eaf3c93d21c575"),
             new Blueprint("SZ_Inquis2", "11903f7d8ea24f9ea9425468adf277f2"),
           }
         },
@@ -1053,7 +1053,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Answer_0006", "13e54e84a1344930b2d35ec4fba205ff"),
-            new Blueprint("Cue_0016", "6075dcc9b8e04e54a546dfc9fa1f13bb"),
+            new Blueprint("Cue_0016", "727a0332c4c74f80a9cc29e2cef30a77"),
             new Blueprint("Ship_translocate", "2b46c98f1687478e93b8625670f996ba"),
           }
         },
@@ -1073,8 +1073,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("PF-449628", "09824bfd5d984155a9b4f455db9ecf9b"),
-            new Blueprint("PF-451458", "4379877d373d4d0485f8592ae2ad02ab"),
-            new Blueprint("PF-458621", "fbcdeeb30b1740068c3ea8f122e7e999"),
+            new Blueprint("PF-452112", "cf6bee793763418a9c5078504c29a631"),
+            new Blueprint("PF-470146", "c24f2e1f3f55461499bda3f2d634476b"),
           }
         },
 

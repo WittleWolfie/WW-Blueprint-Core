@@ -193,7 +193,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarRedMask_Ability_CombatInstantBuff", "4b8d9931bcfc4a6b8fbe50fd8097ff20"),
-            new Blueprint("GoodHopeTrailblazer", "0082c3ed87626204f9b46d84cec1518d"),
+            new Blueprint("GoodHope_LostlarnCutscene", "2704fe47ceeaf2f4496da3fc06355154"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -612,7 +612,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcidArrow", "9a46dfd390f943647ab4395fc997936d"),
-            new Blueprint("InflictCriticalWoundsCast", "651110ed4f117a948b41c05c5c7624c0"),
+            new Blueprint("IcyPrisonMass", "1852a9393a23d5741b650a1ea7078abc"),
             new Blueprint("WrackingRay", "1cde0691195feae45bab5b83ea3f221e"),
           }
         },
@@ -701,7 +701,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbyssalCreatureAcidTemplate", "6e6fda1c8a35069468e7398082cd30f5"),
-            new Blueprint("LeyLineGuardianConduitSurgeBuff", "4770ff0074ebb6246ab1d09b9b261103"),
+            new Blueprint("LichChannelNegativeHeal", "bf72d2d60bf0a31429f0d90a9ec667a7"),
             new Blueprint("WreckingBlowsEffectBuff", "15dd42009de61334692b22fd7a576b79"),
           }
         },
@@ -1671,7 +1671,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AeonPrimordialMagicSupportGazeAllyBuff", "7e86ccb12393470db3f0fc6757acb17b"),
-            new Blueprint("GreyGarrison_SuperMythicBuff", "4b11247a4988c254fb9d1cd67f0b1e4a"),
+            new Blueprint("GuardianOfLifeFeature", "9dd2ce2f909e1fc4db95e118ac8171c8"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -3880,7 +3880,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AccomplishedSneakAttacker", "9f0187869dc23744292c0e5bb364464e"),
-            new Blueprint("HellboundCurseNoPenaltyProgression", "d1457c03dff2887409b92f88b9c9fcf0"),
+            new Blueprint("FlamesSpiritSpellListFeature", "faa12cd1a5ece2c408d3bd00803fe8a1"),
             new Blueprint("WolfScarredFaceCurseNoPenaltyProgression", "b6c775555bade694e8b8c7e82c7a71fb"),
           }
         },
@@ -4020,7 +4020,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("BloodOfDragonsSelection", "da48f9d7f697ae44ca891bfc50727988"),
-            new Blueprint("DomainsSelection", "48525e5da45c9c243a343fc6545dbdb9"),
+            new Blueprint("EldritchScionBloodlineSelection", "94c29f69cdc34594a6a4677441ed7375"),
             new Blueprint("SorcererBloodlineSelection", "24bef8d1bee12274686f6da6ccbc8914"),
           }
         },
@@ -7228,7 +7228,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ClawEnhancement2", "54f152bc1abbffa42a030ff300f03d5a"),
-            new Blueprint("UnarmedEnhancement1", "da7d830b3f75749458c2e51524805560"),
+            new Blueprint("MagicFangGreaterBuff4", "63dc4ce7bd5f4451b244e148be45106c"),
             new Blueprint("UnarmedEnhancement6", "c21b5879e8a7497408980ca0427c7f52"),
           }
         },
@@ -11988,7 +11988,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("01_DevouredByDarkness", "67d3321ed01a4e58a9ed3e13f94f1d04"),
-            new Blueprint("KlejmOnWintersun", "62b65c567fd0df9429292cba66d5aa17"),
+            new Blueprint("Klejm_DefaultActor", "174755983e355f944bcc394c9ce6f9f0"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },

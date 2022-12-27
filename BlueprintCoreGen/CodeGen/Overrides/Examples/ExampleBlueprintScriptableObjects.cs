@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GoodDomainBaseBuff", "f185e4585bda72b479956772944ee665"),
+            new Blueprint("GorgeousGlowingGarnetGarmentBuff", "28b1948265e4478fb034b2aec079fd82"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -56,7 +56,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("Hosilla_Ability_Bane", "e360f969871818e46b4eceb29817dd71"),
+            new Blueprint("HorridWilting", "08323922485f7e246acb3d2276515526"),
             new Blueprint("ZoneOfPredetermination", "756f1d07f9ae29448888ecf016fa40a7"),
           }
         },
@@ -2052,6 +2052,15 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("MoraleRoot", "d320ebdcfd2aac44e94a18f3d3879f4c"),
+          }
+        },
+
+        {
+          // Flag for review
+          typeof(Kingmaker.Dungeon.Blueprints.BlueprintPersonageLimits),
+          new()
+          {
+            new Blueprint("BlueprintPersonageLimits", "2a609e8ce9844f98ae11097bef7be8bb"),
           }
         },
 

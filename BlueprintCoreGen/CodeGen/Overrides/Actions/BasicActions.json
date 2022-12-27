@@ -243,6 +243,8 @@
 
   { "TypeName": "FakePartyRest" },
 
+  { "TypeName": "ForceClearSummonPools" },
+
   { "TypeName": "ForceFillSummonPools" },
 
   { "TypeName": "ForceLevelup" },
