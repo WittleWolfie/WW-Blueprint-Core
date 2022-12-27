@@ -86,8 +86,7 @@
 <li><a href="usage/utils.html">Text, Logging, and Utils</a> - General utility classes</li>
 <li><a href="usage/api.html">Understanding the API</a> - Design and creation of the API</li>
 </ul>
-<h2 id="project-setup">Project Setup</h2>
-<h3 id="quick-start">Quick-Start</h3>
+<h2 id="quick-start">Quick-Start</h2>
 <p>If you have an existing mod to which you're integrating BPCore you'll need to go through the <a href="#full-setup">Full Setup</a>. If you're starting a new mod you're in luck, BPCore now has <a href="https://github.com/WittleWolfie/BPCoreTemplate">Project Templates</a>!</p>
 <ol>
 <li>Download and install <a href="https://visualstudio.microsoft.com/vs/">Visual Studio</a>, skip if you already have it
@@ -156,21 +155,21 @@
 </li>
 </ol>
 <p>You're all set! If you want to keep your assembly size small you can additionally configure <a href="#optional-reduce-assembly-size-with-ilstrip">ILStrip</a>.</p>
-<h4 id="troubleshooting">Troubleshooting</h4>
-<h5 id="setup-doesnt-run">Setup Doesn't Run</h5>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<h4 id="setup-doesnt-run">Setup Doesn't Run</h4>
 <p>This can happen if your security policy prevents running unsigned PowerShell scripts.</p>
 <ol>
 <li>Start Windows PowerShell with Run as Administartor</li>
 <li>Navigate to the <code>BasicTemplat</code> directory (containing <code>Setup.ps1</code>)</li>
 <li>Run this command: <code>PowerShell -ExecutionPolicy RemoteSigned -file Setup.ps1</code></li>
 </ol>
-<h5 id="unity-files-locked">Unity Files Locked</h5>
+<h4 id="unity-files-locked">Unity Files Locked</h4>
 <p>Some users reported an issue where Unity &quot;locks&quot; files. This prevents the rename from happening. If this happens just follow the instructions in the <a href="tutorials/advanced/skalds_vigor.html#create-an-assetbundle">Skald's Vigor Tutorial</a>.</p>
-<h5 id="missing-blueprintcore--publicizer">Missing BlueprintCore / Publicizer</h5>
+<h4 id="missing-blueprintcore--publicizer">Missing BlueprintCore / Publicizer</h4>
 <p>In Visual Studio open <strong>Tools</strong> &gt; <strong>NuGet Package Manager</strong> &gt; <strong>Manage NuGet Packages for Solution</strong>. Make sure the package source is set to <code>nuget.org</code>:</p>
 <p><img src="../images/quick_start/nuget_source.png" alt="NuGet Package Source"></p>
 <p>Make sure all packages are installed and updated.</p>
-<h4 id="deploying-and-releasing">Deploying and Releasing</h4>
+<h3 id="deploying-and-releasing">Deploying and Releasing</h3>
 <p>Every time you build the project your mod is automatically installed on your local machine.</p>
 <p>When you want to release your mod for others to install, select the <code>Release</code> build configuration and build. The release zip is automatically created in the output directory. You can navigate to the directory by right clicking your project in Visual Studio, selecting <strong>Open Folder in File Explorer</strong>, then navigating to the <code>bin/Release/net472</code> directory:</p>
 <p><img src="../images/quick_start/open_files.png" alt="Opening project files"></p>
@@ -196,7 +195,7 @@
 &lt;/Target&gt;
 </code></pre>
 <p>If you need to add additional files just add them as a new item under the <code>ItemGroup</code>, then add a copy command for that item.</p>
-<h3 id="full-setup">Full Setup</h3>
+<h2 id="full-setup">Full Setup</h2>
 <p>This assumes you have already created a C# project and are familiar with the basic mod setup in the <a href="https://github.com/WittleWolfie/OwlcatModdingWiki/wiki/Beginner-Guide">Beginner Guide</a>.</p>
 <ol>
 <li>Define the <code>WrathPath</code> environment variable if you have not already
@@ -327,7 +326,7 @@
 <li>All referenced assemblies are included</li>
 </ul>
 <p>Without these <code>ILRepack</code> will fail.</p>
-<h3 id="optional-reduce-assembly-size-with-ilstrip">Optional: Reduce Assembly Size with ILStrip</h3>
+<h2 id="optional-reduce-assembly-size-with-ilstrip">Optional: Reduce Assembly Size with ILStrip</h2>
 <p>BPCore is a large library with wrappers for thousands of game types. It has a big footprint: 7MB at the time of
 writing.</p>
 <p>The impact of this isn't significant but if you want to keep your assembly small use <a href="https://brokenevent.com/projects/ilstrip">ILStrip</a>. ILStrip removes unreferenced classes from an assembly, significantly reducing the size of mods using BPCore. It reduced the tutorial assembly from to ~400KB from ~8MB.</p>
@@ -371,7 +370,7 @@ writing.</p>
 </ul>
 </li>
 </ol>
-<h4 id="troubleshooting-1">Troubleshooting</h4>
+<h3 id="troubleshooting-1">Troubleshooting</h3>
 <p>You can open your assembly in the decompiler of your choice to sanity check. Make sure you see all the expected namespaces and classes.</p>
 <p><strong>ILStrip Removes Used Code</strong></p>
 <p>Chances are you are missing an entry point. Make sure every Harmony patch and every class referenced through reflection, such as the class with UMM's <code>Load</code> method, are listed as an <code>Entry</code> in the ILStrip target.</p>
@@ -388,7 +387,7 @@ writing.</p>
 </ul>
 <p>If you're not sure what's wrong, remove all <code>Entry</code> items and build. In the Build Output ILStrip prints a line for every type indicating whether it is used or unused:</p>
 <p><img src="../images/ilstrip_out.png" alt="ILStrip Build Output"></p>
-<h3 id="optional-automatic-mod-deployment">Optional: Automatic Mod Deployment</h3>
+<h2 id="optional-automatic-mod-deployment">Optional: Automatic Mod Deployment</h2>
 <p>Using a <a href="https://docs.microsoft.com/en-us/visualstudio/msbuild/copy-task?view=vs-2022">Copy task</a> you can automatically deploy your mod each time you build.</p>
 <p>Add a DeployMod target to your .csproj file, using your mod's name in place of <code>BlueprintCoreTutorial</code>:</p>
 <pre><code class="lang-xml">&lt;!-- Automatic Deployment Setup --&gt;

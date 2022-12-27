@@ -629,19 +629,19 @@ Tooltip: Is the DLC available in editor playmode
 </div>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_UInt32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.AddDlcStoreNintendo(System.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.UInt32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_System_Nullable_System_UInt32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.AddDlcStoreNintendo(System.Nullable%7BSystem.Boolean%7D%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.String%2CSystem.Nullable%7BSystem.UInt32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L349">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreNintendo*"></a>
-  <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_UInt32__" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreNintendo(System.Nullable{System.Boolean},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.UInt32})">AddDlcStoreNintendo(Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;UInt32&gt;)</h4>
+  <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_System_Nullable_System_UInt32__" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreNintendo(System.Nullable{System.Boolean},System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.String,System.Nullable{System.UInt32})">AddDlcStoreNintendo(Nullable&lt;Boolean&gt;, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String, Nullable&lt;UInt32&gt;)</h4>
   <div class="markdown level1 summary"><p>Adds <span class="xref">Kingmaker.DLC.DlcStoreNintendo</span></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public TBuilder AddDlcStoreNintendo(bool? isFree = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, uint? nintendoId = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public TBuilder AddDlcStoreNintendo(bool? isFree = null, Action&lt;BlueprintComponent, BlueprintComponent&gt; merge = null, ComponentMerge mergeBehavior = ComponentMerge.Fail, string nintendoId = null, uint? nintendoIndex = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -671,8 +671,13 @@ Tooltip: Is the DLC available in editor playmode
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+        <td><span class="xref">System.String</span></td>
         <td><span class="parametername">nintendoId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+        <td><span class="parametername">nintendoIndex</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -692,7 +697,7 @@ Tooltip: Is the DLC available in editor playmode
       </tr>
     </tbody>
   </table>
-  <h5 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_UInt32___remarks">Remarks</h5>
+  <h5 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreNintendo_System_Nullable_System_Boolean__System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_System_Nullable_System_UInt32___remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p><strong></strong></p><ul><li>Dlc18576a633c8fe4ce78530b55c1f0d14e5</li><li>FreeDlc1d185af74fc5b4c198600e0202ca11de8</li><li>FreeDlc4a9262dad08654d3dbad64476978c0f95</li></ul>
 </div>
   <span class="small pull-right mobile-hide">
@@ -700,7 +705,7 @@ Tooltip: Is the DLC available in editor playmode
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStorePS4_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.AddDlcStorePS4(System.String%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.Int32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L381">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L383">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStorePS4_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStorePS4*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStorePS4_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_Int32__" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStorePS4(System.String,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.Int32})">AddDlcStorePS4(String, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;Int32&gt;)</h4>
@@ -768,7 +773,7 @@ Tooltip: Is the DLC available in editor playmode
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreSteam_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_UInt32__.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.AddDlcStoreSteam(System.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.Nullable%7BSystem.UInt32%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L413">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L415">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreSteam_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreSteam*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreSteam_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_Nullable_System_UInt32__" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreSteam(System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.Nullable{System.UInt32})">AddDlcStoreSteam(Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, Nullable&lt;UInt32&gt;)</h4>
@@ -831,7 +836,7 @@ Tooltip: Is the DLC available in editor playmode
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreXbox_System_String_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.AddDlcStoreXbox(System.String%2CSystem.String%2CSystem.Action%7BKingmaker.Blueprints.BlueprintComponent%2CKingmaker.Blueprints.BlueprintComponent%7D%2CBlueprintCore.Blueprints.CustomConfigurators.ComponentMerge%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L443">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L445">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreXbox_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreXbox*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_AddDlcStoreXbox_System_String_System_String_System_Action_Kingmaker_Blueprints_BlueprintComponent_Kingmaker_Blueprints_BlueprintComponent__BlueprintCore_Blueprints_CustomConfigurators_ComponentMerge_System_String_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.AddDlcStoreXbox(System.String,System.String,System.Action{Kingmaker.Blueprints.BlueprintComponent,Kingmaker.Blueprints.BlueprintComponent},BlueprintCore.Blueprints.CustomConfigurators.ComponentMerge,System.String)">AddDlcStoreXbox(String, String, Action&lt;BlueprintComponent, BlueprintComponent&gt;, ComponentMerge, String)</h4>
@@ -1236,7 +1241,7 @@ AbilityConfigurator.New(NewIncorporealForm, Guids.NewIncorporealForm)
     <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/new/main/apiSpec/new?filename=BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_OnConfigureCompleted.md&amp;value=---%0Auid%3A%20BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator%602.OnConfigureCompleted%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L457">View Source</a>
+    <a href="https://github.com/WittleWolfie/WW-Blueprint-Core/blob/main/BlueprintCore/BlueprintCore/Blueprints/Configurators/DLC/BaseDlcConfigurator.cs/#L459">View Source</a>
   </span>
   <a id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_OnConfigureCompleted_" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.OnConfigureCompleted*"></a>
   <h4 id="BlueprintCore_Blueprints_Configurators_DLC_BaseDlcConfigurator_2_OnConfigureCompleted" data-uid="BlueprintCore.Blueprints.Configurators.DLC.BaseDlcConfigurator`2.OnConfigureCompleted">OnConfigureCompleted()</h4>
