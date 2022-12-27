@@ -33,9 +33,8 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
 2. Download and install [Unity](https://unity3d.com/get-unity/download/archive) version `2020.3.33f1`, skip if you already have it
 3. Open Unity and create a new project with the 3D template, **then close it**
     * I recommend using this directory structure:
-        * `pathToMod/MyMod` - Base directory for your mod
-            * `/MyModCode` - Directory for your C# solution
-            * `/MyModUnity` - Unity project directory
+        * `pathToMod/MyMod/MyModCode` - Directory for your C# solution
+        * `pathToMod/MyMod/MyModUnity` - Unity project directory
     * **Seriously close it or you'll probably need to do some renaming of things in Unity yourself from BasicTemplate to your mod name**
 4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip)
 5. Extract the contents
