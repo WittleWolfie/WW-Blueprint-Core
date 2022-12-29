@@ -5,6 +5,10 @@
 * Removes `m_DescriptionModifiersCache` from feature configuration
 * Fixes a bug which breaks some feature descriptions when you modify them with configurators
 
+### Breaking changes
+
+* You can no longer modify `m_DescriptionModifiersCache` with configurators. This field is populated automatically at runtime, if you want to change it add components inheriting from `DescriptionModifier`
+
 ## v2.7.2 Release
 
 * Update with latest patch data
