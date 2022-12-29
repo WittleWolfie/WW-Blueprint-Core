@@ -56,7 +56,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           var copyFrom = blueprint.Reference.Get();
           bp.IsClassFeature = copyFrom.IsClassFeature;
-          bp.m_DescriptionModifiersCache = copyFrom.m_DescriptionModifiersCache;
           bp.Groups = copyFrom.Groups;
           bp.Ranks = copyFrom.Ranks;
           bp.ReapplyOnLevelUp = copyFrom.ReapplyOnLevelUp;
@@ -75,7 +74,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         {
           var copyFrom = blueprint.Reference.Get();
           bp.IsClassFeature = copyFrom.IsClassFeature;
-          bp.m_DescriptionModifiersCache = copyFrom.m_DescriptionModifiersCache;
           bp.Groups = copyFrom.Groups;
           bp.Ranks = copyFrom.Ranks;
           bp.ReapplyOnLevelUp = copyFrom.ReapplyOnLevelUp;
@@ -97,83 +95,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bp =>
         {
           bp.IsClassFeature = isClassFeature;
-        });
-    }
-
-    /// <summary>
-    /// Sets the value of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
-    /// </summary>
-    public TBuilder SetDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          Validate(descriptionModifiersCache);
-          bp.m_DescriptionModifiersCache = descriptionModifiersCache;
-        });
-    }
-
-    /// <summary>
-    /// Adds to the contents of <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
-    /// </summary>
-    public TBuilder AddToDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache ?? new DescriptionModifier[0];
-          bp.m_DescriptionModifiersCache = CommonTool.Append(bp.m_DescriptionModifiersCache, descriptionModifiersCache);
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
-    /// </summary>
-    public TBuilder RemoveFromDescriptionModifiersCache(params DescriptionModifier[] descriptionModifiersCache)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_DescriptionModifiersCache is null) { return; }
-          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(val => !descriptionModifiersCache.Contains(val)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/> that match the provided predicate.
-    /// </summary>
-    public TBuilder RemoveFromDescriptionModifiersCache(Func<DescriptionModifier, bool> predicate)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_DescriptionModifiersCache is null) { return; }
-          bp.m_DescriptionModifiersCache = bp.m_DescriptionModifiersCache.Where(e => !predicate(e)).ToArray();
-        });
-    }
-
-    /// <summary>
-    /// Removes all elements from <see cref="BlueprintFeature.m_DescriptionModifiersCache"/>
-    /// </summary>
-    public TBuilder ClearDescriptionModifiersCache()
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          bp.m_DescriptionModifiersCache = new DescriptionModifier[0];
-        });
-    }
-
-    /// <summary>
-    /// Modifies <see cref="BlueprintFeature.m_DescriptionModifiersCache"/> by invoking the provided action on each element.
-    /// </summary>
-    public TBuilder ModifyDescriptionModifiersCache(Action<DescriptionModifier> action)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          if (bp.m_DescriptionModifiersCache is null) { return; }
-          bp.m_DescriptionModifiersCache.ForEach(action);
         });
     }
 
@@ -3106,10 +3027,6 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     {
       base.OnConfigureCompleted();
     
-      if (Blueprint.m_DescriptionModifiersCache is null)
-      {
-        Blueprint.m_DescriptionModifiersCache = new DescriptionModifier[0];
-      }
       if (Blueprint.Groups is null)
       {
         Blueprint.Groups = new FeatureGroup[0];

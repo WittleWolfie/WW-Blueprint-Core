@@ -31,7 +31,7 @@ using System.Reflection;
 namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
 {
   /// <summary>
-  /// Flags whether a type should be ignored. Usually this is for unused types but there are some manually ignored
+  /// Flags whether a type should be ignored. Usually this is for unused fields but there are some manually ignored
   /// types as well.
   /// </summary>
   public static class Ignored
@@ -55,6 +55,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
             "m_ValidationStatus"
           }
         ),
+        (typeof(BlueprintFeature), new() { "m_DescriptionModifiersCache" }),
         (typeof(BlueprintFeatureSelection), new() { "m_Features" }),
         (typeof(BlueprintProgression), new() { "AlternateProgressionType" }),
         (typeof(BlueprintAbility), new() { "AnimationStyle" }),

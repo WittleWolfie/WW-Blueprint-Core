@@ -11,11 +11,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
 {
-  /// <summary>
-  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintDlc"/>.
-  /// </summary>
-  /// <inheritdoc/>
-  public abstract class BaseDlcConfigurator<T, TBuilder>
+    /// <summary>
+    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintDlc"/>.
+    /// </summary>
+    /// <inheritdoc/>
+    public abstract class BaseDlcConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintDlc
     where TBuilder : BaseDlcConfigurator<T, TBuilder>

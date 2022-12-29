@@ -1,5 +1,10 @@
 ﻿# Changelog
 
+## v2.7.3 Release
+
+* Removes `m_DescriptionModifiersCache` from feature configuration
+* Fixes a bug which breaks some feature descriptions when you modify them with configurators
+
 ## v2.7.2 Release
 
 * Update with latest patch data
