@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using System;
@@ -26,6 +27,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
         typeof(BlueprintFeature),
         typeof(BlueprintProgression),
         typeof(BlueprintScriptableObject),
+        typeof(BlueprintSpellList),
       };
 
     public static readonly Dictionary<Type, string> TypeNameOverrides =

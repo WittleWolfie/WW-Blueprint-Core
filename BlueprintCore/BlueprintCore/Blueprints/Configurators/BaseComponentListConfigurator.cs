@@ -23,11 +23,11 @@ using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators
 {
-    /// <summary>
-    /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintComponentList"/>.
-    /// </summary>
-    /// <inheritdoc/>
-    public abstract class BaseComponentListConfigurator<T, TBuilder>
+  /// <summary>
+  /// Implements common fields and components for blueprints inheriting from <see cref="BlueprintComponentList"/>.
+  /// </summary>
+  /// <inheritdoc/>
+  public abstract class BaseComponentListConfigurator<T, TBuilder>
     : BaseBlueprintConfigurator<T, TBuilder>
     where T : BlueprintComponentList
     where TBuilder : BaseComponentListConfigurator<T, TBuilder>

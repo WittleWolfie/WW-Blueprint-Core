@@ -1,5 +1,13 @@
 ﻿# Changelog
 
+## v2.7.4 Release
+
+* Prevents mod conflict which can prevent modded spells from being learnable during level up
+
+### Breaking changes
+
+* SpellListConfigurator namespace has changed (it is now a custom configurator), so imports require updating
+
 ## v2.7.3 Release
 
 * Removes `m_DescriptionModifiersCache` from feature configuration

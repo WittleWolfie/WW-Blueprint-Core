@@ -1,12 +1,9 @@
-//***** AUTO-GENERATED - DO NOT EDIT *****//
-
-using BlueprintCore.Blueprints.CustomConfigurators;
+﻿using BlueprintCore.Blueprints.Configurators.Classes.Spells;
 using BlueprintCore.Utils;
-using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Spells;
-using System;
+using Kingmaker.Blueprints;
 
-namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
+namespace BlueprintCore.Blueprints.CustomConfigurators.Classes.Spells
 {
   /// <summary>
   /// Configurator for <see cref="BlueprintSpellList"/>.
@@ -49,21 +46,12 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
       return For(name);
     }
 
-
-    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Type[])"/>
-    public SpellListConfigurator CopyFrom(
-      Blueprint<BlueprintReference<BlueprintSpellList>> blueprint, params Type[] componentTypes)
+    protected override void OnConfigureCompleted()
     {
-      base.CopyFrom(blueprint.ToString(), componentTypes);
-    return Self;
-    }
+      base.OnConfigureCompleted();
 
-    /// <inheritdoc cref="RootConfigurator{T, TBuilder}.CopyFrom(Blueprint{BlueprintReference{BlueprintScriptableObject}}, Predicate{BlueprintComponent})"/>
-    public SpellListConfigurator CopyFrom(
-      Blueprint<BlueprintReference<BlueprintSpellList>> blueprint, Predicate<BlueprintComponent> componentMatcher)
-    {
-      base.CopyFrom(blueprint.ToString(), componentMatcher);
-    return Self;
+      foreach (var spells in Blueprint.SpellsByLevel)
+        spells.m_SpellsFiltered?.Clear();
     }
   }
 }
