@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.7.5 Release
+
+* AbilityConfigurator has an override for `SetLocalizedSavingThrow` for common saving throw strings
+
 ## v2.7.4 Release
 
 * Prevents mod conflict which can prevent modded spells from being learnable during level up

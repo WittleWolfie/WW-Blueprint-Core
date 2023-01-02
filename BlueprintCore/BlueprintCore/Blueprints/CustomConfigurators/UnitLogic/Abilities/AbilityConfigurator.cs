@@ -115,6 +115,20 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
   }
 
   /// <summary>
+  /// Maps to standard values for LocalizedSavingThrow. Set with <see cref="AbilityConfigurator.SetLocalizedSavingThrow(SavingThrow)"/>.
+  /// </summary>
+  public enum SavingThrow
+  {
+    FortNegates,
+    FortPartial,
+    ReflexNegates,
+    ReflexPartial,
+    ReflexHalf,
+    WillNegates,
+    WillPartial,
+  }
+
+  /// <summary>
   /// Configurator for <see cref="BlueprintAbility"/>.
   /// </summary>
   /// <inheritdoc/>
@@ -292,6 +306,27 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities
         _ => throw new NotImplementedException($"Unrecognized duration: {duration}")
       };
       OnConfigureInternal(bp => bp.LocalizedDuration = durationText);
+      return Self;
+    }
+
+    /// <summary>
+    /// Use this if you have an ability with standard saving throw text. If you need something custom use
+    /// <see cref="BaseAbilityConfigurator{T, TBuilder}.SetLocalizedSavingThrow(LocalString)"/>.
+    /// </summary>
+    public AbilityConfigurator SetLocalizedSavingThrow(SavingThrow savingThrow)
+    {
+      var saveText = savingThrow switch
+      {
+        SavingThrow.FortPartial => AbilityRefs.EarPiercingScream.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.FortNegates => AbilityRefs.FlareBurst.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.ReflexHalf => AbilityRefs.BurningHands.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.ReflexPartial => AbilityRefs.Web.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.ReflexNegates => AbilityRefs.Grease.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.WillPartial => AbilityRefs.CauseFear.Reference.Get().LocalizedSavingThrow,
+        SavingThrow.WillNegates => AbilityRefs.Daze.Reference.Get().LocalizedSavingThrow,
+        _ => throw new NotImplementedException($"Unrecognized save: {savingThrow}")
+      };
+      OnConfigureInternal(bp => bp.LocalizedSavingThrow = saveText);
       return Self;
     }
 
