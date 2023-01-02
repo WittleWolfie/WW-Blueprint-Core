@@ -218,7 +218,8 @@ This assumes you have already created a C# project and are familiar with the bas
         <PublicAssembly Include="$(SolutionDir)\lib\Assembly-CSharp_public.dll" />
         <RenamedAssembly Include="$(SolutionDir)\lib\Assembly-CSharp.dll" />
       </ItemGroup>
-
+      
+      <RemoveDir Directories="$(SolutionDir)lib/" />
       <PublicizeTask InputAssemblies="@(Assemblies)" OutputDir="$(SolutionDir)lib/" />
       <Move SourceFiles="@(PublicAssembly)" DestinationFiles="@(RenamedAssembly)" />
     </Target>
