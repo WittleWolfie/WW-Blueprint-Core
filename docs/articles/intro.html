@@ -299,6 +299,7 @@
     &lt;RenamedAssembly Include=&quot;$(SolutionDir)\lib\Assembly-CSharp.dll&quot; /&gt;
   &lt;/ItemGroup&gt;
 
+  &lt;RemoveDir Directories=&quot;$(SolutionDir)lib/&quot; /&gt;
   &lt;PublicizeTask InputAssemblies=&quot;@(Assemblies)&quot; OutputDir=&quot;$(SolutionDir)lib/&quot; /&gt;
   &lt;Move SourceFiles=&quot;@(PublicAssembly)&quot; DestinationFiles=&quot;@(RenamedAssembly)&quot; /&gt;
 &lt;/Target&gt;
