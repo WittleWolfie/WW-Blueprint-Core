@@ -1,5 +1,6 @@
 ﻿using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
@@ -25,6 +26,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides
         typeof(BlueprintArchetype),
         typeof(BlueprintBuff),
         typeof(BlueprintFeature),
+        typeof(BlueprintFeatureSelection),
         typeof(BlueprintProgression),
         typeof(BlueprintScriptableObject),
         typeof(BlueprintSpellList),

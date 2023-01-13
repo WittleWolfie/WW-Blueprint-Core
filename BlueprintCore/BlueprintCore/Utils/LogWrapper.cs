@@ -39,7 +39,7 @@ namespace BlueprintCore.Utils
     public static void EnableInternalVerboseLogs(bool enable = true)
     {
       InternalLogWrappers.ForEach(logger => logger.EnableVerboseLogs = enable);
-      EnableVerboseLogsInternal = true;
+      EnableVerboseLogsInternal = enable;
     }
     private static bool EnableVerboseLogsInternal = false;
 

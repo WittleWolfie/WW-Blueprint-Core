@@ -3,6 +3,7 @@ using BlueprintCore.Actions.Builder.ContextEx;
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.Configurators.Classes.Selection;
 using BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities;
+using BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Abilities;
 using BlueprintCore.Blueprints.CustomConfigurators.UnitLogic.Buffs;
 using BlueprintCore.Blueprints.ModReferences;
@@ -89,7 +90,21 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// </para>
     /// 
     /// <para>
-    /// If FeatureGroup.Feat is specified then <see cref="BlueprintFeature.IsClassFeature"/> is set to true.
+    /// If you specify FeatureGroups it will automatically set <c>IsClassFeature</c> to <c>true</c> unless you include
+    /// a group related to race or background:
+    /// <list type="bullet">
+    ///  <item>FeatureGroup.Racial</item>
+    ///  <item>FeatureGroup.Trait</item>
+    ///  <item>FeatureGroup.CreatureType</item>
+    ///  <item>FeatureGroup.AasimarHeritage</item>
+    ///  <item>FeatureGroup.TieflingHeritage</item>
+    ///  <item>FeatureGroup.BackgroundSelection</item>
+    ///  <item>FeatureGroup.DhampirHeritage</item>
+    ///  <item>FeatureGroup.OreadHeritage</item>
+    ///  <item>FeatureGroup.KitsuneHeritage</item>
+    ///  <item>FeatureGroup.HalfOrcHeritage</item>
+    /// </list>
+    /// You can override this by calling <see cref="BaseFeatureConfigurator{T, TBuilder}.SetIsClassFeature(bool)"/>.
     /// </para>
     /// </remarks>
     /// 
@@ -100,10 +115,12 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     public static FeatureConfigurator New(string name, string guid, params FeatureGroup[] groups)
     {
       BlueprintTool.Create<BlueprintFeature>(name, guid);
-      var configurator = For(name).SetGroups(groups);
-      if (groups.Contains(FeatureGroup.Feat))
+      var configurator = For(name);
+      if (groups.Any())
       {
-        configurator.SetIsClassFeature();
+        configurator.SetGroups(groups);
+        if (IsClassFeature(groups))
+          configurator.SetIsClassFeature();
       }
       return configurator;
     }
@@ -296,88 +313,115 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
       if (SkipSelections || !Configured)
         return;
 
-      var additionalFeatureSelections = AdditionalFeatureSelections.Select(s => s.Get()).Where(s => s is not null);
+      PopulateSelections(
+        Blueprint,
+        AdditionalFeatureSelections,
+        IsTeamworkFeat,
+        cavalierBuffGuid: CavalierBuffGuid,
+        vanguardBuffGuid: VanguardBuffGuid,
+        vanguardAbilityGuid: VanguardAbilityGuid,
+        packRagerBuffGuid: PackRagerBuffGuid,
+        packRagerAreaGuid: PackRagerAreaGuid,
+        packRagerAreaBuffGuid: PackRagerAreaBuffGuid,
+        packRagerToggleBuffGuid: PackRagerToggleBuffGuid,
+        packRagerToggleGuid: PackRagerToggleGuid);
+    }
+
+    internal static void PopulateSelections(
+      BlueprintFeature blueprint,
+      HashSet<BlueprintFeatureSelectionReference> additionalSelections,
+      bool forceTeamworkFeat,
+      string cavalierBuffGuid,
+      string vanguardBuffGuid,
+      string vanguardAbilityGuid,
+      string packRagerBuffGuid,
+      string packRagerAreaGuid,
+      string packRagerAreaBuffGuid,
+      string packRagerToggleBuffGuid,
+      string packRagerToggleGuid)
+    {
+      var additionalFeatureSelections = additionalSelections.Select(s => s.Get()).Where(s => s is not null);
       foreach (var selection in FeatureSelections.Except(additionalFeatureSelections))
       {
-        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(Blueprint.AssetGuid))
+        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(blueprint.AssetGuid))
           continue;
-        if (Blueprint.HasGroup(selection.Group, selection.Group2))
-          FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
+        if (blueprint.HasGroup(selection.Group, selection.Group2))
+          FeatureSelectionConfigurator.For(selection).AddToAllFeatures(blueprint).Configure();
       }
 
       var modFeatureSelections = ModFeatureSelectionRefs.All.Select(s => s.Reference.Get()).Where(s => s is not null);
       foreach (var selection in modFeatureSelections.Except(additionalFeatureSelections))
       {
-        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(Blueprint.AssetGuid))
+        if (selection.m_AllFeatures.Select(f => f.deserializedGuid).Contains(blueprint.AssetGuid))
           continue;
-        if (Blueprint.HasGroup(selection.Group, selection.Group2))
-          FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
+        if (blueprint.HasGroup(selection.Group, selection.Group2))
+          FeatureSelectionConfigurator.For(selection).AddToAllFeatures(blueprint).Configure();
       }
 
       foreach (var selection in additionalFeatureSelections)
-        FeatureSelectionConfigurator.For(selection).AddToAllFeatures(Blueprint).Configure();
+        FeatureSelectionConfigurator.For(selection).AddToAllFeatures(blueprint).Configure();
 
-      var isTeamworkFeat = IsTeamworkFeat || Blueprint.HasGroup(FeatureGroup.TeamworkFeat);
+      var isTeamworkFeat = forceTeamworkFeat || blueprint.HasGroup(FeatureGroup.TeamworkFeat);
       // Ensures that teamwork feats are shared by the various features
       if (isTeamworkFeat)
       {
         ParametrizedFeatureConfigurator.For(ParametrizedFeatureRefs.LichSkeletalTeamworkParametrized)
-          .AddToBlueprintParameterVariants(Blueprint)
+          .AddToBlueprintParameterVariants(blueprint)
           .Configure();
 
-        AddFactsFromCaster(BuffRefs.BattleProwessEffectBuff);
-        AddFactsFromCaster(BuffRefs.MonsterTacticsBuff);
-        AddFactsFromCaster(BuffRefs.TacticalLeaderFeatShareBuff);
+        AddFactsFromCaster(blueprint, BuffRefs.BattleProwessEffectBuff);
+        AddFactsFromCaster(blueprint, BuffRefs.MonsterTacticsBuff);
+        AddFactsFromCaster(blueprint, BuffRefs.TacticalLeaderFeatShareBuff);
 
-        ShareFeatureWithPet(FeatureRefs.HunterTactics);
-        ShareFeatureWithPet(FeatureRefs.SacredHuntsmasterTactics);
+        ShareFeatureWithPet(blueprint, FeatureRefs.HunterTactics);
+        ShareFeatureWithPet(blueprint, FeatureRefs.SacredHuntsmasterTactics);
 
         #region Cavalier Tactician
-        var cavalierBuff = BuffConfigurator.New($"CavalierTactician_{Blueprint.name}_Buff", CavalierBuffGuid)
-          .SetDisplayName(Blueprint.m_DisplayName)
-          .SetDescription(Blueprint.m_Description)
-          .SetIcon(Blueprint.Icon)
+        var cavalierBuff = BuffConfigurator.New($"CavalierTactician_{blueprint.name}_Buff", cavalierBuffGuid)
+          .SetDisplayName(blueprint.m_DisplayName)
+          .SetDescription(blueprint.m_Description)
+          .SetIcon(blueprint.Icon)
           .SetIsClassFeature()
           .SetStacking(StackingType.Ignore)
-          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: Blueprint, not: true)
+          .AddFeatureIfHasFact(checkedFact: blueprint, feature: blueprint, not: true)
           .Configure();
 
         AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbility);
         AddBuffToAbilityApplyFact(cavalierBuff, AbilityRefs.CavalierTacticianAbilitySwift);
 
         FeatureConfigurator.For(FeatureRefs.CavalierTacticianSupportFeature)
-          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: cavalierBuff)
+          .AddFeatureIfHasFact(checkedFact: blueprint, feature: cavalierBuff)
           .Configure();
         #endregion
 
         #region Vanguard Tactician
-        var vanguardBuff = BuffConfigurator.New($"VanguardTactician_{Blueprint.name}_Buff", VanguardBuffGuid)
-          .SetDisplayName(Blueprint.m_DisplayName)
-          .SetDescription(Blueprint.m_Description)
-          .SetIcon(Blueprint.Icon)
+        var vanguardBuff = BuffConfigurator.New($"VanguardTactician_{blueprint.name}_Buff", vanguardBuffGuid)
+          .SetDisplayName(blueprint.m_DisplayName)
+          .SetDescription(blueprint.m_Description)
+          .SetIcon(blueprint.Icon)
           .SetIsClassFeature()
-          .AddFactsFromCaster(facts: new() { Blueprint })
+          .AddFactsFromCaster(facts: new() { blueprint })
           .Configure();
 
         var vanguardAbility =
-          AbilityConfigurator.New($"VanguardTactician_{Blueprint.name}_Ability", VanguardAbilityGuid)
-            .SetDisplayName(Blueprint.m_DisplayName)
-            .SetDescription(Blueprint.m_Description)
-            .SetIcon(Blueprint.Icon)
+          AbilityConfigurator.New($"VanguardTactician_{blueprint.name}_Ability", vanguardAbilityGuid)
+            .SetDisplayName(blueprint.m_DisplayName)
+            .SetDescription(blueprint.m_Description)
+            .SetIcon(blueprint.Icon)
             .SetRange(AbilityRange.Personal)
             .SetType(AbilityType.Extraordinary)
             .SetParent(AbilityRefs.VanguardTacticianBaseAbility.ToString())
             .AddAbilityEffectRunAction(
               ActionsBuilder.New()
                 .Conditional(
-                  ConditionsBuilder.New().HasFact(Blueprint, negate: true),
+                  ConditionsBuilder.New().HasFact(blueprint, negate: true),
                   ifTrue:
                     ActionsBuilder.New().ApplyBuff(vanguardBuff, ContextDuration.Variable(ContextValues.Rank()))))
             .AddContextRankConfig(
               ContextRankConfigs.ClassLevel(new string[] { CharacterClassRefs.SlayerClass.ToString() })
                 .WithDiv2Progression(3))
             .AddAbilityTargetsAround(targetType: TargetType.Ally, radius: new(30))
-            .AddAbilityShowIfCasterHasFact(unitFact: Blueprint)
+            .AddAbilityShowIfCasterHasFact(unitFact: blueprint)
             .AddAbilityResourceLogic(
               isSpendResource: true, requiredResource: AbilityResourceRefs.VanguardTacticianResource.ToString())
             .Configure();
@@ -391,17 +435,17 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
 
         #region PackRager
         var icon = ActivatableAbilityRefs.PackRagerAlliedSpellcasterToggleAbility.Reference.Get().Icon;
-        var ragerBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_Buff", PackRagerBuffGuid)
-          .SetDisplayName(Blueprint.m_DisplayName)
-          .SetDescription(Blueprint.m_Description)
+        var ragerBuff = BuffConfigurator.New($"PackRager_{blueprint.name}_Buff", packRagerBuffGuid)
+          .SetDisplayName(blueprint.m_DisplayName)
+          .SetDescription(blueprint.m_Description)
           .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .SetFrequency(DurationRate.Minutes)
-          .AddTemporaryFeat(Blueprint)
+          .AddTemporaryFeat(blueprint)
           .Configure();
 
-        var ragerArea = AbilityAreaEffectConfigurator.New($"PackRager_{Blueprint.name}_Area", PackRagerAreaGuid)
+        var ragerArea = AbilityAreaEffectConfigurator.New($"PackRager_{blueprint.name}_Area", packRagerAreaGuid)
           .SetAggroEnemies(false)
           .SetTargetType(BlueprintAbilityAreaEffect.TargetType.Ally)
           .AddAbilityAreaEffectRunAction(
@@ -411,23 +455,23 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           .SetShape(AreaEffectShape.Cylinder)
           .Configure();
 
-        var ragerAreaBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_AreaBuff", PackRagerAreaBuffGuid)
+        var ragerAreaBuff = BuffConfigurator.New($"PackRager_{blueprint.name}_AreaBuff", packRagerAreaBuffGuid)
           .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .AddAreaEffect(areaEffect: ragerArea)
           .Configure();
 
-        var ragerToggleBuff = BuffConfigurator.New($"PackRager_{Blueprint.name}_ToggleBuff", PackRagerToggleBuffGuid)
+        var ragerToggleBuff = BuffConfigurator.New($"PackRager_{blueprint.name}_ToggleBuff", packRagerToggleBuffGuid)
           .SetIcon(icon)
           .SetIsClassFeature()
           .AddToFlags(BlueprintBuff.Flags.StayOnDeath)
           .AddBuffExtraEffects(checkedBuff: BuffRefs.StandartRageBuff.ToString(), extraEffectBuff: ragerAreaBuff)
           .Configure();
 
-        var ragerToggle = ActivatableAbilityConfigurator.New($"PackRager_{Blueprint.name}_Toggle", PackRagerToggleGuid)
-          .SetDisplayName(Blueprint.m_DisplayName)
-          .SetDescription(Blueprint.m_Description)
+        var ragerToggle = ActivatableAbilityConfigurator.New($"PackRager_{blueprint.name}_Toggle", packRagerToggleGuid)
+          .SetDisplayName(blueprint.m_DisplayName)
+          .SetDescription(blueprint.m_Description)
           .SetIcon(icon)
           .SetIsOnByDefault()
           .SetActivateWithUnitCommand(CommandType.Standard)
@@ -436,34 +480,60 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           .Configure();
 
         FeatureConfigurator.For(FeatureRefs.PackRagerRagingTacticianBaseFeature)
-          .AddFeatureIfHasFact(checkedFact: Blueprint, feature: ragerToggle)
+          .AddFeatureIfHasFact(checkedFact: blueprint, feature: ragerToggle)
           .Configure();
         #endregion
       }
     }
 
-    private void AddFactsFromCaster(Blueprint<BlueprintReference<BlueprintBuff>> buff)
+    private static void AddFactsFromCaster(BlueprintFeature blueprint, Blueprint<BlueprintReference<BlueprintBuff>> buff)
     {
       BuffConfigurator.For(buff)
           .EditComponent<AddFactsFromCaster>(
-            c => c.m_Facts = CommonTool.Append(c.m_Facts, Blueprint.ToReference<BlueprintUnitFactReference>()))
+            c => c.m_Facts = CommonTool.Append(c.m_Facts, blueprint.ToReference<BlueprintUnitFactReference>()))
           .Configure();
     }
 
-    private void ShareFeatureWithPet(Blueprint<BlueprintReference<BlueprintFeature>> feature)
+    private static void ShareFeatureWithPet(BlueprintFeature blueprint, Blueprint<BlueprintReference<BlueprintFeature>> feature)
     {
       FeatureConfigurator.For(feature)
         .EditComponent<ShareFeaturesWithPet>(
-          c => c.m_Features = CommonTool.Append(c.m_Features, Blueprint.ToReference<BlueprintFeatureReference>()))
+          c => c.m_Features = CommonTool.Append(c.m_Features, blueprint.ToReference<BlueprintFeatureReference>()))
         .Configure();
     }
 
-    private void AddBuffToAbilityApplyFact(BlueprintBuff buff, Blueprint<BlueprintReference<BlueprintAbility>> ability)
+    private static void AddBuffToAbilityApplyFact(BlueprintBuff buff, Blueprint<BlueprintReference<BlueprintAbility>> ability)
     {
       AbilityConfigurator.For(ability)
         .EditComponent<AbilityApplyFact>(
           c => c.m_Facts = CommonTool.Append(c.m_Facts, buff.ToReference<BlueprintUnitFactReference>()))
         .Configure();
+    }
+
+    internal static bool IsClassFeature(FeatureGroup[] groups)
+    {
+      if (groups.Contains(FeatureGroup.Racial))
+        return false;
+      if (groups.Contains(FeatureGroup.Trait))
+        return false;
+      if (groups.Contains(FeatureGroup.CreatureType))
+        return false;
+      if (groups.Contains(FeatureGroup.AasimarHeritage))
+        return false;
+      if (groups.Contains(FeatureGroup.TieflingHeritage))
+        return false;
+      if (groups.Contains(FeatureGroup.BackgroundSelection))
+        return false;
+      if (groups.Contains(FeatureGroup.DhampirHeritage))
+        return false;
+      if (groups.Contains(FeatureGroup.OreadHeritage))
+        return false;
+      if (groups.Contains(FeatureGroup.KitsuneHeritage))
+        return false;
+      if (groups.Contains(FeatureGroup.HalfOrcHeritage))
+        return false;
+
+      return true;
     }
   }
 

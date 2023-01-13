@@ -1,5 +1,18 @@
 ﻿# Changelog
 
+## v2.7.7 Release
+
+* FeatureSelectionConfigurator is at feature parity w/ FeatureConfigurator for populating feature groups
+
+## v2.7.6 Release
+
+* New custom FeatureSelectionConfigurator for easily setting feature groups
+* FeatureConfigurator is more aggressive about setting `IsClassFeature` to `true`
+
+### Breaking Changes
+
+* Custom FeatureSelectionConfigurator requires updating imports
+
 ## v2.7.5 Release
 
 * AbilityConfigurator has an override for `SetLocalizedSavingThrow` for common saving throw strings
