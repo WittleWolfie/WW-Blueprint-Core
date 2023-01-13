@@ -101,7 +101,7 @@
 <h3 id="selecting-the-feat">Selecting the Feat</h3>
 <p>At this point the feat exists but has no effect and can't be selected. To fix this we need to add it to a <code>BlueprintFeatureSelection</code>. BlueprintFeatureSelection defines a list of features you can select during character creation or advancement, e.g. feats, deities, and backgrounds.</p>
 <p>There are many feat lists in game including <code>BasicFeatSelection</code> as well as feats tied to specific character options such as <code>WizardFeatSelection</code> which contains feats a wizard can choose as a bonus feat.</p>
-<p>If you know exactly which lists you want to add your feat to you can use <a class="xref" href="../../api/BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator.html">FeatureSelectionConfigurator</a>:</p>
+<p>If you know exactly which lists you want to add your feat to you can use <a href="xref:BlueprintCore.Blueprints.Configurators.Classes.Selection.FeatureSelectionConfigurator">FeatureSelectionConfigurator</a>:</p>
 <pre><code class="lang-C#">FeatureSelectionConfigurator.For(FeatureSelectionRefs.BasicFeatSelection).AddToAllFeatures(MyFeat).Configure();
 </code></pre>
 <div class="TIP">

@@ -69,11 +69,28 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="changelog">Changelog</h1>
 
+<h2 id="v277-release">v2.7.7 Release</h2>
+<ul>
+<li>FeatureSelectionConfigurator is at feature parity w/ FeatureConfigurator for populating feature groups</li>
+</ul>
+<h2 id="v276-release">v2.7.6 Release</h2>
+<ul>
+<li>New custom FeatureSelectionConfigurator for easily setting feature groups</li>
+<li>FeatureConfigurator is more aggressive about setting <code>IsClassFeature</code> to <code>true</code></li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes</h3>
+<ul>
+<li>Custom FeatureSelectionConfigurator requires updating imports</li>
+</ul>
+<h2 id="v275-release">v2.7.5 Release</h2>
+<ul>
+<li>AbilityConfigurator has an override for <code>SetLocalizedSavingThrow</code> for common saving throw strings</li>
+</ul>
 <h2 id="v274-release">v2.7.4 Release</h2>
 <ul>
 <li>Prevents mod conflict which can prevent modded spells from being learnable during level up</li>
 </ul>
-<h3 id="breaking-changes">Breaking changes</h3>
+<h3 id="breaking-changes-1">Breaking changes</h3>
 <ul>
 <li>SpellListConfigurator namespace has changed (it is now a custom configurator), so imports require updating</li>
 </ul>
@@ -82,7 +99,7 @@
 <li>Removes <code>m_DescriptionModifiersCache</code> from feature configuration</li>
 <li>Fixes a bug which breaks some feature descriptions when you modify them with configurators</li>
 </ul>
-<h3 id="breaking-changes-1">Breaking changes</h3>
+<h3 id="breaking-changes-2">Breaking changes</h3>
 <ul>
 <li>You can no longer modify <code>m_DescriptionModifiersCache</code> with configurators. This field is populated automatically at runtime, if you want to change it add components inheriting from <code>DescriptionModifier</code></li>
 </ul>
@@ -140,7 +157,7 @@
 <li>New <code>ContextDice</code> and <code>DamageTypes</code> utils for creating <code>ContextDiceValue</code> and <code>DamageTypeDescription</code>, respectively</li>
 <li>Added links to some mods made using BPCore for examples</li>
 </ul>
-<h3 id="breaking-changes-2">Breaking Changes</h3>
+<h3 id="breaking-changes-3">Breaking Changes</h3>
 <ul>
 <li>If you are using ILStrip there is a new patch, add the following entry point:
 <ul>
@@ -213,7 +230,7 @@
 <li>Updated for the latest game version</li>
 <li>Removed obsolete components flagged in the 2.2 release</li>
 </ul>
-<h3 id="breaking-changes-3">Breaking Changes</h3>
+<h3 id="breaking-changes-4">Breaking Changes</h3>
 <ul>
 <li>All components flagged obsolete have been removed</li>
 </ul>
@@ -243,7 +260,7 @@
 <li>Hand tuned more components</li>
 <li>Added <code>BlueprintTool.TryGet&lt;T&gt;()</code> to check for presence of a blueprint</li>
 </ul>
-<h3 id="breaking-changes-4">Breaking Changes</h3>
+<h3 id="breaking-changes-5">Breaking Changes</h3>
 <ul>
 <li><code>AddReplaceStatForPrerequisites</code> has been modified</li>
 </ul>
@@ -297,7 +314,7 @@
 <li>Fixed type specific overrides to apply to Lists and Arrays</li>
 <li>Fixed LogWrapper to respect <code>EnableInternalVerboseLogs</code></li>
 </ul>
-<h3 id="breaking-changes-5">Breaking Changes</h3>
+<h3 id="breaking-changes-6">Breaking Changes</h3>
 <ul>
 <li>If you are using ILStrip there are new patches, add the following entry points:
 <ul>
@@ -340,7 +357,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-6">Breaking Changes</h3>
+<h3 id="breaking-changes-7">Breaking Changes</h3>
 <ul>
 <li>If you updated code references you'll have to revert. This was an accidental / change introduced when params became a standard API.</li>
 </ul>
@@ -362,7 +379,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-7">Breaking Changes</h3>
+<h3 id="breaking-changes-8">Breaking Changes</h3>
 <ul>
 <li>If you were using any <code>RemoveFromX(Func&lt;Blueprint,bool&gt;)</code> functions the logic is now reversed. This matches the API design but not the function.</li>
 </ul>
@@ -407,7 +424,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-8">Breaking Changes</h3>
+<h3 id="breaking-changes-9">Breaking Changes</h3>
 <ul>
 <li>ProgressionConfigurator changed namespace
 <ul>
@@ -462,7 +479,7 @@
 <ul>
 <li>Fixed an NPE resulting from not specifying optional List or Array parameters</li>
 </ul>
-<h3 id="breaking-changes-9">Breaking Changes</h3>
+<h3 id="breaking-changes-10">Breaking Changes</h3>
 <ul>
 <li>Fixed a bug incorrectly identifying unique and non-unique components
 <ul>
@@ -471,7 +488,7 @@
 </li>
 </ul>
 <h2 id="v203-release">v2.0.3 Release</h2>
-<h3 id="breaking-changes-10">Breaking Changes</h3>
+<h3 id="breaking-changes-11">Breaking Changes</h3>
 <ul>
 <li>The type <code>Blueprint&lt;T,  TRef&gt;</code> has been shortened to <code>Blueprint&lt;TRef&gt;</code>
 <ul>
@@ -494,7 +511,7 @@
 <li>Fixed bug with Encyclopedia tagging causing exceptions</li>
 <li>Fixed default merge behavior which was incorrectly set to ComponentMerge.Merge instead of ComponentMerge.Fail</li>
 </ul>
-<h3 id="breaking-changes-11">Breaking Changes</h3>
+<h3 id="breaking-changes-12">Breaking Changes</h3>
 <ul>
 <li>Namespaces are changes to organize type specific util classes
 <ul>
@@ -550,7 +567,7 @@ their level editor</li>
 </ul>
 </li>
 </ul>
-<h3 id="breaking-changes-12">Breaking Changes</h3>
+<h3 id="breaking-changes-13">Breaking Changes</h3>
 <ul>
 <li>Configurator namespaces may have changed to align w/ game code structure</li>
 <li>Method and parameter names changed for ActionsBuilder, ConditionsBuilder, and Configurators</li>
