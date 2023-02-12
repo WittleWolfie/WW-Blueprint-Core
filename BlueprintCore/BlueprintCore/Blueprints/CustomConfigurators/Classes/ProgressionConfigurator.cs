@@ -233,29 +233,10 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <summary>
-    /// Adds the specified features to an existing LevelEntry in <see cref="BlueprintProgression.LevelEntries"/>.
+    /// Adds the specified features to an existing LevelEntry in <see cref="BlueprintProgression.LevelEntries"/>.  Adds
+    /// the level if it doesn't exist already.
     /// </summary>
     public ProgressionConfigurator AddToLevelEntry(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
-    {
-      return OnConfigureInternal(
-        bp =>
-        {
-          foreach (var entry in bp.LevelEntries)
-          {
-            if (entry.Level == level)
-            {
-              entry.m_Features.AddRange(features.Select(f => f.Reference));
-              Logger.Info($"FEATURES: {string.Join(", ", entry.Features)}");
-            }
-          }
-        });
-    }
-
-    /// <summary>
-    /// Removes the provided features from any LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the
-    /// specified level. Adds the level if it doesn't exist already.
-    /// </summary>
-    public ProgressionConfigurator RemoveFromLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
     {
       return OnConfigureInternal(
         bp =>
@@ -265,8 +246,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           {
             if (entry.Level == level)
             {
-              entry.m_Features =
-                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
+              entry.m_Features.AddRange(features.Select(f => f.Reference));
               exists = true;
               break;
             }
@@ -277,6 +257,26 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
 
           var newEntry = new LevelEntry() { Level = level, m_Features = features.Select(f => f.Reference).ToList() };
           bp.LevelEntries = CommonTool.Append(bp.LevelEntries, newEntry);
+        });
+    }
+
+    /// <summary>
+    /// Removes the provided features from any LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the
+    /// specified level.
+    /// </summary>
+    public ProgressionConfigurator RemoveFromLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          foreach (var entry in bp.LevelEntries)
+          {
+            if (entry.Level == level)
+            {
+              entry.m_Features =
+                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
+            }
+          }
         });
     }
 
