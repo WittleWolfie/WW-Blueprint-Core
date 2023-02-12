@@ -4933,7 +4933,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbjurationResistanceAcidAbility</term><description>9b415e09847398644ad6e57a9e3ab06a</description></item>
-    /// <item><term>HellsSealVariantFearEater</term><description>36e1f480c0d6f0f4cbff67fcc2e88c78</description></item>
+    /// <item><term>HellsSealVariantDevouringFlames</term><description>0130bffa460e0b4439e7283b68db025c</description></item>
     /// <item><term>WitchWanderingHexAbility</term><description>b209beab784d93546b40a2fa2a09ffa8</description></item>
     /// </list>
     /// </remarks>
@@ -5720,7 +5720,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrderApproach</term><description>d5f853d35d58c104eaa7eab50c25de39</description></item>
-    /// <item><term>OracleBonesPowerWordKill</term><description>f010e072fd6c1794baf2975e446577e7</description></item>
+    /// <item><term>Nocticula_Ability_QDomination</term><description>e6982100c074454584c340f06617c3a6</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>

@@ -8431,7 +8431,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelPhoenixGiftBuff</term><description>9988e25ec217c0249a28213e7dc0017c</description></item>
-    /// <item><term>FascinateCommonBuff</term><description>9c70d2ae017665b4b845e6c299cb7439</description></item>
+    /// <item><term>FascinateEffectBuff</term><description>2d4bd347dec7d8648afd502ee40ae661</description></item>
     /// <item><term>WitchHexSlumberBuff</term><description>d36e15046cc86c0418c69b8e13f29602</description></item>
     /// </list>
     /// </remarks>
@@ -14614,7 +14614,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>FaerieFireBuff</term><description>cc383a9eaae4d2b45a925d442b367b54</description></item>
-    /// <item><term>JudgeGreaterSentenceBuff</term><description>acd6efa9f76547ebba81ffe051d2fd7d</description></item>
+    /// <item><term>MidnightArrowIgnoreConcealmentBuff</term><description>2904d8af55ac4f009d158a3ef04f3c1b</description></item>
     /// <item><term>ShamanHexFireNimbusBuff</term><description>b89bcff63880d6e439c4908ff03e212d</description></item>
     /// </list>
     /// </remarks>
@@ -14988,7 +14988,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>KiTrueStrikeBuff</term><description>294e43af05aba134a8a24b05113cf472</description></item>
-    /// <item><term>UmbralStrike</term><description>474ed0aa656cc38499cc9a073d113716</description></item>
+    /// <item><term>TrueStrikeBuff</term><description>a3ce3b226c1817846b0419fa182e6ea0</description></item>
     /// <item><term>WildLink_ArcherEffectBuff</term><description>f325218a4482d0145a94dcdb5b3bcb42</description></item>
     /// </list>
     /// </remarks>
@@ -16967,7 +16967,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Camouflage</term><description>ff1b5aa8dcc7d7d4d9aa85e1cb3f9e88</description></item>
-    /// <item><term>RecommendedDuelist</term><description>41457a3a3f0451742b03bd62dcc4b3ee</description></item>
+    /// <item><term>RecommendedDuelist</term><description>87cfbd51046aa68438c7c00209622d7b</description></item>
     /// <item><term>RecommendedWizard</term><description>2eee1ed3fa724ff41a163a5ae256ca65</description></item>
     /// </list>
     /// </remarks>

@@ -223,7 +223,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbjurationResistanceAcidAbility", "9b415e09847398644ad6e57a9e3ab06a"),
-            new Blueprint("HellsSealVariantFearEater", "36e1f480c0d6f0f4cbff67fcc2e88c78"),
+            new Blueprint("HellsSealVariantDevouringFlames", "0130bffa460e0b4439e7283b68db025c"),
             new Blueprint("WitchWanderingHexAbility", "b209beab784d93546b40a2fa2a09ffa8"),
           }
         },
@@ -492,7 +492,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbsoluteOrderApproach", "d5f853d35d58c104eaa7eab50c25de39"),
-            new Blueprint("OracleBonesPowerWordKill", "f010e072fd6c1794baf2975e446577e7"),
+            new Blueprint("Nocticula_Ability_QDomination", "e6982100c074454584c340f06617c3a6"),
             new Blueprint("WitchHexVulnerabilityCurseAbility", "8f0eb58c2d6aeab4e8523ec85b4b2bc7"),
           }
         },
@@ -2108,7 +2108,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AngelPhoenixGiftBuff", "9988e25ec217c0249a28213e7dc0017c"),
-            new Blueprint("FascinateCommonBuff", "9c70d2ae017665b4b845e6c299cb7439"),
+            new Blueprint("FascinateEffectBuff", "2d4bd347dec7d8648afd502ee40ae661"),
             new Blueprint("WitchHexSlumberBuff", "d36e15046cc86c0418c69b8e13f29602"),
           }
         },
@@ -2426,7 +2426,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("ActivatingSwordOfValor", "071f4953d481d5242b250b1aa7482dce"),
-            new Blueprint("GiantsLair_Default", "af83c5654679cd14b9eda5ce7bfc4f85"),
+            new Blueprint("Graveyard_GraverobbersAgro1", "0940392b6893433b83f9935f1848fde8"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -3139,8 +3139,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Artifact_HornsOfNaragaUnsummonBuff", "bf24f9a2ae9047029f53ef8c797c50cf"),
-            new Blueprint("DLC3_HasteIslandHaste", "468a512753834f5bb94d7a0b17cff165"),
-            new Blueprint("LannSparringBuff", "0b87395f642f67048aafeaf65146edb0"),
+            new Blueprint("DLC3_SicknessHeavyDiseaseBuff", "4a19a78fbde84e03b4547137b11ddc3a"),
+            new Blueprint("MidnightArrowQuiverBuff", "6c471bc4db0c4b1db39577f31dd1feae"),
           }
         },
 
@@ -3355,7 +3355,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("Camouflage", "ff1b5aa8dcc7d7d4d9aa85e1cb3f9e88"),
-            new Blueprint("RecommendedDuelist", "41457a3a3f0451742b03bd62dcc4b3ee"),
+            new Blueprint("RecommendedDuelist", "87cfbd51046aa68438c7c00209622d7b"),
             new Blueprint("RecommendedWizard", "2eee1ed3fa724ff41a163a5ae256ca65"),
           }
         },
@@ -5146,7 +5146,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("FaerieFireBuff", "cc383a9eaae4d2b45a925d442b367b54"),
-            new Blueprint("JudgeGreaterSentenceBuff", "acd6efa9f76547ebba81ffe051d2fd7d"),
+            new Blueprint("MidnightArrowIgnoreConcealmentBuff", "2904d8af55ac4f009d158a3ef04f3c1b"),
             new Blueprint("ShamanHexFireNimbusBuff", "b89bcff63880d6e439c4908ff03e212d"),
           }
         },
@@ -5727,7 +5727,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("KiTrueStrikeBuff", "294e43af05aba134a8a24b05113cf472"),
-            new Blueprint("UmbralStrike", "474ed0aa656cc38499cc9a073d113716"),
+            new Blueprint("TrueStrikeBuff", "a3ce3b226c1817846b0419fa182e6ea0"),
             new Blueprint("WildLink_ArcherEffectBuff", "f325218a4482d0145a94dcdb5b3bcb42"),
           }
         },
@@ -12352,8 +12352,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           typeof(Kingmaker.AreaLogic.Capital.CapitalCompanionLogic),
           new()
           {
-            new Blueprint("ArueshalaeRomance_Dream", "5b50f78e40004fb4dafa71f13452b855"),
-            new Blueprint("GoddessesSummit", "81851815200b9d545bec82a65332a1b9"),
+            new Blueprint("AllowCombat", "0704c7b789ce4ddaa2fd29d43abc92d3"),
+            new Blueprint("GalfreyInDH", "bcba97110780285489da48e728acd806"),
             new Blueprint("WarCamp_EarlyBeginning", "4be1dcbb5f0a05f43b8915e14251b76c"),
           }
         },

@@ -2390,8 +2390,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArueshalaeRomance_Dream</term><description>5b50f78e40004fb4dafa71f13452b855</description></item>
-    /// <item><term>GoddessesSummit</term><description>81851815200b9d545bec82a65332a1b9</description></item>
+    /// <item><term>AllowCombat</term><description>0704c7b789ce4ddaa2fd29d43abc92d3</description></item>
+    /// <item><term>GalfreyInDH</term><description>bcba97110780285489da48e728acd806</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>

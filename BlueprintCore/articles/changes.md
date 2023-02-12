@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.7.8 Release
+
+* Added `AddToLevelEntry` to ProgressionConfigurator to simplify adding new features to an existing progression
+
 ## v2.7.7 Release
 
 * FeatureSelectionConfigurator is at feature parity w/ FeatureConfigurator for populating feature groups

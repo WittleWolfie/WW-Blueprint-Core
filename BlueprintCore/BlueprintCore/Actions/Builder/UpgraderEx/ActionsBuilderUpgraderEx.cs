@@ -76,7 +76,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
     /// <item><term>PF-341704</term><description>e4782857b49f40fc903acef39d3f7424</description></item>
-    /// <item><term>PF-382795</term><description>10ceeab987b44bdb848e172f0994b99a</description></item>
+    /// <item><term>PF-472203_FreebooterMasterHunter</term><description>afd16a98a8754b60b176b94fc80dd7a8</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-351846</term><description>7a60e7cf06624462bc3fd3a33a59632e</description></item>
-    /// <item><term>PF-468855_HasteIsland</term><description>36754205a5894150a680dc98ecbbcfd5</description></item>
+    /// <item><term>PF-369108</term><description>4b2b043d194c4687bdc67485e2375da7</description></item>
+    /// <item><term>PF-471630_MasterHunterCasterBuff</term><description>29f9fbd41585423c861ffa4666eefbbf</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -338,7 +338,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-252717</term><description>8bacf8493b904c3ebd11dcd885b1ff41</description></item>
+    /// <item><term>PF-339343</term><description>adc22eb66c2f43798c9824ac05fb60f4</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>

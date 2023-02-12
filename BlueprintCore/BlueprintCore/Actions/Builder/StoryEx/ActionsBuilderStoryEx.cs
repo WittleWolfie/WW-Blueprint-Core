@@ -202,7 +202,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Nocticula]_SpawnActions</term><description>d77f996b50fad684bb0435c1d12a526d</description></item>
-    /// <item><term>CommandAction3</term><description>f04823e41ae04690990c237cb062e628</description></item>
+    /// <item><term>CommandAction3</term><description>d1f0f778e8bf427b82f57ccd51ed95ec</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -371,7 +371,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC2_Sv_Ins_Bonfire</term><description>aeb5f43d6af14c7f84c0066c6bfb450a</description></item>
+    /// <item><term>DLC2_Musician_Combat</term><description>e8eb21cfa45e486f817a81fd54abb0dd</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -1929,7 +1929,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0034</term><description>d0b34afed43bc154e9a83af8e7379218</description></item>
+    /// <item><term>Cue_0034</term><description>5a083cd26e6c39b46b3eddcf648f87c8</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

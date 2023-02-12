@@ -16,7 +16,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("HeartOfIraArea", "3a636a7438e92a14386fc460f466be1b"),
+            new Blueprint("HeartOfIcebergAbility", "38d7bac2134ff0a48968dc2aacfc5973"),
             new Blueprint("ZeorisDaggerRing_GoverningFeature", "0faee0a55f634902895b4e1faf828502"),
           }
         },
@@ -96,7 +96,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AbruptForceBuff", "4cf7aa3c1b2e2354b877135e4b4f32b2"),
-            new Blueprint("HellsDecreeAbilityMagicIllusionBuff", "a3720ccc52393f24da5241594084a2d8"),
+            new Blueprint("HellsDecreeAbilityMagicNecromancyBuff", "c695587d5307d234cb34f62750ff7616"),
             new Blueprint("ZeorisDaggerRing_BetrayalEnemyFeature", "1a695b8dfffc46f7a74527e510fd452b"),
           }
         },
@@ -136,7 +136,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("HellAngelSwordMaximizeAbility", "3784daa048b715b43911ef43da6b3817"),
+            new Blueprint("HellAngelSwordMarkAbility", "ae29dd08cc0d883469516025df9641a4"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -395,7 +395,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("Cue_0034", "d0b34afed43bc154e9a83af8e7379218"),
+            new Blueprint("Cue_0034", "5a083cd26e6c39b46b3eddcf648f87c8"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -668,7 +668,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AfterFinalDIalog_EpicRelief", "2fa48a4ad45a0f64d8f2881ff9802dd8"),
-            new Blueprint("CommandAction2", "75c164fae3cd49c7a7b08c8099ccd909"),
+            new Blueprint("CommandAction2", "8ce3fe93201e4d7cb6f02395570acdfc"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -838,7 +838,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AutoAggroBuff_SpawnActions", "68073f3e7d394c56961c6143b20ff8d8"),
-            new Blueprint("DLC3_ArceneMod", "9e1d3b8cb3c745a48ad3f2fdccd078fe"),
+            new Blueprint("DLC3_BesmaraMod_IsPB2", "d461960c88b44b4a8d7a4ed3e5bfd143"),
             new Blueprint("Valmallos_Stage2", "511aa03d9a17499d9a6c71e0ab8bd47a"),
           }
         },
@@ -1281,7 +1281,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("2Wave", "4e1dcba08c1e4a89aea4aaa07f8f89ae"),
-            new Blueprint("DLC2_Sv_Ins_Bonfire", "aeb5f43d6af14c7f84c0066c6bfb450a"),
+            new Blueprint("DLC2_Musician_Combat", "e8eb21cfa45e486f817a81fd54abb0dd"),
             new Blueprint("Wintersun_Default", "87839550c801db944b102f61084fd245"),
           }
         },
@@ -1999,7 +1999,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Nocticula]_SpawnActions", "d77f996b50fad684bb0435c1d12a526d"),
-            new Blueprint("CommandAction3", "f04823e41ae04690990c237cb062e628"),
+            new Blueprint("CommandAction3", "d1f0f778e8bf427b82f57ccd51ed95ec"),
             new Blueprint("ZigguratZachariusInZiggurat", "2844d387f27a0bb468f72603dd15eda2"),
           }
         },
@@ -2018,7 +2018,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("PF-111273", "344ce9c06961426f95c109ce243d8c35"),
-            new Blueprint("PF-252717", "8bacf8493b904c3ebd11dcd885b1ff41"),
+            new Blueprint("PF-339343", "adc22eb66c2f43798c9824ac05fb60f4"),
             new Blueprint("PF-96002", "eb741196d9ce49768ca5adac488f65ef"),
           }
         },
@@ -2029,7 +2029,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           {
             new Blueprint("PF-167761", "3d8d382f1c7042e2b9ffe1af00ce2c56"),
             new Blueprint("PF-341704", "e4782857b49f40fc903acef39d3f7424"),
-            new Blueprint("PF-382795", "10ceeab987b44bdb848e172f0994b99a"),
+            new Blueprint("PF-472203_FreebooterMasterHunter", "afd16a98a8754b60b176b94fc80dd7a8"),
           }
         },
 
@@ -2156,8 +2156,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("PF-220021_NegativeEnergyAffinityDhampir", "8d6a65a9774e4cbbbbd71f6547139b1b"),
-            new Blueprint("PF-351846", "7a60e7cf06624462bc3fd3a33a59632e"),
-            new Blueprint("PF-468855_HasteIsland", "36754205a5894150a680dc98ecbbcfd5"),
+            new Blueprint("PF-369108", "4b2b043d194c4687bdc67485e2375da7"),
+            new Blueprint("PF-471630_MasterHunterCasterBuff", "29f9fbd41585423c861ffa4666eefbbf"),
           }
         },
 

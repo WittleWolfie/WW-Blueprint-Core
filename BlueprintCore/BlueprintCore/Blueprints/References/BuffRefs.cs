@@ -3460,6 +3460,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MhakaraccasMaleficManuscriptConfusionBonus = "80d19496061c438a81b84a76e2085e59";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MhakaraccasMaleficManuscriptIntBonus = "ce4b0f17bc2248698c2433eee0159191";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MhakaraccasMaleficManuscriptSkillChecksBonus = "07755eaf08df4d12bea69cde5f1efae5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MidnightArrowIgnoreConcealmentBuff = "2904d8af55ac4f009d158a3ef04f3c1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MidnightArrowQuiverAutohitBuff = "32708a6c27074aeb847658e0625ad382";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MidnightArrowQuiverBuff = "6c471bc4db0c4b1db39577f31dd1feae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MidnightFane_AutoAggroBuff = "79cfe2100427440a9bb1e1b7f9a57164";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MidnightFane_DimensionLock_Buff = "4b0cd08a3cea2844dba9889c1d34d667";
@@ -8862,6 +8864,8 @@ namespace BlueprintCore.Blueprints.References
           MhakaraccasMaleficManuscriptConfusionBonus,
           MhakaraccasMaleficManuscriptIntBonus,
           MhakaraccasMaleficManuscriptSkillChecksBonus,
+          MidnightArrowIgnoreConcealmentBuff,
+          MidnightArrowQuiverAutohitBuff,
           MidnightArrowQuiverBuff,
           MidnightFane_AutoAggroBuff,
           MidnightFane_DimensionLock_Buff,

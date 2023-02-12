@@ -3706,6 +3706,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FoxfireFeature = "14c699ccd0564e04a9587b1845d16014";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FoxfireInfusionFeature = "ae21c5369252ec74aa1fee89f1bc1b21";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FragmentationInfusion = "88ae936abf296894695a282f49214718";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FreebooterMasterHunter = "6ce95769148f40c4aada8c01ee39d9a1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FreebootersBaneFeature = "485fa71b077a0304f86915a7718678ad";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FreebootersBondFeature = "13954cd0f95cb4f4eaa9e9cdabbc2bbb";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FreeDancersBootsFeature = "b8cf3a526d8744542967d96b7153251a";
@@ -11456,6 +11457,7 @@ namespace BlueprintCore.Blueprints.References
           FoxfireFeature,
           FoxfireInfusionFeature,
           FragmentationInfusion,
+          FreebooterMasterHunter,
           FreebootersBaneFeature,
           FreebootersBondFeature,
           FreeDancersBootsFeature,

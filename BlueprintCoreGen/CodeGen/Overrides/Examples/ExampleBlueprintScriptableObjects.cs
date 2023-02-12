@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstStage_AcidBuff", "6afe27c9a2d64eb890673ff3649dacb3"),
-            new Blueprint("GorgeousGlowingGarnetGarmentBuff", "28b1948265e4478fb034b2aec079fd82"),
+            new Blueprint("Gorum_Buff", "e3a9786b626d4b50ac58a8b3cbdc00f4"),
             new Blueprint("ZombieDeathEffectSlashingBuff", "912375890d1543ddbce40176d06bb85d"),
           }
         },
@@ -125,7 +125,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("154654654654", "aa49f649d92747e2a632476a8369b18d"),
-            new Blueprint("GreaterFocusedRageFeature", "ce0943a4687f4967966cd4354f12019c"),
+            new Blueprint("GreaterFireElementalBurnFeature", "5129567223dcbc248a4143226ba037f4"),
             new Blueprint("ZonKuthonSacredWeaponFeature", "5c73ec301e1e3094ebb031bda43e6481"),
           }
         },
@@ -145,7 +145,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AasimarSpellLikeResource", "a4ea5b9becd98dd47b51c8742aeb70ec"),
-            new Blueprint("HexChannelerChannelResource", "707f3cc2e103a8d40ab79ff49664b2bf"),
+            new Blueprint("HermitRevelationReclusesStride10Resource", "7a177b530fef4f8419b3eceddc89f456"),
             new Blueprint("WitchWanderingHexResource", "69a59a4670b17ef4dbccecd4cda6b898"),
           }
         },
@@ -2297,7 +2297,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("00215987193f18a42a2e0edcb24d9cf0_BCT_AeonViram", "af7b32dd4aaf40bbb0e08f6736f036f2"),
-            new Blueprint("BCT_Cultist_ElfMale_Fullplate", "6f873f35d5894820896d61c924356633"),
+            new Blueprint("BCT_Cultist_Fullplate_Baphomet", "1d37a7f1362246a5ab9f0dd422e8f31e"),
             new Blueprint("Ygefels", "d53a2a03fc4945aeafe3b4c27aeaf810"),
           }
         },
@@ -2436,7 +2436,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("gate", "fc268500370d415da9cf27c32043ace3"),
-            new Blueprint("gate 2", "698c70326d6f9f2409085799925c1623"),
+            new Blueprint("gate 2", "84b0415b2591cc84c99a93006d3f0d91"),
             new Blueprint("gate9", "5b1a0b6731eb475692ebef9f02f1808b"),
           }
         },

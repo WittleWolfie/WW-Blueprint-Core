@@ -3,6 +3,7 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Root.Strings;
 using System.Collections.Generic;
 using System.Linq;
 using static Kingmaker.Blueprints.Classes.BlueprintProgression;
@@ -232,10 +233,9 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     }
 
     /// <summary>
-    /// Removes the provided features from any LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the
-    /// specified level.
+    /// Adds the specified features to an existing LevelEntry in <see cref="BlueprintProgression.LevelEntries"/>.
     /// </summary>
-    public ProgressionConfigurator RemoveFromLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    public ProgressionConfigurator AddToLevelEntry(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
     {
       return OnConfigureInternal(
         bp =>
@@ -244,10 +244,39 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
           {
             if (entry.Level == level)
             {
-              entry.m_Features =
-                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
+              entry.m_Features.AddRange(features.Select(f => f.Reference));
+              Logger.Info($"FEATURES: {string.Join(", ", entry.Features)}");
             }
           }
+        });
+    }
+
+    /// <summary>
+    /// Removes the provided features from any LevelEntry in <see cref="BlueprintProgression.LevelEntries"/> with the
+    /// specified level. Adds the level if it doesn't exist already.
+    /// </summary>
+    public ProgressionConfigurator RemoveFromLevelEntries(int level, params Blueprint<BlueprintFeatureBaseReference>[] features)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          var exists = false;
+          foreach (var entry in bp.LevelEntries)
+          {
+            if (entry.Level == level)
+            {
+              entry.m_Features =
+                entry.m_Features.Where(e => !features.Where(f => e.Equals(f.Reference)).Any()).ToList();
+              exists = true;
+              break;
+            }
+          }
+
+          if (exists)
+            return;
+
+          var newEntry = new LevelEntry() { Level = level, m_Features = features.Select(f => f.Reference).ToList() };
+          bp.LevelEntries = CommonTool.Append(bp.LevelEntries, newEntry);
         });
     }
 

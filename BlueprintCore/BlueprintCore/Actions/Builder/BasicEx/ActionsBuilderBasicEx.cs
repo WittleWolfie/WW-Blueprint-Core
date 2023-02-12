@@ -808,7 +808,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
-    /// <item><term>CommandAction2</term><description>75c164fae3cd49c7a7b08c8099ccd909</description></item>
+    /// <item><term>CommandAction2</term><description>8ce3fe93201e4d7cb6f02395570acdfc</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1587,7 +1587,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AutoAggroBuff_SpawnActions</term><description>68073f3e7d394c56961c6143b20ff8d8</description></item>
-    /// <item><term>DLC3_ArceneMod</term><description>9e1d3b8cb3c745a48ad3f2fdccd078fe</description></item>
+    /// <item><term>DLC3_BesmaraMod_IsPB2</term><description>d461960c88b44b4a8d7a4ed3e5bfd143</description></item>
     /// <item><term>Valmallos_Stage2</term><description>511aa03d9a17499d9a6c71e0ab8bd47a</description></item>
     /// </list>
     /// </remarks>

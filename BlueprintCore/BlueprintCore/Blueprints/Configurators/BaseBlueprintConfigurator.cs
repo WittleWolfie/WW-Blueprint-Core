@@ -1324,7 +1324,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ActivatingSwordOfValor</term><description>071f4953d481d5242b250b1aa7482dce</description></item>
-    /// <item><term>GiantsLair_Default</term><description>af83c5654679cd14b9eda5ce7bfc4f85</description></item>
+    /// <item><term>Graveyard_GraverobbersAgro1</term><description>0940392b6893433b83f9935f1848fde8</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

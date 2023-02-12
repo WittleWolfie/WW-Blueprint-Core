@@ -1570,6 +1570,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FragmentationEarthBlastAbility = "d859e796f6177cf449679c677076c577";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FragmentationIceBlastAbility = "415ce928decc2ac4fa551be49de86ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FragmentationMetalBlastAbility = "3cf0a759bc612264fb9b03aa2f90b24b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FreebooterMasterHunterAbility = "6dae5142147f45bd9108ea620ffe755e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FreebootersBaneAbility = "76f8f23f6502def4dbefedffdc4d4c43";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FreebootersBondAbility = "f9f94fdcb4a3e314ea19e5398ab81251";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> FreedomOfMovement = "4c349361d720e844e846ad8c19959b1e";
@@ -5131,6 +5132,7 @@ namespace BlueprintCore.Blueprints.References
           FragmentationEarthBlastAbility,
           FragmentationIceBlastAbility,
           FragmentationMetalBlastAbility,
+          FreebooterMasterHunterAbility,
           FreebootersBaneAbility,
           FreebootersBondAbility,
           FreedomOfMovement,

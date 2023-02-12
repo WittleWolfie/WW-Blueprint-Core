@@ -264,6 +264,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ForesterBreathOfLifeResource = "009a2d96b048337469a04855a5ada34b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ForesterTacticianResource = "34dc370aa26fb304c89a39c5ad902b85";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FormOfTheDragonDiscipleResource = "bbcf0725f6fff1b419b230ea0d3c1aa1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FreebooterMasterHunterResource = "2b4ebf146edf44a1a0c0c815f9f50a8b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> GiftOfBloodResource = "184d1e611c78cbf4bb1e6bb354b878ff";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> GloryDomainBaseResource = "a653d96fbcbce64499f425aada462f69";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> GloryDomainGreaterResource = "7840479c243f05244a3dc9ac9fc43182";
@@ -818,6 +819,7 @@ namespace BlueprintCore.Blueprints.References
           ForesterBreathOfLifeResource,
           ForesterTacticianResource,
           FormOfTheDragonDiscipleResource,
+          FreebooterMasterHunterResource,
           GiftOfBloodResource,
           GloryDomainBaseResource,
           GloryDomainGreaterResource,

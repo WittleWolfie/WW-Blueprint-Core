@@ -96,7 +96,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("1_FirstDeathAbility", "4445d9d1c21141c6a0bb24baf373ef78"),
-            new Blueprint("GreaterCognatogenCharismaIntelligence", "bd98572b88bdea94d9eb23ccf06ecfd8"),
+            new Blueprint("GreaterCognatogenCharismaWisdom", "0d51cf14921631c40b17b6e6a3b6b1ab"),
             new Blueprint("ZeorisDaggerRing_GoverningAllyBuff", "02680be495534b629d543daa89b47079"),
           }
         },
@@ -235,7 +235,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[DLC1_Taberdine]_BarkConditions", "c1bbb11f93d44e13b5587d4c9701515d"),
-            new Blueprint("Cue_0007", "9f12f6910ce89ee43ad2a4618ba6691c"),
+            new Blueprint("Cue_0007", "732a71efe936dd74784ec0e7c5006dc3"),
             new Blueprint("ZombiesOnStreets", "ffcf5bca11694784686d9947ed226a88"),
           }
         },
@@ -699,7 +699,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("[Kerz]_BarkCondition", "59c232c2fa5e7c54baa235fee0e049d6"),
-            new Blueprint("Check_0039", "dfe1d9535edfb78489d7d244c58f2b2c"),
+            new Blueprint("Check_0039", "2a85beb6ece7441bb32d8d4be4465d04"),
             new Blueprint("ZanedraInTemple", "0d22fd186d557a049b46c0fb3d623f04"),
           }
         },

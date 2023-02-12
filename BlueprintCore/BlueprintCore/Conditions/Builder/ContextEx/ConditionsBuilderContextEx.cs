@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GreaterCognatogenCharismaIntelligence</term><description>bd98572b88bdea94d9eb23ccf06ecfd8</description></item>
+    /// <item><term>GreaterCognatogenCharismaWisdom</term><description>0d51cf14921631c40b17b6e6a3b6b1ab</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
