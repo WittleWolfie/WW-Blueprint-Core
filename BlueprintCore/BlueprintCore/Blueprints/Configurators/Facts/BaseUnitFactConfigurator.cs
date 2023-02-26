@@ -5066,6 +5066,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintFactionReference>? faction = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? noFogOfWarOnMainCharacter = null,
         ChangeFaction.ChangeType? type = null)
     {
       var component = new ChangeFaction();
@@ -5075,6 +5076,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.m_Faction = BlueprintTool.GetRef<BlueprintFactionReference>(null);
       }
+      component.m_NoFogOfWarOnMainCharacter = noFogOfWarOnMainCharacter ?? component.m_NoFogOfWarOnMainCharacter;
       component.m_Type = type ?? component.m_Type;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }

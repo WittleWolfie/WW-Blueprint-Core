@@ -259,10 +259,12 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddDlcStoreConsoleFree(
+        DlcStoreConsoleFree.PlatformsType? availableOn = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DlcStoreConsoleFree();
+      component.AvailableOn = availableOn ?? component.AvailableOn;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

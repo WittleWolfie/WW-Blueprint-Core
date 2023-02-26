@@ -3,7 +3,6 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
-using Kingmaker.Blueprints.Root.Strings;
 using System.Collections.Generic;
 using System.Linq;
 using static Kingmaker.Blueprints.Classes.BlueprintProgression;

@@ -36,7 +36,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("!Octavia_Companion_Warrior_Test", "0f5938a10fd0d3644be33747d6d2b11c"),
-            new Blueprint("Eliandra_Actions", "010af6e54d68e1847a3291f2a54124a3"),
+            new Blueprint("EmberCompanion", "057802b5ffdc1a349a4d88712de26ca8"),
             new Blueprint("ZippyMagicFeature", "30b4200f897ba25419ba3a292aed4053"),
           }
         },
@@ -618,7 +618,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Examples
           new()
           {
             new Blueprint("AcrobaticCheckS1_CheckFailedActions", "024cfea8fa605e5438485ae1bdb6c4f8"),
-            new Blueprint("Cue_0001", "dbdc99649fad472fa0ba2227841c16f2"),
+            new Blueprint("Cue_0002", "0bcc673bb9dcdd6479c9cf177934bbd6"),
             new Blueprint("YeribethHall_ResetCipher", "6613c051209b7ef49a3653bc1d87fa36"),
           }
         },
