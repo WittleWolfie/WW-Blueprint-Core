@@ -1194,6 +1194,8 @@
 
   { "TypeName": "ContextActionConditionalSaved" },
 
+  { "TypeName": "ContextActionCustomAttack" },
+
   { "TypeName": "ContextActionDealBestDamage" },
 
   { "TypeName": "ContextActionDealWeaponDamage" },
@@ -1211,6 +1213,8 @@
   { "TypeName": "ContextActionDismount" },
 
   { "TypeName": "ContextActionDropItems" },
+
+  { "TypeName": "ContextActionGetInsideTarget" },
 
   { "TypeName": "ContextActionGiveExperience" },
 
@@ -1247,6 +1251,8 @@
   { "TypeName": "ContextActionRangedAttack" },
 
   { "TypeName": "ContextActionReduceDebilitatingBuffsDuration" },
+
+  { "TypeName": "ContextActionReleaseGrapple" },
 
   { "TypeName": "ContextActionRemoveDeathDoor" },
 

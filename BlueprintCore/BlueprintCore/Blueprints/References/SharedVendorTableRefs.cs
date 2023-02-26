@@ -203,6 +203,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_VendorTableWeaponSimplePlus3 = "2d11d82aeff44c75b049b94d2c6c448f";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_VendorTableWeaponSimplePlus4 = "f945e0a27bf248009a0507d2122ad5f2";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_VendorTableWeaponSimplePlus5 = "96e09defdc76493884772c767f577e48";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC4_NegociantTable = "0b8896663cc143d18b222616dfc71f48";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_DefendersHeartVendorTable = "a7948df9d37efc34e841284cf883370e";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_Vendor_DLC2 = "e5cdfb113e884ab6967650f5eacbcb42";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Exotic_Chapter3VendorTable = "9c597a1f92dde2f4f8adb27ee5730188";
@@ -498,6 +499,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_VendorTableWeaponSimplePlus3,
           DLC3_VendorTableWeaponSimplePlus4,
           DLC3_VendorTableWeaponSimplePlus5,
+          DLC4_NegociantTable,
           Equipment_DefendersHeartVendorTable,
           Equipment_Vendor_DLC2,
           Exotic_Chapter3VendorTable,

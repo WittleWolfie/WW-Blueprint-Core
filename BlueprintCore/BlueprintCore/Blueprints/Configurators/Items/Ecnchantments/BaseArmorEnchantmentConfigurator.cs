@@ -45,8 +45,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmorEnhancementBonus1</term><description>a9ea95c5e02f9b7468447bc1010fe152</description></item>
-    /// <item><term>SarkorianWeddingEarthBreakerEnchantment</term><description>82ff09a4ed964f33ac20c3a6f189edb3</description></item>
-    /// <item><term>TemporaryArmorEnhancementBonus5</term><description>15d7d6cbbf56bd744b37bbf9225ea83b</description></item>
+    /// <item><term>HeavyShieldEnhancementRusty</term><description>5fbb3964ceb9492da80806de8205a491</description></item>
+    /// <item><term>ShieldEnhancementBonus6</term><description>70c26c66adb96d74baec38fc8d20c139</description></item>
     /// </list>
     /// </remarks>
     ///

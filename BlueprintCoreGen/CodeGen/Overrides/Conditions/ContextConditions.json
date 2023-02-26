@@ -19,8 +19,6 @@
     "RequiredFields": [ "ConditionsChecker" ]
   },
 
-  { "TypeName": "ContextConditionDistanceToTarget" },
-
   { "TypeName": "ContextConditionAlignment" },
 
   { "TypeName": "ContextConditionAlignmentDifference" },
@@ -43,6 +41,10 @@
 
   { "TypeName": "ContextConditionCompareTargetHP" },
 
+  { "TypeName": "ContextConditionDamageTransferIsApplicable" },
+
+  { "TypeName": "ContextConditionDistanceToTarget" },
+
   { "TypeName": "ContextConditionFavoredEnemy" },
 
   { "TypeName": "ContextConditionGender" },
@@ -58,6 +60,8 @@
   { "TypeName": "ContextConditionHasBuffWithSpellSchool" },
 
   { "TypeName": "ContextConditionHasItem" },
+
+  { "TypeName": "ContextConditionHasItemCharges" },
 
   { "TypeName": "ContextConditionHasTouchSpellCharge" },
 
@@ -97,6 +101,8 @@
 
   { "TypeName": "ContextConditionIsShieldEquipped" },
 
+  { "TypeName": "ContextConditionIsShiftersFuryWeapon" },
+
   { "TypeName": "ContextConditionIsTwoHandedEquipped" },
 
   { "TypeName": "ContextConditionIsUnconscious" },
@@ -126,6 +132,8 @@
   { "TypeName": "ContextConditionTargetIsDivineCaster" },
 
   { "TypeName": "ContextConditionTargetIsEngaged" },
+
+  { "TypeName": "ContextConditionTargetIsUnit" },
 
   { "TypeName": "ContextConditionTargetIsYourself" },
 

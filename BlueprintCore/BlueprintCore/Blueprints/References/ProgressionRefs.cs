@@ -93,27 +93,48 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodlineUndeadProgression = "a1a8bf61cadaa4143b2d4966f2d1142e";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodlineUndeadProgression1 = "a56252fbbd7b45db97129187ee1fa3ba";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerAbyssalBloodline = "55d5bbf4b5ae1744ab26c71be98067f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerAbyssalSecondBloodline = "12af0fda00774784b45feacb67c014f8";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerArcaneBloodline = "aeff0a749e20ffe4b9e2846eae29c386";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerArcaneSecondBloodline = "a83c0d19fdcc41c79f04df934e7ebf29";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerCelestialBloodline = "05a141717bbce594a8a763c227f4ee2f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerCelestialSecondBloodline = "d4d3824a31df4f249833357dffe2da61";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBlackBloodline = "3d030a2fed2b5cf45919fc1e40629a9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBlackSecondBloodline = "7384587bd92a417793894022b03e298e";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBlueBloodline = "17bbb6790ca500d4190b978cab5c4dfc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBlueSecondBloodline = "4c495ac785134983b99f77eb559a81a0";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBrassBloodline = "56e22cb1dde3f5a4297d45744ca19043";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBrassSecondBloodline = "3a16aa26238a453da33338871d7183fd";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBronzeBloodline = "0cf41c61c8ac463478e5ba733fd26b40";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonBronzeSecondBloodline = "a787a6e193c244c5901c799f4c3afe2d";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonCopperBloodline = "53f189dce67466c4f9e60610e5d1c4ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonCopperSecondBloodline = "49e5e1528329494e84c7dc6aa0b6bd7b";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonGoldBloodline = "ffcb3d0a1a45d8048a691eda9f0219b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonGoldSecondBloodline = "6e0236ac698449edb60a8beeb923d2b2";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonGreenBloodline = "69b27eb6bd71ac747a2fac8399c27c3a";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonGreenSecondBloodline = "b48fa4abd8a444b281bf12f7c17f0d0f";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonRedBloodline = "34209f220733fc444a039df1b1076b0b";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonRedSecondBloodline = "4a947725f58441aeafc2ae0859526d1b";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonSilverBloodline = "df182ceef2330d74b9bd7bfdb23d144b";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonSilverSecondBloodline = "27bf16b1f4154059b0b5dcf994add205";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonWhiteBloodline = "c97cf6524b89d474989378d841c7cf5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerDragonWhiteSecondBloodline = "215efcf398f442c4925d59dd5e836cfe";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalAcidBloodline = "dafe58c4f0785e94e93c0f07901f1343";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalAcidSecondBloodline = "caeae1df04194eef813118be2b187fb9";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalColdBloodline = "5286db4f19f31eb44af99fb881c99517";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalColdSecondBloodline = "38fce508b837482cbf94eaae74431e74";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalElectricityBloodline = "777bc77d3dc652c488a20d1a7b0b95e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalElectricitySecondBloodline = "a09931d3e0054addad73a5c9d759ca41";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalFireBloodline = "12f7b4c5d603f3744b2b1def28c0a4fa";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerElementalFireSecondBloodline = "5151e4d7512e41a2a35c1c2707281a64";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerFeyBloodline = "a6e8fae8a6d6e374a9af2893840be4ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerFeySecondBloodline = "42af960c4cb84ef6b85ec3500d5a38e4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerInfernalBloodline = "9aef64b53406f114cb43f898a3aec01e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerInfernalSecondBloodline = "36bb7ed75f0c4dcc9fd3374c603b2d0e";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerProgression = "69dec3bda9a94914bb159cba128300b9";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerSerpentineBloodline = "f5b06b67f04949f4c8d88fd3bbc0771e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerSerpentineSecondBloodline = "bedecc3e55af4fd2b46af1fd42d0fc97";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerUndeadBloodline = "9f4ea90e9b9c27c48b541dbef184b3b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodragerUndeadSecondBloodline = "0dae08e932ef4430b391790bdf9ab9d5";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BloodriderMountProgression = "2cb79bb1bbeace04197c007ad149dde5";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BlueFlameBlastProgression = "cdf2a117e8a2ccc4ebabd2fcee1e4d09";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> BodyguardProgression = "ba8b0017dad1ad3458194cf68862ebf2";
@@ -327,6 +348,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeFeyspeakerProgression = "22ba89b3c654ef846a9d7816faea0e83";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeHunterProgression = "e104a28a4bcf4e3aa4271c6e53e2f2f4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeInquisitorProgression = "d21a104c204ed7348a51405e68387013";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeMasterSpyProgression = "387423a038fa4c6984bd2513ca5d1a50";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeOracleProgression = "04c7d6910a409cc4ca188e4b81cc5df8";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgePaladinProgression = "39c9af2be5d29ba49a68d6e82ea4e847";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeProgression = "08c1075ef2786ef4fae11e82698a16e0";
@@ -359,6 +381,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrankedCurseNoPenaltyProgression = "1c8dd487cca2fd34abbc367f66081c68";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrankedCurseProgression = "15631616e56ccf44ab8659e55c36185f";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistProgression = "d8b8d1dd83393484cbacf6c8830080ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistSecondBloodlineTakeRagePowers12 = "c7254db3798e4e68baa85a084ca3d73b";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistSecondBloodlineTakeRagePowers16 = "531d1dd9dd7b4cdf9849ae027b2caf6d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistSecondBloodlineTakeRagePowers20 = "32525ed3aea0480ebd7ad3654dca96cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistSecondBloodlineTakeRagePowers4 = "39fd1f34c8ab45d997192773281291e3";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistSecondBloodlineTakeRagePowers8 = "cc0ed1ccd6664dd881922321fec7a8ba";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistTakeRagePowers12 = "e43a7bfd5c90a514cab1c11b41c550b1";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistTakeRagePowers16 = "b6412ff44f3a82f499d0dd6748a123bc";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrimalistTakeRagePowers20 = "5905a80d5934248439e83612d9101b4b";
@@ -433,7 +460,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWavesSpiritWanderingProgression = "bfbed44eafaa4344189730403b426a88";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWindSpiritProgression = "eae7cee2a5da93442a7563dfeda33432";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShamanWindSpiritWanderingProgression = "11a92d0a44576e4439b745ab00f298b5";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShifterAspectGriffonProgression = "05517d2e4d9e4a5fa86ad37d6b061fa4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShifterProgression = "da560d3be3c943d8b1fa23e77dd7efa4";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ShifterWolverineProgression = "4fc5f64d13ce4c0e8258a83ff63c50af";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SkaldProgression = "26418fed2bc153245972a5b54204ed75";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SlayerProgression = "1f35d11937a06624b8a60db68c7869a1";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SorcererProgression = "997665565ca80a649aedd72455c4df1f";
@@ -594,27 +623,48 @@ namespace BlueprintCore.Blueprints.References
           BloodlineUndeadProgression,
           BloodlineUndeadProgression1,
           BloodragerAbyssalBloodline,
+          BloodragerAbyssalSecondBloodline,
           BloodragerArcaneBloodline,
+          BloodragerArcaneSecondBloodline,
           BloodragerCelestialBloodline,
+          BloodragerCelestialSecondBloodline,
           BloodragerDragonBlackBloodline,
+          BloodragerDragonBlackSecondBloodline,
           BloodragerDragonBlueBloodline,
+          BloodragerDragonBlueSecondBloodline,
           BloodragerDragonBrassBloodline,
+          BloodragerDragonBrassSecondBloodline,
           BloodragerDragonBronzeBloodline,
+          BloodragerDragonBronzeSecondBloodline,
           BloodragerDragonCopperBloodline,
+          BloodragerDragonCopperSecondBloodline,
           BloodragerDragonGoldBloodline,
+          BloodragerDragonGoldSecondBloodline,
           BloodragerDragonGreenBloodline,
+          BloodragerDragonGreenSecondBloodline,
           BloodragerDragonRedBloodline,
+          BloodragerDragonRedSecondBloodline,
           BloodragerDragonSilverBloodline,
+          BloodragerDragonSilverSecondBloodline,
           BloodragerDragonWhiteBloodline,
+          BloodragerDragonWhiteSecondBloodline,
           BloodragerElementalAcidBloodline,
+          BloodragerElementalAcidSecondBloodline,
           BloodragerElementalColdBloodline,
+          BloodragerElementalColdSecondBloodline,
           BloodragerElementalElectricityBloodline,
+          BloodragerElementalElectricitySecondBloodline,
           BloodragerElementalFireBloodline,
+          BloodragerElementalFireSecondBloodline,
           BloodragerFeyBloodline,
+          BloodragerFeySecondBloodline,
           BloodragerInfernalBloodline,
+          BloodragerInfernalSecondBloodline,
           BloodragerProgression,
           BloodragerSerpentineBloodline,
+          BloodragerSerpentineSecondBloodline,
           BloodragerUndeadBloodline,
+          BloodragerUndeadSecondBloodline,
           BloodriderMountProgression,
           BlueFlameBlastProgression,
           BodyguardProgression,
@@ -828,6 +878,7 @@ namespace BlueprintCore.Blueprints.References
           MysticTheurgeFeyspeakerProgression,
           MysticTheurgeHunterProgression,
           MysticTheurgeInquisitorProgression,
+          MysticTheurgeMasterSpyProgression,
           MysticTheurgeOracleProgression,
           MysticTheurgePaladinProgression,
           MysticTheurgeProgression,
@@ -860,6 +911,11 @@ namespace BlueprintCore.Blueprints.References
           PrankedCurseNoPenaltyProgression,
           PrankedCurseProgression,
           PrimalistProgression,
+          PrimalistSecondBloodlineTakeRagePowers12,
+          PrimalistSecondBloodlineTakeRagePowers16,
+          PrimalistSecondBloodlineTakeRagePowers20,
+          PrimalistSecondBloodlineTakeRagePowers4,
+          PrimalistSecondBloodlineTakeRagePowers8,
           PrimalistTakeRagePowers12,
           PrimalistTakeRagePowers16,
           PrimalistTakeRagePowers20,
@@ -934,7 +990,9 @@ namespace BlueprintCore.Blueprints.References
           ShamanWavesSpiritWanderingProgression,
           ShamanWindSpiritProgression,
           ShamanWindSpiritWanderingProgression,
+          ShifterAspectGriffonProgression,
           ShifterProgression,
+          ShifterWolverineProgression,
           SkaldProgression,
           SlayerProgression,
           SorcererProgression,

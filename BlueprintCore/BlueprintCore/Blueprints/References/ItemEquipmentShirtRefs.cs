@@ -20,12 +20,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> BaphometFireCloth_AnimalisticFireItem = "7453858a493f49239b7c99657c80df58";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> BaphometFireCloth_BurningCunningItem = "1d48edb7478d41b9897b54542d169ca8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> BaphometFireCloth_IntermediateItem = "12c604e51320457fb15b71dcf3303e5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> BestialRagsItem = "efc86eef11d548d7be4ebfba999b9e9d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> BlackenedRagsItem = "e3a97644bdf4c9d48970ad46bca1d98d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> CalmingWardenItem = "ccadf79fbd028db49bc3dccf082e4297";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClaspOfDeathRobeItem = "d8c0d242f1844c4fa1e40e91eae3f198";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfBlazingFighterItem = "fa9c152b414fa8c418c9064043fdfa34";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfHeavyFortificationItem = "6c29087271234af1819123d31bf9f3c8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DarkAcolytesRobeItemCorrect = "2394c36e06b84f008f49754c7ed0317e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DarkMastersRobeItemShirt = "62d2df6b7f534378b3492a4d2f78889d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarAgilityClothItem = "8ac08cece7840174a80407516fdff043";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarCloth_IntermediateItem = "ae4118a79f5154543adb9c4b59e7b6de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarMasochisticClothItem = "7393c642e36be6e488ddd7eb7ca30a31";
@@ -38,12 +40,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> JoCat_ShirtItem = "28f82428f86a47a195d64856152cac65";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> LoremastersRobeItem = "68ed893157ce46deb6fdba8aae5deaa2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> PilgrimClothItem = "de9188750de58a64ca8c9886359d274b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> PurlingRobeItemShirt = "b34f522142d041f786bcf860585bd5e8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> Robe2ST2DC_CorrectItem = "a5160a52ad404bd6a3a3eef8f1a455f3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeElementalImbuementItem = "672327dcb5731f74a85ae23697cd7b26";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfAir_CorrectItem = "75f2d4bf94a14398ad1ca9db8e3a579f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfAngelicPrudenceItem = "1c2fc5c3b82e428ab6b06dab81ef01dd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfArcaneAnnihilationItemCorrect = "f389db9e641c45a2b3f7ab9cca0f76ce";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfDeterminationItem = "ee26e7fdc05725f48abae2db22ada906";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfEarth_CorrectItem = "9bb667825cf2469a830eeb0e129e1877";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfFalseDeathCorrectItem = "4f56360fd24e44049d8899fe17f132d2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfFire_CorrectItem = "2055779fa05642a7a069b2d958e3be97";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMaliceItem = "2e78284d218c51643bc3e1f0a530a5fc";
@@ -70,12 +74,14 @@ namespace BlueprintCore.Blueprints.References
           BaphometFireCloth_AnimalisticFireItem,
           BaphometFireCloth_BurningCunningItem,
           BaphometFireCloth_IntermediateItem,
+          BestialRagsItem,
           BlackenedRagsItem,
           CalmingWardenItem,
           ClaspOfDeathRobeItem,
           ClothOfBlazingFighterItem,
           ClothOfHeavyFortificationItem,
           DarkAcolytesRobeItemCorrect,
+          DarkMastersRobeItemShirt,
           DemonicAltarAgilityClothItem,
           DemonicAltarCloth_IntermediateItem,
           DemonicAltarMasochisticClothItem,
@@ -88,12 +94,14 @@ namespace BlueprintCore.Blueprints.References
           JoCat_ShirtItem,
           LoremastersRobeItem,
           PilgrimClothItem,
+          PurlingRobeItemShirt,
           Robe2ST2DC_CorrectItem,
           RobeElementalImbuementItem,
           RobeOfAir_CorrectItem,
           RobeOfAngelicPrudenceItem,
           RobeOfArcaneAnnihilationItemCorrect,
           RobeOfDeterminationItem,
+          RobeOfEarth_CorrectItem,
           RobeOfFalseDeathCorrectItem,
           RobeOfFire_CorrectItem,
           RobeOfMaliceItem,

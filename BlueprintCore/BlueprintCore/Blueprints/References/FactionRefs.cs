@@ -29,6 +29,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_Invisible_Kitten_Faction = "f9e60285c12c4919be2ad156b9e10812";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ShadowBalorFaction = "5f5dd23f30064cb7b28ad4c99c6f7004";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC3_ShipGolemFaction = "c2f667f6b5c04559b0d69859091faf51";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_CursedTotem = "ed82fe0064854351b35ff9ee85191036";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_GundrunEnemies = "af9919037b3c4844b5c7860a56c0a298";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_UstalavEnemies = "9ea2c2f061a7449f80c53945ceb92148";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenChorussina = "2648700405e96f049988ac15fd5da6a9";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenCultists = "c393ee9c1e09f114f907819cb3296468";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DummyFaction = "f53d9de2a5cd4144596a0ef9e26ffa9c";
@@ -43,6 +46,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Mobs = "0f539babafb47fe4586b719d02aff7c4";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> NeutralGuards = "419c5165bae99664b92252b7dcc0a2db";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Neutrals = "d8de50cc80eb4dc409a983991e0b77ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Neutrals_Ghostbusters = "fb3c678271c44e97a47b30035d8dd393";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Ooze = "24a215bb66e34153b4d648829c088ae6";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Ooze_dlc2 = "85e3fd9173cb404997c6f9bc1742e117";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> PerpetuallyAnnoyedFaction = "572cce024818db7409655b91e971907b";
@@ -76,6 +80,9 @@ namespace BlueprintCore.Blueprints.References
           DLC3_Invisible_Kitten_Faction,
           DLC3_ShadowBalorFaction,
           DLC3_ShipGolemFaction,
+          DLC4_CursedTotem,
+          DLC4_GundrunEnemies,
+          DLC4_UstalavEnemies,
           DrezenChorussina,
           DrezenCultists,
           DummyFaction,
@@ -90,6 +97,7 @@ namespace BlueprintCore.Blueprints.References
           Mobs,
           NeutralGuards,
           Neutrals,
+          Neutrals_Ghostbusters,
           Ooze,
           Ooze_dlc2,
           PerpetuallyAnnoyedFaction,

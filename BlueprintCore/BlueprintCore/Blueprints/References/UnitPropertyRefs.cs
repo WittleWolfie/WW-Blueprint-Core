@@ -30,7 +30,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AssassinDeathAttackAbilityProperty = "857ddbe8d4a742c49a933b893653649f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AzataSongOfSecondBreathHPProperty = "84a51dc89557463791164b49ae338ae9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BearerOfSorrowProperty = "5f462b3f7c405f24fac73c3e46e8c326";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BeltOfPrimalForceUnitProperty = "eec2faf700144a78a0661675e23c2bff";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BleedingInfusionDamageProperty = "f5ad23c48f5244de88a1fc7ba12d855c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BloodragerAbyssalBloodrageBonusProperty = "415f71e5a47f4cccb3dbd10bd7a0f8f8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BootsOfStampedeProperty = "d6aa267ef9be46b49b5b6ea7e3982f67";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BrimorakAspectEffectProperty = "d6a524d190f04a7ca3f920d2f96fa21b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BurnNumberProperty = "02c5943c77717974cb7fa1b7c0dc51f8";
@@ -55,6 +57,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_ElementalLocusDC = "6ddd11a994134c6d90dde15e8d8c8797";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GlovesOfSurgicalExtractionProperty = "7eb6ebf0ac9c49deb77122c3c95db779";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_GnomeBlessingProperty = "28185df8d2494e1e9ad56c626f89883a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HeroismBuffHPProperty = "09e0f43b61fe448da65843e0ab65eba8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainMaxHealProperty = "fce61cac8c574a058f760192f3ada3bd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainProperty = "59ddc289614f4746b0579a62bed2c7d1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_HitDieHPRegainUniqueProperty = "fb85ae5e942b452daab608856ae42100";
@@ -72,6 +75,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier1 = "11a3a4720f764ce6866236e4debe749c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier2 = "9731259e59e24b3ca9e97758139a0ccb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC3_WildMagicDCTier3 = "570fc70c025c44789fbdf43fa3dcf0fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DLC4_CurseUnitProperty = "6bee8337845e4028bf206473e34b3d09";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DragonMaxAbilityCharismaProperty = "38e975690470467f8de29613fbff5de3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DragonMaxAbilityConstitutionProperty = "67902455918840a598cb90971a2cce15";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DragonMaxAbilityDexterityProperty = "52479463410443bdad7656d51f720ffd";
@@ -108,6 +112,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MutationWarriorSpontaneousHealingResourceProperty = "7ca6ae35171a429bbcfb375ab657776f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MythicChannelProperty = "152e61de154108d489ff34b98066c25c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> MythicPowersFromDLC1FortificationMythicGetter = "f5476c8419de43108d2298d6bdbe0eea";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> NegativeEnergyEquilibriumProperty = "b739ec72e86b4001ab2d4fc9cd0179de";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkCurrentHPProperty = "2d73d0816ab3440d9602b7c964fb7b0f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkDamagedHPProperty = "78cd0d7cc5bc454ab69b21b87960c804";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> OracleRevelationLifeLinkMaxHPProperty = "e4503ac141c04a2687240081ec7c6c39";
@@ -146,6 +151,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> PropertyArmySpellPowerTriple = "71cc3b31290b419eac09f4aef85c6eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> PropertyArmySpellPowerTwice = "0c8f8996355947438cb804bd2f315f72";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> PropertyGetterHalfPower = "083c8b29b1f1476887a2ecea98d3df8c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> RageshaperGroundSlamProperty = "048afa62c2c646d39b6ab492ff12e79c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> RangerAcidTrapDamageProperty = "f63b85e4fefe4c60900cc80f3dfa3eaa";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> RangerCaltropsDamageProperty = "b973e403ab234874bcf4a92e65e74bfe";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> RangerCastingStatProperty = "2951aa1c8acc9e445968d667562901e5";
@@ -242,7 +248,9 @@ namespace BlueprintCore.Blueprints.References
           AssassinDeathAttackAbilityProperty,
           AzataSongOfSecondBreathHPProperty,
           BearerOfSorrowProperty,
+          BeltOfPrimalForceUnitProperty,
           BleedingInfusionDamageProperty,
+          BloodragerAbyssalBloodrageBonusProperty,
           BootsOfStampedeProperty,
           BrimorakAspectEffectProperty,
           BurnNumberProperty,
@@ -267,6 +275,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_ElementalLocusDC,
           DLC3_GlovesOfSurgicalExtractionProperty,
           DLC3_GnomeBlessingProperty,
+          DLC3_HeroismBuffHPProperty,
           DLC3_HitDieHPRegainMaxHealProperty,
           DLC3_HitDieHPRegainProperty,
           DLC3_HitDieHPRegainUniqueProperty,
@@ -284,6 +293,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_WildMagicDCTier1,
           DLC3_WildMagicDCTier2,
           DLC3_WildMagicDCTier3,
+          DLC4_CurseUnitProperty,
           DragonMaxAbilityCharismaProperty,
           DragonMaxAbilityConstitutionProperty,
           DragonMaxAbilityDexterityProperty,
@@ -320,6 +330,7 @@ namespace BlueprintCore.Blueprints.References
           MutationWarriorSpontaneousHealingResourceProperty,
           MythicChannelProperty,
           MythicPowersFromDLC1FortificationMythicGetter,
+          NegativeEnergyEquilibriumProperty,
           OracleRevelationLifeLinkCurrentHPProperty,
           OracleRevelationLifeLinkDamagedHPProperty,
           OracleRevelationLifeLinkMaxHPProperty,
@@ -358,6 +369,7 @@ namespace BlueprintCore.Blueprints.References
           PropertyArmySpellPowerTriple,
           PropertyArmySpellPowerTwice,
           PropertyGetterHalfPower,
+          RageshaperGroundSlamProperty,
           RangerAcidTrapDamageProperty,
           RangerCaltropsDamageProperty,
           RangerCastingStatProperty,

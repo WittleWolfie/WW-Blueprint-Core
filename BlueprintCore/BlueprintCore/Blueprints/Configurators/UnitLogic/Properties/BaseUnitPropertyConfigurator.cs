@@ -405,7 +405,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinCreatePoisonAbilityProperty</term><description>0482fffc039d46fc86a86bda03e00f1a</description></item>
-    /// <item><term>DLC3_RoguesRangersGainDRBuffLevelGetter</term><description>2aa73fe91377456b8734ba94a506d541</description></item>
+    /// <item><term>DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty</term><description>b51cd8eea32a4bbbbf736a595d83699e</description></item>
     /// <item><term>ScaledFistACBonusProperty2</term><description>d71c095e672c4abfb068aa402899b3ec</description></item>
     /// </list>
     /// </remarks>
@@ -616,7 +616,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>TricksterLoreReligionEvilDomainProperty</term><description>20ca3133880b472abab7f039e37b6f50</description></item>
+    /// <item><term>TricksterLoreReligionDestructionDomainProperty</term><description>71fe0d47127645e7b96c2f46407e3095</description></item>
     /// <item><term>TricksterLoreReligionWeatherDomainProperty</term><description>7747294b95e64edbb23e1ec5aca774e1</description></item>
     /// </list>
     /// </remarks>
@@ -726,7 +726,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeProperty</term><description>f363c368c37546c3a4793b348963dc28</description></item>
-    /// <item><term>PerfectFormCharismaToIntelligenceProperty</term><description>acb6b0eb73d64dc4a5d645f27af39df5</description></item>
+    /// <item><term>DLC3_HitDieHPRegainMaxHealProperty</term><description>fce61cac8c574a058f760192f3ada3bd</description></item>
     /// <item><term>TricksterUseMagicDeviceTier3CLProperty</term><description>d533bfb6b6304ea3a0f8ce9d159704e9</description></item>
     /// </list>
     /// </remarks>
@@ -818,9 +818,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DragonMaxAbilityCharismaProperty</term><description>38e975690470467f8de29613fbff5de3</description></item>
-    /// <item><term>DragonMaxAbilityIntelligenceProperty</term><description>dd4ccbadaf20485088b9e08d67f033f5</description></item>
-    /// <item><term>DragonMaxAbilityWisdomProperty</term><description>2d9692f01aad466a93cae382d2ab965c</description></item>
+    /// <item><term>BeltOfPrimalForceUnitProperty</term><description>eec2faf700144a78a0661675e23c2bff</description></item>
+    /// <item><term>PerfectFormDexterityToIntelligenceProperty</term><description>77d920d8ba584d2b8329d869647e39be</description></item>
+    /// <item><term>RageshaperGroundSlamProperty</term><description>048afa62c2c646d39b6ab492ff12e79c</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddStatValueGetter(

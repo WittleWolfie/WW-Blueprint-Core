@@ -137,6 +137,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Spear = "4b289eccefe6d704093201e52eb6d123";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> SpikedHeavyShield = "a1b85d048fb5003438f34356df938a9f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> SpikedLightShield = "98a0dc03586a6d04791901c41700e516";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> SpikeType = "9c641eb311104a2b89056db7b2c73def";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Starknife = "5a939137fc039084580725b2b0845c3f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> StingType = "34c90ab7a0d6e05449f081c122ca219f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Stub = "dbc1d2feeb032e4489ec22783f7c9a25";
@@ -284,6 +285,7 @@ namespace BlueprintCore.Blueprints.References
           Spear,
           SpikedHeavyShield,
           SpikedLightShield,
+          SpikeType,
           Starknife,
           StingType,
           Stub,

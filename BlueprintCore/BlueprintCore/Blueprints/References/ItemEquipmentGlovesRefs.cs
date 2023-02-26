@@ -73,6 +73,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> ManticoresClawsGlovesItem = "186edcede3f5b8a4d84fbb450957d70c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> MarksmansSteadyHandItem = "0d83237b43fd52b44aa3322f0db7e390";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> OppressorsGlovesItem = "e8d21215f2f12ea419ec0013ace8d849";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> PawsOfTheBearGodItem = "bb0d85ae76ed46e2bdba1a218e41dc22";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> RabidRippersItem = "6fbf1d1001da4d04f907794c50262ae9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> RoyalGlovesOfValorItem = "08dee7b852c2ef647ab5290eb2055102";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGloves>> SavageUnityItem = "a2da8bdd1b544afb9768c3b951f50794";
@@ -148,6 +149,7 @@ namespace BlueprintCore.Blueprints.References
           ManticoresClawsGlovesItem,
           MarksmansSteadyHandItem,
           OppressorsGlovesItem,
+          PawsOfTheBearGodItem,
           RabidRippersItem,
           RoyalGlovesOfValorItem,
           SavageUnityItem,

@@ -16,7 +16,9 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Evil = "7faca0a0dfa6eac4ca7fa04c2200b52e";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q0 = "5239629e54a3bf6498e8ad69aa3290fa";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q0Evil = "409b306bf00d437cbde3c95f7f8bc792";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q1 = "cbbbc5adb9d8c4a469d323713b0d3193";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q1Evil = "2c196919a8ba4328bb5affb2a0f194bd";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q2 = "6facabd86a407d6438d7466c0f04ebb9";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Arueshalae_Q3 = "47ca48e8cb38ec941b7006a2ad6e7af9";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Camellia_Q0 = "b765b037ce19d184fbe1b2959c827d46";
@@ -68,6 +70,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Sosiel_Q3 = "13e87426417b9c44fb23840e7c8a47f4";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Staunton_Q0 = "a079a8401222ec040ae9eaf893fb8ae2";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Trever_Q0 = "f0404c4cf3d04514183d006dcc7517a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ulbrig_Q0 = "2e87b97d297a4b4ca0b95bb67b4cdbbf";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ulbrig_Q1 = "7049b84a4ff942d68ff2ecac7ab93df8";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ulbrig_Q2 = "8997ec75f6604eae9c151d87421db817";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ulbrig_Q3 = "a6117f3a44394395bac49475be5dc28f";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Wenduag_Q0 = "492fcc70156349b4ea1295d8f12c2749";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Wenduag_Q1 = "c051713dbef6d8a49851ee386ad5eb9e";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Wenduag_Q2 = "a8dce3130b82b4f49a5a8421ae9ed734";
@@ -83,7 +89,9 @@ namespace BlueprintCore.Blueprints.References
       {
           Arueshalae_Evil,
           Arueshalae_Q0,
+          Arueshalae_Q0Evil,
           Arueshalae_Q1,
+          Arueshalae_Q1Evil,
           Arueshalae_Q2,
           Arueshalae_Q3,
           Camellia_Q0,
@@ -135,6 +143,10 @@ namespace BlueprintCore.Blueprints.References
           Sosiel_Q3,
           Staunton_Q0,
           Trever_Q0,
+          Ulbrig_Q0,
+          Ulbrig_Q1,
+          Ulbrig_Q2,
+          Ulbrig_Q3,
           Wenduag_Q0,
           Wenduag_Q1,
           Wenduag_Q2,

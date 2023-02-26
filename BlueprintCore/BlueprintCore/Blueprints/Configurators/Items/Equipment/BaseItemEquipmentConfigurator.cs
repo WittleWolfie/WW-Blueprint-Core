@@ -511,7 +511,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdamantineBanded</term><description>ed04d2a914a93e046aadee8cc3109f65</description></item>
-    /// <item><term>HalfplateStandartPlus2</term><description>ce0076c7408f10741950cec394767b75</description></item>
+    /// <item><term>HalfplateStandartPlus3</term><description>76e68c81dd261e64789d5f2bdc77302b</description></item>
     /// <item><term>WelcomeRespiteItem</term><description>55d88efb08e2eea4c9d214cd4c54e87c</description></item>
     /// </list>
     /// </remarks>

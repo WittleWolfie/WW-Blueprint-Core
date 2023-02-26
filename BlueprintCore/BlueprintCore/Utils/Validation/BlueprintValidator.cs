@@ -141,7 +141,8 @@ namespace BlueprintCore.Utils.Validation
       CheckSingleComponent<AbilityTargetsAroundOnGrid>(ability, context);
       CheckSingleComponent<AbilityAffectLineOnGrid>(ability, context);
       CheckSingleComponent<AbilityTargetsAround>(ability, context);
-      CheckSingleComponent<AbilityEffectRunActionOnClickedTarget>(ability, context);
+      CheckSingleComponent<AbilityEffectRunActionOnClickedUnit>(ability, context);
+      CheckSingleComponent<AbilityEffectRunActionOnClickedPoint>(ability, context);
       CheckSingleComponent<AbilityEffectMiss>(ability, context);
 
       if (ability.GetComponent<AbilityTargetsAroundOnGrid>() != null

@@ -6,9 +6,12 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Recommendations;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
@@ -542,6 +545,34 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
           if (bp.BlueprintParameterVariants is null) { return; }
           bp.BlueprintParameterVariants.ForEach(action);
         });
+    }
+
+    /// <summary>
+    /// Adds <see cref="RecommendationForWeaponCategory"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddRecommendationForWeaponCategory(
+        Condition? condition = null,
+        RecommendationForWeaponCategory.Recommendation? recommendation = null,
+        List<WeaponCategory>? weaponCategories = null)
+    {
+      var component = new RecommendationForWeaponCategory();
+      Validate(condition);
+      component.m_Condition = condition ?? component.m_Condition;
+      component.m_Recommendation = recommendation ?? component.m_Recommendation;
+      component.m_WeaponCategories = weaponCategories ?? component.m_WeaponCategories;
+      if (component.m_WeaponCategories is null)
+      {
+        component.m_WeaponCategories = new();
+      }
+      return AddComponent(component);
     }
 
     /// <summary>

@@ -48,6 +48,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> GrimHelmetItem = "89c8089f4664d37438d24cd1440fedc8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatOfHandsomenessItem = "6438efb4a6214499bf99255aaacfabad";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatOfHearteningSongItem = "0f84e6afc9aed26469d3a00da7caa95f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatOfTheOwlItem = "1d7c3e7ccf5d49d199a5667bacb84fb5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatTricornFeatheredItem = "f33dadeeb51cdba45b23bb40a40e5fb3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatWitchBlackItem = "be1486487d0b94247b2af03c60bbd860";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> HatWitchGreenItem = "7329b913d7f10974b910bdc9ad0058fd";
@@ -206,6 +207,7 @@ namespace BlueprintCore.Blueprints.References
           GrimHelmetItem,
           HatOfHandsomenessItem,
           HatOfHearteningSongItem,
+          HatOfTheOwlItem,
           HatTricornFeatheredItem,
           HatWitchBlackItem,
           HatWitchGreenItem,

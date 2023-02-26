@@ -61,6 +61,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.m_ExperienceFavorsCoef = copyFrom.m_ExperienceFavorsCoef;
           bp.m_ArmyDangerBonus = copyFrom.m_ArmyDangerBonus;
           bp.m_ArmyDangerMultiplier = copyFrom.m_ArmyDangerMultiplier;
+          bp.m_DismissCompensationCoefficient = copyFrom.m_DismissCompensationCoefficient;
+          bp.m_TopArmiesCountForCompensation = copyFrom.m_TopArmiesCountForCompensation;
+          bp.m_TopUnitsCountForCompensation = copyFrom.m_TopUnitsCountForCompensation;
           bp.m_ArmyStrings = copyFrom.m_ArmyStrings;
         });
     }
@@ -103,6 +106,9 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
           bp.m_ExperienceFavorsCoef = copyFrom.m_ExperienceFavorsCoef;
           bp.m_ArmyDangerBonus = copyFrom.m_ArmyDangerBonus;
           bp.m_ArmyDangerMultiplier = copyFrom.m_ArmyDangerMultiplier;
+          bp.m_DismissCompensationCoefficient = copyFrom.m_DismissCompensationCoefficient;
+          bp.m_TopArmiesCountForCompensation = copyFrom.m_TopArmiesCountForCompensation;
+          bp.m_TopUnitsCountForCompensation = copyFrom.m_TopUnitsCountForCompensation;
           bp.m_ArmyStrings = copyFrom.m_ArmyStrings;
         });
     }
@@ -827,6 +833,60 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
         bp =>
         {
           bp.m_ArmyDangerMultiplier = armyDangerMultiplier;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="ArmyRoot.m_DismissCompensationCoefficient"/>
+    /// </summary>
+    ///
+    /// <param name="dismissCompensationCoefficient">
+    /// <para>
+    /// InfoBox: Exp_Converted = Exp_Dismissed * DismissCompensationCoefficient
+    /// </para>
+    /// </param>
+    public TBuilder SetDismissCompensationCoefficient(float dismissCompensationCoefficient)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_DismissCompensationCoefficient = dismissCompensationCoefficient;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="ArmyRoot.m_TopArmiesCountForCompensation"/>
+    /// </summary>
+    ///
+    /// <param name="topArmiesCountForCompensation">
+    /// <para>
+    /// InfoBox: How many top-rang player&amp;apos;s armies to check to select player&amp;apos;s favorite units
+    /// </para>
+    /// </param>
+    public TBuilder SetTopArmiesCountForCompensation(int topArmiesCountForCompensation)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TopArmiesCountForCompensation = topArmiesCountForCompensation;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="ArmyRoot.m_TopUnitsCountForCompensation"/>
+    /// </summary>
+    ///
+    /// <param name="topUnitsCountForCompensation">
+    /// <para>
+    /// InfoBox: To calc distribution of exp between top units formula is: 1 / n + rand(- 1 / n^2, 1/ n^2). Where n = TopUnitsCountForCompensation
+    /// </para>
+    /// </param>
+    public TBuilder SetTopUnitsCountForCompensation(int topUnitsCountForCompensation)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TopUnitsCountForCompensation = topUnitsCountForCompensation;
         });
     }
 

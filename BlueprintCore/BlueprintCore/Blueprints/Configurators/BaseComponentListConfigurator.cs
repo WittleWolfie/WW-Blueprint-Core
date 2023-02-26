@@ -134,7 +134,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DHOutdoorDefault</term><description>0ad51df6001a4f8479cd1efa2506ea54</description></item>
-    /// <item><term>Nexus03Final</term><description>a7065c0d6f6b83d4e9eb259279b7d66c</description></item>
+    /// <item><term>Nexus02Camp</term><description>a306a45af54d10742be60c756337725b</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp04_Option03</term><description>8238eac513cd8a348a3c54b12fe363cb</description></item>
+    /// <item><term>MythicAeon_RankUp03_Option03</term><description>6e15c7b3eaf98ab409bcbba1bd268ec8</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Klejm_DefaultActor</term><description>174755983e355f944bcc394c9ce6f9f0</description></item>
+    /// <item><term>KenabresGraveyard_InevitableDarkness</term><description>bd49244df43246d78dd37172471d7114</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -350,7 +350,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>GhostsLair_SideBoss_GhostOracle_Audio</term><description>e5c316917b72473fb60eb55305f25499</description></item>
+    /// <item><term>DrezenCapital_MythicArea_AzataTrasformationCutscene_Audio</term><description>b789f94015304230bd942195066293de</description></item>
     /// <item><term>ZigguratSound</term><description>f2035ebb6d074f33aaa1ec362d0f1929</description></item>
     /// </list>
     /// </remarks>
@@ -562,8 +562,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter01</term><description>df17ab913c348644b9bd3fe3f9781a84</description></item>
-    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
-    /// <item><term>DLC3_Roguelike</term><description>3964ed959f554763bbe951818b34aead</description></item>
+    /// <item><term>Chapter06</term><description>41bf413e0fa2ea34b937d4445edd5f89</description></item>
+    /// <item><term>DLC4_Shifter</term><description>5b454c36f8eb4df4a75bed74106400a2</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeBracketEnsureAudio(
@@ -681,7 +681,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreshkagalArena_NenioIgnoreCombat</term><description>35399489cd494583af28e059e5726d6c</description></item>
-    /// <item><term>PartyAssemble</term><description>5722b2a325c3d7043968fe44bd4b443c</description></item>
+    /// <item><term>Regill_LostChapel_EXRemotePassive</term><description>b1727732989438c4c9dc64d08594b773</description></item>
     /// <item><term>Woljif_Nexus_EXRemotePassive</term><description>e6055ae3cde11e9418628e1d446ac193</description></item>
     /// </list>
     /// </remarks>
@@ -703,7 +703,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArehskagalArena_NenioFight</term><description>ff6e6564583c4757bb5759ec3f41827b</description></item>
-    /// <item><term>Labyrinth</term><description>6522a51898a9b014a805a5802e97e91e</description></item>
+    /// <item><term>GreyborWithPlayer</term><description>708c56ea60cd0724e8f1c9ccd829ec31</description></item>
     /// <item><term>ZosielQ0</term><description>6d1bb3f8743892a4aaf498f7fc5212f0</description></item>
     /// </list>
     /// </remarks>
@@ -725,7 +725,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssaultFinished_Audio</term><description>6851b9b86373937429e7bf68079c2501</description></item>
-    /// <item><term>GrayGarrison_FinalSiege_MythicPower_Sound</term><description>7d6099395babdc5488ae6d6ac72d8944</description></item>
+    /// <item><term>GibberingSwarmStorySound</term><description>6886c36c43db595458ba8f9782bcf500</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -981,7 +981,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DaeranRomance_BarksAfterSex</term><description>54998634e0121484c8f2de44b09f3766</description></item>
-    /// <item><term>MilitaryGreyborRankUpPosition</term><description>eec01ec25a200874db7a93e10cccf808</description></item>
+    /// <item><term>MilitaryRegillRankUpPosition</term><description>bf635b68081010c49b9039bfe0d25624</description></item>
     /// <item><term>Trever_Position</term><description>0e84f374f8b74246a24c1e0a997ba6a6</description></item>
     /// </list>
     /// </remarks>
@@ -1136,7 +1136,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
+    /// <item><term>DuelWithRegill</term><description>bbc142f9b3172a64e9717cf7000d2b6c</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
@@ -1154,7 +1154,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>Prologue_Kenabres_Peaceful_Audio</term><description>4b0f1642257755343b193bfc99c78bdc</description></item>
+    /// <item><term>TricksterCouncilDefault</term><description>d3306da844810c74984e37a41d6d6f99</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>

@@ -35,6 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           bp.Description = copyFrom.Description;
           bp.m_IncludeAssetPaths = copyFrom.m_IncludeAssetPaths;
           bp.m_IncludeObjects = copyFrom.m_IncludeObjects;
+          bp.IsRequiredInSaves = copyFrom.IsRequiredInSaves;
           bp.m_Dlcs = copyFrom.m_Dlcs;
           bp.m_IsAvailable = copyFrom.m_IsAvailable;
         });
@@ -53,6 +54,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           bp.Description = copyFrom.Description;
           bp.m_IncludeAssetPaths = copyFrom.m_IncludeAssetPaths;
           bp.m_IncludeObjects = copyFrom.m_IncludeObjects;
+          bp.IsRequiredInSaves = copyFrom.IsRequiredInSaves;
           bp.m_Dlcs = copyFrom.m_Dlcs;
           bp.m_IsAvailable = copyFrom.m_IsAvailable;
         });
@@ -237,6 +239,24 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         {
           if (bp.m_IncludeObjects is null) { return; }
           bp.m_IncludeObjects.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDlcReward.IsRequiredInSaves"/>
+    /// </summary>
+    ///
+    /// <param name="isRequiredInSaves">
+    /// <para>
+    /// Tooltip: After the reward is used the further saves won&amp;apos;t load if no DLC containing this reward is presented.
+    /// </para>
+    /// </param>
+    public TBuilder SetIsRequiredInSaves(bool isRequiredInSaves = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsRequiredInSaves = isRequiredInSaves;
         });
     }
 

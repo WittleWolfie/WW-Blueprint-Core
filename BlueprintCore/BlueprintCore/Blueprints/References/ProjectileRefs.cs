@@ -123,6 +123,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DisruptUndead00 = "d543d55f7fdb60340af40ea8fc5e686d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DisruptUndead00_Up = "fc7468fcca9122544b14eb976746982d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC3_Nahyndri_Golemlike_Projectile = "d6d379c072e84751b174644c8ce84239";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC4_ShifterDemon_Projectile = "50de14be3d204a3899b4b02c11484862";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Dummy00_Projectile = "b8e4b2d648683fb43b8a60d2bf36d2b2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00 = "2117f0eb12152c7408b1a26d4965d72a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00_Up = "b804391dbc792ef4ab42dd7c1723e6c9";
@@ -233,6 +234,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile02 = "674e6d958be63ff4a85a7e5fdc1e818a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile03 = "caadaf27d789793459a3e32cb0615d14";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile04 = "43295b5988021f741a28b8bf0424a412";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ManticoreSpike00 = "900a65979f8c453e858d4aaf67b71831";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Meat00_Projectile = "e83075672dfcf7a45ab009d338e5bc33";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MidnightArrow00 = "68d699fa9d0ebe84c8d35ab7c4e5c811";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MoltenOrb00 = "49c812020338e90479b54cfc5b1f6305";
@@ -323,6 +325,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> StoneThrow00_Up = "eed07526c4ae61c4b99e85fa8397cb4e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SunBeam00 = "c4b0d8b4786a1244d9fbc4b424931b83";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SunBeam00_cutscene = "86f73a37887348949f11cb9f3ac0bcb2";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SwarmBombProjectile_00 = "aba6e7ed025d41e3be7a46f360ff8109";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> TelekineticFist = "382f17ed6ed049f419089c5752b05eae";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> TelekineticFist00_Up = "ab984ddba563d2d4faaf90f323511dcc";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> TelekineticThrow00 = "ddbec6dae48d4305a8c20cfe2767bcf4";
@@ -460,6 +463,7 @@ namespace BlueprintCore.Blueprints.References
           DisruptUndead00,
           DisruptUndead00_Up,
           DLC3_Nahyndri_Golemlike_Projectile,
+          DLC4_ShifterDemon_Projectile,
           Dummy00_Projectile,
           ElectroBallProjectile00,
           ElectroBallProjectile00_Up,
@@ -570,6 +574,7 @@ namespace BlueprintCore.Blueprints.References
           MagicMissile02,
           MagicMissile03,
           MagicMissile04,
+          ManticoreSpike00,
           Meat00_Projectile,
           MidnightArrow00,
           MoltenOrb00,
@@ -660,6 +665,7 @@ namespace BlueprintCore.Blueprints.References
           StoneThrow00_Up,
           SunBeam00,
           SunBeam00_cutscene,
+          SwarmBombProjectile_00,
           TelekineticFist,
           TelekineticFist00_Up,
           TelekineticThrow00,

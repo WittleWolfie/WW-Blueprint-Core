@@ -30,6 +30,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfOutbreakItem = "e55f0210859bb3b4883958e41c155490";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfStampedeItem = "1e67f0071700eb5418b82009427bce8a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfSwiftFoot = "8644bca1c3bf6f64ab4d89be643a8850";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCatItem = "c26c4b72544948318ec71348ab8931c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCreepingDeath = "11e350708227f3b4eaf641a5b5fd2863";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheLightStepItem = "815cc85ce13ab64428253aea3b6708a8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheSwampItem = "1ccb68fd1e0f6d141b739e3744e5af4e";
@@ -44,6 +45,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> OpportunistsBoots = "05996c33b27ac4849ab3d02b5cb460a2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> PerfectedManeuverItem = "651b49a7774ea704195f3c7dc98b69c9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> PermanentFreedomItem = "29ec0781b00678541acd9d0f30043967";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> RootsenseBootsItem = "76f24c51fc4f437286261b787df3a1bb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> SpiritTrackersItem = "c5aeb081a0dd85a47b3190a187cad9a0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> StabilityStanceItem = "1efbe2ef6e22cf34eaa24ab7b6c061ad";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> SureFootingItem = "2e367ed3db88c714cb35612a7d82f713";
@@ -66,6 +68,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfOutbreakItem,
           BootsOfStampedeItem,
           BootsOfSwiftFoot,
+          BootsOfTheCatItem,
           BootsOfTheCreepingDeath,
           BootsOfTheLightStepItem,
           BootsOfTheSwampItem,
@@ -80,6 +83,7 @@ namespace BlueprintCore.Blueprints.References
           OpportunistsBoots,
           PerfectedManeuverItem,
           PermanentFreedomItem,
+          RootsenseBootsItem,
           SpiritTrackersItem,
           StabilityStanceItem,
           SureFootingItem,

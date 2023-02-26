@@ -8,6 +8,7 @@ using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Controllers.Rest;
@@ -18,6 +19,7 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Blueprints;
@@ -72,8 +74,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarMaleBloodrager</term><description>7ba4a4bdb55b46779ebca045d7955e82</description></item>
-    /// <item><term>AnimalCompanionFeatureTriceratops_PreorderBonus</term><description>52c854f77105445a9457572ab5826c00</description></item>
-    /// <item><term>HalflingMaleTank</term><description>ef5d1d38805e4a51b06f217135d5b7ab</description></item>
+    /// <item><term>FrightfulShape </term><description>8e8a34c754d649aa9286fe8ee5cc3f10</description></item>
+    /// <item><term>ShiftersRushFeature</term><description>4ddc88f422a84f76a952e24bec7b53e1</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -185,6 +187,63 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="PrerequisiteConditionForWeaponCategory"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ImprovedCritical</term><description>f4201c85a991369408740c6888362e20</description></item>
+    /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddPrerequisiteConditionForWeaponCategory(
+        Condition? condition = null,
+        List<WeaponCategory>? weaponCategories = null)
+    {
+      var component = new PrerequisiteConditionForWeaponCategory();
+      Validate(condition);
+      component.m_Condition = condition ?? component.m_Condition;
+      component.m_WeaponCategories = weaponCategories ?? component.m_WeaponCategories;
+      if (component.m_WeaponCategories is null)
+      {
+        component.m_WeaponCategories = new();
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AddDamageDecline"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_InvincibleBuff</term><description>57d5bd72d2484fd6b63aedf1b0a3e3c2</description></item>
+    /// <item><term>InvincibleMeleeBuff</term><description>113a85b660744b25900e0d53d39f132f</description></item>
+    /// <item><term>Kakuen_takaMeatShield</term><description>96c0689cb9bb4ac3a7a0e795fdab92c8</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDamageDecline(
+        DamageDeclineType? damageDeclineType = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AddDamageDecline();
+      component.m_DamageDeclineType = damageDeclineType ?? component.m_DamageDeclineType;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddPlayerLeaveCombatTrigger"/>
     /// </summary>
     ///
@@ -225,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>GrimEndingEnchantment</term><description>e96b10d7226fbc8418d4552bbade258b</description></item>
+    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -264,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GraspingFrostEnchantment</term><description>3e9a8fdd71ea0b64d8aeaa44b8b6ea3b</description></item>
+    /// <item><term>GreaterFireElementalBurnFeature</term><description>5129567223dcbc248a4143226ba037f4</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -287,10 +346,12 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? allNaturalAndUnarmed = null,
         WeaponCategory? category = null,
         bool? checkDistance = null,
+        bool? checkPhysicalDamageForm = null,
         bool? checkWeaponCategory = null,
         bool? checkWeaponGroup = null,
         bool? checkWeaponRangeType = null,
         bool? criticalHit = null,
+        PhysicalDamageForm? damageForm = null,
         bool? damageMoreTargetMaxHP = null,
         Feet? distanceLessEqual = null,
         bool? duelistWeapon = null,
@@ -310,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? onMiss = null,
         WeaponRangeType? rangeType = null,
         bool? reduceHPToZero = null,
-        bool? waitForAttackResolve = null,
+        bool? triggerBeforeAttack = null,
         Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new AddInitiatorAttackWithWeaponTrigger();
@@ -323,10 +384,12 @@ namespace BlueprintCore.Blueprints.Configurators
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
       component.Category = category ?? component.Category;
       component.CheckDistance = checkDistance ?? component.CheckDistance;
+      component.CheckPhysicalDamageForm = checkPhysicalDamageForm ?? component.CheckPhysicalDamageForm;
       component.CheckWeaponCategory = checkWeaponCategory ?? component.CheckWeaponCategory;
       component.CheckWeaponGroup = checkWeaponGroup ?? component.CheckWeaponGroup;
       component.CheckWeaponRangeType = checkWeaponRangeType ?? component.CheckWeaponRangeType;
       component.CriticalHit = criticalHit ?? component.CriticalHit;
+      component.DamageForm = damageForm ?? component.DamageForm;
       component.DamageMoreTargetMaxHP = damageMoreTargetMaxHP ?? component.DamageMoreTargetMaxHP;
       component.DistanceLessEqual = distanceLessEqual ?? component.DistanceLessEqual;
       component.DuelistWeapon = duelistWeapon ?? component.DuelistWeapon;
@@ -346,7 +409,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.OnMiss = onMiss ?? component.OnMiss;
       component.RangeType = rangeType ?? component.RangeType;
       component.ReduceHPToZero = reduceHPToZero ?? component.ReduceHPToZero;
-      component.WaitForAttackResolve = waitForAttackResolve ?? component.WaitForAttackResolve;
+      component.TriggerBeforeAttack = triggerBeforeAttack ?? component.TriggerBeforeAttack;
       component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
       if (component.m_WeaponType is null)
       {
@@ -364,7 +427,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdaptiveTactics</term><description>e01152417a8ac2248b4f69711b819441</description></item>
-    /// <item><term>HelmOfBattleAlertnessFeature</term><description>537b6c1a95e308048a5a15a39d6ecb43</description></item>
+    /// <item><term>HermitKnightBracersFeature</term><description>489fd6aff7ad28d4699718392397fb2e</description></item>
     /// <item><term>WindsOfVengeanceBuff</term><description>796a2fe600e5ead41b29cd9963cf2de9</description></item>
     /// </list>
     /// </remarks>
@@ -431,6 +494,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ShamanHexProtectiveLuckBuff</term><description>9e7a13c71f6be1749af81afc57640ccf</description></item>
+    /// <item><term>StrandOfTheTangledKnotBuff</term><description>4604d951e941479caa31474562903c51</description></item>
     /// <item><term>WitchHexProtectiveLuckBuff</term><description>1ba3d3a0942d080448ce6aa865bbbd65</description></item>
     /// </list>
     /// </remarks>
@@ -477,12 +541,17 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonGreaterBaneBuff</term><description>cdcc13884252b2c4d8dac57cb5f46555</description></item>
-    /// <item><term>FlailOfLightburstEnchantmentNew</term><description>56b6450b77c34525a41746a2508f5f61</description></item>
+    /// <item><term>AcidMawBuff</term><description>f1a6799b05a40144d9acdbdca1d7c228</description></item>
+    /// <item><term>GeniekindShaitanBuff</term><description>1d498104f8e35e246b5d8180b0faed43</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="applyCriticalModifier">
+    /// <para>
+    /// InfoBox: If enabled, the additional dice damage will inherit critical multiplier from the main damage.
+    /// </para>
+    /// </param>
     /// <param name="notExtraAttack">
     /// <para>
     /// InfoBox: Will be ignored for non-weapon attack
@@ -535,6 +604,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </param>
     public TBuilder AdditionalDiceOnAttack(
         bool? allNaturalAndUnarmed = null,
+        bool? applyCriticalModifier = null,
         AdditionalDiceOnAttack.WeaponOptions? attackType = null,
         WeaponCategory? category = null,
         bool? checkDistance = null,
@@ -568,6 +638,7 @@ namespace BlueprintCore.Blueprints.Configurators
     {
       var component = new AdditionalDiceOnAttack();
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
+      component.ApplyCriticalModifier = applyCriticalModifier ?? component.ApplyCriticalModifier;
       component.AttackType = attackType ?? component.AttackType;
       component.Category = category ?? component.Category;
       component.CheckDistance = checkDistance ?? component.CheckDistance;
@@ -663,7 +734,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionAttacksEnhancement</term><description>71d6955fe81a9a34b97390fef1104362</description></item>
-    /// <item><term>Marilith_Feature_InfuseWeapon</term><description>fc79f20cf9a63fb43a0239f5be732793</description></item>
+    /// <item><term>IncubusBandLair_IncubusBossFeature</term><description>677c42f19f2b01b4c8cb8b8d7f64efc6</description></item>
     /// <item><term>RingOfEnhancedSummonsBuff</term><description>f4b35376b1021c74ea90abc40df55628</description></item>
     /// </list>
     /// </remarks>
@@ -1184,7 +1255,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
-    /// <item><term>SecondaryElementEarth</term><description>956b65effbf37e5419c13100ab4385a3</description></item>
+    /// <item><term>SecondaryElementFire</term><description>caa7edca64af1914d9e14785beb6a143</description></item>
     /// <item><term>WarCamp_DefaultPeaceful_Lann</term><description>c82f78f0f7fee3c40a7d1164d202bebd</description></item>
     /// </list>
     /// </remarks>
@@ -1220,7 +1291,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
     /// <item><term>DLC2_Sv_Bureaucrat_DeadBody</term><description>fbb763a4fb6c4df99b79b48b8c5682ef</description></item>
-    /// <item><term>InvitedToWedding</term><description>d239b8b2e21331942a1a042b97d0082d</description></item>
+    /// <item><term>UlbrigRomance_GardenGods_Chapter03</term><description>9b3a54e4a1e445808fe6e8f9487a18cc</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAreaDidLoadTrigger(
@@ -1254,7 +1325,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_LichRankUp_1_Notification</term><description>34a1fb6d575b3cd458fd6ce51c89491c</description></item>
+    /// <item><term>KTC_KTC_SosielCards_c3_Notification</term><description>9344a2b30f8c66545971a690b8485f12</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1324,7 +1395,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ActivatingSwordOfValor</term><description>071f4953d481d5242b250b1aa7482dce</description></item>
-    /// <item><term>Graveyard_GraverobbersAgro1</term><description>0940392b6893433b83f9935f1848fde8</description></item>
+    /// <item><term>GargoyleAttack_ComponentList</term><description>973e83220db9f474289a572f1d953987</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1358,7 +1429,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_CH1_AlchemistLair</term><description>546bf66870894657beb8e058b2702dfb</description></item>
-    /// <item><term>Fleshmarket_Dyunk</term><description>decab5093aaa4e78a36345545b3e094d</description></item>
+    /// <item><term>EstrodTowerBeforeDHAttacked</term><description>aa6f4ded36ce40346af5b83ba900fe83</description></item>
     /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
     /// </list>
     /// </remarks>
@@ -1584,7 +1655,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>HelmetCollected</term><description>889dd404da4321d4e98d097d897ca252</description></item>
+    /// <item><term>GS_Canyon</term><description>7cb9f9854971df340baf02fb35e35eee</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1665,7 +1736,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>DLC2_Survive_RQ_RstOutOn</term><description>d3c857a15aa741d380a876fc62c4d2fc</description></item>
+    /// <item><term>DLC2_Sv_Catcmb_RstOutOn</term><description>85754732aed2470a8ed7a296166ac66c</description></item>
     /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
@@ -1808,7 +1879,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>AltarDamage_Actions</term><description>35995aa895b843ab9c2d75d3a158487e</description></item>
     /// <item><term>KenabresBurning_Default</term><description>ff99c02a1f792a545bc4eda7858cbaaf</description></item>
-    /// <item><term>ObeliskDamage_Actions</term><description>c60c445428024f7d8a1f1193cfd1f5b3</description></item>
+    /// <item><term>TreeEncounter</term><description>29794c25836b4120920ede5f68042b73</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1858,7 +1929,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>Graveyard_ZombiesAfterHealer</term><description>3dda94638ca94701a9ae576c50b39e87</description></item>
+    /// <item><term>FuneralCeremony</term><description>f31b6304bad1b244f9f6369ab297b7e6</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1912,8 +1983,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
-    /// <item><term>BodakLair_Default</term><description>759e37bb2e588aa428202cea1e19367b</description></item>
     /// <item><term>LC_Outdoor</term><description>163aad1de63fe1043acc8fb1143c9fd0</description></item>
+    /// <item><term>UlbrigRomance_GardenGods_LightState02</term><description>da1d94ab114f4c78985ca7d5b7f0fd09</description></item>
     /// </list>
     /// </remarks>
     ///

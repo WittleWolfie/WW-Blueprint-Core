@@ -1,5 +1,15 @@
 ﻿# Changelog
 
+## v2.7.9b Release [2.1 BETA ONLY]
+
+* Updated for 2.1 beta patch
+
+### Breaking Changes
+
+* Many components changed
+* BuffCollectionConfigurator is no longer present
+    * BuffCollection (the blueprint) is no longer used in Wrath
+
 ## v2.7.8 Release
 
 * Added `AddToLevelEntry` to ProgressionConfigurator to simplify adding new features to an existing progression

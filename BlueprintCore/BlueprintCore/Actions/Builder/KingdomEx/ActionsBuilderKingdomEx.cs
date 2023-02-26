@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
+using Kingmaker.AreaLogic;
 using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.Components;
@@ -327,7 +328,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Angel3SummonHeavenlyHostAbility</term><description>f317d44314a843e7aaf3fc202cbe9577</description></item>
-    /// <item><term>ArmySummonPetHunter</term><description>a256fbf11092416dbdcd1ce2a0cf563f</description></item>
+    /// <item><term>ArmySummonMarilith</term><description>78c258abcb744f75ab6b71121aadf47d</description></item>
     /// <item><term>SummonSquadSlow</term><description>7985c14f44ad9c64eb32c6d5e9a713fc</description></item>
     /// </list>
     /// </remarks>
@@ -848,7 +849,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
-    /// <item><term>Diplomacy8Mythics</term><description>856b4af42eab423fbb4e00d1adfe93d9</description></item>
+    /// <item><term>Diplomacy6KillDiplomacy</term><description>bcb08feb960f4856802a97388ae7e716</description></item>
     /// <item><term>Trickster5ThugPaladin</term><description>e83a6a99081d467fb56d8afe1de6a4d5</description></item>
     /// </list>
     /// </remarks>
@@ -1307,7 +1308,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
-    /// <item><term>FlagMilitary2Spearman</term><description>fae131e8e9b9439e9203fdc5286fb4e7</description></item>
+    /// <item><term>FlagMilitary3AxeThrowers</term><description>07ee057cca794cf286be5adcf3fcbbc8</description></item>
     /// <item><term>Obj3B_TalkWithSull</term><description>5c32d5a46133ae34e9aa8aa1a9efbcbf</description></item>
     /// </list>
     /// </remarks>
@@ -1351,7 +1352,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0003</term><description>8df6da6c3db0b744baeca86c24fddc03</description></item>
-    /// <item><term>Event33ProfitablePurchase</term><description>cd3ffefdcd5d4a4e87fe7012f2aa7b92</description></item>
+    /// <item><term>Eggs_DragonsInEducation</term><description>4aa538f07bd542f7a013b90464577d67</description></item>
     /// <item><term>ZachariusUndeadUpgrade_level2</term><description>ce15dfd148df49df892eda52eb46cf34</description></item>
     /// </list>
     /// </remarks>
@@ -1674,8 +1675,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0016</term><description>b1c5d837b93d71c4d92bfc384732e823</description></item>
-    /// <item><term>Answer_0029</term><description>81f58f56c3737b24b8225ac2597f472b</description></item>
+    /// <item><term>Answer_0004</term><description>11d0c42fc7fc4fe98ac31b1561c30364</description></item>
+    /// <item><term>Answer_0023</term><description>f2742a2a32a612549aa1ad3160c50e16</description></item>
     /// <item><term>MythicDevil_RankUp02_Option03</term><description>304b0e0aa6714d4499123b0c3c4ba729</description></item>
     /// </list>
     /// </remarks>
@@ -1736,6 +1737,31 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.m_OldUnit = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ForceDayTime"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UlbrigRomance_GardenGods_LightState01</term><description>12993a3773c44833bbaaf3f91a3687b9</description></item>
+    /// <item><term>UlbrigRomance_GardenGods_LightState02</term><description>da1d94ab114f4c78985ca7d5b7f0fd09</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder ForceDayTime(
+        this ActionsBuilder builder,
+        TimeOfDay? dayTime = null,
+        bool? hasOverride = null,
+        bool? reloadStaticIfNeeded = null)
+    {
+      var element = ElementTool.Create<ForceDayTime>();
+      element.DayTime = dayTime ?? element.DayTime;
+      element.HasOverride = hasOverride ?? element.HasOverride;
+      element.ReloadStaticIfNeeded = reloadStaticIfNeeded ?? element.ReloadStaticIfNeeded;
       return builder.Add(element);
     }
 
@@ -2071,7 +2097,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
-    /// <item><term>BrokenPhylacteryScytheProject_Enchanting</term><description>963413f7f439414db78ba27e7e513490</description></item>
+    /// <item><term>BaphometFireRobeProject_Enchanting</term><description>06e32ef321fa400698013b3b80da5fc8</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -3268,7 +3294,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0029</term><description>81f58f56c3737b24b8225ac2597f472b</description></item>
+    /// <item><term>Answer_0006</term><description>b515734110d84de6af4c3577f412b4aa</description></item>
     /// <item><term>Answer_0032</term><description>11a461c5f93e9c04ca0e5b5d70dc8566</description></item>
     /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
     /// </list>

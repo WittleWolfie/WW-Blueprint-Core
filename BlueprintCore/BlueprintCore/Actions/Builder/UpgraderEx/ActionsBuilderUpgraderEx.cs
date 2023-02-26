@@ -75,7 +75,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
-    /// <item><term>PF-341704</term><description>e4782857b49f40fc903acef39d3f7424</description></item>
+    /// <item><term>PF-345441</term><description>6e40b2d12ba948da9527239a6198bd51</description></item>
     /// <item><term>PF-472203_FreebooterMasterHunter</term><description>afd16a98a8754b60b176b94fc80dd7a8</description></item>
     /// </list>
     /// </remarks>
@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-369108</term><description>4b2b043d194c4687bdc67485e2375da7</description></item>
-    /// <item><term>PF-471630_MasterHunterCasterBuff</term><description>29f9fbd41585423c861ffa4666eefbbf</description></item>
+    /// <item><term>PF-384606</term><description>3d656ef39e8341fb865bbb09f670105c</description></item>
+    /// <item><term>PF-477053_Camelia</term><description>b33780798c374f7f95a7fcd07461626a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -425,8 +425,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-191269</term><description>90edf140bf514ebaa3fff74c4f576e4d</description></item>
-    /// <item><term>PF-382275</term><description>50ad5ea849874e8abd47f0e5a088119c</description></item>
-    /// <item><term>PF-400743</term><description>8c5f56e6b06641828d1611402f847e5c</description></item>
+    /// <item><term>PF-436307_MammothTrippingBite</term><description>bb8cb706e07f476a808bcbecafb428c4</description></item>
+    /// <item><term>PF-477572_KitsuneTails</term><description>0ed9316d44c74c618ff3e92c382cb812</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -725,6 +725,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>PF-383428_EyeOfTruthItem</term><description>f448eb85a25743fb8ec43b17cc1aaf7c</description></item>
     /// <item><term>UpgradeUnitRobe2ST2DC</term><description>0da99f59dbfc45b49864819a5ad0c3ec</description></item>
     /// </list>
     /// </remarks>
@@ -831,6 +832,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>PF-383428_EyeOfTruthItem</term><description>f448eb85a25743fb8ec43b17cc1aaf7c</description></item>
     /// <item><term>PF-418068-RecreateVissariyRatimus</term><description>761fd2604960453da5cbbd10e39d1abd</description></item>
     /// </list>
     /// </remarks>
@@ -1098,6 +1100,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>AnimalCompanionMamonthUpgrader</term><description>273450b33ade4cfdb052ca7f7da6bf34</description></item>
     /// <item><term>UpgradeUnitPrimarySecondaryWeapons</term><description>9bb96c963f0f47f48e51aabb6c8ac4ff</description></item>
     /// </list>
     /// </remarks>

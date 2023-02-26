@@ -69,6 +69,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BaphometFireCloth_BurningCunningEnchantment = "4cad65a642af4533a7b8215a422dd3e7";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BardingOfCeaselessServiceEnchantment = "87182ae16e2f76143bc19d1aa8611575";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BardingOfLifeEnchantment = "ad59e2b1c14e4159805e642fe0fa2006";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BardingOfSteadynessEnchantment = "866be7ba056a4f4e8fdacff8802d5463";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BardingOfVengeanceEnchantment = "b59cbb4f8d394dd38a4178311085edae";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BeaconOfCarnageEnchantment = "c264218d26f2191439522d689c1ce3cf";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BlackenedRagsEnchantment = "2af7cc6019320b84292166c0228a0dbe";
@@ -150,6 +151,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> FullplateOfMindFocusEnchantment = "765e30da692d4cd5bdcce03fceef8396";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> FullplateOfRetributionEnchantment = "36e5f0363039c924381fd2e6c82a37e7";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> FullplateOfSpellNullifyEnchantment = "f4510606925623e44b0a81059e00ada8";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> FullplateOfUstalavianOfficerEnchantment = "d273924897ed4e298661e66170916073";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> GamekeepersArmorEnchantLongbow = "e3017d807ffd5c3449dba82735b0ef56";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> GamekeepersArmorEnchantShortbow = "851236ca1e0d4d0488af7d5e1ea79448";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> GentlePersuasionEnchant = "d884882b038db4741a12b006e9de3e8b";
@@ -364,6 +366,7 @@ namespace BlueprintCore.Blueprints.References
           BaphometFireCloth_BurningCunningEnchantment,
           BardingOfCeaselessServiceEnchantment,
           BardingOfLifeEnchantment,
+          BardingOfSteadynessEnchantment,
           BardingOfVengeanceEnchantment,
           BeaconOfCarnageEnchantment,
           BlackenedRagsEnchantment,
@@ -445,6 +448,7 @@ namespace BlueprintCore.Blueprints.References
           FullplateOfMindFocusEnchantment,
           FullplateOfRetributionEnchantment,
           FullplateOfSpellNullifyEnchantment,
+          FullplateOfUstalavianOfficerEnchantment,
           GamekeepersArmorEnchantLongbow,
           GamekeepersArmorEnchantShortbow,
           GentlePersuasionEnchant,

@@ -1256,8 +1256,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AnimalCompanionUnitVelociraptor</term><description>28d1986d57a7081439fbb581aa6f960c</description></item>
-    /// <item><term>GibrilethSummon</term><description>cffe1c1aff5ca5c468b78ede814d6d78</description></item>
+    /// <item><term>AnimalCompanionUnitMammoth</term><description>e7aa96d15a45238438ae4cfb476f6bb9</description></item>
+    /// <item><term>GiantFrogSummoned</term><description>1ed9a630f0d9d7f44855d3d1d1b2cdf2</description></item>
     /// <item><term>WyvernPeridot</term><description>6a8af899a123abf459e3e1fedf39e8be</description></item>
     /// </list>
     /// </remarks>
@@ -1307,8 +1307,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_Falconium_tier1_original1</term><description>2a2e73631326473bb43abda08475380b</description></item>
-    /// <item><term>DLC3_Falconium_tier3_original</term><description>95bbd372681d419abe7d1b39830c06dd</description></item>
     /// <item><term>DLC3_VendorInPort_tier1_unique</term><description>042d769be561428da5cc5c0b07408869</description></item>
+    /// <item><term>DLC4_NegociantSecondState</term><description>32a3b06249984fda9bc474c2feaec195</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddDungeonAddLootToVendor(params DungeonAddLootToVendor.Item[] loots)
@@ -1655,8 +1655,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CR20_AnimatedWeapon_Bardiche</term><description>1706dff4d4435d540b5260fe1feb98e4</description></item>
-    /// <item><term>DLC3_CR23_AnimatedArmor</term><description>55b9608791934a50a42f72a2a37093b5</description></item>
-    /// <item><term>DLC3_FallenAngelBoss_Stage1_cutscene</term><description>55a397d24ad648f2ac933e70ce3ca8ff</description></item>
+    /// <item><term>DLC3_CR23_AnimatedArmor2</term><description>407da8f97d9f4ff5b4d05ffa7736ab5e</description></item>
+    /// <item><term>DLC4_CR8_GhostlyAnimatedWeapon_Longsword</term><description>541fa37614ab4cf8b0ebed97b31a08db</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1729,7 +1729,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_Companion</term><description>88162735402ac094d8a08867814902dd</description></item>
-    /// <item><term>Greybor_Companion</term><description>f72bb7c48bb3e45458f866045448fb58</description></item>
+    /// <item><term>GreyborInDefHeartWithDagger</term><description>e00cb2f669ccff94bb902176582d60f9</description></item>
     /// <item><term>Woljif_NPC</term><description>318127d85d5d41b4d9acea4e2ad1c4a4</description></item>
     /// </list>
     /// </remarks>
@@ -1757,7 +1757,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>Nenio_NPC_Level_Cultist</term><description>b9da69e83235c99429ea4631a7313b63</description></item>
+    /// <item><term>NenioTestLevel14</term><description>938bfee6b9fab804f973539260a1ed37</description></item>
     /// <item><term>WoljifTestLeve9</term><description>b6a343d8b3f47784dab47911fb42a84a</description></item>
     /// </list>
     /// </remarks>
@@ -1787,7 +1787,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>MC_Human_M_Cavalier_Drezen</term><description>29e1bfadb5a940bfac1b27c65d349fbe</description></item>
+    /// <item><term>MC_Human_M_Cavalier_GrayGarrison</term><description>6473ab1ae16a418b8d776070f56fe378</description></item>
     /// <item><term>WoljifTestLeve9</term><description>b6a343d8b3f47784dab47911fb42a84a</description></item>
     /// </list>
     /// </remarks>
@@ -1817,7 +1817,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR10_BesmaraFighter_MaleHuman</term><description>baef88d6cdea472f90c886f428a88d5e</description></item>
+    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -2177,7 +2177,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaWizard_Curse</term><description>c0fe3438b11d09841a8717ab55eebe15</description></item>
-    /// <item><term>DLC1AzataIsland_Kobold</term><description>7d524add4f4140b28481b368ff2c451d</description></item>
+    /// <item><term>DLC3_CR0.5_KoboldMeleeWarriorLevel2</term><description>70e3fb16d13d4f39b97ec6f5b7a87546</description></item>
     /// <item><term>Zanedra_Sanctum</term><description>34c3e14d08f2ff4448b745761cbb846f</description></item>
     /// </list>
     /// </remarks>
@@ -2257,7 +2257,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arsinoe</term><description>a609ed9b2205d034bb3bb04d2a255681</description></item>
-    /// <item><term>DragonCommoner2</term><description>c8bd514ff6c0496f8b05df50b8e8e027</description></item>
+    /// <item><term>DragonCommoner1</term><description>d51ea8a132d54a338575695726210dc3</description></item>
     /// <item><term>Woljif_NPC</term><description>318127d85d5d41b4d9acea4e2ad1c4a4</description></item>
     /// </list>
     /// </remarks>
@@ -2303,7 +2303,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchpriestGolemCR23</term><description>fe60facdf4574f599fb5eea50bfffb69</description></item>
-    /// <item><term>DLC3_CR11_BlackDragonAdult</term><description>cc4eb195647948e3947ecc0493f64425</description></item>
+    /// <item><term>DLC3_CR11_DeepShadowDemonStandard</term><description>123462f3b6c344e3bce8ec6c813b29ae</description></item>
     /// <item><term>Velhm</term><description>f9c01a9515cd1f347800685ddbfbcc41</description></item>
     /// </list>
     /// </remarks>
@@ -2391,8 +2391,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CR3_Crusader_Human_PaladinMelee_Vendor1</term><description>f7f12ae65b95491da0daf56a756dfcfb</description></item>
-    /// <item><term>DLC3_VendorInPort_tier1_original</term><description>8c6deb543cd54d309fe1ef66eb7cc68f</description></item>
-    /// <item><term>DLC3_VendorInPort_tier3_original</term><description>f63fa83e81104870af58c34a6bc440b6</description></item>
+    /// <item><term>DLC3_VendorInPort_tier1_original_potions</term><description>bdb8de4454914a0396d3c620bb589c4c</description></item>
+    /// <item><term>DLC4_NegociantSecondState</term><description>32a3b06249984fda9bc474c2feaec195</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddChangeVendorPrices(
@@ -2480,8 +2480,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ankou_ShadowDoubleSummon</term><description>704d11701a4a9ef4daee07e4593bf69c</description></item>
-    /// <item><term>DLC3_CR14_Ankou</term><description>108de5e671d54415b7ff862da925c6d4</description></item>
     /// <item><term>FiendishAnkou</term><description>8180204b0589cfb4f9796475ec60c5ce</description></item>
+    /// <item><term>TotemSpiritFey</term><description>c54a51d331294d1886af81040ee29dcc</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2664,7 +2664,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyAeonsBythos</term><description>a6d75776a29d4c0bb3bc8bcad259e990</description></item>
-    /// <item><term>ArmyKalavakus</term><description>fe83c9d601c845e288f172ed259342ba</description></item>
+    /// <item><term>ArmyInquisitor</term><description>4cef3f3bb47343a45a1846204e2ef68d</description></item>
     /// <item><term>LeaderUnitVrockStandard</term><description>7fa16932774ed544fa7762b5ab6bb6cc</description></item>
     /// </list>
     /// </remarks>
@@ -2766,7 +2766,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Herald_Sanctum</term><description>4ea8b90496bdb0942961cd4b462ed17f</description></item>
+    /// <item><term>Halaseliax</term><description>a9df515d1e68471abd9cfd482a8dab42</description></item>
     /// <item><term>Ygefeles_WeakCopy</term><description>7aab7792681750a42bacd71f9f7c6d5f</description></item>
     /// </list>
     /// </remarks>
@@ -2808,7 +2808,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aasimar_Victim</term><description>dfa634221ff82bf42a3b0a511b6d2e5a</description></item>
-    /// <item><term>Cultist_Wizard_DamageFullCaster_Deskari</term><description>d7b9114bfd97ba146b7e8ff787aa1950</description></item>
+    /// <item><term>DarrazandHealer_FullCaster</term><description>ebe26c1bf09966142a7284c93c0a0679</description></item>
     /// <item><term>Zerieks</term><description>79674c8c4286cd7498c7bb33fd8dca31</description></item>
     /// </list>
     /// </remarks>

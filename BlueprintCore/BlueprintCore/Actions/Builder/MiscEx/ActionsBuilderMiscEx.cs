@@ -33,7 +33,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>CommandAction3</term><description>fc8939b88e6245fda50a80e83601b072</description></item>
+    /// <item><term>Cue_3</term><description>aceee7ef06e94539804351201f8d6e98</description></item>
     /// <item><term>StarMaraca_dead</term><description>164aa7706c5b4cb9ba6dcd8ff7f31ab6</description></item>
     /// </list>
     /// </remarks>
@@ -301,7 +301,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0007</term><description>86b05ac8299b6aa4d981d66648fa72b6</description></item>
-    /// <item><term>SW_SeelahDoor_Actions</term><description>ee6f1cc0643a6f94cac31290bd6084b2</description></item>
+    /// <item><term>SW_SosielDoor_Actions</term><description>4afde9cdd5d78214f90abcce06a68416</description></item>
     /// <item><term>ThresholdIndoor_SecondFloor</term><description>8b1257aca48c59844a85dd1b11e5df7f</description></item>
     /// </list>
     /// </remarks>
@@ -383,6 +383,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_RewardStatueLegacy_Actions</term><description>a84bfcbb31f444078e18484061dd66f2</description></item>
+    /// <item><term>LoreReligionUseAbility</term><description>4843cb4c23951f54290c5149a4907f54</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -639,7 +640,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0034</term><description>16a9df738485e154b9cfd137778c6617</description></item>
+    /// <item><term>Cue_0037</term><description>01a4a26e52f07b6469aec31d62735679</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -839,7 +840,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>daab00a6e6c650246a7ebb32c9fd8240</description></item>
-    /// <item><term>DLC1_ThresholdOutdoor_BET_NormalCamp</term><description>e67f735c38b444b680c94bf090b3a334</description></item>
+    /// <item><term>DLC1_ThresholdOutdoor_BET_MixedFar</term><description>a5dca28200034f298e04270b0aed3d5d</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -879,7 +880,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>32346e6ee58b4139a2bbabab80317c28</description></item>
-    /// <item><term>BlacksmithCapitalTraderInCapital</term><description>aee729f4de1f5844096ec3f36bcbc4f1</description></item>
+    /// <item><term>Cue_0002</term><description>66ea6c3a144440919fcae8ea585d49c1</description></item>
     /// <item><term>WoljifFarewell_dialogue</term><description>0e94cfa04d06db1438eb565f60c0012c</description></item>
     /// </list>
     /// </remarks>
@@ -902,7 +903,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CamelliaQ2</term><description>ab6e8c0132ddd2a4495408cfacb660f7</description></item>
-    /// <item><term>CommandAction 1</term><description>e7285ada236157b4aa17c6e53a13d8eb</description></item>
+    /// <item><term>Cue_0005</term><description>4a6d7932f3ea74845af2651c425431fa</description></item>
     /// <item><term>LannWantsTraining_Sparring</term><description>35d585854f8cfa84491a58e49642d4c0</description></item>
     /// </list>
     /// </remarks>

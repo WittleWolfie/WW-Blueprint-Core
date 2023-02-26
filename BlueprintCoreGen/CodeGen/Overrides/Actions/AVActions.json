@@ -35,6 +35,8 @@
     "RequiredFields": [ "PrefabLink" ]
   },
 
+  { "TypeName": "AnimationActionToggleFxParticles" },
+
   { "TypeName": "CameraToPosition" },
 
   { "TypeName": "ClearBlood" },

@@ -4,6 +4,7 @@ using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -131,6 +132,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         bool? allNaturalAndUnarmed = null,
         WeaponCategory? category = null,
         int? enhancement = null,
+        bool? isStackable = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -138,6 +140,77 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
       component.Category = category ?? component.Category;
       component.Enhancement = enhancement ?? component.Enhancement;
+      component.IsStackable = isStackable ?? component.IsStackable;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponGroupAttackBonusEquipment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Weapon group attack bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GamekeepersArmorEnchantLongbow</term><description>e3017d807ffd5c3449dba82735b0ef56</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddWeaponGroupAttackBonusEquipment(
+        int? attackBonus = null,
+        ModifierDescriptor? descriptor = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        WeaponFighterGroup? weaponGroup = null)
+    {
+      var component = new WeaponGroupAttackBonusEquipment();
+      component.AttackBonus = attackBonus ?? component.AttackBonus;
+      component.Descriptor = descriptor ?? component.Descriptor;
+      component.WeaponGroup = weaponGroup ?? component.WeaponGroup;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="WeaponGroupDamageBonusEquipment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Weapon group attack bonus
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GamekeepersArmorEnchantLongbow</term><description>e3017d807ffd5c3449dba82735b0ef56</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddWeaponGroupDamageBonusEquipment(
+        int? attackBonus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        WeaponFighterGroup? weaponGroup = null)
+    {
+      var component = new WeaponGroupDamageBonusEquipment();
+      component.AttackBonus = attackBonus ?? component.AttackBonus;
+      component.WeaponGroup = weaponGroup ?? component.WeaponGroup;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

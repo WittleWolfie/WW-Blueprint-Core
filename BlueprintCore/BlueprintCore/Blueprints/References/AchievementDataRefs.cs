@@ -126,6 +126,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_19_First_try = "08b3dea416ea42f5bf3afb5a684a9331";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_20_Unusual_mortal = "ec1df64345574156955feb2ed3e4ae1a";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC3_21_Myth_sell = "34b74f93ab2b4c9ea036852bc93d6a03";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_22_Stay_Underground = "dc0d8f0b076a4e4aa03a662dd171227b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_24_Hanged_Man_s_Notes = "213e1df79b8a4fa0b131b0142d5cea87";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_25_Sarkoris_Will_Be_Green = "7cd10edd70ec4d3580e30dff94b10646";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_26_This_Wall_Won_t_Fall = "d195b1797b314043b6d4b4ab132d0f99";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_27_Not_the_Last_Sarkorian = "143df65614844c6a9531ee03454c82b5";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_28_Wings_of_Stone = "89f0f974a32e408f88efc12b1e845751";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_29_The_Lady_of_the_Forest = "fff7268496e44091a2c02eb1e7a79043";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_30_Sellout = "d5df7184ea554f88a0a10702cbfea596";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_31_Strategy_is_For_the_Weak = "f20d653cb1cd483c8a26fe0dc4a80ea4";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_32_Elements_of_Success = "53130328ab594926ac52bfdab3e6f377";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_33_Endangered_Species = "e128a85f614f4674913153675c149397";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_34_Beware_of_Still_Water = "b9a5a62886754d7aa990f03312f3539b";
 
     public static readonly List<Blueprint<BlueprintReference<AchievementData>>> All =
       new()
@@ -241,6 +253,18 @@ namespace BlueprintCore.Blueprints.References
           DLC3_19_First_try,
           DLC3_20_Unusual_mortal,
           DLC3_21_Myth_sell,
+          DLC4_22_Stay_Underground,
+          DLC4_24_Hanged_Man_s_Notes,
+          DLC4_25_Sarkoris_Will_Be_Green,
+          DLC4_26_This_Wall_Won_t_Fall,
+          DLC4_27_Not_the_Last_Sarkorian,
+          DLC4_28_Wings_of_Stone,
+          DLC4_29_The_Lady_of_the_Forest,
+          DLC4_30_Sellout,
+          DLC4_31_Strategy_is_For_the_Weak,
+          DLC4_32_Elements_of_Success,
+          DLC4_33_Endangered_Species,
+          DLC4_34_Beware_of_Still_Water,
       };
   }
 }

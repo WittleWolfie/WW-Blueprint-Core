@@ -423,6 +423,52 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     }
 
     /// <summary>
+    /// Adds <see cref="ImproveEnhancmentIfHasEnchantment"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ReekingHeartOfArcaneEnchantment</term><description>5cd1d37cfb12488d8b03a16c096cc5be</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantments">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddImproveEnhancmentIfHasEnchantment(
+        List<Blueprint<BlueprintItemEnchantmentReference>>? enchantments = null,
+        bool? isStackable = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ImproveEnhancmentIfHasEnchantment();
+      component.m_Enchantments = enchantments?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Enchantments;
+      if (component.m_Enchantments is null)
+      {
+        component.m_Enchantments = new BlueprintItemEnchantmentReference[0];
+      }
+      component.m_IsStackable = isStackable ?? component.m_IsStackable;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="IncreaseWeaponEnhancementBonusOnTargetFocus"/>
     /// </summary>
     ///
@@ -445,6 +491,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
         ContextValue? bonusIncrementValue = null,
         int? currentEnhancementBonus = null,
         UnitReference? focusingTarget = null,
+        bool? isStackable = null,
         ContextValue? maximumTotalEnhancementBonus = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
@@ -457,6 +504,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
       }
       component.m_CurrentEnhancementBonus = currentEnhancementBonus ?? component.m_CurrentEnhancementBonus;
       component.m_FocusingTarget = focusingTarget ?? component.m_FocusingTarget;
+      component.IsStackable = isStackable ?? component.IsStackable;
       component.MaximumTotalEnhancementBonus = maximumTotalEnhancementBonus ?? component.MaximumTotalEnhancementBonus;
       if (component.MaximumTotalEnhancementBonus is null)
       {
@@ -615,7 +663,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalPiercingDamage</term><description>5a6bac93089d3ec449f316d22826c5f4</description></item>
-    /// <item><term>BaneVermin</term><description>c3428441c00354c4fabe27629c6c64dd</description></item>
+    /// <item><term>BaneUndead</term><description>eebb4d3f20b8caa43af1fed8f2773328</description></item>
     /// <item><term>WoundBearerNegative1d6</term><description>7f727c7023be4854babc44d3ee756d31</description></item>
     /// </list>
     /// </remarks>
@@ -660,7 +708,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AgainstHelplessPlus2</term><description>2fa378b52d997da4e814af3c48d88d35</description></item>
-    /// <item><term>BaneOutsiderGood</term><description>a876de94b916b7249a77d090cb9be4f3</description></item>
+    /// <item><term>BaneOutsiderEvil</term><description>20ba9055c6ae1e44ca270c03feacc53b</description></item>
     /// <item><term>SingingEdgeEnchantment</term><description>a3a40379e5950cf408d4bcf375072d26</description></item>
     /// </list>
     /// </remarks>
@@ -892,7 +940,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodthirstNegative3d6</term><description>f79f6fc9e5ab7da4daf93d665e4935bf</description></item>
-    /// <item><term>IceBody</term><description>423579db10309a14fbb1a76b2ce773d5</description></item>
+    /// <item><term>LightHammerOfRighteousnessEnchantment</term><description>dd78f3841a990c44cb8e8f9c4f615879</description></item>
     /// <item><term>WeaponBondFlamingBurstEnchant</term><description>b166fefa25b04b40a840fc5461e4feb5</description></item>
     /// </list>
     /// </remarks>

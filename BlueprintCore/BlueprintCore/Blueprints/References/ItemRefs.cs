@@ -107,6 +107,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreshkaTrash_Insrtument_item = "e0882bc966ff4d35aeedbc001079d07b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreshkaTrash_Tablet_item = "b7be176c56a34ae892c4b72a8235edef";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AreshkaTrash_Urn_item = "87da556e188e41899a0b7d98020a7d1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> ArodenShieldShardItem = "f104f0233baa433399833b173a5abaf2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Artefact_Event_2 = "d215636751c64267b56effccd892afd5";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Artefact_Event_28 = "cf9c9570318849479d1f7171f381e7d0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Artefact_Event_4 = "a661fb87a38f43e4af925df0f248ac98";
@@ -155,6 +156,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BagOfRocks = "a879112ea14fcc745a4fc694d510f707";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BaphometsGift = "bc76fae78556a5b4fa10f01c358ce90e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BaphometUnholyKey = "f721a4c9129f47e4c9c027c9f293e73f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> BarghestClaw_Item = "a1aaf157cfea410fab20921b38ce2faf";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BasementKey = "a442d0dac7b590b4ebf13d2dfbaecbd0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BattleblissArk_mark = "7c89cda268435a443a059bd231fe5180";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> BearPelt = "85854c608e9f5774ea0ee9e50c693656";
@@ -204,6 +206,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ClockInstructions_Item = "3611b60f839f48248a51f42639dd5cdc";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ClothShardItem = "1d1a2ff4200e4dd088c5a37a077c9584";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Coal = "d8a6a5fe5673f2547b15772014fc5e35";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> CockatriceTongue_Item = "c8b2115f0b544c6ab1fbeaee6533273a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CodeNote1 = "18fb5ff4b9b4877448945804207a8ad6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CodeNote2 = "5888c9f4a32842b4b8aaf9722085d671";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CodeNote3 = "515906fce932430489fc82b2aa5e12a0";
@@ -281,6 +284,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_GnomeCashItem = "97ea0b53288d46b0aed65f0e3ac3037e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_m = "ba51d5a9bc8a467c947d2a5ccd2ab3f3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_StartingCash = "620107fe863540b7907df92b1bc8d1c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Bears_Key = "2d1b37efdc1342d89feaaaa8f12c1146";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_CursedTotemAmulet = "3a3d8b3b751c4f79ac33c059804826d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_DawnKey = "48a722fd8f58471d8684d3139a818c12";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_ExplosivePotItem = "b36effc2962d411e9fb2bb363f2a2583";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_GhostHunterslicense = "bd154206504a43f5a2e4b026e94a6c50";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_MidnightFlowers = "9c812454a5d64145a71e03671171ba45";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_MidnightKey = "c2b9af2be5a84e4ea2e438733fbafe5d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_GhostsDust = "16b859d8427e4203a07578d37b1a13cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_LamberNotes1 = "09a4720ad220487d9d085643038fa871";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_LamberNotes2 = "718496d57a084f5f878bddb246aab707";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_LamberNotes3 = "06bbcbfd014c4202a11eeaefb918fccf";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_LamberNotes4 = "9f83bc009b2d43808c9a57c928d28b44";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes = "797033b81fd8472182cb8a24c55dd1e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes1 = "39adc16d7619428f952c787146caeffe";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes2 = "8a0cc36ce16e401f968459ffadc2871e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DogPelt = "11f8e6d119ec41b4da0fb1bdbe9b5527";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x3 = "45a8d763a44a5a844a6a936f17e4b765";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x4 = "80d9f2dd22aa13a4491cb7f039ce89a6";
@@ -362,6 +380,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoRedKey_4_Slot_5_7 = "c216cda592014d75b88e48109d65587b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoRedKey_5_Slot_1_7 = "f7f271a0359d4cd888b43f5be50e7d90";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoRedKey_5_Slot_6_7 = "6b7ac42c42214078a81c19d51c95cb13";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DrunkardEmptyBottle_Item = "6f269a718c6743aeb820a06d7b33220b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DustShardItem = "b352a456952e4d50b1b2069d7b8debd0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DwarvenStout = "5fc01c38c885cff4aa1f4171aff5c216";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DweomercatPelt = "5d2b01d12a3ca1c4db1aeac269d531f4";
@@ -641,6 +660,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SilverStatuette = "103b3efb46eb0b34ba0bc07f6fc68592";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SkullberryPie_item = "017e1a0f0a811cb44baff27ea07664e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SkullSanctumEntranceKey = "ed2d3022400be49449ba5808d4c8b214";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> SmallIndorKey = "73889526afaa4d2880c6aa927ea7f849";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SmilodonPelt = "5abb263d144ce4b428b07faebfeb2a1a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoanaMedallion = "4d78ec5dd1d1d5d41b9f2d8f2c8b5d53";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SoanaMedallionBroken = "be786e92d34c75a479cb48fa37b7b07d";
@@ -815,6 +835,7 @@ namespace BlueprintCore.Blueprints.References
           AreshkaTrash_Insrtument_item,
           AreshkaTrash_Tablet_item,
           AreshkaTrash_Urn_item,
+          ArodenShieldShardItem,
           Artefact_Event_2,
           Artefact_Event_28,
           Artefact_Event_4,
@@ -863,6 +884,7 @@ namespace BlueprintCore.Blueprints.References
           BagOfRocks,
           BaphometsGift,
           BaphometUnholyKey,
+          BarghestClaw_Item,
           BasementKey,
           BattleblissArk_mark,
           BearPelt,
@@ -912,6 +934,7 @@ namespace BlueprintCore.Blueprints.References
           ClockInstructions_Item,
           ClothShardItem,
           Coal,
+          CockatriceTongue_Item,
           CodeNote1,
           CodeNote2,
           CodeNote3,
@@ -989,6 +1012,21 @@ namespace BlueprintCore.Blueprints.References
           DLC3_GnomeCashItem,
           DLC3_m,
           DLC3_StartingCash,
+          DLC4_Bears_Key,
+          DLC4_CursedTotemAmulet,
+          DLC4_DawnKey,
+          DLC4_ExplosivePotItem,
+          DLC4_GhostHunterslicense,
+          DLC4_MidnightFlowers,
+          DLC4_MidnightKey,
+          DLC4_Wilds_GhostsDust,
+          DLC4_Wilds_LamberNotes1,
+          DLC4_Wilds_LamberNotes2,
+          DLC4_Wilds_LamberNotes3,
+          DLC4_Wilds_LamberNotes4,
+          DLC4_Wilds_Notes,
+          DLC4_Wilds_Notes1,
+          DLC4_Wilds_Notes2,
           DogPelt,
           DominoCyan1x3,
           DominoCyan1x4,
@@ -1070,6 +1108,7 @@ namespace BlueprintCore.Blueprints.References
           DominoRedKey_4_Slot_5_7,
           DominoRedKey_5_Slot_1_7,
           DominoRedKey_5_Slot_6_7,
+          DrunkardEmptyBottle_Item,
           DustShardItem,
           DwarvenStout,
           DweomercatPelt,
@@ -1349,6 +1388,7 @@ namespace BlueprintCore.Blueprints.References
           SilverStatuette,
           SkullberryPie_item,
           SkullSanctumEntranceKey,
+          SmallIndorKey,
           SmilodonPelt,
           SoanaMedallion,
           SoanaMedallionBroken,

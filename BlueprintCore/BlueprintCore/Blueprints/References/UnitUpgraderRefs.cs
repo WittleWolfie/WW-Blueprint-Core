@@ -15,6 +15,7 @@ namespace BlueprintCore.Blueprints.References
   /// </remarks>
   public static class UnitUpgraderRefs
   {
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> AnimalCompanionMamonthUpgrader = "273450b33ade4cfdb052ca7f7da6bf34";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_229479_RecreateAreshkagalOnLoad = "c048cb6cb12c4c578c312cf1ea5ebdce";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_232061_RecreateUnitOnLoad = "7110698b88404d1180b63c167b5e583b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_273507_CohhDungeonRecreateUnitOnLoad = "30145387552d480bb44ec2e304e6dab4";
@@ -25,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_340663_RecreateUnitOnLoad = "0a013e4bab2b456fbd9a265fd32907b2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_359232_RemoveBrokenSummonOnLoad = "2fc8c3f9bc904d8a82daa72d844dbed2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_365247_EvilArueshalae_Companion = "083640c167934d068db623f75474afe3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_383428_EyeOfTruthItem = "f448eb85a25743fb8ec43b17cc1aaf7c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_418068_RecreateVissariyRatimus = "761fd2604960453da5cbbd10e39d1abd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> UpgradeUnitAlignment = "2a9ba91131b249fdb7b7c3dd93a57a1a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> UpgradeUnitPrimarySecondaryWeapons = "9bb96c963f0f47f48e51aabb6c8ac4ff";
@@ -34,6 +36,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly List<Blueprint<BlueprintReference<BlueprintUnitUpgrader>>> All =
       new()
       {
+          AnimalCompanionMamonthUpgrader,
           PF_229479_RecreateAreshkagalOnLoad,
           PF_232061_RecreateUnitOnLoad,
           PF_273507_CohhDungeonRecreateUnitOnLoad,
@@ -44,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
           PF_340663_RecreateUnitOnLoad,
           PF_359232_RemoveBrokenSummonOnLoad,
           PF_365247_EvilArueshalae_Companion,
+          PF_383428_EyeOfTruthItem,
           PF_418068_RecreateVissariyRatimus,
           UpgradeUnitAlignment,
           UpgradeUnitPrimarySecondaryWeapons,

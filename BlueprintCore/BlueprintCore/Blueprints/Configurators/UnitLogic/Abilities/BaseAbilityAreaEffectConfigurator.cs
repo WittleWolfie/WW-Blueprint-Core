@@ -351,7 +351,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -369,7 +369,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HealingDomainBaseAbility</term><description>18f734e40dd7966438ab32086c3574e1</description></item>
+    /// <item><term>HokugolDragonBreathWeapon</term><description>bfab91b26614de04a8a7bf996a0d0990</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -473,7 +473,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathsnatcherEnergyDrainFeature</term><description>e4c3976c40072a747b1a9ba2d8f166f2</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -541,7 +541,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastAbility</term><description>a5631955254ae5c4d9cc2d16870448a2</description></item>
+    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -591,8 +591,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>LichChannelNegativeHeal</term><description>bf72d2d60bf0a31429f0d90a9ec667a7</description></item>
-    /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
+    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextCalculateSharedValue(
@@ -620,7 +620,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
+    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -722,7 +722,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFogArea</term><description>f4dc3f53090627945b83f16ebf3146a6</description></item>
-    /// <item><term>InspirationalLeaderArea</term><description>b62069a822cb9e841b1dec0b8cbc1670</description></item>
+    /// <item><term>IncredibleMightArea</term><description>8bcdb58e67c061f46b0847bea1645639</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -806,7 +806,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFogArea</term><description>f4dc3f53090627945b83f16ebf3146a6</description></item>
-    /// <item><term>IncendiaryCloudArea</term><description>a892a67daaa08514cb62ad8dcab7bd90</description></item>
+    /// <item><term>IncenseFogArea</term><description>4aeb5ae7923dac74d91069f13a7f0a95</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalArea</term><description>ccce3891532741ee91800c01b2304f53</description></item>
     /// </list>
     /// </remarks>

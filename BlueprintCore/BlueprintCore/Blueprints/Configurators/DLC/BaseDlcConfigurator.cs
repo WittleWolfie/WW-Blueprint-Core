@@ -2,9 +2,11 @@
 
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
 using System.Linq;
@@ -34,6 +36,9 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           var copyFrom = blueprint.Reference.Get();
           bp.Description = copyFrom.Description;
           bp.RewardReferences = copyFrom.RewardReferences;
+          bp.DefaultKeyArtLink = copyFrom.DefaultKeyArtLink;
+          bp.DefaultTitle = copyFrom.DefaultTitle;
+          bp.DefaultDescription = copyFrom.DefaultDescription;
         });
     }
 
@@ -49,6 +54,9 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
           var copyFrom = blueprint.Reference.Get();
           bp.Description = copyFrom.Description;
           bp.RewardReferences = copyFrom.RewardReferences;
+          bp.DefaultKeyArtLink = copyFrom.DefaultKeyArtLink;
+          bp.DefaultTitle = copyFrom.DefaultTitle;
+          bp.DefaultDescription = copyFrom.DefaultDescription;
         });
     }
 
@@ -193,6 +201,93 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         {
           if (bp.RewardReferences is null) { return; }
           bp.RewardReferences.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDlc.DefaultKeyArtLink"/>
+    /// </summary>
+    ///
+    /// <param name="defaultKeyArtLink">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder SetDefaultKeyArtLink(AssetLink<SpriteLink> defaultKeyArtLink)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DefaultKeyArtLink = defaultKeyArtLink?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDlc.DefaultKeyArtLink"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDefaultKeyArtLink(Action<SpriteLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.DefaultKeyArtLink is null) { return; }
+          action.Invoke(bp.DefaultKeyArtLink);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDlc.DefaultTitle"/>
+    /// </summary>
+    ///
+    /// <param name="defaultTitle">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultTitle(LocalString defaultTitle)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DefaultTitle = defaultTitle?.LocalizedString;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDlc.DefaultTitle"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDefaultTitle(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.DefaultTitle is null) { return; }
+          action.Invoke(bp.DefaultTitle);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintDlc.DefaultDescription"/>
+    /// </summary>
+    ///
+    /// <param name="defaultDescription">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetDefaultDescription(LocalString defaultDescription)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.DefaultDescription = defaultDescription?.LocalizedString;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintDlc.DefaultDescription"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyDefaultDescription(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.DefaultDescription is null) { return; }
+          action.Invoke(bp.DefaultDescription);
         });
     }
 
@@ -469,6 +564,14 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
       if (Blueprint.RewardReferences is null)
       {
         Blueprint.RewardReferences = new BlueprintDlcRewardReference[0];
+      }
+      if (Blueprint.DefaultTitle is null)
+      {
+        Blueprint.DefaultTitle = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.DefaultDescription is null)
+      {
+        Blueprint.DefaultDescription = Utils.Constants.Empty.String;
       }
     }
   }

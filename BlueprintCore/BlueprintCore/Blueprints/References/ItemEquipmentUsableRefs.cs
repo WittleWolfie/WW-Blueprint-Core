@@ -69,6 +69,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_NahyndrianHolySymbolUsableItem = "4fcd58cd19b3430ebbed68734bec20af";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_RodOfMagicalAffinityItem = "340cf8ee69c5458c99ecd21daf082704";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_ThePromissingMirrorUsableSetItem = "ce710315e960422c909599f3e2f360b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC4_MidnightFlowersItem = "7c3f38c1c3554cdb9a00a45ee70b571f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DriedHandOfmartyrItem = "363e0db503c3a7b47a06567c8f35dbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DualityOfConjurationAndSummoningItem = "ba856bd4ba814f12a3b30d56c1c3df1c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ElixirMasterpiece = "5219d5846529ae949b88c87858c1bb9e";
@@ -346,6 +347,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBlink = "49fd4f4b4ef745a4d8c2a9b7002341eb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBlur = "4e78560ea01fe2541b663c96e87b6057";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBombersEye = "babc1775fd3231a49b0e724406c91f5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBoneFists = "20479d25c6d44711bfde6dd3c1d5c812";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBoneshaker = "56bb28cb527c4e54c9a5def8de6a3c31";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBoneshatterCleric = "98abe0fd52e9d7d49a4a94615acbbc60";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBoneshatterWizard = "6f36a274115b20e4c86fa6771be8b7dd";
@@ -356,6 +358,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBullsStrengthMass = "7e6ca8816f50a7f4e9dccc90f958e4f4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBurningArc = "b5239446c08850347b803eb57c271dab";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBurningHands = "3c56e535129756e449af6c0e67fd937f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBurnungEntangle = "9b525238938642c78987aaf241548925";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfBurstOfGlory = "b19265e6c4c176d4faca13e14bf2fec1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCacophonousCall = "6d60f8c4dba3b4c4692d22613b200934";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCacophonousCallMass = "d9c71faa8371b0348878d81322ab319d";
@@ -492,6 +495,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfEntangle = "5022612735a9e2345bfc5110106823d8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfEuphoricTranquility = "4d80ff5fde0655a41bf3c8bfa653bfe9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfExpeditiousRetreat = "fbf7f9d21c12146479a5c261743afbde";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfExplosionOfRot = "c4e1637466d640b88c51d0beaa25bb87";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfEyebite = "f80549ec4e61ae64d8051bb3b24cf10e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfFaerieFire = "dd450b8a13d57364e9d6b21e76c34250";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfFalseLife = "04954e21ad7b5a54a9a9c29b4ed79052";
@@ -630,6 +634,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfMindFog = "61bacc43652d76c42b60d965b65cd741";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfMirrorImage = "bae1ca27b27c3eb4f9e38c03abcdb64a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfMoltenOrb = "ecb145cb6e1b206408c8fd618337aded";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfMortalTerror = "46dcbf9b150f4108b68e718b9d0c87af";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfNaturalRythm = "5d770deaf203e1b4fb1fb868f4d83ce1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfNeutralizePoison = "62e633bef8ae9b241a5c084525075711";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfOathOfPeace = "006c78f49dcbd1643a04589fae04935c";
@@ -803,6 +808,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfStoneToFlesh = "394ba24aed75f0d459ed84d1b1b98f60";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfStormbolts = "02aa2f863d3fdca4ca36fd246f4c13bb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfStormbolts_0 = "217ab9a74cc601d4ba6ed4c9d3f7fdd9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfStrandOfTheTangledKnot = "9154c2aaf35b47b593c0f93b661f1e02";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfStunningBarrier = "e029ec259c9a37249b113060df32a01d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfSummonElderWorm = "eb09862ee4b9fed4ab5656068a381896";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfSummonElementalElderAir = "761e55e82653ee14c91d6660fdce180d";
@@ -885,9 +891,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTargetedBombAdmixture = "6532d681eabb2604c996f0f11b02d012";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTarPool = "d81fa529db47380468c9e8310f8d18ea";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTelekineticFist = "a9b442abed0e4d8abd2910a50f10f0c1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThirstingEntangle = "ef8b13be87224beaa8e5a36d53c354a5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThornBody = "5802eddae12f5b442a54e4bc6c21246e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThoughtsense = "c55714e6f0159954baecc3e55c1cad4e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfThunderingDrums = "f63d628a79acb144780e7f01ae639e84";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTidalSurge = "7bd14411821943c3ac849d2c1fc10d36";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTimeTrap = "314cd5dc52684b51a3548580fd526811";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTotalSynchronization = "5321981520354b629c21a1122dfc19f1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfTouchOfGracelessness = "318abebf99d5a2e4593538bf7dbc5e04";
@@ -919,6 +927,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWeb = "efc97cdb15c92194bbbe4a2a3c1ecd78";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWeird = "33ac9588ff822a64c92167bdcec7df65";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWingsOfFreedomItem = "db8c888f3000436da696855e4f6dbac3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWinterGrasp = "bb44a82b86a74cec9b9b5657b38d1f9b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWordOfChaos = "f2f5d38201bc9e44991b9347039f5b9b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWrackingRay = "e3af1f25d3d4fcf439f508377c7493cd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SecretIngredientItem = "b8831e93faa09eb4385f393459e8b633";
@@ -1224,6 +1233,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_NahyndrianHolySymbolUsableItem,
           DLC3_RodOfMagicalAffinityItem,
           DLC3_ThePromissingMirrorUsableSetItem,
+          DLC4_MidnightFlowersItem,
           DriedHandOfmartyrItem,
           DualityOfConjurationAndSummoningItem,
           ElixirMasterpiece,
@@ -1501,6 +1511,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfBlink,
           ScrollOfBlur,
           ScrollOfBombersEye,
+          ScrollOfBoneFists,
           ScrollOfBoneshaker,
           ScrollOfBoneshatterCleric,
           ScrollOfBoneshatterWizard,
@@ -1511,6 +1522,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfBullsStrengthMass,
           ScrollOfBurningArc,
           ScrollOfBurningHands,
+          ScrollOfBurnungEntangle,
           ScrollOfBurstOfGlory,
           ScrollOfCacophonousCall,
           ScrollOfCacophonousCallMass,
@@ -1647,6 +1659,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfEntangle,
           ScrollOfEuphoricTranquility,
           ScrollOfExpeditiousRetreat,
+          ScrollOfExplosionOfRot,
           ScrollOfEyebite,
           ScrollOfFaerieFire,
           ScrollOfFalseLife,
@@ -1785,6 +1798,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfMindFog,
           ScrollOfMirrorImage,
           ScrollOfMoltenOrb,
+          ScrollOfMortalTerror,
           ScrollOfNaturalRythm,
           ScrollOfNeutralizePoison,
           ScrollOfOathOfPeace,
@@ -1958,6 +1972,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfStoneToFlesh,
           ScrollOfStormbolts,
           ScrollOfStormbolts_0,
+          ScrollOfStrandOfTheTangledKnot,
           ScrollOfStunningBarrier,
           ScrollOfSummonElderWorm,
           ScrollOfSummonElementalElderAir,
@@ -2040,9 +2055,11 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfTargetedBombAdmixture,
           ScrollOfTarPool,
           ScrollOfTelekineticFist,
+          ScrollOfThirstingEntangle,
           ScrollOfThornBody,
           ScrollOfThoughtsense,
           ScrollOfThunderingDrums,
+          ScrollOfTidalSurge,
           ScrollOfTimeTrap,
           ScrollOfTotalSynchronization,
           ScrollOfTouchOfGracelessness,
@@ -2074,6 +2091,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfWeb,
           ScrollOfWeird,
           ScrollOfWingsOfFreedomItem,
+          ScrollOfWinterGrasp,
           ScrollOfWordOfChaos,
           ScrollOfWrackingRay,
           SecretIngredientItem,

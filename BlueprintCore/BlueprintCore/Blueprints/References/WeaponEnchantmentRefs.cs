@@ -58,6 +58,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneLycanthrope = "188efcfcd9938d44e9561c87794d17a8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneMagicalBeast = "97d477424832c5144a9413c64d818659";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneMonstrousHumanoid = "c5f84a79ad154c84e8d2e9fe0dd49350";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneNonHuman = "eb2b2e9f741e4cc18edc47cbb1387e02";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneOfTheLivingEnchantment = "a6c6bab27c8572246afd722f6be0ee2a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneOrcGoblin = "0391d8eae25f39a48bcc6c2fc8bf4e12";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneOrcGoblin1d6 = "ab0108b67cfc2a849926a79ece0fdddc";
@@ -509,6 +510,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RayEnhancement5 = "41e7e05f7d64764438a0f5e63d678431";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ReboundFirstEnchantment = "92833da4d0bc39f499769cc4c22002e4";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ReboundSecondEnchantment = "4d9eb630dfc83834b901fd4ce78d0347";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ReekingHeartOfArcaneEnchantment = "5cd1d37cfb12488d8b03a16c096cc5be";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RelentlessAssaultEnchantment = "c13a9d829a31f7c4d9d242dd2aa330d3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RemnantEnchantment = "0f5e45295d88d264a83459d776d36a1a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RetributionGreataxeFlame2d6 = "30095e3e0abf4924a84fe875f11774ba";
@@ -542,6 +544,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarenraeLifeSourceHeavyFlailEnchantment = "04001fb3490346e992c254443aad1c09";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarenraeObliteratingLightHeavyFlailEnchantment = "8f40a996b74c25441b91fff4bcc961ce";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarkorianWeddingEarthBreakerEnchantment = "82ff09a4ed964f33ac20c3a6f189edb3";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SavamelekhSpineEnchantment = "ad5f40720af64b9a943bfabf8d3bb878";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SaviourEnchantment = "4235ec0877a7e2f4bac610202681a7e3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScarecrowFearTouch = "436316d7c48c396418a8b2a91ec8f7ec";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScepterImmunity = "8eb9d1c94b1e4894a88c228aa71b79e5";
@@ -584,6 +587,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SpiritThrasherEnchantment = "53c3f7ccd4c14155a97800c9a9f1907b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StaffOfBurnedOakEnchantment = "d91ddd23b782cbe409d13fe0d11ec61b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StaffofCurseEnchantment = "e3b3871f08385904bb09da734d671e15";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StaffOfLocustWeaponEnchantment = "5f40a467dae347d6b332ac779ac1b810";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StaffOfTheCallEnchantment = "686b8d4c62d831d4c9b5a51a358cc468";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StaffOfTheWhisperingSoulsEnchantment = "71c3867a51f65be4d9ba9dd4c26080c6";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> StandardDaggerLotsCritsTestEnchant = "f5b5902701e8e8644af8d78a5b510c98";
@@ -745,6 +749,7 @@ namespace BlueprintCore.Blueprints.References
           BaneLycanthrope,
           BaneMagicalBeast,
           BaneMonstrousHumanoid,
+          BaneNonHuman,
           BaneOfTheLivingEnchantment,
           BaneOrcGoblin,
           BaneOrcGoblin1d6,
@@ -1196,6 +1201,7 @@ namespace BlueprintCore.Blueprints.References
           RayEnhancement5,
           ReboundFirstEnchantment,
           ReboundSecondEnchantment,
+          ReekingHeartOfArcaneEnchantment,
           RelentlessAssaultEnchantment,
           RemnantEnchantment,
           RetributionGreataxeFlame2d6,
@@ -1229,6 +1235,7 @@ namespace BlueprintCore.Blueprints.References
           SarenraeLifeSourceHeavyFlailEnchantment,
           SarenraeObliteratingLightHeavyFlailEnchantment,
           SarkorianWeddingEarthBreakerEnchantment,
+          SavamelekhSpineEnchantment,
           SaviourEnchantment,
           ScarecrowFearTouch,
           ScepterImmunity,
@@ -1271,6 +1278,7 @@ namespace BlueprintCore.Blueprints.References
           SpiritThrasherEnchantment,
           StaffOfBurnedOakEnchantment,
           StaffofCurseEnchantment,
+          StaffOfLocustWeaponEnchantment,
           StaffOfTheCallEnchantment,
           StaffOfTheWhisperingSoulsEnchantment,
           StandardDaggerLotsCritsTestEnchant,

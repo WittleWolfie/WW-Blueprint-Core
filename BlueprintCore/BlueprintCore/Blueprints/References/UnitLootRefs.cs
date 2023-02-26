@@ -63,6 +63,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_7 = "1a2a359599f64c2d806219554140077f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_8 = "4004b43bf2774c1dabd7ec6023895a43";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_9 = "3be9925d1a2a420faa667ff21f54669b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_FirstKey = "30a7cd2d86fb42e5834e3c5c330e9b10";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_GhostsLoot = "b08b91a5df564d29b8376951133f7294";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_GhostsLoot_boss = "9ab6474a9a304374a1a555806db76758";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_SecondKey = "2fadf69bfa174029a3286276a66a6a29";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DogLoot = "15ebc42d2ffefc848b17f68ff457f051";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomercatLoot = "d2c4914b339ff9f4eb60d31634f746a0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomerlionLoot = "8dfddd5847e1bc24bbbebe75a63c083b";
@@ -134,6 +138,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Rushlight_GeneralistVendorTable = "78e1aab1a8d9f4649ae83388c33283cd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Rushlight_MagicVendorTable = "2712cf5716e578f4e95165cb43dda8ae";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Rushlight_SmithVendorTable = "0d506a80e3f07544394d812ad7014cf3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> SavamelehSpineUnitLoot = "1532a64980f340d0a4e7dab00da00b77";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> SilkShadow_Loot = "f30d8dd157cc8ad4c8cc28b9442254d4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> SmilodonLoot = "714c1e781b961ed458beb409deeafa5d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> SpiderGlandsLoot = "e600494834e56344bb8e5bfb3d064195";
@@ -238,6 +243,10 @@ namespace BlueprintCore.Blueprints.References
           DLC3_StoryLootMiniBoss_7,
           DLC3_StoryLootMiniBoss_8,
           DLC3_StoryLootMiniBoss_9,
+          DLC4_FirstKey,
+          DLC4_GhostsLoot,
+          DLC4_GhostsLoot_boss,
+          DLC4_SecondKey,
           DogLoot,
           DweomercatLoot,
           DweomerlionLoot,
@@ -309,6 +318,7 @@ namespace BlueprintCore.Blueprints.References
           Rushlight_GeneralistVendorTable,
           Rushlight_MagicVendorTable,
           Rushlight_SmithVendorTable,
+          SavamelehSpineUnitLoot,
           SilkShadow_Loot,
           SmilodonLoot,
           SpiderGlandsLoot,

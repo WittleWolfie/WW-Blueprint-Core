@@ -40,6 +40,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> BulwarkArchetype = "b56b64f13a2b4c0ea507e86e1620aa98";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> CauldronWitchArchetype = "e0012a7015774e140be217f4a1480b6f";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ChampionOfTheFaithArchetype = "ad56b5819c4072345bff9aff6f1df13c";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ChildOfManticoreShifterArchetype = "1a51b5856d3b48d78b3e967dc5f20bd6";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ChirurgeonArchetype = "063440d550b25524abcb8dc2590d0168";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ColludingScoundrelArchetype = "34963fc6d87354c4fa85eb76f122c41c";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> CourtPoetArchetype = "5e63586bebd229649bdafe0fde4caaec";
@@ -65,6 +66,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DivineHunterArchetype_0 = "fec08c1a3187da549abd6b85f27e4432";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DivineScionArchetype = "5ce3a2f8eae64cf2ba83865711e53e27";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DragonAzataArchetype = "6e6135c91c2f84e46b7bb49f2158a9ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DragonbloodShifterShifterArchetype = "2d5b06e413a9408cbd5bb999b5a4cc4a";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DragonheirScionArchetype = "8dff97413c63c1147be8a5ca229abefc";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DrovierArchetype = "a6bf603aa4d666f4f86dab0289e2048c";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> EcclesitheurgeArchetype = "472af8cb3de628f4a805dc4a038971bc";
@@ -84,7 +86,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FaithHunterArchetype = "ac87f40932cfd324c90b441f93857c40";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FearsomeLeaderArchetype = "13cc5ccd5cef4c98a5806f033e19a8bb";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FeralChampionArchetype = "f68ca492c9c15e241ab73735fbd0fb9f";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FeyformShifterShifterArchetype = "1cdfc7d306d1430eac19427539b62091";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FeyspeakerArchetype = "da69747aa3dd0044ebff5f3d701cdde3";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FiendfleshShifterShifterArchetype = "f5d22b6b5a7940d49a4d494f67a91efa";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FighterSwordAndBoard = "6fff4997f6c43614db65310ec7e6e669";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FlameDancerArchetype = "e7914f2adcdb8fc46af5b65d1e06c539";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> FlamewardenArchetype = "300917c3479d27d47b4b4b52b1762e8d";
@@ -93,6 +97,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> GendarmeArchetype = "48fd69254e9e5c540bd65101d3252184";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> GreenragerArchetype = "5648585af75596f4a9fa3ae385127f57";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> GrenadierArchetype = "6af888a7800b3e949a40f558ff204aae";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> GriffonheartShifterArchetype = "aed5b306ad734a6da5d5638edcb667c9";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> HagboundWitchArchetype = "96e4c06b6add0a64a8ad8976f9c38c37";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> HeraldCallerArchetype = "c4a02990f15c0bb4d8749a90a5ed46b3";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> HeraldOfTheHornArchetype = "72fa7b1c7a6ede44eb490080bf4a2f90";
@@ -123,6 +128,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> NineTailedHeirArchetype = "65a630aa291f65047b90a2af5df75d83";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> NomadArchetype = "9f147dbae4a34cda9f0e6091dc1a4a7c";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> OrderOfThePawCavalierArchetype = "8d95dc9edd5740aeadb5906198a9925a";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> OusiderGoodFortitudeReflexSaveArchetype = "1e1f35b991f64013b3a347b826a30645";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> OusiderGoodFortitudeWillSaveArchetype = "9c42fff4a4854e0c8ac7bcf01da63c80";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> OverwhelimgMageArchetype = "734917ec8b8542378c1d35519439d67f";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> OverwhelmingSoulArchetype = "aa11888104d17f7459851e8d559ffa98";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> PackRagerArchetype = "3f0a548044dbad04b82535237584772b";
@@ -138,6 +145,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> PurifierAasimarArchetype = "c9df67160a77ecd4a97928f2455545d7";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> QuarterstaffMasterArchetype = "dde7724382ae4f63aa9786cb9b3b64b2";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RacerArchetype = "98ce0856db141964ebb3ad46379c66b5";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RageshaperShifterArchetype = "41d5b44e421048d09d32623689173e11";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ReformedFiendArchetype = "d55163eed9214367820654f0ebe0ff69";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RowdyArchetype = "4dbc4b7f2d5149ce83854bffa72035ce";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> SacredHuntsmasterArchetype = "46eb929c8b6d7164188eb4d9bcd0a012";
@@ -184,6 +192,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WanderingMarksmanArchetype = "0be343c549776574286730b33ae5c676";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WarriorOfTheHolyLightArchetype = "cc70a9fdcd8781a4ca2f0e594f066964";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WhiteMageArchetype = "5f2fa2e0d1cf1ca428af7e24c443d868";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WildEffigyShifterArchetype = "c42d338616fa46ab9bcc67c94bca7609";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WildlandShamanArchetype = "bb14b164c2ce4e2bb05434a3218ff73d";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WIndWhispererArchetype = "77769e43e63647c2b32298efcc577aca";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> WitchDoctorArchetype = "96c2b16450cc98548a0e82f743fbee80";
@@ -219,6 +228,7 @@ namespace BlueprintCore.Blueprints.References
           BulwarkArchetype,
           CauldronWitchArchetype,
           ChampionOfTheFaithArchetype,
+          ChildOfManticoreShifterArchetype,
           ChirurgeonArchetype,
           ColludingScoundrelArchetype,
           CourtPoetArchetype,
@@ -244,6 +254,7 @@ namespace BlueprintCore.Blueprints.References
           DivineHunterArchetype_0,
           DivineScionArchetype,
           DragonAzataArchetype,
+          DragonbloodShifterShifterArchetype,
           DragonheirScionArchetype,
           DrovierArchetype,
           EcclesitheurgeArchetype,
@@ -263,7 +274,9 @@ namespace BlueprintCore.Blueprints.References
           FaithHunterArchetype,
           FearsomeLeaderArchetype,
           FeralChampionArchetype,
+          FeyformShifterShifterArchetype,
           FeyspeakerArchetype,
+          FiendfleshShifterShifterArchetype,
           FighterSwordAndBoard,
           FlameDancerArchetype,
           FlamewardenArchetype,
@@ -272,6 +285,7 @@ namespace BlueprintCore.Blueprints.References
           GendarmeArchetype,
           GreenragerArchetype,
           GrenadierArchetype,
+          GriffonheartShifterArchetype,
           HagboundWitchArchetype,
           HeraldCallerArchetype,
           HeraldOfTheHornArchetype,
@@ -302,6 +316,8 @@ namespace BlueprintCore.Blueprints.References
           NineTailedHeirArchetype,
           NomadArchetype,
           OrderOfThePawCavalierArchetype,
+          OusiderGoodFortitudeReflexSaveArchetype,
+          OusiderGoodFortitudeWillSaveArchetype,
           OverwhelimgMageArchetype,
           OverwhelmingSoulArchetype,
           PackRagerArchetype,
@@ -317,6 +333,7 @@ namespace BlueprintCore.Blueprints.References
           PurifierAasimarArchetype,
           QuarterstaffMasterArchetype,
           RacerArchetype,
+          RageshaperShifterArchetype,
           ReformedFiendArchetype,
           RowdyArchetype,
           SacredHuntsmasterArchetype,
@@ -363,6 +380,7 @@ namespace BlueprintCore.Blueprints.References
           WanderingMarksmanArchetype,
           WarriorOfTheHolyLightArchetype,
           WhiteMageArchetype,
+          WildEffigyShifterArchetype,
           WildlandShamanArchetype,
           WIndWhispererArchetype,
           WitchDoctorArchetype,

@@ -633,16 +633,53 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC3_TwilightWaters_Outdoor = "2f70741655554fcf9c91feaa04b16076";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_BackFromDungeon_AreaEnetrPoint = "d0275c0bf45440b7b34f665edac8293c";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_BacktoFirstPart_FromDungeon_AreaEnterPoint = "a47571a9f84a48c3b2e1ef1bdd68111a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_BacktoFirstPart_FromSmallIndor_AreaEnterPoint = "7857dfc3a6e24e44a6148d0a7120bbbe";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromFirstPart_ToSmallIndoor_AreaEnterPoint = "906892ff7ebb4f7da8df6719693113a9";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromSecondPart_ToDungeon_AreaEnterPoint = "2e7e3200be964c75aa9f6c82130d5131";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromSmallIndoor_ToFirstPart_AreaEnterPoint = "26d2f8f8eac646c99ba350a5cbf249b6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_FromStoneIndoor_ToSecondPart_AreaEnterPoint = "b44bc63709694dbdbeac29d05d3ae228";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_GardenOfTheGods_Enter = "2792684955cf4202a6cac4a06a5a6f84";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_DLC4_Gundrun_RomanceBonuseLine = "6b2f4267986a44d18b2571b297fe4aa3";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_Enter = "1f555f5440df417194be861d3bf00bf8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_EnterCave = "cf9363b3f7764573857a7fbcfbe6df4f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromCave = "a59e7baf8ae54d268f259663fa77a72a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromHill = "ba4cbeba3758418180699060bfb17c4c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromPit = "c0f9cdd0e0e24816bbb1c6564c7f914a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromQuarantineBasement = "cd3ba8c9bbd649f3acf429a263a13dfb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromQuarantineHouse = "76a6b601450f4f7085dcc34ae0a438c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromTradingWay = "5b322c38ef524cf88014f2653cef5541";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromWarLordHouse = "8eb809ecc601483bbde080d144147af5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromWilds = "2ca98ae7a74043199618094df3aeeb80";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_QuarantineHouse_Enter = "7277aab3527e4c299a5959b870547e27";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_WarLordHouse_Enter = "285b0cb0265d4f20b64571e8bab638fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_WelcomeDialog = "cf8f28ad6efd40e1aa9394c44956c91a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_MountainPass_Enter = "af115c47ff1c49ad826b27bbfa587168";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_DLC4_MainIndor_FromSmallIndor = "52c5eefbf1ff48d19b99bf81f93f52ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_DLC4_SmallIndor_FromMainIndor = "44595cf662c14f9eb67d5c3954538834";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_DLC4_StoneIndorFromRoom = "9a5b1c6158ec4ee99a0fedce14a16421";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_DLC4_StoneIndorToRoom = "75edd55dd7924485962fd8641223fb83";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Enter = "74fedf3d3a3743aea5bd0daf276c4d36";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_FromGundrun = "b10af65c4fd74b90b50e03b5646216a1";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Indoor_AreaEnterPoint = "2baf2484b0bc44db84a9d8d359a488aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Tree_FailCheck = "704cc01895f748108dc69c50ff864bb9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Tree_ToDolmen = "1c6a2fd8e21449cd89545b5fb48d78dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_Tree_ToStart = "ddf72ef096b0443eb34caf4c0c4ff061";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_WayDown_AreaEnterPoint = "653a376d08b94fdfafd10495fe43de6b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_RuinedVillage_WayUp_AreaEnterPoint = "959cd01244b341e2a45e511eb427d3b3";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_ToStoneIndoor_AreaEnterPoint = "ff895a61eace42dab2817e148324f2da";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FinalWizzard = "580cd367a48d4dc5a5f23251d620e5fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FinalWizzard_ToWilds = "948836a9b2704f4baea134423fcf2caa";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FirstWizzard = "0181230c6aa04a7dae3c8958a3966d32";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FirstWizzard_ToWilds = "6beeca7a4d3d4c758aacda9e98f1b5f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FirstWizzard_ToWilds1 = "04b129158bb64d1e90a9019afcbce69d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FirsWizzard_2 = "f0f7c6b5cff2430389eb93809f0ad5bb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_FirsWizzard_ToWilds_2 = "07d9582b22e247edba579c9840faf19c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_Sanctum = "4c950b1d597f49f9a4cb49bcbd599204";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_Sanctum_ToWilds = "cd86673a3eee4404970beb59843bda56";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_SecondWizzard = "53228d5bfee140808b840560c707252d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_SecondWizzard_ToWilds = "4eb472db164f4de789b86491038a028b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_Enter = "534e9ad2940949f3b9bb3883be91fced";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_WolfEnter = "e6ef70752b3847839e4d60d1d23c39fd";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_Bridge = "dd57f22149ec2d2488c94b10c73e3b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveIn = "6b6cc86f36384bc4db11397c51a50eaf";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveOut = "82c6efc0397398945be7a9deb3d81679";
@@ -2085,16 +2122,53 @@ namespace BlueprintCore.Blueprints.References
           DLC3_TwilightWaters_Outdoor,
           DLC4_BackFromDungeon_AreaEnetrPoint,
           DLC4_BacktoFirstPart_FromDungeon_AreaEnterPoint,
+          DLC4_BacktoFirstPart_FromSmallIndor_AreaEnterPoint,
           DLC4_FromFirstPart_ToSmallIndoor_AreaEnterPoint,
           DLC4_FromSecondPart_ToDungeon_AreaEnterPoint,
           DLC4_FromSmallIndoor_ToFirstPart_AreaEnterPoint,
           DLC4_FromStoneIndoor_ToSecondPart_AreaEnterPoint,
+          DLC4_GardenOfTheGods_Enter,
+          DLC4_Gundrun_DLC4_Gundrun_RomanceBonuseLine,
           DLC4_Gundrun_Enter,
+          DLC4_Gundrun_EnterCave,
+          DLC4_Gundrun_FromCave,
+          DLC4_Gundrun_FromHill,
+          DLC4_Gundrun_FromPit,
+          DLC4_Gundrun_FromQuarantineBasement,
+          DLC4_Gundrun_FromQuarantineHouse,
+          DLC4_Gundrun_FromTradingWay,
+          DLC4_Gundrun_FromWarLordHouse,
+          DLC4_Gundrun_FromWilds,
+          DLC4_Gundrun_QuarantineHouse_Enter,
+          DLC4_Gundrun_WarLordHouse_Enter,
+          DLC4_Gundrun_WelcomeDialog,
+          DLC4_MountainPass_Enter,
+          DLC4_RuinedVillage_DLC4_MainIndor_FromSmallIndor,
+          DLC4_RuinedVillage_DLC4_SmallIndor_FromMainIndor,
+          DLC4_RuinedVillage_DLC4_StoneIndorFromRoom,
+          DLC4_RuinedVillage_DLC4_StoneIndorToRoom,
           DLC4_RuinedVillage_Enter,
+          DLC4_RuinedVillage_FromGundrun,
           DLC4_RuinedVillage_Indoor_AreaEnterPoint,
+          DLC4_RuinedVillage_Tree_FailCheck,
+          DLC4_RuinedVillage_Tree_ToDolmen,
+          DLC4_RuinedVillage_Tree_ToStart,
           DLC4_RuinedVillage_WayDown_AreaEnterPoint,
           DLC4_RuinedVillage_WayUp_AreaEnterPoint,
           DLC4_ToStoneIndoor_AreaEnterPoint,
+          DLC4_Wilds_DLC4_Wilds_FinalWizzard,
+          DLC4_Wilds_DLC4_Wilds_FinalWizzard_ToWilds,
+          DLC4_Wilds_DLC4_Wilds_FirstWizzard,
+          DLC4_Wilds_DLC4_Wilds_FirstWizzard_ToWilds,
+          DLC4_Wilds_DLC4_Wilds_FirstWizzard_ToWilds1,
+          DLC4_Wilds_DLC4_Wilds_FirsWizzard_2,
+          DLC4_Wilds_DLC4_Wilds_FirsWizzard_ToWilds_2,
+          DLC4_Wilds_DLC4_Wilds_Sanctum,
+          DLC4_Wilds_DLC4_Wilds_Sanctum_ToWilds,
+          DLC4_Wilds_DLC4_Wilds_SecondWizzard,
+          DLC4_Wilds_DLC4_Wilds_SecondWizzard_ToWilds,
+          DLC4_Wilds_Enter,
+          DLC4_Wilds_WolfEnter,
           DragonsGraveyard_Bridge,
           DragonsGraveyard_CaveIn,
           DragonsGraveyard_CaveOut,

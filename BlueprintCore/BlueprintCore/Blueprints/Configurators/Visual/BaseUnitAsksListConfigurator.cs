@@ -87,7 +87,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Barks</term><description>97c7b7df236d38d4083756c6e71e038b</description></item>
-    /// <item><term>Lilithu_Barks</term><description>08184ae01ef7a414da9edbd05a58144c</description></item>
+    /// <item><term>Kalavakus_Barks</term><description>291595dc771a12e46ba63b1f09aec713</description></item>
     /// <item><term>Zombie_Barks</term><description>5b77c4c031391294b920f5a1e119b959</description></item>
     /// </list>
     /// </remarks>

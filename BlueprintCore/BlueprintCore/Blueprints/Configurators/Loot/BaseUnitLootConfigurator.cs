@@ -107,7 +107,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aminas_Chapter5VendorTable</term><description>8b2dae3f8da96f640995594f6bcf7a29</description></item>
-    /// <item><term>DLC3_VendorTableMagicShields</term><description>695e348b2719415f883de90d932aeb66</description></item>
+    /// <item><term>DLC3_VendorTableShields</term><description>011c094dd4194391bac4150c38ae3c90</description></item>
     /// <item><term>WyvernMeatLoot</term><description>abe034c3a49a1854496fa6fe1f439114</description></item>
     /// </list>
     /// </remarks>

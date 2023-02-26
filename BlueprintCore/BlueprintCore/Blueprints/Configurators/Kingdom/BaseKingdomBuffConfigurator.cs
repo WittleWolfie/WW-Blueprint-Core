@@ -658,7 +658,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyUnitsBestIngredients</term><description>596531fba07848c3959d6e7df0e0a3a4</description></item>
-    /// <item><term>FlagLegend5Ability</term><description>65d044d2bff845bd87a8b26192e8f383</description></item>
+    /// <item><term>FlagLocust1Locust</term><description>d734d5a54aee49ceabd15f5e4b9d7bb3</description></item>
     /// <item><term>ZiforianSupport_buff</term><description>3735e202e116466898a0e7fd54607d22</description></item>
     /// </list>
     /// </remarks>

@@ -192,7 +192,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Alushinyrra_Transition</term><description>33cfb285cf8bfa34ca1279106ab9446d</description></item>
-    /// <item><term>DefendersHeart_ToGlobalMap1</term><description>747235f613a4a704fa86ecc2c081e0cb</description></item>
+    /// <item><term>DefendersHeart_ToGlobalMap2</term><description>221a84b823692474a81271435f041241</description></item>
     /// <item><term>WarCamp_ToGlobalMap</term><description>2f34d3bdede6897419a34c7eb7f97784</description></item>
     /// </list>
     /// </remarks>
@@ -678,7 +678,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DragonsCave</term><description>f55af784bd1d8344c8631b5bf5b45730</description></item>
+    /// <item><term>DLC4_WagonProtected</term><description>0bbb99eda723417bb621a6773cadcbd0</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -749,7 +749,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <listheader>Used by</listheader>
     /// <item><term>AeonKenabresRebuilded</term><description>470c835355608c34fa4571ba4f65cbc3</description></item>
     /// <item><term>DLC3_TwilightWaters</term><description>b5779a222f98475b87ffb13337cdffda</description></item>
-    /// <item><term>TheBridgeIsBuilt</term><description>048ce8550994326429f73b6119270293</description></item>
+    /// <item><term>UlbrigNotInParty_KickedOut</term><description>3b31ef42338b4f83ab822fbcae79a41c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1072,7 +1072,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction7</term><description>ac9df44f8e2c47e596f6c5f37cdad048</description></item>
+    /// <item><term>CommandAction8</term><description>acf432ab712d4d9d8c5c30e40ec1eace</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
@@ -1148,7 +1148,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>d36dcab7631c4ad0b4d71ed4483b1973</description></item>
-    /// <item><term>CommandAction1</term><description>9df78bb01373451bab52aa8b3e53255a</description></item>
+    /// <item><term>CommandAction1</term><description>a5240ddbcec74627bcf04abb8b6f86e7</description></item>
     /// <item><term>Poisons_dmg_zone3</term><description>a98b6c45026a4845b7827c767a832dde</description></item>
     /// </list>
     /// </remarks>
@@ -1364,7 +1364,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>2397458af77dfeb4abce97b8387f91ee</description></item>
+    /// <item><term>Cue_0012</term><description>d728ab3139e4a474d9fe75a15dfa2b27</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>
@@ -1417,7 +1417,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaFinalFight</term><description>131316c1965bfb54e97f6134de6698e1</description></item>
-    /// <item><term>CommandAction</term><description>c12c145a97e8410498af1761c36a1bd0</description></item>
+    /// <item><term>CommandAction 1</term><description>bd5646257aa6b8843a6fae34b893f1f5</description></item>
     /// <item><term>WinThirdFight_dialogue</term><description>2038c62fd9e036c4285deb60e2012e19</description></item>
     /// </list>
     /// </remarks>
@@ -1454,7 +1454,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction 6</term><description>ab0dccf6562e4114037acdcf3809ed65</description></item>
+    /// <item><term>CommandAction 8</term><description>fcb2f3d8162d93b4ba1e2a4719217d6c</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1569,7 +1569,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Cue_0023</term><description>70618d5c5a0dfbb4eb17031bba1972a5</description></item>
+    /// <item><term>Cue_0022</term><description>15947f75438801a44b98f6f7f930dd8d</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>d6793bcea861d3b49857067532fcedc0</description></item>
     /// </list>
     /// </remarks>

@@ -16,6 +16,8 @@ namespace BlueprintCore.Blueprints.References
   public static class DynamicMapObjectRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> CorpseInteractionBlueprint = "75588478e5cc80742838c901d41a586d";
+    public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> CorpseInteractionBlueprint_DLC4 = "2b37acb32cf146d083fa90f390b24743";
+    public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> CorpseInteractionBlueprint_DLC4_Worm = "828cfcdec5e24079aafc3e12668bd869";
     public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> DLC3_LootContainer = "7cc4a05acaf44ea59357843c8161b081";
     public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> DLC3_LootContainer_2 = "a3f0ed9a361b4e5eb84e1ab8abd77a67";
     public static readonly Blueprint<BlueprintReference<BlueprintDynamicMapObject>> DLC3_LootContainer_3 = "1ccbdc2361534a8d99e4043b8b345e72";
@@ -41,6 +43,8 @@ namespace BlueprintCore.Blueprints.References
       new()
       {
           CorpseInteractionBlueprint,
+          CorpseInteractionBlueprint_DLC4,
+          CorpseInteractionBlueprint_DLC4_Worm,
           DLC3_LootContainer,
           DLC3_LootContainer_2,
           DLC3_LootContainer_3,

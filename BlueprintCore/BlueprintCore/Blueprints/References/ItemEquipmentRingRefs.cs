@@ -67,11 +67,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingMasterpieceItem = "459cff3f67aea3846a228e0119f5e522";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfAcidImmunityItem = "97e6c9904cb2b8a40942068019f88be3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingofAdditionalRage = "1bcd56737f1ca8d44a278839e4e32c02";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingofArodenItem = "9699071c8bf046bca5272d0a14b717e0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBalanceGreaterItem = "5bd6fafea3ee43c42abb7bec222afa11";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBalanceLesserItem = "db042ab0c7b93dc4c945c9a134b12d98";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBardResourcefulnessItem = "9086249bc25640eca486f26d142134d1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBigBoom = "a4aa862b9e7771d4fae3402aa905ae3b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBlurItem = "9811125a437824c41a1b106653de7eda";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfBoneBreakingItem = "e5d00168cc74448da1e2f3c17d17e44c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfChaosItem = "97143f0ec43f505409929934811144c3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfChaoticTortureItem = "a684e74c2c545764ea436b570d47e7f3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfCircumstancesItem = "dde6fa4881bed584aa5647cb0d16dd45";
@@ -87,7 +89,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfEvasionItem = "ae3638b2f8016f84d87122ae60d26937";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfExtremeJukingItem = "5fbd92212e9143508700e027edb26023";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfFirmTouchItem = "5d78ed7cb768e94459a5aff99f7db20c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfFoeFocusItem = "f60f543c44b8401dae8da71453daa7b9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingofForceShield = "1fdfcfdaeee3ca441adc14f204fca521";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfGrimSwiftnessItem = "eef9992a1dab45a29839cea9f85e1e06";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfGuidingStarItem = "b1d2843bfc4edd44cb26e4c45375a406";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfHonorOfDeathItem = "0afdc38b32896db4897b832b4b5242b8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfHumbleMasterItem = "c29d9ca30384c5e47a2a0392fe750878";
@@ -206,11 +210,13 @@ namespace BlueprintCore.Blueprints.References
           RingMasterpieceItem,
           RingOfAcidImmunityItem,
           RingofAdditionalRage,
+          RingofArodenItem,
           RingOfBalanceGreaterItem,
           RingOfBalanceLesserItem,
           RingOfBardResourcefulnessItem,
           RingOfBigBoom,
           RingOfBlurItem,
+          RingOfBoneBreakingItem,
           RingOfChaosItem,
           RingOfChaoticTortureItem,
           RingOfCircumstancesItem,
@@ -226,7 +232,9 @@ namespace BlueprintCore.Blueprints.References
           RingOfEvasionItem,
           RingOfExtremeJukingItem,
           RingOfFirmTouchItem,
+          RingOfFoeFocusItem,
           RingofForceShield,
+          RingOfGrimSwiftnessItem,
           RingOfGuidingStarItem,
           RingOfHonorOfDeathItem,
           RingOfHumbleMasterItem,

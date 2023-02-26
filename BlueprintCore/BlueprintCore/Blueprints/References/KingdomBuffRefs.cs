@@ -138,6 +138,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event03ArmyUnitsHealthy = "5b9d089bb55e40b9b4f97507f07ca4c8";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event03ArmyUnitsRobust = "d94da8f68889419db2e5d34083474fec";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event03ArmyUnitsSoundBody = "b63c235175fc48a89c4d20ede79f78dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event03Blessing = "0457ef3379224c419b681284eef84ee4";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event03GrowthOreVeins = "233957224b0c4d12a4400c39253fd71e";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event05GrowthTradeWithTheWitches = "2a2bf9e2b9144e20b290857d91b97a12";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event06GrowthHolyWards = "3b8bfa6605e0481ba0ce4a7353792780";
@@ -190,6 +191,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event71DumpExcavationCooldown = "a84a6ad7381742fb928646cc3f1ca3fe";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event72ArmyLeaderDestructiveSpells = "d31e75be2d89425daf5f891586f3d87b";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event72ArmyUnitsDrivingForce = "b80ebae8c5f34c49ad49d648dcb2bcd2";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event76UsefulFlora = "cf17e42b57af441bbc8ef178380f0a25";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event78GrowthTheWorldIsInDanger = "f0056ea4592e46a794b1e668c394688c";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event83AgitatorsCooldown = "23c303035eed4a03bd855072c4ac8169";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Event83DexterousHandsCooldown = "2b51f80144bb48d0920d0a594fbcd65d";
@@ -369,7 +371,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary2Conscript = "79293002d51a49b89e15ff035a7b80c9";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary2Convict = "cc45fd332981497681c77a4978193bcb";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary2HeavyInfantry = "04cfe8ea24554c0cbc6f8e3d444b5626";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary2Houndmasters = "164b5fc013f3476f8dc9c10b48ff3c80";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary2Spearman = "fae131e8e9b9439e9203fdc5286fb4e7";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary3AxeThrowers = "07ee057cca794cf286be5adcf3fcbbc8";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary3Bandit = "8e86fba16a1f4033a4591d2f13bdd143";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary3Headhunter = "1f79c3d78cc14df79b11e0c5627a70f1";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary3Marksman = "ff298a524fcd41d6a422061f7cf1dc2d";
@@ -380,13 +384,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary4PaidBlade = "5fb8e37786404b7f9ea96aaa5e568758";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary4PaladinCavalry = "f1dfce0d60464fdcb8029f42bbc6512b";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary4Raider = "b7b3170bae5b44e187482135191989e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary4WolfRiders = "14d77f1516d941b4a218bdb7aa46406e";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5CavalryCharge = "10efed9174ca4e3fbb9dde8fa73c2976";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5CunningTactic = "b7497642c2774bc7b38788e31a391187";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5Drill = "7bda97ea72fa492f9e362f55d6f98736";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5InfantryCharge = "1054c90459f242b79555c85a40e85674";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5ParalyzingPoison = "fa4ed6e0378a45c2afe5ccaa91ef7658";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary5Toughening = "4f9b70a2ce60441db6c7b92c4db9d656";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Assassin = "158162894c2b4decbb92f7382747df04";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Bard = "f468c8def48f42b28abb6b11074c44d6";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Druids = "82f4b086e7684fcf99348a967f89eb1c";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Monk = "1706f6d8022c473c9a67995416aa3622";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Warpriest = "211c85e41b8b4351b02a8b2d5926fd34";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary6Witch = "788b0cf37df54317aa28e118d6306e57";
@@ -395,11 +402,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary7InfantryProvoke = "6d1b5803b0374d79aee8502ac607985c";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary7JuicyTarget = "102d0ec894b84f0cb18ff1fb43b53f51";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary7StuckInCombat = "5561917f5db846fab1b19d42128d128e";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary7StuckInCombatInfantry = "cd40dc003af84199829ac8fc2013b7b8";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8Bloodrager = "c3bdd70f218f4c7c888fb14f73021fa8";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8Dragonslayer = "9e0a3ea6b1aa4e6badb981b53a9cbffb";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8HellknightSignifer = "4ed73e9cb7e94a30b38952f0baa2b3a0";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8HonorGuard = "76d401ab26724d2ea354998172277863";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8KnightsOfOzem = "989c114e2b1541468e90c8a5c7f91fc1";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagMilitary8Shifters = "cc2fbb33dcea4c9dae26e7949ba99ea5";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagPoisonousStrike1 = "7bf66a6dfd8043248c97617b35f0a496";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagPoisonousStrike2 = "e7e6bf64ea634db1b369118bf5ae1256";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> FlagPoisonousStrike3 = "7059bc14153841a39082f923c56f024d";
@@ -653,6 +662,7 @@ namespace BlueprintCore.Blueprints.References
           Event03ArmyUnitsHealthy,
           Event03ArmyUnitsRobust,
           Event03ArmyUnitsSoundBody,
+          Event03Blessing,
           Event03GrowthOreVeins,
           Event05GrowthTradeWithTheWitches,
           Event06GrowthHolyWards,
@@ -705,6 +715,7 @@ namespace BlueprintCore.Blueprints.References
           Event71DumpExcavationCooldown,
           Event72ArmyLeaderDestructiveSpells,
           Event72ArmyUnitsDrivingForce,
+          Event76UsefulFlora,
           Event78GrowthTheWorldIsInDanger,
           Event83AgitatorsCooldown,
           Event83DexterousHandsCooldown,
@@ -884,7 +895,9 @@ namespace BlueprintCore.Blueprints.References
           FlagMilitary2Conscript,
           FlagMilitary2Convict,
           FlagMilitary2HeavyInfantry,
+          FlagMilitary2Houndmasters,
           FlagMilitary2Spearman,
+          FlagMilitary3AxeThrowers,
           FlagMilitary3Bandit,
           FlagMilitary3Headhunter,
           FlagMilitary3Marksman,
@@ -895,13 +908,16 @@ namespace BlueprintCore.Blueprints.References
           FlagMilitary4PaidBlade,
           FlagMilitary4PaladinCavalry,
           FlagMilitary4Raider,
+          FlagMilitary4WolfRiders,
           FlagMilitary5CavalryCharge,
+          FlagMilitary5CunningTactic,
           FlagMilitary5Drill,
           FlagMilitary5InfantryCharge,
           FlagMilitary5ParalyzingPoison,
           FlagMilitary5Toughening,
           FlagMilitary6Assassin,
           FlagMilitary6Bard,
+          FlagMilitary6Druids,
           FlagMilitary6Monk,
           FlagMilitary6Warpriest,
           FlagMilitary6Witch,
@@ -910,11 +926,13 @@ namespace BlueprintCore.Blueprints.References
           FlagMilitary7InfantryProvoke,
           FlagMilitary7JuicyTarget,
           FlagMilitary7StuckInCombat,
+          FlagMilitary7StuckInCombatInfantry,
           FlagMilitary8Bloodrager,
           FlagMilitary8Dragonslayer,
           FlagMilitary8HellknightSignifer,
           FlagMilitary8HonorGuard,
           FlagMilitary8KnightsOfOzem,
+          FlagMilitary8Shifters,
           FlagPoisonousStrike1,
           FlagPoisonousStrike2,
           FlagPoisonousStrike3,

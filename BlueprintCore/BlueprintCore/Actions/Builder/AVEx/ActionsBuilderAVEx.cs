@@ -6,6 +6,7 @@ using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
+using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
@@ -31,8 +32,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Cue_0224</term><description>150a2e3902592f640a2e9feb1f8a5e0b</description></item>
-    /// <item><term>Cue_0416</term><description>80b227612511fe74db93f3bf28c9a032</description></item>
-    /// <item><term>Cue_43</term><description>c629b93b4e404b679348efa5d5f7a156</description></item>
+    /// <item><term>Cue_0421</term><description>fbf88ab6b8e5d4c439a4357fdd918906</description></item>
+    /// <item><term>Cue_70</term><description>969e0a217635439fa12584914a304312</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -155,7 +156,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InevitableDarkness_Feature_Dispel</term><description>879b5de95ddb4fbfb61ca2d40cbd0743</description></item>
+    /// <item><term>InflictCriticalWoundsMass</term><description>5ee395a2423808c4baf342a4f8395b19</description></item>
     /// <item><term>ZombieDispelExplosion</term><description>bcd9277193ef41dfb8d3b292ee33c828</description></item>
     /// </list>
     /// </remarks>
@@ -169,6 +170,27 @@ namespace BlueprintCore.Actions.Builder.AVEx
     {
       var element = ElementTool.Create<ContextActionSpawnFx>();
       element.PrefabLink = prefabLink?.Get();
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AnimationActionToggleFxParticles"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>StartParticleFXOnUnit</term><description>0c2a75fda3c641f9b36a8274c09ca195</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder AnimationActionToggleFxParticles(
+        this ActionsBuilder builder,
+        UnitEvaluator? unit = null)
+    {
+      var element = ElementTool.Create<AnimationActionToggleFxParticles>();
+      builder.Validate(unit);
+      element.unit = unit ?? element.unit;
       return builder.Add(element);
     }
 
@@ -200,6 +222,22 @@ namespace BlueprintCore.Actions.Builder.AVEx
     }
 
     /// <summary>
+    /// Adds <see cref="ClearBlood"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC4_BeforeTheSiege</term><description>74f0b09ffe084d0b9da11f97dc49b62d</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder ClearBlood(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearBlood>());
+    }
+
+    /// <summary>
     /// Adds <see cref="Play2DSound"/>
     /// </summary>
     ///
@@ -212,7 +250,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction1</term><description>3f124a9e750344119c1ad1385bb29e61</description></item>
+    /// <item><term>CommandAction13</term><description>2d091556084248ce91a5c9fdc20312ae</description></item>
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
@@ -258,7 +296,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
-    /// <item><term>CommandAction2</term><description>1a51048fb2674de091dcf9d7054a8d84</description></item>
+    /// <item><term>CommandAction2</term><description>5d7e9b98a26341cb8e69cb5dd10e5c98</description></item>
     /// <item><term>Tools_CheckPassedActions2</term><description>db695eb808004014b25ad3475123d544</description></item>
     /// </list>
     /// </remarks>
@@ -310,7 +348,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>058d6563b283ae04294ba2c729383663</description></item>
-    /// <item><term>Cue_0016</term><description>3ddffc15d1a2b8949afe3f7d13a1f091</description></item>
+    /// <item><term>Cue_0015</term><description>4970ddd01db7c604da716aa56d98d75d</description></item>
     /// <item><term>Vrok_Chained</term><description>b04649a8dd8abf741a51728a4ba9c746</description></item>
     /// </list>
     /// </remarks>
@@ -347,7 +385,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>Epilogues_afterlogues_dialogue</term><description>57e18f5158904030a84a772fb361ceb4</description></item>
+    /// <item><term>FinalBattleBliss_dialogue</term><description>97b90d7a241161e4ebb622a4e74b73af</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -375,7 +413,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0049</term><description>1643731eb71ab0f4db2c405b0800c27d</description></item>
+    /// <item><term>Cue_0050</term><description>639526ea072e57e4fb5658c19c9279c5</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -476,7 +514,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>GrayGarrison_FirstVisit_Etude</term><description>5cf468c3a40684e4fa6e1a8982d6c9fe</description></item>
+    /// <item><term>Graveyard_StatueReactivity_SZ</term><description>47292aab9eee4bfa87a0165348473e92</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -522,7 +560,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdditionalAtmosphericScenes</term><description>e04f6b926f3350d41ab2d07c55d9814d</description></item>
-    /// <item><term>CommandAction11</term><description>01d4d4c3202845149fd43a0c2f242821</description></item>
+    /// <item><term>CommandAction11</term><description>5ba98b4200b24198a89b177d84125b4d</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>
@@ -572,7 +610,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>GrandFinal_dialog</term><description>f125dc501dc6e984385332e67f324f01</description></item>
+    /// <item><term>Gundrun_negotiant_saveus_dialogue</term><description>c73f204bf7aa4084ba76d0b7853e5e64</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -594,7 +632,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>Cue_0023</term><description>0badc5e8f275c644b8c7d79fd146a681</description></item>
+    /// <item><term>Cue_0022</term><description>1123de781d21dd3439a7b94031b36779</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -643,7 +681,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
-    /// <item><term>CommandAction32</term><description>f2916f4885b94807ac38ad277a84bafe</description></item>
+    /// <item><term>CommandAction32</term><description>31f541b3402d47edb765fa3a564053fc</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

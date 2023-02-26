@@ -11,8 +11,10 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
       {
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithSpellSchool),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsShiftersFuryWeapon),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionStealth),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsEngaged),
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionTargetIsUnit),
         typeof(Kingmaker.Kingdom.Conditions.BuildingHasNeighbours),
         typeof(Kingmaker.Kingdom.Conditions.DaysTillNextMonth),
         typeof(Kingmaker.Kingdom.Conditions.EventLifetime),
@@ -36,7 +38,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.ChangeableDynamicIsLoaded),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious),
-        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionStoryUnlocked),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDlcActive),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked),

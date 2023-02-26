@@ -23,6 +23,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomClaim),
         typeof(Kingmaker.Kingdom.Blueprints.BlueprintKingdomUpgrade),
         typeof(Kingmaker.Armies.TacticalCombat.Brain.BlueprintTacticalCombatAiPostponeTurn),
+        typeof(Kingmaker.Designers.Mechanics.Collections.BuffCollection),
+        typeof(Kingmaker.Achievements.Blueprints.AchievementGroupData),
         typeof(Kingmaker.AI.Blueprints.BlueprintAiRandomMove),
         typeof(Kingmaker.AI.Blueprints.BlueprintAiRunAway),
         typeof(Kingmaker.AI.Blueprints.Considerations.ConsiderationCustom),

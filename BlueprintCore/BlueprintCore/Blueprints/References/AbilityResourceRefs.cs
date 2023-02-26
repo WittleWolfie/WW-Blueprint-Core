@@ -32,9 +32,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArcanistArcaneReservoirResource = "cac948cbbe79b55459459dd6a8fe44ce";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArcanistConsumeSpellsResource = "d67ddd98ad019854d926f3d6a4e681c5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyAcidArrowResource = "80587e13724349298a863e56a993cd88";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyAlloutAttackResource = "8c8227bafbd949d2a1992439fcad4b84";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyAzataLiliendAurasResources = "2e0f7c885bf745e5b95cb80aa011ee76";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBanishmentResource = "487d0132994a4a5486d014f7c9506163";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBardAurasResources = "34c9f0e77ab44fa095cd6ffca3f625b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBarkskinResource = "190943b6b1984bd0b45346e7953c4e3d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBestowCurseBlastResource = "3c7f90affb5d4376a312bc5f08433d48";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBlessBuffWarwarpriestResource = "45168132d3334e90ba4f9a0b25cc7c9d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyBreathWeaponAbilityBrassDragonResource = "e3d5ee4c59b24c3bb292e78985a54342";
@@ -94,6 +96,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyRandomSpellHavocResource = "966af0071190442aa8d4ae98f49079c0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySacrificeForSwarmHealResource = "28a463776fe44bdfbfce7947dafbd0f4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyScorchingRayResource = "29a3e7271b8d4b898c842423da17a39a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyShifterWildShapeBoarResource = "150622e100b3460080d3d4bbdf9813f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyShifterWildShapeTigerResource = "0123c52db95d4ffe8244dff5b3753cd7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyShifterWildShapeWolverineResource = "8c3e9ce712f040e785496954ed9f677f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmyShoutGreaterResource = "3f0a3dcdeeea4bca9527c6fd5bc263ac";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySleepResource = "1448c38e97244ef8a5f21b114c470e92";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySlowResource = "c415d80579014a0fad9fd03dfcf8626a";
@@ -105,6 +110,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonBeerElementalsResource = "559f927f6288445881eea5d0f0ca0491";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonCentipedeResource = "b18b3cf703724479b5778dc208098846";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonDeerResource = "a0a2f34dd29846868962ad257da5cbe7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonDogResource = "50820baf133042c1b436709f13934380";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonGhoulResource = "d3e0571867c045a08796c904d5cc4763";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonGlabrezuResource = "3792f9098aac448eb7d7046b7fd66fc7";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ArmySummonIllusionResource = "4a17b40721864b7cbeac53c97e9be67c";
@@ -133,6 +139,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> AzataSummonResource = "c1c6ac6c56c34a345aa7ec5e20d9edfe";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BardicPerformanceResource = "e190ba276831b5c4fa28737e5e49e6a6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BeastCallSummonResource = "67807220221e2874499a78dad6395129";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BeltOfPrimalForceAbilityResource = "fdc63b21e4404424b56971f4bc28079c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BlessingResource = "d128a6332e4ea7c4a9862b9fdb358cca";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodDrinkerResource = "8dca02b163c8f904c8780afd09b968fe";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodlineAbyssalClawsResource = "87a6e2bfcf3a33d4e9ec4d8b612f5358";
@@ -227,6 +234,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DivinationSchoolGreaterResource = "2aa6b409a9fcb794d80719f038abe665";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DivineGuardianTrothResource = "56f173d90f7d6244dadb4664cfd503ab";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DLC3_TrickstersPromiseAbilityResource = "04316d3361f74712aa3d24d0639642f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DragonbloodShifterBreathResource = "72e7ec0822604f7da75c3dd32e93d5ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DragonbloodShifterResource = "80923bd575dc48f5813c2343517414cf";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DrovierAspectResource = "ef7fb483effafc145923ab907caf414b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarEnlargePersonResource = "cf4613322038b7f468d12e7bef8c1c53";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarInvisibilityResource = "0d9b1e48bfa420f43b3298b66f144c7f";
@@ -339,6 +348,28 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResource = "3aecc0c5d17390443b30774309145854";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MartyrPerformanceResource = "875aac46f5e879f4c9ec3ba46847d86e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResource = "09156c2a513d27f4781505f486c4ac4e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceAberrations = "08a5bffbd8004621becf684df62293e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceAnimals = "05d100c3011c4982b0330ca4a216ad18";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceConstructs = "f3006c50ef3c4b468287ef53a1cc3f82";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceDemonOfMagic = "280ee87570be4c0aa7444a0194e030b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceDemonOfSlaughter = "b38fd06f03ff48e5b859a9583f5b0cd8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceDemonOfStrength = "7f57ac3202f2418180535c98dd432ec0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceDragons = "e372c80ccedd4ec98c5208c353c6bff3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceDwarfs = "6a80f05719884444a1ec96dfa86067f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceElfs = "2bd91a9493344cffb84e0911762ca2b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceFey = "7a0262be6ea646fe83441c2d2517995e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceGiants = "cd6226fe327a4638b9d05f83d3d1d6f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceGnome = "ccf9610f4f2f462a896384c6f34ac05b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceGoblins = "4fc83dda431a475a9b6c8c926b600e8c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceHalfling = "a742bc844aee4405bcdd211ff4049b9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceHuman = "e13323fa19484279a9bbe19ec25cd1ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceMagicalBests = "0c250f5fff0b47f0b6177393ff3364cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceMonstrousHumanoid = "a06ebf13348f496183349a5f8b5aa717";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceOutsider = "75abc6860d1146299ff802b5b0120ca5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourcePlant = "0ca645e6578e4e8995a94dd35dc5931e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceReptilian = "c0b2a68638af40afa93ab79112ea9e41";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceUndead = "adcb33317de549d7b503c14fdb7a7779";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceVermin = "ae341d310e3545549f18525fd59bfbf0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterSpyResource = "f371ca29e0091c446b8141f8ae312b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MaximizedArcanaResource = "061b0f8f266aefd48b53cbc09302ec24";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MetamorphShapechangerResource = "656065939cc3cd146a425310f0574542";
@@ -417,6 +448,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> QuestElectriSpellResource = "6fbbf4a74976ed4408f9a675ed9eec5c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> QuickenedArcanaResource = "a5db146451aec514a98ec06002144867";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> RageResourse = "24353fcf8096ea54684a72bf58dedbc9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> RageshaperShifterResource = "e7443a3617544913bab098eecca8c045";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> RagingSongResource = "4a2302c4ec2cfb042bba67d825babfec";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> RangerAcidTrapResource = "7e639313f6a4496c88abbc879eb2f7f5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> RangerBlindingTrapResource = "c2b1ef5d9cd3495d9938c8387206ec8f";
@@ -487,7 +519,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritBaseResource = "ada40bc12148b6b43b9b05af54dfcb6f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritGreaterResource = "e929e058fbbcab148afb938caa28a1b4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanWindSpiritTrueResource = "186968f21dc2aa04788277aa3d6166a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterAspectFiendResource = "0151bcd6b3ae4090ab93ce36766fcb5d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterAspectResource = "1b096f343ea54ae0a4e3b6cf404bf62d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterFeyAspectResource = "aa3becbb6ac749f19b41c97a5374f092";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShifterWildShapeResource = "2210cea8cc94431a911dc5d4b6d72cbd";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShiningLightResource = "7892a17840adb5741839512a1694cf47";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShroudOfWaterArmorResource = "4d3297d1e4505654c899c00f3eb39373";
@@ -502,6 +536,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SpontaneousHealingResource = "0b417a7292b2e924782ef2aab9451816";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StaffResource = "8f2a28e076bdb44408188750901861c2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StandardBearerBannerOfSolaceResource = "e48bfeb009891bd4a8171e8c0e93f951";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StoneclawStrikeShifterResource = "e92dde0b6cbe49b883ddf4c4f71497ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StonelordDefensiveStanceResource = "cea8780f80a640c3adb0435b321ad9ce";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StonestrikeResource = "b71e5bbcaf874270a83b8b2b56fd8d0d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StormwalkerWeaponResource = "6bc707c120d6d38498ccb70767d55a69";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> StrengthDomainBaseResource = "95525809d6e672a4880ea629ca5b58ab";
@@ -587,9 +623,11 @@ namespace BlueprintCore.Blueprints.References
           ArcanistArcaneReservoirResource,
           ArcanistConsumeSpellsResource,
           ArmyAcidArrowResource,
+          ArmyAlloutAttackResource,
           ArmyAzataLiliendAurasResources,
           ArmyBanishmentResource,
           ArmyBardAurasResources,
+          ArmyBarkskinResource,
           ArmyBestowCurseBlastResource,
           ArmyBlessBuffWarwarpriestResource,
           ArmyBreathWeaponAbilityBrassDragonResource,
@@ -649,6 +687,9 @@ namespace BlueprintCore.Blueprints.References
           ArmyRandomSpellHavocResource,
           ArmySacrificeForSwarmHealResource,
           ArmyScorchingRayResource,
+          ArmyShifterWildShapeBoarResource,
+          ArmyShifterWildShapeTigerResource,
+          ArmyShifterWildShapeWolverineResource,
           ArmyShoutGreaterResource,
           ArmySleepResource,
           ArmySlowResource,
@@ -660,6 +701,7 @@ namespace BlueprintCore.Blueprints.References
           ArmySummonBeerElementalsResource,
           ArmySummonCentipedeResource,
           ArmySummonDeerResource,
+          ArmySummonDogResource,
           ArmySummonGhoulResource,
           ArmySummonGlabrezuResource,
           ArmySummonIllusionResource,
@@ -688,6 +730,7 @@ namespace BlueprintCore.Blueprints.References
           AzataSummonResource,
           BardicPerformanceResource,
           BeastCallSummonResource,
+          BeltOfPrimalForceAbilityResource,
           BlessingResource,
           BloodDrinkerResource,
           BloodlineAbyssalClawsResource,
@@ -782,6 +825,8 @@ namespace BlueprintCore.Blueprints.References
           DivinationSchoolGreaterResource,
           DivineGuardianTrothResource,
           DLC3_TrickstersPromiseAbilityResource,
+          DragonbloodShifterBreathResource,
+          DragonbloodShifterResource,
           DrovierAspectResource,
           DuergarEnlargePersonResource,
           DuergarInvisibilityResource,
@@ -894,6 +939,28 @@ namespace BlueprintCore.Blueprints.References
           MagicDomainGreaterResource,
           MartyrPerformanceResource,
           MasterHunterResource,
+          MasterHunterResourceAberrations,
+          MasterHunterResourceAnimals,
+          MasterHunterResourceConstructs,
+          MasterHunterResourceDemonOfMagic,
+          MasterHunterResourceDemonOfSlaughter,
+          MasterHunterResourceDemonOfStrength,
+          MasterHunterResourceDragons,
+          MasterHunterResourceDwarfs,
+          MasterHunterResourceElfs,
+          MasterHunterResourceFey,
+          MasterHunterResourceGiants,
+          MasterHunterResourceGnome,
+          MasterHunterResourceGoblins,
+          MasterHunterResourceHalfling,
+          MasterHunterResourceHuman,
+          MasterHunterResourceMagicalBests,
+          MasterHunterResourceMonstrousHumanoid,
+          MasterHunterResourceOutsider,
+          MasterHunterResourcePlant,
+          MasterHunterResourceReptilian,
+          MasterHunterResourceUndead,
+          MasterHunterResourceVermin,
           MasterSpyResource,
           MaximizedArcanaResource,
           MetamorphShapechangerResource,
@@ -972,6 +1039,7 @@ namespace BlueprintCore.Blueprints.References
           QuestElectriSpellResource,
           QuickenedArcanaResource,
           RageResourse,
+          RageshaperShifterResource,
           RagingSongResource,
           RangerAcidTrapResource,
           RangerBlindingTrapResource,
@@ -1042,7 +1110,9 @@ namespace BlueprintCore.Blueprints.References
           ShamanWindSpiritBaseResource,
           ShamanWindSpiritGreaterResource,
           ShamanWindSpiritTrueResource,
+          ShifterAspectFiendResource,
           ShifterAspectResource,
+          ShifterFeyAspectResource,
           ShifterWildShapeResource,
           ShiningLightResource,
           ShroudOfWaterArmorResource,
@@ -1057,6 +1127,8 @@ namespace BlueprintCore.Blueprints.References
           SpontaneousHealingResource,
           StaffResource,
           StandardBearerBannerOfSolaceResource,
+          StoneclawStrikeShifterResource,
+          StonelordDefensiveStanceResource,
           StonestrikeResource,
           StormwalkerWeaponResource,
           StrengthDomainBaseResource,

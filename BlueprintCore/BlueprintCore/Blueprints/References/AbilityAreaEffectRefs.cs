@@ -103,12 +103,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> BodakLairMiniboss_AreaEffect_DececrationAura = "9117fc30e6eadb7428de8c56b2b5a9bb";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> BrestplateOfWhiteDragonArea = "9596b5c0200a99842a1636879bf2957a";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> BrimorakSmokeBreathAreaEffect = "900988051cd6682469e25f1a6cd6723b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> BurningEntangleArea = "a72483b5218b48d3a223004af205657b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> BythosConfusionGazeAreaEffect = "56e599a2fb95286408e703b5376e0ff7";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CallOfTheWildBeastShapeIArea = "f6297625a40c0aa47a725432862fcd69";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CallOfTheWildBeastShapeIIArea = "a64b9050dfe0fb14290e28a9ec32234c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CallOfTheWildBeastShapeIIIArea = "0c7101a66204e5e4bbe043d5a891f097";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CallToViolenceArea = "419c0bf0214cd744789bbf53081877e5";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CarnivorousCrystal_AreaEffect_SubsonicHum = "a89a5b1edba9c614b92a7ba7ab3f5a1d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CarrionStormDamageArea = "3323e822918e4e23adfc33e6133b94e8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CavalierBannerArea = "6739cd3bcf5849b49a6318fa873c3537";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CavalierDemandingChallengeArea = "943e6124bcb7cf74eb9ada236fc5fb7b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> CavalierShieldOfTheLiegeArea = "ab36982e844a0dc438bd3d7509b3b885";
@@ -146,6 +148,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMetalBlastArea = "38a2979db34ad0f45a449e5eb174729f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMetalBlastAreaRare = "267f19ba174b21e4d9baf30afd589068";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeadlyEarthMudBlastArea = "0af604484b5fcbb41b328750797e3948";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeathKnellAreaEffect = "922875cb64114a2cbae35c34b2029438";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeathSmellArea = "8d73261778404a29a15dc7752fd57a99";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DeepestFearAreaEffect = "a11513803d0449343a3f1e9a6737bce6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DemodandStringyEntanglingFoldsArea = "06b07906bd79cf04582b00a8f27214a5";
@@ -189,6 +192,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_SicknessIslandAreaEffect = "250d9f158d2d4652b8d30804936ae341";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_SicknessIslandConsiderationApplierAreaEffect = "32e1844b5af0444980c131724fbda394";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC3_VeryHotIslandModAreaEffect = "2f2bad7fb72647088213e38d9593fe76";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC4_CorruptingGazeAreaEffect = "9a2190196a454da7b2ffcdfd6ef344c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC4_Ghast_StenchAreaEffect = "4650eaf46d1b4e6381df1e525f03ef19";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC4_PotteryExplosionAreaEffect = "039d41c13f3340e8b75718f14573f727";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DLC4_Shifter_AreaEffect_ProximityTrigger = "b1265d338c914f5399c17d2b437ff954";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DomainOfTheHungryFleshArea = "6df8ed6ff8ac4974aba16eca1b7b5cbe";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DoombringingAura = "9c1c22ea222df984388bc8b803033e10";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> DragonAzataFrightfulPresenceArea = "0113eed491c545018167645044deb032";
@@ -229,6 +236,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> FormOfTheDragonIIIFrightfulPresenceArea = "5d44a8408f6907a4eb19a28ae24fb5fe";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> FrighteningTuneArea = "55c526a79761a3c48a3cc974a09bfef7";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> FrightfulAspectArea = "b69066531acd0b94184d03e010c92e94";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> FrightfulShapeArea = "825bb9a8faa64f7eb9fe6ab022c7c5b1";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> FulsomeQueen_AreaEffect_Smothering = "99d324283067f4a4e8dda64da43126f1";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> Gallu_AreaEffect_AuraOfHavoc = "a2f0adf9e5004894cb070f4f37d2fa1e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> GenericSwarmArea = "31781413a27b496ea044689ed32ac326";
@@ -274,6 +282,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> InspireTranquilityArea = "ba39bdd625b0af340b53f1ddf1399f7d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> IronGolemCloudArea = "29a6878221001f94f930bdc7e7755469";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> JudgementAuraArea = "fc309339aaf94ce4bd5eda0b1ae9b2c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> Kakuen_takaRepairShieldAreaEffect = "55fc2bd8179a4bcb9034a65706609eb4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> KnightOfTheWallDefensiveChallengeArea = "989cce4ccae12554083059fd75248b4f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> KnightsEmblemEmeraldChainmailArea = "451a5fd039f6aff448f19f1bc3c69873";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> LiberationBlessingMajorArea = "5a653047fb3608045b92582df6bc4c81";
@@ -287,6 +296,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> LocustClone04Area = "1f247e36bc8a4208b5e64de8ab623734";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> LocustClone05Area = "943d583d691845a2844344a680c22515";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> LocustSwarmDamageArea = "d57f08317a1d9494b8de52069a9f04ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MaddeningBuzzArea = "e66cd1df60a8475989c8e469b2902f75";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MaddeningBuzzAreaEffect = "80eced575b434b87bc608866e18d1833";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MadnessDomainGreaterArea = "19ee79b1da25ea049ba4fea92c2a4025";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MadSculptorAreaEffect = "3252c615dff8296439493a663387a75c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> MandragoraSwarmDamageArea = "251cde6433616b343ae06806a223e95c";
@@ -351,6 +362,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ProtectiveWardArea = "6d3ac1f9f0056a34899fea71c6138700";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ProximityTrigger_AreaEffect = "bef3eef036c24ca18a5a91e2991f62cf";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RadianceArea = "11e53f84005993e4695ca1c3c0ed883a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RageshaperGroundSlamArea = "57e8ee3cd5254299a87424584b0e341d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RainbowDomeAcidArea = "bd92d84dc61c27e4eb0a8d2dbeb6a589";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RainbowDomeColdArea = "9b8192aa053ff3848b82bcfb5c979d1c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> RainbowDomeElecticityArea = "814da09d760bd2840a10eafff2401019";
@@ -399,6 +411,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ShamanHexFriendToAnimalsArea = "c98a2fd5b994e6e4d9560964c7877a7f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ShamblingMoundPoisonAreaEffect = "9f3484751a54de145b5188ff33ebbbd4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> SharedPrecisionArea = "8c5617838c1195443b584e005d0913eb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ShifterGriffonAntiFearAreaEffect = "c2007c506c3d49e19e540e7b86daae30";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ShifterGriffonAntiFearImmunityAreaEffect = "3a4ee9d01ae04b4f9b651c4e3a8538c2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> SickeningEntanglementArea = "72328360f1eeeb94d8a43d51db96eccb";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> SiroccoArea = "b21bc337e2beaa74b8823570cd45d6dd";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> SithhudsRodArea = "1f00f7daa6b14a6fb8107f1319009c84";
@@ -440,6 +454,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ThanadaemonFearGazeAreaEffect = "97b5fd30155a2f842a177ecbc0f3d749";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> TheUndyingLoveOfTheHopebringer_DarkAuraAreaEffect = "98a8ef02699b4e4685224e6554e758c1";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> TheUndyingLoveOfTheHopebringer_LightAuraAreaEffect = "fcd37106597940488ae1282cb7b6f490";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ThirstingEntangleArea = "e7cfabbedb40413482ddb91d07a16a78";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ThornBodyArea = "05723170af738324b8fbf297599dd387";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> TickSwarmDamageArea = "06c4bec4d0e7e38419547aed0a3790f8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> TreantAura = "11e046f425592df4db61c31e1429db19";
@@ -494,6 +509,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildShapeElementalAirLargeWhirlwindArea = "ebd2fe081029a6b438aed873607e6375";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildShapeElementalAirMediumWhirlwindArea = "c73f9a028b78f6e4d8a709b62f6344e0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildShapeElementalAirSmallWhirlwindArea = "91f4541e0eb353b4681289cc9615a79d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WinterGraspAreaEffect = "ba4e3f85c4f540efa537b4745ed467a4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WintersMarkArea = "6d99ebab13d6f1744a3c3ba58d405c9c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WitchHexAuraOfPurityArea = "c65fcdbd7e617234b9ec6119b0d6079e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WitchHexDeliciousFrightArea = "143bd6a6ea250b34d8686ecb6a36c3d8";
@@ -595,12 +611,14 @@ namespace BlueprintCore.Blueprints.References
           BodakLairMiniboss_AreaEffect_DececrationAura,
           BrestplateOfWhiteDragonArea,
           BrimorakSmokeBreathAreaEffect,
+          BurningEntangleArea,
           BythosConfusionGazeAreaEffect,
           CallOfTheWildBeastShapeIArea,
           CallOfTheWildBeastShapeIIArea,
           CallOfTheWildBeastShapeIIIArea,
           CallToViolenceArea,
           CarnivorousCrystal_AreaEffect_SubsonicHum,
+          CarrionStormDamageArea,
           CavalierBannerArea,
           CavalierDemandingChallengeArea,
           CavalierShieldOfTheLiegeArea,
@@ -638,6 +656,7 @@ namespace BlueprintCore.Blueprints.References
           DeadlyEarthMetalBlastArea,
           DeadlyEarthMetalBlastAreaRare,
           DeadlyEarthMudBlastArea,
+          DeathKnellAreaEffect,
           DeathSmellArea,
           DeepestFearAreaEffect,
           DemodandStringyEntanglingFoldsArea,
@@ -681,6 +700,10 @@ namespace BlueprintCore.Blueprints.References
           DLC3_SicknessIslandAreaEffect,
           DLC3_SicknessIslandConsiderationApplierAreaEffect,
           DLC3_VeryHotIslandModAreaEffect,
+          DLC4_CorruptingGazeAreaEffect,
+          DLC4_Ghast_StenchAreaEffect,
+          DLC4_PotteryExplosionAreaEffect,
+          DLC4_Shifter_AreaEffect_ProximityTrigger,
           DomainOfTheHungryFleshArea,
           DoombringingAura,
           DragonAzataFrightfulPresenceArea,
@@ -721,6 +744,7 @@ namespace BlueprintCore.Blueprints.References
           FormOfTheDragonIIIFrightfulPresenceArea,
           FrighteningTuneArea,
           FrightfulAspectArea,
+          FrightfulShapeArea,
           FulsomeQueen_AreaEffect_Smothering,
           Gallu_AreaEffect_AuraOfHavoc,
           GenericSwarmArea,
@@ -766,6 +790,7 @@ namespace BlueprintCore.Blueprints.References
           InspireTranquilityArea,
           IronGolemCloudArea,
           JudgementAuraArea,
+          Kakuen_takaRepairShieldAreaEffect,
           KnightOfTheWallDefensiveChallengeArea,
           KnightsEmblemEmeraldChainmailArea,
           LiberationBlessingMajorArea,
@@ -779,6 +804,8 @@ namespace BlueprintCore.Blueprints.References
           LocustClone04Area,
           LocustClone05Area,
           LocustSwarmDamageArea,
+          MaddeningBuzzArea,
+          MaddeningBuzzAreaEffect,
           MadnessDomainGreaterArea,
           MadSculptorAreaEffect,
           MandragoraSwarmDamageArea,
@@ -843,6 +870,7 @@ namespace BlueprintCore.Blueprints.References
           ProtectiveWardArea,
           ProximityTrigger_AreaEffect,
           RadianceArea,
+          RageshaperGroundSlamArea,
           RainbowDomeAcidArea,
           RainbowDomeColdArea,
           RainbowDomeElecticityArea,
@@ -891,6 +919,8 @@ namespace BlueprintCore.Blueprints.References
           ShamanHexFriendToAnimalsArea,
           ShamblingMoundPoisonAreaEffect,
           SharedPrecisionArea,
+          ShifterGriffonAntiFearAreaEffect,
+          ShifterGriffonAntiFearImmunityAreaEffect,
           SickeningEntanglementArea,
           SiroccoArea,
           SithhudsRodArea,
@@ -932,6 +962,7 @@ namespace BlueprintCore.Blueprints.References
           ThanadaemonFearGazeAreaEffect,
           TheUndyingLoveOfTheHopebringer_DarkAuraAreaEffect,
           TheUndyingLoveOfTheHopebringer_LightAuraAreaEffect,
+          ThirstingEntangleArea,
           ThornBodyArea,
           TickSwarmDamageArea,
           TreantAura,
@@ -986,6 +1017,7 @@ namespace BlueprintCore.Blueprints.References
           WildShapeElementalAirLargeWhirlwindArea,
           WildShapeElementalAirMediumWhirlwindArea,
           WildShapeElementalAirSmallWhirlwindArea,
+          WinterGraspAreaEffect,
           WintersMarkArea,
           WitchHexAuraOfPurityArea,
           WitchHexDeliciousFrightArea,

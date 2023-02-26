@@ -93,6 +93,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BardingOfCeaselessServiceItem = "89b4ebf86a526a440b146cc961fab2e2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BardingOfElderBeastsItem = "cb8bfaf08b2c62d43921bffb88c2aae3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BardingOfLifeItem = "01b673bada824ec2aa33768778063274";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BardingOfSteadynessArmorItem = "3541ca13dba54f69ad277e1515a22897";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BardingOfVengeanceItem = "65d1437d2b5843e3a820049ed0bf9832";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BashingShieldArmor = "5ba44cd58f731144a9f390c2c099abc6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BastionOfLionHeartArmorItem = "1d8e0e7047b50f94e8c7bfe192c10a91";
@@ -228,6 +229,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateOfMindFocusItem = "cd4c6b737dbb442cb98b4c2d8b0d3627";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateOfRetributionItem = "de85712dbdb236d45829df53659dfaf5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateOfSpellNullifyItem = "f96b7e92a56912d438c906a735a2217a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateOfUstalavianOfficerArmorItem = "59a33c8783ad4de8b547022ec274c930";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplatePlus1Fortification50 = "4b0a52389ce441f79edef982538b97e9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateSonic30Plus2 = "5dc1400129538c0489b7c1ecdfb9b077";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateStandard = "559b0b6f194656c428c403a000ceee78";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> FullplateStandard_Hellknight = "bd1bc5ff80ff7804e97b6cc3defc6814";
@@ -625,6 +628,7 @@ namespace BlueprintCore.Blueprints.References
           BardingOfCeaselessServiceItem,
           BardingOfElderBeastsItem,
           BardingOfLifeItem,
+          BardingOfSteadynessArmorItem,
           BardingOfVengeanceItem,
           BashingShieldArmor,
           BastionOfLionHeartArmorItem,
@@ -760,6 +764,8 @@ namespace BlueprintCore.Blueprints.References
           FullplateOfMindFocusItem,
           FullplateOfRetributionItem,
           FullplateOfSpellNullifyItem,
+          FullplateOfUstalavianOfficerArmorItem,
+          FullplatePlus1Fortification50,
           FullplateSonic30Plus2,
           FullplateStandard,
           FullplateStandard_Hellknight,

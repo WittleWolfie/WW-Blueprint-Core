@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Configurators.Facts;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
@@ -13,6 +14,7 @@ using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
+using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -508,6 +510,33 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
+    /// Adds <see cref="AddTriggerOnActivationChanged"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DragonbloodShifterBlackAbility</term><description>950d6040a7f04b17b60000827fae66e1</description></item>
+    /// <item><term>ShifterAspectBoarAbility</term><description>43bc6e6b0f91413095d4f68206598a69</description></item>
+    /// <item><term>ShifterChimeraAspectAcitvatableAbilityGreater</term><description>3dd2025ac4af4d6e8478d54b9eb9276c</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddTriggerOnActivationChanged(
+        ActionsBuilder? actionList = null,
+        AddTriggerOnActivationChanged.Stage? stage = null)
+    {
+      var component = new AddTriggerOnActivationChanged();
+      component.m_ActionList = actionList?.Build() ?? component.m_ActionList;
+      if (component.m_ActionList is null)
+      {
+        component.m_ActionList = Utils.Constants.Empty.Actions;
+      }
+      component.m_Stage = stage ?? component.m_Stage;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="RestrictionCanGatherPower"/>
     /// </summary>
     ///
@@ -602,12 +631,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeAbility</term><description>3e2d25b97be14414b897fc97f2d76c9a</description></item>
-    /// <item><term>InspireCourageToggleAbility</term><description>5250fe10c377fdb49be449dfe050ba70</description></item>
+    /// <item><term>InquisitorGreaterBaneAbility</term><description>de3cadee4492d68439c23e5d4004ba89</description></item>
     /// <item><term>WitchHexAuraOfPurityActivatableAbility</term><description>298edc3bc21e61044bba25f4e767cb8b</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="freeBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="freeBlueprints">
     /// <para>
     /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -637,13 +678,20 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="useListForFreeBlueprints">
+    /// <para>
+    /// InfoBox: If true it&amp;apos;s possible to choose a list of facts to make the resource free instead of the one.
+    /// </para>
+    /// </param>
     public TBuilder AddActivatableAbilityResourceLogic(
         WeaponCategory[]? categories = null,
         Blueprint<BlueprintUnitFactReference>? freeBlueprint = null,
+        List<Blueprint<BlueprintUnitFactReference>>? freeBlueprints = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResourceReference>? requiredResource = null,
-        ActivatableAbilityResourceLogic.ResourceSpendType? spendType = null)
+        ActivatableAbilityResourceLogic.ResourceSpendType? spendType = null,
+        bool? useListForFreeBlueprints = null)
     {
       var component = new ActivatableAbilityResourceLogic();
       component.Categories = categories ?? component.Categories;
@@ -656,12 +704,71 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       {
         component.m_FreeBlueprint = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
+      component.m_FreeBlueprints = freeBlueprints?.Select(bp => bp.Reference)?.ToArray() ?? component.m_FreeBlueprints;
+      if (component.m_FreeBlueprints is null)
+      {
+        component.m_FreeBlueprints = new BlueprintUnitFactReference[0];
+      }
       component.m_RequiredResource = requiredResource?.Reference ?? component.m_RequiredResource;
       if (component.m_RequiredResource is null)
       {
         component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
       }
       component.SpendType = spendType ?? component.SpendType;
+      component.m_UseListForFreeBlueprints = useListForFreeBlueprints ?? component.m_UseListForFreeBlueprints;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActivatableAbilitySet"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterChimeraAspectAcitvatableAbility</term><description>8646ef1b70d84a12b15969fbd46e5502</description></item>
+    /// <item><term>ShifterChimeraAspectAcitvatableAbilityGreater</term><description>3dd2025ac4af4d6e8478d54b9eb9276c</description></item>
+    /// <item><term>ShifterChimericFiendAcitvatableAbility</term><description>9ac607bac46e4f11becc39f00007ab6a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="setId">
+    /// <para>
+    /// InfoBox: The set id should be the same for * this component, * ActivatableAbilitySetSwitch component on the Buff of the ability, * ActivatableAbilitySetItem components on Buffs of abilities enlisted below.
+    /// </para>
+    /// </param>
+    /// <param name="subordinateAbilities">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddActivatableAbilitySet(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ActivatableAbilitySetId? setId = null,
+        List<Blueprint<BlueprintActivatableAbilityReference>>? subordinateAbilities = null)
+    {
+      var component = new ActivatableAbilitySet();
+      component.m_SetId = setId ?? component.m_SetId;
+      component.m_SubordinateAbilities = subordinateAbilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_SubordinateAbilities;
+      if (component.m_SubordinateAbilities is null)
+      {
+        component.m_SubordinateAbilities = new BlueprintActivatableAbilityReference[0];
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -701,7 +808,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cavalier_Charge_ToggleVariants</term><description>958d3be1ce234ce1ac86e439feb8080c</description></item>
+    /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
+    /// <item><term>DragonBloodShifterAspectGood</term><description>c7b27a5210ea4b10a9e56dfa6dd33cc0</description></item>
+    /// <item><term>RingofArodenToggleAbility</term><description>2bf92815e0bd44c78575ad9ec51103ef</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -745,7 +854,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cavalier_Charge_ToggleVariants</term><description>958d3be1ce234ce1ac86e439feb8080c</description></item>
+    /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
+    /// <item><term>DragonBloodShifterAspectNeutral</term><description>a489d794e43049bb87baa278018d078e</description></item>
+    /// <item><term>ShifterFuryActivatableList</term><description>2d62be90202c41dc9a3618262b147f20</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -792,6 +903,76 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     }
 
     /// <summary>
+    /// Adds <see cref="ShiftersFury"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterFuryActivatableList</term><description>2d62be90202c41dc9a3618262b147f20</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="itemBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddShiftersFury(
+        Blueprint<BlueprintActivatableAbilityReference>? itemBlueprint = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ShiftersFury();
+      component.m_ItemBlueprint = itemBlueprint?.Reference ?? component.m_ItemBlueprint;
+      if (component.m_ItemBlueprint is null)
+      {
+        component.m_ItemBlueprint = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShiftersFuryItemAbility"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterFuryWeaponList</term><description>b4f41266d30c41b3a176a486a211ee03</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddShiftersFuryItemAbility(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ShiftersFuryItemAbility();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="TurnOffImmediatelyWithUnitCommand"/>
     /// </summary>
     ///
@@ -829,7 +1010,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <listheader>Used by</listheader>
     /// <item><term>AbilityWingsAngel</term><description>13143852b74718144ac4267b949615f0</description></item>
     /// <item><term>AbilityWingsDraconicGold</term><description>0d610d5c3713d5a46bca0833fad1847e</description></item>
-    /// <item><term>StandartRageActivateableAbility</term><description>df6a2cce8e3a9bd4592fb1968b83f730</description></item>
+    /// <item><term>RecklessStanceToggleAbility</term><description>4ee08802b8a2b9b448d21f61e208a306</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -882,8 +1063,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodragerStandartRageActivateableAbility</term><description>e3a0056eedac7754ca9a50603ba05177</description></item>
-    /// <item><term>ResourcelessFocusedRageActivateableAbility</term><description>cccaa34ae41f4ce08cf7e765a51603e7</description></item>
-    /// <item><term>StandartRageActivateableAbility</term><description>df6a2cce8e3a9bd4592fb1968b83f730</description></item>
+    /// <item><term>ResourcelessRageActivateableAbility</term><description>0f6afbc991b272f478d78cf5e3b5a395</description></item>
+    /// <item><term>StonelordDefensiveStanceActivateableAbility</term><description>6a8ddcf2fbda4c1ba4d8eccd565db3f9</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddRestrictionHasUnitCondition(

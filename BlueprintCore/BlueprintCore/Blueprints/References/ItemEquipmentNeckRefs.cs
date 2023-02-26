@@ -21,6 +21,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFistsPlus3 = "302fe578692531b4094bd87b8a296f09";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFistsPlus4 = "296a9377c1f5ea44c82f023e5f54e4a3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfApothecaryItem = "9ec8fb23e5534ba4bb728a8e61567cac";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletofArodenItem = "92d29a84dbd54072b74ddc52c034b436";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfBlackenedMirrorItem = "31894ce7e7d5a574d9777a99b45ad9de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfCirculatingBloodItem = "5043aad8b5815cc4a86f93c7ff2b50e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfDeepRootsItem = "77f4808ddc364929a739d44424ccf0a5";
@@ -101,6 +102,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> OldEarthAmulet_IntermediateItem = "dd5a21d3900ce8a4e90322e90cd9f2e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> OldEarthSandAmuletItem = "268815ce58edc3a48856cf8a0f145b17";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> OldEarthShriekAmuletItem = "1e67d8ab112c4784e8150d01bec4a5a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PeriaptOfPlacebosItem = "f823ef25098544a6bcf5366295ee1480";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PitchTunerItem = "46ef4528d79b830489ffe99688db39d4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PlayersPhylacteryAmuletItem = "7efa2d3fd0da4769b380caf9b221233a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> RecklessVengeanceItem = "9343a0ba1c98d7f4eb5f5cb517280764";
@@ -113,6 +115,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SilverTongueAmuletItem = "4d4231b4a395bba4b9819dfbb2dc785d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> StagLordBrokenAmulet = "31413c8cbb7423549b5164ac4902b424";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> StormAmberNecklaceItem = "e3acbfd13b857ed41a1ba8c330824f7d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SwarmbaneClaspItem = "a4dda39fab2d4e99884a71ecdc8f77ad";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> TurquoisePendant = "d7d19d4517998d6498f99f60ad03fe88";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> VellexiasMagnifyingAmuletItem = "91702df4fe0246a3b435c7fcf9fa019e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> VoraciousSpiritItem = "000d13f09ca84dbd9a5ec7adc4b0ae99";
@@ -128,6 +131,7 @@ namespace BlueprintCore.Blueprints.References
           AmuletOfAgileFistsPlus3,
           AmuletOfAgileFistsPlus4,
           AmuletOfApothecaryItem,
+          AmuletofArodenItem,
           AmuletOfBlackenedMirrorItem,
           AmuletOfCirculatingBloodItem,
           AmuletOfDeepRootsItem,
@@ -208,6 +212,7 @@ namespace BlueprintCore.Blueprints.References
           OldEarthAmulet_IntermediateItem,
           OldEarthSandAmuletItem,
           OldEarthShriekAmuletItem,
+          PeriaptOfPlacebosItem,
           PitchTunerItem,
           PlayersPhylacteryAmuletItem,
           RecklessVengeanceItem,
@@ -220,6 +225,7 @@ namespace BlueprintCore.Blueprints.References
           SilverTongueAmuletItem,
           StagLordBrokenAmulet,
           StormAmberNecklaceItem,
+          SwarmbaneClaspItem,
           TurquoisePendant,
           VellexiasMagnifyingAmuletItem,
           VoraciousSpiritItem,

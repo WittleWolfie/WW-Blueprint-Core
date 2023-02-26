@@ -135,6 +135,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHerbalistMysterySelection = "c11ff5dbd8518c941849b3112d4d6b68";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHunterDomainsSelection = "72909a37a1ed5344f88ec9d1d31f5c5b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DomainsSelection = "48525e5da45c9c243a343fc6545dbdb9";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DragonAspectSelection = "c2872505b99c43b8b146ed89ffeb9af5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DragonDiscipleSpellbookSelection = "8c1ba14c0b6dcdb439c56341385ee474";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DragonheirDragonSelection = "729411185291d704696e58316420fe38";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DragonLevel2FeatSelection = "a21acdafc0169f5488a9bd3256e2e65b";
@@ -169,8 +170,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FavoriteEnemySelection = "16cc2c937ea8d714193017780e7d4fc6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FavoriteMetamagicSelection = "503fb196aa222b24cb6cfdc9a284e838";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FavoriteTerrainSelection = "a6ea422d7308c0d428a541562faedefd";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FavoriteTerrainSelectionRankUp = "c4de22ecac494c91b3d2f077ec162bbd";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FeyAspectSelection = "20efbac7ae764021a629da1bd351140e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FeyspeakerMagicSelection = "237efc6a131c8174bbd466ed239f21fc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FighterFeatSelection = "41c8486641f7d6d4283ca9dae4147a9f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FinalFeyAspectSelection = "d7bb76c183e245eda8b1074560895806";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FinesseTrainingSelection = "b78d146cea711a84598f0acef69462ea";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FirstAscensionSelection = "1421e0034a3afac458de08648d06faf0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ForceOfWillRankUpSelection = "3e4dd44c121c753408680b1d5671641c";
@@ -179,6 +183,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GnomeHeritageSelection = "584d8b50817b49b2bb7aab3d6add8d3a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GrandDiscoverySelection = "2729af328ab46274394cedc3582d6e98";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GreaterElementalFocusSelection = "1c17446a3eb744f438488711b792ca4d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GreaterShifterFeyAspectSelection = "947c8db8b3be4e5f985327ffaf892a6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GriffonheartShifterFeatSelection = "f1add10c87fa4563ad5f71779eecde19";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> HagboundWitchPatronSelection = "0b9af221d99a91842b3a2afbc6a68a1e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> HalfElfHeritageSelection = "9df7b68d60544bcf8e5b56c0a4688e04";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> HalflingHeritageSelection = "b3bebe76e6c64e2ca11585f9e3e2554a";
@@ -214,6 +220,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterRogueTalentSelection = "4b7018b1ed4b27140a5e7adfacaaf9c6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterSecretSelection = "beeb25d7a7732e14f9986cdb79acecfc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterSpellbookSelection = "7a28ab4dfc010834eabc770152997e87";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterTricksterCombatFeatSelection = "0ce1432869c74b778ab48890edf2021d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterWizardFeatSelection = "689959eef3e972e458b52598dcc2c752";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> LoremasterWizardSpellSecret = "f97986f19a595e2409cfe5d92bcf697c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> MadDogCompanionSelection = "d91228368cb523a43ad17104adf26ba5";
@@ -283,6 +290,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistLevel20Selection = "8cfab12649049e44aaa49691a8a16d88";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistLevel4Selection = "e6228dd80521e1149abc6257a8279b75";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistLevel8Selection = "1c7cc7d948c64e549a45d2524c61de35";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistSecondBloodlineLevel12Selection = "c63fcfd424a64d1aa195e7721b33863e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistSecondBloodlineLevel16Selection = "d43b1581b1f64f928e55d7ad6d36cb13";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistSecondBloodlineLevel20Selection = "171a7125128f407fb439c1f31d9cec43";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistSecondBloodlineLevel4Selection = "dfbd18edfa9443b98b1ed3b643551d31";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistSecondBloodlineLevel8Selection = "f820e9272d234162a7e6ef3b64be0f38";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> RagePowerSelection = "28710502f46848d48b3f0d6132817c4e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> RangerStyleArcherySelection10 = "7ef950ca681955d47bc4efbe77073e2c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> RangerStyleArcherySelection2 = "3cf94df3f1cf9a443a880bc1ae9be3c6";
@@ -545,6 +557,7 @@ namespace BlueprintCore.Blueprints.References
           DivineHerbalistMysterySelection,
           DivineHunterDomainsSelection,
           DomainsSelection,
+          DragonAspectSelection,
           DragonDiscipleSpellbookSelection,
           DragonheirDragonSelection,
           DragonLevel2FeatSelection,
@@ -579,8 +592,11 @@ namespace BlueprintCore.Blueprints.References
           FavoriteEnemySelection,
           FavoriteMetamagicSelection,
           FavoriteTerrainSelection,
+          FavoriteTerrainSelectionRankUp,
+          FeyAspectSelection,
           FeyspeakerMagicSelection,
           FighterFeatSelection,
+          FinalFeyAspectSelection,
           FinesseTrainingSelection,
           FirstAscensionSelection,
           ForceOfWillRankUpSelection,
@@ -589,6 +605,8 @@ namespace BlueprintCore.Blueprints.References
           GnomeHeritageSelection,
           GrandDiscoverySelection,
           GreaterElementalFocusSelection,
+          GreaterShifterFeyAspectSelection,
+          GriffonheartShifterFeatSelection,
           HagboundWitchPatronSelection,
           HalfElfHeritageSelection,
           HalflingHeritageSelection,
@@ -624,6 +642,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterRogueTalentSelection,
           LoremasterSecretSelection,
           LoremasterSpellbookSelection,
+          LoremasterTricksterCombatFeatSelection,
           LoremasterWizardFeatSelection,
           LoremasterWizardSpellSecret,
           MadDogCompanionSelection,
@@ -693,6 +712,11 @@ namespace BlueprintCore.Blueprints.References
           PrimalistLevel20Selection,
           PrimalistLevel4Selection,
           PrimalistLevel8Selection,
+          PrimalistSecondBloodlineLevel12Selection,
+          PrimalistSecondBloodlineLevel16Selection,
+          PrimalistSecondBloodlineLevel20Selection,
+          PrimalistSecondBloodlineLevel4Selection,
+          PrimalistSecondBloodlineLevel8Selection,
           RagePowerSelection,
           RangerStyleArcherySelection10,
           RangerStyleArcherySelection2,

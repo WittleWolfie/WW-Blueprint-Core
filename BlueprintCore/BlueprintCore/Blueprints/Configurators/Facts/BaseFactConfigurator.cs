@@ -84,9 +84,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Artifact_HornsOfNaragaUnsummonBuff</term><description>bf24f9a2ae9047029f53ef8c797c50cf</description></item>
-    /// <item><term>DLC3_SicknessHeavyDiseaseBuff</term><description>4a19a78fbde84e03b4547137b11ddc3a</description></item>
-    /// <item><term>MidnightArrowQuiverBuff</term><description>6c471bc4db0c4b1db39577f31dd1feae</description></item>
+    /// <item><term>ArmyAlloutAttackBuff</term><description>43e6799499554b92ae115151a7e38052</description></item>
+    /// <item><term>DLC3_WildMagic</term><description>543c9c1d2bca43838cf4db0f2a594182</description></item>
+    /// <item><term>StonelordDefensiveStanceBuff</term><description>99ab5d010faa4c83b7d41bdd6b1afa83</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddBuffActions(
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GoldGolemSlowBuff</term><description>cd26887813a2a684a911082ea41377c8</description></item>
+    /// <item><term>HelmetHalfPlateFeyBuff</term><description>71329abb957285d429773e2d41e7fba0</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

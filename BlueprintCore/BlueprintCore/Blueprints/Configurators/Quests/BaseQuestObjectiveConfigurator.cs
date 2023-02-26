@@ -836,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR10_BesmaraFighter_MaleHuman</term><description>baef88d6cdea472f90c886f428a88d5e</description></item>
+    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -886,7 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Obj1_FixAlignmentLich</term><description>d14da774c4afbff43bf605a164f1715c</description></item>
+    /// <item><term>Obj1_Escape</term><description>a58953791d40413fbc76441cc687a78c</description></item>
     /// <item><term>SosielQ1_HiddenFail</term><description>19b7d800c358c104280ddf5ade6a7b55</description></item>
     /// </list>
     /// </remarks>

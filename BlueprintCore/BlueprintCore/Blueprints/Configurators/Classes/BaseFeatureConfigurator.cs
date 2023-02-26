@@ -326,7 +326,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FiendflashShifterAspectDevilBuff</term><description>b8f396633089487690f396c4c5379be8</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -359,7 +359,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -377,7 +377,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GreenFaithCameliaFeature</term><description>ca763809e01f4247a3639965364c26cb</description></item>
+    /// <item><term>GozrehFeature</term><description>4af983eec2d821b40a3065eb5e8c3a72</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -413,7 +413,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanistEldritchFont</term><description>a732797826db0b54ea123d91b4cdaad5</description></item>
-    /// <item><term>HellknightSigniferFeyspeakerProgression</term><description>b98c346e2e7333742a51f5de3667ef8a</description></item>
+    /// <item><term>HexChannelerChannelFeature</term><description>b40316f05d4772e4894688e6743602bd</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -576,7 +576,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdvancedWeaponTraining1</term><description>3aa4cbdd4af5ba54888b0dc7f07f80c4</description></item>
-    /// <item><term>OracleRevelationSoulSiphon</term><description>226c053a75fd7c34cab1b493f5847787</description></item>
+    /// <item><term>OracleRevelationStormOfSouls</term><description>0edd5395810cf3441a093ca49efb858f</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -620,7 +620,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanist</term><description>7cab956d45dc51c4ea9e71bba366a250</description></item>
-    /// <item><term>HellknightSigniferThassilonianEvocation</term><description>f8ed1800725b3e74ebb86783dbde933a</description></item>
+    /// <item><term>HellknightSigniferThassilonianIllusion</term><description>444211da5e9592f41a4334825eb7ea2c</description></item>
     /// <item><term>WinterWitchWitchLeyLineGuardian</term><description>56adf819599827f4695395924a060996</description></item>
     /// </list>
     /// </remarks>
@@ -721,7 +721,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbundantArcanePool</term><description>8acebba92ada26043873cae5b92cef7b</description></item>
-    /// <item><term>MagicBlessingFeature</term><description>1754ff61a0805714fa2b89c8c1bb87ad</description></item>
+    /// <item><term>MagicalTail2</term><description>c032f65c0bd9f6048a927fb07fc0195d</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -839,7 +839,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodlineSerpentineSpellLevel9</term><description>5688e4239698c2d4b8bdcec914727e3a</description></item>
+    /// <item><term>BloodlineSerpentineSpellLevel8</term><description>df1b1eedae152b541bc1b09fd5041fe9</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -893,7 +893,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GozrehFeature</term><description>4af983eec2d821b40a3065eb5e8c3a72</description></item>
+    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -933,7 +933,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>FlamesSpiritSpellListFeature</term><description>faa12cd1a5ece2c408d3bd00803fe8a1</description></item>
+    /// <item><term>EmpyrealBloodlineProgression</term><description>8a95d80a3162d274896d50c2f18bb6b1</description></item>
     /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
     /// </list>
     /// </remarks>
@@ -1299,7 +1299,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
-    /// <item><term>ImprovedCriticalIncorporealTouch</term><description>1e086b508c360984eb263420f0550a36</description></item>
+    /// <item><term>ImprovedCriticalLightCrossbow</term><description>9fb9160d3e5b70d41be3c620a4db72aa</description></item>
     /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
     /// </list>
     /// </remarks>
@@ -1493,8 +1493,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AgileManeuvers</term><description>197306972c98bb843af738dc7529a7ac</description></item>
-    /// <item><term>ShieldBashFeature</term><description>121811173a614534e8720d7550aae253</description></item>
+    /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
+    /// <item><term>RapidShotFeature</term><description>9c928dc570bb9e54a9649b3ebfe47a41</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// </list>
     /// </remarks>
@@ -1530,7 +1530,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>HideousLaughter</term><description>fd4d9fd7f87575d47aafe2a64a6e2d8d</description></item>
+    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
     /// <item><term>WhiteMageCureLightWoundsCast</term><description>83d6d8f4c4d296941838086f60485fb7</description></item>
     /// </list>
     /// </remarks>
@@ -1717,7 +1717,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CombatReflexes</term><description>0f8939ae6f220984e8fb568abbdfba95</description></item>
-    /// <item><term>SnapShot</term><description>7115a6c08bd101247b70d72a4ff99453</description></item>
+    /// <item><term>ShiftersEdgeFeature</term><description>0e7ec9a341ca46fcaf4d49759e047c83</description></item>
     /// <item><term>WeaponFinesse</term><description>90e54424d682d104ab36436bd527af09</description></item>
     /// </list>
     /// </remarks>
@@ -1799,7 +1799,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HealingDomainBaseAbility</term><description>18f734e40dd7966438ab32086c3574e1</description></item>
+    /// <item><term>HokugolDragonBreathWeapon</term><description>bfab91b26614de04a8a7bf996a0d0990</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1970,7 +1970,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>DragonDiscipleClass</term><description>72051275b1dbb2d42ba9118237794f7c</description></item>
+    /// <item><term>FrightfulShape </term><description>8e8a34c754d649aa9286fe8ee5cc3f10</description></item>
     /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
     /// </list>
     /// </remarks>
@@ -2330,7 +2330,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathsnatcherEnergyDrainFeature</term><description>e4c3976c40072a747b1a9ba2d8f166f2</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2398,7 +2398,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastAbility</term><description>a5631955254ae5c4d9cc2d16870448a2</description></item>
+    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2448,8 +2448,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>LichChannelNegativeHeal</term><description>bf72d2d60bf0a31429f0d90a9ec667a7</description></item>
-    /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
+    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextCalculateSharedValue(
@@ -2477,7 +2477,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
+    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2632,9 +2632,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BashingFinish</term><description>0b442a7b4aa598d4e912a4ecee0500ff</description></item>
-    /// <item><term>GreaterSunder</term><description>54d824028117e884a8f9356c7c66149b</description></item>
-    /// <item><term>TwoWeaponFightingImproved</term><description>9af88f3ed8a017b45a6837eab7437629</description></item>
+    /// <item><term>CleavingFinish</term><description>59bd93899149fa44687ff4121389b3a9</description></item>
+    /// <item><term>GreaterDirtyTrick</term><description>52c6b07a68940af41b270b3710682dc7</description></item>
+    /// <item><term>PreciseShot</term><description>8f3d1e6b4be006f4d896081f2f889665</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2662,7 +2662,9 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
+    /// <item><term>BolsteredSpellFeat</term><description>fbf5d9ce931f47f3a0c818b3f8ef8414</description></item>
+    /// <item><term>PersistentSpellFeat</term><description>cd26b9fa3f734461a0fcedc81cafaaac</description></item>
+    /// <item><term>ShiftersRushFeature</term><description>4ddc88f422a84f76a952e24bec7b53e1</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2931,7 +2933,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>GendarmeTransfixingCharge</term><description>72a0bde01943f824faa98bd55f04c06d</description></item>
+    /// <item><term>HelmOfBattlefieldClarityFeature</term><description>7444d4913a1b1be459bac3b12c6a2933</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -3005,8 +3007,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alertness</term><description>1c04fe9a13a22bc499ffac03e6f79153</description></item>
-    /// <item><term>EmpyrealBloodlineArcana</term><description>d9c68634b6f3aad47a03a24984b93520</description></item>
-    /// <item><term>TheSwarm</term><description>704d7f26933c3784ea28949e0c3511c0</description></item>
+    /// <item><term>EyeOfTheSwarmFeature</term><description>73c9302686b957d4dae298061eb9ffe1</description></item>
+    /// <item><term>ZenArcherKiArrowsFeature</term><description>604a24b659bb69a4796ddb9fbf957504</description></item>
     /// </list>
     /// </remarks>
     ///

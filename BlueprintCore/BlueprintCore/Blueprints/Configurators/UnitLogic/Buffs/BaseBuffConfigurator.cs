@@ -26,12 +26,14 @@ using Kingmaker.RuleSystem;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
+using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
@@ -354,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FiendflashShifterAspectDevilBuff</term><description>b8f396633089487690f396c4c5379be8</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -427,7 +429,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocationBuff</term><description>ea03cb0438d8ce049a6dbf1e89d9f911</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -445,7 +447,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HealingDomainBaseAbility</term><description>18f734e40dd7966438ab32086c3574e1</description></item>
+    /// <item><term>HokugolDragonBreathWeapon</term><description>bfab91b26614de04a8a7bf996a0d0990</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -931,8 +933,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BootsOfMagicalWhirlCountBuff</term><description>815fa1c6d2dc4c56859bfa84eee96107</description></item>
-    /// <item><term>DisableArmorInRestEncounterBuff</term><description>acde512870d2bf547b3e4047e5de1206</description></item>
-    /// <item><term>ShamiraBurn</term><description>3c7d6b01dace4cd5a7d9948f34239888</description></item>
+    /// <item><term>DisarmMainHandBuff</term><description>f7db19748af8b69469073485a65f37cf</description></item>
+    /// <item><term>ShiftersRushBuff</term><description>c3365d5a75294b9b879c587668620bd4</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -980,6 +982,100 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="ShifterGrabInitiatorBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BearGrappledInitiatorBuff</term><description>0b2215c8c7d34554a53f970310ac3f35</description></item>
+    /// <item><term>LizardGrappledInitiatorBuff</term><description>0498769dcce4428bb0ae8b22693e47db</description></item>
+    /// <item><term>TigerGrappledInitiatorBuff</term><description>652a71aaa0c3492db4ee5b006dfc18fb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddShifterGrabInitiatorBuff(
+        int? attackRollBonus = null,
+        int? dexterityBonus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ShifterGrabInitiatorBuff();
+      component.m_AttackRollBonus = attackRollBonus ?? component.m_AttackRollBonus;
+      component.m_DexterityBonus = dexterityBonus ?? component.m_DexterityBonus;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShifterGrabTargetBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BearGrappledTargetBuff</term><description>88be6cbfaf534e009c501e1d2ef3c1f6</description></item>
+    /// <item><term>LizardGrappledTargetBuff</term><description>adc4348649814455a3d8a9f0c837c62e</description></item>
+    /// <item><term>TigerGrappledTargetBuff</term><description>a55e4d7febc3488cbb087c632f83fc52</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddShifterGrabTargetBuff(
+        int? attackRollBonus = null,
+        int? dexterityBonus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? pinnedACBonus = null)
+    {
+      var component = new ShifterGrabTargetBuff();
+      component.m_AttackRollBonus = attackRollBonus ?? component.m_AttackRollBonus;
+      component.m_DexterityBonus = dexterityBonus ?? component.m_DexterityBonus;
+      component.m_PinnedACBonus = pinnedACBonus ?? component.m_PinnedACBonus;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="SuppressBuffInSafeZone"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterWildShapeGriffonBuff</term><description>e76d475eb1f1470e9950a5fee99ddb40</description></item>
+    /// <item><term>ShifterWildShapeGriffonDemonBuff14</term><description>431ca9188d6f401f9f8df8079c526e59</description></item>
+    /// <item><term>ShifterWildShapeGriffonGodBuff9</term><description>d8b979bf19554b85bbed05e6369c0f63</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddSuppressBuffInSafeZone(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new SuppressBuffInSafeZone();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="UniqueBuff"/>
     /// </summary>
     ///
@@ -988,7 +1084,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
-    /// <item><term>ProfaneAscensionCharismaBuff2</term><description>d0f50ea08a4f4f3fb0db79876f0bd3b8</description></item>
+    /// <item><term>ProfaneAscensionConstitutionBuff1</term><description>4bd5006416df4d13982bb957e82ae8ed</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningBuff</term><description>e248e5ef1ae04d559d5fe82ef719ee47</description></item>
     /// </list>
     /// </remarks>
@@ -1062,7 +1158,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_DressPolymorph</term><description>6267b23ce31a4ad8b1b3557826671708</description></item>
-    /// <item><term>MidnightFane_HuskPolymorphBuff_5</term><description>674aa5fb4fd044e9b3dfe19bdfc8a5f3</description></item>
+    /// <item><term>Nidalynn_PolymorphBuff</term><description>885ee6e3ecd2409bbda4f6ecfe914c6d</description></item>
     /// <item><term>YozzPolymorfBuff</term><description>ed4e29772921bc84098f1a9a1dcc3ddb</description></item>
     /// </list>
     /// </remarks>
@@ -1200,6 +1296,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         int? naturalArmor = null,
         Blueprint<BlueprintItemWeaponReference>? offHand = null,
         Blueprint<BlueprintPortraitReference>? portrait = null,
+        PortraitTypeEntry? portraitTypeEntry = null,
         AssetLink<UnitViewLink>? prefab = null,
         AssetLink<UnitViewLink>? prefabFemale = null,
         Blueprint<BlueprintRaceReference>? race = null,
@@ -1247,6 +1344,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
       }
+      component.m_PortraitTypeEntry = portraitTypeEntry ?? component.m_PortraitTypeEntry;
       component.m_Prefab = prefab?.Get() ?? component.m_Prefab;
       component.m_PrefabFemale = prefabFemale?.Get() ?? component.m_PrefabFemale;
       component.m_Race = race?.Reference ?? component.m_Race;
@@ -1271,6 +1369,36 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       Validate(transitionExternal);
       component.m_TransitionExternal = transitionExternal ?? component.m_TransitionExternal;
       component.UseSizeAsBaseForDamage = useSizeAsBaseForDamage ?? component.UseSizeAsBaseForDamage;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PolymorphBonuses"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AnimalAspectGorillaBuff</term><description>2b0b1321fdc53df4dabae1cbf33d46f4</description></item>
+    /// <item><term>AspectOfTheStagBuff</term><description>624ed102958178c4781ce19531d51281</description></item>
+    /// <item><term>IronBodyBuff</term><description>2eabea6a1f9a58246a822f207e8ca79e</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddPolymorphBonuses(
+        int? masterShifterBonus = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new PolymorphBonuses();
+      component.masterShifterBonus = masterShifterBonus ?? component.masterShifterBonus;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1590,7 +1718,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AxiomiteMeleeMiniboss_Buff_LegendaryProportions</term><description>acf2b59d0d374711b969c5ea864e9656</description></item>
-    /// <item><term>LegendaryProportionsBuff</term><description>4ce640f9800d444418779a214598d0a3</description></item>
+    /// <item><term>FormOfTheDragonIIIBlueBuff</term><description>a4993affb4c4ad6429eca6daeb7b86a8</description></item>
     /// <item><term>TrueStrikeBuff</term><description>a3ce3b226c1817846b0419fa182e6ea0</description></item>
     /// </list>
     /// </remarks>
@@ -1643,6 +1771,61 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="AddSpellSchool"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DisplacementBuff</term><description>00402bae4442a854081264e498e7a833</description></item>
+    /// <item><term>MirrorImageBuff</term><description>98dc7e7cc6ef59f4abe20c65708ac623</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddSpellSchool(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        SpellSchool? school = null)
+    {
+      var component = new AddSpellSchool();
+      component.School = school ?? component.School;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="FakeDeathAnimationState"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>FakeDeath</term><description>c970916dd6ed4796aa35fcdc12dacb0a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddFakeDeathAnimationState(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new FakeDeathAnimationState();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsPositiveEffect"/>
     /// </summary>
     ///
@@ -1651,7 +1834,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CarnivorousCrystal_Buff_SubsonicHum_Immunity</term><description>88e345f3233c8024e9d191a807c40223</description></item>
-    /// <item><term>RavenSwarmDamageEffectImmunity</term><description>c375d8d72762cf14db97c204522b0fb0</description></item>
+    /// <item><term>RatSwarmDamageEffectImmunity</term><description>60549b98735cde44e87bf247042604c1</description></item>
     /// <item><term>WildGazeImmunity</term><description>2e64086ebcd066c4b8d1e46c00c8636f</description></item>
     /// </list>
     /// </remarks>
@@ -1732,8 +1915,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AnomalyDistortionImmunityAfterBuff</term><description>938dc00f7c7f4a908feb96d533263f70</description></item>
-    /// <item><term>GolemAutumnGrappledBuff</term><description>077537d7c64aa4e44b559b914693d085</description></item>
+    /// <item><term>AirElementalInWhirlwind</term><description>8b1b723a20f644c469b99bd541a13a3b</description></item>
+    /// <item><term>ImprovedFiendishQuarryBuffEnemy</term><description>c52dfead7d06dd14aa132f03be2bd508</description></item>
     /// <item><term>WitchHexDeathCurseBuff2</term><description>5e6aeb6852a77b3449b37a4bdb9f7bb4</description></item>
     /// </list>
     /// </remarks>
@@ -1763,7 +1946,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>HoldMonsterBuff</term><description>2cfcce5b62d3e6d4082ec31b58468cc8</description></item>
+    /// <item><term>HoldAnimalBuff</term><description>2090955a573cec3438db7f47707610f9</description></item>
     /// <item><term>VinetrapEntangledBuff</term><description>231a622f767e8ed4e9b3e435265a3e99</description></item>
     /// </list>
     /// </remarks>
@@ -1790,7 +1973,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>RepurposeResurrectionBuff</term><description>57785c3bf386461ea3d623d627314afa</description></item>
+    /// <item><term>DLC4_ResurrectionBhogaSwarm</term><description>73e2514b871542ce8f08e40ddf479cd9</description></item>
     /// <item><term>ResurrectionBuff</term><description>12f2f2cf326dfd743b2cce5b14e99b3c</description></item>
     /// <item><term>SongOfTheFallenResurrectionBuff</term><description>e2cd971a6a004c53b55abd336ac8da03</description></item>
     /// </list>
@@ -1808,19 +1991,35 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <param name="secondFx">
     /// You can pass in the animation using a GameObject or it's AssetId.
     /// </param>
+    /// <param name="shouldRemoveBuff">
+    /// <para>
+    /// InfoBox: If false buff will be remove according to common buff logic. If true will be removed after fx applied
+    /// </para>
+    /// </param>
+    /// <param name="spawnNearMainCharacter">
+    /// <para>
+    /// InfoBox: Not change value as &amp;apos;false&amp;apos; when has targets allies!
+    /// </para>
+    /// </param>
     public TBuilder AddResurrectionLogic(
         Asset<GameObject>? firstFx = null,
         float? firstFxDelay = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? offsetPosition = null,
         Asset<GameObject>? secondFx = null,
-        float? secondFxDelay = null)
+        float? secondFxDelay = null,
+        bool? shouldRemoveBuff = null,
+        bool? spawnNearMainCharacter = null)
     {
       var component = new ResurrectionLogic();
       component.FirstFx = firstFx?.Get() ?? component.FirstFx;
       component.FirstFxDelay = firstFxDelay ?? component.FirstFxDelay;
+      component.OffsetPosition = offsetPosition ?? component.OffsetPosition;
       component.SecondFx = secondFx?.Get() ?? component.SecondFx;
       component.SecondFxDelay = secondFxDelay ?? component.SecondFxDelay;
+      component.ShouldRemoveBuff = shouldRemoveBuff ?? component.ShouldRemoveBuff;
+      component.SpawnNearMainCharacter = spawnNearMainCharacter ?? component.SpawnNearMainCharacter;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1873,7 +2072,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirElementalInWhirlwind</term><description>8b1b723a20f644c469b99bd541a13a3b</description></item>
-    /// <item><term>PurpleWormBurrowed</term><description>cfff89a839d188d4086492471cba5111</description></item>
+    /// <item><term>NightcrawlerBurrowedBuff</term><description>c568b045991644c89c58667c6a17180d</description></item>
     /// <item><term>WyvernInFlight</term><description>ad06fa795a9e7124a88878446c675aaa</description></item>
     /// </list>
     /// </remarks>
@@ -1938,7 +2137,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BloodragerStandartRageBuff</term><description>5eac31e457999334b98f98b60fc73b2f</description></item>
+    /// <item><term>ArmyStandartRageBuff</term><description>77c8d5b837c04fa0a7b44bb7592aee56</description></item>
     /// <item><term>EyeImplantFeature</term><description>4456e13ff90d9e6498462b92cb97ed21</description></item>
     /// <item><term>WarDomainBaseBuff</term><description>aefec65136058694ab20cd71941eec81</description></item>
     /// </list>
@@ -1976,6 +2175,205 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="ActivatableAbilitySetItem"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterAspectChimeraBearBuff</term><description>993d1b4af8be4facbc3b33b0edda6f15</description></item>
+    /// <item><term>ShifterAspectChimeraLizardBuff</term><description>dc3f3ec0246b432f8551cedec87bc00a</description></item>
+    /// <item><term>ShifterAspectChimeraWolverineBuff</term><description>b6cfc6cc443c40318062490ff20cefb7</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="activatableAbility">
+    /// <para>
+    /// Blueprint of type BlueprintActivatableAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddActivatableAbilitySetItem(
+        Blueprint<BlueprintActivatableAbilityReference>? activatableAbility = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ActivatableAbilitySetId? setId = null)
+    {
+      var component = new ActivatableAbilitySetItem();
+      component.m_ActivatableAbility = activatableAbility?.Reference ?? component.m_ActivatableAbility;
+      if (component.m_ActivatableAbility is null)
+      {
+        component.m_ActivatableAbility = BlueprintTool.GetRef<BlueprintActivatableAbilityReference>(null);
+      }
+      component.m_SetId = setId ?? component.m_SetId;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ActivatableAbilitySetSwitch"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterChimeraAspectBuff</term><description>bbf7614374ae4e3da9e284130473a89e</description></item>
+    /// <item><term>ShifterChimeraAspectBuffFinal</term><description>5f9990acdfbc4331a5d618e1962eb304</description></item>
+    /// <item><term>ShifterChimeraAspectBuffGreater</term><description>7eba1cd350f94617b949641de9766446</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddActivatableAbilitySetSwitch(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ActivatableAbilitySetId? setId = null)
+    {
+      var component = new ActivatableAbilitySetSwitch();
+      component.m_SetId = setId ?? component.m_SetId;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ShiftersFuryItemBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterFuryBuff</term><description>621bcb0994d74dd09db6931e8f53cc91</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddShiftersFuryItemBuff(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new ShiftersFuryItemBuff();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AdditionalDiceForWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BackgroundAlkenstarAlchemist</term><description>f51af2d4fa3358844879cbc5ee0f1073</description></item>
+    /// <item><term>ShifterAspectExtraFourSpikes</term><description>1a2dcae8717f44439497be99a49a16f1</description></item>
+    /// <item><term>ShifterAspectExtraTwoSpikes</term><description>13fc0a54e43c4757be4722665b5a2c3d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="useWeaponBlueprintFilter">
+    /// <para>
+    /// InfoBox: Filters:  the component is applied if no filters enabled or the weapon fits to any of filter lists.
+    /// </para>
+    /// </param>
+    /// <param name="weapons">
+    /// <para>
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="weaponTypes">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AdditionalDiceForWeapon(
+        DiceFormula? additionalDamageFormula = null,
+        int? diceMultiplier = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? useCustomAdditionalDamageFormula = null,
+        bool? useWeaponBlueprintFilter = null,
+        bool? useWeaponCategoryFilter = null,
+        bool? useWeaponGroupFilter = null,
+        bool? useWeaponTypeFilter = null,
+        List<WeaponCategory>? weaponCategories = null,
+        List<WeaponFighterGroup>? weaponGroups = null,
+        List<Blueprint<BlueprintItemWeaponReference>>? weapons = null,
+        List<Blueprint<BlueprintWeaponTypeReference>>? weaponTypes = null)
+    {
+      var component = new AdditionalDiceForWeapon();
+      component.m_AdditionalDamageFormula = additionalDamageFormula ?? component.m_AdditionalDamageFormula;
+      component.m_DiceMultiplier = diceMultiplier ?? component.m_DiceMultiplier;
+      component.m_UseCustomAdditionalDamageFormula = useCustomAdditionalDamageFormula ?? component.m_UseCustomAdditionalDamageFormula;
+      component.m_UseWeaponBlueprintFilter = useWeaponBlueprintFilter ?? component.m_UseWeaponBlueprintFilter;
+      component.m_UseWeaponCategoryFilter = useWeaponCategoryFilter ?? component.m_UseWeaponCategoryFilter;
+      component.m_UseWeaponGroupFilter = useWeaponGroupFilter ?? component.m_UseWeaponGroupFilter;
+      component.m_UseWeaponTypeFilter = useWeaponTypeFilter ?? component.m_UseWeaponTypeFilter;
+      component.m_WeaponCategories = weaponCategories ?? component.m_WeaponCategories;
+      if (component.m_WeaponCategories is null)
+      {
+        component.m_WeaponCategories = new();
+      }
+      component.m_WeaponGroups = weaponGroups ?? component.m_WeaponGroups;
+      if (component.m_WeaponGroups is null)
+      {
+        component.m_WeaponGroups = new();
+      }
+      component.m_Weapons = weapons?.Select(bp => bp.Reference)?.ToList() ?? component.m_Weapons;
+      if (component.m_Weapons is null)
+      {
+        component.m_Weapons = new();
+      }
+      component.m_WeaponTypes = weaponTypes?.Select(bp => bp.Reference)?.ToList() ?? component.m_WeaponTypes;
+      if (component.m_WeaponTypes is null)
+      {
+        component.m_WeaponTypes = new();
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextCalculateAbilityParams"/>
     /// </summary>
     ///
@@ -1984,7 +2382,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathsnatcherEnergyDrainFeature</term><description>e4c3976c40072a747b1a9ba2d8f166f2</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2052,7 +2450,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastAbility</term><description>a5631955254ae5c4d9cc2d16870448a2</description></item>
+    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2102,8 +2500,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>LichChannelNegativeHeal</term><description>bf72d2d60bf0a31429f0d90a9ec667a7</description></item>
-    /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
+    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextCalculateSharedValue(
@@ -2131,7 +2529,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HellKnightOrderOfTheRackAbility</term><description>2714684e63581ed41b3b13b62d648621</description></item>
+    /// <item><term>HeavyCrossbowOfDegradationAbility</term><description>24948f9879f673e41a7f664a2c775bd7</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2193,6 +2591,32 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.SpellLevel = ContextValues.Constant(0);
       }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DuplicateDamageToCaster"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC4_UsedBodyCreature</term><description>7eb5f47230824e89ad17cef3cfae851c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDuplicateDamageToCaster(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DuplicateDamageToCaster();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2462,7 +2886,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>GendarmeTransfixingCharge</term><description>72a0bde01943f824faa98bd55f04c06d</description></item>
+    /// <item><term>HelmOfBattlefieldClarityFeature</term><description>7444d4913a1b1be459bac3b12c6a2933</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -2818,6 +3242,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DefensiveStanceBuff</term><description>3dccdf27a8209af478ac71cded18a271</description></item>
+    /// <item><term>StonelordDefensiveStanceBuff</term><description>99ab5d010faa4c83b7d41bdd6b1afa83</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2990,8 +3415,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DoombringingCreatureInvisibility</term><description>959857c15f0ec984884416b795cad5aa</description></item>
-    /// <item><term>OracleRevelationInvisibilityGreaterBuff</term><description>f0fa43e7c8e9fe4489eede5d8d5c885c</description></item>
+    /// <item><term>DLC4_InvisibilityBuff_Cutscene</term><description>55dba144a4c54f2890a8f21f72886330</description></item>
+    /// <item><term>OracleRevelationInvisibilityBuff</term><description>a2b527cfac3f87244a133415a7cb5926</description></item>
     /// <item><term>VanishBuff</term><description>e5b7ef8d49215314daaf0404349d42a6</description></item>
     /// </list>
     /// </remarks>
@@ -3034,7 +3459,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmyDerakniPoisonBuff</term><description>6b18ce2ffdac4d3c93620f7bcee3de1b</description></item>
+    /// <item><term>ApocalypseLocustPoisonBuff</term><description>9857d0c4417c47209dcb0ba64ad14c98</description></item>
     /// <item><term>DiseaseMindFireBuff</term><description>2e13b4ac81ae4a745989a0e78a4c44e4</description></item>
     /// <item><term>WyvernPoisonBuff</term><description>b5d9dc8671f8c9c4dab37f0ba52ab9d1</description></item>
     /// </list>

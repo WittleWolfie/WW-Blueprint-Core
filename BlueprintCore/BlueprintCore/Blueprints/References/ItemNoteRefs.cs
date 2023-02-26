@@ -42,6 +42,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BookKostchtchie = "e11733ae14364f4ca24916f424ab0ffd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BrimAdventures = "baecf2a3520d4ecabde3c0ce8959db15";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> ChiefKey = "8214cfe5880d2ff4ca6b5dd634d40339";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> CounselorNote_Item = "0047b221426b4f81aa01b10496a9e0be";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> CrusadeChronicles = "6d82798ebe6a4ec985ba8ecbd2fc802d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> CrusadeCrudeHumor = "6047e2e493674f5ca08e83a3c3f8b388";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> CrusadeFailures = "953d5f1186f94962b4fadbbd9520ebe1";
@@ -52,6 +53,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Daeran_Q2_Report_2 = "ace7fd74fcc71d84e9662539a6e26bb7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DaeranNote = "edd719119cd79d041930c69820734476";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DamnedBeKenabres = "80ffd7ada93413e4fa6f92747eca29f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DoctorContract_Item = "efdd9cc2fac340ffb0ee9c80d6cb88a7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> EstrodGuidebook1 = "23c9a797007f48c288acb320d587aa9d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> EstrodGuidebook2 = "e68e5654cf49447eae8c593744869bb3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> EstrodGuidebook3 = "0fd334b7cba84d8c876b6b5f39613beb";
@@ -90,6 +92,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> NurahPerfume = "e0d847a06a488e848b30e2c3166bf480";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Octavia_Letter = "d02703b937e340f8a95e4113d0e6dd38";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> OldSarkorisFighter = "190a5e2bda6d4637913735f11e38c6d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PoisonerNote_Item = "9e82f3c877fb4477a457ca1aec2b8ed3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PsiBlocker = "d02084794ec74c54dba309ac79ce35b2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PsiBlockerElectroincs = "0c4a923b04f2e3241a2fce3a9464180b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PsiBlockerHelmet = "9d8f25470e5461e4f98c9956e23fbcd7";
@@ -166,6 +169,7 @@ namespace BlueprintCore.Blueprints.References
           BookKostchtchie,
           BrimAdventures,
           ChiefKey,
+          CounselorNote_Item,
           CrusadeChronicles,
           CrusadeCrudeHumor,
           CrusadeFailures,
@@ -176,6 +180,7 @@ namespace BlueprintCore.Blueprints.References
           Daeran_Q2_Report_2,
           DaeranNote,
           DamnedBeKenabres,
+          DoctorContract_Item,
           EstrodGuidebook1,
           EstrodGuidebook2,
           EstrodGuidebook3,
@@ -214,6 +219,7 @@ namespace BlueprintCore.Blueprints.References
           NurahPerfume,
           Octavia_Letter,
           OldSarkorisFighter,
+          PoisonerNote_Item,
           PsiBlocker,
           PsiBlockerElectroincs,
           PsiBlockerHelmet,

@@ -8,6 +8,7 @@ using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
+using Kingmaker.Sound;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Core.Math;
 using System;
@@ -49,6 +50,8 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.m_DelayBeforeBattleEnd = copyFrom.m_DelayBeforeBattleEnd;
           bp.m_MaxTurnDuration = copyFrom.m_MaxTurnDuration;
           bp.m_MoveSpeed = copyFrom.m_MoveSpeed;
+          bp.m_MoveAccelerated = copyFrom.m_MoveAccelerated;
+          bp.m_ProjectilesSpeedAccelerated = copyFrom.m_ProjectilesSpeedAccelerated;
           bp.m_MaxSquadsCount = copyFrom.m_MaxSquadsCount;
           bp.m_BuffPrefix = copyFrom.m_BuffPrefix;
           bp.m_ArmyLossesCoefOnRetreat = copyFrom.m_ArmyLossesCoefOnRetreat;
@@ -72,6 +75,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.m_PositiveMoraleFx = copyFrom.m_PositiveMoraleFx;
           bp.m_NegativeMoraleFx = copyFrom.m_NegativeMoraleFx;
           bp.m_AudioScalingFactor = copyFrom.m_AudioScalingFactor;
+          bp.m_VictorySoundEvent = copyFrom.m_VictorySoundEvent;
         });
     }
 
@@ -97,6 +101,8 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.m_DelayBeforeBattleEnd = copyFrom.m_DelayBeforeBattleEnd;
           bp.m_MaxTurnDuration = copyFrom.m_MaxTurnDuration;
           bp.m_MoveSpeed = copyFrom.m_MoveSpeed;
+          bp.m_MoveAccelerated = copyFrom.m_MoveAccelerated;
+          bp.m_ProjectilesSpeedAccelerated = copyFrom.m_ProjectilesSpeedAccelerated;
           bp.m_MaxSquadsCount = copyFrom.m_MaxSquadsCount;
           bp.m_BuffPrefix = copyFrom.m_BuffPrefix;
           bp.m_ArmyLossesCoefOnRetreat = copyFrom.m_ArmyLossesCoefOnRetreat;
@@ -120,6 +126,7 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
           bp.m_PositiveMoraleFx = copyFrom.m_PositiveMoraleFx;
           bp.m_NegativeMoraleFx = copyFrom.m_NegativeMoraleFx;
           bp.m_AudioScalingFactor = copyFrom.m_AudioScalingFactor;
+          bp.m_VictorySoundEvent = copyFrom.m_VictorySoundEvent;
         });
     }
 
@@ -394,6 +401,30 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_MoveSpeed = moveSpeed;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_MoveAccelerated"/>
+    /// </summary>
+    public TBuilder SetMoveAccelerated(int moveAccelerated)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_MoveAccelerated = moveAccelerated;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_ProjectilesSpeedAccelerated"/>
+    /// </summary>
+    public TBuilder SetProjectilesSpeedAccelerated(int projectilesSpeedAccelerated)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ProjectilesSpeedAccelerated = projectilesSpeedAccelerated;
         });
     }
 
@@ -1061,6 +1092,32 @@ namespace BlueprintCore.Blueprints.Configurators.Armies
         bp =>
         {
           bp.m_AudioScalingFactor = audioScalingFactor;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintTacticalCombatRoot.m_VictorySoundEvent"/>
+    /// </summary>
+    public TBuilder SetVictorySoundEvent(AkEventReference victorySoundEvent)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(victorySoundEvent);
+          bp.m_VictorySoundEvent = victorySoundEvent;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintTacticalCombatRoot.m_VictorySoundEvent"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyVictorySoundEvent(Action<AkEventReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_VictorySoundEvent is null) { return; }
+          action.Invoke(bp.m_VictorySoundEvent);
         });
     }
 

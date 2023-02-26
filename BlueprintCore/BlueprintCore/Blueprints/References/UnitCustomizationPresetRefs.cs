@@ -139,6 +139,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_High = "0347e1cb63224584885f2cc2fabb0a13";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_Low = "cbd8accbfa2a43d28210babc6ecaf961";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_Medium = "b164d3d074444db48136bd882de57f5f";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC4_CustomizationPreset = "c1f5ed7018734c55a892f8379f56eea1";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC4_Human_Ranger_CustomisationPreset = "a0f1c670573642fa878050620d7a30dc";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Goblin_CustomizationPreset = "93e00a611e6b479590320a2088750f82";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Noble_CustomizationPreset = "d4d7ed9c2bc94bdbbe33e4351857e6bb";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Test_CustomizationPreset = "f2fde6100e2842bb9b08555c11a5a75f";
@@ -270,6 +272,8 @@ namespace BlueprintCore.Blueprints.References
           CustomizationPreset_ZombieLord_High,
           CustomizationPreset_ZombieLord_Low,
           CustomizationPreset_ZombieLord_Medium,
+          DLC4_CustomizationPreset,
+          DLC4_Human_Ranger_CustomisationPreset,
           Goblin_CustomizationPreset,
           Noble_CustomizationPreset,
           Test_CustomizationPreset,

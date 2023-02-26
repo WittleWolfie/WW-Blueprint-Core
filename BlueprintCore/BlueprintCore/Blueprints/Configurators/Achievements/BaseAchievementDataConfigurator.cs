@@ -47,6 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
           bp.Hidden = copyFrom.Hidden;
           bp.OnlyMainCampaign = copyFrom.OnlyMainCampaign;
           bp.SpecificCampaign = copyFrom.SpecificCampaign;
+          bp.m_Group = copyFrom.m_Group;
           bp.MinDifficulty = copyFrom.MinDifficulty;
           bp.MinCrusadeDifficulty = copyFrom.MinCrusadeDifficulty;
           bp.IronMan = copyFrom.IronMan;
@@ -79,6 +80,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
           bp.Hidden = copyFrom.Hidden;
           bp.OnlyMainCampaign = copyFrom.OnlyMainCampaign;
           bp.SpecificCampaign = copyFrom.SpecificCampaign;
+          bp.m_Group = copyFrom.m_Group;
           bp.MinDifficulty = copyFrom.MinDifficulty;
           bp.MinCrusadeDifficulty = copyFrom.MinCrusadeDifficulty;
           bp.IronMan = copyFrom.IronMan;
@@ -345,6 +347,44 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         {
           if (bp.SpecificCampaign is null) { return; }
           action.Invoke(bp.SpecificCampaign);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="AchievementData.m_Group"/>
+    /// </summary>
+    ///
+    /// <param name="group">
+    /// <para>
+    /// Blueprint of type AchievementGroupData. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetGroup(Blueprint<AchievementGroupDataReference> group)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_Group = group?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="AchievementData.m_Group"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyGroup(Action<AchievementGroupDataReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_Group is null) { return; }
+          action.Invoke(bp.m_Group);
         });
     }
 
@@ -634,6 +674,10 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
       if (Blueprint.SpecificCampaign is null)
       {
         Blueprint.SpecificCampaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
+      }
+      if (Blueprint.m_Group is null)
+      {
+        Blueprint.m_Group = BlueprintTool.GetRef<AchievementGroupDataReference>(null);
       }
       if (Blueprint.m_FinishGameFlag is null)
       {

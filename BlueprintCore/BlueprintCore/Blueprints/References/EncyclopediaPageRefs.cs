@@ -85,6 +85,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Hit_Dice = "70e336a517e44f2ebc61546a236be92b";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> HP = "7a290d0608d840345ac11b1a609ca97a";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Illusion = "23da9201657775045b57a36be102037e";
+    public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Improved_NaturalAttack = "4ed0ba254b544eeca05b83ae4cb0680f";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Incorporeal_Touch_Attack = "27aa0c64ffd74ad781ddf3b1764046a0";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Initiative = "174669849ea6f554e8897c753b3f7edb";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Injury_Death = "6fcdb958177eaa2478c073868791e4de";
@@ -281,6 +282,7 @@ namespace BlueprintCore.Blueprints.References
           Hit_Dice,
           HP,
           Illusion,
+          Improved_NaturalAttack,
           Incorporeal_Touch_Attack,
           Initiative,
           Injury_Death,

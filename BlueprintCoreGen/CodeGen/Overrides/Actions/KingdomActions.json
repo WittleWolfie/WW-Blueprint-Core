@@ -330,6 +330,8 @@
 
   { "TypeName": "ChangeMercenaryWeight" },
 
+  { "TypeName": "ClearArmyDismissalExp" },
+
   { "TypeName": "ContextActionByArmyLeader" },
 
   { "TypeName": "ContextActionRestoreLeaderAction" },
@@ -338,6 +340,8 @@
 
   { "TypeName": "ContextActionTacticalCombatHealTarget" },
 
+  { "TypeName": "CreateArmyAsDismissalCompensation" },
+
   { "TypeName": "DecreaseRecruitsGrowth" },
 
   { "TypeName": "DecreaseRecruitsPool" },
@@ -345,6 +349,8 @@
   { "TypeName": "EnterKingdomInterface" },
 
   { "TypeName": "ExchangeRecruits" },
+
+  { "TypeName": "ForceDayTime" },
 
   { "TypeName": "IncreaseRecruitsGrowth" },
 

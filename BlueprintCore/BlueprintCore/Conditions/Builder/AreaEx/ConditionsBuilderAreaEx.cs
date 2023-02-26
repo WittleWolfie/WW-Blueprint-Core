@@ -93,7 +93,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_64</term><description>0e8be804be2a4a97b102a3f36d21f240</description></item>
+    /// <item><term>Cue_38</term><description>130c68d0c79e44549aa27c4d1335df12</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
@@ -173,7 +173,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Blessing_Interaction</term><description>ff4a347df77e4cad971249c25d9a1589</description></item>
-    /// <item><term>RewardObject_PermanentACBuff</term><description>7b9cedafa82b432f8e797c3cb3f5b245</description></item>
+    /// <item><term>DLC3_WildMagic_Spells_Tier2</term><description>3127d6ffb4a44ad48d39e6746c94987b</description></item>
     /// <item><term>RewardTrader_Tier3</term><description>b92e487220524c0f945a36436994d2f8</description></item>
     /// </list>
     /// </remarks>
@@ -275,7 +275,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CavesShortcutUnlocked</term><description>d1f433e953409144d914f15597db6e34</description></item>
-    /// <item><term>Green_Slot_1_4_IsNotEmpty</term><description>c472c9af55454dd4ca2a845c3c4ad274</description></item>
+    /// <item><term>Green_Slot_1_3_IsNotEmpty</term><description>8ebd0f926798b3f44aacab2662b42cc4</description></item>
     /// <item><term>Slot_3_3_IsNotEmpty</term><description>85c097fd43ebd3940b6ea98b57e6f35e</description></item>
     /// </list>
     /// </remarks>
@@ -416,8 +416,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC1_AxisDungeon_mechanics</term><description>3507de61854540f9920e6482d7cbb32f</description></item>
-    /// <item><term>MediumCity_FlyingIslesControls_Etude</term><description>fa16edfae00b94048a71bab6ef5463d4</description></item>
+    /// <item><term>CommandMoveParty</term><description>c51d2338b93045039685827b63155547</description></item>
+    /// <item><term>Gundrun_Negotiant_dialogue</term><description>c3246fb200074d47b05250f4777fdc2d</description></item>
     /// <item><term>WatchPoint_SZWall_FoW</term><description>0f1fdc5a42ea41a4b87da4021e89dabd</description></item>
     /// </list>
     /// </remarks>
@@ -448,7 +448,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>d38052d00f394118945e8861f00574f5</description></item>
-    /// <item><term>DLC3_Nahyndri2ndPhase_SZ</term><description>715a608a028942439ac34180997c0f0a</description></item>
+    /// <item><term>DLC1_IZ_Irabeth_startDialog</term><description>5bc8820627af4f2080c6e19d4ab8c223</description></item>
     /// <item><term>TrueLootHideZone9</term><description>168ca19a2ced8d448a9944c2f0f01d72</description></item>
     /// </list>
     /// </remarks>

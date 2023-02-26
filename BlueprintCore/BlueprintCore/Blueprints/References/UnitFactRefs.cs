@@ -18,8 +18,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> Angel4BladeOfTheSunFact = "dcaacfa8d3a0490ea4b572de750f4d94";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArcaneMagicFact = "1391fa8dc7944e38b8e4ec97d74505c1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyAcidArrowFact = "cb957479424e4c4da378013b40f140e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyAlloutAttackFact = "f1369045623a4d52a625f7bf6ccca8ab";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyAzataLiliendAurasFact = "5df647b418ec445c9e9060bd890371b1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyBanishmentFact = "971d005ddd9b4fd0916df31e6b82ba0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyBarkskinFact = "abe9a19aa2f748c5999705d35d242457";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyBestowCurseBlastFact = "3532a2dd7b6343dcabe6f4a2123104dc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyBlessBuffWarwarpriestFact = "b186fea248e14dc893050bde9d0b359a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmyBreathWeaponAbilityBrassDragonFact = "c04f9859296d4319a2c238e7ab95ebdb";
@@ -90,6 +92,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonBeerElementalsFact = "946d43f8304e4749adaa36fd5affa8d4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonCentipedeFact = "847441eaf4944510a3920b3e4555e170";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonDeerFact = "a8971ad0000d40758b5ff9e78cd42504";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonDogFact = "1684e147a9bb4969b086258d1725824e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonGhoulFact = "e0028fc9691a44629413e57b2feae1c9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonGlabrezuFact = "2003ef570833497f8dc7fd21c7d66546";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> ArmySummonIllusionFact = "ed2777db468845948403adb87c4300d0";
@@ -219,6 +222,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> SizeSmall = "27db4e2b1cec37a4687dacb8eb9cba65";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StandartFocusedRageFact = "8aa3de854579465fb04f797193f6b3d4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StandartRageFact = "4b1f3dd0f61946249a654941fc417a89";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StonelordDefensiveStanceFact = "8b697e3d49b24bc7a1c357c2e2c8a18e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> Total_Defence = "5a98959dc4e74716b9c58ba267e32cde";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> TrapMasteryRank1Fact = "7af46619eb5149d581c585f5ed184eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> TrapMasteryRank2Fact = "1521cc5ecaaf4fca8e2e44b87cda6cfe";
@@ -230,8 +234,10 @@ namespace BlueprintCore.Blueprints.References
           Angel4BladeOfTheSunFact,
           ArcaneMagicFact,
           ArmyAcidArrowFact,
+          ArmyAlloutAttackFact,
           ArmyAzataLiliendAurasFact,
           ArmyBanishmentFact,
+          ArmyBarkskinFact,
           ArmyBestowCurseBlastFact,
           ArmyBlessBuffWarwarpriestFact,
           ArmyBreathWeaponAbilityBrassDragonFact,
@@ -302,6 +308,7 @@ namespace BlueprintCore.Blueprints.References
           ArmySummonBeerElementalsFact,
           ArmySummonCentipedeFact,
           ArmySummonDeerFact,
+          ArmySummonDogFact,
           ArmySummonGhoulFact,
           ArmySummonGlabrezuFact,
           ArmySummonIllusionFact,
@@ -431,6 +438,7 @@ namespace BlueprintCore.Blueprints.References
           SizeSmall,
           StandartFocusedRageFact,
           StandartRageFact,
+          StonelordDefensiveStanceFact,
           Total_Defence,
           TrapMasteryRank1Fact,
           TrapMasteryRank2Fact,

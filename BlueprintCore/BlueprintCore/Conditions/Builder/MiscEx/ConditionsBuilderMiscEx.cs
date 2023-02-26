@@ -28,7 +28,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>GiantFly_Feature_Disease</term><description>1fa6430e6064d5f4f8553c67257a1878</description></item>
+    /// <item><term>GelatinousSwallowWholeFeature1</term><description>a7d2e6fe676b48f897e334a2cbd30b23</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -59,7 +59,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction 3</term><description>651c3ea9f9323e943823ed497736ac74</description></item>
-    /// <item><term>CommandSetCombatMode7</term><description>78179ec3b28b41f1b7c72f44bd190cbf</description></item>
+    /// <item><term>CommandSpawnUnits1</term><description>4f1d796aae6041fb9893927a9b02b911</description></item>
     /// <item><term>Valmallos_Feature_CombatTrigger</term><description>f4621cc70bec4fe7b0373ed152e40570</description></item>
     /// </list>
     /// </remarks>
@@ -172,8 +172,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRace</term><description>b7f02ba92b363064fb873963bec275ee</description></item>
-    /// <item><term>Edge_SarkorianWedding_Chapter05_Army14</term><description>b3c8bd9291a34edc88b62353f2f847f9</description></item>
-    /// <item><term>Location_SarkorianWedding</term><description>da3e19fa23f94fa3a563bd866189e9da</description></item>
+    /// <item><term>Edge_SarkorianWedding_Chapter05_Army21</term><description>f5867b88ae4d4b189c025df9161e75d4</description></item>
+    /// <item><term>UlbrigCompanion</term><description>9a8d5b9a632a405dbc8e3af8f647a471</description></item>
     /// </list>
     /// </remarks>
     ///

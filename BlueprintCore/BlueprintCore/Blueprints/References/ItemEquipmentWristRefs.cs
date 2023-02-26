@@ -38,6 +38,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfEldritchScholarItem = "c08a6bfecf66b3341828b7d454077c6e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfHarmfulConversionItem = "a5a2a62650274fc4fb616469f4a25670";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfHeavyHandItem = "354a5656d0e75b847a42108cd587dbab";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfMightyBoarItem = "6c7ca383c299404caa44841fe0aee062";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfMindBreakItem = "b474319876ac44f46a934d640bbe52a0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfOverwhelmingVigorItem = "3ef2c9ea26cd01f419ae4afc5a44a632";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfRoughLandingItem = "c7f2133ed2a154d4983cca2a82f73641";
@@ -60,6 +61,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> RighteousExorcistsBracersItem = "d68cea6c999eab4459c030c6588c1083";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> RubyPhoenixItem = "34682af5f1b1a814bb174077dc3b4ee2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> RubyPhoenixItem_1 = "a39e0ab69d6a1fc4ca0afdf2f2f101c4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> ScorchingBracersWristItem = "5390f43c97a241e7a662b69eb33363e4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> Set2_Bracers = "ba8fd2a707644a54a07c8c54be6276ea";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> Set3_Bracers = "0c3dacfec6354a1ba200603ebb059a7b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> StormlordsResolveItem = "28c18f4bdd1321e41aa96dad4732336a";
@@ -91,6 +93,7 @@ namespace BlueprintCore.Blueprints.References
           BracersOfEldritchScholarItem,
           BracersOfHarmfulConversionItem,
           BracersOfHeavyHandItem,
+          BracersOfMightyBoarItem,
           BracersOfMindBreakItem,
           BracersOfOverwhelmingVigorItem,
           BracersOfRoughLandingItem,
@@ -113,6 +116,7 @@ namespace BlueprintCore.Blueprints.References
           RighteousExorcistsBracersItem,
           RubyPhoenixItem,
           RubyPhoenixItem_1,
+          ScorchingBracersWristItem,
           Set2_Bracers,
           Set3_Bracers,
           StormlordsResolveItem,

@@ -18,6 +18,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> AssailantsBeltItem = "8d48d164b7a729b459db96ab7d5cf55a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltofAdditionalPockets = "f8ce35e547965db47b1b3ffce9fac8f1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfAlacrityItem = "4b0b9b95225d6034f84b75a6ad1e76c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfArodenItem = "fb02b80542194b0d863269f56ce9617d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfAthach = "3b6c082651fcb2344b292656ccf058e5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfBeastlySturdinessItem = "16ef03e9206b0c946813464085f541ff";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfBloodlustItem = "c63859f821f7b414492580b638b009fb";
@@ -42,6 +43,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfPerfection6 = "2b400628f960a8a43bc2f085d84788cf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfPerfection8 = "dc2f2613634c2f947b306fa3379232c2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfPerfection8Extra = "3c3a3a043b99422480b04940bc1edc73";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfPrimalForceItem = "20d22f879231490ab351c63568697191";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfShadowsItem = "d0d136d4b4f6f2e4ba4e72c7215ac89e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfStoneskinItem = "9162128e476bdd6428c2c273ea83d447";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> BeltOfStrength2 = "c354de364a714ee4dbe2cfee628df267";
@@ -94,6 +96,7 @@ namespace BlueprintCore.Blueprints.References
           AssailantsBeltItem,
           BeltofAdditionalPockets,
           BeltOfAlacrityItem,
+          BeltOfArodenItem,
           BeltOfAthach,
           BeltOfBeastlySturdinessItem,
           BeltOfBloodlustItem,
@@ -118,6 +121,7 @@ namespace BlueprintCore.Blueprints.References
           BeltOfPerfection6,
           BeltOfPerfection8,
           BeltOfPerfection8Extra,
+          BeltOfPrimalForceItem,
           BeltOfShadowsItem,
           BeltOfStoneskinItem,
           BeltOfStrength2,
