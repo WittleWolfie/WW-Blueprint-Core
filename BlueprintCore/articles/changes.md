@@ -9,6 +9,8 @@
 * Many components changed
 * BuffCollectionConfigurator is no longer present
     * BuffCollection (the blueprint) is no longer used in Wrath
+* `AbilityEffectRunActionOnClickedTarget` is no longer available
+    * Use `AbilityEffectRunAction`, `AbilityEffectRunActionOnClickedPoint`, or `AdditionalAbilityEffectRunActionOnClickedTarget`
 
 ## v2.7.8 Release
 
