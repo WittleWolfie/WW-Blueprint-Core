@@ -263,6 +263,9 @@ The impact of this isn't significant but if you want to keep your assembly small
          <LocalAssembly Include="$(AssemblyName).dll" />
          <ILStrip Include="&quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&quot;" />
      
+         <!-- System Entry Points -->
+         <Entry Include="System.Runtime.CompilerServices.RefSafetyRulesAttribute" />
+
          <!-- BlueprintCore Entry Points -->
          <Entry Include="BlueprintCore.Utils.Assets.AssetTool/AssetBundle_Patch" />
          <Entry Include="BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch" />
