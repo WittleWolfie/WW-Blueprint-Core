@@ -85,7 +85,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyAlloutAttackBuff</term><description>43e6799499554b92ae115151a7e38052</description></item>
-    /// <item><term>DLC3_WildMagic</term><description>543c9c1d2bca43838cf4db0f2a594182</description></item>
+    /// <item><term>DLC3_WildMagic_Spells_Tier1</term><description>abc14e27cad2498d90d70acbd62988f1</description></item>
     /// <item><term>StonelordDefensiveStanceBuff</term><description>99ab5d010faa4c83b7d41bdd6b1afa83</description></item>
     /// </list>
     /// </remarks>
@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetHalfPlateFeyBuff</term><description>71329abb957285d429773e2d41e7fba0</description></item>
+    /// <item><term>HelmetHalfPlateFeyEnchantment</term><description>49aa344c241ed05419ec9d4bc1eb9bc2</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

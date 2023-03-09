@@ -2946,12 +2946,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3SylvanSorcererFeatureList = "9ec07f82932c4b578fe16374171e5288";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3SylvanTricsterRoguePregenFeatureList = "5884ef201e414d21a9825a7979c4c282";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC3WarpriestFeralChampionPregenFeatureList = "2023506b78624a02a6b2e07a7dda101d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_BearPowerUpFeature = "3d020b49cd434e54b003ed616296e903";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_CoreCurses = "05b12b0e5f3a4301989cbefa7374a3d7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_CursedTotemCoreFeature = "b90f0b84b855443dbdcf63bd7312e749";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_CurserFeature = "146743e413f4427d8fa55e6e233947f2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_DevourePrebuff = "31468b6aa8874e9e88e8c8e0616c6316";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_Ghast_StenchFeature = "631a3ad2fe494ab7a97a220a4e86cb59";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_GhoulRogue_Prebuff = "b10ca750d42b4f3285d2f907d3b66390";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_MaximisedSnowBall_Miniboss_feature = "7a92b6a0a8f9425c8d9fd44694b6dd8a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_NormalCurses = "21c812d75d3249dc8104100677fbaaa8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_PotteryExplosionFeature = "d7a187714a5a4dfd82ba68965f24873b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_QuickenDemonicSpells = "5b3a07f165704f668f02b8e1d72f81d0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_QuickenedSnowBall_Miniboss_feature = "8c88fc80fbdd4d7bb8036d519c098151";
@@ -2965,6 +2968,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_TotemFeyFeature = "e41e64bbb5fc4f6ea75b423244a7b31c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_TotemImmunities = "14928ef2a63c4a8387b4b4bf92b65417";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_TotemManticoreFeature = "0dbcf54e89fa43d6ac97125fd4890ff8";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_UlbrigGriffonGodFeature = "ba7c56684b9f4f32846547fd4e1bd776";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_WarpriestQuickenedFeature = "30ff38d8755a4757bf1219a8b12fe701";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC4_WightEnergyDrainAbility = "53a2a7f2f37f4d5cb461aab487186665";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLCTestFeature = "81573b5c71a94053bec0ab1ec2e8b882";
@@ -3134,6 +3138,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronAndLawful15 = "9e67cb1e8da74fe0ab0390feb00a90bc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronAndMagic10 = "b9a197673ec62dd49b15461d61bd2937";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronAndMagic5 = "1d2ad69584fe5f849af8fa59828c5c67";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronEpic20 = "b57a887fd78041928f03ab940f086095";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronEpicAndGood20 = "0a6bce78764be00429b1112081a670fb";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronEpicAndLawfull20 = "bf61d69ddb4aa98498d2cac1272e10e2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DRColdIronOrEvil10 = "802473fd3d9e7964eb6ddd429432dc95";
@@ -10985,12 +10990,15 @@ namespace BlueprintCore.Blueprints.References
           DLC3SylvanSorcererFeatureList,
           DLC3SylvanTricsterRoguePregenFeatureList,
           DLC3WarpriestFeralChampionPregenFeatureList,
+          DLC4_BearPowerUpFeature,
+          DLC4_CoreCurses,
           DLC4_CursedTotemCoreFeature,
           DLC4_CurserFeature,
           DLC4_DevourePrebuff,
           DLC4_Ghast_StenchFeature,
           DLC4_GhoulRogue_Prebuff,
           DLC4_MaximisedSnowBall_Miniboss_feature,
+          DLC4_NormalCurses,
           DLC4_PotteryExplosionFeature,
           DLC4_QuickenDemonicSpells,
           DLC4_QuickenedSnowBall_Miniboss_feature,
@@ -11004,6 +11012,7 @@ namespace BlueprintCore.Blueprints.References
           DLC4_TotemFeyFeature,
           DLC4_TotemImmunities,
           DLC4_TotemManticoreFeature,
+          DLC4_UlbrigGriffonGodFeature,
           DLC4_WarpriestQuickenedFeature,
           DLC4_WightEnergyDrainAbility,
           DLCTestFeature,
@@ -11173,6 +11182,7 @@ namespace BlueprintCore.Blueprints.References
           DRColdIronAndLawful15,
           DRColdIronAndMagic10,
           DRColdIronAndMagic5,
+          DRColdIronEpic20,
           DRColdIronEpicAndGood20,
           DRColdIronEpicAndLawfull20,
           DRColdIronOrEvil10,

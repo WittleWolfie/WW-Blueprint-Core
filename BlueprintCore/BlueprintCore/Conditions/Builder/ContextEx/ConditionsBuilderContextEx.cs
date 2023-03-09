@@ -140,7 +140,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CarrionStormDamageBuff</term><description>faf0afdc18ea4f3992bc1e556444d1fc</description></item>
+    /// <item><term>CarrionStormDamageAbility</term><description>71fef7b9e4564e4a915983e46e2c708d</description></item>
     /// <item><term>LocustSwarmDamageAbility</term><description>6bada9322d5a415c9bffbbedaba8cc9e</description></item>
     /// <item><term>WrathOfArodenAbility</term><description>77a36621c53f41adab893ac850c70c64</description></item>
     /// </list>
@@ -329,7 +329,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloToggleAbility</term><description>248bbb747c273684d9fdf2ed38935def</description></item>
-    /// <item><term>ImprovedCritical</term><description>f4201c85a991369408740c6888362e20</description></item>
+    /// <item><term>HunterAnimalFocusForHimself</term><description>2b36d5d875eb6f041ab51bbb0365282c</description></item>
     /// <item><term>WrathOfArodenAbility</term><description>77a36621c53f41adab893ac850c70c64</description></item>
     /// </list>
     /// </remarks>
@@ -556,7 +556,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>GoldGolemSlowBuff</term><description>cd26887813a2a684a911082ea41377c8</description></item>
+    /// <item><term>GlovesOfHeavyImpactFeature</term><description>2b520766e6f84dfda2c04ea10d902511</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -689,7 +689,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>123</term><description>535217378b8a4ca3ba5a45f0002de07c</description></item>
-    /// <item><term>DirtySquealerEtude</term><description>073253b35c6147e28b603e7e4cfb2ddd</description></item>
+    /// <item><term>CursedBardVoiceEtude</term><description>09539653b88e4d8193f2e19c5be1cc92</description></item>
     /// <item><term>ZeorisDaggerEtude</term><description>ad64557f3ad74ff0b36fce6364df6ab2</description></item>
     /// </list>
     /// </remarks>
@@ -860,7 +860,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeArea</term><description>bc346635e3d04df7968249d59ea756ba</description></item>
-    /// <item><term>DLC3_ShadowBalorNahindry</term><description>f92a0607aa6b43eab1feb6acb17739a4</description></item>
+    /// <item><term>DragonAzataSpecialAbilityTierArea</term><description>ce6652b6fb8d1504181a9f3e2aa520e3</description></item>
     /// <item><term>WrathOfTheUndeadArea</term><description>22e31702587142ddb99391d589ba538b</description></item>
     /// </list>
     /// </remarks>
@@ -947,7 +947,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GraveShiveringArea</term><description>e274a6f6358141e189fd43e40cdc8c5a</description></item>
+    /// <item><term>GolemSummerAura</term><description>034ad7d17998e7046b02be1a34e03517</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1251,7 +1251,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensiveRandomizerBuff</term><description>1a72d85f20f14f1b84d20b8b6e44734e</description></item>
-    /// <item><term>GogglesOfMalocchioFeature</term><description>782027e68010df048af8289ceb6f3c31</description></item>
+    /// <item><term>ImprovedCritical</term><description>f4201c85a991369408740c6888362e20</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1603,7 +1603,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodlineSerpentineDenOfSpidersSpiderSwarmDamageBuff</term><description>9c414efda39e67344846171c1547edc1</description></item>
-    /// <item><term>MandragoraSwarmDamageBuff</term><description>0f4923163104a8748b88e91ec7e14837</description></item>
+    /// <item><term>LocustSwarmDamageBuff</term><description>e9e341bff1efce2469bdf6577672bb4d</description></item>
     /// <item><term>VescavorSwarmDamageBuff</term><description>ddc847a49246ded4f93fe2bf0e2a7dab</description></item>
     /// </list>
     /// </remarks>

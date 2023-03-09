@@ -204,6 +204,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ApocalypseLocust_Ability_BreathWeapon = "9bb608c9d4d914949bfc7a4934b71d30";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ApocalypseLocust_Ability_BreathWeaponAccursed = "678764ad7af14117b430af35b54b19a3";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ApocalypseLocust_Ability_GreaterBreathWeaponAccursedDispelling = "bb3174da5d8f43f6800bc0739cbdfcca";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ApocalypseLocust_Ability_GreaterBreathWeaponAccursedWithoutDispel = "a7a8bc0fa82f49d0a567061c07780694";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ApocalypseLocustSwarmBomb = "f8e30461ad18462e9135f9f11e2941a3";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Arbitrament = "0f5bd128c76dd374b8cb9111e3b5186b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> ArcaneAccuracyAbility = "1b7fb8120390ca24c9da98ce87780b7f";
@@ -741,6 +742,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CallToTheHuntAbility = "a15e27d0867541049801591f170d2bc4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CamouflageAbility = "b26a123a009d4a141ac9c19355913285";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CapeOfWasps = "e418c20c8ce362943a8025d82c865c1c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CarrionStormDamageAbility = "71fef7b9e4564e4a915983e46e2c708d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Cart_line = "cff1b918cc0e437aaa10761de169ebff";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> Cart_line_Graveyard = "f864ee699e4f4eb393a58e8d35428581";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> CastActionSelfTouch_Cutscene = "822e49023e76a65419700b13f3931e1c";
@@ -3495,6 +3497,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> TwoHandedFighterDevastatingBlowAbility = "13da184c7ffe08345aab674fd3a55eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> TwoHandedFighterPiledriverBullRushAbility = "b789cfc41fa326f419d77efc2e5c6632";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> TwoHandedFighterPiledriverTripAbility = "1202b3d188c9bdc46987a5da168ec6d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbility>> UffrandirLinnormBreathWeaponAbility = "17b53ff9469e49528542ec8ab41cb34a";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> UmbralStrike = "474ed0aa656cc38499cc9a073d113716";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> UnbreakableBond = "947a929f3347d3e458a524424fbceccb";
     public static readonly Blueprint<BlueprintReference<BlueprintAbility>> UnbreakableHeart = "dd38f33c56ad00a4da386c1afaa49967";
@@ -3942,6 +3945,7 @@ namespace BlueprintCore.Blueprints.References
           ApocalypseLocust_Ability_BreathWeapon,
           ApocalypseLocust_Ability_BreathWeaponAccursed,
           ApocalypseLocust_Ability_GreaterBreathWeaponAccursedDispelling,
+          ApocalypseLocust_Ability_GreaterBreathWeaponAccursedWithoutDispel,
           ApocalypseLocustSwarmBomb,
           Arbitrament,
           ArcaneAccuracyAbility,
@@ -4479,6 +4483,7 @@ namespace BlueprintCore.Blueprints.References
           CallToTheHuntAbility,
           CamouflageAbility,
           CapeOfWasps,
+          CarrionStormDamageAbility,
           Cart_line,
           Cart_line_Graveyard,
           CastActionSelfTouch_Cutscene,
@@ -7233,6 +7238,7 @@ namespace BlueprintCore.Blueprints.References
           TwoHandedFighterDevastatingBlowAbility,
           TwoHandedFighterPiledriverBullRushAbility,
           TwoHandedFighterPiledriverTripAbility,
+          UffrandirLinnormBreathWeaponAbility,
           UmbralStrike,
           UnbreakableBond,
           UnbreakableHeart,

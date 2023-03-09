@@ -80,7 +80,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RomanceSetMinimum),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionList),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate),
-        typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.TransferSharedVendorTable),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.UnlinkDualCompanions),

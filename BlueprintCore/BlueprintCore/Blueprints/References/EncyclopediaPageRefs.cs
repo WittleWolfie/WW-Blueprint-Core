@@ -27,6 +27,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Attack = "597bbfabc02c43f192325a1bc3f5e7d7";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Attack_Of_Opportunity = "659bde7e8a2c44df8d6eee5b40439b97";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> BAB = "7b1b97835cbf15d4ba6305264b440711";
+    public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Blindsense = "d03500d2688f460686d7fdf80531f5db";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Bonus = "10cb4b86a2150844885292d7b722995e";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Buffs = "f82d774ae13f70c478f5180a0a067521";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> CA_Types = "0c76d1622e5a68c4ea99eb214ad4539b";
@@ -113,6 +114,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Persuasion = "e3a3ce22b04e6c540a3fb983d2ef8256";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Physical_Damage = "26240eb1684a49d8a34e23f011a3db3f";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Race = "e48d0ce09b907a74bb3cc399f38840d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Rake = "6d3aa62772eb461f821a1331cc43764b";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Range = "712c04896dcdf564bb2102d7256c537f";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> RangedAttack = "d94ad607094f454eaf36c177a158fa42";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Reach = "e42c5d97fa7e4a89a9b5b4baf2ad0263";
@@ -121,6 +123,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Safe_Location = "f5f8805b9f9cca144a1ae02eae6351ca";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Saving_Throw = "d9573576b5c38714988ba63423cd0b48";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Saving_Throws_Results = "a83c76888d7758e469f5c73c3547228f";
+    public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Scent = "d6e25670eab5454595e480ce66a3d5c3";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Scrolls = "060e3cf96d93a6b459437571183f9a5b";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Shooting_into_Melee = "8ff5113ee1c94665a773181f4f879a9f";
     public static readonly Blueprint<BlueprintReference<BlueprintEncyclopediaPage>> Size = "b65b48101757cc243ba6a9ca10407f08";
@@ -224,6 +227,7 @@ namespace BlueprintCore.Blueprints.References
           Attack,
           Attack_Of_Opportunity,
           BAB,
+          Blindsense,
           Bonus,
           Buffs,
           CA_Types,
@@ -310,6 +314,7 @@ namespace BlueprintCore.Blueprints.References
           Persuasion,
           Physical_Damage,
           Race,
+          Rake,
           Range,
           RangedAttack,
           Reach,
@@ -318,6 +323,7 @@ namespace BlueprintCore.Blueprints.References
           Safe_Location,
           Saving_Throw,
           Saving_Throws_Results,
+          Scent,
           Scrolls,
           Shooting_into_Melee,
           Size,

@@ -136,6 +136,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_SuccubusMix = "466d758e97604ea5b37e07e3359e4f47";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_TieflingMaleMix = "f6355053f7c2451b9cc379cb424506e6";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Valhalfling = "01bd29842c86485686a46be3ac221225";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_WeddingGuestGirl = "49b90897fbfa40f693826d0d8be54653";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_High = "0347e1cb63224584885f2cc2fabb0a13";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_Low = "cbd8accbfa2a43d28210babc6ecaf961";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_Medium = "b164d3d074444db48136bd882de57f5f";
@@ -269,6 +270,7 @@ namespace BlueprintCore.Blueprints.References
           CustomizationPreset_SuccubusMix,
           CustomizationPreset_TieflingMaleMix,
           CustomizationPreset_Valhalfling,
+          CustomizationPreset_WeddingGuestGirl,
           CustomizationPreset_ZombieLord_High,
           CustomizationPreset_ZombieLord_Low,
           CustomizationPreset_ZombieLord_Medium,

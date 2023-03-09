@@ -219,7 +219,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinsEdgeEnchantment</term><description>3bd1ae7c49dbf58489437f13f5d16ac5</description></item>
-    /// <item><term>ImprovedCriticalMultiplerEnchantment</term><description>57b51dd8f352e99409dee709669e164f</description></item>
+    /// <item><term>DLC4_ShifterMythicDemonBoss_cutscene</term><description>b3d2581373294a92b330b07493e613fb</description></item>
     /// <item><term>RustedDawnEnchantment</term><description>6c73603b691801e42ba82850cc96f85e</description></item>
     /// </list>
     /// </remarks>

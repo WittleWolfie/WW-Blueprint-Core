@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>KenabresGraveyard_InevitableDarkness</term><description>bd49244df43246d78dd37172471d7114</description></item>
+    /// <item><term>JoranInCapital_Failed</term><description>a8dea019ba28493080a7cfb59cca3051</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

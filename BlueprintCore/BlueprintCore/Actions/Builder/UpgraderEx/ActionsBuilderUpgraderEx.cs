@@ -338,7 +338,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-339343</term><description>adc22eb66c2f43798c9824ac05fb60f4</description></item>
+    /// <item><term>PF-341704</term><description>e4782857b49f40fc903acef39d3f7424</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>

@@ -651,6 +651,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromWarLordHouse = "8eb809ecc601483bbde080d144147af5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_FromWilds = "2ca98ae7a74043199618094df3aeeb80";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_QuarantineHouse_Enter = "7277aab3527e4c299a5959b870547e27";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_TeleportFromWilds = "da1cae3dd0b446128846d5a2280eb626";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_WarLordHouse_Enter = "285b0cb0265d4f20b64571e8bab638fb";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Gundrun_WelcomeDialog = "cf8f28ad6efd40e1aa9394c44956c91a";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_MountainPass_Enter = "af115c47ff1c49ad826b27bbfa587168";
@@ -2140,6 +2141,7 @@ namespace BlueprintCore.Blueprints.References
           DLC4_Gundrun_FromWarLordHouse,
           DLC4_Gundrun_FromWilds,
           DLC4_Gundrun_QuarantineHouse_Enter,
+          DLC4_Gundrun_TeleportFromWilds,
           DLC4_Gundrun_WarLordHouse_Enter,
           DLC4_Gundrun_WelcomeDialog,
           DLC4_MountainPass_Enter,

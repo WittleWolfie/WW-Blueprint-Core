@@ -678,7 +678,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DLC4_WagonProtected</term><description>0bbb99eda723417bb621a6773cadcbd0</description></item>
+    /// <item><term>DLC4_RuinedVillage_SecondVisit_Preset_CoreDifficult</term><description>7058aa4c84e64e0882f9b14e5a619be7</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -833,8 +833,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cue_0016</term><description>70f77f3074555b740b28a98256a9f680</description></item>
-    /// <item><term>Cue_0018</term><description>48a30933475067546ab008bdf5ee3c87</description></item>
+    /// <item><term>CommandAction</term><description>711b71ec5a6642089afb876ca502eaf7</description></item>
+    /// <item><term>Cue_0017</term><description>1b86ebe635ae3c64b8af59d986f47366</description></item>
     /// <item><term>Greybor_Q2_Acepted</term><description>efeba5b983e4ad446b4919cdcf4bfdeb</description></item>
     /// </list>
     /// </remarks>
@@ -1072,7 +1072,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction8</term><description>acf432ab712d4d9d8c5c30e40ec1eace</description></item>
+    /// <item><term>CommandAction8</term><description>a5b807aa75154867867a0db0284b205c</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
@@ -1110,7 +1110,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
-    /// <item><term>DHLost_Mechanic</term><description>e5961409f47c4d0f9c19e7af184a8eb6</description></item>
+    /// <item><term>DHDefended_Mechanic</term><description>d9042ef7dd8941d8b71b2e4f66684f03</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -1454,7 +1454,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction 8</term><description>fcb2f3d8162d93b4ba1e2a4719217d6c</description></item>
+    /// <item><term>CommandAction 9</term><description>6be9fef7a75072146a2b2c21e11e65c1</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>

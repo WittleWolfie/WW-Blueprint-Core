@@ -74,8 +74,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarMaleBloodrager</term><description>7ba4a4bdb55b46779ebca045d7955e82</description></item>
-    /// <item><term>FrightfulShape </term><description>8e8a34c754d649aa9286fe8ee5cc3f10</description></item>
-    /// <item><term>ShiftersRushFeature</term><description>4ddc88f422a84f76a952e24bec7b53e1</description></item>
+    /// <item><term>RakingClawsFeature</term><description>a1b262d2b1ef478994113fc941fa3a32</description></item>
+    /// <item><term>WinterGrasp</term><description>406c6e4a631b43ce8f7a77844b75bf75</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -284,7 +284,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HelmetEvilFeature</term><description>f58675a2213a4c34eb77c28d9f8a1cb5</description></item>
+    /// <item><term>HeadbandOfSubjugatorFeature</term><description>6e115e01c02c6c0419c4eb562c0d81df</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -1325,7 +1325,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_KTC_SosielCards_c3_Notification</term><description>9344a2b30f8c66545971a690b8485f12</description></item>
+    /// <item><term>KTC_Irabeth_AboutCiar_Notification</term><description>c21608a1d4c165149901414e6a60a8a8</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1624,7 +1624,8 @@ namespace BlueprintCore.Blueprints.Configurators
     public TBuilder AddLevelUpTrigger(
         ActionsBuilder? actions = null,
         ConditionsBuilder? conditions = null,
-        UnitEvaluator? unit = null)
+        UnitEvaluator? unit = null,
+        LevelUpTrigger.UnitEntryType? unitEntryType = null)
     {
       var component = new LevelUpTrigger();
       component.m_Actions = actions?.Build() ?? component.m_Actions;
@@ -1639,6 +1640,7 @@ namespace BlueprintCore.Blueprints.Configurators
       }
       Validate(unit);
       component.m_Unit = unit ?? component.m_Unit;
+      component.m_UnitEntryType = unitEntryType ?? component.m_UnitEntryType;
       return AddComponent(component);
     }
 
@@ -1736,7 +1738,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>DLC2_Sv_Catcmb_RstOutOn</term><description>85754732aed2470a8ed7a296166ac66c</description></item>
+    /// <item><term>DLC4_BurningCorpses</term><description>ca6a4ae3f6cc4eb8b031fdff0d1db5d7</description></item>
     /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
@@ -1929,7 +1931,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>FuneralCeremony</term><description>f31b6304bad1b244f9f6369ab297b7e6</description></item>
+    /// <item><term>FourthPart</term><description>24417ce44ab52e24388edd18d6b5e115</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

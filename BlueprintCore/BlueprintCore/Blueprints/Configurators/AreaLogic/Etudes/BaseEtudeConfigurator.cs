@@ -1227,7 +1227,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAutoKingdomDelay</term><description>7e50ed6c545e4fc486680348003de3cd</description></item>
-    /// <item><term>Timer_Before_AzataRankUp_05</term><description>2f037d9256b149d7b8a90005d3d99523</description></item>
+    /// <item><term>Timer_Before_AzataRankUp_04</term><description>91f3d4b3ffeb43ec8c5ed98e2b5edc22</description></item>
     /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
     /// </list>
     /// </remarks>
@@ -1269,7 +1269,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>KenabresGraveyard_InevitableDarkness</term><description>bd49244df43246d78dd37172471d7114</description></item>
+    /// <item><term>JoranInCapital_Failed</term><description>a8dea019ba28493080a7cfb59cca3051</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

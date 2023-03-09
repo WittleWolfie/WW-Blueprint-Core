@@ -250,7 +250,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Mage_Test</term><description>f9161aa0b3f519c47acbce01f53ee217</description></item>
-    /// <item><term>DLC3_CR4_Cultist_Deskari_MeleeFighter</term><description>7a051d358cd941d9a79f2f8474a5b0d1</description></item>
+    /// <item><term>DLC3_CR4_Cultist_FighterTank</term><description>8ba12c8b9e294c8f8a74a3c8b3917d1e</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -827,7 +827,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave</term><description>848db1dc1890e734d978b0d2ce3775f5</description></item>
-    /// <item><term>DLC2_NPC_Healer</term><description>8fd057c9fbff4fe489d9d9b40d15f44d</description></item>
+    /// <item><term>DLC2_NPC_Gravedigger</term><description>e8bef329125542299a0c4b023b82ca64</description></item>
     /// <item><term>ZombieLordWizardFeatureListLevel8</term><description>1495a07abb198e54a9b31188c9c6ec47</description></item>
     /// </list>
     /// </remarks>
@@ -1261,7 +1261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>GuardianOfLifeFeature</term><description>9dd2ce2f909e1fc4db95e118ac8171c8</description></item>
+    /// <item><term>GriffonheartShifterGriffonShapeFakeFeature</term><description>1d3656c3090e48f59888d86ff7014acc</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -4438,7 +4438,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>ElementalOverflowLevel16DexStrConBuff</term><description>d66262d6cc1ddff4da5f229cfc9f5ac9</description></item>
+    /// <item><term>ElementalOverflowLevel16DexConStrBuff</term><description>47d5544f52178ff4e9b3564550531c8d</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEffectBuff</term><description>252279901e3644ce8b5b3275bea8f7bd</description></item>
     /// </list>
     /// </remarks>
@@ -5467,6 +5467,33 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DisableClassAdditionalVisualSettings();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DisableDeathFXs"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC4_Rogue_Twin_Miniboss</term><description>ebe111276cb24dee9d106f1b24e40a5c</description></item>
+    /// <item><term>DLC4_Warpirest_Twin_Miniboss</term><description>b308ce75f0dc475ebdd7fbe2f06ccac4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDisableDeathFXs(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DisableDeathFXs();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -7075,7 +7102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC4_TotemDemon</term><description>5e590aaefa1d4a04901556134acd23ca</description></item>
+    /// <item><term>DLC4_CursedTotem</term><description>a9657f1970db4276901c8e65ddd91f89</description></item>
     /// <item><term>Kakuen_takaHugeFeature</term><description>83b5dd4e81514e179ea44ade94e89c3f</description></item>
     /// <item><term>SecondState_Kakuen_takaMediumFeature</term><description>4b7d4893325c4f05b790941f5140a5db</description></item>
     /// </list>
@@ -7395,10 +7422,12 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </remarks>
     public TBuilder AddReplaceStatBaseAttribute(
         StatType? baseAttributeReplacement = null,
+        bool? replaceIfHigher = null,
         StatType? targetStat = null)
     {
       var component = new ReplaceStatBaseAttribute();
       component.BaseAttributeReplacement = baseAttributeReplacement ?? component.BaseAttributeReplacement;
+      component.ReplaceIfHigher = replaceIfHigher ?? component.ReplaceIfHigher;
       component.TargetStat = targetStat ?? component.TargetStat;
       return AddComponent(component);
     }
@@ -11317,7 +11346,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensive_ImagesOfChaosBuff</term><description>29894ea708974f13ba02eb90bebfc90b</description></item>
-    /// <item><term>ArmyTrickster6EquipmentFeature5</term><description>e59a71062b7549e4a017e79d71f21bb7</description></item>
+    /// <item><term>ArmyTrickster6EquipmentFeature6</term><description>13b7951ec5c54ca5859744dcc1ef50ac</description></item>
     /// <item><term>ZachariusFearAuraFeature</term><description>4427c26e51a3dff4a9ef2ed7541876ee</description></item>
     /// </list>
     /// </remarks>
@@ -15124,6 +15153,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>CR0_GundrunPeasantInvisibleDrunkard</term><description>a0d563697b05426aaa2a48d8b34742df</description></item>
     /// <item><term>DLC4_HiveCurseCorruption</term><description>f66e654f9c8d4087a8c83f68de485919</description></item>
     /// <item><term>RavagerOfDreadRingFeature</term><description>26cbb4e193bd5fc47aefc10ac237551d</description></item>
     /// </list>
@@ -22339,7 +22369,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_NegativeEnergyMod</term><description>83588d8473f741ffae81551adfe44086</description></item>
-    /// <item><term>DLC3_NegativeEnergyModReducedHealingZone</term><description>9f649a44b03d4f7fb266bbe9338b29d7</description></item>
+    /// <item><term>DLC4_PowerSurgeForCompanions</term><description>bb8bf0898ab64bd088a29708b2796212</description></item>
+    /// <item><term>DLC4_UlbrigGriffonGodPowerSurge</term><description>1e3f23e0a1c844aea0b982d2afca5a41</description></item>
     /// </list>
     /// </remarks>
     ///

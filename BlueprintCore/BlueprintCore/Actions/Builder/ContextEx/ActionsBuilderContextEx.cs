@@ -163,7 +163,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmOfFearlessVanguardFeature</term><description>37e5ceb76a8e44768e2eaeaed2c0d0df</description></item>
+    /// <item><term>HelmOfDevotionFeature</term><description>8e63ea2b0cf1c764682209e4c89722d5</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -219,7 +219,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmOfFearlessVanguardFeature</term><description>37e5ceb76a8e44768e2eaeaed2c0d0df</description></item>
+    /// <item><term>HelmOfDevotionFeature</term><description>8e63ea2b0cf1c764682209e4c89722d5</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -277,7 +277,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmOfFearlessVanguardFeature</term><description>37e5ceb76a8e44768e2eaeaed2c0d0df</description></item>
+    /// <item><term>HelmOfDevotionFeature</term><description>8e63ea2b0cf1c764682209e4c89722d5</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -1036,7 +1036,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIGreenBreathWeaponAbility</term><description>778837ef94ff014429612058109ab6cf</description></item>
+    /// <item><term>FormOfTheDragonIGoldBreathWeaponAbility</term><description>5674de7c683b642409bfaf59838453a1</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1108,7 +1108,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIGreenBreathWeaponAbility</term><description>778837ef94ff014429612058109ab6cf</description></item>
+    /// <item><term>FormOfTheDragonIGoldBreathWeaponAbility</term><description>5674de7c683b642409bfaf59838453a1</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1182,7 +1182,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIGreenBreathWeaponAbility</term><description>778837ef94ff014429612058109ab6cf</description></item>
+    /// <item><term>FormOfTheDragonIGoldBreathWeaponAbility</term><description>5674de7c683b642409bfaf59838453a1</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1244,7 +1244,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIGreenBreathWeaponAbility</term><description>778837ef94ff014429612058109ab6cf</description></item>
+    /// <item><term>FormOfTheDragonIGoldBreathWeaponAbility</term><description>5674de7c683b642409bfaf59838453a1</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -1307,7 +1307,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIGreenBreathWeaponAbility</term><description>778837ef94ff014429612058109ab6cf</description></item>
+    /// <item><term>FormOfTheDragonIGoldBreathWeaponAbility</term><description>5674de7c683b642409bfaf59838453a1</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2270,7 +2270,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>Lair_CultistBoss_KineticBladeOff</term><description>cd4c441773324684885d0c63405ad263</description></item>
+    /// <item><term>KitsunePolymorphBuff_Nenio</term><description>a13e2e71485901045b1722824019d6f5</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -3375,7 +3375,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GiantCentipedePoisonFeature</term><description>6fed981bf0ef27a499969f369f35b5e8</description></item>
+    /// <item><term>GiantCentipedePoisonFeature</term><description>7edf8a604926e364e8c07fafa8c54001</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
@@ -3494,9 +3494,13 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <item><term>RepurposeBuffUndead</term><description>5e18ce2e21330e34690c372fbd9d6d60</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder DetachFromSpawner(this ActionsBuilder builder)
+    public static ActionsBuilder DetachFromSpawner(
+        this ActionsBuilder builder,
+        bool? allowRespawnAfterDetach = null)
     {
-      return builder.Add(ElementTool.Create<ContextActionDetachFromSpawner>());
+      var element = ElementTool.Create<ContextActionDetachFromSpawner>();
+      element.m_AllowRespawnAfterDetach = allowRespawnAfterDetach ?? element.m_AllowRespawnAfterDetach;
+      return builder.Add(element);
     }
 
     /// <summary>
@@ -4090,7 +4094,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceBuff</term><description>4cf7aa3c1b2e2354b877135e4b4f32b2</description></item>
-    /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
+    /// <item><term>HellsDecreeAbilityMagicTransmutationBuff</term><description>ded8dddbbf78c48408582980da0608b7</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
     /// </list>
     /// </remarks>

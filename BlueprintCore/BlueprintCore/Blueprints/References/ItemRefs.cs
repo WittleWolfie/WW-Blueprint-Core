@@ -284,6 +284,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_GnomeCashItem = "97ea0b53288d46b0aed65f0e3ac3037e";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_m = "ba51d5a9bc8a467c947d2a5ccd2ab3f3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC3_StartingCash = "620107fe863540b7907df92b1bc8d1c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_AlchemistLiquidQuestItem = "018db54c8a5a43a0a61746d682b22aa2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Bears_Key = "2d1b37efdc1342d89feaaaa8f12c1146";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_CursedTotemAmulet = "3a3d8b3b751c4f79ac33c059804826d8";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_DawnKey = "48a722fd8f58471d8684d3139a818c12";
@@ -1012,6 +1013,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_GnomeCashItem,
           DLC3_m,
           DLC3_StartingCash,
+          DLC4_AlchemistLiquidQuestItem,
           DLC4_Bears_Key,
           DLC4_CursedTotemAmulet,
           DLC4_DawnKey,

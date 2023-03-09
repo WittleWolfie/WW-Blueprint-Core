@@ -1217,6 +1217,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_Ankou = "58ed91a92b8d70248aa884d303954469";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_AstralDeva = "8f3bd0ecea704277a9f2b09296a7b01e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_BhogaSwarm = "f11bdfe8d70043bea5d1c36ef7a30427";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_BhogaSwarmSpawned = "5731ba3fc87249af85de94ef762b3500";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_CambionBard_Ranged = "41115867802ace94cb8767132cb6ea90";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_CarnivorousCrystalGiant = "4010e86e71882404fba3f2646633d927";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR14_CragLinnorm = "1e403d2d541127b46b035ce8d003909f";
@@ -2155,6 +2156,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_GundrunCleric = "7c3f9989b49649b6ae56f7a1daefcdf7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_GundrunMilitiaFemale = "7de694d04f9f4ff9868080e7c9373ce2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_GundrunMilitiaMale = "5ffdd598928c433fbdb9655376ee588c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_GundrunMilitiaTorchFemale = "2610bf6cfc8b46b69593191a6eedefd3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_GundrunMilitiaTorchMale = "0ef921b24f7d4b429fc98e37a2937d2e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_HagAnnisStandard = "751f70ff4a3c8c54b826950ff2c389d9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_HalfFiendMinotaurStandard = "bba85568933de834286bc5d44281e97b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR6_HalfFiendMinotaurStandard_RE = "46d7e9fa8b58c914cb71b9be2ea8d1e0";
@@ -6725,6 +6728,7 @@ namespace BlueprintCore.Blueprints.References
           CR14_Ankou,
           CR14_AstralDeva,
           CR14_BhogaSwarm,
+          CR14_BhogaSwarmSpawned,
           CR14_CambionBard_Ranged,
           CR14_CarnivorousCrystalGiant,
           CR14_CragLinnorm,
@@ -7663,6 +7667,8 @@ namespace BlueprintCore.Blueprints.References
           CR6_GundrunCleric,
           CR6_GundrunMilitiaFemale,
           CR6_GundrunMilitiaMale,
+          CR6_GundrunMilitiaTorchFemale,
+          CR6_GundrunMilitiaTorchMale,
           CR6_HagAnnisStandard,
           CR6_HalfFiendMinotaurStandard,
           CR6_HalfFiendMinotaurStandard_RE,

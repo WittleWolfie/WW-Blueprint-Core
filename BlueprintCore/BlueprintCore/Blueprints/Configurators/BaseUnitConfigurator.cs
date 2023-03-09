@@ -1817,7 +1817,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
+    /// <item><term>DLC3_CR11_FireElementalElder</term><description>c913003de3b64a239f7cb5b167876af2</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -2177,7 +2177,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaWizard_Curse</term><description>c0fe3438b11d09841a8717ab55eebe15</description></item>
-    /// <item><term>DLC3_CR0.5_KoboldMeleeWarriorLevel2</term><description>70e3fb16d13d4f39b97ec6f5b7a87546</description></item>
+    /// <item><term>DLC3_CR0.5_Cultist_Wizard</term><description>ed64bbbf2bd34eb59e00fa2e93c8e3bf</description></item>
     /// <item><term>Zanedra_Sanctum</term><description>34c3e14d08f2ff4448b745761cbb846f</description></item>
     /// </list>
     /// </remarks>

@@ -1,8 +1,8 @@
 ﻿# Changelog
 
-## v2.7.9b Release [2.1 BETA ONLY]
+## v2.8.0 Release
 
-* Updated for 2.1 beta patch
+* Updated for 2.1 patch
 
 ### Breaking Changes
 

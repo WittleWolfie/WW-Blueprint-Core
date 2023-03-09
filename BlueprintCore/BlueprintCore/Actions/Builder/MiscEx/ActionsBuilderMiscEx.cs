@@ -68,6 +68,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter01_Extra</term><description>318f49bf0efcfb4449d0973a3cb3bb73</description></item>
+    /// <item><term>DLC4_PremiumReward</term><description>b73761304e7145ada8fa98e99f771353</description></item>
+    /// <item><term>DLC4_ShifterLevelGained</term><description>c044d7ade3a84547b7e01bf72c01e62a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -301,7 +303,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0007</term><description>86b05ac8299b6aa4d981d66648fa72b6</description></item>
-    /// <item><term>SW_SosielDoor_Actions</term><description>4afde9cdd5d78214f90abcce06a68416</description></item>
+    /// <item><term>SW_SeelahDoor_Actions</term><description>ee6f1cc0643a6f94cac31290bd6084b2</description></item>
     /// <item><term>ThresholdIndoor_SecondFloor</term><description>8b1257aca48c59844a85dd1b11e5df7f</description></item>
     /// </list>
     /// </remarks>
@@ -640,7 +642,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0037</term><description>01a4a26e52f07b6469aec31d62735679</description></item>
+    /// <item><term>Cue_0041</term><description>81e6c7dc9eab34a48b1edcab69e4675c</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
