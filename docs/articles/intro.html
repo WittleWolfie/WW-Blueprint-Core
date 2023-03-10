@@ -347,6 +347,9 @@ writing.</p>
     &lt;LocalAssembly Include=&quot;$(AssemblyName).dll&quot; /&gt;
     &lt;ILStrip Include=&quot;&amp;quot;$(SolutionDir)\tools\BrokenEvent.ILStrip.CLI.exe&amp;quot;&quot; /&gt;
 
+    &lt;!-- System Entry Points --&gt;
+    &lt;Entry Include=&quot;System.Runtime.CompilerServices.RefSafetyRulesAttribute&quot; /&gt;
+
     &lt;!-- BlueprintCore Entry Points --&gt;
     &lt;Entry Include=&quot;BlueprintCore.Utils.Assets.AssetTool/AssetBundle_Patch&quot; /&gt;
     &lt;Entry Include=&quot;BlueprintCore.Utils.Assets.AssetTool/BlueprintsCaches_Patch&quot; /&gt;
