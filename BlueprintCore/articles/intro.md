@@ -36,9 +36,36 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
     * **Seriously close it or you'll probably need to do some renaming of things in Unity yourself from BasicTemplate to your mod name**
 4. Download the latest [BasicTemplate](https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip)
 5. Extract the contents
-6. Open the folder `BPCoreTemplate`, right click `Setup.ps1`, and select `Run with Powershell`
+6. Download [SetupBPTemplate](https://github.com/BBurgarella/SetupBPTemplateDFlat) and follow the [Usage Instructions](https://github.com/BBurgarella/SetupBPTemplateDFlat#usage)
+    * If this doesn't work try following the [Fallback](#fallback-powershell-script) instructions.
+7. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
+    ![Unity quick start](~/images/quick_start/unity.png)
+    * From the top bar select **Assets** > **Build AssetBundles**
+    * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
+    * You can close Unity
+8. Navigate to your mod project folder and open `<ModName>.csproj` in Visual Studio
+    * Right click the project and select **Clean**
+    * When it completes (check the Output window at the bottom), right click again and select **Unload Project**
+    * Right click one more time and select **Reload Project**
+    * This fixes issues with Intellisense caching claiming your assembly reference is broken
+9. Still in Visual Studio, right click the project and select **Add** > **Existing Item**
+    * Navigate to the Unity project folder then `Assets/StreamingAssets` and select `<modname>_assets`
+    * Right click `<modname>_assets` and set to `Copy if newer`
+    ![Assets file properties](~/images/quick_start/assets_props.png)
+10. Build the project
+11. Launch Wrath and create or level up a character
+    * If all went well you should see a new feat called "My Feat"
+    ![Example feat from mod](~/images/quick_start/my_feat.png)
+
+You're all set! If you want to keep your assembly size small you can additionally configure [ILStrip](#optional-reduce-assembly-size-with-ilstrip).
+
+### Fallback: Powershell Script
+
+If SetupBPTemplate doesn't work for you, here are the original powershell instructions:
+
+1. Open the folder `BPCoreTemplate`, right click `Setup.ps1`, and select `Run with Powershell`
 ![Run Setup with powershell](~/images/quick_start/run_powershell.png)
-7. Follow the prompts (described below)
+2. Follow the prompts (described below)
     * First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
     ![Select Wrath install directory](~/images/quick_start/select_wrath_dir.png)
     * Next prompt is the directory you want to use for your mod / C# project
@@ -47,26 +74,6 @@ If you have an existing mod to which you're integrating BPCore you'll need to go
     ![Select Unity project directory](~/images/quick_start/select_unity_dir.png)
     * Last prompt is the name of the mod, **no spaces**
     ![Enter mod name](~/images/quick_start/mod_name.png)
-8. Open the Unity project you created. You should have an `Assets` folder and an `Editor` folder now.
-    ![Unity quick start](~/images/quick_start/unity.png)
-    * From the top bar select **Assets** > **Build AssetBundles**
-    * A moment later you should see a `StreamingAssets` folder. It may show as empty in Unity but open it up the folder in Explorer and it should contain a file called `<modname>_assets`.
-    * You can close Unity
-9. Navigate to your mod project folder and open `<ModName>.csproj` in Visual Studio
-    * Right click the project and select **Clean**
-    * When it completes (check the Output window at the bottom), right click again and select **Unload Project**
-    * Right click one more time and select **Reload Project**
-    * This fixes issues with Intellisense caching claiming your assembly reference is broken
-10. Still in Visual Studio, right click the project and select **Add** > **Existing Item**
-    * Navigate to the Unity project folder then `Assets/StreamingAssets` and select `<modname>_assets`
-    * Right click `<modname>_assets` and set to `Copy if newer`
-    ![Assets file properties](~/images/quick_start/assets_props.png)
-11. Build the project
-12. Launch Wrath and create or level up a character
-    * If all went well you should see a new feat called "My Feat"
-    ![Example feat from mod](~/images/quick_start/my_feat.png)
-
-You're all set! If you want to keep your assembly size small you can additionally configure [ILStrip](#optional-reduce-assembly-size-with-ilstrip).
 
 ### Troubleshooting
 
@@ -243,6 +250,8 @@ Your project file should look almost identical to the tutorial project file, wit
 Without these `ILRepack` will fail.
 
 ## Optional: Reduce Assembly Size with ILStrip
+
+UPDATE 3/13/23: I recommend against this. While it works, the setup is finnicky and the savings are still relatively small, 8MB isn't a lot. This requires constant care since most Harmony patches require you to add another entry point or things will mysteriously not work.
 
 BPCore is a large library with wrappers for thousands of game types. It has a big footprint: 7MB at the time of
 writing.
