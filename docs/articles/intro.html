@@ -109,18 +109,9 @@
 </li>
 <li>Download the latest <a href="https://github.com/WittleWolfie/BPCoreTemplate/releases/latest/download/BasicTemplate.zip">BasicTemplate</a></li>
 <li>Extract the contents</li>
-<li>Open the folder <code>BPCoreTemplate</code>, right click <code>Setup.ps1</code>, and select <code>Run with Powershell</code>
-<img src="../images/quick_start/run_powershell.png" alt="Run Setup with powershell"></li>
-<li>Follow the prompts (described below)
+<li>Download <a href="https://github.com/BBurgarella/SetupBPTemplateDFlat">SetupBPTemplate</a> and follow the <a href="https://github.com/BBurgarella/SetupBPTemplateDFlat#usage">Usage Instructions</a>
 <ul>
-<li>First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
-<img src="../images/quick_start/select_wrath_dir.png" alt="Select Wrath install directory"></li>
-<li>Next prompt is the directory you want to use for your mod / C# project
-<img src="../images/quick_start/select_mod_dir.png" alt="Select mod project directory"></li>
-<li>Next prompt is the directory for the Unity project you created
-<img src="../images/quick_start/select_unity_dir.png" alt="Select Unity project directory"></li>
-<li>Last prompt is the name of the mod, <strong>no spaces</strong>
-<img src="../images/quick_start/mod_name.png" alt="Enter mod name"></li>
+<li>If this doesn't work try following the <a href="#fallback-powershell-script">Fallback</a> instructions.</li>
 </ul>
 </li>
 <li>Open the Unity project you created. You should have an <code>Assets</code> folder and an <code>Editor</code> folder now.
@@ -155,6 +146,24 @@
 </li>
 </ol>
 <p>You're all set! If you want to keep your assembly size small you can additionally configure <a href="#optional-reduce-assembly-size-with-ilstrip">ILStrip</a>.</p>
+<h3 id="fallback-powershell-script">Fallback: Powershell Script</h3>
+<p>If SetupBPTemplate doesn't work for you, here are the original powershell instructions:</p>
+<ol>
+<li>Open the folder <code>BPCoreTemplate</code>, right click <code>Setup.ps1</code>, and select <code>Run with Powershell</code>
+<img src="../images/quick_start/run_powershell.png" alt="Run Setup with powershell"></li>
+<li>Follow the prompts (described below)
+<ul>
+<li>First prompt is your Wrath installation directory. If you use the default steam location you can just click okay.
+<img src="../images/quick_start/select_wrath_dir.png" alt="Select Wrath install directory"></li>
+<li>Next prompt is the directory you want to use for your mod / C# project
+<img src="../images/quick_start/select_mod_dir.png" alt="Select mod project directory"></li>
+<li>Next prompt is the directory for the Unity project you created
+<img src="../images/quick_start/select_unity_dir.png" alt="Select Unity project directory"></li>
+<li>Last prompt is the name of the mod, <strong>no spaces</strong>
+<img src="../images/quick_start/mod_name.png" alt="Enter mod name"></li>
+</ul>
+</li>
+</ol>
 <h3 id="troubleshooting">Troubleshooting</h3>
 <h4 id="setup-doesnt-run">Setup Doesn't Run</h4>
 <p>This can happen if your security policy prevents running unsigned PowerShell scripts.</p>
@@ -328,6 +337,7 @@
 </ul>
 <p>Without these <code>ILRepack</code> will fail.</p>
 <h2 id="optional-reduce-assembly-size-with-ilstrip">Optional: Reduce Assembly Size with ILStrip</h2>
+<p>UPDATE 3/13/23: I recommend against this. While it works, the setup is finnicky and the savings are still relatively small, 8MB isn't a lot. This requires constant care since most Harmony patches require you to add another entry point or things will mysteriously not work.</p>
 <p>BPCore is a large library with wrappers for thousands of game types. It has a big footprint: 7MB at the time of
 writing.</p>
 <p>The impact of this isn't significant but if you want to keep your assembly small use <a href="https://brokenevent.com/projects/ilstrip">ILStrip</a>. ILStrip removes unreferenced classes from an assembly, significantly reducing the size of mods using BPCore. It reduced the tutorial assembly from to ~400KB from ~8MB.</p>
