@@ -182,7 +182,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators
       Blueprint.OnEnable();
 
       Validator.Check(Blueprint);
-      ToValidate.ForEach(obj => Validator.Check(obj));
+      ToValidate.ForEach(Validator.Check);
       if (Validator.HasErrors())
       {
         Logger.Warn(Validator.GetErrorString());
