@@ -811,7 +811,7 @@
       {
         "FieldName": "PetType",
         "CommentFmt": "If specified, actions only run on pets of that type.",
-        "ExtraAssignmentFmtLines": [ "{0}.AllPets = {1} is not null;" ]
+        "ExtraAssignmentFmtLines": [ "{0}.AllPets = {1} is null;" ]
       }
     ]
   },

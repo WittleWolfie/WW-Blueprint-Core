@@ -1924,7 +1924,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var element = ElementTool.Create<ContextActionsOnPet>();
       element.Actions = actions?.Build();
       element.PetType = petType ?? element.PetType;
-      element.AllPets = petType is not null;
+      element.AllPets = petType is null;
       return builder.Add(element);
     }
 
