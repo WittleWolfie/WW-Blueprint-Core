@@ -457,6 +457,10 @@ namespace BlueprintCoreGen.Analysis
 				var guid = bp.Value<string>("AssetId");
 				var data = bp.GetValue("Data");
 				var bpType = GetType(data)!;
+				
+				// Weird case w/ AppsFlyer
+				if (bpType is null)
+					continue;
 
 				if (SearchFilters.Any())
         {
