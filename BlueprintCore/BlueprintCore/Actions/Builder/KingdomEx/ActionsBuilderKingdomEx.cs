@@ -1352,7 +1352,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0003</term><description>8df6da6c3db0b744baeca86c24fddc03</description></item>
-    /// <item><term>ElyankaUndeadUpgrade_level2</term><description>d0a92496cd0b4b2f9f3ff6500f63defa</description></item>
+    /// <item><term>Event33ProfitablePurchase</term><description>cd3ffefdcd5d4a4e87fe7012f2aa7b92</description></item>
     /// <item><term>ZachariusUndeadUpgrade_level2</term><description>ce15dfd148df49df892eda52eb46cf34</description></item>
     /// </list>
     /// </remarks>

@@ -2442,6 +2442,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>NewTutorial_14_DiceRoll</term><description>930b63a8f29420a4f9221a9feee7b856</description></item>
+    /// <item><term>NewTutorial_42_GlobalMap_DiceRoll</term><description>0b67a427520d4e9a87ec9160b9405201</description></item>
     /// <item><term>TestTutorialSC</term><description>2e48c8330634d544489e1fc14ccf5eaa</description></item>
     /// </list>
     /// </remarks>

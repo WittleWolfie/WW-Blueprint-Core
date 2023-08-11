@@ -351,7 +351,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEnchantmentBuff</term><description>e9e8867539c2b664d9e23de7c18dc912</description></item>
+    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -722,7 +722,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFogArea</term><description>f4dc3f53090627945b83f16ebf3146a6</description></item>
-    /// <item><term>IncredibleMightArea</term><description>8bcdb58e67c061f46b0847bea1645639</description></item>
+    /// <item><term>InsightfulContemplationSongArea</term><description>cad5dd5157db3304c80399472bb48bdf</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>

@@ -1261,7 +1261,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>GriffonheartShifterGriffonShapeFakeFeature</term><description>1d3656c3090e48f59888d86ff7014acc</description></item>
+    /// <item><term>LeyLineGuardianConduitSurgeBuff</term><description>4770ff0074ebb6246ab1d09b9b261103</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1940,7 +1940,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HoldMonsterBuff_Cutscene</term><description>d77b4982cc0d8eb4f9210d1350199e91</description></item>
+    /// <item><term>HolyBlareBuff</term><description>6b1f08cf7bb1a3e4e9a6f390f1c31832</description></item>
     /// <item><term>ZachariusFearAuraEffectBuff</term><description>384831c7bbbbe62469a9e3247545d73d</description></item>
     /// </list>
     /// </remarks>
@@ -2600,7 +2600,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         int? casterLevel = null,
         List<Blueprint<BlueprintUnitFactReference>>? facts = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? useThisContextForFact = null)
     {
       var component = new AddFactsToMount();
       component.CasterLevel = casterLevel ?? component.CasterLevel;
@@ -2609,6 +2610,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       {
         component.m_Facts = new BlueprintUnitFactReference[0];
       }
+      component.m_UseThisContextForFact = useThisContextForFact ?? component.m_UseThisContextForFact;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2726,7 +2728,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssertionOfDominanceBuff</term><description>063e215c1a654e87b47628e0fa6b3f09</description></item>
-    /// <item><term>DeathThroesBuff</term><description>167e29bb47236e341abf7f6df1349d91</description></item>
+    /// <item><term>DLC2_Player_Wounded_Buff</term><description>6f408add25eb4c6ca4d40d7e9f809d62</description></item>
     /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
     /// </list>
     /// </remarks>
@@ -3130,8 +3132,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BeastTamerBonusSpells</term><description>e5ca84b6bd3548e4796a73500a23773d</description></item>
-    /// <item><term>EnlightenedPhilosopherLifeSpells</term><description>6ea903d2711be5f44864fc523ee4ef82</description></item>
-    /// <item><term>WolfScarredFaceCurseFeatureLevel5</term><description>43c1305f3e4596f46b8d2ed782693ef7</description></item>
+    /// <item><term>EnlightenedPhilosopherNatureSpells</term><description>400ba8f772999344da36da7984a14faf</description></item>
+    /// <item><term>WolfScarredFaceCurseNoPenaltyFeatureLevel5</term><description>5f9d4bd9fe9e4dedaa788d1997aca27a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -3238,7 +3240,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobatsFootwearFeature</term><description>bb115b9d89d7b4b48814d059ecd29164</description></item>
-    /// <item><term>GibrilethTripFeature</term><description>6a93877b32ceaec408d7eace7999bc40</description></item>
+    /// <item><term>Glabrezu_PolymorfDeskariMelee</term><description>52b5a37959f9de54db7f27daa4eb6adf</description></item>
     /// <item><term>XantirWithoutSwarm_MidnightFaneInThePast</term><description>a44bf782e3a95194493874cf122c4f99</description></item>
     /// </list>
     /// </remarks>
@@ -4438,7 +4440,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>ElementalOverflowLevel16DexConStrBuff</term><description>47d5544f52178ff4e9b3564550531c8d</description></item>
+    /// <item><term>ElementalOverflowLevel16DexStrConBuff</term><description>d66262d6cc1ddff4da5f229cfc9f5ac9</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalEffectBuff</term><description>252279901e3644ce8b5b3275bea8f7bd</description></item>
     /// </list>
     /// </remarks>
@@ -4949,7 +4951,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlessingMajorBuff</term><description>ac410725d8fc6fe4b81d47269f4f3ea1</description></item>
-    /// <item><term>GreaterProfaneVigorBuff</term><description>5a04faeacfaa0bd44a8165fb4ae2ee57</description></item>
+    /// <item><term>GrenadiersHalfPlateFeature</term><description>3dc5c9fc70814fecb30812a1f3dee078</description></item>
     /// <item><term>WoundWormsLairDragonBuff</term><description>d095cd5fa7e97ff4f8b7a32b69fc0713</description></item>
     /// </list>
     /// </remarks>
@@ -7689,7 +7691,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Airborne</term><description>70cffb448c132fa409e49156d013b175</description></item>
-    /// <item><term>HeroismGreaterBuff</term><description>b8da3ec045ec04845a126948e1f4fc1a</description></item>
+    /// <item><term>ImmunityToCharm</term><description>c0845a4e242a9f04d9368fe03ac3e431</description></item>
     /// <item><term>WingsMovanicDeva</term><description>775df52784e1d454cba0da8df5f4f59a</description></item>
     /// </list>
     /// </remarks>
@@ -9783,7 +9785,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluArcaneScientistsFeature</term><description>380b9e7f1c3f4dbeb776f4b9a51961b9</description></item>
-    /// <item><term>ClearPurposeFeature</term><description>2fee198fe87807d49950dd1ef73cb026</description></item>
+    /// <item><term>CR5Gelatinous_Cube_Protection</term><description>ced4f148f79f4a9591da666299d4da77</description></item>
     /// <item><term>OracleRevelationSafeCuring</term><description>3fa75c1a809882a4697db75daf8803e3</description></item>
     /// </list>
     /// </remarks>
@@ -11613,7 +11615,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>FireKineticBladeFeature</term><description>17fc78086533bfd4aa3818317c6210bc</description></item>
+    /// <item><term>FireBlastProgression</term><description>fbed3ca8c0d89124ebb3299ccf68c439</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -11757,7 +11759,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSummonFeatureTier3</term><description>6c999087fd82ca9499cee45f107e9831</description></item>
-    /// <item><term>GrowingSpikesFeatureAddLevel6</term><description>8b58cbab4a9b416ab540b5f364190c5a</description></item>
+    /// <item><term>HealingDomainBaseFeature</term><description>303cf1c933f343c4d91212f8f4953e3c</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -13383,6 +13385,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </list>
     /// </remarks>
     ///
+    /// <param name="checkConditionImmunity">
+    /// <para>
+    /// InfoBox: Если в бафе есть состояние, к которому мы имунны, мы игнорируем весь бафф.
+    /// </para>
+    /// </param>
     /// <param name="gainedFact">
     /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
@@ -13408,12 +13415,14 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// </para>
     /// </param>
     public TBuilder AddBuffSubstitutionOnApply(
+        bool? checkConditionImmunity = null,
         bool? checkDescriptor = null,
         Blueprint<BlueprintBuffReference>? gainedFact = null,
         SpellDescriptorWrapper? spellDescriptor = null,
         Blueprint<BlueprintBuffReference>? substituteBuff = null)
     {
       var component = new BuffSubstitutionOnApply();
+      component.CheckConditionImmunity = checkConditionImmunity ?? component.CheckConditionImmunity;
       component.CheckDescriptor = checkDescriptor ?? component.CheckDescriptor;
       component.m_GainedFact = gainedFact?.Reference ?? component.m_GainedFact;
       if (component.m_GainedFact is null)
@@ -13765,7 +13774,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>EldritchKnightDiverseTraining</term><description>983e8ad193160b44da80b38af4927e75</description></item>
-    /// <item><term>FighterTraining</term><description>2b636b9e8dd7df94cbd372c52237eebf</description></item>
+    /// <item><term>GriffonheartShifterGriffonShapeFakeFeature</term><description>1d3656c3090e48f59888d86ff7014acc</description></item>
     /// <item><term>WarpriestClassAsBABFeature</term><description>2e134d80fef14a44aae9c087215c15af</description></item>
     /// </list>
     /// </remarks>
@@ -15071,7 +15080,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AerialEvasionBuff</term><description>1f6b996a2ccf0454a9fde4625b89591f</description></item>
-    /// <item><term>RingOfDevastatingWillFeature</term><description>8498f37c5a0d3bc46adb49ca82b8e230</description></item>
+    /// <item><term>QuicklingCreature</term><description>78ae3b88fd3a434489fa0731ba2eab42</description></item>
     /// <item><term>SubtypeInevitable</term><description>6c8a550544aa425f8f6f8e7667cb04ec</description></item>
     /// </list>
     /// </remarks>
@@ -16637,7 +16646,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneBuff</term><description>345160619fc2ddc44b8ad98c94dde448</description></item>
-    /// <item><term>HawksEyesFeature</term><description>b8a670ba3d1346345bb8ad118ba8f1c3</description></item>
+    /// <item><term>GreyGarrison_SuperMythicBuff</term><description>4b11247a4988c254fb9d1cd67f0b1e4a</description></item>
     /// <item><term>WitchHexProtectiveLuckEffectBuff</term><description>ffa995f03d87a214ab9de1dd898497ca</description></item>
     /// </list>
     /// </remarks>
@@ -17436,7 +17445,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSummonFeatureTier3</term><description>6c999087fd82ca9499cee45f107e9831</description></item>
-    /// <item><term>HumanRaisedHalfOrc</term><description>289d95c2c26f4e638c1f26d5ea7c594b</description></item>
+    /// <item><term>KallikkeDevilFeature</term><description>c89595800e597ec4cbe0dad768e56006</description></item>
     /// <item><term>VitalStrikeFeatureImproved</term><description>52913092cd018da47845f36e6fbe240f</description></item>
     /// </list>
     /// </remarks>
@@ -17457,6 +17466,42 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         Blueprint<BlueprintUnitFactReference>? feature = null)
     {
       var component = new RemoveFeatureOnApply();
+      component.m_Feature = feature?.Reference ?? component.m_Feature;
+      if (component.m_Feature is null)
+      {
+        component.m_Feature = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RemoveFeatureOnDetach"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MaskOfNothingBuff</term><description>7543a4b16164467a839f7ec16866fb10</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="feature">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRemoveFeatureOnDetach(
+        Blueprint<BlueprintUnitFactReference>? feature = null)
+    {
+      var component = new RemoveFeatureOnDetach();
       component.m_Feature = feature?.Reference ?? component.m_Feature;
       if (component.m_Feature is null)
       {
@@ -20320,7 +20365,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AuthorityHeavyMaceBuff</term><description>b3b8fb97d9282a04aa44012bbf0e4b24</description></item>
-    /// <item><term>NaturesAgonyBuff</term><description>d89b2c0a2a81e2f47a70ad90609e1d10</description></item>
+    /// <item><term>GlowingScytheBuff</term><description>c81888be32ba33d4e9cdb4f5671ac68b</description></item>
     /// <item><term>VenomPoisonSecondBuff</term><description>dccf1f1c6a7ecfc45be3628afb5d28ed</description></item>
     /// </list>
     /// </remarks>
@@ -20370,6 +20415,38 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         bool? penalized = null)
     {
       var component = new BuffExtraAttack();
+      component.Haste = haste ?? component.Haste;
+      component.Number = number ?? component.Number;
+      component.Penalized = penalized ?? component.Penalized;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="BuffExtraAttackForFastBombs"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RapidShotBuff</term><description>0f310c1e709e15e4fa693db15a4baeb4</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddBuffExtraAttackForFastBombs(
+        bool? haste = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? number = null,
+        bool? penalized = null)
+    {
+      var component = new BuffExtraAttackForFastBombs();
       component.Haste = haste ?? component.Haste;
       component.Number = number ?? component.Number;
       component.Penalized = penalized ?? component.Penalized;
@@ -20455,7 +20532,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abadar_Buff</term><description>70b34e1de03641b4a5a35b5fda6f0642</description></item>
-    /// <item><term>NahRingBuff</term><description>82cf795e6a8100e46b0a426f2c7ea3a3</description></item>
+    /// <item><term>OracleRevelationCinderDance</term><description>6e67eae3081853544b191943f5ed4534</description></item>
     /// <item><term>WrathOfTheCreatorItemFeature</term><description>5600fc815bc0404e98b6f0bc4ce9665d</description></item>
     /// </list>
     /// </remarks>

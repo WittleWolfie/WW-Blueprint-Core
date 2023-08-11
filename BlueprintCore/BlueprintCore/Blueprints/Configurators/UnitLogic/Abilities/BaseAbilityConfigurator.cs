@@ -1287,7 +1287,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEnchantmentBuff</term><description>e9e8867539c2b664d9e23de7c18dc912</description></item>
+    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -1780,7 +1780,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
-    /// <item><term>Geniekind</term><description>07b608fab304f894880898dc0764e6e5</description></item>
+    /// <item><term>GeniekindDjinni</term><description>6f1f99b38e471fa42b1b42f7549b4210</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -5028,6 +5028,34 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityRequirementOnMount"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DimensionalRideAbility</term><description>0ba39a85cda2441e95d9022413699cd2</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddAbilityRequirementOnMount(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? not = null)
+    {
+      var component = new AbilityRequirementOnMount();
+      component.Not = not ?? component.Not;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AbilityResourceLogic"/>
     /// </summary>
     ///
@@ -5310,7 +5338,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellhoundBreathWeapon</term><description>7dee79e757cac2040b8cab2adae39ee0</description></item>
+    /// <item><term>HellknightCommandGreaterApproach</term><description>7e8627ca0ec19a6499b818843de0b923</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -5823,7 +5851,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrderApproach</term><description>d5f853d35d58c104eaa7eab50c25de39</description></item>
-    /// <item><term>OracleRevelationLifeLeachAbility</term><description>4f22925d0df782c49b13d484b864250f</description></item>
+    /// <item><term>OracleRevelationPunitiveTransformationAbility</term><description>2b776d9981f592247ba285fa7006036a</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>
@@ -6710,7 +6738,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>Guidance</term><description>c3a8f31778c3980498d8f00c980be5f5</description></item>
+    /// <item><term>GuidanceBackgrounds</term><description>222fc3d20375d104ba6e5f8c3e5434d7</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>

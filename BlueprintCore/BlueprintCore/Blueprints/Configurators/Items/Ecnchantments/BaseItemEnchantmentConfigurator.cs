@@ -252,7 +252,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEnchantmentBuff</term><description>e9e8867539c2b664d9e23de7c18dc912</description></item>
+    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>

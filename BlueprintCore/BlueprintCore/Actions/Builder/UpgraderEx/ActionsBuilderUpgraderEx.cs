@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-384606</term><description>3d656ef39e8341fb865bbb09f670105c</description></item>
-    /// <item><term>PF-477053_Camelia</term><description>b33780798c374f7f95a7fcd07461626a</description></item>
+    /// <item><term>PF-390821</term><description>b57e1f6c132c4194bd7bb225033ed08d</description></item>
+    /// <item><term>PF-489442</term><description>6c34d6a66e0545618ad60956e6ee16be</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1016,8 +1016,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-358900</term><description>9d2858bae0fe4c8495075117927c15a5</description></item>
-    /// <item><term>PF-367341</term><description>8db934a9b811435a8181905f351ea17c</description></item>
-    /// <item><term>PF-462557</term><description>ad94accf10ed4ebe87e508c8d1ec31fc</description></item>
+    /// <item><term>PF-397133</term><description>8da361c37b9b4cf3a476a2fe532adccf</description></item>
+    /// <item><term>PF-487847</term><description>685b8dc82e8b4131b3155baa846ffe8f</description></item>
     /// </list>
     /// </remarks>
     ///

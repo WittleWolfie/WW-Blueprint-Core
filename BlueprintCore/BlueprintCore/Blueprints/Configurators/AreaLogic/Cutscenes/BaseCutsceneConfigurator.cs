@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
           var copyFrom = blueprint.Reference.Get();
           bp.Priority = copyFrom.Priority;
           bp.NonSkippable = copyFrom.NonSkippable;
+          bp.NonSkippingFrames = copyFrom.NonSkippingFrames;
           bp.ForbidDialogs = copyFrom.ForbidDialogs;
           bp.ForbidRandomIdles = copyFrom.ForbidRandomIdles;
           bp.IsBackground = copyFrom.IsBackground;
@@ -61,6 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
           var copyFrom = blueprint.Reference.Get();
           bp.Priority = copyFrom.Priority;
           bp.NonSkippable = copyFrom.NonSkippable;
+          bp.NonSkippingFrames = copyFrom.NonSkippingFrames;
           bp.ForbidDialogs = copyFrom.ForbidDialogs;
           bp.ForbidRandomIdles = copyFrom.ForbidRandomIdles;
           bp.IsBackground = copyFrom.IsBackground;
@@ -89,12 +91,36 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Cutscenes
     /// <summary>
     /// Sets the value of <see cref="Cutscene.NonSkippable"/>
     /// </summary>
+    ///
+    /// <param name="nonSkippable">
+    /// <para>
+    /// Tooltip: If not set, сan&amp;apos;t be skipped
+    /// </para>
+    /// </param>
     public TBuilder SetNonSkippable(bool nonSkippable = true)
     {
       return OnConfigureInternal(
         bp =>
         {
           bp.NonSkippable = nonSkippable;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="Cutscene.NonSkippingFrames"/>
+    /// </summary>
+    ///
+    /// <param name="nonSkippingFrames">
+    /// <para>
+    /// Tooltip: If not set, cutscene can skip frames for the mean of optimization
+    /// </para>
+    /// </param>
+    public TBuilder SetNonSkippingFrames(bool nonSkippingFrames = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.NonSkippingFrames = nonSkippingFrames;
         });
     }
 

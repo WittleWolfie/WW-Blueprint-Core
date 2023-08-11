@@ -48,6 +48,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.IsDungeon = copyFrom.IsDungeon;
           bp.AllowMythicChange = copyFrom.AllowMythicChange;
           bp.AudioChunk = copyFrom.AudioChunk;
+          bp.IsLongImportActivate = copyFrom.IsLongImportActivate;
           bp.m_StartGamePreset = copyFrom.m_StartGamePreset;
           bp.m_Pregens = copyFrom.m_Pregens;
           bp.IsMainGameContent = copyFrom.IsMainGameContent;
@@ -77,6 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.IsDungeon = copyFrom.IsDungeon;
           bp.AllowMythicChange = copyFrom.AllowMythicChange;
           bp.AudioChunk = copyFrom.AudioChunk;
+          bp.IsLongImportActivate = copyFrom.IsLongImportActivate;
           bp.m_StartGamePreset = copyFrom.m_StartGamePreset;
           bp.m_Pregens = copyFrom.m_Pregens;
           bp.IsMainGameContent = copyFrom.IsMainGameContent;
@@ -254,6 +256,18 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.AudioChunk = audioChunk;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.IsLongImportActivate"/>
+    /// </summary>
+    public TBuilder SetIsLongImportActivate(bool isLongImportActivate = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsLongImportActivate = isLongImportActivate;
         });
     }
 

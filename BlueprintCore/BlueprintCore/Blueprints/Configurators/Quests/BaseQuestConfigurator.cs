@@ -355,7 +355,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR11_FireElementalElder</term><description>c913003de3b64a239f7cb5b167876af2</description></item>
+    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>

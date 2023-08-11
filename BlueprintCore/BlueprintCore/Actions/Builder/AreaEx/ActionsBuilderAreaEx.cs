@@ -1110,7 +1110,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
-    /// <item><term>DHDefended_Mechanic</term><description>d9042ef7dd8941d8b71b2e4f66684f03</description></item>
+    /// <item><term>DisableFirstBallTrap_Actions</term><description>925eb4dd98a32ea478f46bd1799fefb2</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -1364,7 +1364,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>d728ab3139e4a474d9fe75a15dfa2b27</description></item>
+    /// <item><term>Cue_0012</term><description>13b6c3cf20644ba44be8627f6cb0087e</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>
@@ -1454,7 +1454,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction 9</term><description>6be9fef7a75072146a2b2c21e11e65c1</description></item>
+    /// <item><term>CommandAction1</term><description>fe6ef70646774bcebe26a218c71c76b3</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1569,7 +1569,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Cue_0022</term><description>15947f75438801a44b98f6f7f930dd8d</description></item>
+    /// <item><term>Cue_0023</term><description>058f685f053b66748a2fe1d382466910</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>d6793bcea861d3b49857067532fcedc0</description></item>
     /// </list>
     /// </remarks>

@@ -49,6 +49,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_OverrideShardItem = copyFrom.m_OverrideShardItem;
           bp.m_OverrideDestructible = copyFrom.m_OverrideDestructible;
           bp.m_AlwaysPrimary = copyFrom.m_AlwaysPrimary;
+          bp.m_IsCanChangeVisualOverriden = copyFrom.m_IsCanChangeVisualOverriden;
+          bp.m_CanChangeVisual = copyFrom.m_CanChangeVisual;
         });
     }
 
@@ -75,6 +77,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_OverrideShardItem = copyFrom.m_OverrideShardItem;
           bp.m_OverrideDestructible = copyFrom.m_OverrideDestructible;
           bp.m_AlwaysPrimary = copyFrom.m_AlwaysPrimary;
+          bp.m_IsCanChangeVisualOverriden = copyFrom.m_IsCanChangeVisualOverriden;
+          bp.m_CanChangeVisual = copyFrom.m_CanChangeVisual;
         });
     }
 
@@ -424,6 +428,30 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_AlwaysPrimary = alwaysPrimary;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_IsCanChangeVisualOverriden"/>
+    /// </summary>
+    public TBuilder SetIsCanChangeVisualOverriden(bool isCanChangeVisualOverriden = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsCanChangeVisualOverriden = isCanChangeVisualOverriden;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.m_CanChangeVisual"/>
+    /// </summary>
+    public TBuilder SetCanChangeVisual(bool canChangeVisual = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_CanChangeVisual = canChangeVisual;
         });
     }
 

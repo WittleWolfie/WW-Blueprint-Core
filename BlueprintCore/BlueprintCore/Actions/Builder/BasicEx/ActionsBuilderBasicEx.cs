@@ -18,7 +18,6 @@ using Kingmaker.Enums;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.RuleSystem.Rules.Damage;
-using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
 using System;
@@ -451,7 +450,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0002</term><description>cccae5c1d9a34da8825e4a7982e1176c</description></item>
+    /// <item><term>Cue_0004</term><description>9bc3bdb90dc38374bb5140f16c310785</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -772,7 +771,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0048_Merge</term><description>19f6bd3c47d39f040a523cdb591209fb</description></item>
+    /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
     /// <item><term>Cue_0002</term><description>cccae5c1d9a34da8825e4a7982e1176c</description></item>
     /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
     /// </list>
@@ -811,7 +810,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
-    /// <item><term>CommandAction2</term><description>8ce3fe93201e4d7cb6f02395570acdfc</description></item>
+    /// <item><term>CommandAction2</term><description>5624eaec69cc4f5c8d0eed8229c5cdba</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -840,7 +839,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>3Wave</term><description>42617736a4644d68bd471cb05e8e1f9c</description></item>
-    /// <item><term>CommandAction8</term><description>996cd709c00c46e3a14f88a44029f1a3</description></item>
+    /// <item><term>CommandAction7</term><description>ec10a2f5c97c4ba7ba5bd64d9b7bd6c7</description></item>
     /// <item><term>YeribethHall_ResetCipher</term><description>6613c051209b7ef49a3653bc1d87fa36</description></item>
     /// </list>
     /// </remarks>
@@ -1592,7 +1591,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusBearBuff</term><description>fa25fec82271c93478194c52a20ce733</description></item>
-    /// <item><term>Disable_Rage_SpawnActions</term><description>212be7d51b3a421e8d7c14e158b2d55d</description></item>
+    /// <item><term>DemonTrueNeutral_SpawnActions</term><description>f0900332cdcd69840bf78f24ecef8af1</description></item>
     /// <item><term>Valmallos_Stage2</term><description>511aa03d9a17499d9a6c71e0ab8bd47a</description></item>
     /// </list>
     /// </remarks>
@@ -1892,31 +1891,6 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     }
 
     /// <summary>
-    /// Adds <see cref="StatusEffect"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DLC4_BearPowerUpFeature</term><description>3d020b49cd434e54b003ed616296e903</description></item>
-    /// </list>
-    /// </remarks>
-    public static ActionsBuilder StatusEffect(
-        this ActionsBuilder builder,
-        UnitCondition? condition = null,
-        bool? remove = null,
-        UnitEvaluator? unit = null)
-    {
-      var element = ElementTool.Create<StatusEffect>();
-      element.Condition = condition ?? element.Condition;
-      element.Remove = remove ?? element.Remove;
-      builder.Validate(unit);
-      element.Unit = unit ?? element.Unit;
-      return builder.Add(element);
-    }
-
-    /// <summary>
     /// Adds <see cref="Summon"/>
     /// </summary>
     ///
@@ -2001,7 +1975,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>CommandAction2</term><description>2ecb94a43ca14ce189a645a242b9e7e1</description></item>
+    /// <item><term>CommandAction20</term><description>072d6ca6ed6e43f7a2e55ad76efdc159</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

@@ -1249,6 +1249,35 @@ namespace BlueprintCore.Blueprints.Configurators
     }
 
     /// <summary>
+    /// Adds <see cref="DungeonAddLootToVendor"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Dungeon Add Loot To Vendor
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC3_Falconium_tier1_original1</term><description>2a2e73631326473bb43abda08475380b</description></item>
+    /// <item><term>DLC3_VendorInPort_tier1_unique</term><description>042d769be561428da5cc5c0b07408869</description></item>
+    /// <item><term>DLC4_NegociantSecondState</term><description>32a3b06249984fda9bc474c2feaec195</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddDungeonAddLootToVendor(params DungeonAddLootToVendor.Item[] loots)
+    {
+      var component = new DungeonAddLootToVendor();
+      Validate(loots);
+      component.m_Loots = loots;
+      if (component.m_Loots is null)
+      {
+        component.m_Loots = new DungeonAddLootToVendor.Item[0];
+      }
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="UnitUpgraderComponent"/>
     /// </summary>
     ///
@@ -1292,35 +1321,6 @@ namespace BlueprintCore.Blueprints.Configurators
         component.m_Upgraders = new BlueprintUnitUpgrader.Reference[0];
       }
       return AddUniqueComponent(component, mergeBehavior, merge);
-    }
-
-    /// <summary>
-    /// Adds <see cref="DungeonAddLootToVendor"/>
-    /// </summary>
-    ///
-    /// <remarks>
-    ///
-    /// <para>
-    /// ComponentName: Dungeon Add Loot To Vendor
-    /// </para>
-    ///
-    /// <list type="bullet">
-    /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_Falconium_tier1_original1</term><description>2a2e73631326473bb43abda08475380b</description></item>
-    /// <item><term>DLC3_VendorInPort_tier1_unique</term><description>042d769be561428da5cc5c0b07408869</description></item>
-    /// <item><term>DLC4_NegociantSecondState</term><description>32a3b06249984fda9bc474c2feaec195</description></item>
-    /// </list>
-    /// </remarks>
-    public TBuilder AddDungeonAddLootToVendor(params DungeonAddLootToVendor.Item[] loots)
-    {
-      var component = new DungeonAddLootToVendor();
-      Validate(loots);
-      component.m_Loots = loots;
-      if (component.m_Loots is null)
-      {
-        component.m_Loots = new DungeonAddLootToVendor.Item[0];
-      }
-      return AddComponent(component);
     }
 
     /// <summary>
@@ -1817,7 +1817,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR11_FireElementalElder</term><description>c913003de3b64a239f7cb5b167876af2</description></item>
+    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>

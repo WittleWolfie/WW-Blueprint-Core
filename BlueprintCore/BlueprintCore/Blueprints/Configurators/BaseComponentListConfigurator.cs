@@ -60,7 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>TutorAC</term><description>5436bba9ec6c6bc48b8ee9a59a4d9a9f</description></item>
     /// <item><term>TutorDamage</term><description>67d1119ed39e3e34f9846643657f88cd</description></item>
-    /// <item><term>TutorDiceRoll</term><description>bb18d66d664e7514ea0acbf5b9670276</description></item>
+    /// <item><term>TutorDiceRollGlobalMap</term><description>a65f6be4e4dd4de4af425c46edb054c2</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -196,7 +196,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp03_Option03</term><description>6e15c7b3eaf98ab409bcbba1bd268ec8</description></item>
+    /// <item><term>MythicAeon_RankUp03_Option02</term><description>daa2d4c1f08e0be47b98e33011fb8f51</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -225,7 +225,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>JoranInCapital_Failed</term><description>a8dea019ba28493080a7cfb59cca3051</description></item>
+    /// <item><term>Katair_DefaultActor</term><description>c8e527e9c1ff40979a85c4321dfa4f58</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -370,7 +370,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>FinneanLab_indoor</term><description>9c6f8cfea11d49339f0f91cfeede6e13</description></item>
+    /// <item><term>AreshkagalDungeon_Arena</term><description>67fb6b5c69c149ecb2aed1b38d299fb7</description></item>
     /// <item><term>IvoryLabyrinth_Prison</term><description>f97f4de6a5073df49b9cac68859f05ae</description></item>
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
@@ -410,6 +410,26 @@ namespace BlueprintCore.Blueprints.Configurators
       Validate(master);
       component.Master = master ?? component.Master;
       component.PetType = petType ?? component.PetType;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="EtudeBracketDetachPetsOnUnit"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CamelliaQ1_CombatState</term><description>845183b29ac053745a0e1a12ee826795</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddEtudeBracketDetachPetsOnUnit(
+        UnitEvaluator? target = null)
+    {
+      var component = new EtudeBracketDetachPetsOnUnit();
+      Validate(target);
+      component.Target = target ?? component.Target;
       return AddComponent(component);
     }
 
@@ -681,7 +701,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreshkagalArena_NenioIgnoreCombat</term><description>35399489cd494583af28e059e5726d6c</description></item>
-    /// <item><term>Regill_LostChapel_EXRemotePassive</term><description>b1727732989438c4c9dc64d08594b773</description></item>
+    /// <item><term>PartyUnitsMakePassive</term><description>c02326b6629d0204497a4bde512d53d6</description></item>
     /// <item><term>Woljif_Nexus_EXRemotePassive</term><description>e6055ae3cde11e9418628e1d446ac193</description></item>
     /// </list>
     /// </remarks>
@@ -982,7 +1002,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>DaeranRomance_BarksAfterSex</term><description>54998634e0121484c8f2de44b09f3766</description></item>
     /// <item><term>MilitaryRegillRankUpPosition</term><description>bf635b68081010c49b9039bfe0d25624</description></item>
-    /// <item><term>Trever_Position</term><description>0e84f374f8b74246a24c1e0a997ba6a6</description></item>
+    /// <item><term>UlbrigWaitsForTheCommanderByTheFire_WarCamp</term><description>8249dba9e71a4f7795331c1508ed4e75</description></item>
     /// </list>
     /// </remarks>
     ///

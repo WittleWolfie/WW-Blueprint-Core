@@ -116,7 +116,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ClawEnhancement2</term><description>54f152bc1abbffa42a030ff300f03d5a</description></item>
+    /// <item><term>BracersOfAnimalFuryBuff</term><description>13b44f202f9082e408e2a20b3da30a1c</description></item>
     /// <item><term>MagicFangGreaterBuff4</term><description>63dc4ce7bd5f4451b244e148be45106c</description></item>
     /// <item><term>UnarmedEnhancement6</term><description>c21b5879e8a7497408980ca0427c7f52</description></item>
     /// </list>

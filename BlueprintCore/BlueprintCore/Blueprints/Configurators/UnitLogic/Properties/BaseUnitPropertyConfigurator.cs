@@ -406,7 +406,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinCreatePoisonAbilityProperty</term><description>0482fffc039d46fc86a86bda03e00f1a</description></item>
     /// <item><term>DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty</term><description>b51cd8eea32a4bbbbf736a595d83699e</description></item>
-    /// <item><term>ScaledFistACBonusProperty2</term><description>d71c095e672c4abfb068aa402899b3ec</description></item>
+    /// <item><term>ShifterWolverineLevelProperty</term><description>fddca642fd7d4b5fab836d9e27bd5b2d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -608,6 +608,45 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="CustomPropertyGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ShifterWolverineLevelProperty</term><description>fddca642fd7d4b5fab836d9e27bd5b2d</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="property">
+    /// <para>
+    /// Blueprint of type BlueprintUnitProperty. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddCustomPropertyGetter(
+        Blueprint<BlueprintUnitPropertyReference>? property = null,
+        PropertySettings? settings = null)
+    {
+      var component = new CustomPropertyGetter();
+      component.m_Property = property?.Reference ?? component.m_Property;
+      if (component.m_Property is null)
+      {
+        component.m_Property = BlueprintTool.GetRef<BlueprintUnitPropertyReference>(null);
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="FactRankGetter"/>
     /// </summary>
     ///
@@ -616,7 +655,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>TricksterLoreReligionDestructionDomainProperty</term><description>71fe0d47127645e7b96c2f46407e3095</description></item>
+    /// <item><term>TricksterLoreReligionDarknessDomainProperty</term><description>044b4066d5fd46158ad3eb9f820166fb</description></item>
     /// <item><term>TricksterLoreReligionWeatherDomainProperty</term><description>7747294b95e64edbb23e1ec5aca774e1</description></item>
     /// </list>
     /// </remarks>
@@ -845,7 +884,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DestructiveDispelProperty</term><description>13e4f1dd08954723b173335a54b48746</description></item>
-    /// <item><term>WitchHexCasterLevelProperty</term><description>2d2243f4f3654512bdda92e80ef65b6d</description></item>
+    /// <item><term>ScaledFistACBonusProperty2</term><description>d71c095e672c4abfb068aa402899b3ec</description></item>
     /// <item><term>WitchHexSpellLevelProperty</term><description>75efe8b64a3a4cd09dda28cef156cfb5</description></item>
     /// </list>
     /// </remarks>

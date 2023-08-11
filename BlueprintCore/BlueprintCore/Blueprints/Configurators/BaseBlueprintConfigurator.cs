@@ -323,7 +323,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GreaterFireElementalBurnFeature</term><description>5129567223dcbc248a4143226ba037f4</description></item>
+    /// <item><term>GrenadierAcidFlaskBuff</term><description>aaf69219edd4be1469ce9662ab0027ff</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -542,7 +542,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidMawBuff</term><description>f1a6799b05a40144d9acdbdca1d7c228</description></item>
-    /// <item><term>GeniekindShaitanBuff</term><description>1d498104f8e35e246b5d8180b0faed43</description></item>
+    /// <item><term>GeniekindMaridBuff</term><description>4f37fc07fe2cf7f4f8076e79a0a3bfe9</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -1325,7 +1325,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_Irabeth_AboutCiar_Notification</term><description>c21608a1d4c165149901414e6a60a8a8</description></item>
+    /// <item><term>KTC_KTC_SosielCards_c3_Notification</term><description>9344a2b30f8c66545971a690b8485f12</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>

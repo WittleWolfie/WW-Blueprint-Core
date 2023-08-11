@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>InflictSeriousWounds</term><description>b0b8a04a3d74e03489862b03f4e467a6</description></item>
+    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -860,7 +860,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeArea</term><description>bc346635e3d04df7968249d59ea756ba</description></item>
-    /// <item><term>DragonAzataSpecialAbilityTierArea</term><description>ce6652b6fb8d1504181a9f3e2aa520e3</description></item>
+    /// <item><term>DLC3_InspireHeroicsArea</term><description>b179c68b84b24d7c9ad4b7e035bb5ccd</description></item>
     /// <item><term>WrathOfTheUndeadArea</term><description>22e31702587142ddb99391d589ba538b</description></item>
     /// </list>
     /// </remarks>
@@ -947,7 +947,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GolemSummerAura</term><description>034ad7d17998e7046b02be1a34e03517</description></item>
+    /// <item><term>GraveShiveringArea</term><description>e274a6f6358141e189fd43e40cdc8c5a</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -1535,8 +1535,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitArmoredMaskAbility</term><description>2d7d510c6e2e3e54ab9eee84a41fa2cf</description></item>
-    /// <item><term>EnlargeSelf</term><description>549e9fcaadc861348b05bf01624387aa</description></item>
-    /// <item><term>Valmallos_Area_Gaze</term><description>d031e701dee3487f8a8b7da39e722267</description></item>
+    /// <item><term>GuardedStanceEffectBuff</term><description>3858dd3e9a94f0b41abdc58387d68ccf</description></item>
+    /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder TargetIsYourself(

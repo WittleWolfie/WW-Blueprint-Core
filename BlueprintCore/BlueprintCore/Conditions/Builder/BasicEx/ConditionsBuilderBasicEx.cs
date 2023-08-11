@@ -148,7 +148,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_HigherCity_VellodusMansion</term><description>d062cf7333b145b8bb85d4400dbea44d</description></item>
-    /// <item><term>Cue_0029</term><description>fd48b706d68df404fa0db16e693f5cee</description></item>
+    /// <item><term>Cue_0029</term><description>fee6368543f340ef91901e02ff6084b7</description></item>
     /// <item><term>Yozz_GreyborQ2Bark_Conditions</term><description>e25cbb4124873114ba3b75176e004517</description></item>
     /// </list>
     /// </remarks>
@@ -337,7 +337,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
-    /// <item><term>Cavalier_Charge_ToggleTripBuff</term><description>cffc45504fae48749f92ad39ba2b737d</description></item>
+    /// <item><term>CommandAction 12</term><description>4d22714df47a5794b8501929d48f49f3</description></item>
     /// <item><term>ThirdElementWater</term><description>86eff374d040404438ad97fedd7218bc</description></item>
     /// </list>
     /// </remarks>
@@ -716,7 +716,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>ColyphyrMelazmeraMechanics</term><description>7095910b1a9335c41a4b10a6d372633c</description></item>
+    /// <item><term>ColyphyrMasterKeyLooted</term><description>187d8cfbe9bcd6547855a4b350d015a9</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>
@@ -745,7 +745,9 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// </param>
     public static ConditionsBuilder ItemsEnough(
         this ConditionsBuilder builder,
+        bool? checkBesmaritesChests = null,
         bool? checkInPlayerHubChest = null,
+        bool? checkMemoriesChests = null,
         bool? ignoreRemoteCompanions = null,
         Blueprint<BlueprintItemReference>? itemToCheck = null,
         bool? money = null,
@@ -753,7 +755,9 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         int? quantity = null)
     {
       var element = ElementTool.Create<ItemsEnough>();
+      element.CheckBesmaritesChests = checkBesmaritesChests ?? element.CheckBesmaritesChests;
       element.CheckInPlayerHubChest = checkInPlayerHubChest ?? element.CheckInPlayerHubChest;
+      element.CheckMemoriesChests = checkMemoriesChests ?? element.CheckMemoriesChests;
       element.IgnoreRemoteCompanions = ignoreRemoteCompanions ?? element.IgnoreRemoteCompanions;
       element.m_ItemToCheck = itemToCheck?.Reference ?? element.m_ItemToCheck;
       if (element.m_ItemToCheck is null)
@@ -905,7 +909,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <listheader>Used by</listheader>
     /// <item><term>DLC4_OffCursedTotem_Action</term><description>50c66bcdf3b94e838aeb9bba6d83ddd8</description></item>
     /// <item><term>PF-451458</term><description>4379877d373d4d0485f8592ae2ad02ab</description></item>
-    /// <item><term>PF-470146</term><description>c24f2e1f3f55461499bda3f2d634476b</description></item>
+    /// <item><term>PF-487847</term><description>685b8dc82e8b4131b3155baa846ffe8f</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1033,7 +1037,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave_Actions</term><description>4c1760ddc1a183b4f94ee50cc47f4c37</description></item>
-    /// <item><term>CommandUnitAttack16</term><description>6f92b3cad5f443268cbc7012c3ce3a5d</description></item>
+    /// <item><term>CommandUnitCastSpell</term><description>05e88fe4b711add41853726c1c76b3c7</description></item>
     /// <item><term>WenduTraitor_DrezensStreet</term><description>aaa0452f52514e46bbc9a52fa95f467b</description></item>
     /// </list>
     /// </remarks>
@@ -1064,7 +1068,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0017</term><description>e5bf1752b172c084f8b70351d9037e1d</description></item>
-    /// <item><term>CommandMoveUnit8</term><description>73f8b84cb1164f9fa6a4ecc87d095b7f</description></item>
+    /// <item><term>CommandMoveUnit9</term><description>6c3bc83b962c4c3d93bfa51b98ff17d1</description></item>
     /// <item><term>XCOM_StartCutscene</term><description>94342ced3cb04f96bc1f7c2914ee99f4</description></item>
     /// </list>
     /// </remarks>
@@ -1227,8 +1231,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>52_TrulyImportantDeed_Checker_Tavern</term><description>5470ea99ea3b4bc7a7048d7f12ecb18e</description></item>
-    /// <item><term>CommandSetCombatMode 7</term><description>63f7a2c97cbe5bd469eaf3c93d21c575</description></item>
-    /// <item><term>SZ_Inquis2</term><description>11903f7d8ea24f9ea9425468adf277f2</description></item>
+    /// <item><term>CommandSetCombatMode 8</term><description>3566ac28c35062047a6aefc2aaffec8e</description></item>
+    /// <item><term>VillodusBrokenFight(Convert)</term><description>3106ac332876402b9199aa6a7b3fe10c</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder UnitFromSpawnerIsDead(

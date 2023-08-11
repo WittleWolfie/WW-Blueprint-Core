@@ -93,7 +93,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_4</term><description>4aefd11494184dcd9dc27e6ff2c45633</description></item>
+    /// <item><term>Cue_44</term><description>c42102cf12524af0af7f808441a5c47a</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
@@ -275,7 +275,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CavesShortcutUnlocked</term><description>d1f433e953409144d914f15597db6e34</description></item>
-    /// <item><term>Green_Slot_1_3_IsNotEmpty</term><description>8ebd0f926798b3f44aacab2662b42cc4</description></item>
+    /// <item><term>Green_Slot_1_4_IsNotEmpty</term><description>c472c9af55454dd4ca2a845c3c4ad274</description></item>
     /// <item><term>Slot_3_3_IsNotEmpty</term><description>85c097fd43ebd3940b6ea98b57e6f35e</description></item>
     /// </list>
     /// </remarks>

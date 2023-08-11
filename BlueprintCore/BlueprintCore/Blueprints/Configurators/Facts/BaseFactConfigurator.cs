@@ -122,7 +122,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetHalfPlateFeyEnchantment</term><description>49aa344c241ed05419ec9d4bc1eb9bc2</description></item>
+    /// <item><term>HelmetOfWeakeningTortureBuff</term><description>b82d6b31abc127646b0895a83d1882b2</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>

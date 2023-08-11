@@ -1619,6 +1619,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="archetypeAlignment">
+    /// <para>
+    /// InfoBox: PF-485644 - ограничение мировоззрения для архетипа всегда заменяет ограничение класса.
+    /// </para>
+    /// </param>
+    /// <param name="ingorePrerequisiteCheck">
+    /// <para>
+    /// InfoBox: PF-470784 - игнорируем проверку на доступность во время создания персонажа.
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -1627,17 +1637,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </param>
     public TBuilder AddPrerequisiteAlignment(
         AlignmentMaskType alignment,
+        bool? archetypeAlignment = null,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? ingorePrerequisiteCheck = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new PrerequisiteAlignment();
       component.Alignment = alignment;
+      component.ArchetypeAlignment = archetypeAlignment ?? component.ArchetypeAlignment;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IngorePrerequisiteCheck = ingorePrerequisiteCheck ?? component.IngorePrerequisiteCheck;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1650,7 +1664,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanistEldritchFont</term><description>a732797826db0b54ea123d91b4cdaad5</description></item>
-    /// <item><term>HexChannelerChannelFeature</term><description>b40316f05d4772e4894688e6743602bd</description></item>
+    /// <item><term>HellknightSigniferWitchLeyLineGuardian</term><description>fa000bb03393ad34db8bb20f8d09d3b5</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -2130,7 +2144,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
+    /// <item><term>GreenFaithCameliaFeature</term><description>ca763809e01f4247a3639965364c26cb</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>

@@ -356,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FiendflashShifterAspectGreaterDemonBuff</term><description>1165e9a30e4544d9956c9bc057d6783c</description></item>
+    /// <item><term>FiendflashShifterAspectGreaterDevilBuff</term><description>7a85dfed09f94070a1f6e1f62bcaffce</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
     /// </list>
     /// </remarks>
@@ -429,7 +429,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEnchantmentBuff</term><description>e9e8867539c2b664d9e23de7c18dc912</description></item>
+    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
     /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
     /// </list>
     /// </remarks>
@@ -1158,7 +1158,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_DressPolymorph</term><description>6267b23ce31a4ad8b1b3557826671708</description></item>
-    /// <item><term>Nidalynn_PolymorphBuff</term><description>885ee6e3ecd2409bbda4f6ecfe914c6d</description></item>
+    /// <item><term>Orgomandias_PolymorphBuff</term><description>3c5be1db6ef9488a9c320b6fa188edc5</description></item>
     /// <item><term>YozzPolymorfBuff</term><description>ed4e29772921bc84098f1a9a1dcc3ddb</description></item>
     /// </list>
     /// </remarks>
@@ -1296,7 +1296,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         int? naturalArmor = null,
         Blueprint<BlueprintItemWeaponReference>? offHand = null,
         Blueprint<BlueprintPortraitReference>? portrait = null,
-        PortraitTypeEntry? portraitTypeEntry = null,
         AssetLink<UnitViewLink>? prefab = null,
         AssetLink<UnitViewLink>? prefabFemale = null,
         Blueprint<BlueprintRaceReference>? race = null,
@@ -1344,7 +1343,6 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_Portrait = BlueprintTool.GetRef<BlueprintPortraitReference>(null);
       }
-      component.m_PortraitTypeEntry = portraitTypeEntry ?? component.m_PortraitTypeEntry;
       component.m_Prefab = prefab?.Get() ?? component.m_Prefab;
       component.m_PrefabFemale = prefabFemale?.Get() ?? component.m_PrefabFemale;
       component.m_Race = race?.Reference ?? component.m_Race;
@@ -1718,7 +1716,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AxiomiteMeleeMiniboss_Buff_LegendaryProportions</term><description>acf2b59d0d374711b969c5ea864e9656</description></item>
-    /// <item><term>FormOfTheDragonIIIBlueBuff</term><description>a4993affb4c4ad6429eca6daeb7b86a8</description></item>
+    /// <item><term>LegendaryProportionsBuff</term><description>4ce640f9800d444418779a214598d0a3</description></item>
     /// <item><term>TrueStrikeBuff</term><description>a3ce3b226c1817846b0419fa182e6ea0</description></item>
     /// </list>
     /// </remarks>
@@ -1890,6 +1888,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArueshalaeImmortalityBuff</term><description>7ad9d9982302e2244a7dd73fee6c381b</description></item>
+    /// <item><term>ShifterWildShapeGriffonDemonBuff14</term><description>431ca9188d6f401f9f8df8079c526e59</description></item>
+    /// <item><term>ShifterWildShapeGriffonDemonBuff9</term><description>7d4798e5fe5f4a349b56686340008824</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1975,7 +1975,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <listheader>Used by</listheader>
     /// <item><term>DLC4_ResurrectionBhogaSwarm</term><description>73e2514b871542ce8f08e40ddf479cd9</description></item>
     /// <item><term>ResurrectionBuff</term><description>12f2f2cf326dfd743b2cce5b14e99b3c</description></item>
-    /// <item><term>SongOfTheFallenResurrectionBuff</term><description>e2cd971a6a004c53b55abd336ac8da03</description></item>
+    /// <item><term>SongOfTheFallenResurrectionBuffOwnPlace</term><description>a9f029e2495145d9934423b70d8b1f2d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2930,7 +2930,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     public TBuilder AddBuffExtraEffects(
         Blueprint<BlueprintBuffReference>? checkedBuff = null,
         Blueprint<BlueprintUnitFactReference>? exceptionFact = null,
-        Blueprint<BlueprintBuffReference>? extraEffectBuff = null)
+        Blueprint<BlueprintBuffReference>? extraEffectBuff = null,
+        bool? useBaffContext = null)
     {
       var component = new BuffExtraEffects();
       component.m_CheckedBuff = checkedBuff?.Reference ?? component.m_CheckedBuff;
@@ -2948,6 +2949,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_ExtraEffectBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
+      component.m_UseBaffContext = useBaffContext ?? component.m_UseBaffContext;
       return AddComponent(component);
     }
 
