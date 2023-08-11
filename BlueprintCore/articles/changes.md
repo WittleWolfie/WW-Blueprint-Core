@@ -1,5 +1,11 @@
 ﻿# Changelog
 
+## v2.8.1 Release
+
+* Updated for latest patch
+* Fixed `OnPets()` action logic
+* Using `ArchetypeConfigurator` with delayed configuration no longer adds the archetype to the class twice
+
 ## v2.8.0 Release
 
 * Updated for 2.1 patch
