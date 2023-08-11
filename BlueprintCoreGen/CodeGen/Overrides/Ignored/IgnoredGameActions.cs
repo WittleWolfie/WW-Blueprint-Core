@@ -9,8 +9,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
     public static readonly List<Type> Types =
       new()
       {
-        typeof(Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint),
-        typeof(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.SetSharedVendorTable),
         typeof(Kingmaker.Dungeon.Actions.ActionCreateImportedCompanion),
         typeof(Kingmaker.Dungeon.Actions.ActionEnterToDungeon),
         typeof(Kingmaker.Dungeon.Actions.ActionGiveIslandReward),
@@ -19,6 +17,8 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Dungeon.Actions.DungeonEnterCurrentIsland),
         typeof(Kingmaker.Dungeon.Actions.DungeonMoveToNextIsland),
         typeof(Kingmaker.Dungeon.Actions.DungeonRestart),
+        typeof(Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions.SetAlignmentFromBlueprint),
+        typeof(Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions.SetSharedVendorTable),
         typeof(Kingmaker.UnitLogic.Mechanics.Actions.AbilityCustomSharedBurden),
         typeof(Kingmaker.UnitLogic.Mechanics.Actions.AbilityCustomSharedGrace),
         typeof(Kingmaker.UnitLogic.Mechanics.Actions.ContextActionAeonRollbackToSavedState),
@@ -80,6 +80,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RomanceSetMinimum),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.RunActionList),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.SetStartDate),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.StatusEffect),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.SwitchDualCompanion),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.TransferSharedVendorTable),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Actions.UnlinkDualCompanions),
