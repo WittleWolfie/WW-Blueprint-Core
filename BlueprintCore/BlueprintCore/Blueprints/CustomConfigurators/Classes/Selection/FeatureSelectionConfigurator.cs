@@ -44,9 +44,13 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes.Selection
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static FeatureSelectionConfigurator For(Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint)
+    /// <param name="updateSelections">If true, automatically adds the blueprint to feature selections with a matching group. Defaults to false.</param>
+    public static FeatureSelectionConfigurator For(
+      Blueprint<BlueprintReference<BlueprintFeatureSelection>> blueprint,
+      bool updateSelections = false)
     {
-      return new FeatureSelectionConfigurator(blueprint);
+      var configurator = new FeatureSelectionConfigurator(blueprint);
+      return updateSelections ? configurator : configurator.SkipAddToSelections();
     }
 
     /// <summary>

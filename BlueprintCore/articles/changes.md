@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.2 Release
+
+* Feature / Feature Selection Configurators will not update selections automatically for existing blueprints
+
 ## v2.8.1 Release
 
 * Updated for latest patch

@@ -62,9 +62,13 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     /// If you're using <see href="https://github.com/OwlcatOpenSource/WrathModificationTemplate">WrathModificationTemplate</see> blueprints defined in JSON already exist.
     /// </para>
     /// </remarks>
-    public static FeatureConfigurator For(Blueprint<BlueprintReference<BlueprintFeature>> blueprint)
+    /// <param name="updateSelections">If true, automatically adds the blueprint to feature selections with a matching group. Defaults to false.</param>
+    public static FeatureConfigurator For(
+      Blueprint<BlueprintReference<BlueprintFeature>> blueprint,
+      bool updateSelections = false)
     {
-      return new FeatureConfigurator(blueprint);
+      var configurator = new FeatureConfigurator(blueprint);
+      return updateSelections ? configurator : configurator.SkipAddToSelections();
     }
 
     /// <summary>
