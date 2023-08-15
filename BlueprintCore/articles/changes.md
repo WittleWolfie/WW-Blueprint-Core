@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.3 Release
+
+* Fixed regression preventing automatic feature selection population for new blueprints
+
 ## v2.8.2 Release
 
 * Feature / Feature Selection Configurators will not update selections automatically for existing blueprints

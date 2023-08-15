@@ -119,7 +119,7 @@ namespace BlueprintCore.Blueprints.CustomConfigurators.Classes
     public static FeatureConfigurator New(string name, string guid, params FeatureGroup[] groups)
     {
       BlueprintTool.Create<BlueprintFeature>(name, guid);
-      var configurator = For(name);
+      var configurator = For(name, updateSelections: true);
       if (groups.Any())
       {
         configurator.SetGroups(groups);
