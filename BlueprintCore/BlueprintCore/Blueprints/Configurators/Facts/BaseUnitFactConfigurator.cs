@@ -16687,7 +16687,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
         ContextValue? rollResult = null,
         int? rollsAmount = null,
         RuleType? rule = null,
-        ModifyD20.InnerSavingThrowType? savingThrowType = null,
+        FlaggedSavingThrowType? savingThrowType = null,
         StatType[]? skill = null,
         bool? specificDescriptor = null,
         bool? specificSkill = null,
