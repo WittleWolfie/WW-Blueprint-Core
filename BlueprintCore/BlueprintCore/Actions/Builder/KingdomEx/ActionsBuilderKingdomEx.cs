@@ -849,7 +849,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon2FireElementals</term><description>63364fac363349a99dd7fe96ca86dc7c</description></item>
-    /// <item><term>Diplomacy6KillDiplomacy</term><description>bcb08feb960f4856802a97388ae7e716</description></item>
+    /// <item><term>Diplomacy8Buildings</term><description>3725744cd17f464d8f2bf31a480e3045</description></item>
     /// <item><term>Trickster5ThugPaladin</term><description>e83a6a99081d467fb56d8afe1de6a4d5</description></item>
     /// </list>
     /// </remarks>
@@ -1540,8 +1540,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>RangerMaddeningPoisonArea</term><description>98ecfe7fadd6472d93fff3f2211e0021</description></item>
-    /// <item><term>RangerSpringTrapAbilityEffect</term><description>d3907beec55c40198094b0eba829d010</description></item>
+    /// <item><term>PlaceBanner</term><description>8960de0453ba3b54880ec5a4458a76e3</description></item>
+    /// <item><term>RangerPitArea</term><description>37cf4546ecbf4aee9ab28697c6e0e86a</description></item>
     /// <item><term>RangerSpringTrapArea</term><description>7feffc237b734814875497233e5d00b5</description></item>
     /// </list>
     /// </remarks>
@@ -2188,7 +2188,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
-    /// <item><term>MythicAzata_RankUp02_Option03</term><description>befdc93888af1324cad1439cf81ebdfe</description></item>
+    /// <item><term>MythicAzata_RankUp03_Option01</term><description>6ba3c9a71e2676e44af20c8c9449db43</description></item>
     /// <item><term>QuatermasterErrandTracker_buff</term><description>1ed15e9a59ec4524a8f301a20c88d20f</description></item>
     /// </list>
     /// </remarks>

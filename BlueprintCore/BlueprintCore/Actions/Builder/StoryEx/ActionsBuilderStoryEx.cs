@@ -32,7 +32,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0059</term><description>4a26cafe16d65de438c948ca7c824b9e</description></item>
+    /// <item><term>Cue_0064</term><description>b27138ccd1f2809498b61b54bdba3006</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -162,8 +162,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0031</term><description>80fb1da0d62dd0048a4f9600617fca40</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>Cue_0031</term><description>ee7ba9910e429d845a1e6d4c6b8f512c</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -233,7 +233,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
-    /// <item><term>Daeran_Q2_Stage_2</term><description>504306e194b725f44b4bde54453eba89</description></item>
+    /// <item><term>Daeran_Q2_Stage_0</term><description>162afa0be21e6f84dbaac42696b3ea17</description></item>
     /// <item><term>WoundedInCamp_SpawnActions</term><description>e714318adb3985b4eaecfb632bb9c31b</description></item>
     /// </list>
     /// </remarks>
@@ -262,7 +262,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>Burn_PlayerDream_Actions</term><description>3693a985cf4ff5c44a6683021e940655</description></item>
+    /// <item><term>Check_Shrine_Spoils</term><description>f791d8ab7098b3940918fbd171dca642</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -306,7 +306,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ch5_QueenInDrezen_Mechanic</term><description>46bd4af031b869248b305629b396d6c2</description></item>
-    /// <item><term>CommandAction 3</term><description>919e1dc652bbe8d4db8b508644866899</description></item>
+    /// <item><term>CommandAction 5</term><description>a4cb709c170b6964ab9a6cefee55511a</description></item>
     /// <item><term>WayUp_Actions</term><description>83d0eb422bd7e774eb1710025088ed0f</description></item>
     /// </list>
     /// </remarks>
@@ -371,7 +371,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC2_Sv_Back_to_Camp</term><description>a5d1dcfc715243c98e4f958435c52be4</description></item>
+    /// <item><term>DLC3_ExitCheckTier3_SZ</term><description>adc7ec584d3d4c00869ecb79f52d295c</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -604,8 +604,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandAction</term><description>e9824e45f9edf664595e1b8a98996094</description></item>
-    /// <item><term>CommandAction1</term><description>02be6f61530c48d1bebb91e00c02a5d5</description></item>
+    /// <item><term>CommandAction</term><description>efe8c094a70d49c3b7cce2b3bfbdb837</description></item>
+    /// <item><term>CommandAction1</term><description>6abd59c80d51464bbeee910ec83fc525</description></item>
     /// <item><term>WenduagQ1</term><description>fb5bb4409b95c07488e0e06f71c1c2ad</description></item>
     /// </list>
     /// </remarks>
@@ -709,7 +709,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
-    /// <item><term>Cue_0002</term><description>e02ad67ac7924fdca6c2e143c5fc3809</description></item>
+    /// <item><term>CommandAction8</term><description>411a086880ec4168ad8a119bf343f009</description></item>
     /// <item><term>VaultOfGraves_MythicDemonChapter03</term><description>e3fb405c90492e946a02e176a10268ef</description></item>
     /// </list>
     /// </remarks>
@@ -770,7 +770,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aftermath_DaeranQ3_dialog</term><description>9a428e24ce273284989196e240051263</description></item>
-    /// <item><term>Cue_0137</term><description>121cc01414b509c4098239378424c81c</description></item>
+    /// <item><term>DLC5_AndroidJoin_dialogue</term><description>2afc4afd65db4f41b49e8c7e875200e8</description></item>
     /// <item><term>WoljifWish_Join_dialogue</term><description>70d8abb125a1a0b46a7207b3181c48aa</description></item>
     /// </list>
     /// </remarks>
@@ -858,7 +858,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>301e51edf1251a9489244d37421d89fb</description></item>
-    /// <item><term>Cue_0061</term><description>0e5f7e7d35731094182a2d8bc78730b3</description></item>
+    /// <item><term>Cue_0339</term><description>56153336782439f4887fd8bca8366b4e</description></item>
     /// <item><term>MythicLevel</term><description>dc66b7adec0e41c2b948b4bc9c31ec99</description></item>
     /// </list>
     /// </remarks>
@@ -1019,8 +1019,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Cue_0020</term><description>0a9c94cf71bc4512a78d8cff189b80fc</description></item>
-    /// <item><term>Cue_2</term><description>48c4790378964832ae733ff5e26c7e20</description></item>
-    /// <item><term>Cue_7</term><description>09768a45ed444decbfe548eb118ac37e</description></item>
+    /// <item><term>Cue_2</term><description>c8a45cb530054b0d896148e4e02263b9</description></item>
+    /// <item><term>Cue_8</term><description>4caf23a9b38d4e529055e5de7a559f0a</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RespecCompanion(
@@ -1095,8 +1095,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>02_ScoutsDead_objZone</term><description>3ffadf67fe817d444b1cb9c6cff78744</description></item>
-    /// <item><term>Cue_0032</term><description>3c839251239086e42be81e6af27da241</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>Cue_0033</term><description>22f8f5836ce960f4b86ef64d572d8267</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1139,7 +1139,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>4fa67e84c3ddbd5448debce210a6d7b6</description></item>
-    /// <item><term>Cue_0066</term><description>a02937e970f392b46bfec4cbd8364b90</description></item>
+    /// <item><term>DLC5_IntroInAbyss</term><description>21b1609ee9e440c88c04930f5bc9116e</description></item>
     /// <item><term>WoljifDemonEndingGood</term><description>709161cd9da156146ac6e3c394caa854</description></item>
     /// </list>
     /// </remarks>
@@ -1180,8 +1180,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CrusadeEvent01</term><description>c43ecfae55274a07b63ced113a161993</description></item>
-    /// <item><term>CrusadeEvent41</term><description>b99ed0995deb4493b712468e19a84b5c</description></item>
+    /// <item><term>Answer_0020</term><description>d49fde9e392546c3a7778f84cfd56faa</description></item>
+    /// <item><term>CrusadeEvent40</term><description>f635d4a6db99433f9c56cf784c70df51</description></item>
     /// <item><term>CrusadeEvent87</term><description>fcfc30b343d64ae9a364d165db617555</description></item>
     /// </list>
     /// </remarks>
@@ -1209,7 +1209,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_ToDimalchioMansion_Transition</term><description>e9921430f7a74f44894c93450f79b0e9</description></item>
-    /// <item><term>HorgusSupport</term><description>4bb5843d18521ec47b28ba4e2acda776</description></item>
+    /// <item><term>DLC5_OneTimeRest_Actions1</term><description>15649c386f9d496e8cbe64dffcb57627</description></item>
     /// <item><term>Supplies_Actions_RemoveDathDoor</term><description>784b72fb34265604080c985eef646c2a</description></item>
     /// </list>
     /// </remarks>
@@ -1292,7 +1292,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>2f7e1fcc714b426ab4c5b5780a19a070</description></item>
-    /// <item><term>DrezenCapital</term><description>2570015799edf594daf2f076f2f975d8</description></item>
+    /// <item><term>DLC5_PoS_GolemsPool</term><description>c82c51a597fb47e2bb7df4efd5cea549</description></item>
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
     /// </remarks>
@@ -1324,7 +1324,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0026</term><description>d5176f6a75262904082f34ea99761d58</description></item>
-    /// <item><term>Cue_0010</term><description>01213825658f5ec4eb82c347d060f224</description></item>
+    /// <item><term>Cue_0011</term><description>799e2692f87fa61408ed84a9951c7b7a</description></item>
     /// <item><term>VellexiaThirdDate</term><description>02ffbe686c198854da2d51e72fccb9ca</description></item>
     /// </list>
     /// </remarks>
@@ -1347,7 +1347,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
-    /// <item><term>CommandAction2</term><description>9a4c010590dc488ba79edc7b5c7c8388</description></item>
+    /// <item><term>CommandAction2</term><description>665f209f5cb645c4857a9d73dc7c772c</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -1382,8 +1382,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>EnterTheCrypt</term><description>5080014668d748b4dae66923922be309</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>DLC5_Storasta_DrakeMeet</term><description>4361e4c31b6c4dbb9a8649e2afe816aa</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -1492,7 +1492,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0029</term><description>641b810209eac7c47b42a4f210d7c58e</description></item>
+    /// <item><term>Cue_0029</term><description>860e98d931913dd41a77be32912d5bf6</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1601,7 +1601,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
-    /// <item><term>CommandAction2</term><description>8ab3ec7ee2b24d2eb421a23fed3807cb</description></item>
+    /// <item><term>CommandAction2</term><description>1e3d5f4d22e74f5a80ee687c1941e86e</description></item>
     /// <item><term>Zantir_Switch</term><description>9fb1869b916481d49a39a9ba82bf6051</description></item>
     /// </list>
     /// </remarks>
@@ -1630,7 +1630,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>CorruptedHeraldPhase_SpawnActions</term><description>7779daca8cb7c8e42b6be3097ccfd8f7</description></item>
+    /// <item><term>CommandSpawnUnits2</term><description>e87e197ff8c744ad9fa5403df08aeb73</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1649,12 +1649,14 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </param>
     public static ActionsBuilder SwitchFaction(
         this ActionsBuilder builder,
+        bool? changePetsFaction = null,
         Blueprint<BlueprintFactionReference>? faction = null,
         bool? includeGroup = null,
         bool? resetAllRelations = null,
         UnitEvaluator? target = null)
     {
       var element = ElementTool.Create<SwitchFaction>();
+      element.ChangePetsFaction = changePetsFaction ?? element.ChangePetsFaction;
       element.m_Faction = faction?.Reference ?? element.m_Faction;
       if (element.m_Faction is null)
       {
@@ -1676,7 +1678,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DoorToThirdPart_CheckPassedActions</term><description>b53fdf6e8469fe043b12c632e059a005</description></item>
+    /// <item><term>DoorComp (2)_CheckPassedActions</term><description>7a0360d304c5f154ea8708f3d1bdb919</description></item>
     /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
     /// </list>
     /// </remarks>
@@ -1703,7 +1705,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Skeleton_2H_SpawnActions</term><description>483880b43aba4e45bbc3e30f9bf81ed6</description></item>
-    /// <item><term>CommandAction1</term><description>818cf6e9dfa2412eb401b59a414c2b6d</description></item>
+    /// <item><term>CommandAction2</term><description>81417e2a101f4500afc0fa385b4293ec</description></item>
     /// <item><term>Graveyard_MobsSwitches</term><description>1aa3edfb014a45d29bbb84bf63dcca4b</description></item>
     /// </list>
     /// </remarks>
@@ -1827,7 +1829,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobaticCheckS1_CheckFailedActions</term><description>024cfea8fa605e5438485ae1bdb6c4f8</description></item>
-    /// <item><term>CommandAction1</term><description>205d4b15d494430fac73062d5534112c</description></item>
+    /// <item><term>CommandAction1</term><description>1c7234ba40884a9fb14a10530d65af55</description></item>
     /// <item><term>Zaval_CheckFailedActions</term><description>57342a166ff440cf8df490f6d8a1bfca</description></item>
     /// </list>
     /// </remarks>
@@ -1860,7 +1862,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>0345db4a50d64c97bdd84d615583836e</description></item>
-    /// <item><term>CommandAction2</term><description>1c880f250634462288bf95943dccc626</description></item>
+    /// <item><term>CommandAction27</term><description>ff522dc822b543b094fc2f3b1b618270</description></item>
     /// <item><term>Warcamp_Tour_Seelah_Dialogue</term><description>f7facc83e8c6ed4489341f31cb72505c</description></item>
     /// </list>
     /// </remarks>
@@ -1886,7 +1888,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_TalkToSeelah</term><description>a113e5ccc842cab439fdd4dc882c34a8</description></item>
-    /// <item><term>Obj_0_Secret</term><description>c4d35a3ca9759da479903dec9a3984fa</description></item>
+    /// <item><term>HiddenObj_ForFail</term><description>c2e77476c7dc1624faf08853ac91603a</description></item>
     /// <item><term>WrathOfTheRighteous</term><description>f0e6f6b732c40284ab3c103cad2455cc</description></item>
     /// </list>
     /// </remarks>
@@ -1929,7 +1931,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0036</term><description>186ce307ae6b3af4dae62682f933db4d</description></item>
+    /// <item><term>Cue_0044</term><description>4f31068235066be48b67a0aeda712c1b</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -2011,7 +2013,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0019</term><description>4e30b6b69abc1b24ba38f211f98b9da2</description></item>
-    /// <item><term>Cue_0035</term><description>77dfb3878cb86c449a5f2f5fd23b2114</description></item>
+    /// <item><term>Cue_0030</term><description>cc0c5db8477d4098b843a2a202428163</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -2101,7 +2103,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ3NearTailor</term><description>ea14530f3c887a94ca311579f9b40f00</description></item>
-    /// <item><term>CrystalSlot_4_Action_Section_1_3</term><description>9926940d88f64a7da205811df2e3e154</description></item>
+    /// <item><term>Cue_0058</term><description>221386b8ec0dfcc47b6b75553f9e0fa4</description></item>
     /// <item><term>WenduagDefeated_dialogue</term><description>6d17f0dee27a7a9449d0ee9a641f8266</description></item>
     /// </list>
     /// </remarks>

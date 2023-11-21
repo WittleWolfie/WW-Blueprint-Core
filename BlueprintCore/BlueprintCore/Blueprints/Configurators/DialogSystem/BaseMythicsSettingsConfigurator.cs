@@ -3,6 +3,7 @@
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Tutorial;
 using Kingmaker.Utility;
@@ -32,9 +33,11 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           var copyFrom = blueprint.Reference.Get();
+          bp.m_shardsMythicConditions = copyFrom.m_shardsMythicConditions;
           bp.m_MythicsInfos = copyFrom.m_MythicsInfos;
           bp.m_MythicAlignments = copyFrom.m_MythicAlignments;
           bp.m_TutorialChooseMythic = copyFrom.m_TutorialChooseMythic;
+          bp.m_TutorialForShard = copyFrom.m_TutorialForShard;
           bp.CharcaterLevelRestrictions = copyFrom.CharcaterLevelRestrictions;
         });
     }
@@ -49,10 +52,38 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         bp =>
         {
           var copyFrom = blueprint.Reference.Get();
+          bp.m_shardsMythicConditions = copyFrom.m_shardsMythicConditions;
           bp.m_MythicsInfos = copyFrom.m_MythicsInfos;
           bp.m_MythicAlignments = copyFrom.m_MythicAlignments;
           bp.m_TutorialChooseMythic = copyFrom.m_TutorialChooseMythic;
+          bp.m_TutorialForShard = copyFrom.m_TutorialForShard;
           bp.CharcaterLevelRestrictions = copyFrom.CharcaterLevelRestrictions;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintMythicsSettings.m_shardsMythicConditions"/>
+    /// </summary>
+    public TBuilder SetShardsMythicConditions(ConditionAction shardsMythicConditions)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(shardsMythicConditions);
+          bp.m_shardsMythicConditions = shardsMythicConditions;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintMythicsSettings.m_shardsMythicConditions"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyShardsMythicConditions(Action<ConditionAction> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_shardsMythicConditions is null) { return; }
+          action.Invoke(bp.m_shardsMythicConditions);
         });
     }
 
@@ -287,6 +318,44 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintMythicsSettings.m_TutorialForShard"/>
+    /// </summary>
+    ///
+    /// <param name="tutorialForShard">
+    /// <para>
+    /// Blueprint of type BlueprintTutorial. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetTutorialForShard(Blueprint<BlueprintTutorial.Reference> tutorialForShard)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TutorialForShard = tutorialForShard?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintMythicsSettings.m_TutorialForShard"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTutorialForShard(Action<BlueprintTutorial.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_TutorialForShard is null) { return; }
+          action.Invoke(bp.m_TutorialForShard);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintMythicsSettings.CharcaterLevelRestrictions"/>
     /// </summary>
     public TBuilder SetCharcaterLevelRestrictions(params int[] charcaterLevelRestrictions)
@@ -377,6 +446,10 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
       if (Blueprint.m_TutorialChooseMythic is null)
       {
         Blueprint.m_TutorialChooseMythic = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
+      }
+      if (Blueprint.m_TutorialForShard is null)
+      {
+        Blueprint.m_TutorialForShard = BlueprintTool.GetRef<BlueprintTutorial.Reference>(null);
       }
       if (Blueprint.CharcaterLevelRestrictions is null)
       {

@@ -17,12 +17,14 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintAiRoam>> DLC3_Nahyndri_Walk_HighScore = "625a141edc4c4a8e96d78e51953a606a";
     public static readonly Blueprint<BlueprintReference<BlueprintAiRoam>> DLC3_Nahyndri_Walk_LowScore = "11e5722e40e74cf48e45f216806c7294";
+    public static readonly Blueprint<BlueprintReference<BlueprintAiRoam>> DLC5_LivingTornadoMoveAction = "708d97f5bc5b44a6b8e47059d34cb45f";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintAiRoam>>> All =
       new()
       {
           DLC3_Nahyndri_Walk_HighScore,
           DLC3_Nahyndri_Walk_LowScore,
+          DLC5_LivingTornadoMoveAction,
       };
   }
 }

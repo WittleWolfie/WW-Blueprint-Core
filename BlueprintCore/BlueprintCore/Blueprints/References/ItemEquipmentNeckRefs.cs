@@ -20,6 +20,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFistsPlus2 = "e645015fe02c29e40be2559795a2993b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFistsPlus3 = "302fe578692531b4094bd87b8a296f09";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAgileFistsPlus4 = "296a9377c1f5ea44c82f023e5f54e4a3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfAlchemicKnowledge = "a6e396af75134189805e02f73c61b17b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfApothecaryItem = "9ec8fb23e5534ba4bb728a8e61567cac";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletofArodenItem = "92d29a84dbd54072b74ddc52c034b436";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfBlackenedMirrorItem = "31894ce7e7d5a574d9777a99b45ad9de";
@@ -52,6 +53,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfNaturalArmor6 = "442064f089b04ea2a9daf91833154d19";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfNaturalArmor7 = "9087b3d4fdaa4e63b73248ce36fa8f43";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfNaturalArmor7Extra = "3cbfdb8534e3463d9548b143a176d5e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfNatureCalling_Item = "1c257c00832d48a6a97340a15cc18d7e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletofPersuasion = "a35a6b6cb58453f47b10a81cddb6b9c3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfQuickDrawItem = "eb22f2919c30a9e4fa4e8cc3160b2432";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> AmuletOfSpells = "b9bc244f20551564da681a54865a2103";
@@ -130,6 +132,7 @@ namespace BlueprintCore.Blueprints.References
           AmuletOfAgileFistsPlus2,
           AmuletOfAgileFistsPlus3,
           AmuletOfAgileFistsPlus4,
+          AmuletOfAlchemicKnowledge,
           AmuletOfApothecaryItem,
           AmuletofArodenItem,
           AmuletOfBlackenedMirrorItem,
@@ -162,6 +165,7 @@ namespace BlueprintCore.Blueprints.References
           AmuletOfNaturalArmor6,
           AmuletOfNaturalArmor7,
           AmuletOfNaturalArmor7Extra,
+          AmuletOfNatureCalling_Item,
           AmuletofPersuasion,
           AmuletOfQuickDrawItem,
           AmuletOfSpells,

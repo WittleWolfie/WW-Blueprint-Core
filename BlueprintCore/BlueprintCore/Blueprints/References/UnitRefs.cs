@@ -229,6 +229,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluHumanHologram = "d99c7ed1fb72f87428fb43348ce423cb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluInquisitor = "9631a039b0392d049944fdfc40290889";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluInThePast = "c9f23e42e5acf43459fe62d8ca6bbe9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluInThePast_Court = "236d512e467c4824aeb96b005b610748";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluLab_Derakni = "9a07422abebed6e44be52b88abbdfa7a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluLab_Nalfeshnee = "c379b192a85b2d74f839a761da0af360";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> AreeluLab_ShadowDemon = "e8329aea99aa3244b8cf866804d2cf28";
@@ -568,6 +569,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlindCarver_Wintersun = "3ba3a0ff8575be8419159221177c1411";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlindHalfling = "7cdc926811fd6c44a8d2941bc9043d3c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlindMan = "f819b98e95c50c8408a8897f48c00f89";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlizzardServantUnit = "287a354894264478b6190632380e85f4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BloodMoon = "97065dacd972bd04b8dd39dbc5301ad0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BloodyUrod = "a047c124f7c4d564692c0efcfdeb0d77";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BodakLairMiniboss = "e8bc9289d26cf804090184442cdf797d";
@@ -615,6 +617,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CessilyGhost = "6511d8c634c20a446928144b5a61931b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Chadali = "75fd91d9d6119ea408a981680c659267";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ChadaliEnemy = "193c5f9b83594da48b9b4f6a5046382e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ChainedDarknessDeathsnatcher = "4fdd597df3a44d49807d79449c36a816";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Chief_Sull = "5d7026322edda04448d9f6d252c135c9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Chief_Sull_LannQ1 = "6929f1ee076685a4084e01a0c29c82b6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Chivarro = "b7e819e2a9bb0804abcbffe8e7d91ba6";
@@ -650,10 +653,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Claim_DH = "f9507b34b2787a742995da8c3e22e6e0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Claim_Drezen = "e1d6d49613774294939e502cb62bdce6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level1 = "f0467c84594941f0a9ebe49a42b89cda";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level11 = "d843f7959c9a4443b87150c5fa8fb6cb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level2 = "cf36765da8db49289a307de4db5ad684";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level2_DLC3Video = "a3b331f4276848baa4ee3d8397a28590";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level3 = "f43dfd0c0fb44ed1834cbddc2e230700";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level4 = "dd437b52852f4cf395fe911eef8cade4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level7 = "9991b1d5abcb4b9595ff46d54d73d629";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Cleric_Level9 = "e5085acff3014aa88d64df79847d5168";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ClericApostle = "4b2d5b1d94e93104ca71b3ca1096e6e0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ClericBase = "22af61d44b4b47c49bb704bb9a160e80";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ClericCrusader = "9385fd07172c37044b04bd3bd26f9319";
@@ -735,6 +741,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_GundrunPeasantFemale = "38d920abb57c40eabffb6cfd8e35e6e0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_GundrunPeasantInvisibleDrunkard = "a0d563697b05426aaa2a48d8b34742df";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_GundrunPeasantMale = "bf14afd01b784477b4ac1efbf5ae9405";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_GundrunPeasantMale_Ghost = "387dc9727d81411a8dc83b1272b72237";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_GundrunPeasantTavern = "7138ca0e49cc4ffcb8dce52e1898ed6a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_Peasant_Human_SinisterVillager_Female = "cf3bc148430a08d449935a15043a2825";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR0_Peasant_Human_SinisterVillager_Female2 = "2e142c6c39c79844c9fcc895dd8b22b5";
@@ -1191,6 +1198,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GlabrezuStandard_RE = "323197d05aa21db4cb1c9460359cce76";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GlabrezuStandard_RE_high = "39412daa70d64ca386efe2c27ddb9ccf";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GolemIron = "64589573eba29d541b5240c7485e1aec";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GolemIron_DLC5 = "8cf55a6f19ff465a8bf6912a748cb970";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GreaterKalavakusAdvanced = "252b81298166f4c4187e8c9bce4263aa";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GreaterKalavakusAdvanced_DLC2 = "fe3e56ee6ca7450b834ebc9eb808e799";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR13_GreaterKalavakusAdvanced_RE = "c0efa4e66990c664b9a48b4baa6fd61d";
@@ -1292,6 +1300,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Cyborg_CrusaderMeleeLevel13 = "af2e905fc0ed04a419923df1578c57fc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Cyborg_CrusaderRogueLevel13 = "4ac079b8b4644a344809a3f49a319418";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Cyborg_Incubus_Assasin = "32b5ac85cad5f7b4596546f0e256c9cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Cyborg_Incubus_Ranged = "7603748a0d574320b586b21339d56a7c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_CyborgSalamander_Add = "65c08a0ea25b4d07a8961cb2d2c0e725";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Cybrog_Cambion_Ranged = "4392e6d57466ea24787150c8de01e50b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_DemodandStringyStandard = "e926c6709e6b9134e9ebe0be2faa0195";
@@ -1305,6 +1314,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_HamadryadStandard = "b8972cfe36e3cd945bbd2c4c320d5237";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_HellhoundAlpha = "611cb6a8b9504118a3a018ba3e2ad99c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_ImmenseMandragora = "a7bebb2fc105f23408cf83a00d27baad";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_LivingPlagueFiendishTickSwarm = "6d278d3789694be7ae373c214721e9d8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_Mercenary_Oread_Caster_Male = "ed9e3323419c6fe4a9f7e8a8f8553279";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_NalfeshneeAdvanced = "45207a7715f2b2c46bdcf5af6d21c528";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR15_NalfeshneeAdvanced_RE_high = "ecb03823e1fd22e4ab1e404c5c2429f2";
@@ -1356,7 +1366,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_VilderavnStandard = "1f9fa06a30ec720418ea04b1c9b41334";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_VrolikaiStanard_RE_low = "de20ea509aaa4746868717292254bcc2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_ZombieLordFighter_Fighter_SarkorianLevel15 = "155df8f36ecd436b926b5fa8b221ce1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_ZombieLordFighter_Fighter_SarkorianLevel15_Juju = "90ab4414609a4e56a3471e91f84a8c4a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_ZombieLordFighter_Ranger_SarkorianLevel16 = "43921f9d46dc40ed946b538d302db164";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR16_ZombieLordFighter_Ranger_SarkorianLevel16_Juju = "b998682c4f36466cb7f77ec7f00a2ca0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_AlushinyrraBandit_RangedDemonCh3_Prisoner = "430301d9a8c3bbc41982c11b1e2b0016";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_AlushinyrraVampireMelee = "2356cb32610110b48bf4265efa0e17f8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_AlushinyrraVampireRanged = "ee55497be02ac1a408b2eb6709b86af8";
@@ -1374,6 +1386,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_DeathsnatcherAdvanced_RE_low = "fb48531c2ebc4abbb0b302ce81340ce8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_DemodandTarryAdvanced_Alushnirra = "6cd6d98b2205c2f44befdf99c7cd38cd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_DevilApostateStandard = "07c5044acbd443b468b6badd778f8cad";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_DumbImmortalIchor = "b186af53b98948bd9eaf4f09baa457be";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_EcorcheAdvanced = "ed6c284fa8c347f4e8052ff00c6405b0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_EcorcheAdvanced_RE = "7021682d9dc53cf4eaecba36c65cb69e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_FiendishEarthElementalEnhanced = "7ad01134edd04eefb72430163538a4fb";
@@ -1381,6 +1394,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_GhostRanger_Sarkorian = "560be785ed3e4aeaa218b2a50657b5d7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_GolemAutumnAdvancedGiant = "6d5f1a4815447bf41a633289dec2ebfc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_GolemSummerAdvancedGiant = "1724bbee4c8c0cf4fb403ec09a2e15b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_ImmortalIchor = "73549958a31247abb4824113a1230bd8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_ImmortalIchorLeaked = "443dad75fd7f44abba6111f443047be0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_LabyrinthMinotaurAdvanced = "06a56a6dd9291ae4baca18b75f8d4f57";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_LilituStandard = "d5d58c9aea545254f895226ba604f06b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR17_LilituStandard_RE = "db146f53cdde1d142b2dfc3db0a33800";
@@ -1710,6 +1725,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR24M_NabasuRogueAssasin_RE_low = "3a4a9124784a49d299fbc770b41b127a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_Areshkagal_FullCasterBoss = "95a3fd789c077c741955f8aad271686e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_Areshkagal_RetrieverBoss = "9876513c09509954bb3330dc650fb9ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_HandOfSithhud = "0a8bb42305f342bd8b10f53c0ec0856b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_SavamelehMythic = "a3733f61b53a1054c83a2b7d8688ffc4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_SkeletalChampionArcher_DLC1 = "6dc58146bb3c4df7889445d2e760bda0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR25_SkeletalChampionArcher_DLC1_noFx = "a7c6afa09ea3418ba6727440e19d447d";
@@ -2043,6 +2059,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_Bandit_Human_RogueRanged_Male = "2ce5e630dffcb2f458bc35aac5444a73";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_BearAdvanced = "b7c768774b75bcc4d88b0bb8956d3b01";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_BeerElementalLargeSummon = "e7eed1baf5df2c946b5056499d8ff121";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_BlizzardElemental_Large = "0e8fb71fb809452091e3943f344b3636";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_BrimorakStandard = "61e89e329440c0e46a4125d4667720ee";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_BrimorakStandard_RE = "855a8001a1e53e644a175629f24f373f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR5_DireBoarAdvanced = "dc36830486c624e48ace533603408287";
@@ -2246,6 +2263,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_GundrunShamansWarrior = "75e2892eec5240148a9f1ac3d6764082";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_GundrunSquareShamansWarrior = "3b9d6f6b15c342fa8686740e8650a2be";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_HillGiantStandart = "61dd71e874b16f742a0f783314105553";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_HillGiantUnarmed = "f33f197c95ac4006855f3d9921635713";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_HodagAdvanced = "072c876c4fb6c0c448cea4d4101e092f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_HodagTransmutation = "6388f298d4c9877438481c62fe0d3db6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR7_HodagTreant = "0ab82ccf847925a4d8fca88250d16928";
@@ -2312,6 +2330,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_Bandit_Human_Necromancer_Sorcerer = "4f03f48691f84c5d9e641c498d3125db";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_Bandit_Human_RogueMelee_Male = "a305c49dc73fe9d419003d5469b50f93";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_BearDireAdvanced = "5c46ab04bad9b324dafc43bdb8899a5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_BlizzardElemental_Huge = "cc171ea8b68547e8bcca6dcd8f524512";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_BodakStandard = "354c41838f9d54b4eaff846bc23874da";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_BodakStandard_RE_high = "f9b4e28cdf125e84ea6d6d396fe2d9b8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR8_CorpulentSpectre = "e4993034a5ef4c5468a4959a6765314a";
@@ -2435,6 +2454,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_Sarcorian_Ranger_Ranged_Female = "ddc45b8097e45c24695d382bc4b7b6c4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_ShadowGreaterAdvanced = "53a9338c8f0bb714fb00f6c4d2113f59";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_ShadowGreaterAdvanced_RE_high = "3d0d642ac2a5450478aaff1e3630323a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_ShadowGreaterAdvancedSummoned = "6ea333f52fd2421a9892ef9be6fbb03b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_ShamblingMoundPoisonous = "d6722f28dc6919043bd67048e890aa97";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_SmilodonAdvanced = "53152c1fdea0e4943884bce91b1c1205";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CR9_SoulEater = "99362e8088d078d4598c0382c4ad8697";
@@ -2488,6 +2508,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CustomCompanion = "baaff53a675a84f4983f1e2113b24552";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CustomCompanionDlc2 = "46e3688f1f2748589b4147ea3367434b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CustomCompanionDlc3 = "4ee630120a7a4774a11eb09489b32bbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CustomCompanionDlc5 = "b6e3d8e001e247a79ab1cae0e15bdcc7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CutsceneBossDeepTrap = "64f7ad467285b2e4aaed30720d32b347";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CyborgChiefFemale_Boss = "4b7ba40dd891acf4bbb0582d65b6f506";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> CyborgCitizen_Female = "cd5da783c0db486a9a5497d5bdcee409";
@@ -2516,6 +2537,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranPregenTestLevel6 = "991e19fcc6a61de4fbacf58b8482e49b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranPregenTestLevel7 = "99250bdd95a29f244b668f5c1cfaefdf";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranPregenTestLevel8 = "015ea1e03b8675a4ea2ca75a4a81d313";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranPregenTestLevel8NoMythic = "7acf100fe5e1409e972a08153a1f1507";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranPregenTestLevel9 = "8e3237c17554a3240b9ed9633961cb78";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranQ1_CambionWizard = "b533e0ba3bc985340a713e65a64b31c4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DaeranQ1_CambionWizard_normal = "ecf225e208fa6264488d4f0f49a09bbc";
@@ -3317,6 +3339,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_ArcherHuman_Ranged = "2125e110fbfd4da387409218ba2c1342";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_Baphomet_MeleeCaster = "c413851132aa42d59eecd35508586866";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_Deskari_MeleeFighter = "c7b18d1fada142b4ad1c395efd3e2578";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_RangedFighter = "1ff5ac93580141509641ed40f6744e7c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_Wizard_Baphomet = "dbb1ac8b2e114d7aa60293d734a0e18c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_Cultist_Wizard_DamageFullCaster = "6d8da0ac58504c0d9d3085be44f5c104";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR3_DireWolf_FIend = "56f6d9172391406998f316874938743c";
@@ -3558,6 +3581,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_NixieSorcerer = "8da25a37c0824df48ea02f1b0030cd16";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_RiftDrakeStandard = "5451fd77360b4081b7d35f2c7d45218a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_ShamblingMoundPoisonous = "b41b69435090445eb8f58ea8dd838bbe";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_ShamblingMoundPoisonous_0 = "b0fbcc015d4c4197a875b8eab6a29769";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_TickSwarm = "5aa1a5f8bf7b4107b0414523b0a70608";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_VrockStandard = "bdd7e8e28eb345f4be364ca83b3e9050";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC3_CR9_WaterElementalGreat = "ae93538571b6468e90ebb563e9cce757";
@@ -3668,6 +3692,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_CR10_PoisonersGolem = "c50ded820ffe40cdb6b4e1e42eb93374";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_CR10_SkeletalWizardNecromancerMinion = "3f3cc31d70dd4296b0a315d51675e239";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_cr11_Devourer = "eedec6f78f5a4deb9b58666627faf9de";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_cr11_DevourerSummoned = "a1acea7cda5e46d8b8d0549be25e0acb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_CR12_GhostDruidess = "d0b3eb1737dd433b9d7c39544acb6e13";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_CR12_GhostDruidessVillage = "bb4baffd0b02406c856b5be38c8875d9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_CR12_OmoxStandard = "cb45db3a7d9f4064bea0d75f8e925583";
@@ -3772,6 +3797,251 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_ZombieLordFighter_Ranger = "b5b7d7e38e1448df8df08d6b710f86f9";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_ZombieLordFighter_Skald = "e9b8fa2b7986422093aeec06d0a25005";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC4_ZombieLordFighter_Warrior = "810d96d378c64ebc93612c0536a3ce99";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_BarmenGemilHokks = "f02b326c4c0542839ed904a0f38c711f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_BraveSon = "efc61b22fbb84aee8e915a3359deb078";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_BraveSonNaked = "b77ddf29d97749fe9dae93e403bebb87";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CanibalisticShadow = "f6a261e83a1c48678a389c300c9e62f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CarefulSon = "0bc2be1e1b14443f9b10563683a8d120";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CarefulSonNaked = "78e2d75b78ef4a84aee4a09c1709e4b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Carrok = "6d3b5cb6932b45fa84f7a1bac0b2d9a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ClericMercenary_Level12 = "2a612f4db23549b9b6c31241db032d97";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_FetchlingPrisoner_CutsceneNeutrals = "1e689e643c34401580810c46be696e84";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenChild = "193f639f0b2a4bbd8118d51ac4117f00";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenFemale = "67b1e95fe06f4bb5a5e7dd2ad42085b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenFemale_TureNeutrals = "e69ab00bd49b4ed18bdb12e28b7cc401";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale = "d771059c038e48448289ecdf1f634fc0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_Cutscene = "1569044c3497452f89cd30a861dc5a9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_CutsceneNeutrals = "f3b21b34af4d4777b1ca477d509f775f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_Penta = "dfe9719ce9664a039f2af13ca10e073a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_Rekarth = "05782451a79f4f1c8ead750e59986aaa";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_Sendri = "8cc771af247f4fe19d86a06bc3f8f8b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMale_TrueNeutrals = "c39b0ea17d9f4a7285c6b605a5b5324c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizenMaleKytonSlave = "ec0d34f6965346d9a42c0136cc2a07e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneCitizensHead = "2a83ec83d3c84c6295495e324ef88403";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneGollum = "64d6c293f5c944e1b0ce11a76e589a6b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneGollumsBrother = "6e40a45acdaf41189024ee3107b2f6f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlanePrisonSithhudShard = "04532245e1ce4d1589d79759f81810c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR0_ShadowPlaneVendor = "719634403ecb41169ae2934001184714";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR1_StorastaPeasant = "fb9adb2f2ed24d0094ce921afc818527";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR10_Druid_Caster = "5dd38d59796547de841c71e4459210a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR10_MovanicDevaStandard = "cf28a706d70d42fa8bbcee8d3d88f74e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR10_QuickwoodStorasta = "fc6781fe4db24b91bacc90e3c3fca141";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR10_RagedNymphStorasta = "b81768987474401f97a4ea882b58dd92";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR11_FireElementalElder = "95ad8213744b49c1b32e0624a4d37bff";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR12_FetchlingMagusBoss = "53938657e3464c3db2f98c14709186fe";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR12_MonadicDevaStandard = "1f2596152c6b4eaf9a2d840dd5aebbf1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR12_NymphStorasta_Shifter = "1137bdfdf2c648fdba72426429201bb8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR13_ShadowGiantBoss = "7198ec46dcc24a44b4d2414b5ea297d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR13_ShadowPlaneDevourerBoss = "66d4b21776bb4a4f952c6e777bfafb57";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR14_AstralDeva = "7df785fce0a546f4a6a02e3a17ee5aa6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR18_ZombieSharpshooterUnit = "bb1c7c2d69b84c88a648cb7d385cc434";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR18_ZombieTankUnit = "db1988e037ec4b48be89b30916603b43";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_cr19_FrostGiantMercUnit = "c53abe29b595442688dd6f35e3f99cc0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR2_Goblin_Archer_Weak = "82ac9d40c55649bf943abddef9b624a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR2_Goblin_Stirrer = "65e113a5168f4d2cae47328e73e52db4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR20_Lich = "072c534176554174955d532a3c94acfb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Cultist_FighterMelee = "a211212511d74c2da05ec08e8a0f6795";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Cultist_NecromancerConjurer = "6bd38cc797d947088af656186f65340b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Cultist_Wizard_ScorchingRay = "a9f1a5167f8b472fa0d7ea97a31863cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_FireElementalMedium = "63b201754c594d0a9b8cfc66649d345b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Goblin_Archer = "ca7aa7e31308464d9ffdf6fb08afdfd1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Goblin_RogueMelee = "dce328226788447d8070aefd9784ee13";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Goblin_Sorcerer = "f4ed72f9be14467daac29570709e9bd5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_Marauder_Human_Barbarian = "8d53b2818236480a9a36772246b7919f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_PlaguedHorse = "937bd72ea47b4db1ad9cf8a74a64a088";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_PlaguedWolf = "08f9b3f77e2d45b3a5d5a5b130d94bab";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_ShadowPlaneShadow = "da692c864e964b099bdfb1bfa38c4202";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_ShadowWolfAdvanced = "b92e6b3f6ee24a0dbe0d61478e8db97f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_StorastaWarriorLongbow = "01183db9ac0143a6acd160423609c5f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_StorastaWarriorSpear = "1f23e55430244b85b6492de0882e68ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR3_ZombiePlant = "3eed49674f2346f190cacd91c07dab86";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_BeerElementalMedium = "2b40d68e62c3432fabd7c245129d0b93";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_Cultist_HeavyFighterMelee = "e0cf89cae9ac4eaebc5093e18c887516";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_Goblin_Alchemist = "3c1f79299c69449083f6c9b86222562a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_Mutated_Goblin_Barbarian = "47e2558ce0f049dbbcce47784cb0e17b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_ShadowDireWolf = "66557ae7f6cd41ca99b97faea6e297dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR4_ShadowPlaneShadowAdvanced = "fea1151b96084be28b219bc43cb0845d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_BearCelestial = "36d487355d714131ac3a8f6169d20f45";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_Elite_Goblin_Archer = "f4019e7597a648fbb37cc24666d22ba5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_FireElementalLarge = "9d2117c2e6cf4887a8c8eaf059f4947e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_Goblin_Bard = "83ca3155e44d49b4b10598679ef4da2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_Goblin_RogueMeleeCaster = "9b4e80440815492c8ef511c55b59cca9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_Goblin_Sorcerer = "3817e56fb35a4feeb3d50820992d8323";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_HodagYoung = "fed09586faf946ddb90cf2ceddd1e7c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_NightmareSummoned = "dfb32a0a718549ec8aa093d36471388e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR5_ScytheTreeMedium = "3b05e15dfb68480eb542c8a008022fab";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_AnimatedArmor = "6ac9be18725f4575a9611d47e1a39be3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Cultist_Wizard_OverseerEncounter = "e6fbdaa5e220424587762a23e30236ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Cultist_Wizard_Summoner = "76bc3c58e1f74c2b9bd823fcdf6d7ec9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantAcidMaw = "2bbba96335bf4931b67aa22f6d3f8490";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantAspectFalcon = "87e21d8cad67429fa53f93f6b18ffe58";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantEntangler = "cfb82a86ad674a699496e5a4ca9d03d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantFaerieFire = "718ba32c9baa4b43b3b40cdb43f45e49";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantRayofSick = "7496142573fa40b58e9f89ba383016a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_DruidRevenantStoneFist = "cf9b2990541a482588ee98094bc812e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingBarbarian = "98740f41f3b747a6b7c25341f89a6339";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingFighter = "fa6a8f2b6abb4af88f3889b1922698fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingFighter_TrueNeutral = "462fda9af3434ebbae4adf3f5e76ae7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingMonk = "7187821afa8d490f9950ca2f1571d2b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingMonk_TrueNeutral = "779899dd070f49b390f37eaa866fc62d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingReanimator = "dc2ab490c05f4ed3938c039d9b1f38aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FetchlingRogue = "63e4055da187469a99c38cbacdf9aa68";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FrostWightBarbarian = "55869e7e2ee04462a02454dcc9726230";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FrostWightBlizzard = "aa53a73124c2421797cb62be89c54c90";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FrostWightGiantBarbarian = "b68d037ceed0416b9bb7f8056ed06d61";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_FrostWightSkeleton = "270b5e5eaf104795a72c715647efba61";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_GiantFlytrap_Medium = "92eadb357d6a488082ee0d8cb6bc3b8f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Goblin_Bard_For_Fight = "c2e5ccf32fdf431c8f95642a9cec3abb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Goblin_EliteRogueMelee = "4e3b9bfe4c6a421c811c7d4770f01f89";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Mutated_Goblin_Barbarian = "df98daa372ba468daad640b3fb14095d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_ScytheTreeMedium = "85963e9f0c564a89a5d2f67279635e01";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR6_Skeleton_GiantSorcerer = "69382ed6634b462eaee90089a65b259e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_AnimatedWeapon_Bardiche = "19fc5ed1e2474e9e88db0a15f0a6bda3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_AnimatedWeapon_DwarvenWaraxe = "23b5cdaeb3304498a3934697e5339db8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_AnimatedWeapon_Longbow = "d14ea1ffd476419fb7a6bb9c050e6a2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_AnimatedWeapon_Longsword = "101a8122040545bc9a3cd10249fb4f62";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_BuletteStandartStorasta = "05729f2821324ad9af0537f63d57a6ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_FetchlingArcanist = "7d1b1868d8f848658a1a1ba1b19db7ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_FetchlingKineticist = "570ee55d27b041c8a86ada080db8ea6d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_FetchlingSlayer = "544898d718044752b1af79d99d20ddbd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_Gelatinous_Monument = "bc12bd28786b4c1eb5db6f514f1f1803";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_GiantFlytrap_Medium = "1d9b31f074c04c249ca14505f6194822";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_Goblin_BlightDruid = "de4b1fd51614426b8a5d0c265700b6ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_Goblin_Grand_Alchemist = "886457392c6047f69c8b09e1de14c1dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_Goblin_Kineticist_Fire = "78d010a83d3b4b119898c38f859cd34b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_HodagVenomous = "733ffc5038404697929dc18e5b6e012f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_NymphStorasta = "57293d6a676743869665774f05568283";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_PlaguedBear = "63f23c35cd3543aa9829f4c5a5985d7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_PlayfuiSuccubusSummoned = "4c2d0695a2484ec09079c189d93148d1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_ScytheTreeStorasta = "f128c41541e5467e9f026ff02e4bb11c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR7_StorastaDweomercat = "629393d111d04dfda3d06890eae2bb56";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_BuletteStandartStorasta = "8a0c768aa70e47c29f8826f3063f4fc9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_FermentedBeerElementalLarge = "6754731886a04fcfa4495f7b89511c08";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_FrostWightBarbarian = "4c8bef8eda4149cb80b34d78b740e5af";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_GiantSlugStorasta = "94c0143d464447ee881f5807ffd9d835";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_NymphStorasta = "d0a97a8a9e6840919434f00f748dd691";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ScytheTreeStorasta = "37449e6dc6fb4e778b917a8198bbb7e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ShadowPlaneDragonSoul_Barkskin = "b781b0fe5cc84ed1815fc03ebdc706d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ShadowPlaneDragonSoul_FalseLife = "7e33fa3285844ae0b861a798d1bbe566";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ShadowPlaneDragonSoul_MageArmor = "34d1afacff484a87ad0dc830da2a3925";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ShadowPlaneDragonSoul_Shield = "e2e9b5cfd27b4ecb954f335838dfa2ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_ShadowPlaneShadowGreater = "ecb8c8b8d0dc467dabdc69d622786766";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR8_SuccubusRiderNaked = "eb716ba5f02c4ac5824f2ff9dfdbe6e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_FetchlingFighter = "b4cd39f9cf36412f976917c077cf494d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_FetchlingFighter_keyItem = "a6367a6a46864bb08c875f32dd2ae03e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_GiantSlugStorasta = "8fc7cba9a9344949a15b9f54ee036b1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_Human_Corrupted_Ded = "99b77e24acbd4b509a40872f0b78a06b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ManticoreVenomous = "005bf165eca7443dbf1082ec3ad94de4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_QuickwoodStorasta = "b552b4cf48e4422f98b576511fdc7cdf";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_RagedDweomercatAdvanced = "18bd30f1709a4892b73e6ecadd47ad8d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShadowPlane_SoulEater = "4c816f24c61847e2b772a79e593922cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShadowPlaneShadowDemonAdvanced = "62fe20ef6ff84dafad08cbed458eb7ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShadowPlaneShadowDemonAdvanced_Charge = "cfa55b34d8534ed7a9e99839e1e257c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShadowPlaneShadowDemonAdvanced_Pit = "ebcee08c46bc4f728dd110e407a68158";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShadowPlaneShadowGreaterAdvanced = "3f7a9707738c4388aaf4a4445c2096a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_ShamblingMoundStorasta = "269c8e24782d421e857bee89537a9de9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_CR9_Tower_In_The_Body = "587d3fb0a5764554b96ef9621afa4630";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_DruidGhostCutscene = "935d020d328747d0aab5b0781f0536e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_DwarfBlacksmith = "1eb2e8889142491c96722a43b5a2931b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ErastilDeer = "c7e8fbde698040b4887898c1c37e0ef3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ErastilDeerSummoned = "7992c3371a93489a9e9ecb94f7a2a036";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_FighterMercenary_Level12 = "fd7594e22325439b978f7dc9315b7e76";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Goblin_Servant = "477953e9dcce47e7ba95b924f00c26ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_GoblinShadowShamanBoss = "7d8c78b98cc0465eafcb9c23a9a67fce";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HeadOfSithhud = "47c9c1642c844b15b15b700c52df496c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Hermit = "624a4167d96d4bc9bd9aef8fdcab2747";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantBarbarian = "db70b7aba90d4a2b8fbcc72ef0fedcd1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantBloodCaller = "13c598aa265642bb86a7c60e080bcaf8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantBoss = "c3ccebf48c254992ad315d4cb8c4813f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantBossSecondPhase = "41d76b248ea844d4bcc372fa30dc5706";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantBrawler = "1bd330b557064167a6ff07780969b3c9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantButcher = "3d6043456f184af0b928343297531a26";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantFighter = "adb02d494ba44afdb086c3625f476fc3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_HillGiantRanger = "2ab49e9faa8046e9a77f20424d11f2df";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_InformatorNaked = "d3f5365dd2e3497dbb1844ec894e51aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_InformatorNew = "da7d9cabda12414aa68998b66268499c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterMelee_Female = "9918930511ef44979ad34a3961e4dcd4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterMelee_Female_Naked = "393b9ef19865475c8316fad06cbb89b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterMelee_Male = "ade546447c34414dbcb419256590b8bf";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterMelee_Male_Naked = "14d5ebdaf0864aafb22a1ff8e1be3c88";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterRanged_Female = "00c46acca98648c79e50148f0a65763c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_FighterRanged_Female_Naked = "41a740d2164b4414946319d54061c888";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_RogueMelee_Male = "6960b43dc0204d0b966247eb3c8dd931";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kellid_Human_RogueMelee_Male_Naked = "1abdf1f894e645aeb59540dbd7cea73d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kerismei = "ebb072d5e17e4a41a44f18f63ffcb944";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Kyton = "d43990c791dc4e8aa580ab85f54f6977";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_LivingTornado = "cde0aaedf87c43e98a229fe8507e2498";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_MonumentWildMagicUnit = "ad9bb86c7d7f4ea28d914836f3e72111";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ObsessedPlayerCharacter = "38e900803a694b0891c5da0f25547785";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ObsessedRekarthCharacter = "42a889de195945ca91fd98c376df98f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_ObsessedSendriCharacter = "382ef228bd974d2db45420a0ba6c81e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_OverseerNalfeshnee = "df7b51fd9c9946aab0b65094b0fe3711";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_OverseerNalfeshneeCutscene = "1bce0e1b45184cdcb233e5b654562b6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_OverseerNalfeshneePromoted = "4ced4b1d27af450f9dd1a774b0686804";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_PrisonCookNaked = "98160a620f074bbd873b1a1d5a9cc4c4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_PrisonCookNew = "b12ba424e4cc4f35aee9a56522c85b14";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_RedDragonBoss = "fc5cd08eaf1c47b2acbbda6e0dbb2ead";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion = "07d1bfddf0da488caa4216c9fe136893";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion_Level11 = "0bceb8b319f744a6a765f88b4efae08b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion_Level11_optimized = "3922ae9797be4082b935b812857ccdb0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion_Level6 = "ab097a6b228d45419d1594797509f0bb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion_Level7 = "18f92971bdbf4df88fac6e2bb7000b13";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Rekarth_companion_Level9 = "bea37816f8a74531b88e3493fb7c1fda";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_RekarthPregenLevel8 = "bcb2180afd6249aaaa9adefc148704bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SealOfSithhud = "6b0bdebf1dea487f9e1f9279442f2a24";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion = "902da4e4180747769380d6e4b0f911c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion_Level11 = "76b3a97b883c416aac9d0eceb06c8072";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion_Level11_summoner = "deeb4919c12147b8af59fbebb602ce9d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion_Level6 = "75f4a0c73a25407596a030a17370f8af";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion_Level7 = "df9814c33a1a4f8e854e49ef6042d998";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion_Level9 = "041ebed41f324312861c8252d8a706cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Sendri_companion3shards = "66e262b3a7d842149a23deb4c8ed3a86";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SendriPregenLevel6 = "ca22801de4d1473c91b9774a023048a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SendriPregenLevel8 = "670b4fb111d6459996bd031c2a7b2c6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SithhudBandit = "518dbb382693470686546065deb3797b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SithhudThePowerful = "60066a1b592d4e378793f8ac6824c7bc";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_SlayerMercenary_Level12 = "6727fa4bbfac4afa8f75b036372464dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_Captain = "d888cdb5a7e54787ac27eaaef58c5e68";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_CharmedGuy = "7f5902644c164664a9f594b9945c8c63";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_CutsceneDragon = "3e5f1bffa7f74d49aed392c61cfd4c0a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_CutsceneWarrior = "ba12510afa374fbf8589e960b809a32a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_Elder = "aba953fbf5dc4ec8ba4b99581c49092e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_Herbalist = "85a940079aee49e18f9f8668e3409bb7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_Leader = "f4b32bdd0b64467ebae902dfbf1dd09c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_OldMo = "949d4dc19e5b43c783abe7b409c9ff48";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_SacrificialWoman = "9f5b0cd60b324db9b43a9252d3985e28";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_SacrificialWomanFriend = "15102f90a879437ca5d54ba9f3fde77f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Storasta_Trader = "714c7d560d0c4900a3b661ef18d02ede";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_StorytellerShadowVendor = "cb943b1de15441538ee2737436f487ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernFemale = "2ef53e2f627a4bcab351596633c96a83";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernKnight = "91918ecf46fd418099e8caa943423cf4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernMale_1 = "5c4bef283d0c45b48542ee258885e09d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernMale_2 = "070c8fd5d70345a0a8e20d274b3bb7b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernNoblePatronFemale = "8fd34b247eff488a9d3f0b5cc0fb71fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernNoblePatronMale = "052cd35974a14daab4f1f260b4735fea";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernPatronRandomFemale = "b0e9f3a886c446f29d153641a6fcf9e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TavernPatronRandomMale = "c2d7a643af164b65bf8eee9765e1aad5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Translator = "e766928232024c4ebf2bc9a3ab958f1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TrapActor_SIthhud = "b9a1c240dcab42d79bef6a1b1cab4fb9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TrapActor_SIthhudThePowerful = "479ab247167e4c419322582506cb2f66";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_TrueSithhud = "35aff690c4834da09d24ca2ad54d312f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_UmbralDragon = "abb84b9edf12429cb33cb704474f102c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Velhen_Armor = "6aa9aa9cc1d04bc2aba2476223a42984";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Velhen_Potions = "625c6c939e274c3d8a16b5af8fb72c87";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Velhen_Weapons = "774d68ff41134f6c862072f6009452b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_Venerad = "65795fcaa3a240f0a9d6ba07d315528f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5_VoiceOfTheTower = "190c4c6abb8d401b9764fd2dab4c37f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5PregenClericUnitLevel6 = "254cf6035a0f4e0d8fb7feacb56ffe17";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5PregenFighterUnitLevel6 = "d27990feb7b14ba09ef1e4b6bc3539a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5PregenRangerUnitLevel6 = "64d92b3c8de14e4e95d2743ab437a135";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5StartPregenClericUnit = "fc8ecf60133945099a0ffd5326dc6787";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5StartPregenFighterUnit = "8cc548325b5b48f588aeb0cbedf3f619";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5StartPregenRogueUnit = "3b718b62ea8c4417ae7c2c92a412ad08";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5StartPregenSlayerUnit = "d7c9240a6232479facb67df486ea631c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5StartPregenSorcererUnit = "d104bf83e43e4972922ecf65c6dbc347";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5TestHealerUnitLevel11 = "a1adc9e8834345478a4bc9bd3ba3fc6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5TestSkaldUnitLevel11 = "d583a9ba551b49f0bd775e45de736177";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC5TestTankUnitLevel11 = "0a0cdb25add24f6e9e0daae0d74b7583";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DogSummoned = "77f3f2ddf1ec2da45ab956c433e3b557";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DontLikeGuestsLeader = "519f773f79ea48447ac028a37c388a12";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Doppelganger = "d6a0567eafa16f64fb6ace31d79de3a0";
@@ -3915,9 +4185,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> FiendishAnkou = "8180204b0589cfb4f9796475ec60c5ce";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level_DLC3Video = "e79fe57b2ce14bc4816a903f6c2abd2a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level1 = "88c0a078fb7a44eca7937b368f36a0c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level11 = "c493f365d7d644cb8c6e06487b353129";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level2 = "b3f6baca21044025ac5981c0d8f361aa";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level3 = "ff1d7848730e45eca51953cc588f23ac";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level4 = "78ba599c98c84a2abaad2806fa226a39";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level7 = "d7ba48103c9d4860a780af873954abc2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter_Level9 = "b2e9bb1c9e8a4e3fa0056591a42be8e0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Fighter2Hard = "2b87288af11ef9445beaf52607f808ae";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> FighterAmiger = "26f4138b2102f07418207461469f9ffe";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> FighterBase = "26e0c1d1acacb7748a82ff278c57917e";
@@ -4000,6 +4273,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostOracleBoss = "5a18098c2513d6443b84c12fdbcf0e50";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostPaladin20Summon = "d0ab1b206d15493fba42d8cab6335757";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostPaladinSummon = "258f143843ce7b4429cd2bbdf9b8659b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostRiderAnimalCompanionUnitHorse = "e063f22e871045d4a030a369f4ed9172";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostTargona = "be36c1de05970e546a1fac3aa6195d51";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> GhostYaniel = "852adf707a6ea0a4ca531abe5abe0f5e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ghoul_PrinceOfFangs = "f2a93e6083744d509fd8df1ddfba942d";
@@ -4156,6 +4430,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> InquisitorSanctified_wip_ = "9323c964bc336324bae01cd105f59788";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> InquisitorTacticalLead = "ea1acdca4fcfce9449014272a6cd683a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Invisible_Kitten = "1f31b260dbc966b49ab52afc1988fed0";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Invisible_Kitten_DLC5_Aethylia = "3f5670ce7f3741fb9e2aea4bdc4da39b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Invisible_Kitten_DLC5_BookOfLivingTornado = "e4e8624b23934feb96eb3f2d9ae70c30";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Invisible_Kitten_NotFake = "a54a083437777ef4bad42bea0d5c6edc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Iomedae = "9a1443603c9353d4194a583a31228c8b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Irabeth_DLC1_IZ_Test = "b078010707164ef3afa5f1fa808625e4";
@@ -4297,6 +4573,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LannTestLevel6 = "c8a7e061b31bd5c439d85f87d0c5a423";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LannTestLevel7 = "6cb96f6cefe5c3d4685289559f11d9e2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LannTestLevel8 = "97ebe440078173e4faac71adf6adc1e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LannTestLevel8NoMythic = "0f781db8491a4d71a39b8bc5b2802fdd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LannTestLevel9 = "b89d457d47e472b41b700e116ee31ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Latimas = "ade0746b2629f254d82d274614335088";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LatimasDragon = "36178c58519c5584b8cdab62b2be3bfa";
@@ -4548,6 +4825,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Nexus_TieflingBoy = "5aaaa2529f88bd244a4ecf9153ea62a1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Nexus_TroubledSlave = "b777cf675e470194ca2261ab88864576";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> NidalynnDragon = "c966ef14763c5e649beab50af6e22972";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> NightHagCompanionUnit = "460049291aa14ca7b472b6f7cfeb045b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> NobleFemale1 = "d32cbc435f4146f4fa40a165942f11b1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> NobleFemale2 = "ce7b3e2c8f3bfd8439eba8fabaa028c5";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> NobleFemale3 = "545abccb03a0a9943b025497df75de46";
@@ -4623,6 +4901,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PaladinWarrior = "42de1a5277b7eb746a1505e019dbf784";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Passive_Enemy_Character = "d60fed42d32f44c469a614733cadfafb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Passive_Weak_Enemy_Character = "fec36d0734c673242ad48216b8354810";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Passive_Enemy_Frightened = "47bf8087785846f18fe838d3ead163d6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantFemale1 = "c2f46836d86d7864abeb2747af5db7b5";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantFemale2 = "8ef18acf7e304e549b7d9d49a3039f97";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantFemale3 = "675e24b996b8c1643ab4a0baa828aa01";
@@ -4636,6 +4915,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantMale5 = "1444bc00af695804aab506e3c4bbc2bf";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantMale6 = "7d5f866fab691fd479ad684ea84f0d87";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PeasantMale7 = "904ce4f875c3f0745b643df95a3ba660";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion = "942862a48f1644ae85ac5e3c9deb720c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_Level11 = "2558164028474518a90af9cce864165f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_Level11_optimized = "421ecd896bce43b3aef16ef0826e1215";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_Level6 = "d1ab65c777104a06849fff3c688fb016";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_Level7 = "b2fe494bea874179a36b79ce5a317e54";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_Level9 = "eeabb314492045ca8b2b4982a5898f61";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Penta_companion_NPC = "ca4c688434914eebbe559175a13aea7a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PerpetuallyAnnoyedWizard = "c0415fc2b713c8e4fba6939eeac5fe29";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Pharasma = "db064cafc234498ca83a702c472c1a7b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PinkEye = "9ded106c8419b82499f874c9ea1c3d23";
@@ -4646,9 +4932,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_DefaultHuman = "07381437a02832f41882bb55701b40d3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_DefaultHuman_NUMA = "1531e71bd2aa02e4b8676f5e93c49189";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level1 = "798cc669b40042118d276ad6f3c6b2d1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level11 = "be53c21b80f54f4a8c038fc51feb7832";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level2 = "0681c69171fa47e684992d588a923774";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level3 = "1abea9fcf0584011b484fbc588ec5efd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level4 = "ff24c94d05964499b5ae4ad773ae72fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level7 = "f9f14efe0dd74517957fb56b9e87d62a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_Test_Level9 = "b8be0dc4122f4d0c9b9bd35fa9bbab24";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player_TestingBarbarian = "a22dd32c4c4b0314b9875cbac72f4f6f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Player2_Test_Level1 = "54f036beb5054df18f7a667206f543e2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerAeonWizardTestLevel10 = "e89e3e52a9414c940a3ed647d3c963b0";
@@ -4756,6 +5045,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestLevel6 = "600a110b221bd004aaf23368ab9e44f6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestLevel7 = "0559ea7a003b311489a6d1883a9bb807";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestLevel8 = "f142f4cb617e1a9448c7078cda2c0fdb";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestLevel8Shards = "9943d9fc9ca1447b8a79e664f8369bd1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestLevel9 = "55a2665fe7a53dd429e84f1f1492c518";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestRangedFighterLevel14 = "71625b74a3e0f9e47b5f871ae8865bc2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> PlayerTestRangedFighterLevel15 = "936e511f0acd1664db48e888e519d927";
@@ -4850,10 +5140,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ramley = "00cedc82082789f498c2b856ecad5fdb";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> RandomTalkingSunrise_HellknightVsGargoyles = "6e3333d11be14b548927b2d955b444f5";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> RangedLegerdemainUnit = "661093277286dd5459cd825e0205f908";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level11 = "e60a756329c14a909b828895f180a825";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level2 = "a3bc8e97bcf1447ebe83158e09310e3e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level2_DLC3Video = "80f04c64c3544de7954eff76806d9fdc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level3 = "cc2bcd4d3c8b4a2fa7797e679987c4b1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level4 = "776946004b6449baa043eb269564f365";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level7 = "3cc91f201b7b47f49249eb320e91dc9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Ranger_Level9 = "68aea434275f4595b5795a682a1bd6cc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> RangerBase = "9c3c278e61e21af4786d0eae76b54f18";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> RangerDemonS = "6647ac4001449ae44b81b6380f2f0681";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> RangerFlamewarden = "22ac2d967af1409408d90b01e718e49b";
@@ -4975,6 +5268,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SeelahTestLevel6 = "ec6603b8d2625bf46a750c69589df52e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SeelahTestLevel7 = "122aa6a1d0466c04695a0893562bb457";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SeelahTestLevel8 = "dac1a14119e560d4ea2d540731f08ff3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SeelahTestLevel8NoMythic = "2488b9ebc5ee482385d4a98824a0d3f1";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SeelahTestLevel9 = "99910fe4651a6db4b8aa2994ae69baba";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Seilkind = "855f159c3ebc258489527dc82beb2f91";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Sendri_companion = "561036c882a640089b1d42f03ebe3a6c";
@@ -4985,6 +5279,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Sevalros = "2a92b59985484743928fa4bc26efed4b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SevalrosDragon = "b923def9047308b4d8c78d15e01b0c4c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SevalrosWhiteDragon = "d9b84fbab789adf479637b2aed82f0a3";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shadow = "13e32ff7f7a54b6b95cb36366bf5dc00";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShadowCapStone = "9d574e6758004d2a86bfa3a2beb5d91d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shadowcaster_DamageFullCaster_Deskari = "82f73ecc816e7d544ac0d24728872b6b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ShadowDouble_Summon = "245f978d8b474e58a7efec401cc5579d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Shamira = "66e12264eaf6bf74196e20a9d7619cd2";
@@ -5023,6 +5319,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SmithKitten = "5788b5e98469dd64f8afafe1fda8d53d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SnowActor = "b9060f4b70bc4c00834c187ddab87e09";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Soana_Wintersun = "64805abb52739e44280a758f850b300c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoanaDaughter = "7d4b375284144ecba9a05fb7e1e9f80d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Socothbenoth = "dcd200c627536c449bc8258eada65c9f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SocothbenothEnemy = "d3da9ec08e08492fae63f04713b502ae";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SoldierParty_Caarel = "0050d0bc09024f2aa500f9e3d5d03901";
@@ -5130,6 +5427,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonCR3LocustSwarm = "43f21866042316a4bb539e9984803d30";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Summoned_CR20_ErinyesDevilAbrogailGuard = "76ed98adcf7d4867b784eaa352d4fd0b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Summoned_CR20_ErinyesDevilAbrogailGuardRanged = "1a9d35e6232143a4bb809a87de10cd5e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedAbrikandiluFrozen = "3bbb848c7bb749f9a8366d2bb4392293";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedAirElementalElder = "33bb90ffd13c87b4c8e45d920313752a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedAirElementalElderInfested = "96aa2542f4fd17d4f901f2379e723fd4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedAirElementalGreater = "e770cfbb96b528c4db258d7d03fe6533";
@@ -5156,6 +5454,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedNightcrawler = "5ff5ed03b92b408d87fe7e2c255dce42";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedNightcrawler_Lich = "2158490973a84fe38291089163cb4fa4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedRavener = "4aee3aa342404ad089f73998e02322f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedSkeletonAbomination = "be744eb2d1394f4f87e69491cc7952b4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedSkeletonChampion = "53e228ba7fe18104c93dc4b7294a1b30";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedWaterElementalElder = "3bd31a0b4d800f04a8c5b7b1a6d7061e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SummonedWaterElementalGreater = "fcc939e3acf355b458ddf9617d8c6c28";
@@ -5262,6 +5561,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> TotemSpiritFey = "c54a51d331294d1886af81040ee29dcc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> TotemSpiritManticore = "89ca0b5acb2d4c71aa2c9c66dda09d33";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> ToughMinaghoCambion = "a974bc51eaf3ae04287c174c5404d2b4";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Towers_Body = "f99a7e8a699f430e9f3a4b688a08da8a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> TownGuard = "f4abf54b627c158478cb381a39c57544";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> TownGuard_Crossbow = "a3f4546b785e4d55aa4ac5713e82d17c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> TownGuard_Delvan = "d7737102b2a8c8d4abbea0bb44fbae20";
@@ -5740,6 +6040,7 @@ namespace BlueprintCore.Blueprints.References
           AreeluHumanHologram,
           AreeluInquisitor,
           AreeluInThePast,
+          AreeluInThePast_Court,
           AreeluLab_Derakni,
           AreeluLab_Nalfeshnee,
           AreeluLab_ShadowDemon,
@@ -6079,6 +6380,7 @@ namespace BlueprintCore.Blueprints.References
           BlindCarver_Wintersun,
           BlindHalfling,
           BlindMan,
+          BlizzardServantUnit,
           BloodMoon,
           BloodyUrod,
           BodakLairMiniboss,
@@ -6126,6 +6428,7 @@ namespace BlueprintCore.Blueprints.References
           CessilyGhost,
           Chadali,
           ChadaliEnemy,
+          ChainedDarknessDeathsnatcher,
           Chief_Sull,
           Chief_Sull_LannQ1,
           Chivarro,
@@ -6161,10 +6464,13 @@ namespace BlueprintCore.Blueprints.References
           Claim_DH,
           Claim_Drezen,
           Cleric_Level1,
+          Cleric_Level11,
           Cleric_Level2,
           Cleric_Level2_DLC3Video,
           Cleric_Level3,
           Cleric_Level4,
+          Cleric_Level7,
+          Cleric_Level9,
           ClericApostle,
           ClericBase,
           ClericCrusader,
@@ -6246,6 +6552,7 @@ namespace BlueprintCore.Blueprints.References
           CR0_GundrunPeasantFemale,
           CR0_GundrunPeasantInvisibleDrunkard,
           CR0_GundrunPeasantMale,
+          CR0_GundrunPeasantMale_Ghost,
           CR0_GundrunPeasantTavern,
           CR0_Peasant_Human_SinisterVillager_Female,
           CR0_Peasant_Human_SinisterVillager_Female2,
@@ -6702,6 +7009,7 @@ namespace BlueprintCore.Blueprints.References
           CR13_GlabrezuStandard_RE,
           CR13_GlabrezuStandard_RE_high,
           CR13_GolemIron,
+          CR13_GolemIron_DLC5,
           CR13_GreaterKalavakusAdvanced,
           CR13_GreaterKalavakusAdvanced_DLC2,
           CR13_GreaterKalavakusAdvanced_RE,
@@ -6803,6 +7111,7 @@ namespace BlueprintCore.Blueprints.References
           CR15_Cyborg_CrusaderMeleeLevel13,
           CR15_Cyborg_CrusaderRogueLevel13,
           CR15_Cyborg_Incubus_Assasin,
+          CR15_Cyborg_Incubus_Ranged,
           CR15_CyborgSalamander_Add,
           CR15_Cybrog_Cambion_Ranged,
           CR15_DemodandStringyStandard,
@@ -6816,6 +7125,7 @@ namespace BlueprintCore.Blueprints.References
           CR15_HamadryadStandard,
           CR15_HellhoundAlpha,
           CR15_ImmenseMandragora,
+          CR15_LivingPlagueFiendishTickSwarm,
           CR15_Mercenary_Oread_Caster_Male,
           CR15_NalfeshneeAdvanced,
           CR15_NalfeshneeAdvanced_RE_high,
@@ -6867,7 +7177,9 @@ namespace BlueprintCore.Blueprints.References
           CR16_VilderavnStandard,
           CR16_VrolikaiStanard_RE_low,
           CR16_ZombieLordFighter_Fighter_SarkorianLevel15,
+          CR16_ZombieLordFighter_Fighter_SarkorianLevel15_Juju,
           CR16_ZombieLordFighter_Ranger_SarkorianLevel16,
+          CR16_ZombieLordFighter_Ranger_SarkorianLevel16_Juju,
           CR17_AlushinyrraBandit_RangedDemonCh3_Prisoner,
           CR17_AlushinyrraVampireMelee,
           CR17_AlushinyrraVampireRanged,
@@ -6885,6 +7197,7 @@ namespace BlueprintCore.Blueprints.References
           CR17_DeathsnatcherAdvanced_RE_low,
           CR17_DemodandTarryAdvanced_Alushnirra,
           CR17_DevilApostateStandard,
+          CR17_DumbImmortalIchor,
           CR17_EcorcheAdvanced,
           CR17_EcorcheAdvanced_RE,
           CR17_FiendishEarthElementalEnhanced,
@@ -6892,6 +7205,8 @@ namespace BlueprintCore.Blueprints.References
           CR17_GhostRanger_Sarkorian,
           CR17_GolemAutumnAdvancedGiant,
           CR17_GolemSummerAdvancedGiant,
+          CR17_ImmortalIchor,
+          CR17_ImmortalIchorLeaked,
           CR17_LabyrinthMinotaurAdvanced,
           CR17_LilituStandard,
           CR17_LilituStandard_RE,
@@ -7221,6 +7536,7 @@ namespace BlueprintCore.Blueprints.References
           CR24M_NabasuRogueAssasin_RE_low,
           CR25_Areshkagal_FullCasterBoss,
           CR25_Areshkagal_RetrieverBoss,
+          CR25_HandOfSithhud,
           CR25_SavamelehMythic,
           CR25_SkeletalChampionArcher_DLC1,
           CR25_SkeletalChampionArcher_DLC1_noFx,
@@ -7554,6 +7870,7 @@ namespace BlueprintCore.Blueprints.References
           CR5_Bandit_Human_RogueRanged_Male,
           CR5_BearAdvanced,
           CR5_BeerElementalLargeSummon,
+          CR5_BlizzardElemental_Large,
           CR5_BrimorakStandard,
           CR5_BrimorakStandard_RE,
           CR5_DireBoarAdvanced,
@@ -7757,6 +8074,7 @@ namespace BlueprintCore.Blueprints.References
           CR7_GundrunShamansWarrior,
           CR7_GundrunSquareShamansWarrior,
           CR7_HillGiantStandart,
+          CR7_HillGiantUnarmed,
           CR7_HodagAdvanced,
           CR7_HodagTransmutation,
           CR7_HodagTreant,
@@ -7823,6 +8141,7 @@ namespace BlueprintCore.Blueprints.References
           CR8_Bandit_Human_Necromancer_Sorcerer,
           CR8_Bandit_Human_RogueMelee_Male,
           CR8_BearDireAdvanced,
+          CR8_BlizzardElemental_Huge,
           CR8_BodakStandard,
           CR8_BodakStandard_RE_high,
           CR8_CorpulentSpectre,
@@ -7946,6 +8265,7 @@ namespace BlueprintCore.Blueprints.References
           CR9_Sarcorian_Ranger_Ranged_Female,
           CR9_ShadowGreaterAdvanced,
           CR9_ShadowGreaterAdvanced_RE_high,
+          CR9_ShadowGreaterAdvancedSummoned,
           CR9_ShamblingMoundPoisonous,
           CR9_SmilodonAdvanced,
           CR9_SoulEater,
@@ -7999,6 +8319,7 @@ namespace BlueprintCore.Blueprints.References
           CustomCompanion,
           CustomCompanionDlc2,
           CustomCompanionDlc3,
+          CustomCompanionDlc5,
           CutsceneBossDeepTrap,
           CyborgChiefFemale_Boss,
           CyborgCitizen_Female,
@@ -8027,6 +8348,7 @@ namespace BlueprintCore.Blueprints.References
           DaeranPregenTestLevel6,
           DaeranPregenTestLevel7,
           DaeranPregenTestLevel8,
+          DaeranPregenTestLevel8NoMythic,
           DaeranPregenTestLevel9,
           DaeranQ1_CambionWizard,
           DaeranQ1_CambionWizard_normal,
@@ -8828,6 +9150,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR3_Cultist_ArcherHuman_Ranged,
           DLC3_CR3_Cultist_Baphomet_MeleeCaster,
           DLC3_CR3_Cultist_Deskari_MeleeFighter,
+          DLC3_CR3_Cultist_RangedFighter,
           DLC3_CR3_Cultist_Wizard_Baphomet,
           DLC3_CR3_Cultist_Wizard_DamageFullCaster,
           DLC3_CR3_DireWolf_FIend,
@@ -9069,6 +9392,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_CR9_NixieSorcerer,
           DLC3_CR9_RiftDrakeStandard,
           DLC3_CR9_ShamblingMoundPoisonous,
+          DLC3_CR9_ShamblingMoundPoisonous_0,
           DLC3_CR9_TickSwarm,
           DLC3_CR9_VrockStandard,
           DLC3_CR9_WaterElementalGreat,
@@ -9179,6 +9503,7 @@ namespace BlueprintCore.Blueprints.References
           DLC4_CR10_PoisonersGolem,
           DLC4_CR10_SkeletalWizardNecromancerMinion,
           DLC4_cr11_Devourer,
+          DLC4_cr11_DevourerSummoned,
           DLC4_CR12_GhostDruidess,
           DLC4_CR12_GhostDruidessVillage,
           DLC4_CR12_OmoxStandard,
@@ -9283,6 +9608,251 @@ namespace BlueprintCore.Blueprints.References
           DLC4_ZombieLordFighter_Ranger,
           DLC4_ZombieLordFighter_Skald,
           DLC4_ZombieLordFighter_Warrior,
+          DLC5_BarmenGemilHokks,
+          DLC5_BraveSon,
+          DLC5_BraveSonNaked,
+          DLC5_CanibalisticShadow,
+          DLC5_CarefulSon,
+          DLC5_CarefulSonNaked,
+          DLC5_Carrok,
+          DLC5_ClericMercenary_Level12,
+          DLC5_CR0_FetchlingPrisoner_CutsceneNeutrals,
+          DLC5_CR0_ShadowPlaneCitizenChild,
+          DLC5_CR0_ShadowPlaneCitizenFemale,
+          DLC5_CR0_ShadowPlaneCitizenFemale_TureNeutrals,
+          DLC5_CR0_ShadowPlaneCitizenMale,
+          DLC5_CR0_ShadowPlaneCitizenMale_Cutscene,
+          DLC5_CR0_ShadowPlaneCitizenMale_CutsceneNeutrals,
+          DLC5_CR0_ShadowPlaneCitizenMale_Penta,
+          DLC5_CR0_ShadowPlaneCitizenMale_Rekarth,
+          DLC5_CR0_ShadowPlaneCitizenMale_Sendri,
+          DLC5_CR0_ShadowPlaneCitizenMale_TrueNeutrals,
+          DLC5_CR0_ShadowPlaneCitizenMaleKytonSlave,
+          DLC5_CR0_ShadowPlaneCitizensHead,
+          DLC5_CR0_ShadowPlaneGollum,
+          DLC5_CR0_ShadowPlaneGollumsBrother,
+          DLC5_CR0_ShadowPlanePrisonSithhudShard,
+          DLC5_CR0_ShadowPlaneVendor,
+          DLC5_CR1_StorastaPeasant,
+          DLC5_CR10_Druid_Caster,
+          DLC5_CR10_MovanicDevaStandard,
+          DLC5_CR10_QuickwoodStorasta,
+          DLC5_CR10_RagedNymphStorasta,
+          DLC5_CR11_FireElementalElder,
+          DLC5_CR12_FetchlingMagusBoss,
+          DLC5_CR12_MonadicDevaStandard,
+          DLC5_CR12_NymphStorasta_Shifter,
+          DLC5_CR13_ShadowGiantBoss,
+          DLC5_CR13_ShadowPlaneDevourerBoss,
+          DLC5_CR14_AstralDeva,
+          DLC5_CR18_ZombieSharpshooterUnit,
+          DLC5_CR18_ZombieTankUnit,
+          DLC5_cr19_FrostGiantMercUnit,
+          DLC5_CR2_Goblin_Archer_Weak,
+          DLC5_CR2_Goblin_Stirrer,
+          DLC5_CR20_Lich,
+          DLC5_CR3_Cultist_FighterMelee,
+          DLC5_CR3_Cultist_NecromancerConjurer,
+          DLC5_CR3_Cultist_Wizard_ScorchingRay,
+          DLC5_CR3_FireElementalMedium,
+          DLC5_CR3_Goblin_Archer,
+          DLC5_CR3_Goblin_RogueMelee,
+          DLC5_CR3_Goblin_Sorcerer,
+          DLC5_CR3_Marauder_Human_Barbarian,
+          DLC5_CR3_PlaguedHorse,
+          DLC5_CR3_PlaguedWolf,
+          DLC5_CR3_ShadowPlaneShadow,
+          DLC5_CR3_ShadowWolfAdvanced,
+          DLC5_CR3_StorastaWarriorLongbow,
+          DLC5_CR3_StorastaWarriorSpear,
+          DLC5_CR3_ZombiePlant,
+          DLC5_CR4_BeerElementalMedium,
+          DLC5_CR4_Cultist_HeavyFighterMelee,
+          DLC5_CR4_Goblin_Alchemist,
+          DLC5_CR4_Mutated_Goblin_Barbarian,
+          DLC5_CR4_ShadowDireWolf,
+          DLC5_CR4_ShadowPlaneShadowAdvanced,
+          DLC5_CR5_BearCelestial,
+          DLC5_CR5_Elite_Goblin_Archer,
+          DLC5_CR5_FireElementalLarge,
+          DLC5_CR5_Goblin_Bard,
+          DLC5_CR5_Goblin_RogueMeleeCaster,
+          DLC5_CR5_Goblin_Sorcerer,
+          DLC5_CR5_HodagYoung,
+          DLC5_CR5_NightmareSummoned,
+          DLC5_CR5_ScytheTreeMedium,
+          DLC5_CR6_AnimatedArmor,
+          DLC5_CR6_Cultist_Wizard_OverseerEncounter,
+          DLC5_CR6_Cultist_Wizard_Summoner,
+          DLC5_CR6_DruidRevenantAcidMaw,
+          DLC5_CR6_DruidRevenantAspectFalcon,
+          DLC5_CR6_DruidRevenantEntangler,
+          DLC5_CR6_DruidRevenantFaerieFire,
+          DLC5_CR6_DruidRevenantRayofSick,
+          DLC5_CR6_DruidRevenantStoneFist,
+          DLC5_CR6_FetchlingBarbarian,
+          DLC5_CR6_FetchlingFighter,
+          DLC5_CR6_FetchlingFighter_TrueNeutral,
+          DLC5_CR6_FetchlingMonk,
+          DLC5_CR6_FetchlingMonk_TrueNeutral,
+          DLC5_CR6_FetchlingReanimator,
+          DLC5_CR6_FetchlingRogue,
+          DLC5_CR6_FrostWightBarbarian,
+          DLC5_CR6_FrostWightBlizzard,
+          DLC5_CR6_FrostWightGiantBarbarian,
+          DLC5_CR6_FrostWightSkeleton,
+          DLC5_CR6_GiantFlytrap_Medium,
+          DLC5_CR6_Goblin_Bard_For_Fight,
+          DLC5_CR6_Goblin_EliteRogueMelee,
+          DLC5_CR6_Mutated_Goblin_Barbarian,
+          DLC5_CR6_ScytheTreeMedium,
+          DLC5_CR6_Skeleton_GiantSorcerer,
+          DLC5_CR7_AnimatedWeapon_Bardiche,
+          DLC5_CR7_AnimatedWeapon_DwarvenWaraxe,
+          DLC5_CR7_AnimatedWeapon_Longbow,
+          DLC5_CR7_AnimatedWeapon_Longsword,
+          DLC5_CR7_BuletteStandartStorasta,
+          DLC5_CR7_FetchlingArcanist,
+          DLC5_CR7_FetchlingKineticist,
+          DLC5_CR7_FetchlingSlayer,
+          DLC5_CR7_Gelatinous_Monument,
+          DLC5_CR7_GiantFlytrap_Medium,
+          DLC5_CR7_Goblin_BlightDruid,
+          DLC5_CR7_Goblin_Grand_Alchemist,
+          DLC5_CR7_Goblin_Kineticist_Fire,
+          DLC5_CR7_HodagVenomous,
+          DLC5_CR7_NymphStorasta,
+          DLC5_CR7_PlaguedBear,
+          DLC5_CR7_PlayfuiSuccubusSummoned,
+          DLC5_CR7_ScytheTreeStorasta,
+          DLC5_CR7_StorastaDweomercat,
+          DLC5_CR8_BuletteStandartStorasta,
+          DLC5_CR8_FermentedBeerElementalLarge,
+          DLC5_CR8_FrostWightBarbarian,
+          DLC5_CR8_GiantSlugStorasta,
+          DLC5_CR8_NymphStorasta,
+          DLC5_CR8_ScytheTreeStorasta,
+          DLC5_CR8_ShadowPlaneDragonSoul_Barkskin,
+          DLC5_CR8_ShadowPlaneDragonSoul_FalseLife,
+          DLC5_CR8_ShadowPlaneDragonSoul_MageArmor,
+          DLC5_CR8_ShadowPlaneDragonSoul_Shield,
+          DLC5_CR8_ShadowPlaneShadowGreater,
+          DLC5_CR8_SuccubusRiderNaked,
+          DLC5_CR9_FetchlingFighter,
+          DLC5_CR9_FetchlingFighter_keyItem,
+          DLC5_CR9_GiantSlugStorasta,
+          DLC5_CR9_Human_Corrupted_Ded,
+          DLC5_CR9_ManticoreVenomous,
+          DLC5_CR9_QuickwoodStorasta,
+          DLC5_CR9_RagedDweomercatAdvanced,
+          DLC5_CR9_ShadowPlane_SoulEater,
+          DLC5_CR9_ShadowPlaneShadowDemonAdvanced,
+          DLC5_CR9_ShadowPlaneShadowDemonAdvanced_Charge,
+          DLC5_CR9_ShadowPlaneShadowDemonAdvanced_Pit,
+          DLC5_CR9_ShadowPlaneShadowGreaterAdvanced,
+          DLC5_CR9_ShamblingMoundStorasta,
+          DLC5_CR9_Tower_In_The_Body,
+          DLC5_DruidGhostCutscene,
+          DLC5_DwarfBlacksmith,
+          DLC5_ErastilDeer,
+          DLC5_ErastilDeerSummoned,
+          DLC5_FighterMercenary_Level12,
+          DLC5_Goblin_Servant,
+          DLC5_GoblinShadowShamanBoss,
+          DLC5_HeadOfSithhud,
+          DLC5_Hermit,
+          DLC5_HillGiantBarbarian,
+          DLC5_HillGiantBloodCaller,
+          DLC5_HillGiantBoss,
+          DLC5_HillGiantBossSecondPhase,
+          DLC5_HillGiantBrawler,
+          DLC5_HillGiantButcher,
+          DLC5_HillGiantFighter,
+          DLC5_HillGiantRanger,
+          DLC5_InformatorNaked,
+          DLC5_InformatorNew,
+          DLC5_Kellid_Human_FighterMelee_Female,
+          DLC5_Kellid_Human_FighterMelee_Female_Naked,
+          DLC5_Kellid_Human_FighterMelee_Male,
+          DLC5_Kellid_Human_FighterMelee_Male_Naked,
+          DLC5_Kellid_Human_FighterRanged_Female,
+          DLC5_Kellid_Human_FighterRanged_Female_Naked,
+          DLC5_Kellid_Human_RogueMelee_Male,
+          DLC5_Kellid_Human_RogueMelee_Male_Naked,
+          DLC5_Kerismei,
+          DLC5_Kyton,
+          DLC5_LivingTornado,
+          DLC5_MonumentWildMagicUnit,
+          DLC5_ObsessedPlayerCharacter,
+          DLC5_ObsessedRekarthCharacter,
+          DLC5_ObsessedSendriCharacter,
+          DLC5_OverseerNalfeshnee,
+          DLC5_OverseerNalfeshneeCutscene,
+          DLC5_OverseerNalfeshneePromoted,
+          DLC5_PrisonCookNaked,
+          DLC5_PrisonCookNew,
+          DLC5_RedDragonBoss,
+          DLC5_Rekarth_companion,
+          DLC5_Rekarth_companion_Level11,
+          DLC5_Rekarth_companion_Level11_optimized,
+          DLC5_Rekarth_companion_Level6,
+          DLC5_Rekarth_companion_Level7,
+          DLC5_Rekarth_companion_Level9,
+          DLC5_RekarthPregenLevel8,
+          DLC5_SealOfSithhud,
+          DLC5_Sendri_companion,
+          DLC5_Sendri_companion_Level11,
+          DLC5_Sendri_companion_Level11_summoner,
+          DLC5_Sendri_companion_Level6,
+          DLC5_Sendri_companion_Level7,
+          DLC5_Sendri_companion_Level9,
+          DLC5_Sendri_companion3shards,
+          DLC5_SendriPregenLevel6,
+          DLC5_SendriPregenLevel8,
+          DLC5_SithhudBandit,
+          DLC5_SithhudThePowerful,
+          DLC5_SlayerMercenary_Level12,
+          DLC5_Storasta_Captain,
+          DLC5_Storasta_CharmedGuy,
+          DLC5_Storasta_CutsceneDragon,
+          DLC5_Storasta_CutsceneWarrior,
+          DLC5_Storasta_Elder,
+          DLC5_Storasta_Herbalist,
+          DLC5_Storasta_Leader,
+          DLC5_Storasta_OldMo,
+          DLC5_Storasta_SacrificialWoman,
+          DLC5_Storasta_SacrificialWomanFriend,
+          DLC5_Storasta_Trader,
+          DLC5_StorytellerShadowVendor,
+          DLC5_TavernFemale,
+          DLC5_TavernKnight,
+          DLC5_TavernMale_1,
+          DLC5_TavernMale_2,
+          DLC5_TavernNoblePatronFemale,
+          DLC5_TavernNoblePatronMale,
+          DLC5_TavernPatronRandomFemale,
+          DLC5_TavernPatronRandomMale,
+          DLC5_Translator,
+          DLC5_TrapActor_SIthhud,
+          DLC5_TrapActor_SIthhudThePowerful,
+          DLC5_TrueSithhud,
+          DLC5_UmbralDragon,
+          DLC5_Velhen_Armor,
+          DLC5_Velhen_Potions,
+          DLC5_Velhen_Weapons,
+          DLC5_Venerad,
+          DLC5_VoiceOfTheTower,
+          DLC5PregenClericUnitLevel6,
+          DLC5PregenFighterUnitLevel6,
+          DLC5PregenRangerUnitLevel6,
+          DLC5StartPregenClericUnit,
+          DLC5StartPregenFighterUnit,
+          DLC5StartPregenRogueUnit,
+          DLC5StartPregenSlayerUnit,
+          DLC5StartPregenSorcererUnit,
+          DLC5TestHealerUnitLevel11,
+          DLC5TestSkaldUnitLevel11,
+          DLC5TestTankUnitLevel11,
           DogSummoned,
           DontLikeGuestsLeader,
           Doppelganger,
@@ -9426,9 +9996,12 @@ namespace BlueprintCore.Blueprints.References
           FiendishAnkou,
           Fighter_Level_DLC3Video,
           Fighter_Level1,
+          Fighter_Level11,
           Fighter_Level2,
           Fighter_Level3,
           Fighter_Level4,
+          Fighter_Level7,
+          Fighter_Level9,
           Fighter2Hard,
           FighterAmiger,
           FighterBase,
@@ -9511,6 +10084,7 @@ namespace BlueprintCore.Blueprints.References
           GhostOracleBoss,
           GhostPaladin20Summon,
           GhostPaladinSummon,
+          GhostRiderAnimalCompanionUnitHorse,
           GhostTargona,
           GhostYaniel,
           Ghoul_PrinceOfFangs,
@@ -9667,6 +10241,8 @@ namespace BlueprintCore.Blueprints.References
           InquisitorSanctified_wip_,
           InquisitorTacticalLead,
           Invisible_Kitten,
+          Invisible_Kitten_DLC5_Aethylia,
+          Invisible_Kitten_DLC5_BookOfLivingTornado,
           Invisible_Kitten_NotFake,
           Iomedae,
           Irabeth_DLC1_IZ_Test,
@@ -9808,6 +10384,7 @@ namespace BlueprintCore.Blueprints.References
           LannTestLevel6,
           LannTestLevel7,
           LannTestLevel8,
+          LannTestLevel8NoMythic,
           LannTestLevel9,
           Latimas,
           LatimasDragon,
@@ -10059,6 +10636,7 @@ namespace BlueprintCore.Blueprints.References
           Nexus_TieflingBoy,
           Nexus_TroubledSlave,
           NidalynnDragon,
+          NightHagCompanionUnit,
           NobleFemale1,
           NobleFemale2,
           NobleFemale3,
@@ -10134,6 +10712,7 @@ namespace BlueprintCore.Blueprints.References
           PaladinWarrior,
           Passive_Enemy_Character,
           Passive_Weak_Enemy_Character,
+          Passive_Enemy_Frightened,
           PeasantFemale1,
           PeasantFemale2,
           PeasantFemale3,
@@ -10147,6 +10726,13 @@ namespace BlueprintCore.Blueprints.References
           PeasantMale5,
           PeasantMale6,
           PeasantMale7,
+          Penta_companion,
+          Penta_companion_Level11,
+          Penta_companion_Level11_optimized,
+          Penta_companion_Level6,
+          Penta_companion_Level7,
+          Penta_companion_Level9,
+          Penta_companion_NPC,
           PerpetuallyAnnoyedWizard,
           Pharasma,
           PinkEye,
@@ -10157,9 +10743,12 @@ namespace BlueprintCore.Blueprints.References
           Player_DefaultHuman,
           Player_DefaultHuman_NUMA,
           Player_Test_Level1,
+          Player_Test_Level11,
           Player_Test_Level2,
           Player_Test_Level3,
           Player_Test_Level4,
+          Player_Test_Level7,
+          Player_Test_Level9,
           Player_TestingBarbarian,
           Player2_Test_Level1,
           PlayerAeonWizardTestLevel10,
@@ -10267,6 +10856,7 @@ namespace BlueprintCore.Blueprints.References
           PlayerTestLevel6,
           PlayerTestLevel7,
           PlayerTestLevel8,
+          PlayerTestLevel8Shards,
           PlayerTestLevel9,
           PlayerTestRangedFighterLevel14,
           PlayerTestRangedFighterLevel15,
@@ -10361,10 +10951,13 @@ namespace BlueprintCore.Blueprints.References
           Ramley,
           RandomTalkingSunrise_HellknightVsGargoyles,
           RangedLegerdemainUnit,
+          Ranger_Level11,
           Ranger_Level2,
           Ranger_Level2_DLC3Video,
           Ranger_Level3,
           Ranger_Level4,
+          Ranger_Level7,
+          Ranger_Level9,
           RangerBase,
           RangerDemonS,
           RangerFlamewarden,
@@ -10486,6 +11079,7 @@ namespace BlueprintCore.Blueprints.References
           SeelahTestLevel6,
           SeelahTestLevel7,
           SeelahTestLevel8,
+          SeelahTestLevel8NoMythic,
           SeelahTestLevel9,
           Seilkind,
           Sendri_companion,
@@ -10496,6 +11090,8 @@ namespace BlueprintCore.Blueprints.References
           Sevalros,
           SevalrosDragon,
           SevalrosWhiteDragon,
+          Shadow,
+          ShadowCapStone,
           Shadowcaster_DamageFullCaster_Deskari,
           ShadowDouble_Summon,
           Shamira,
@@ -10534,6 +11130,7 @@ namespace BlueprintCore.Blueprints.References
           SmithKitten,
           SnowActor,
           Soana_Wintersun,
+          SoanaDaughter,
           Socothbenoth,
           SocothbenothEnemy,
           SoldierParty_Caarel,
@@ -10641,6 +11238,7 @@ namespace BlueprintCore.Blueprints.References
           SummonCR3LocustSwarm,
           Summoned_CR20_ErinyesDevilAbrogailGuard,
           Summoned_CR20_ErinyesDevilAbrogailGuardRanged,
+          SummonedAbrikandiluFrozen,
           SummonedAirElementalElder,
           SummonedAirElementalElderInfested,
           SummonedAirElementalGreater,
@@ -10667,6 +11265,7 @@ namespace BlueprintCore.Blueprints.References
           SummonedNightcrawler,
           SummonedNightcrawler_Lich,
           SummonedRavener,
+          SummonedSkeletonAbomination,
           SummonedSkeletonChampion,
           SummonedWaterElementalElder,
           SummonedWaterElementalGreater,
@@ -10773,6 +11372,7 @@ namespace BlueprintCore.Blueprints.References
           TotemSpiritFey,
           TotemSpiritManticore,
           ToughMinaghoCambion,
+          Towers_Body,
           TownGuard,
           TownGuard_Crossbow,
           TownGuard_Delvan,

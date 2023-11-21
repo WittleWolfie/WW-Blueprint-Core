@@ -47,6 +47,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.ToBeContinued = copyFrom.ToBeContinued;
           bp.IsDungeon = copyFrom.IsDungeon;
           bp.AllowMythicChange = copyFrom.AllowMythicChange;
+          bp.MythicLevelsIsUniqueForEachCharacter = copyFrom.MythicLevelsIsUniqueForEachCharacter;
           bp.AudioChunk = copyFrom.AudioChunk;
           bp.IsLongImportActivate = copyFrom.IsLongImportActivate;
           bp.m_StartGamePreset = copyFrom.m_StartGamePreset;
@@ -77,6 +78,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.ToBeContinued = copyFrom.ToBeContinued;
           bp.IsDungeon = copyFrom.IsDungeon;
           bp.AllowMythicChange = copyFrom.AllowMythicChange;
+          bp.MythicLevelsIsUniqueForEachCharacter = copyFrom.MythicLevelsIsUniqueForEachCharacter;
           bp.AudioChunk = copyFrom.AudioChunk;
           bp.IsLongImportActivate = copyFrom.IsLongImportActivate;
           bp.m_StartGamePreset = copyFrom.m_StartGamePreset;
@@ -244,6 +246,18 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         bp =>
         {
           bp.AllowMythicChange = allowMythicChange;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.MythicLevelsIsUniqueForEachCharacter"/>
+    /// </summary>
+    public TBuilder SetMythicLevelsIsUniqueForEachCharacter(bool mythicLevelsIsUniqueForEachCharacter = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MythicLevelsIsUniqueForEachCharacter = mythicLevelsIsUniqueForEachCharacter;
         });
     }
 
@@ -573,6 +587,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc2Campaign</term><description>e6fdda2539274c1e89d236be69f5a984</description></item>
     /// <item><term>Dlc3Campaign</term><description>e1bde745d6ad47c0bc9fb8e479b29153</description></item>
+    /// <item><term>Dlc5Campaign</term><description>d7f857701f7f44e0a02d571dea798f28</description></item>
     /// </list>
     /// </remarks>
     ///

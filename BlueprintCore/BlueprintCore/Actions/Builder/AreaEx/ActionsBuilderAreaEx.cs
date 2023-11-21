@@ -451,8 +451,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_Int_Tier_1_Island_10</term><description>9a1e689e6c0046eba81b05be0086442a</description></item>
-    /// <item><term>DLC3_Int_Tier_2_Island_2</term><description>9673a525df1d4f0aa659f7a3191cd444</description></item>
-    /// <item><term>DLC3_Int_Tier_3_Island_6</term><description>d6dcb7d0e14949dcab6343d4d89e8860</description></item>
+    /// <item><term>DLC3_Int_Tier_2_Island_3</term><description>a229fa51b4e7405a8f4ff886984d62d2</description></item>
+    /// <item><term>ShadowVeilBuff</term><description>63885637a87d4084b8e70d757f8713a4</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -544,7 +544,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>c2fba818bb632aa4bb5908337b9f5b51</description></item>
-    /// <item><term>CommandAction</term><description>4286b17faaf948f79bad431506aad27f</description></item>
+    /// <item><term>CommandAction</term><description>8e798750795e4bb48fdea00e6b9175f1</description></item>
     /// <item><term>FourthPart</term><description>24417ce44ab52e24388edd18d6b5e115</description></item>
     /// </list>
     /// </remarks>
@@ -677,8 +677,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>02_TargonaSearch</term><description>34246eb4ed22ea44cb2e84c278d9e14d</description></item>
-    /// <item><term>DLC4_RuinedVillage_SecondVisit_Preset_CoreDifficult</term><description>7058aa4c84e64e0882f9b14e5a619be7</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>DLC3_Int_StarMaracaDeath</term><description>2eadfc8b3a0441f8b4f90b16682e0d73</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -724,8 +724,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_AlushinyrraPort_Citizens</term><description>15a9d4b5e6f348b8a87151f2b643ef81</description></item>
-    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
+    /// <item><term>DHSetServiceCaster</term><description>931cc797ccaa462a8ae6169e98f3698d</description></item>
+    /// <item><term>DLC5_Tavern_AreaEtude</term><description>6605df48ac824dc5b0139bfe3f2dedfb</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
@@ -863,7 +863,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CombineS_1_1</term><description>ecd04cedec8a498cb07d1c50951d0310</description></item>
-    /// <item><term>CombineS_3_5</term><description>a142978194ec4efa894b16194e659a55</description></item>
+    /// <item><term>CombineS_3_7</term><description>c23b576effb7437787c726309aed7abf</description></item>
     /// <item><term>SecretCompartment_Actions</term><description>9fa9b3ba43252124ba4021816436cdbd</description></item>
     /// </list>
     /// </remarks>
@@ -1071,8 +1071,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AddAeonEyeActionsHolder</term><description>c6738bf1a8f74dc8b0a1762a721e1eb6</description></item>
-    /// <item><term>CommandAction8</term><description>a5b807aa75154867867a0db0284b205c</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>Cue_0007</term><description>c2382e8386daabf4b885a664662e0b66</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
@@ -1109,8 +1109,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonQ3Scene_DayTime</term><description>ffb3b99adfa368444b4a46ea36e5aec9</description></item>
-    /// <item><term>DisableFirstBallTrap_Actions</term><description>925eb4dd98a32ea478f46bd1799fefb2</description></item>
+    /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
+    /// <item><term>DLC2_Catacombs_EscapistLeft_SZ</term><description>c25f874ffb77410f9363b36f6b2501f6</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -1181,7 +1181,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
-    /// <item><term>CommandAction4</term><description>ec2d62d68fb7449797d6d5f3a9b06856</description></item>
+    /// <item><term>CommandAction5</term><description>622f000c81c34fcbbdbe2b4497d098fa</description></item>
     /// <item><term>SummonedCrusaderDrezenLeftHanded</term><description>e3862f8f01298f240b171e50f2d4302c</description></item>
     /// </list>
     /// </remarks>
@@ -1211,8 +1211,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>a1359088a0c30cd408411b966916d5e6</description></item>
-    /// <item><term>CommandAction 3</term><description>b591c3c6e80edcb4da81380150310d86</description></item>
-    /// <item><term>CommandAction 8</term><description>bc5f144452a93274f97ec6a8d38d7f90</description></item>
+    /// <item><term>CommandAction1</term><description>1b93fe4d34cf45848f011ec30f5e8079</description></item>
+    /// <item><term>DLC5_SithhudHimself_dialogue</term><description>a50d47dd6d6a49d698d87c21c3b692bf</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder SetDeviceTrigger(
@@ -1364,7 +1364,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>13b6c3cf20644ba44be8627f6cb0087e</description></item>
+    /// <item><term>Cue_0012</term><description>d728ab3139e4a474d9fe75a15dfa2b27</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>
@@ -1454,7 +1454,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction1</term><description>fe6ef70646774bcebe26a218c71c76b3</description></item>
+    /// <item><term>CommandAction1</term><description>9cdd609a287f47e28f33fa88e5d85066</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1494,7 +1494,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>1247182d56f46e9439ae1d9a74085604</description></item>
-    /// <item><term>CommandAction 2</term><description>e4974d4f80794f36bf209c979959e6c7</description></item>
+    /// <item><term>CommandAction 7</term><description>74228bc041543c648bbe931b3266883c</description></item>
     /// <item><term>TrappedChestGood5_OnDestructionActions</term><description>9a41a80c55a34003b3fa830e5e4a1c9c</description></item>
     /// </list>
     /// </remarks>
@@ -1516,6 +1516,11 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// InfoBox: Required if Spell can target Point (like Fireball)
     /// </para>
     /// </param>
+    /// <param name="targetTransform">
+    /// <para>
+    /// InfoBox: Required if Spell can target Point (like Fireball)
+    /// </para>
+    /// </param>
     /// <param name="triggeringUnit">
     /// <para>
     /// InfoBox: Required if Spell can not target Point (like Scorching ray)
@@ -1531,8 +1536,10 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         Blueprint<BlueprintAbilityReference>? spell = null,
         int? spellLevel = null,
         PositionEvaluator? targetPoint = null,
+        TransformEvaluator? targetTransform = null,
         MapObjectEvaluator? trapObject = null,
-        UnitEvaluator? triggeringUnit = null)
+        UnitEvaluator? triggeringUnit = null,
+        bool? useTransformPointInsteadPosition = null)
     {
       var element = ElementTool.Create<TrapCastSpell>();
       builder.Validate(actorPosition);
@@ -1549,10 +1556,13 @@ namespace BlueprintCore.Actions.Builder.AreaEx
       element.SpellLevel = spellLevel ?? element.SpellLevel;
       builder.Validate(targetPoint);
       element.TargetPoint = targetPoint ?? element.TargetPoint;
+      builder.Validate(targetTransform);
+      element.TargetTransform = targetTransform ?? element.TargetTransform;
       builder.Validate(trapObject);
       element.TrapObject = trapObject ?? element.TrapObject;
       builder.Validate(triggeringUnit);
       element.TriggeringUnit = triggeringUnit ?? element.TriggeringUnit;
+      element.UseTransformPointInsteadPosition = useTransformPointInsteadPosition ?? element.UseTransformPointInsteadPosition;
       return builder.Add(element);
     }
 

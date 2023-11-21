@@ -32,6 +32,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Azata_Chapter3VendorTable = "869c56944d1da074886b3d04e75c5e01";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> AzataTwins_Chapter5VendorTable = "4f3a4aa27393c1d43b9d47d1b60c8346";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Barbarian_Chapter3VendorTable = "dfcb80aa271b82b49849ed1190db2bbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> BattleBliss_healer_Potions = "947ee7dfe1934e348281ec6f4c7d8590";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Blacksmith_Chapter3VendorTable = "1317f39fdc425e94f85c331a79f603d3";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Blacksmith_Chapter5VendorTable = "8ad7f4c00b7142f0a1a68f3ba9e14638";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> BlacksmithWeapon_DLC1VendorTable = "7d73798a7e624afa8340916c7461cf12";
@@ -204,6 +205,51 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_VendorTableWeaponSimplePlus4 = "f945e0a27bf248009a0507d2122ad5f2";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC3_VendorTableWeaponSimplePlus5 = "96e09defdc76493884772c767f577e48";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC4_NegociantTable = "0b8896663cc143d18b222616dfc71f48";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BarmenGemilHokksCookingAfterGiants = "660b61848f4345dab3b7c5561821ad0f";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BarmenGemilHokksCookingAfterGoblins = "7f5da84d47af428fbca4192f60ba999c";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BarmenGemilHokksCookingAfterShadowPlane = "5e3ceadbcaee4c369246c1290ad16029";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BarmenGemilHokksCookingAfterStorasta = "2b8a714205e64e11b32241c3856b1568";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BarmenGemilHokksLootTable = "6afe35de6a40417f88e23db08fc4c81b";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BlacksmithWeaponAfterGiantsVendorTable = "39d9b2ccd7de4914bda62718bd4b3731";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BlacksmithWeaponAfterGoblinsVendorTable = "8b2d177e799644f2845e19408d5ede66";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BlacksmithWeaponAfterShadowPlaneVendorTable = "e7fa4f440c994c48b86d6935ae8e5830";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BlacksmithWeaponAfterStorastaVendorTable = "11f2ce309aa14a3dad13935729c2e5e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_BlacksmithWeaponVendorTable = "8c8ae27952cb4dac9091fc463773cb45";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_GoblinsInTheTowerVendorTable = "9e47a9229f6548008c625d902fac1e30";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiConsumablesAfterGiantsTable = "07374f2a95cd43089957a84a128d0993";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiConsumablesAfterGoblinsTable = "5c3498dd2b0e4806b4928596208fa952";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiConsumablesAfterStorastaTable = "1ffa77beacf74415b463c8b0a589e119";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiConsumablesTable = "205fa1bc22004f28a88fc58ffe383f1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiItemAfterGiantsTable = "ea5de27f0ec34df49bfa58671a7c32ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiItemAfterGoblinsTable = "530c62c9fbd64d42bee4899998025261";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiItemAfterShadowPlaneTable = "bb603556f4b24da0aca2d65f0dc93d7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiItemAfterStorastaTable = "87b70eb626344c5786dee0771aa392e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_KerismeiItemTable = "8244468ba03a453baeb8c227e5675885";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_Potions_VendorTable = "6ba1bf79bd484148ba65a4b135e2c74e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterArmorAfterGiantsVendorTable = "2d8f9bc1fc7e465494b6b1a6b771e4b5";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterArmorAfterGoblinsVendorTable = "fa1b2c6fde6540c69f2cee9c0310947d";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterArmorAfterShadowPlaneVendorTable = "f3e1d09ac25e42cebc1f9f1e1fd97a9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterArmorAfterStorastaVendorTable = "a3956f8840d049c1a12753ed7b36069f";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterArmorVendorTable = "5d5b16c0ba1b4235b76c0c36a11fefee";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterPotionAfterGiantsTable = "6dec8dfb855b407d8ef6ba3e54305b5e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterPotionAfterGoblinsTable = "d582b167594f4111b0fbd2264e267666";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterPotionAfterShadowPlaneTable = "abff138f430949d89f4df696fefc2e55";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterPotionAfterStorastaTable = "fa791ecbc76a41bfba0f82c215c91451";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_QuartermasterPotionTable = "28fdb208ea8d4404a47e144738a89618";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_Scrolls_VendorTable = "76743b5679684b4fb071d0eb4eeeaafe";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_ShadowPlaneArmorVendorTable = "fe24941bef914a2182962956c68c4875";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_ShadowPlaneEquipmentVendorTable = "60eeabea489d4b0a9df54c33fea90da8";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_ShadowPlanePotionsScrollsVendorTable = "f22fcb1605a34b2da568ebb288a8ed1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_ShadowPlaneWeaponVendorTable = "2c024c325dbb498bbc852c98df3a61ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_StorastaArmorVendorTable = "ba4ddc997b194927b29d177710124e93";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_StorastaEquipmentVendorTable = "c822a201c6df4a9fbbc58660b3de21fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_StorastaPotionsVendorTable = "b86d21f0a9474ddf8a2832d00002289c";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_StorastaScrollsVendorTable = "661e99249bf94fdab0b002d8a7e643d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_StorastaWeaponVendorTable = "6b287d9f0ee548119091cbdf2de85b34";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTable_Equipment = "f4ad60b9bae04913a46d8cfbcf6e489a";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableAlchemistsKits = "65722f89c76447e78b6f4dd8158d37ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableLockpicks = "ebc89b26ca684de1891bbf3c3f183342";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableMagicShieldsPlus1 = "fe575ee4449f42a6bebbd605989c0584";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_DefendersHeartVendorTable = "a7948df9d37efc34e841284cf883370e";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_Vendor_DLC2 = "e5cdfb113e884ab6967650f5eacbcb42";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Exotic_Chapter3VendorTable = "9c597a1f92dde2f4f8adb27ee5730188";
@@ -328,6 +374,7 @@ namespace BlueprintCore.Blueprints.References
           Azata_Chapter3VendorTable,
           AzataTwins_Chapter5VendorTable,
           Barbarian_Chapter3VendorTable,
+          BattleBliss_healer_Potions,
           Blacksmith_Chapter3VendorTable,
           Blacksmith_Chapter5VendorTable,
           BlacksmithWeapon_DLC1VendorTable,
@@ -500,6 +547,51 @@ namespace BlueprintCore.Blueprints.References
           DLC3_VendorTableWeaponSimplePlus4,
           DLC3_VendorTableWeaponSimplePlus5,
           DLC4_NegociantTable,
+          DLC5_BarmenGemilHokksCookingAfterGiants,
+          DLC5_BarmenGemilHokksCookingAfterGoblins,
+          DLC5_BarmenGemilHokksCookingAfterShadowPlane,
+          DLC5_BarmenGemilHokksCookingAfterStorasta,
+          DLC5_BarmenGemilHokksLootTable,
+          DLC5_BlacksmithWeaponAfterGiantsVendorTable,
+          DLC5_BlacksmithWeaponAfterGoblinsVendorTable,
+          DLC5_BlacksmithWeaponAfterShadowPlaneVendorTable,
+          DLC5_BlacksmithWeaponAfterStorastaVendorTable,
+          DLC5_BlacksmithWeaponVendorTable,
+          DLC5_GoblinsInTheTowerVendorTable,
+          DLC5_KerismeiConsumablesAfterGiantsTable,
+          DLC5_KerismeiConsumablesAfterGoblinsTable,
+          DLC5_KerismeiConsumablesAfterStorastaTable,
+          DLC5_KerismeiConsumablesTable,
+          DLC5_KerismeiItemAfterGiantsTable,
+          DLC5_KerismeiItemAfterGoblinsTable,
+          DLC5_KerismeiItemAfterShadowPlaneTable,
+          DLC5_KerismeiItemAfterStorastaTable,
+          DLC5_KerismeiItemTable,
+          DLC5_Potions_VendorTable,
+          DLC5_QuartermasterArmorAfterGiantsVendorTable,
+          DLC5_QuartermasterArmorAfterGoblinsVendorTable,
+          DLC5_QuartermasterArmorAfterShadowPlaneVendorTable,
+          DLC5_QuartermasterArmorAfterStorastaVendorTable,
+          DLC5_QuartermasterArmorVendorTable,
+          DLC5_QuartermasterPotionAfterGiantsTable,
+          DLC5_QuartermasterPotionAfterGoblinsTable,
+          DLC5_QuartermasterPotionAfterShadowPlaneTable,
+          DLC5_QuartermasterPotionAfterStorastaTable,
+          DLC5_QuartermasterPotionTable,
+          DLC5_Scrolls_VendorTable,
+          DLC5_ShadowPlaneArmorVendorTable,
+          DLC5_ShadowPlaneEquipmentVendorTable,
+          DLC5_ShadowPlanePotionsScrollsVendorTable,
+          DLC5_ShadowPlaneWeaponVendorTable,
+          DLC5_StorastaArmorVendorTable,
+          DLC5_StorastaEquipmentVendorTable,
+          DLC5_StorastaPotionsVendorTable,
+          DLC5_StorastaScrollsVendorTable,
+          DLC5_StorastaWeaponVendorTable,
+          DLC5_VendorTable_Equipment,
+          DLC5_VendorTableAlchemistsKits,
+          DLC5_VendorTableLockpicks,
+          DLC5_VendorTableMagicShieldsPlus1,
           Equipment_DefendersHeartVendorTable,
           Equipment_Vendor_DLC2,
           Exotic_Chapter3VendorTable,

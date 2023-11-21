@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.4 Release
+
+* Updated for The Lord of Nothing DLC
+
 ## v2.8.3 Release
 
 * Fixed regression preventing automatic feature selection population for new blueprints

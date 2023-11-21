@@ -437,7 +437,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Artifact_SoulsCloakItem</term><description>d53d1c60393cfc84c970c8029de75ad1</description></item>
-    /// <item><term>QuestElectriItem</term><description>ba3f8571c77a1e8468312e769c1c4b66</description></item>
+    /// <item><term>OculusItem</term><description>a87d4a3f4afc4984194abcc65361d08e</description></item>
     /// <item><term>TrailblazerHelmetItem</term><description>51eb5bdbb42b0ef4f84b45dddfc67f08</description></item>
     /// </list>
     /// </remarks>
@@ -511,7 +511,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdamantineBanded</term><description>ed04d2a914a93e046aadee8cc3109f65</description></item>
-    /// <item><term>HalfplateStandartPlus3</term><description>76e68c81dd261e64789d5f2bdc77302b</description></item>
+    /// <item><term>HalfElfMaleTailorMasterpieceItem</term><description>0bdafe60be63fa54ebf9c37fbcbe2cfd</description></item>
     /// <item><term>WelcomeRespiteItem</term><description>55d88efb08e2eea4c9d214cd4c54e87c</description></item>
     /// </list>
     /// </remarks>
@@ -551,7 +551,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Artifact_SpikedGauntletItem</term><description>3230a07e17594084f88e770480277de2</description></item>
-    /// <item><term>HideBardingStandard</term><description>4a0838d1c48a9cc459b287e6a04f17f9</description></item>
+    /// <item><term>FullBardingStandartPlus3</term><description>5f635a9db4f2a554991e7b6b0d97977b</description></item>
     /// <item><term>UltimatePredatorsGauntletsItem</term><description>c8ad87f3fc49ccd43a5560acb271e968</description></item>
     /// </list>
     /// </remarks>

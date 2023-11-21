@@ -70,6 +70,34 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_RodOfMagicalAffinityItem = "340cf8ee69c5458c99ecd21daf082704";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC3_ThePromissingMirrorUsableSetItem = "ce710315e960422c909599f3e2f360b8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC4_MidnightFlowersItem = "7c3f38c1c3554cdb9a00a45ee70b571f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_BemirFamiliyBrew = "886f083712254094b42d0ecfcf2aec51";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_BottledSunlight = "cb27cdcaffe244658e07af6abf227b7c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_DirgesingersChoirUsableItem = "90c765525880465da4e2c15ff2d44bc9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_DruchiteArrowsQuiverItem = "9b2b2a852fe84c56b0d26e2535151917";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_LiquidShadow = "7e806d1df3544391ae07f7765d3c805f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_MinorNightglassItem = "a01555c46b2a4473bd1d45ce415f96f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerEighthLevelItem = "d0552e5dd29d49568cebfb8fd2335486";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFirstLevelDoubleItem = "15920d47a9e64669936e3c2030a6095d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFirstLevelItem = "edab1a1ee8654810aca64df16dd87aae";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFithLevelDoubleItem = "2de5a759c20544a0abaf04576e9e49f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFithLevelItem = "3f3aa97c9a1c46d5a8b3a3c22a5727db";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFourthLevelDoubleItem = "2fe3c072b1054fbea6019c5b5db41403";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerFourthLevelItem = "54cbc6480de54d49b277d2686a98b4fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerNinthLevelItem = "4e98e92f49024c529cb2afa01fc63b0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerSecondLevelDoubleItem = "d390ae6685094218b1abd48919b73764";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerSecondLevelItem = "f548bd21606344f0963c0ae374946d39";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerSeventhLevelItem = "778b25032e7343ba856326bf7f3dfeab";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerSixthLevelDoubleItem = "6bc4f0bc278f48dd85821e3913ccffb5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerSixthLevelItem = "8103f79802eb4ec59c373829ff5907a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerThirdLevelDoubleItem = "7c861deccf5640f0a99bf0c034231465";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_PearlOfPowerThirdLevelItem = "d2d4b585db9f43698d183437f20bd8de";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_RodOfHangoverItem = "0f13f6d2f58d4595a5e1972ec65d150f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_ShadowPlaneBeltLantern = "f091ee454d9b4241ab423038b5402ca4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_Storasta_Flower = "a86705d7f59246b49ea28f5e269c570a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_Storasta_WildFlower = "847d70c9b9d14f378b940ed583336874";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_SuccubusCandleItem = "17f420ec65504252ba65757be0aaa447";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_UpgradedSithhudRodItem = "371113ed05ba49feb78adf926ee3430b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_VoidShardUsableItem = "7d470e46e61143ada87e8d4857bf0a4d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DriedHandOfmartyrItem = "363e0db503c3a7b47a06567c8f35dbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DualityOfConjurationAndSummoningItem = "ba856bd4ba814f12a3b30d56c1c3df1c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ElixirMasterpiece = "5219d5846529ae949b88c87858c1bb9e";
@@ -190,6 +218,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfHeal = "f3132b08c5942ba4db998b8dcc794409";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfHeroism = "42f01c3ad12d4f84c93f89e165384780";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfHeroismGreater = "eff1646c54b34dc498c536f7daa38c5a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfHumanityItem = "d13cdbccd89d4e7c8396d076a73d731e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInflictCriticalWounds = "6cb2eb1b20c05be458e65ba6e91f71f2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInflictLightWounds = "115c4dcc899ce9747a6e97335955092a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> PotionOfInflictModerateWounds = "a9991bfea27096f46bb7b4ccf0fb7eb7";
@@ -296,6 +325,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfAnimalGrowth = "3d11bb02852d02649850a73629ea283d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfAnimalShapes = "dfd67e737e456444981b09b806ac3614";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfAnimateDead = "bc0180b8b29abf9468dea1a24332d159";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfAnimateDeadLesser = "1d7388505f0b43c29ebc7b8d1823cdbc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfArbitrament = "c1bc1cb734151e749aef56737d4fb44e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfArchonsAura = "124d26c97479b424383124e047183828";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfArrowOfLaw = "cc62ed6c860f27248a9506373c27a10e";
@@ -414,6 +444,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCorrosiveTouch = "68d5aa212b7323e4e95e0fe731ea50cf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreatePit = "bc948837c7acb664eb8d89ac7749fa18";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreateUndeadGraveknight = "b0a254a24523f354fb21cb5776b9a0b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreateUndeadGreaterDevourer = "0af21c83780e48f38dc50fb24ea172d6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreateUndeadGreaterShadow = "ea028d6a909c4a1a9c9769b7c185a2e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreateUndeadLivingArmor = "21123134051c8c7409caf97a860ab548";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCreepingDoom = "71cdc502bcf65124fab689145fad860d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfCrusadersEdge = "8f01e5cb9e8ff8244b827185bb9c93f9";
@@ -916,6 +948,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVanish = "cd384c463dada4a4b97a521eab2539c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVeilOfHeaven = "d163f76cf6df9d84cbcec62c6cef94f0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVeilOfPositiveEnergy = "352aa320be9ead24584bfe3def2d8808";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVengefulComets = "57716b40e58d4736a349226ab6d5e34a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVinetrap = "9d19914771161d64c91a5a8588d1c7a5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVolcanicStorm = "349a071cd51f6224e9647dc2cf06c243";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfVolcanicStorm_0 = "bee94f3286692a34f9950b2e5d5e163d";
@@ -933,6 +966,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SecretIngredientItem = "b8831e93faa09eb4385f393459e8b633";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SeersCardsItem = "a62deafd9dc04c74890753d5f7fdda24";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ShadowBloodItem = "814bfc7de9949b940afaf8d1e64afedf";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ShadoweelDrink = "213089027c064b38a2727fb459033106";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SignetOfHouseVespertilioItem = "43c8a781c0bbdce4781f221b9261dd5e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SithhudsRodItem = "b25f68f32f074e6798bfe50bf3293c68";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> SkeletalFingerRodQuickenNormalItem = "64bea17d18a6a614e983bfb6f9323ee6";
@@ -1043,6 +1077,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFlare = "b6308f8cbabd16143a82419cef8c63ff";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFlareBurst = "e08bc68f58b010f49911fa9b72a34cd8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFoxsCunning = "baaa06b6729ed9c4a8ad4e70145acaa2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFoxsCunning7ChargesCL15 = "38a527f0f0f04cfc87c1bec89b3d423e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFreedomOfMovement = "e5edefedd6d6a9d4caacbce4145017a4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfFrigidTouch = "66cafa0f25d68df428a31218934acb17";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfGlitterdust = "673b4eb403642544383e5cc06d28ec85";
@@ -1169,6 +1204,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfUnholyBlight = "6dbd44f73f51333498bde11e9dd95759";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfVampiricTouch = "5a789da4d8d94454686587f32cd1bd2c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfVanish = "f1e16fdb28d13e245a8f9b815922835e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfVengefulComets50 = "a1c135e85c3f44b4bcc82de8cab61539";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfVolcanicStorm = "82e98290580a70f41b97709f2df5c990";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfWeb = "2ee352fa832145e40ac5500fdefd3052";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> WandOfWrackingRay = "c058878cdf509fc48a869fa27e78fb27";
@@ -1234,6 +1270,34 @@ namespace BlueprintCore.Blueprints.References
           DLC3_RodOfMagicalAffinityItem,
           DLC3_ThePromissingMirrorUsableSetItem,
           DLC4_MidnightFlowersItem,
+          DLC5_BemirFamiliyBrew,
+          DLC5_BottledSunlight,
+          DLC5_DirgesingersChoirUsableItem,
+          DLC5_DruchiteArrowsQuiverItem,
+          DLC5_LiquidShadow,
+          DLC5_MinorNightglassItem,
+          DLC5_PearlOfPowerEighthLevelItem,
+          DLC5_PearlOfPowerFirstLevelDoubleItem,
+          DLC5_PearlOfPowerFirstLevelItem,
+          DLC5_PearlOfPowerFithLevelDoubleItem,
+          DLC5_PearlOfPowerFithLevelItem,
+          DLC5_PearlOfPowerFourthLevelDoubleItem,
+          DLC5_PearlOfPowerFourthLevelItem,
+          DLC5_PearlOfPowerNinthLevelItem,
+          DLC5_PearlOfPowerSecondLevelDoubleItem,
+          DLC5_PearlOfPowerSecondLevelItem,
+          DLC5_PearlOfPowerSeventhLevelItem,
+          DLC5_PearlOfPowerSixthLevelDoubleItem,
+          DLC5_PearlOfPowerSixthLevelItem,
+          DLC5_PearlOfPowerThirdLevelDoubleItem,
+          DLC5_PearlOfPowerThirdLevelItem,
+          DLC5_RodOfHangoverItem,
+          DLC5_ShadowPlaneBeltLantern,
+          DLC5_Storasta_Flower,
+          DLC5_Storasta_WildFlower,
+          DLC5_SuccubusCandleItem,
+          DLC5_UpgradedSithhudRodItem,
+          DLC5_VoidShardUsableItem,
           DriedHandOfmartyrItem,
           DualityOfConjurationAndSummoningItem,
           ElixirMasterpiece,
@@ -1354,6 +1418,7 @@ namespace BlueprintCore.Blueprints.References
           PotionOfHeal,
           PotionOfHeroism,
           PotionOfHeroismGreater,
+          PotionOfHumanityItem,
           PotionOfInflictCriticalWounds,
           PotionOfInflictLightWounds,
           PotionOfInflictModerateWounds,
@@ -1460,6 +1525,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfAnimalGrowth,
           ScrollOfAnimalShapes,
           ScrollOfAnimateDead,
+          ScrollOfAnimateDeadLesser,
           ScrollOfArbitrament,
           ScrollOfArchonsAura,
           ScrollOfArrowOfLaw,
@@ -1578,6 +1644,8 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfCorrosiveTouch,
           ScrollOfCreatePit,
           ScrollOfCreateUndeadGraveknight,
+          ScrollOfCreateUndeadGreaterDevourer,
+          ScrollOfCreateUndeadGreaterShadow,
           ScrollOfCreateUndeadLivingArmor,
           ScrollOfCreepingDoom,
           ScrollOfCrusadersEdge,
@@ -2080,6 +2148,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfVanish,
           ScrollOfVeilOfHeaven,
           ScrollOfVeilOfPositiveEnergy,
+          ScrollOfVengefulComets,
           ScrollOfVinetrap,
           ScrollOfVolcanicStorm,
           ScrollOfVolcanicStorm_0,
@@ -2097,6 +2166,7 @@ namespace BlueprintCore.Blueprints.References
           SecretIngredientItem,
           SeersCardsItem,
           ShadowBloodItem,
+          ShadoweelDrink,
           SignetOfHouseVespertilioItem,
           SithhudsRodItem,
           SkeletalFingerRodQuickenNormalItem,
@@ -2207,6 +2277,7 @@ namespace BlueprintCore.Blueprints.References
           WandOfFlare,
           WandOfFlareBurst,
           WandOfFoxsCunning,
+          WandOfFoxsCunning7ChargesCL15,
           WandOfFreedomOfMovement,
           WandOfFrigidTouch,
           WandOfGlitterdust,
@@ -2333,6 +2404,7 @@ namespace BlueprintCore.Blueprints.References
           WandOfUnholyBlight,
           WandOfVampiricTouch,
           WandOfVanish,
+          WandOfVengefulComets50,
           WandOfVolcanicStorm,
           WandOfWeb,
           WandOfWrackingRay,

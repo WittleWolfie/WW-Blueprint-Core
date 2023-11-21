@@ -95,6 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.MountModelSizing = copyFrom.MountModelSizing;
           bp.Sound = copyFrom.Sound;
           bp.m_CutscenesRoot = copyFrom.m_CutscenesRoot;
+          bp.m_TimelineRoot = copyFrom.m_TimelineRoot;
           bp.m_Kingdom = copyFrom.m_Kingdom;
           bp.m_CorruptionRoot = copyFrom.m_CorruptionRoot;
           bp.m_ArmyRoot = copyFrom.m_ArmyRoot;
@@ -105,12 +106,14 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.Calendar = copyFrom.Calendar;
           bp.m_Formations = copyFrom.m_Formations;
           bp.RazerColorData = copyFrom.RazerColorData;
+          bp.m_ScenesRoot = copyFrom.m_ScenesRoot;
           bp.Animation = copyFrom.Animation;
           bp.Camping = copyFrom.Camping;
           bp.m_FxRoot = copyFrom.m_FxRoot;
           bp.m_HitSystemRoot = copyFrom.m_HitSystemRoot;
           bp.m_PlayerUpgradeActions = copyFrom.m_PlayerUpgradeActions;
           bp.m_CustomCompanion = copyFrom.m_CustomCompanion;
+          bp.m_BuffForRest = copyFrom.m_BuffForRest;
           bp.CustomCompanionBaseCost = copyFrom.CustomCompanionBaseCost;
           bp.StandartPerceptionRadius = copyFrom.StandartPerceptionRadius;
           bp.AreaEffectAutoDestroySeconds = copyFrom.AreaEffectAutoDestroySeconds;
@@ -129,6 +132,8 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_CustomAiConsiderations = copyFrom.m_CustomAiConsiderations;
           bp.m_BlueprintBugReportTutorialReference = copyFrom.m_BlueprintBugReportTutorialReference;
           bp.m_SpellSchoolRoot = copyFrom.m_SpellSchoolRoot;
+          bp.m_SettingsWindowConfig = copyFrom.m_SettingsWindowConfig;
+          bp.m_GameUIConfig = copyFrom.m_GameUIConfig;
         });
     }
 
@@ -187,6 +192,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.MountModelSizing = copyFrom.MountModelSizing;
           bp.Sound = copyFrom.Sound;
           bp.m_CutscenesRoot = copyFrom.m_CutscenesRoot;
+          bp.m_TimelineRoot = copyFrom.m_TimelineRoot;
           bp.m_Kingdom = copyFrom.m_Kingdom;
           bp.m_CorruptionRoot = copyFrom.m_CorruptionRoot;
           bp.m_ArmyRoot = copyFrom.m_ArmyRoot;
@@ -197,12 +203,14 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.Calendar = copyFrom.Calendar;
           bp.m_Formations = copyFrom.m_Formations;
           bp.RazerColorData = copyFrom.RazerColorData;
+          bp.m_ScenesRoot = copyFrom.m_ScenesRoot;
           bp.Animation = copyFrom.Animation;
           bp.Camping = copyFrom.Camping;
           bp.m_FxRoot = copyFrom.m_FxRoot;
           bp.m_HitSystemRoot = copyFrom.m_HitSystemRoot;
           bp.m_PlayerUpgradeActions = copyFrom.m_PlayerUpgradeActions;
           bp.m_CustomCompanion = copyFrom.m_CustomCompanion;
+          bp.m_BuffForRest = copyFrom.m_BuffForRest;
           bp.CustomCompanionBaseCost = copyFrom.CustomCompanionBaseCost;
           bp.StandartPerceptionRadius = copyFrom.StandartPerceptionRadius;
           bp.AreaEffectAutoDestroySeconds = copyFrom.AreaEffectAutoDestroySeconds;
@@ -221,6 +229,8 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_CustomAiConsiderations = copyFrom.m_CustomAiConsiderations;
           bp.m_BlueprintBugReportTutorialReference = copyFrom.m_BlueprintBugReportTutorialReference;
           bp.m_SpellSchoolRoot = copyFrom.m_SpellSchoolRoot;
+          bp.m_SettingsWindowConfig = copyFrom.m_SettingsWindowConfig;
+          bp.m_GameUIConfig = copyFrom.m_GameUIConfig;
         });
     }
 
@@ -1558,6 +1568,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_TimelineRoot"/>
+    /// </summary>
+    ///
+    /// <param name="timelineRoot">
+    /// <para>
+    /// Blueprint of type BlueprintTimelineRoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetTimelineRoot(Blueprint<BlueprintTimelineRoot.Reference> timelineRoot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_TimelineRoot = timelineRoot?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_TimelineRoot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTimelineRoot(Action<BlueprintTimelineRoot.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_TimelineRoot is null) { return; }
+          action.Invoke(bp.m_TimelineRoot);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.m_Kingdom"/>
     /// </summary>
     ///
@@ -1914,6 +1962,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_ScenesRoot"/>
+    /// </summary>
+    ///
+    /// <param name="scenesRoot">
+    /// <para>
+    /// Blueprint of type ScenesRoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetScenesRoot(Blueprint<ScenesRootReference> scenesRoot)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_ScenesRoot = scenesRoot?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_ScenesRoot"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyScenesRoot(Action<ScenesRootReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_ScenesRoot is null) { return; }
+          action.Invoke(bp.m_ScenesRoot);
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintRoot.Animation"/>
     /// </summary>
     public TBuilder SetAnimation(AnimationRoot animation)
@@ -2114,6 +2200,44 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         {
           if (bp.m_CustomCompanion is null) { return; }
           action.Invoke(bp.m_CustomCompanion);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_BuffForRest"/>
+    /// </summary>
+    ///
+    /// <param name="buffForRest">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetBuffForRest(Blueprint<BlueprintBuffReference> buffForRest)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_BuffForRest = buffForRest?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_BuffForRest"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyBuffForRest(Action<BlueprintBuffReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_BuffForRest is null) { return; }
+          action.Invoke(bp.m_BuffForRest);
         });
     }
 
@@ -2729,6 +2853,82 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_SettingsWindowConfig"/>
+    /// </summary>
+    ///
+    /// <param name="settingsWindowConfig">
+    /// <para>
+    /// Blueprint of type SettingsWindowConfig. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetSettingsWindowConfig(Blueprint<SettingsWindowConfig.Reference> settingsWindowConfig)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_SettingsWindowConfig = settingsWindowConfig?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_SettingsWindowConfig"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySettingsWindowConfig(Action<SettingsWindowConfig.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_SettingsWindowConfig is null) { return; }
+          action.Invoke(bp.m_SettingsWindowConfig);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_GameUIConfig"/>
+    /// </summary>
+    ///
+    /// <param name="gameUIConfig">
+    /// <para>
+    /// Blueprint of type GameUIConfig. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetGameUIConfig(Blueprint<GameUIConfig.Reference> gameUIConfig)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_GameUIConfig = gameUIConfig?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_GameUIConfig"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyGameUIConfig(Action<GameUIConfig.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_GameUIConfig is null) { return; }
+          action.Invoke(bp.m_GameUIConfig);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -2781,6 +2981,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       {
         Blueprint.m_CutscenesRoot = BlueprintTool.GetRef<CutscenesRoot.Reference>(null);
       }
+      if (Blueprint.m_TimelineRoot is null)
+      {
+        Blueprint.m_TimelineRoot = BlueprintTool.GetRef<BlueprintTimelineRoot.Reference>(null);
+      }
       if (Blueprint.m_Kingdom is null)
       {
         Blueprint.m_Kingdom = BlueprintTool.GetRef<KingdomRootReference>(null);
@@ -2813,6 +3017,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       {
         Blueprint.m_Formations = BlueprintTool.GetRef<FormationsRootReference>(null);
       }
+      if (Blueprint.m_ScenesRoot is null)
+      {
+        Blueprint.m_ScenesRoot = BlueprintTool.GetRef<ScenesRootReference>(null);
+      }
       if (Blueprint.m_FxRoot is null)
       {
         Blueprint.m_FxRoot = BlueprintTool.GetRef<FxRootReference>(null);
@@ -2828,6 +3036,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_CustomCompanion is null)
       {
         Blueprint.m_CustomCompanion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
+      }
+      if (Blueprint.m_BuffForRest is null)
+      {
+        Blueprint.m_BuffForRest = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       if (Blueprint.m_UnitTypes is null)
       {
@@ -2868,6 +3080,14 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_SpellSchoolRoot is null)
       {
         Blueprint.m_SpellSchoolRoot = BlueprintTool.GetRef<SpellSchoolRoot.Reference>(null);
+      }
+      if (Blueprint.m_SettingsWindowConfig is null)
+      {
+        Blueprint.m_SettingsWindowConfig = BlueprintTool.GetRef<SettingsWindowConfig.Reference>(null);
+      }
+      if (Blueprint.m_GameUIConfig is null)
+      {
+        Blueprint.m_GameUIConfig = BlueprintTool.GetRef<GameUIConfig.Reference>(null);
       }
     }
   }

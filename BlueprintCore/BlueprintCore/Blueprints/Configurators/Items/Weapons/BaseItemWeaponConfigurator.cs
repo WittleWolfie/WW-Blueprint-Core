@@ -43,6 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_DamageDice = copyFrom.m_DamageDice;
           bp.m_OverrideDamageType = copyFrom.m_OverrideDamageType;
           bp.m_DamageType = copyFrom.m_DamageType;
+          bp.CountAsDouble = copyFrom.CountAsDouble;
           bp.Double = copyFrom.Double;
           bp.m_SecondWeapon = copyFrom.m_SecondWeapon;
           bp.KeepInPolymorph = copyFrom.KeepInPolymorph;
@@ -71,6 +72,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_DamageDice = copyFrom.m_DamageDice;
           bp.m_OverrideDamageType = copyFrom.m_OverrideDamageType;
           bp.m_DamageType = copyFrom.m_DamageType;
+          bp.CountAsDouble = copyFrom.CountAsDouble;
           bp.Double = copyFrom.Double;
           bp.m_SecondWeapon = copyFrom.m_SecondWeapon;
           bp.KeepInPolymorph = copyFrom.KeepInPolymorph;
@@ -318,6 +320,24 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         {
           if (bp.m_DamageType is null) { return; }
           action.Invoke(bp.m_DamageType);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintItemWeapon.CountAsDouble"/>
+    /// </summary>
+    ///
+    /// <param name="countAsDouble">
+    /// <para>
+    /// InfoBox: Считать за два оружия, для PF-497061
+    /// </para>
+    /// </param>
+    public TBuilder SetCountAsDouble(bool countAsDouble = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.CountAsDouble = countAsDouble;
         });
     }
 

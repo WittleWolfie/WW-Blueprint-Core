@@ -32,6 +32,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_CursedTotem = "ed82fe0064854351b35ff9ee85191036";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_GundrunEnemies = "af9919037b3c4844b5c7860a56c0a298";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_UstalavEnemies = "9ea2c2f061a7449f80c53945ceb92148";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC5_CorruptedCreatures = "8afd6b7c9aee4dab904f5d145b0af46d";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenChorussina = "2648700405e96f049988ac15fd5da6a9";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenCultists = "c393ee9c1e09f114f907819cb3296468";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DummyFaction = "f53d9de2a5cd4144596a0ef9e26ffa9c";
@@ -83,6 +84,7 @@ namespace BlueprintCore.Blueprints.References
           DLC4_CursedTotem,
           DLC4_GundrunEnemies,
           DLC4_UstalavEnemies,
+          DLC5_CorruptedCreatures,
           DrezenChorussina,
           DrezenCultists,
           DummyFaction,

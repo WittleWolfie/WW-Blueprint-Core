@@ -43,6 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
           bp.GOG = copyFrom.GOG;
           bp.Epic = copyFrom.Epic;
           bp.PS4 = copyFrom.PS4;
+          bp.PS5 = copyFrom.PS5;
           bp.XBoxOne = copyFrom.XBoxOne;
           bp.Hidden = copyFrom.Hidden;
           bp.OnlyMainCampaign = copyFrom.OnlyMainCampaign;
@@ -76,6 +77,7 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
           bp.GOG = copyFrom.GOG;
           bp.Epic = copyFrom.Epic;
           bp.PS4 = copyFrom.PS4;
+          bp.PS5 = copyFrom.PS5;
           bp.XBoxOne = copyFrom.XBoxOne;
           bp.Hidden = copyFrom.Hidden;
           bp.OnlyMainCampaign = copyFrom.OnlyMainCampaign;
@@ -259,6 +261,32 @@ namespace BlueprintCore.Blueprints.Configurators.Achievements
         {
           if (bp.PS4 is null) { return; }
           action.Invoke(bp.PS4);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="AchievementData.PS5"/>
+    /// </summary>
+    public TBuilder SetPS5(AchievementData.PlatformSettingsPS5 pS5)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(pS5);
+          bp.PS5 = pS5;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="AchievementData.PS5"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPS5(Action<AchievementData.PlatformSettingsPS5> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.PS5 is null) { return; }
+          action.Invoke(bp.PS5);
         });
     }
 

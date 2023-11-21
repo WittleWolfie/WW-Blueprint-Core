@@ -252,8 +252,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
-    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
+    /// <item><term>HellsSealVariantFireExplosionDamage</term><description>2505b384e7c80d84a9a8300ad8673edd</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextRankConfig(ContextRankConfig component)
@@ -278,7 +278,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathThroesFeature</term><description>49a64c524e7f8e548b4d5ea41041a226</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -346,7 +346,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
+    /// <item><term>MimicChestAdhesiveFeature</term><description>a3ef16a570855b54c9957c026075dd14</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -396,7 +396,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>InspireFerocityEffectBuffMythic</term><description>fb6d392a0fcf4ba2a7cefed7682fb911</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -425,7 +425,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -574,7 +574,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <listheader>Used by</listheader>
     /// <item><term>AcerbicRingEnchant</term><description>b8549618404bfd648ac38e6d9f4927f4</description></item>
     /// <item><term>BlessedHandsGlovesEnchant</term><description>46bc0f2392ef2a040af9d27f325626d3</description></item>
-    /// <item><term>DeathbedServantEnchantment</term><description>6cca68e0ac90e7c45a7fa0a19879f545</description></item>
+    /// <item><term>ConnectiontoEarthBoostEnchantment</term><description>f5469ce203c55ab48b05abbc8a21e475</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -682,7 +682,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ALR_GlovesEnchantment</term><description>2b6a3d0a74d740faa06a2e0ad266b4a9</description></item>
-    /// <item><term>HelmetFullplatePitaxGuardEnchantment</term><description>55449bb1a39dd714bb5ab68012a8e807</description></item>
+    /// <item><term>HelmetNobleEnchantment</term><description>7af296090755c7b4e9758e22097a3142</description></item>
     /// <item><term>WoundBearerAthletic5</term><description>1eac86bba153a204395fadcbb991b95c</description></item>
     /// </list>
     /// </remarks>
@@ -753,7 +753,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlchemistsClothEnchantment</term><description>5ac1350dbddabd745baad8170d4e9c05</description></item>
-    /// <item><term>HastingExpanseEnchantment</term><description>ea0876f3f67c4170ba99bc429a2bfaa4</description></item>
+    /// <item><term>HaramakiOfScholarshipEnchantment</term><description>ff3ccb3bef8c4a5791885dd0b4aac5fc</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningEnchantment</term><description>2a4e61dcd2b74da3b742e1e67837b825</description></item>
     /// </list>
     /// </remarks>
@@ -791,7 +791,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2DCagainstNecroticPlus2Enchant</term><description>0bc09adac665a7647b39ca76b897ddd5</description></item>
-    /// <item><term>HatWitchBlackEnchantment</term><description>31c66def4dd2b3345b8f135c2c224af3</description></item>
+    /// <item><term>HarrimQ3_RewardHeadEnchantment</term><description>3332043adf5d9b94c81215b91f9ab5a0</description></item>
     /// <item><term>ZeorisDaggerHeadband_GoverningEnchantment</term><description>fe29f7cf83a7449282b7f97d541dc575</description></item>
     /// </list>
     /// </remarks>
@@ -833,7 +833,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ButcherOfUndeadEnchantment</term><description>97052dac8d5eb6742a2f6a4e5c02289d</description></item>
-    /// <item><term>EternalHunter</term><description>8c663b3511c9f854ab69b2d51f0fca50</description></item>
+    /// <item><term>FirestarterEnchantment</term><description>e62aca8d726d17f4ea4116eb37470d15</description></item>
     /// <item><term>RingOfGrimSwiftnessEnchantment</term><description>7410ee044c9a4d3f99ec53499eb26d2f</description></item>
     /// </list>
     /// </remarks>

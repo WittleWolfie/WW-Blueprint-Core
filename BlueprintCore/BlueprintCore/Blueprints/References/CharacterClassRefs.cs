@@ -27,6 +27,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> AzataMythicClass = "9a3b2c63afa79744cbca46bea0da9a16";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> BarbarianClass = "f7d7eb166b3dd594fb330d085df41853";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> BardClass = "772c83a25e2268e448e841dcd548235f";
+    public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> BardClass_Penta = "96a850e939904ca3ac8431d55318e7c6";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> BloodragerClass = "d77e67a814d686842802c9cfd8ef8499";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> CavalierClass = "3adc3439f98cb534ba98df59838f02c7";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> ClericClass = "67819271767a9dd4fbfd4ae700befea0";
@@ -61,6 +62,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> MysticTheurgeClass = "0920ea7e4fd7a404282e3d8b0ac41838";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> MythicCompanionClass = "530b6a79cb691c24ba99e1577b4beb6d";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> MythicLichSkeletonFighterClass = "0a37091d4a4552d4c967e18ad3445449";
+    public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> MythicShardsClass = "53cb5892d19e4c4586c9dd4d6337d943";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> MythicStartingClass = "247aa787806d5da4f89cfc3dff0b217f";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> NymphClass = "9a20b40b57f4e684fa20d17c0edfd5ba";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> OracleClass = "20ce9bf8af32bee4c8557a045ab499b1";
@@ -102,6 +104,7 @@ namespace BlueprintCore.Blueprints.References
           AzataMythicClass,
           BarbarianClass,
           BardClass,
+          BardClass_Penta,
           BloodragerClass,
           CavalierClass,
           ClericClass,
@@ -136,6 +139,7 @@ namespace BlueprintCore.Blueprints.References
           MysticTheurgeClass,
           MythicCompanionClass,
           MythicLichSkeletonFighterClass,
+          MythicShardsClass,
           MythicStartingClass,
           NymphClass,
           OracleClass,

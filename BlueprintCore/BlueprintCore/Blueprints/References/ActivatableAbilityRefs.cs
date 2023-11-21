@@ -108,6 +108,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ArmySweepingBlowActivatableAbility = "a92d0f72df62450b9da6c0f21ea82618";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Artifact_HolySymbolOfIomedaeToggleAbility = "e67dc14ff73014547920dc92bc8e1bfc";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ArtificeDomainBaseToggleAbility = "18fd072abe74d144a916e3501533b76b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ArtificeDomainBaseToggleAbilitySeparatist = "812638649eb7483ebf0b08fdea9b62e1";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> AzataGhaelGazeToggleAbility = "716687a93c31e664cbd99808bc2cf93a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BabauAspectAbility = "e24fbd97558f06b45a09c7fbe7170a55";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BalorAspectAbility = "3070984d4c8bd4f48877337da6c7535d";
@@ -125,8 +126,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BattleProwessAbility = "82f83a21ecbf9344d939c757152f5621";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BearGrabActivatableAbility = "99477c50bdc949b7b94c5578e661c0e5";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BeastTamerInspireFerocityToggleAbility = "08cc564a5e2c49e4b8eefef393d8041c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BleedingCriticalToggleAbility = "d37ded3ae3bd4936b2c038c944501477";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BleedingInfusionAbility = "6d35b4f39de9eb446b2d0a65b931246b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BlindingCriticalToggleAbility = "0f7cb48c0e13add408689d45b35f6d46";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BlizzardServantWhirlwindToggleAbility = "f94e3b90afbd46049bdb3345a19314d3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodlineAbyssalClawsAbililyLevel1 = "f68af48f9ebf32549b5f9fdc4edfd475";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodlineAbyssalClawsAbililyLevel2 = "408b5ec07bf0fd1468d3f16ef569613a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodlineAbyssalClawsAbililyLevel3 = "ee7356a601de6bb40a4929d074337b48";
@@ -193,6 +196,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodragerAbyssalDemonicBulkAbility = "dd20178115f92d249a469f14f95e1a6d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodragerFeyQuicklingAbility = "19c93c484c50c0c46a41757a4f0733aa";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BloodragerStandartRageActivateableAbility = "e3a0056eedac7754ca9a50603ba05177";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BoarStyleToggleAbility = "e6233e8be3354d098eb8ed81a7d0ee7a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BodakDeathGazeAbility = "a1cbb9895f38fa5478694afa659cb4f9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BodakLairMiniboss_ToggleAbility_DesecrationAura = "8457b0668a2149047a390d74df4aca3e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> BowlingInfusionAbility = "88c37d8a7d808a844ba0116dd37e4059";
@@ -217,6 +221,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChannelersRodToggleAbility = "aa409dbbbd7dfc24bb95dabebdebedfb";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChickenFamiliarAbility = "04b61ff76e702674ab208e7dbe50a57e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ChillingInfusionAbility = "fb426ea002abbbc4198b1cd6b99f1be8";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawBleedingCriticalToggleAbility = "e286761f7c8541e8a08c57c9fbc52f6f";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawBlindingCriticalToggleAbility = "ade5adfb30854ec5ac05d05be8df1c71";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawExhaustingCriticalToggleAbility = "17370c0995584c3eab2b696aaa9bd774";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawFlayingCriticalToggleAbility = "2c4ba7c489ca4c479d6c7d8d5797e839";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawSickeningCriticalToggleAbility = "67d20540080247ceaa65ff7132bfe586";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawStaggeringCriticalToggleAbility = "17ea876d45cd463b825d1b0ca5fb7f71";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawStunningCriticalToggleAbility = "16156b8c0a5345b587cad316117f355d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ClawTiringCriticalToggleAbility = "0ab35f3c3e4844d188e55e1d16c964d3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColdIronArrowsQuiverAbility = "58c4f326a6b0657488c897b61b2a6765";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColorlessRemainsQuiver_MadnessAbility = "d537c2879cbf4f9ca7cdbac3f10b5c25";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ColorlessRemainsQuiver_SolidAbility = "f2f77d9770d6455aa60fbac2dd7f1f00";
@@ -246,7 +258,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DemonRageAbility = "0999f99d6157e5c4888f4cfe2d1ce9d6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Despair_Ability = "c6fc144e478d41e798d324f50b1af6da";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DestructionDomainBaseActivateableAbility = "e69898f762453514780eb5e467694bdb";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DestructionDomainBaseActivateableAbilitySeparatist = "eab6430eefd84d6c8374d83c18b16a6f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DestructionDomainGreaterToggleAbility = "8e78df631fccb0f42850d24d117d088c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DestructionDomainGreaterToggleAbilitySeparatist = "001acfd188724c079ac06327ee9b7381";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DestructionJudgmentAbility = "4ebaf39efb8ffb64baf92784808dc49c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DevilImpAbility = "de408fb270be0cc40bd58069659ae6f9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DirgeBardDanceOfTheDeadToggleAbility = "406e8baa9e223d14ca981ee3e80426d1";
@@ -263,6 +277,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_InspireHeroicsToggleAbility = "1ea13f644c6e4fabadd6d750dafb1766";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC3_RodOfMagicalAffinityActivatableAbility = "2174ca01f81d4c8c82f03753292a8ba4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC4_Shifter_Ability_ProximityTrigger = "901d16db8b0649aa9993c6a887e599d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC5_BeltOfLesserShadowformActivatableAbility = "073578e5068046a0a3e58ff6bd5a21d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC5_DirgesingersChoirActivatableAbility = "745f3320988e43d3942f05cb6e324c44";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC5_DruchiteArrowsQuiverAbility = "cf0c418fe6a94c348a090081c1f20e6c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC5_ShadowPlaneBeltLanternToggleAbility = "0a616c8c4629449aa1ab6d0e18b4dab4";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DLC5_UpgradedSithhudRodActivatableAbility = "c2348d30c6a84726b116707e2ab2d47b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DogFamiliarAbility = "c1d499b277b473a47a026a732e036ca4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonAzataFrightfulPresenceAbility = "a2e0cbebe3bb4a90a22b75d3c22d952c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonBloodShifterAspectEvil = "536cde52b0e84802a3965dea23cc056d";
@@ -332,6 +351,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ExhaustingCriticalToggleAbility = "7494c46430e9b224cab059fd3f7e416d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FaerieDragon_01_Ability = "9344f002300f4c54ca2414ed5cfd957a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FascinateToggleAbility = "993908ad3fb81f34ba0ed168b7c61f58";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FascinateToggleAbility_Penta = "b2f8b8f5103146b7989681c7722774c2";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FastBombsAbility = "341f1f9e35e369f49b669b322e25a45d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FatalMarkQuiverAbility = "bc3b86d3444002540a921e3f9e4a5e84";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FearlessFearlessAbility = "13d17d8a573ee974db1fd221fe335b7c";
@@ -345,10 +365,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FiendflashShifterAspectGreaterDaemonAbility = "ccdebd72a2984a6cb9c49bab8935ac55";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FiendflashShifterAspectGreaterDemonAbility = "76b8a36012824e9f9e1b236ebcfd762d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FiendflashShifterAspectGreaterDevilAbility = "7903664ac72c4b6f9d377c32dce18210";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FiendishQuarryActivatableAbility = "7ffc2c749fc447b19a4ec53b4cbfb585";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FiendishQuarryActivatableAbilityImproved = "cbf73eca56394e8fa8c607f6db9767b4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FightDefensivelyToggleAbility = "09d742e8b50b0214fb71acfc99cc00b3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FlameDancerPerformanceToggleAbility = "1b28d456a5b1b4744a1d87cf24309ad1";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FlamingArrowsQuiverAbility = "5a769135b9b00684ea010d36ae49848e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FlashInfusionAbility = "323be9d573657374da4e3f1456a2366c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FlayingCriticalToggleAbility = "8eb2fdcfecde4058a14d19f16e46bd4d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ForcefulPushArrowsQuiverAbility = "771d81c322b197f449f83e121b33afd6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FoxfireInfusionAbility = "d0007fed20710ae4a96cebd2ba99f08b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> FrighteningTuneToggleAbility = "ad8a93dfa2db7ac4e85133b5e4f14a5f";
@@ -356,10 +379,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GatherPowerModeHigh = "104a9f275539abf44b594e9e36f71694";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GatherPowerModeLow = "fd51172fef48b1442a88d3dfa4b03ee4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GatherPowerModeMedium = "38ee9e5fd534f7640baa198b16249fd6";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GeomancyActivatableAbility = "42a5c5107b3a45bc89e61e3b1a2bb8d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GhostRiderGhostEthericTetherToggleAbility = "89d4b5016d35429eac524712cc87b6e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GhostRiderGhostSpiritualBondToggleAbility = "04765d612c60423a9882a34531daa253";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GiftOfBloodActivatableAbility = "acc4b38513d6b7743bb8f628cef1f136";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GolemClaySlipperyMudAbilily = "80bf9a7396834b94693c841839b9de42";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrapplingInfusionAbility = "2816fad233e15a54c86729cee6e8969d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GriffonGrabActivatableAbility = "ced7d96677664118bb292cbb14378d87";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrimGrandeurAbility = "b38d56e6a8eb4e4fac0491c24d7784ac";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrowingSpikesAbilityLevel1 = "1f00cd27d0b349b0892c8b879c0224ae";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrowingSpikesAbilityLevel11 = "41802fb93b72472980febccff69367f9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrowingSpikesAbilityLevel13 = "383295b363ef4686a616f9af8b1cb54b";
@@ -369,6 +396,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GrowingSpikesAbilityLevel7 = "02f8eea1c4f944f785c7a859aefa26e3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GuardedStanceToggleAbility = "7517c892b30fdf643b33807a2f5abd31";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> GutWrenchingInfusionAbility = "e2e3ce12bdfc9d14a9ca4d51696dc8db";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel1 = "384e14dcedaa473594f8766a1c17ac4f";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel13 = "9fc8cd23e11a4919a45968a08d50404c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel17 = "49fb8cfc668b4b0d8896fb7439003cbc";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel2 = "e10c405e5436436da9a66b9fe03de55d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel5 = "05f47e5a002943ee8a6f84ff48ead47d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HagRivenClawAbilityLevel9 = "33ad573596eb4709b40eacd33ff81786";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Halaseliax_FireAuraAbility = "b6aaa2de20f149ecb9453b2995d48878";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> Halaseliax_FrightfulPresenceAbility = "b7e2886b4d764164a5d347d348cc8ec3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HalfDragonFormAbility = "d9e64bd63ed413748aa6f10018305ac7";
@@ -384,8 +417,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HellknightUnholyAbility = "a68cd0fbf5d21ef4f8b9375ec0ac53b9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HelmetFullplateCyclopsGroetusAbility = "31ad8a9435dc2974ab3143c5c0d0890f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HelmetFullplateDwarvenAbility = "e70182202084d3741a347f6a7d19246a";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HexingClawsActivatable = "f841763f0f8441a4ac5e2fee3a2d9624";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HolyArrowsQuiverAbility = "e858f8712681df6479702c6d735d2619";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> HunterAnimalFocusForHimself = "2b36d5d875eb6f041ab51bbb0365282c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IceSubdomainGreaterActivatableAbility = "0b6be620495f41afa9ee181c84b5dfb4";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IceSubdomainGreaterActivatableAbilitySeparatist = "51d60a08923545e1b5d7de7425b89ad1";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IllusionSchoolGreaterAbility = "8ba47f5bfecc69347b89d677fa0ccaf1";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ImperialDragon_Ability = "74bb17ea553a43b4a6b7261e9956c6ad";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ImpromptuSneakAttackToggleAbility = "ed45266d7aaae8c43b94b91b88b580a5";
@@ -393,7 +429,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IncenseFogToggleAbility = "b62231e54e07068419a420f2988157b3";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InciteRageAlliesToggleAbility = "b1d8fdffd132bfd428a8045b7b8b363c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InciteRageAllToggleAbility = "32d247b6e6b65794ab47fc372c444a96";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InciteRageAllToggleAbilityPenta = "8dbe4b444ce64592a47d96d9bdcbc02d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InciteRageEnemiesToggleAbility = "dbd7c54ba43e1d54592e037d63117f7b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InciteRageEnemiesToggleAbilityPenta = "d716bdb9e3f44e6e9eb64feaf9076ed9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IncredibleMightAbility = "f81b4910d05399a4aaf5fcc8c4d713eb";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> IncubusAspectAbility = "55c6e91192b92b8479fa66d6aee33074";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> InquisitorBaneAbility = "7f45f4c3a0d93ac4f9b96584c6123e5d";
@@ -438,7 +476,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LethalStanceToggleAbility = "43696e91d2a67e34981925f0c62bff40";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LeviathanSkinRobeMaximizeSpellAbilityToggle = "2475110ac51b59f4ba1d9389b9e896f2";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LiberationDomainBaseActivateableAbility = "edaac27ed85814b438ea7908b5226684";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LiberationDomainBaseActivateableAbilitySeparatist = "a978ae4de4aa4387bf1c2901e44588aa";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LiberationDomainGreaterToggleAbility = "627cfc87590b0e14f863fdb9bc40787b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LiberationDomainGreaterToggleAbilitySeparatist = "2c88334fe06248aaaeac82af92e68955";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LightningArrowsQuiverAbility = "d87534ba3872e0c4bbbe8f278c989032";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LizardFamiliarAbility = "89bf05685c936374f94a82fc04e9b535";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> LizardGrabActivatableAbility = "3ae7533b5f2a4bb39710afbb8e2f3dcf";
@@ -551,13 +591,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PipefoxAbility = "02a83a3571220974b8a437606f5022af";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PiranhaStrikeToggleAbility = "94ed44fc6c8a717489eebdf8b364d4d8";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PointBlankShotAbility = "371bb8b465e90bd46aa3446eb9792017";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PortalStoneSpiderRingActivatableAbility = "b74b575960ee4ba5a7e653a19f62a3cc";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PowerAttackToggleAbility = "a7b339e4f6ff93a4697df5d7a87ff619";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PowerfulStanceToggleAbility = "60618a55300b11d4284f32f12336ab04";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PreciousTreatToggleAbility = "c5681ff9315f6f34cbd91e57855c29f4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProtectionDomainGreaterToggleAbility = "0faf59bad9c5b0a4a812a9abf677a71b";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProtectionDomainGreaterToggleAbilitySeparatist = "caccc448c029416d9e4355ddead95094";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProtectionJudgmentAbility = "1bb08308c9f6a5e4697887cd438b7221";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProtectiveToggleAbility = "ab6a40148ed6fbc4ab72406327ac7e5e";
-    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProximityTrigger_Ability = "5267464811b1453c90915c7f3f21e515";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProximityTrigger_Ability = "ec3cddf0ca6a40d08ff3ad2408594352";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ProximityTrigger_Ability_0 = "5267464811b1453c90915c7f3f21e515";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PummelingStyleToggleAbility = "a87e035d71c5fe24d9ee8bec2e783ddf";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PureFlameInfusionAbility = "06e3ac0ec6341744eb87f1f70a11576b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> PurityJudgmentAbility = "15d3b21354c105b498a0b1b293280ded";
@@ -576,6 +619,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> RecklessStanceToggleAbility = "4ee08802b8a2b9b448d21f61e208a306";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> RedPanda_Ability = "9c2df676a777f414a8d452441d53a4c8";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ReposeDomainGreaterToggleAbility = "d5a60f157610ab34cb72a98b4fc78953";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ReposeDomainGreaterToggleAbilitySeparatist = "44d6055b24d644c88dba0a647f42a1f8";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ResiliencyJudgmentAbilityChaos = "1452fb3e0e3e2f6488bee09050097b6f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ResiliencyJudgmentAbilityEvil = "1f7e326d3a88fd84985a60e416388c27";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ResiliencyJudgmentAbilityGood = "d47ecfecae485ac41b54fe4e8027797c";
@@ -633,8 +677,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredArmorEnchantSpellResistance17Choice = "46393997456d0b747998886b5c30b9cb";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredArmorEnchantSpellResistance19Choice = "ccf91cd189f900146a62cc0a1a62fbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredArmorOnAbility = "48f197ed09dc0b546a4fe313908a1900";
-    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredArmorShieldEnchantArrowDeflectionChoice = "1a24cdae4e4254b478cd27dfc6d27c48";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredArmorShieldOnAbility = "fade30748358881469fb72741d1454a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantArrowDeflectionChoice = "1a24cdae4e4254b478cd27dfc6d27c48";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantFortification25Choice = "35051305918c43598d78aba5040927f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantFortification50Choice = "2b3c551548564d9c9fa3ae6fe1a2f8e7";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantFortification75Choice = "aa37af667e5149efa6a58c9af061f8ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantSpellResistance13Choice = "14469f6900ef4ef2a5a2ed2276ac8c8d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantSpellResistance15Choice = "467f9789d8b14c5eb45e9e4bb2f44010";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantSpellResistance17Choice = "71fb5671085046ef836aa95b9857921c";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredShieldArmorEnchantSpellResistance19Choice = "27677967f68547ff80c8338138722bf6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredVengenanceArrowsQuiverAbility = "2981211789030f444806dc344f852f8f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredWeaponEnchantAnarchicChoice = "6fdc32d0af41ffb42b8285dbac9a050a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredWeaponEnchantAxiomaticChoice = "178cd4c15e76a13408272f4d5a9a5f31";
@@ -647,6 +698,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredWeaponEnchantUnholyChoice = "43a8bc40f40369a44be2a406dd539756";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredWeaponOnAbility = "293e995a1ff089240ace0e355beea0d4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SacredWeaponShieldOnAbility = "20a341d785671bf4c8cfb3b17d1c6649";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ScaledFistSupressActivatableAbility = "ffc307c9e39544968432a21ad842bf26";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SchirAspectAbility = "fae00e8f4de9cd54da800d383ede7812";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SeersCardsToggleAbility = "fd9a5c2abcd59504987aa8c3908f0280";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SenseiInspireCompetenceToggleAbility = "72e4699d1f86461429bf5c22866b5c4a";
@@ -694,6 +746,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectManticoreAbility = "4284d074028c4adaa9d60bffcbb805fd";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectSpiderAbility = "56af94739fbf401799f6e54b091750e5";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectTigerAbility = "958fcd0e2e674c72b97dea83b806eec1";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectWereTouchedAbility = "86b46db32b194f289eb9535528484c5f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectWolfAbility = "2ec2c06d00574e6795c48cb65e17cb52";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectWolverineAbility = "28471f7cdf854170a1bdd8facbb2f054";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterChimeraAspectAcitvatableAbility = "8646ef1b70d84a12b15969fbd46e5502";
@@ -730,6 +783,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityAdamantite = "2c448ab4135c7c741b6f0f223901f9fa";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityAlignment = "72fe16312b4479145afc6cc6c87cd08f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityMagic = "d7e61eb9f0cec5e49bd1b0c428fa98e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SnowcasterToggleAbility = "b03f2891275c4060b29c7be274201991";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfBrokenChainsToggleAbility = "ac08e4d23e2928148a7b4109e9485e6a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfCourageousDefenderToggleAbility = "66864464f529c264f8c08ec2f4bf1cb5";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfDefianceToggleAbility = "661ad9ab9c8af2e4c86a7cfa4c2be3f2";
@@ -738,6 +792,25 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfStrengthAbility = "e8e5a5cc8b603d5448d9098cc20065f2";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfTheFallenAbility = "c62bb8123ebc5874d9601ba02907afca";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SongOfTheSensesAbility = "5860ff292cd73f7438049b175bbefdd9";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsAbility = "35da2ec74ea147d3852662c878a38948";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsAnarchic = "57975b15736b47dda3986ec73d97c5fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsCorrosive = "3774c1b6f27247cca0871bd1c2642349";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsCorrosiveBurst = "23d5b404656d414083633d8372c4d2e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsEnchantPlus1 = "3c1d05ad8de04dd2bfb8e7bfd142e3ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsEnchantPlus2 = "c8ce3787c59d481d8ccc6126d3962ea9";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsEnchantPlus3 = "6712b090731a4d8f84b7f16cf1b14de1";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsEnchantPlus4 = "5eb6d2ec213f42858c683158d03d9450";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsFlaming = "8ad7bd82a75b450fa6a6761f912eaaa1";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsFlamingBurst = "9f2f4723616e41638565662ab8ef2539";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsFrost = "07d742ed9a91434592f72c0c82600b25";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsIcyBurst = "c0eeff99c8854d859b53a26ebfa7a69d";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsKeen = "7aca5bd0a89f4c45b24e1b12c371fa91";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsNullifying = "fcc61a54b52b4109b032f9fdbb1e5c9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsShock = "cb6b2b1038d24e4e81230eb4213b056f";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsShockingBurst = "6b7bf3e34cf94e9aa3af8e3bb5c78073";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsSpeed = "3c4903737f114d1aa76e52ce9944febf";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsUnholy = "312f4f1c58c84892a9b123e2692fc0d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SorcerousClawsVicious = "4f2e31f13b4d4a4eb7aa0ed17d02e765";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SpellCombatAbility = "8898a573e8a8a184b8186dbc3a26da74";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SpellStrikeAbility = "e958891ef90f7e142a941c06c811181e";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StaggeringCriticalToggleAbility = "4909b2de27feaa948927e5e638f160f0";
@@ -749,9 +822,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StudentOfWarKnowYourEnemyDefensiveStance = "d8b4fcfb7c0ab334b806ca739c057a7f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StudentOfWarKnowYourEnemyMartialStance = "9da2eb1eeba57344faa4f8e8d7d307e9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StudentOfWarKnowYourEnemyTacticalStance = "dff8c8c347cd494418d5aca35f822895";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StunningCriticalToggleAbility = "bb308edc67834597814baec241006d44";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> StygianSlayerShadowyMistFormToggleAbility = "84530fbd9c2a45d4b96247a228e54384";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SuccubusAspectAbility = "8a474cae6e2788a498f616d36b56b5d2";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SunDomainGreaterToggleAbility = "cb5652d2e74cac14498c2793b1bca857";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SunDomainGreaterToggleAbilitySeparatist = "19c55102156e4a98b74b121db8377906";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SwarmFeastAbility = "4cc8d4a75002f6a45992493f245444a9";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SwarmFormAbility = "a02ff8bea63b91044bf11705164b2191";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SwiftBlowImprovedChargeToggleAbility = "9965999d703946346a198e9765c51da8";
@@ -786,6 +861,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TransmutationSchoolChangeShapeLeopardAbilityLevel1 = "b618d5484e2c14c48b9732df741f287d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TriceratopsStatuetteActivatableAbility = "d18808249af0418c95cb6ed8edc0b2fb";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TrickeryDomainGreaterToggleAbility = "574b97e5b1d391348b162c62b49bc4fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TrickeryDomainGreaterToggleAbilitySeparatist = "5ac9a830d5d14720b0f7dfaaaa1b079f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TristanRingActivatableAbility = "8c99f2da921d1524e8bc2ce6fde1b88b";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TristianAngelAbility = "83e91b42102fdf04a98e86a0d515cd60";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> TrueMagusAttackAbility = "acfa9e872d6af2e4f8c4c5811c9f0b60";
@@ -921,6 +997,7 @@ namespace BlueprintCore.Blueprints.References
           ArmySweepingBlowActivatableAbility,
           Artifact_HolySymbolOfIomedaeToggleAbility,
           ArtificeDomainBaseToggleAbility,
+          ArtificeDomainBaseToggleAbilitySeparatist,
           AzataGhaelGazeToggleAbility,
           BabauAspectAbility,
           BalorAspectAbility,
@@ -938,8 +1015,10 @@ namespace BlueprintCore.Blueprints.References
           BattleProwessAbility,
           BearGrabActivatableAbility,
           BeastTamerInspireFerocityToggleAbility,
+          BleedingCriticalToggleAbility,
           BleedingInfusionAbility,
           BlindingCriticalToggleAbility,
+          BlizzardServantWhirlwindToggleAbility,
           BloodlineAbyssalClawsAbililyLevel1,
           BloodlineAbyssalClawsAbililyLevel2,
           BloodlineAbyssalClawsAbililyLevel3,
@@ -1006,6 +1085,7 @@ namespace BlueprintCore.Blueprints.References
           BloodragerAbyssalDemonicBulkAbility,
           BloodragerFeyQuicklingAbility,
           BloodragerStandartRageActivateableAbility,
+          BoarStyleToggleAbility,
           BodakDeathGazeAbility,
           BodakLairMiniboss_ToggleAbility_DesecrationAura,
           BowlingInfusionAbility,
@@ -1030,6 +1110,14 @@ namespace BlueprintCore.Blueprints.References
           ChannelersRodToggleAbility,
           ChickenFamiliarAbility,
           ChillingInfusionAbility,
+          ClawBleedingCriticalToggleAbility,
+          ClawBlindingCriticalToggleAbility,
+          ClawExhaustingCriticalToggleAbility,
+          ClawFlayingCriticalToggleAbility,
+          ClawSickeningCriticalToggleAbility,
+          ClawStaggeringCriticalToggleAbility,
+          ClawStunningCriticalToggleAbility,
+          ClawTiringCriticalToggleAbility,
           ColdIronArrowsQuiverAbility,
           ColorlessRemainsQuiver_MadnessAbility,
           ColorlessRemainsQuiver_SolidAbility,
@@ -1059,7 +1147,9 @@ namespace BlueprintCore.Blueprints.References
           DemonRageAbility,
           Despair_Ability,
           DestructionDomainBaseActivateableAbility,
+          DestructionDomainBaseActivateableAbilitySeparatist,
           DestructionDomainGreaterToggleAbility,
+          DestructionDomainGreaterToggleAbilitySeparatist,
           DestructionJudgmentAbility,
           DevilImpAbility,
           DirgeBardDanceOfTheDeadToggleAbility,
@@ -1076,6 +1166,11 @@ namespace BlueprintCore.Blueprints.References
           DLC3_InspireHeroicsToggleAbility,
           DLC3_RodOfMagicalAffinityActivatableAbility,
           DLC4_Shifter_Ability_ProximityTrigger,
+          DLC5_BeltOfLesserShadowformActivatableAbility,
+          DLC5_DirgesingersChoirActivatableAbility,
+          DLC5_DruchiteArrowsQuiverAbility,
+          DLC5_ShadowPlaneBeltLanternToggleAbility,
+          DLC5_UpgradedSithhudRodActivatableAbility,
           DogFamiliarAbility,
           DragonAzataFrightfulPresenceAbility,
           DragonBloodShifterAspectEvil,
@@ -1145,6 +1240,7 @@ namespace BlueprintCore.Blueprints.References
           ExhaustingCriticalToggleAbility,
           FaerieDragon_01_Ability,
           FascinateToggleAbility,
+          FascinateToggleAbility_Penta,
           FastBombsAbility,
           FatalMarkQuiverAbility,
           FearlessFearlessAbility,
@@ -1158,10 +1254,13 @@ namespace BlueprintCore.Blueprints.References
           FiendflashShifterAspectGreaterDaemonAbility,
           FiendflashShifterAspectGreaterDemonAbility,
           FiendflashShifterAspectGreaterDevilAbility,
+          FiendishQuarryActivatableAbility,
+          FiendishQuarryActivatableAbilityImproved,
           FightDefensivelyToggleAbility,
           FlameDancerPerformanceToggleAbility,
           FlamingArrowsQuiverAbility,
           FlashInfusionAbility,
+          FlayingCriticalToggleAbility,
           ForcefulPushArrowsQuiverAbility,
           FoxfireInfusionAbility,
           FrighteningTuneToggleAbility,
@@ -1169,10 +1268,14 @@ namespace BlueprintCore.Blueprints.References
           GatherPowerModeHigh,
           GatherPowerModeLow,
           GatherPowerModeMedium,
+          GeomancyActivatableAbility,
+          GhostRiderGhostEthericTetherToggleAbility,
+          GhostRiderGhostSpiritualBondToggleAbility,
           GiftOfBloodActivatableAbility,
           GolemClaySlipperyMudAbilily,
           GrapplingInfusionAbility,
           GriffonGrabActivatableAbility,
+          GrimGrandeurAbility,
           GrowingSpikesAbilityLevel1,
           GrowingSpikesAbilityLevel11,
           GrowingSpikesAbilityLevel13,
@@ -1182,6 +1285,12 @@ namespace BlueprintCore.Blueprints.References
           GrowingSpikesAbilityLevel7,
           GuardedStanceToggleAbility,
           GutWrenchingInfusionAbility,
+          HagRivenClawAbilityLevel1,
+          HagRivenClawAbilityLevel13,
+          HagRivenClawAbilityLevel17,
+          HagRivenClawAbilityLevel2,
+          HagRivenClawAbilityLevel5,
+          HagRivenClawAbilityLevel9,
           Halaseliax_FireAuraAbility,
           Halaseliax_FrightfulPresenceAbility,
           HalfDragonFormAbility,
@@ -1197,8 +1306,11 @@ namespace BlueprintCore.Blueprints.References
           HellknightUnholyAbility,
           HelmetFullplateCyclopsGroetusAbility,
           HelmetFullplateDwarvenAbility,
+          HexingClawsActivatable,
           HolyArrowsQuiverAbility,
           HunterAnimalFocusForHimself,
+          IceSubdomainGreaterActivatableAbility,
+          IceSubdomainGreaterActivatableAbilitySeparatist,
           IllusionSchoolGreaterAbility,
           ImperialDragon_Ability,
           ImpromptuSneakAttackToggleAbility,
@@ -1206,7 +1318,9 @@ namespace BlueprintCore.Blueprints.References
           IncenseFogToggleAbility,
           InciteRageAlliesToggleAbility,
           InciteRageAllToggleAbility,
+          InciteRageAllToggleAbilityPenta,
           InciteRageEnemiesToggleAbility,
+          InciteRageEnemiesToggleAbilityPenta,
           IncredibleMightAbility,
           IncubusAspectAbility,
           InquisitorBaneAbility,
@@ -1251,7 +1365,9 @@ namespace BlueprintCore.Blueprints.References
           LethalStanceToggleAbility,
           LeviathanSkinRobeMaximizeSpellAbilityToggle,
           LiberationDomainBaseActivateableAbility,
+          LiberationDomainBaseActivateableAbilitySeparatist,
           LiberationDomainGreaterToggleAbility,
+          LiberationDomainGreaterToggleAbilitySeparatist,
           LightningArrowsQuiverAbility,
           LizardFamiliarAbility,
           LizardGrabActivatableAbility,
@@ -1364,13 +1480,16 @@ namespace BlueprintCore.Blueprints.References
           PipefoxAbility,
           PiranhaStrikeToggleAbility,
           PointBlankShotAbility,
+          PortalStoneSpiderRingActivatableAbility,
           PowerAttackToggleAbility,
           PowerfulStanceToggleAbility,
           PreciousTreatToggleAbility,
           ProtectionDomainGreaterToggleAbility,
+          ProtectionDomainGreaterToggleAbilitySeparatist,
           ProtectionJudgmentAbility,
           ProtectiveToggleAbility,
           ProximityTrigger_Ability,
+          ProximityTrigger_Ability_0,
           PummelingStyleToggleAbility,
           PureFlameInfusionAbility,
           PurityJudgmentAbility,
@@ -1389,6 +1508,7 @@ namespace BlueprintCore.Blueprints.References
           RecklessStanceToggleAbility,
           RedPanda_Ability,
           ReposeDomainGreaterToggleAbility,
+          ReposeDomainGreaterToggleAbilitySeparatist,
           ResiliencyJudgmentAbilityChaos,
           ResiliencyJudgmentAbilityEvil,
           ResiliencyJudgmentAbilityGood,
@@ -1446,8 +1566,15 @@ namespace BlueprintCore.Blueprints.References
           SacredArmorEnchantSpellResistance17Choice,
           SacredArmorEnchantSpellResistance19Choice,
           SacredArmorOnAbility,
-          SacredArmorShieldEnchantArrowDeflectionChoice,
           SacredArmorShieldOnAbility,
+          SacredShieldArmorEnchantArrowDeflectionChoice,
+          SacredShieldArmorEnchantFortification25Choice,
+          SacredShieldArmorEnchantFortification50Choice,
+          SacredShieldArmorEnchantFortification75Choice,
+          SacredShieldArmorEnchantSpellResistance13Choice,
+          SacredShieldArmorEnchantSpellResistance15Choice,
+          SacredShieldArmorEnchantSpellResistance17Choice,
+          SacredShieldArmorEnchantSpellResistance19Choice,
           SacredVengenanceArrowsQuiverAbility,
           SacredWeaponEnchantAnarchicChoice,
           SacredWeaponEnchantAxiomaticChoice,
@@ -1460,6 +1587,7 @@ namespace BlueprintCore.Blueprints.References
           SacredWeaponEnchantUnholyChoice,
           SacredWeaponOnAbility,
           SacredWeaponShieldOnAbility,
+          ScaledFistSupressActivatableAbility,
           SchirAspectAbility,
           SeersCardsToggleAbility,
           SenseiInspireCompetenceToggleAbility,
@@ -1507,6 +1635,7 @@ namespace BlueprintCore.Blueprints.References
           ShifterAspectManticoreAbility,
           ShifterAspectSpiderAbility,
           ShifterAspectTigerAbility,
+          ShifterAspectWereTouchedAbility,
           ShifterAspectWolfAbility,
           ShifterAspectWolverineAbility,
           ShifterChimeraAspectAcitvatableAbility,
@@ -1543,6 +1672,7 @@ namespace BlueprintCore.Blueprints.References
           SmitingJudgmentAbilityAdamantite,
           SmitingJudgmentAbilityAlignment,
           SmitingJudgmentAbilityMagic,
+          SnowcasterToggleAbility,
           SongOfBrokenChainsToggleAbility,
           SongOfCourageousDefenderToggleAbility,
           SongOfDefianceToggleAbility,
@@ -1551,6 +1681,25 @@ namespace BlueprintCore.Blueprints.References
           SongOfStrengthAbility,
           SongOfTheFallenAbility,
           SongOfTheSensesAbility,
+          SorcerousClawsAbility,
+          SorcerousClawsAnarchic,
+          SorcerousClawsCorrosive,
+          SorcerousClawsCorrosiveBurst,
+          SorcerousClawsEnchantPlus1,
+          SorcerousClawsEnchantPlus2,
+          SorcerousClawsEnchantPlus3,
+          SorcerousClawsEnchantPlus4,
+          SorcerousClawsFlaming,
+          SorcerousClawsFlamingBurst,
+          SorcerousClawsFrost,
+          SorcerousClawsIcyBurst,
+          SorcerousClawsKeen,
+          SorcerousClawsNullifying,
+          SorcerousClawsShock,
+          SorcerousClawsShockingBurst,
+          SorcerousClawsSpeed,
+          SorcerousClawsUnholy,
+          SorcerousClawsVicious,
           SpellCombatAbility,
           SpellStrikeAbility,
           StaggeringCriticalToggleAbility,
@@ -1562,9 +1711,11 @@ namespace BlueprintCore.Blueprints.References
           StudentOfWarKnowYourEnemyDefensiveStance,
           StudentOfWarKnowYourEnemyMartialStance,
           StudentOfWarKnowYourEnemyTacticalStance,
+          StunningCriticalToggleAbility,
           StygianSlayerShadowyMistFormToggleAbility,
           SuccubusAspectAbility,
           SunDomainGreaterToggleAbility,
+          SunDomainGreaterToggleAbilitySeparatist,
           SwarmFeastAbility,
           SwarmFormAbility,
           SwiftBlowImprovedChargeToggleAbility,
@@ -1599,6 +1750,7 @@ namespace BlueprintCore.Blueprints.References
           TransmutationSchoolChangeShapeLeopardAbilityLevel1,
           TriceratopsStatuetteActivatableAbility,
           TrickeryDomainGreaterToggleAbility,
+          TrickeryDomainGreaterToggleAbilitySeparatist,
           TristanRingActivatableAbility,
           TristianAngelAbility,
           TrueMagusAttackAbility,

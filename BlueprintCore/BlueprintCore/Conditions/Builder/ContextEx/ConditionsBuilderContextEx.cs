@@ -30,7 +30,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>InflictSeriousWoundsMass</term><description>820170444d4d2a14abc480fcbdb49535</description></item>
+    /// <item><term>InspiredRageEffectBuff</term><description>75b3978757908d24aaaecaf2dc209b89</description></item>
     /// <item><term>WrathOfAncestorEnchantment</term><description>4dbc03bd6223b484d8cd9afc3e0369b0</description></item>
     /// </list>
     /// </remarks>
@@ -67,7 +67,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyDistortionBuff</term><description>599b46d94d454526bf5893a4724d4fbe</description></item>
-    /// <item><term>GrowingSpikesBuffLevel17</term><description>0a9eb20620684af98fa7581ba37305ac</description></item>
+    /// <item><term>GrowingSpikesBuffLevel11</term><description>6d7e0abeb85948c4bec6bd02a4b4eedf</description></item>
     /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
     /// </list>
     /// </remarks>
@@ -104,7 +104,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>InflictModerateWoundsMass</term><description>03944622fbe04824684ec29ff2cec6a7</description></item>
+    /// <item><term>GreaterMutagenStrengthDexterity</term><description>ac1680d36a079a44bb58946b9d98f3fa</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -216,7 +216,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelBringBackTouch</term><description>067035da0186d6e43bb4138f433911ee</description></item>
-    /// <item><term>InspiringRecoveryCheckBuff</term><description>dc9a8ddf45adbc74aaff7b309f232072</description></item>
+    /// <item><term>GhoulTouchAreaEffect</term><description>e6a5bbb2af2448aa894e6126ef1e9187</description></item>
     /// <item><term>SwarmFeastArea</term><description>23d8c63c3af634843aa11f5a169683b5</description></item>
     /// </list>
     /// </remarks>
@@ -237,9 +237,9 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BearerOfSorrowEnchantment</term><description>8a7d0e599fe6b8c4c9ee034eb6af1830</description></item>
-    /// <item><term>MaddeningBuzzCountBuff</term><description>1edd19405356480fba58354288d58b36</description></item>
-    /// <item><term>SwiftDeathBuff</term><description>d9518719276543d3b7b78fac41e0c7e7</description></item>
+    /// <item><term>AuraofColdAreaEffectDebuff</term><description>9767c794c5174a078c81fdb0bd8ac1c2</description></item>
+    /// <item><term>ExtraDiscoverySelection</term><description>537965879fc24ad3948aaffa7a1a3a66</description></item>
+    /// <item><term>TandemExecutionerWeakenTheSpellTargetBuff</term><description>c39f76aaa368446d8a82077beb50a6db</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -255,11 +255,30 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="fact">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="useFactInsteadBuff">
+    /// <para>
+    /// InfoBox: Любой баф и так является фактом, однако опция имеет смысл: PF-498097
+    /// </para>
+    /// </param>
     public static ConditionsBuilder BuffRank(
         this ConditionsBuilder builder,
         Blueprint<BlueprintBuffReference>? buff = null,
+        Blueprint<BlueprintUnitFactReference>? fact = null,
         bool negate = false,
-        ContextValue? rankValue = null)
+        ContextValue? rankValue = null,
+        bool? useFactInsteadBuff = null)
     {
       var element = ElementTool.Create<ContextConditionBuffRank>();
       element.Buff = buff?.Reference ?? element.Buff;
@@ -267,12 +286,18 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
       {
         element.Buff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
+      element.Fact = fact?.Reference ?? element.Fact;
+      if (element.Fact is null)
+      {
+        element.Fact = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
+      }
       element.Not = negate;
       element.RankValue = rankValue ?? element.RankValue;
       if (element.RankValue is null)
       {
         element.RankValue = ContextValues.Constant(0);
       }
+      element.UseFactInsteadBuff = useFactInsteadBuff ?? element.UseFactInsteadBuff;
       return builder.Add(element);
     }
 
@@ -285,8 +310,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalisticPerseveranceFeature</term><description>1a3d8a5e342c47a7b721ca699a9613ed</description></item>
-    /// <item><term>BlindingEnlightenmentFeature</term><description>e343b492d1182404c91048186b7b58fb</description></item>
-    /// <item><term>LizardTailFeature</term><description>036d7e6bf5c14defa8fd90fd83a15e15</description></item>
+    /// <item><term>BracersOfAnimalFuryFeature</term><description>0556a23dd7591fb49a18af3095be631d</description></item>
+    /// <item><term>ShadowMadnessBuff</term><description>79aa1817f0b0447d8c81e59ec5c79b30</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder CasterHasBuffWithDescriptor(
@@ -329,7 +354,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloToggleAbility</term><description>248bbb747c273684d9fdf2ed38935def</description></item>
-    /// <item><term>HunterAnimalFocusForHimself</term><description>2b36d5d875eb6f041ab51bbb0365282c</description></item>
+    /// <item><term>DragonDiscipleClass</term><description>72051275b1dbb2d42ba9118237794f7c</description></item>
     /// <item><term>WrathOfArodenAbility</term><description>77a36621c53f41adab893ac850c70c64</description></item>
     /// </list>
     /// </remarks>
@@ -374,7 +399,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Areelu_UnbreakableDefenseBuff</term><description>57572f514d5b49bf98432026c80382c3</description></item>
-    /// <item><term>DragonLevel1MaxAbilityDexterityFeature</term><description>a1208cc0d08b4cbdbec522bd26310cf8</description></item>
+    /// <item><term>DragonLevel1MaxAbilityIntelligenceFeature</term><description>888573ac51ec48ecabbeb32d380f68a9</description></item>
     /// <item><term>TransmutationSchoolStrengthAbility</term><description>aadee249a033b2747b63344a758e91be</description></item>
     /// </list>
     /// </remarks>
@@ -411,7 +436,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <listheader>Used by</listheader>
     /// <item><term>BracersOfOverwhelmingVigorFeature</term><description>b34921b9358e1154783b98fb6aac3cae</description></item>
     /// <item><term>PlagueDeathQuarterstaffFeature</term><description>357d9df84a28fa949a575e8841c4e75e</description></item>
-    /// <item><term>ZealousMightItemEnchantment</term><description>819877d9ef15d9d45ac876ca21030279</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder CompareCasterHP(
@@ -439,7 +464,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BoneSpearConjure</term><description>ca8bc7d438e6b004a87222f3c32572f2</description></item>
+    /// <item><term>AloneInTheDarkStatsAfterDeathBuffGiver</term><description>9ba1e1baa751450099c48158d9a0d6df</description></item>
     /// <item><term>ImpalerEnchantment</term><description>a70838190b8751e4c93f5c410d8ca356</description></item>
     /// <item><term>Unused_SZ_1</term><description>204c7132bafa41c993ffdb9ae675d5eb</description></item>
     /// </list>
@@ -490,8 +515,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BurstOfSonicEnergy</term><description>b5a2d0e400dd38e428c953f8a2be5f0b</description></item>
-    /// <item><term>DeadeyeEnchantment</term><description>32712327ae4241f47bb7fc96027799dd</description></item>
-    /// <item><term>SurefireGlovesFeature</term><description>fe65b4d9191ce494380e3f60f41cec9e</description></item>
+    /// <item><term>StoneGolemSlow</term><description>341cd9a1610563d44938145e4b8d5432</description></item>
+    /// <item><term>TandemExecutionerStudyTargetBuff</term><description>1a4ca04c05034cdbbfaf82d9b7db387a</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder DistanceToTarget(
@@ -556,7 +581,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>GlovesOfHeavyImpactFeature</term><description>2b520766e6f84dfda2c04ea10d902511</description></item>
+    /// <item><term>GoodHopeTrailblazer</term><description>0082c3ed87626204f9b46d84cec1518d</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -637,6 +662,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>GhostRiderFrightfulGazeNoMindEffectingAbility</term><description>bd67f5e0a7db4dbc917fec368adec6ee</description></item>
     /// <item><term>PurpleWormSwallowWholeFeature</term><description>dee864aec4a0d344b913dd27a4b504cb</description></item>
     /// <item><term>VrockSporesAbility</term><description>19400435d35a3064b975861ef0a2c462</description></item>
     /// </list>
@@ -665,8 +691,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelfireApostleVersatileChannelRestorationLesser</term><description>95e3e99ea2f5932408b0310ebc7e9af1</description></item>
-    /// <item><term>LayOnHandsOthers</term><description>caae1dc6fcf7b37408686971ee27db13</description></item>
-    /// <item><term>WrathOfTheUndeadBuff</term><description>6a30b625459e421d862debf0b3d0214f</description></item>
+    /// <item><term>MindPiercerEnchantment</term><description>14b57d538298ae04e8ac048adb73c2b2</description></item>
+    /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder HasBuffWithDescriptor(
@@ -689,7 +715,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>123</term><description>535217378b8a4ca3ba5a45f0002de07c</description></item>
-    /// <item><term>CursedBardVoiceEtude</term><description>09539653b88e4d8193f2e19c5be1cc92</description></item>
+    /// <item><term>Cue_0018</term><description>31cfc8141e134d189d64631a3ce69d93</description></item>
     /// <item><term>ZeorisDaggerEtude</term><description>ad64557f3ad74ff0b36fce6364df6ab2</description></item>
     /// </list>
     /// </remarks>
@@ -832,7 +858,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arbitrament</term><description>0f5bd128c76dd374b8cb9111e3b5186b</description></item>
-    /// <item><term>FrightfulShapeFearBuff</term><description>750937f0f44d43759d38d7131f9158c3</description></item>
+    /// <item><term>FormOfTheDragonIIIFrightfulPresenceArea</term><description>5d44a8408f6907a4eb19a28ae24fb5fe</description></item>
     /// <item><term>WoundWormsLair_BlackDragonFrightfulPresenceArea</term><description>382910feb429e1449b3f8f2a633e3244</description></item>
     /// </list>
     /// </remarks>
@@ -925,7 +951,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AllRoundDefenseAreaEffect</term><description>5e56c4ff29094864aa23ec9b5b4ccf57</description></item>
-    /// <item><term>Halaseliax_FrightfulPresenceArea</term><description>b2114357604b47809a3808ea6973ce72</description></item>
+    /// <item><term>GhoulTouchAreaEffect</term><description>e6a5bbb2af2448aa894e6126ef1e9187</description></item>
     /// <item><term>ZeroState</term><description>c6195ff24255d3f46a26323de9f1187a</description></item>
     /// </list>
     /// </remarks>
@@ -947,7 +973,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBomb</term><description>fd101fbc4aacf5d48b76a65e3aa5db6d</description></item>
-    /// <item><term>GraveShiveringArea</term><description>e274a6f6358141e189fd43e40cdc8c5a</description></item>
+    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
     /// <item><term>ZippyMagicFeature</term><description>30b4200f897ba25419ba3a292aed4053</description></item>
     /// </list>
     /// </remarks>
@@ -989,8 +1015,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>MusicOfDeathEnchantment</term><description>183a4d2cc996c6f4db8641bed4b3b0c1</description></item>
-    /// <item><term>TeamworkFeature</term><description>bf416f1805710104cad270bd81727274</description></item>
+    /// <item><term>FrighteningAmbush</term><description>805fd6181a104bf0aca9ae79ef220c16</description></item>
+    /// <item><term>StagHelmetFeature</term><description>32c73d4df6c4f4746a748bc1f140d629</description></item>
     /// <item><term>VigilantWatchFeature</term><description>d4cf7afc49b81e34989f2dfa76889fed</description></item>
     /// </list>
     /// </remarks>
@@ -1034,8 +1060,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelHaloArea</term><description>7aa654dc15f051b4e865dc82b6765b0c</description></item>
-    /// <item><term>DLC3_HasteIslandBuff</term><description>5ebf1f33e08f47f89d83bb951248fffa</description></item>
-    /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
+    /// <item><term>FrozenPetrifyBuff</term><description>0a125beb06dc4141b6f9da8a9c1c9ae2</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder IsInCombat(
@@ -1098,8 +1124,8 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelBringBackTouch</term><description>067035da0186d6e43bb4138f433911ee</description></item>
-    /// <item><term>EstrodColumnLine</term><description>af186d0808a8452a8bae760a5346f905</description></item>
+    /// <item><term>AloneinTheDarkLastManStandingFeature</term><description>3ca1d2a2633c46b69236fbc637db6980</description></item>
+    /// <item><term>EstrodColumnPoint</term><description>053b1550a2a74d75a6debfcd52e3291e</description></item>
     /// <item><term>WoundingBattleaxeBleedBuff</term><description>b6452a2ac912260409a18aa8e69e60f7</description></item>
     /// </list>
     /// </remarks>
@@ -1209,6 +1235,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptEndEnchantment</term><description>66f1ac1f205e99f4e83c9b3aa8f0b0b1</description></item>
+    /// <item><term>FuriousFocus</term><description>f09b89812cc94b89a09069671002b899</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder IsTwoHandedEquipped(
@@ -1230,7 +1257,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <listheader>Used by</listheader>
     /// <item><term>DeepSlumber</term><description>7658b74f626c56a49939d9c20580885e</description></item>
     /// <item><term>RainbowPattern</term><description>4b8265132f9c8174f87ce7fa6d0fe47b</description></item>
-    /// <item><term>SleepKitsune</term><description>f8a32c60ae1f878408b525bb967ef48c</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder IsUnconscious(
@@ -1251,24 +1278,28 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnomalyTemplateDefensiveRandomizerBuff</term><description>1a72d85f20f14f1b84d20b8b6e44734e</description></item>
-    /// <item><term>ImprovedCritical</term><description>f4201c85a991369408740c6888362e20</description></item>
+    /// <item><term>GogglesOfMalocchioFeature</term><description>782027e68010df048af8289ceb6f3c31</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder IsWeaponEquipped(
         this ConditionsBuilder builder,
+        bool? bothHandsAreEmpty = null,
         WeaponCategory? category = null,
         bool? checkOnCaster = null,
         bool? checkWeaponCategory = null,
         bool? checkWeaponRangeType = null,
+        bool? justCheckEmptyHand = null,
         bool negate = false,
         WeaponRangeType? rangeType = null)
     {
       var element = ElementTool.Create<ContextConditionIsWeaponEquipped>();
+      element.BothHandsAreEmpty = bothHandsAreEmpty ?? element.BothHandsAreEmpty;
       element.Category = category ?? element.Category;
       element.CheckOnCaster = checkOnCaster ?? element.CheckOnCaster;
       element.CheckWeaponCategory = checkWeaponCategory ?? element.CheckWeaponCategory;
       element.CheckWeaponRangeType = checkWeaponRangeType ?? element.CheckWeaponRangeType;
+      element.JustCheckEmptyHand = justCheckEmptyHand ?? element.JustCheckEmptyHand;
       element.Not = negate;
       element.RangeType = rangeType ?? element.RangeType;
       return builder.Add(element);
@@ -1323,7 +1354,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>ShadowShamanShadowsAbility</term><description>085b4d4d0c5747bb8b1173e914c24d20</description></item>
+    /// <item><term>ShamanBonesSpiritWanderingFeature</term><description>a3862152ae6010445bc25915ac58fc8e</description></item>
     /// <item><term>WitchHexMajorHealingAbility</term><description>3408c351753aa9049af25af31ebef624</description></item>
     /// </list>
     /// </remarks>
@@ -1377,13 +1408,14 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonNormalizeSizeGazeEnemyBuff</term><description>dc42e955adbd444fbb3082687080117b</description></item>
-    /// <item><term>Kakuen_takaRepairShieldAreaEffect</term><description>55fc2bd8179a4bcb9034a65706609eb4</description></item>
+    /// <item><term>ImpalerEnchantment</term><description>a70838190b8751e4c93f5c410d8ca356</description></item>
     /// <item><term>WintersMarkEnchantment</term><description>0641db56869d87c4bb387e5ae4a18a0e</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder Size(
         this ConditionsBuilder builder,
         bool? checkCaster = null,
+        ContextConditionSize.SizeType? checkedSizeType = null,
         bool? exactlyEquals = null,
         bool? invert = null,
         bool negate = false,
@@ -1391,6 +1423,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextConditionSize>();
       element.CheckCaster = checkCaster ?? element.CheckCaster;
+      element.CheckedSizeType = checkedSizeType ?? element.CheckedSizeType;
       element.ExactlyEquals = exactlyEquals ?? element.ExactlyEquals;
       element.Invert = invert ?? element.Invert;
       element.Not = negate;
@@ -1407,7 +1440,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeAllyBuff</term><description>a85b9737fba146dcb3468526d67fbc0e</description></item>
-    /// <item><term>LichCommandUndead</term><description>ed9964f2aad54c18ad759674d1e07fdf</description></item>
+    /// <item><term>DevilApostateEvangelizationAbility</term><description>91ba374366c748348a5c1bf85a8685ea</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1433,6 +1466,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BlinkBuff</term><description>c168c6a0e471e924b8c69b31c6352587</description></item>
+    /// <item><term>CallingForAFeastBlinkBuff</term><description>cf9a122d832a498395b56a92233af763</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder TargetCanSeeInvisible(
@@ -1452,6 +1486,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>ArchmageArmor</term><description>c3ef5076c0feb3c4f90c229714e62cd0</description></item>
     /// <item><term>DLC3_IllusionIslandCasterBuff</term><description>3f2bbe4dbb22461aa8392a5e46de62bc</description></item>
     /// <item><term>Feeblemind</term><description>444eed6e26f773a40ab6e4d160c67faa</description></item>
     /// </list>
@@ -1535,7 +1570,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitArmoredMaskAbility</term><description>2d7d510c6e2e3e54ab9eee84a41fa2cf</description></item>
-    /// <item><term>GuardedStanceEffectBuff</term><description>3858dd3e9a94f0b41abdc58387d68ccf</description></item>
+    /// <item><term>FiendTotemGreaterArea</term><description>9ebde3219b12ca84c8e734a8430a57f8</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -1578,6 +1613,7 @@ namespace BlueprintCore.Conditions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>FuriousFocus</term><description>f09b89812cc94b89a09069671002b899</description></item>
     /// <item><term>GreyGarrison_SuperMythicBuff</term><description>4b11247a4988c254fb9d1cd67f0b1e4a</description></item>
     /// </list>
     /// </remarks>

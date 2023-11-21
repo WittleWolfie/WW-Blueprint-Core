@@ -36,6 +36,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DaeranStartingRingItem = "e0986c3e091b2a14a91d2257979b39b6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DarkOmenItem = "7d46733a8faf56544afac48c1b71283f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DLC3_RingOfInstantTriumphItem = "b631f6412333463eb620b4fd0571698c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DLC5_DarkLifeRing = "be863e5e51894eb0a832e75b24e71e70";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> DLC5_RingOfShadowStealingItem = "4eeecd3170cd4127a84c36e6ce77547b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> EarthUnleashedItem = "d19469a2cbd65334e844b0adda9e561e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> ElementalProtectorItem = "05bef2136b8766049830442a654a98ed";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> EnliveningLeaderishipItem = "ce230a619be858d468a5eb14d358d7d5";
@@ -101,6 +103,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfLawItem = "5004d122ca41d2b4897d9c2c5ec08439";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfLuck1 = "ec4c8aa06b5f46e4f961c5bc3526da04";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingofMagicDevices = "66ab84747fa8c5f43851b4bd02ed3f85";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfMercyless_Item = "fd8e043dd85848108e4e6c1f3034f709";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPlanarProtectionItem = "38d067e54e1aa0049a7d707d4b9213c4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPowerStoneItem = "e270a14888c38dd44a6818ce2599ebbf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProcrastinatorItem = "951e3e908bce44a09ab0879ea5560585";
@@ -113,7 +116,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProtection6 = "88945c4d1bd44de59905ac20898d05d5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProtection7 = "2e63277fbcdb469384efc97d910a12c4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProtection7Extra = "b23ed741ab984225946c7d22c96c680d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProtectionCarrok = "e148591ac5ad4a9e9369523be6d8a0ee";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPyromaniatItem = "e2f23f658afc6fe48a61f8aea173dc29";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfRawHolyPowerItem = "bef16b6a266047569c6de94d8dd783ed";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfRenownArtisanItem = "5d6100feb15a81d47a99f227247b81e1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfReveredChampionItem = "9d7a3cf8ea3448bc9dc7d7b844247e42";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfSacredTouchItem = "e71794e3f78dea249951fe1fe01af589";
@@ -179,6 +184,8 @@ namespace BlueprintCore.Blueprints.References
           DaeranStartingRingItem,
           DarkOmenItem,
           DLC3_RingOfInstantTriumphItem,
+          DLC5_DarkLifeRing,
+          DLC5_RingOfShadowStealingItem,
           EarthUnleashedItem,
           ElementalProtectorItem,
           EnliveningLeaderishipItem,
@@ -244,6 +251,7 @@ namespace BlueprintCore.Blueprints.References
           RingOfLawItem,
           RingOfLuck1,
           RingofMagicDevices,
+          RingOfMercyless_Item,
           RingOfPlanarProtectionItem,
           RingOfPowerStoneItem,
           RingOfProcrastinatorItem,
@@ -256,7 +264,9 @@ namespace BlueprintCore.Blueprints.References
           RingOfProtection6,
           RingOfProtection7,
           RingOfProtection7Extra,
+          RingOfProtectionCarrok,
           RingOfPyromaniatItem,
+          RingOfRawHolyPowerItem,
           RingOfRenownArtisanItem,
           RingOfReveredChampionItem,
           RingOfSacredTouchItem,

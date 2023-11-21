@@ -53,6 +53,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Daeran_Q2_Report_2 = "ace7fd74fcc71d84e9662539a6e26bb7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DaeranNote = "edd719119cd79d041930c69820734476";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DamnedBeKenabres = "80ffd7ada93413e4fa6f92747eca29f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DeadCultistNotePage1_Item = "288bb34f669b4220a002336f6c0b463c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DeadCultistNotePage2_Item = "741dd3d1ec61424aadb68d01a0637f00";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DeadCultistNotePage3_Item = "23a257eef9ed44428f1f1849e78287a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DLC5_GoblinsPartyInTheTower_LoreNote_1 = "543d511ac485490a855e98a7a96104f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DLC5_GoblinsPartyInTheTower_LoreNote_2 = "1628ea33520a44aba00853b47efd3dcf";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DLC5_GoblinsPartyInTheTower_LoreNote_3 = "36d13976a0ba4bbf96c0b579b6f3a57e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> DoctorContract_Item = "efdd9cc2fac340ffb0ee9c80d6cb88a7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> EstrodGuidebook1 = "23c9a797007f48c288acb320d587aa9d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> EstrodGuidebook2 = "e68e5654cf49447eae8c593744869bb3";
@@ -64,6 +70,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GalfreyGoodbyeMessage = "e03b3cfcb01670c47b102855982c23c6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GearsRuleNote = "150cd8e6ce9859b4586e721cbc4cc86f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GentyCrusader = "d4951735396c101499daa2b1cdb0b651";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> GiantsParchment_Item = "1aeaf1a28b8a4e91ac3b007cf7e82e02";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> HilorStory1 = "d49988a22fc645d6b4145f8b8c3f3e6b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> HilorStory2 = "8de6cf2aef4c41cdb8e757c8a1b2df13";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> HilorStory3 = "242d6226c7934dff9d8cec6cd6c5a590";
@@ -92,6 +99,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> NurahPerfume = "e0d847a06a488e848b30e2c3166bf480";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Octavia_Letter = "d02703b937e340f8a95e4113d0e6dd38";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> OldSarkorisFighter = "190a5e2bda6d4637913735f11e38c6d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Page_of_BookOfDreams_2 = "e1601eba0414440e837f302deb1c2751";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> Page_of_BookOfDreams_3 = "63fc4b9eed75400a9ac0738be5db7083";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PoisonerNote_Item = "9e82f3c877fb4477a457ca1aec2b8ed3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PsiBlocker = "d02084794ec74c54dba309ac79ce35b2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> PsiBlockerElectroincs = "0c4a923b04f2e3241a2fce3a9464180b";
@@ -131,6 +140,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TerendelevOrigin = "c0697a86bc2442d0ae9a382caf8623b9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TheatrePoem_1 = "792ec2eea0d74cb4aa412389f03baf1e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TheatrePoem_2 = "424e5c40b4f4467cbcecb5a5f5dcc1ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> TranslatorsReward_Item = "f832c8b1a0b343ca9ab6e3200949d499";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> UnknownCrusades = "49341fd9cae145c88a0143f0a7ae5928";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> WhatIsVermlek = "67e64a4731ef4d798feed636d1f10e7b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> WorldwoundSetting = "c856cd988c844fadb8da723d8c1dc13e";
@@ -180,6 +190,12 @@ namespace BlueprintCore.Blueprints.References
           Daeran_Q2_Report_2,
           DaeranNote,
           DamnedBeKenabres,
+          DeadCultistNotePage1_Item,
+          DeadCultistNotePage2_Item,
+          DeadCultistNotePage3_Item,
+          DLC5_GoblinsPartyInTheTower_LoreNote_1,
+          DLC5_GoblinsPartyInTheTower_LoreNote_2,
+          DLC5_GoblinsPartyInTheTower_LoreNote_3,
           DoctorContract_Item,
           EstrodGuidebook1,
           EstrodGuidebook2,
@@ -191,6 +207,7 @@ namespace BlueprintCore.Blueprints.References
           GalfreyGoodbyeMessage,
           GearsRuleNote,
           GentyCrusader,
+          GiantsParchment_Item,
           HilorStory1,
           HilorStory2,
           HilorStory3,
@@ -219,6 +236,8 @@ namespace BlueprintCore.Blueprints.References
           NurahPerfume,
           Octavia_Letter,
           OldSarkorisFighter,
+          Page_of_BookOfDreams_2,
+          Page_of_BookOfDreams_3,
           PoisonerNote_Item,
           PsiBlocker,
           PsiBlockerElectroincs,
@@ -258,6 +277,7 @@ namespace BlueprintCore.Blueprints.References
           TerendelevOrigin,
           TheatrePoem_1,
           TheatrePoem_2,
+          TranslatorsReward_Item,
           UnknownCrusades,
           WhatIsVermlek,
           WorldwoundSetting,

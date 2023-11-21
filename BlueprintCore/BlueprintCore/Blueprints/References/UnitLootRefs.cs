@@ -26,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> C11_BokkenVendorTable = "4778ecb5df5d48742b9be5a204ed4657";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> C71_GoblinVendorTable = "488ce39f5594cff4f8a8228e95b091e3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> C71_IssiliVendorTable = "f129974a4cbb6314fa1b05bc4095c377";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> CarrokLoot = "ff1a940d35b04dd0b75f384ee3c119ae";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Coins10 = "182247c9a4bfb9244b86cdc80b7d61da";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Coins100 = "f90fec33f5c025047be387824361054f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Coins150 = "0141e55c7d570a94196a033e477fb41c";
@@ -67,6 +68,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_GhostsLoot = "b08b91a5df564d29b8376951133f7294";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_GhostsLoot_boss = "9ab6474a9a304374a1a555806db76758";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC4_SecondKey = "2fadf69bfa174029a3286276a66a6a29";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_LC_PrisonKey = "f9b304fe07714c8b8786044eef8d0931";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_Storasta_DragonKeyUnitLoot = "3d5158128ea843f1beb3d7e08aa8d45a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_Storasta_HusbandFlowerLoot = "a09a1a64e99e4ba4a8a04f132e1ecb0b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DogLoot = "15ebc42d2ffefc848b17f68ff457f051";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomercatLoot = "d2c4914b339ff9f4eb60d31634f746a0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomerlionLoot = "8dfddd5847e1bc24bbbebe75a63c083b";
@@ -110,6 +114,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> FullVariant3CR8 = "d28af50318ba7f84fb8764ce55b4f32d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> FullVariant3CR9 = "e534c653fd057d343b21f64fd128a6ec";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Ghoul_RegillSpecialLoot = "6828bf2f9afe461fbe945b25a045589b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> HeartOfIce_Item_Loot = "41975aa3fa024e2286c7c9179097f63a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> Hilor_Loot = "3821d61224981344787c18cf37d92f6a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> HodagLoot = "a1db3da7d03821243b2974528ff3b5a7";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> HydraEyeLoot = "66496a2143a9bce468d3fffce09f3587";
@@ -206,6 +211,7 @@ namespace BlueprintCore.Blueprints.References
           C11_BokkenVendorTable,
           C71_GoblinVendorTable,
           C71_IssiliVendorTable,
+          CarrokLoot,
           Coins10,
           Coins100,
           Coins150,
@@ -247,6 +253,9 @@ namespace BlueprintCore.Blueprints.References
           DLC4_GhostsLoot,
           DLC4_GhostsLoot_boss,
           DLC4_SecondKey,
+          DLC5_LC_PrisonKey,
+          DLC5_Storasta_DragonKeyUnitLoot,
+          DLC5_Storasta_HusbandFlowerLoot,
           DogLoot,
           DweomercatLoot,
           DweomerlionLoot,
@@ -290,6 +299,7 @@ namespace BlueprintCore.Blueprints.References
           FullVariant3CR8,
           FullVariant3CR9,
           Ghoul_RegillSpecialLoot,
+          HeartOfIce_Item_Loot,
           Hilor_Loot,
           HodagLoot,
           HydraEyeLoot,

@@ -739,8 +739,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CritAutoconfirmAgainstEvil</term><description>8c381459747746341be72f7fa0112e10</description></item>
-    /// <item><term>CrossbowOfJudgementChaoticEnchantment</term><description>9795364fcb0970541a75057a831b9dd9</description></item>
     /// <item><term>CrossbowOfJudgementEvilEnchantment</term><description>faa140906bc385e43bf4ecf2f6267c76</description></item>
+    /// <item><term>GreatswordSunSwordWeaponEnchantment</term><description>41cbbcfcde784ddb9987660f57587742</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1102,6 +1102,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ColdIronWeaponEnchantment</term><description>e5990dc76d2a613409916071c898eee8</description></item>
+    /// <item><term>SilverWeaponEnchantment</term><description>9012b1095c9645e0a6152f673fc07d0a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1130,6 +1131,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>GhostTouch</term><description>47857e1a5a3ec1a46adf6491b1423b4f</description></item>
+    /// <item><term>GreatswordSunSwordWeaponEnchantment</term><description>41cbbcfcde784ddb9987660f57587742</description></item>
     /// </list>
     /// </remarks>
     ///

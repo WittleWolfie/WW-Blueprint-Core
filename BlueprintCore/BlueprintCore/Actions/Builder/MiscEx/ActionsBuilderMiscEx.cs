@@ -33,8 +33,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Cue_3</term><description>aceee7ef06e94539804351201f8d6e98</description></item>
-    /// <item><term>StarMaraca_dead</term><description>164aa7706c5b4cb9ba6dcd8ff7f31ab6</description></item>
+    /// <item><term>Cue_7</term><description>0bdaad140ed44573b0c9a6cb332580c5</description></item>
+    /// <item><term>Unfair Challenge</term><description>deef16f3e31e47a3aa91df404fe0edd5</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -149,8 +149,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter02</term><description>0e20d73ea0da6a94d94a6b42035a1ce0</description></item>
-    /// <item><term>Chapter04</term><description>637a57423a82b044f888677c92f5d6cb</description></item>
     /// <item><term>DLC3_Salesman_dialogue</term><description>f98723d13d2a4945b060c0f0da601d14</description></item>
+    /// <item><term>DLC5_VendorsAfterStorasta</term><description>63d639a46f824e62ad94401ab2b1bade</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -384,7 +384,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_RewardStatueLegacy_Actions</term><description>a84bfcbb31f444078e18484061dd66f2</description></item>
+    /// <item><term>CommandAction4</term><description>38c390876850441fa257db790ca21735</description></item>
+    /// <item><term>DLC5_WightTriggered_Actions</term><description>b3b3dfcaef8f465c977568cf53913cf5</description></item>
     /// <item><term>LoreReligionUseAbility</term><description>4843cb4c23951f54290c5149a4907f54</description></item>
     /// </list>
     /// </remarks>
@@ -414,7 +415,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>5b9e7c0c242f41ea8c880d260ee29892</description></item>
-    /// <item><term>CommandAction7</term><description>9cccb946a0f447038eccd011b479ebc7</description></item>
+    /// <item><term>CommandAction2</term><description>9e8e0485f3fb4f7db271ec9ba52e76d5</description></item>
     /// <item><term>Epilogues_afterlogues_dialogue</term><description>57e18f5158904030a84a772fb361ceb4</description></item>
     /// </list>
     /// </remarks>
@@ -435,9 +436,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cue_0001</term><description>603b9cb39702cd1488f4156995d7bf1e</description></item>
-    /// <item><term>Cue_0010</term><description>4e1fb44f339e88340b9daee8aca0c463</description></item>
-    /// <item><term>DLC1_SaveImport</term><description>31417683088d40b8beb3691c393fb3d3</description></item>
+    /// <item><term>c4-c5_interchapter</term><description>09f9a3762723ced47b25f953ddbc9e32</description></item>
+    /// <item><term>Cue_0122</term><description>381b44c6ac9e37744b135f7a0ed3c2d8</description></item>
+    /// <item><term>ImportDLC5</term><description>f17326931d6a4b6e9423377567eb834d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -467,7 +468,8 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool? autoImportIfOnlyOneSave = null,
         Blueprint<BlueprintCampaignReference>? campaign = null,
-        bool? letPlayerChooseSave = null)
+        bool? letPlayerChooseSave = null,
+        bool? notImmediatly = null)
     {
       var element = ElementTool.Create<ImportSave>();
       element.m_AutoImportIfOnlyOneSave = autoImportIfOnlyOneSave ?? element.m_AutoImportIfOnlyOneSave;
@@ -477,6 +479,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         element.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
       }
       element.m_LetPlayerChooseSave = letPlayerChooseSave ?? element.m_LetPlayerChooseSave;
+      element.m_NotImmediatly = notImmediatly ?? element.m_NotImmediatly;
       return builder.Add(element);
     }
 
@@ -493,13 +496,35 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <item><term>ToRoofs_FromMediumToLower_TeleportFail</term><description>cef19ac4f4194e1cb3ddf53cb2793bbe</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="savedGameStatus">
+    /// <para>
+    /// InfoBox: Опционально: статус игры на момент сейва для текстового описания
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintSavedGameStatus. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public static ActionsBuilder MakeAutoSave(
         this ActionsBuilder builder,
         bool? askConfirmation = null,
+        Blueprint<BlueprintSavedGameStatusReference>? savedGameStatus = null,
         bool? saveForImport = null)
     {
       var element = ElementTool.Create<MakeAutoSave>();
       element.AskConfirmation = askConfirmation ?? element.AskConfirmation;
+      element.SavedGameStatus = savedGameStatus?.Reference ?? element.SavedGameStatus;
+      if (element.SavedGameStatus is null)
+      {
+        element.SavedGameStatus = BlueprintTool.GetRef<BlueprintSavedGameStatusReference>(null);
+      }
       element.SaveForImport = saveForImport ?? element.SaveForImport;
       return builder.Add(element);
     }
@@ -642,7 +667,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0041</term><description>81e6c7dc9eab34a48b1edcab69e4675c</description></item>
+    /// <item><term>Cue_0039</term><description>f1c267e263671b140a82dd13f63fdfda</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -796,7 +821,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_FlyingIsles_HigherCityTutorial</term><description>703a58daf08849d9bb67e328064866ea</description></item>
-    /// <item><term>DangerousMonsterTutorial</term><description>e376b2ca284a0ad4181c73a2285ccfba</description></item>
+    /// <item><term>DangerousMonsterTutorial_2</term><description>8ee66977e7c1417face00c91d458498f</description></item>
     /// <item><term>TutorInspect</term><description>8edce8ffe87051a4eb32293277f7b4be</description></item>
     /// </list>
     /// </remarks>
@@ -842,7 +867,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>daab00a6e6c650246a7ebb32c9fd8240</description></item>
-    /// <item><term>DLC1_ThresholdOutdoor_BET_MixedFar</term><description>a5dca28200034f298e04270b0aed3d5d</description></item>
+    /// <item><term>DLC1_ThresholdOutdoor_BET_NormalCamp</term><description>e67f735c38b444b680c94bf090b3a334</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -882,7 +907,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>32346e6ee58b4139a2bbabab80317c28</description></item>
-    /// <item><term>Cue_0002</term><description>66ea6c3a144440919fcae8ea585d49c1</description></item>
+    /// <item><term>Cue_0006</term><description>5867dfe6156215944ab9b9d8b414c8a7</description></item>
     /// <item><term>WoljifFarewell_dialogue</term><description>0e94cfa04d06db1438eb565f60c0012c</description></item>
     /// </list>
     /// </remarks>
@@ -938,9 +963,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandAction</term><description>bacc9e60f4554ddf9aff4aa5f7dd61ef</description></item>
-    /// <item><term>Cue_0052</term><description>728a93278c0029648ab10295221af126</description></item>
-    /// <item><term>DLC3_Mythic_Swarm</term><description>c2e0b007689f41228cedf4fe90547f6f</description></item>
+    /// <item><term>Answer_0002</term><description>6ced3f48dbdf44b2aa3e526a755f994e</description></item>
+    /// <item><term>Cue_0051</term><description>3df7adbce79f77f41a2830ac44b85591</description></item>
+    /// <item><term>DLC5_GoblinsPartyInTheTower_Torture_FeedAnimal</term><description>88da324898df45da92eecbb20c991b0a</description></item>
     /// </list>
     /// </remarks>
     ///

@@ -127,6 +127,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Disease_Tutorial = "198c7d046c964fd9861017631c593c8d";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Exp_Tutorial = "f40025596e04499882fe90d3af812409";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Interacting_Tutorial = "da7959a67c81407c832d0527e247ecf6";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Interacting_Tutorial_Console = "796dc0c3a25243148f1507f02b6c2718";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Interaction_Tutorial = "d6f16a41a2374078bb70ce8852724ba1";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Torch_Tutorial = "d924698576fa434f8c0cec04a6441618";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC3_AutoSave_Tutorial = "f26604e573e74adc88cf3d7db610e087";
@@ -184,6 +185,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_25_Camping_1 = "eaf56a4b71b4f8a4baf4915e1daba29d";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_25_Camping_1_Gamepad = "425500409b5944d49781b55aa65c3619";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_25_Camping_2 = "05fd974a864e04248b9d503793324419";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_25_Camping_3 = "437dabbd297748aab86d93361bf80979";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_26_Alignment = "a0b902a47afe07e4e874c06f300d2964";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_3_Interactions = "4f7c0d90f31082a4f87541e630e899ca";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_3_Interactions_Gamepad = "ca9851f4f23d41118be84e04b835ae2b";
@@ -195,6 +197,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_40_CameraDemonCity_Gamepad = "528bd2f5b37f498b998314b3a884e3c0";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_41_CameraDemonCity = "dc11f119f4da4ad4bd064654b4570846";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_41_CameraDemonCity_Gamepad = "f62bfdd71fc9423aa27747b85541a2cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_42_GlobalMap_DiceRoll = "0b67a427520d4e9a87ec9160b9405201";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_5_DialogSkillcheck = "3ff99be559586284eb022511fd2f4d51";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_5_DialogSkillcheck_F = "381858053c011b34cb66582c56954ece";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> NewTutorial_5_DialogSkillcheck_S = "96d97ef4859714343af531ab8076dc25";
@@ -222,6 +225,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> RestTutorial_CookingSoups = "2f80f00100923af4fa46c5f6695f5034";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> RestTutorial_Corruption = "ec681e0ed44142409e534c3b0d259a42";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> RestTutorial_CraftingScrolls = "1d1ede439814c4d478a8322ad0af3711";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ShardsTutorial = "3ef2931471ba45dc8e1a55c01e8d06c5";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> TestTutorialDRSmall = "9b1b19c27c8bf9b40a05e72c07134092";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> TestTutorialSC = "2e48c8330634d544489e1fc14ccf5eaa";
 
@@ -340,6 +344,7 @@ namespace BlueprintCore.Blueprints.References
           DLC2_Disease_Tutorial,
           DLC2_Exp_Tutorial,
           DLC2_Interacting_Tutorial,
+          DLC2_Interacting_Tutorial_Console,
           DLC2_Interaction_Tutorial,
           DLC2_Torch_Tutorial,
           DLC3_AutoSave_Tutorial,
@@ -397,6 +402,7 @@ namespace BlueprintCore.Blueprints.References
           NewTutorial_25_Camping_1,
           NewTutorial_25_Camping_1_Gamepad,
           NewTutorial_25_Camping_2,
+          NewTutorial_25_Camping_3,
           NewTutorial_26_Alignment,
           NewTutorial_3_Interactions,
           NewTutorial_3_Interactions_Gamepad,
@@ -408,6 +414,7 @@ namespace BlueprintCore.Blueprints.References
           NewTutorial_40_CameraDemonCity_Gamepad,
           NewTutorial_41_CameraDemonCity,
           NewTutorial_41_CameraDemonCity_Gamepad,
+          NewTutorial_42_GlobalMap_DiceRoll,
           NewTutorial_5_DialogSkillcheck,
           NewTutorial_5_DialogSkillcheck_F,
           NewTutorial_5_DialogSkillcheck_S,
@@ -435,6 +442,7 @@ namespace BlueprintCore.Blueprints.References
           RestTutorial_CookingSoups,
           RestTutorial_Corruption,
           RestTutorial_CraftingScrolls,
+          ShardsTutorial,
           TestTutorialDRSmall,
           TestTutorialSC,
       };

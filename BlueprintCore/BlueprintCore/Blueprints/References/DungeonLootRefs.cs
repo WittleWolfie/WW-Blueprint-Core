@@ -27,9 +27,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootAlchemyIngredients = "3a841cf0bcd34bf8a911fca0b7fc62d3";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootCookingIngredients = "825d5caabc38420bacf0abc0e157f90f";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootCookingRecipes = "8a50117aa43d454cbd3ca1ac63e2646f";
+    public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootDLC5 = "5285198d68184799a079ffb2bea6d822";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootExclude = "86ad23ddcc074a878e350d822d980c30";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootJunk = "f5e28a9101804bff9d13fdd9b7382727";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootMagic = "24e7b8fe37484e06bc88738c9f032da2";
+    public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootPearlOfPower = "a7989e0c8eb44725b7581b7ff41507d6";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootPotions = "4b61f0c1f3644c55a0e639b6d884bb7f";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootPotionsAndScrolls = "73cc179f447d49409fd3668b1b919fc8";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonLoot>> DungeonLootRare = "afe1a911df6b4fcabeb827077f004678";
@@ -54,9 +56,11 @@ namespace BlueprintCore.Blueprints.References
           DungeonLootAlchemyIngredients,
           DungeonLootCookingIngredients,
           DungeonLootCookingRecipes,
+          DungeonLootDLC5,
           DungeonLootExclude,
           DungeonLootJunk,
           DungeonLootMagic,
+          DungeonLootPearlOfPower,
           DungeonLootPotions,
           DungeonLootPotionsAndScrolls,
           DungeonLootRare,

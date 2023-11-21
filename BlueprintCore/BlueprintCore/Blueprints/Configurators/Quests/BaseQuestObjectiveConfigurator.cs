@@ -836,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR11_FrostGiantBarbarian</term><description>617e220e1903405786216ea19abbfb34</description></item>
+    /// <item><term>DLC3_CR14_DeepShadowDemonTough</term><description>580e014994544fefbe22e9f6164ad49b</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -886,8 +886,8 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Obj1_Escape</term><description>a58953791d40413fbc76441cc687a78c</description></item>
-    /// <item><term>SosielQ1_HiddenFail</term><description>19b7d800c358c104280ddf5ade6a7b55</description></item>
+    /// <item><term>Obj03_TalkToAnevia</term><description>945d426bc25cf6f40ac8f40792f06f90</description></item>
+    /// <item><term>Step_2</term><description>5a38140285b24b1c96631d1a224d383b</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddObjectiveStatusTrigger(

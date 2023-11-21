@@ -61,6 +61,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidBombBuff = "4e15565b830d4b841b59e701d3395371";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidCloudsBuff_DLC2 = "d196ea96bd5344c3bdd604f80efce406";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidFogBuff = "af76754540cacca45bfb1f0074bf3013";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidFogBuffPlant = "210c9fabf893411f8ec9e27422d46faa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidicSprayBuff = "ab9cfc0c9411e6441b738dcf5a3567ee";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidMawBuff = "f1a6799b05a40144d9acdbdca1d7c228";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AcidMawDamageBuff = "0e49c9cb5370ffd4082ff0ca8fbea642";
@@ -152,6 +153,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AggressorMarkBuff = "221ded0007da47c3937a8a280f0e3fec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AidBuff = "319b4679f25779e4e9d04360381254e1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AirBlessingMajorBuff = "ac410725d8fc6fe4b81d47269f4f3ea1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AirBlessingMajorWingsBuff = "1f3dd1291a0e40b18ef5e3f7e1b59ad4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AirBlessingMinorBuff = "0152e0ba776ada84c9bbb1d447819c06";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AirElementalInWhirlwind = "8b1b723a20f644c469b99bd541a13a3b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AizerghaulBuff = "229c9692e8eb4caf827f2d318984be5d";
@@ -159,13 +161,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlchemicSourceBuff = "7d6635e1690ea354eb4cfb2ddaf57fe5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlchemicSourceNonAlchemistBuff = "3522b0d9af6b92b40be94af499f1f3d3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlchemistsFireBurnBuff = "701690d8339e81f439bb025038e36a96";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlchemistThrowAnythingBuff = "d4675c5e630e4602bb96e295becfd5cd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlderpashFoodBuff = "de8a5c2c7bba4229954d4d64a6de36c3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlignWeaponChaosBuff = "2f2eb113da65b6b4fbf69e35c90afe02";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlignWeaponEvilBuff = "418e078eb0eb6494ab65d124ab5eb7fe";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlignWeaponGoodBuff = "cbe785a099249164eb2204f553437e3d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlignWeaponLawfulBuff = "57e74017b222b274790c5fa162855035";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AllIsDarknessSmiteBuff_NoScabbard = "3ee42d04faf9477bb7765c3fcb7f7a27";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AllIsDarknessSmiteEvilBuff = "c09d87fb8a5742499d6b820a0e700504";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AllRoundDefenseBuff = "a0e8f704237443e094e19928648a1a10";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AllRoundDefenseVisualBuff = "950563907aee4c8cb6f0ed290231f1ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> aloneinthedarkgiverbuff = "d2ec92fac65a4801a5f4023058eaf47b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AloneInTheDarkStatsAfterDeathBuffGiver = "9ba1e1baa751450099c48158d9a0d6df";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AloneInTheDarkStatsBuff = "2c6af59290e84bba936d68232e8fa98b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AlushynirraDemodandSlaveBuff = "3be69bb6aefee14499f49c64db450499";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmberLoveLightCrossbowBuff = "38885d59fda2286439b905d7ed5aec6a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmberLoveRodBuff = "3123ec8935850514aab8edccf7d8e942";
@@ -174,6 +182,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmiriCampBuff = "f04177fdba7bb324589b7f2b0fd67604";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfDevourBuff = "bf65157f3e63324458dd639b4edceb34";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfJoustingCountBuff = "8222ad0013c76dc42a9e810787435acc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfQuickDrawBuff = "caed61f814174fc696304fccdd6291ce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfUnforgivingElementsAcidBuff = "e6e363e8bd8074047bef3b286f159fe8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfUnforgivingElementsColdBuff = "1c26e0f306d729d4bb755dc9f3595771";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AmuletOfUnforgivingElementsCountBuff = "964031ca1c82c924abcb1140a3d89906";
@@ -377,7 +386,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArcanistExploitSpellResistanceGreaterBuff = "7b392a6348fe3ef4d907ce168a4c7773";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArcanistExploitWoodenFleshBuff = "25464fd4b0be6c645ad60d857fc3fd7a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchaeologistConfidentExplorerBuff = "4ca5390aa1e498d478f79ed58d033084";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchaeologistLuckActivatableBuff = "176b86df542146ee81fe7d2f11920862";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchaeologistLuckBuff = "2ef43eabd1d15fe4399e45806e9ca2d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchaeologistLuckBuffMythic = "ad0662f80c594aab9b0660d766d33b85";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchonsAuraBuff = "eea0bb28d018947499e6070200277acc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchonsAuraEffectBuff = "a0bc0525895932b42bfd47f1544e6e35";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArchonsAuraImmuneBuff = "94d278269422cb54a8d456f38004e2f9";
@@ -424,6 +435,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmExtendersCountBuff = "a7ee902fac074b018b27ee73e3a73098";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmigerArdentRerollBuff = "e797a3b4557af8747b5ce1bfc7c28112";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmigerArdentRerollCooldown = "c3ac324ad4725434790d9544ab9d73ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusHeavyMythicFeatureOffenceBuff = "fcd913568e1544108eceb8db2a90cd0f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusHeavyMythicFeatureVar1Buff = "af7a83e16d1442cb87e84f879bf2141b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusHeavyMythicFeatureVar2Buff = "95a2856c0369449db24000d2fb4e9277";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusLightMythicBuff = "b1217085b7004b11a719ea075fba8ea7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusLightMythicOffenceBuff = "b4583316ff014878809e57fc24d19229";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusLightMythicVar2Buff = "7c483825698f45bd8c1c1a6a9054e963";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusLightMythicVar2BuffExtra = "f0079e9247e54be3a13d69f6e57cfc20";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusMediumMythicFeatureOffenceBuff = "a9446282d567471496566a3b464559dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorFocusMediumMythicFeatureVar2Buff = "93e80467a5fc4e68927b99732484fbd4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorMasteryBuff = "0794e96a6c5da8f41979d809bb4a9a8c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmorPlatingShifterBuff = "b00fbc84b7ae4a45883c0ac8bb070db6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArmyACAgainstRangeAuraEffectBuff = "9fd1fe91c717449796bd68646ee8df18";
@@ -638,8 +658,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Artifact_TricksterCloakBuff = "42e50632acf74452bc645966a9c7ad2b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Artifact_TricksterCloakPenaltyBuff = "4c58293f79b34c2eb3d76fe265ad2fa0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainBaseBuff = "af772f43b1e59e043968796b6b534057";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainBaseBuffSeparatist = "96ccef25400c496391f0b37daa7e5034";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainBaseEffect = "f0a5b502227438749a1ad4b638224339";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainBaseEffectSeparatist = "181dd09735d3404c9c1f8f265bd4a62d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainGreaterEffect = "9d4a139cb5605fa409b1be3ad6e87ba9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArtificeDomainGreaterEffectSeparatist = "2f666b186bd04c30ad87018d2a29d91a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ArueshalaeImmortalityBuff = "7ad9d9982302e2244a7dd73fee6c381b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AscendantSummonsBuff = "3db4a1f9ffa46e7469f817bced1a0df2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AshLeprosyBuff = "e8de23ac5d73f7b4b965a511e6a0239c";
@@ -650,6 +673,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AspectOfTheStagBuff = "624ed102958178c4781ce19531d51281";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AspectOfTheWolfBuff = "98d9d1a761c8ade49964aa97ecd8dc1a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssailantsBeltBuff = "0634a0f9c882aeb40bffa61f9392f1ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinAlterEgoBuff = "fa41834e14e04a5794011e77eaac4d04";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinCreatePoisonAbilityConBuff = "ac4d4b3f14f2b6e41a19a3d8e13e7ee7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinCreatePoisonAbilityConBuffEffect = "6542e025d84501a41b652bcdc57f6901";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinCreatePoisonAbilityDexBuff = "385c07aa91442094f9385510504dde3c";
@@ -658,9 +682,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinCreatePoisonAbilityStrBuffEffect = "285290cc80941bc4c97461d6f50aaad9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityKillBuff = "3740fdf85036ec34bbd0b09f218a9cce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityKillBuffEffect = "fa7cf97ea4dfc4d4aa600e18fd7d419b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityKillCooldownBuff = "a1f9667a7ef9408492f506c9e2f9b951";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinDeathAttackAbilityParalyzeBuff = "b6ebb41266c137c4384b4b279a7f631c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinMarkOfDeathBuff = "9955b71ef19e44b09e2e596db4e2daef";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinMarkOfDeathCasterBuff = "a04bd4eb04804366a3f5c90cd77d5305";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinMarkOfDeathIgnoreBuff = "edcdbf0f66fe4ae99f12f439509bfde0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinMarkOfDeathPenaltyBuff = "8ec7f0f5413742dfbcf48c8ea5faa464";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinPoisonInitialDamageBuff = "4425a96d96604acfb0c10b5d64c34ff7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinPoisonRerollBuff = "c1b72b08292744e485d7f84757dc32ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssassinPublicExecutionBuff = "000f102fbedf4e45922b8e1dac90a85d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssertionOfDominanceBuff = "063e215c1a654e87b47628e0fa6b3f09";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AssertionOfDominanceBuffResist = "1abb45d21dd047549f6ff57ecbd13f1a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AstralDevaSarenraeWrathAuraBuff = "bc77e2ddd932400fa82f0bcc502dc3eb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AstralDevaSarenraeWrathAuraFeatureBuff = "7c8e01b8ff3f4174abd5ce33b9ad597d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AthachPoisonBuff = "ba914859d6189fe4ebd178ccd212f96e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AttachAeonEyeBuffIfPlayerIsAeon = "79440ddeb1b844818c0834d77ae68dae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AttachAeonEyeBuffIfPlayerIsAeonAfterQ5 = "a04423aecfab40f2865560e7fae4baf3";
@@ -674,6 +708,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfAngelicAspectGreaterEffectBuff = "6ab366720f4b8ed4f83ada36994d0890";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfClearSightBuff = "51a51b32ee923dc4a9e9da6684658d92";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfClearSightEffectBuff = "1d58d39b274c75e449379051a28df4ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraofColdAreaEffectDebuff = "9767c794c5174a078c81fdb0bd8ac1c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraofColdBuff = "6148a249031d4c8c9263383914be6442";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfCourageBuff = "c96380f6dcac83c45acdb698ae70ffc4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfCourageEffectBuff = "1044ac71f6200f84bbfbcfa2bcb3bd66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> AuraOfFaithBuff = "d4aa6633c583f304cbd4b02d0572af28";
@@ -731,6 +767,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BakedSpiderLegsBuff = "6b2514ff819264840a6615d6b22ee45e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BakedSpiderLegsBuffCompanon = "6b68ee80ff533344193fbae9db135ed9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BalefulPolymorphBuff = "0a52d8761bfd125429842103aed48b90";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BalefulPolymorphFrogBuff = "227ff07048804a528dd4b1291a4c1551";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Balor_FX = "4c7df7f047544133b534e49f1356a3c9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Balor_FX_death = "a9b4e253ebd64fb88bb8725218c72212";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BalorAspectEffectBuff = "516462cc6f2e4774292fc7922393e297";
@@ -777,6 +814,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearGrappleBuff = "a8e6daeac8c048c895b2b83bd93ac6c3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearGrappledInitiatorBuff = "0b2215c8c7d34554a53f970310ac3f35";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearGrappledTargetBuff = "88be6cbfaf534e009c501e1d2ef3c1f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearingTheShardBuff = "970923a5a30e4631b52db710aa213edc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearingTheShardTempHPBuff = "188288ef360941b2a3b0285dc3dd00f9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BearsEnduranceBuff = "c3de8cc9a0f50e2418dde526d8855faa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BeastShapeIBuff = "00d8fbe9cf61dc24298be8d95500c84b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BeastShapeIIBuff = "200bd9b179ee660489fe88663115bcbc";
@@ -809,6 +848,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BeltOfPerfection8ExtraBuff = "b9979b125f8b4810891b5e53ae7fea0f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BeltOfPrimalForceBuff = "b183ff6364ce4172a6d91f1e4bc3ce12";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BeltOfThunderousChargingBuff = "46b820917abb972478fa6ba242852a39";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BestialHowlBuff = "f77c3bca93024f7d8ee6b5ee56cdddc3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BestialRagsBuff = "9aea3438aaac4942a097af9ba92b4a18";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BestowCurseDeteriorationBuff = "caae9592917719a41b601b678a8e6ddf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BestowCurseFeebleBodyBuff = "c092750ba895e014cb24a25e2e8274a7";
@@ -824,6 +864,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BetrayalFirstBuff = "643bf596a45090e40887fbc1d7354114";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BetrayalSecondBuff = "55317496707da654f82d0b6e5e87c650";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BigGameGlovesBuff = "89bbc87086fdcbe4b8fe39cbbd481488";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BindingFrostBuff = "f9df38918ab64072a116ef5718993675";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BindingFrostRank = "6c3dd62513f6473b8f63d9c678218576";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BindingsOfThePrinceBuffCaster = "4459c5a498df0604b9cef7aa63d17584";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BindingsOfThePrinceBuffTarget = "27fd890432419db4ea8d803dcd1ddde9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlackDragonFrightfulPresenceBuff = "3d01fc3ae83ca834ba645013315aaec0";
@@ -845,6 +887,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedConst1d4Buff = "f80de2a32fc2a7141b23ec29bc36f395";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedEnchantment1d6Buff = "dc9ed761b7721c64e98fab507e2a7755";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedImmunity = "3f6038d75ccffaa40b338f4b13f9e4b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedingCriticalBuff = "1658b352bc364bee85026e8d0dc75cc1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedingInfusionBuff = "492a8156ecede6345a8e82475eed85ac";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedingInfusionDamage = "c53dd9f15a612e64e93bd70015763821";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BleedingInfusionEffectBuff = "4be276cd33355574fa2f3323bea24208";
@@ -853,6 +896,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlessingOfLuckAndResolveBuff = "4d2564805938c6449b2dde17a24a66f4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlessingOfTheSalamanderBuff = "b6d056114a7599d4babfe338966353ff";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlessingOfUnlifeBuff = "e4e9f9169c9b28e40aa2c9d10c369254";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlessWeaponBuff = "2f6ab548667f4b15b677b0b3be71a54f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlightedQuickwood_Buff_Fear = "c995008735c66dc44ae18ff57aae6909";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlightedQuickwood_Buff_FearAvailable = "8923c3c97f3e0224e96b72c09f28f379";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlightedTreant_Buff_TaintedBlood = "9473d52f206485649b21b9452f8dc8ce";
@@ -867,6 +911,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlindnessUnstableCombatBuff = "813da99de86476e49b579001f5e5d8fc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlindVictimBuff = "43981a02863a5d34b9e1448d32000fd7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlinkBuff = "c168c6a0e471e924b8c69b31c6352587";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardAbyssIcyArmorBuff = "b988b8feb75d4c62905512ce452557f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardAbyssTier_I_Buff = "19c6554d8bf14a2c8e03ddedff96f0f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardAbyssTier_II_Buff = "df96fec0c7134db5b368890ae423ace9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardAbyssTierIDebuffBuff = "0264ff79f21341c79763f1a1e2d4f354";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardAbyssTierIIDebuffBuff = "4d54ecf75b3449c58bc1642413992e6b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardElementalHugeWhirlwindBuff = "b7cb1422ec6042d8adf91ec202ece9de";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardElementalWhirlwindDebuff = "deb80f94cff94729b876922dffdf22f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantFxBuff = "c1171cdd25474a3d86fbb1e54acfd034";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindAbilityBuff = "6e9e03dd32e7473dae67d67227f4bfaa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindDamageBonusBuff = "426aafd6922a4801826371976d870481";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindDebuff = "26938b0486ae4530be09a49a904f7f06";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindHugeBuff = "502d5653131b44d88ca7c6aa268abf2c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindLargeBuff = "be1ab748d4254f8597f379853f35b53f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindMediumBuff = "561c76d348a244c8a0a7b8c1c3977a36";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlizzardServantWhirlwindSmallBuff = "9e609bb84ef14ffdb23f36f634e5b51e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodClarityBuff = "d996e461596256446b43dc669f243cad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodDrinkerBuff = "796b2c438fbb3414eb2cd041b625e8af";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodFeasterBuff = "e021f1e080cda2c468f572e04f95fda1";
@@ -1041,6 +1100,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerFormOfTheDragonIISilverBuff = "648178354e5946b888ef2332e09b8320";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerFormOfTheDragonIIWhiteBuff = "b8945eeed77448379f35d5c0ba2e7085";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerGreaterBloodrageBuff = "711192a30f8a4b2aa3d3f644511a0e99";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineBaseBuff = "19ec2bacbafc452883abc91a4a630266";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineCurseConduitBuff = "e8473665806543c1a79c7f15725ba5cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineEvilEyeBuff = "8c6cf8ed7b4a44d6a26bab06c33fbfb4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineEvilEyeDebuff = "8b9b88f2dea146ed903b3fe3ca7f1995";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineEvilEyeDebuff8 = "7e69597a484748c4b6b7891e144ba4e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineHagCovenguardBuff = "5aea6b3d47d74a8e8418f919bc956954";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineHagFortitudeBuff = "b513e8056e68419ab21b1b45b0af3a5e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineHagTransformationBuff = "09e8314763504a39ac998df3f1059f6f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerHagBloodlineHagTransformationBuff16 = "a19877be953046d1a4ef1ac70ab19c7f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerIndomitableWillBuff = "c50c1df9bdb91444085d90120e55e60b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerInfernalBloodlineBaseBuff = "936ed40c558a6e34f9fa8a442a389714";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloodragerInfernalDiabolicalArroganceBuff = "865a7574422848244bb901451011d4e6";
@@ -1075,15 +1143,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloomInfusedSpiderMatriarchPoisonBuff = "5eac155cc4f389a41b63a303672428d2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BloomInfusedSpiderPoisonBuff = "0c754843ea8168d49b94a24d1a143711";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BlurBuff = "dd3ad347240624d46a11a092b4dd4674";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoarFerocityBuff = "bcd9837042534feb92c7978b79ca9530";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoarShredBuff = "561cb7ef75204751a9e3d64476603051";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoarStyleBuff = "3e48b044bc1145bda44d1a3293527b10";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoarStyleCooldownBuff = "1c3367f694b64ac6ba194893c9bbbdd6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoarStyleTargetBuff = "eebb8b75710b4a17ab46f94481cd2185";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BodakDeathGazeBuff = "a30e160151b92564e9a9cc5ed53a15df";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BodakLairMiniboss_Buff_DesecrationAura = "fe1fea47651889543a9fd8d301ced9ca";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BodakLairMiniboss_Buff_DesecrationAuraEffect = "e26bdfc40a35bbb4abf0fefd1ca36c20";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoilingWaterBuff = "4b38aa33804a4b8cbc517629b84aa847";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BombersEyeBuff = "40fe4a45473096549a67e553c70907d0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneAmuletBuff = "83137cb889198ac428a7993919780145";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneFistsBuff = "ab0b612c6eb24ad497415d40508952d8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneShieldBuff = "0bd122cf77c3d6948929de45e18e4fed";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BonesOfStoneBuff1 = "1359fb635bc698642a482c1714f64756";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BonesOfStoneBuff2 = "0f156dc63e8437440972d730ef86693b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneSpearDeleteBuff = "7158994951cf4223a5a51f10b601d45f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneSpearDismemberBuff = "06014e98a84795a49a790283ec2d2847";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BoneSpearProjectileBuff = "a99e1f16c3f614b419e7722ae71a7459";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BooksOfDreamsIIIStageBuff = "46cafb1bef7a435e9b1a859a312c979d";
@@ -1093,6 +1168,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfFreeReinBuff = "7ac8effd6341443d98da735b965b0176";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfMagicalWhirlBuff = "0620f0578c3e4d0dbfaeb9065469b25b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfMagicalWhirlCountBuff = "815fa1c6d2dc4c56859bfa84eee96107";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BootsOfTheRat_Buff = "c32a755b60fc40028da747f4056f4476";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Bosses_Teleport = "a3fe117eaf274f08b0ef56e6d6b3b12f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Boulder_Feature = "1648f11327bdbc24f98d0df5a7a6381f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BowlingInfusionBuff = "918b2524af5c3f647b5daa4f4e985411";
@@ -1115,6 +1191,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BreakControlCountBuff1 = "c8dc3ca3c28444f5b819c37a4649ce66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BreakControlCountBuff2 = "7156ba5d24e344baa5dbb6e6f50f5dbf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BreakControlCountBuff3 = "f8c888a31265463c8fbfe72b65703fe5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BreathofFliesSickenedBuff = "a82b273b9ab843a78a24ade122ef2013";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BreathOfLifeCheckBuff = "2724009274f1a024487246528807c20d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrestplateOfWhiteDragonBuff = "b3ab292f8f1a0904a995cc3776b4c6b2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrilliantInspirationBuff = "d389b135e67f7134c8d723e30a62c259";
@@ -1124,6 +1201,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrimorakSmokeBreathImmunityBuff = "a923fb1e66b829b4291501e331277716";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BroiledTuskwaterOystersBuff = "bbef31e2964af8e499f73364cbe5eb41";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BroiledTuskwaterOystersBuffCompanion = "4005759acb3d88343bdd91fb6c366b9b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrokenBuff = "352ac2f506ed486085d18152261d05d4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrokenPhylacteryBodyRingBuff = "cca2b93ef8684a668bc8cd5485de6fc5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrokenPhylacteryBodyScytheBuff = "ad5a609b07749cb46a63d876ce8d55f7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BrokenPhylacteryBodyScytheRapidShot2Buff = "ec28f84fccb94a79802bbc34ef329bbb";
@@ -1158,9 +1236,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BullsStrengthBuff = "b175001b42b1a02479881b72fe132116";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BullyBuff = "b9b53b1371094de4b9985a9969e1b05d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BullyBullyingThrillBuff = "61454f7f80668674c956583153da8fa2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurnBuff1d6 = "cb8da9e10ec94f8590e23d588859f6b2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurnCutscene = "669595576b793f842a8691d55d0678d9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurnEffectBuff = "95b1c0d55f30996429a3a4eba4d2b4a6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurnFireBuff = "55ed3454d637b074e829ae664452a412";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurnFireBuff_FX = "3416cf9042564fa2aadc1bb69fb69054";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Burning = "63284293ea483a04bb60c9e14c5225c6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurningEntangleBuff = "505d59d5d6bf48b6a86f5b1a081218f5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurningEntangleBuffDifficultTerrain = "32d38306b45d44c3bd8002dd414b3604";
@@ -1170,6 +1250,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurningMadnessBuff = "cb485fa7cbe84ad59d6f40d24de14710";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurningTomentBuff = "948e34e161542fc4ab939d4cad5653bd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BurstOfGloryBuff = "81005a24695910f4cb9b7c8ab4d932e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ButcherCleaver_CooldownBuff = "fbb4e5a30a7e4dc09fa4b3556b1d3016";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BythosAgeBuff1 = "e7227f04b30d4eba9c186a7be747d5bf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BythosAgeBuff2 = "280882479c3e4e6c8c287237d6269f65";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> BythosAgeBuff3 = "6ed8dfef694e4189bbe2fea3e8e70216";
@@ -1180,6 +1261,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CalebRenamed = "a2001280b73ee444fa68098a4b4db6c6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Calistria_Buff = "f3fc14d806d14ff4aa364c08e8aa7220";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CalistriaRapierBuff = "e25889f985c85474590492e62276800e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallingForAFeastBlinkBuff = "cf9a122d832a498395b56a92233af763";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallingForAFeastBuff = "474954f95c974fd2b86cd871937d469e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallingForAFeastDamageBuff = "df18557a829145899af7851c9a46c790";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallingForAFeastGreaterBuff = "11e20787672d4dc99a3a9ad02c7bd38b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallingForAFeastImprovedBuff = "c5d095930ca94d22bf9b0b0ab29de696";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallLightningBuff = "dd91a3c3df275984592edcadb8e90749";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallLightningStormBuff = "65ba3abcdc991004aaf32ca5ad7119ca";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CallOfTheWildBeastShapeIBuff = "7a59741b863e3fe4780363edea805b89";
@@ -1225,9 +1311,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarnivorousCrystal_Buff_PolymorphRoot = "801e2cdccd9c031498ed198bc93bfa98";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarnivorousCrystal_Buff_SubsonicHum = "8b981244028551c4e8b35c9d50352527";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarnivorousCrystal_Buff_SubsonicHum_Immunity = "88e345f3233c8024e9d191a807c40223";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarnivorousCrystalBuff = "9905cd1d33fd41f8a9ee25f73c90dd24";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarrionStormDamageBuff = "faf0afdc18ea4f3992bc1e556444d1fc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarrionStormDamageEffectBuff = "1cba0df4537241d6b0e845fb86d3b57c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CarrionStormDamageEffectImmunity = "857e2e0eb12f424a8c05fb9192751a9f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CasterOnslaughtBuff = "a664d9a328e5477186e89f21e972c8b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CastigatefBuff = "3a9033dd2a95c0145a54da45070727f3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Cat_Buff = "d70ebe40ac1fc914694aadbb03c7ac30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CatFamiliarBuff = "8e8b67284154a6d41bd6d0c336eda231";
@@ -1265,6 +1353,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierLionsCallBuff = "9ab6345d5b0084e47adff7a23f7cb682";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierMightyChargeCheckBuff = "c7f20be24b1545b08951bb668d8708b1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierMightyChargeEffectBuff = "949c36d0fd3a4f9f9fb35a27e0fb189e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierMightyChargeThreat_Buff = "df2e7dfdd4f44a0d86be9085ae749dc4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierMomentOfTriumphBuff = "acf63c4575b5ae94d8341555526793ae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierPawChallengeBuff = "7e4f076ec1cc4178ba5c28649c683c75";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CavalierRetributionBuff = "9975f22c754909843a5dbf788825e038";
@@ -1303,10 +1392,32 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CelestialTotemLesserBuffCooldown = "0a52573d3076420b8ccdde7db49b4fcb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CentipedeFamiliarBuff = "7e3afa54448147d4eb1fd72f81f625f1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CentipedePoisonImmunity = "bffe301842970f249a92729e1cfeb211";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ArmorOfBonesChecker = "24c67597bfcd4083a39c888ac411c474";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_BlasphemyTimer = "b27155fd03624f98ae988c8046d6369c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_Bleed = "187b0d14d886434ba5ffeced30f29c14";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_BoneFists = "197ba37dfd6d4e06ba156344d4c14154";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_EnergyDamageTrigger = "7a325b667755443490f6c7d8504da56d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_Haste = "4e426291a9384538b464881b0bc200fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_HitByAcid = "4b16237d820348d0acba0bc125c3fdfb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_HitByCold = "16f279dafa024293abdc773c55cceaa8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_HitByElectricity = "88aa9c76adc644a68b7dcb82432d9093";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_HitByFire = "69eb55b46b93493ba36273423bfbd89e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_HitBySonic = "7b099257d41a492e8d88a9ae7121203d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_NegativeLevelController = "45b2ab2feef04dc089d5875982f7fc45";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_NegativeLevelFailsafe = "a978c041a63e4980a4a1d4b2d7437bf9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_NegativeLevels = "87b7748c1dda4d61b6f6ad82fab50d2f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTimer_1 = "dd41fa69d7774aa6bab7cd164a25826c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTimer_2 = "788d3f9de9c345908302eaa374761a94";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTimer_3 = "5c6c9c6bbf6c423ab822e6616713e8ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTrigger_1 = "55b46cec177b4484971eac0c63133ee7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTrigger_2 = "1ab258dd332641669a56eab0f7171343";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_ReactiveRegenerationTrigger_3 = "977b092dac674ff1b7a7b15dded8f017";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainedDarkness_Buff_SecondLife = "a538ca1458d7457d890fb162fc2df0f6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainmailOfDragonFlyBuff = "9788425e9896d23468307f022e11885a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainmailOfDragonFlyBuff_1 = "02187331430150b4ab3af9cb05298d8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainmailOfSpitefulBarbsACBuff = "ef1558f4f966c794fa34971e747f69fd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainmailOfSpitefulBarbsMeleeBuff = "2bc22f05b6869cf419051e88fe33c3f4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainRingingBuff = "65cc146d3f1b4c00b4f1b088ae7e1c6f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Chains_BalorBuff = "316692c97e104f4b8684e46ff830fa00";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainshirtOfBrightPerformanceBuff = "0633e760574a4781963aac1a4d9f517c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChainsOfLightBuff = "22bd98f652e9ca14d9930392023d6463";
@@ -1329,6 +1440,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Charm = "9dc29118addce3d48ae9b92be953b5b4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CharmBlessingMajorBuff = "58e08897534a11f479090f3d37d762b5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CharmBlessingMinorBuff = "b740b13eda9490d4ebf5cc63e3876be4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CharmFogBuff = "680d93fe29fb4dc2a4ed85ce41f06299";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CheatEmpowerBuff = "9da73e0f62054254d835013c46f3a27a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CheatImmortalityBuff = "c3d503cfdab99a348a277752f2297155";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CheeseCrostataBuff = "528c368579a414147a0584f608aa8079";
@@ -1347,17 +1459,33 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ChorussinaProtectionBuff = "5fac98a1b12cb644b9001bfedb224257";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CircleOfClarityAreaBuff = "0eeffbf90f7bb944c9b63d7c34b6ba7d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CircleOfClarityTargetBuff = "d2b7fdfe4b38c944080a36b49288e0a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawBleedingCriticalBuff = "ce1320fafd7444a1a71d52a198b6cadb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawBlindingCriticalBuff = "47e77c8b95654e21842108ebbd3569a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawBlindingCriticalBuffEffect = "3dc5d5f737b24c84b479b2c0adf33d7a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawExhaustingCriticalBuff = "88e5d0a6c430439c861ab7f572fd5474";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawExhaustingCriticalBuffEffect = "dd85b606386544de8be0cfc96725d72c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawFlayingCriticalBuff = "9b7881aa63e64c4c97fdb3ac873cfca4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawSickeningCriticalBuff = "fda013b595794e86a755d66a42928959";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawSickeningCriticalBuffEffect = "01bfed7c5f014300a984b2d7cb48f503";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawStaggeringCriticalBuff = "ab2ea558cff343df869ad4839982ca5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawStaggeringCriticalBuffEffect = "426b10b10fef4d0f99a1575b9b09f7e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawStunningCriticalBuff = "25f522cb98ba43e6b76430c9a4fa5dc6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawTiringCriticalBuff = "e7181a73c3864814b9e3dc4e7570e575";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClawTiringCriticalBuffEffect = "6c4a14342a5847f3a1f663bdc8ce117d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClayGolemHasteBuff = "d7f64df272e9aac448d1ff578cfffb25";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClayGolemSlowBuff = "c7cd0aef05c57bd4fb3162c55f524b06";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClearingMindTeaBuff = "18b71e7726984b96988b2f665819f4ee";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CleavePenaltyBuff = "914b04c279e3d3447848fecf5796cdcd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CleavingFinishCooldown = "d868546877b2de24388fbdd5741d0c95";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ClemencyOfShadowsExclusionBuff = "cce3b612cf9f4dc18b0b6a2ff7232951";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakOfArcaneReservesBuff = "0b48b749e2d56ff449bc5d1660c0ebb8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakOfBloodScentBuff = "4e850d3b0c68a6045abd10e386d07af5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakOfChaosBuff = "627224e071dc51f47ba402fcbb6f830d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakOfDarkestRitesBuff = "7532613c0b6540fc8cffe715ef29f854";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsBuff = "2e4b85213927f0a4ea2198e0f2a6028b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsEffectBuff = "c9937d7846aa9ae46991e9f298be644a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsEffectBuff_Carrok = "0dbe7d2ebb1e4057827597b350d16e4e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsEffectBuff_Carrok_System = "d24dd3d3529e499988e3f9e983a645c9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsEffectBuff_GG = "f622919084a07a74ca4ed4a52b8114f7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakofDreamsEffectBuff2_GG = "9bc25379d6bd95d49b1d1209f065a835";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CloakOfEfficientInvisibilityBuff = "c4329c4bc7794e7694ff7c7b098cdf50";
@@ -1380,6 +1508,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdAdaptationBuff = "04a414c3d1585a74e9d3f23addc465cc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdBuff = "0f278683e67dd09418c78a2c3ad3dfa5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdIronArrowsQuiverBuff = "a9d495406b412304998f66c2c1684f12";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdStareBuff = "a8f992165fbc4647ab07806350936ee5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdStareEffectBuff = "7e3f2d73ac36481da77e27853a6af2b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColdVisualBuff = "d630192eb3854cb9b0d0aa6ee6ef99bb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColorlessRemainsGoggles_SolidCountBuff = "c6bf377e841b4226a99c95b0a34ae874";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColorlessRemainsQuiver_MadnessBuff = "106deb98025c48469e040f9de3f0afea";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ColorlessRemainsQuiver_MadnessCountBuff = "59b7899c626d4ce4985318a69bfef443";
@@ -1427,6 +1558,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CommunityBlessingMajorBuff = "cbedcd7cdb42d2e4ab352b079f5a3eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CommunityBlessingMinorBuff = "740d99375d52ecb4d9e4474c26de0a30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CommunityDomainGreaterBuff = "672b0149e68d73943ad09ac35a9f5f30";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CommunityDomainGreaterBuffSeparatist = "a7b8a2f050d244c2a2dd8b7f4da69d92";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CompanionKTC_Cooldown = "a474c827d6e1bfd46956b8d841a496c7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CompleteMagicImmunityBuff = "11161cc3271e4e248dbb8c9446ca2a05";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CompleteMagicImmunityDamageBuff = "e0829a2c4a264a688f402e8541f828fd";
@@ -1439,6 +1571,29 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConstrictingCoilsBuff = "1accc7dec0642634487cfb21f5b39e29";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFearBuff = "c951dbf8254969046a57058458889f86";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshBuff = "3a6c31fd13ca405c8abed2a7885962b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffAcid = "1322b269cc7347759c151641a8102bcb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffCold = "5911cd5df7ab42708513198efd307283";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffEffectAcid = "8888abcca81b4057bc11c611896e508e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffEffectCold = "2a643de942ef4307a92cac757ce6f77a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffEffectElectricity = "a6c265e0980e494f93a6f35b6448308e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffEffectFire = "80bff8580c294ff48ddab3269e3a0785";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffElectricity = "1b658e528e2b4cb4b28b66eefa20bd2b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshDragonBuffFire = "65896e41b3d64ee68d54d44d0d975c4b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshFeyBuff = "59e776ea3e554b38a238441a628b4fcb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshFeyBuffAfterMove = "67c7a83a842c4594a0b47011604401de";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshFeytBuffEffect = "8c2e665142b442859075d8513611498a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshMagicalBeastBuff = "839e1be496764258b8139bf7fdeb3a23";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshMagicalBeastBuffEffect = "05ea9a0c3cda4a26b49b393b01c134da";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffChaos = "291e8e13696049f7b5571c9afea97c7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffEffectChaos = "9d9dd243e0414536ae7bd1255e6a6dc0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffEffectEvil = "cb2049d95f9d47f49920e94da27ca6dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffEffectGood = "966fb53688a04881a80f3f0d585b040e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffEffectLaw = "79579649939748a59f86b3d980be8d54";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffEvil = "924d3fe979494b40bec1649fa18c4d62";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffGood = "4e13accef9b94487b6d01a7a87560063";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshOutsiderBuffLaw = "387250f675bd412eabe42a6554fa999c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshUndeadBuff = "63dd2a1bb90d44878b7d6690f9ce7148";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ConsumeFleshUndeadBuffEffect = "335182c901ec46c9ba91d22bca6b1ca6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ContagionBlindingSicknessBlindBuff = "6c30d0f824d7001409dabf1b741ac03f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ContagionBlindingSicknessBuff = "6043552da0b45794eaaa289265545116";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ContagionBubonicPlagueBuff = "b523ff6c5db9a9c489daff7aae41afb9";
@@ -1464,6 +1619,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CowerBuff = "6062e3a8206a4284d867cbb7120dc091";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CoweringCommonBuff = "02924d88f80c5374eacbbccb499d5778";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR15_GoldGolemDeathThroesBuff = "9f156c21b1284cb8873ba1906e6a7e8d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR17_ImmortalIchorWisdomDrainBuff = "510dd6969d094217bec6d1260bc53c78";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR17_ImmortalIchorWisdomDrainCosmeticBuff = "56d35a50725c4269ad327437bce8cf06";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR18_LocustSwarmDamageBuff = "404387ca03974c6d856652115b890209";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR18_LocustSwarmDamageEffectBuff = "3b8e940de2184d719bc59edc25c3926f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CR18_VescavorSwarmDamageBuff = "22062b8a35ca4f8aa4a138ffe9ebb47f";
@@ -1487,6 +1644,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CripplingBlowsEffectBuff = "d6a530f60a2c0964d91eacb6cd6d1fac";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CripplingBlowsPenaltyBuff = "6071e9459f035dd4c8563cc4a4b1d3ed";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CripplingKissBuff = "7936991309d92aa42adbc93f68c9b5db";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CriticalFocusBuff = "6635e2d4304a454e9bc77ed78f1089be";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CriticalHitBuff = "1649e84d80eab8841a22d6b8234a3ced";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CruelBuff = "54a479eb68ee06f439a7c769e7db398d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CruelFateBuff = "6d2e7907b8e56af48b2f2b8d5212537e";
@@ -1499,6 +1657,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CrushingBurdenExhaustedBuff = "1953540f6e474f1998ae25a1881acf0d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CrushingBurdenFatiguedBuff = "977b0bdfe1fc4b12be853cf948dd9da1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CrushingDespairBuff = "36897b36a4bd63146b1d8509a17fc5ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CrystalClawsBuff = "07ae08b9dd7a459eac6a55cccd843680";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CrystalMindBuff = "502d7d6a4db32b445b87bbd652e73117";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Cultist_Buff = "578d180be4b02e945bf432d6ae1b5ecf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CultistMinibossBuff = "f6807b3d64f869e4fa998c69366f2a90";
@@ -1516,6 +1675,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedBardVoiceUsable_SirenBuff = "b448315a558e40059779fc4e41c04996";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedDelameresArmorBuff = "5ac2a804f08146d4bae55a01065015e3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedDelameresBowCurse = "0cd63f89fcad7cc4f80ba6bbacc216bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedElementalResistanceBuff = "a77dc00d253f4ffc9e351a6a768d8eb5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedThornArrowsQuiverBuff = "284416e1081ba274181c9e3ab02c42c4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedThornArrowsQuiverOnEnemyBuff = "307f462d5aa3766409a0b6aaff24e83c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> CursedWoundBuff = "b68e3691b817d454584ef46caa3ee4fa";
@@ -1556,9 +1716,19 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkElementalistOverflowBonusBuff = "55cd730930d78c946955e85aabd73412";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkELementalistSoulPowerOnceBuff = "e789327ba30cf6d45b282bbbba792a5e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkElementalistSuccessfullSoulPowerBuff = "a64951a66c70813448c3a80b9b32949c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsAttackBuff = "e96a429d8f1a466b9cf007cac2303a00";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsCasterBaseBuff = "83c3d81862ed4474b3b59c69b8a3f36e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsCasterBuff = "a71a3c0bfdc9471d90483b57de4139fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsCasterNearBuff = "24ec5c3a19ee4a0499c3a2a81eb50d84";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsInitiativeBuff = "1e16cac75d4842998346b72e890e310c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsNearLargerBuff = "375a9518de6f49ac8c5786952473331b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsSneakBuff = "6b54158fe24d4e97924863ab6d2f9a6b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsTargetBuff = "175049ea448c457abfe4e8f9d741e6c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkLurkerBladeFromShadowsTargetEffect = "0fed89c21a114ff382df09b99919cc19";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Darkness_DimensionLock_Buff = "8e59c88d7fe846299a641f62675827c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarknessBlessingMinorBuff = "3d432a75356e3f64794bc020c24cc2b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarknessDomainBaseBuff = "64737e33d1d185b4194798e9abee76ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarknessDomainBaseBuffSeparatist = "7779219fbca64ff6b7c6ae1c44cfecfd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarknessMachine_Buff_DeathThroesElectricity = "67020f49f3d64733a98c7a353aeac2bd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarknessObelisk_Buff_DeathThroesAcid = "a6ddf77945cf452eb2e06242003bdf1d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DarkRitesAreaBuff = "793b138567d79624b97e78969d239307";
@@ -1579,6 +1749,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadeyeBuff = "608e7bc6b9665574b97db4bb3b3656b7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyAccuracyEffectBuff = "0c6e198a78210954c9fe245a26b0c315";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyAimBuff = "6aaf11aa06ae0e7499a71b79725828df";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyAimBuffEffect = "37d75d4ac7604f1e9fd584843dd3908b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyBeautyBuff = "9937e77f5bb2baf4297064fceb262fe8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyGraceBuff = "fe0f848e8e5982941b09a4b4d5771aa2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeadlyMagicBuff = "27ebfae71cce46045814eb3ba4fefa6b";
@@ -1593,6 +1764,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathBlessingMajorSwiftBuff = "84cd1f14dff45f4479603d753dcfbf0b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathBlessingMinorBuff = "6b3405a08f6cdee488266a500cc4cc84";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathDomainBaseBuff = "86b2c4ce787ea2e46986869b7a188f25";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathDomainBaseBuffSeparatist = "5c556f694a6f467f9981e488fbe17221";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathEffect = "7100f2d9349b2eb479239eada7a48550";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathKnell = "9c732cd0c4334d8b9baccf53d71101ba";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathKnellAreaBuff = "8befa4754e8f4e3186c5eb7e5ab0eced";
@@ -1606,6 +1778,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathsnatcherPoisonBuff = "0ede2d3e74f803747a09958655b0b14a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathsnatcherSoulRendBuff = "e48e9e1042eab5d468e51b18c8b13ab1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathThroesBuff = "167e29bb47236e341abf7f6df1349d91";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathTriggerBuff = "60e9c43bcbf34859aff16b7d6623ec61";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathWardBuff = "b0253e57a75b621428c1b89de5a937d1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeathWardBuff_IsFromSpell = "a04d666d8b1f5a2419f1adc6874ae65a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DebilitatingInjuryBewilderedActiveBuff = "116ee72b2149f4d44a330296a7e42d13";
@@ -1616,6 +1789,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DebilitatingInjuryHamperedEffectBuff = "5bfefc22a68e736488b0c309d9c1c1d4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DecayingDaggerBuff = "c02cf40a76e60c34aae11492aae6d9a2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeceivingFacadeBuff = "d3360ad0b8194c748a5694ca37ac2e00";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DedToDragonPolymorphBuff = "f4bd8e662cb04ff6bbcc7c88fa7ac980";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeepestFearEffectBuff = "a1782e5e23ce1894caf9966cdcc9a904";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeepestFearImmunity = "1c4f396cd8f52ca499cb3b1d519e7192";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeepestFearSourceBuff = "9b095cb579312cc4a82c94addd2c08dd";
@@ -1711,9 +1885,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionBlessingMajorBuff = "fc4f783b6727caf4c884b3dea52f7640";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionBlessingMinorBuff = "ead498291d299524eb3b236a434b2e99";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainBaseBuff = "0dfe08afb3cf3594987bab12d014e74b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainBaseBuffSeparatist = "749c3b598a20471482d13fa824edb8df";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainGreaterBuff = "532eea2709f3fd8498102726dfca6ec7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainGreaterBuffSeparatist = "757bc7333a3e4c5d933e67e5fc8833b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainGreaterEffect = "f9de414e53a9c23419fa3cfc0daabde7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionDomainGreaterEffectSeparatist = "15e5c28fd001425f8d6a94d1011b07ad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructionJudgmentBuff = "a8e7e315b5a241b47ad526771eee19b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructiveDispelCooldownBuff = "e027e949f6e54e6591b309fff92bf0b7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DestructiveShockwaveMythicBuff = "3c5955958e11410faed20101a62530d4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DeterminedZealBuff = "044bcc34d9326e647a7b9866b0dd8887";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Devastator_AuraOfCorruptionAreaBuff = "6826a0b6aad12664d8dbb0f373a64875";
@@ -1727,6 +1905,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DevilApostateEvangelizationCheckBuff = "eee8a069281410846a636ae14f50927c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DevilImpBuff = "938cd30726c599848b65e21ec30268cb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DevourBuff = "3e0460c2778abe342b89fd6387cf556e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DevouredSoulBuff = "8afa6c3abf254c61a3785d626df68006";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DevourSoulBuff = "d423196d6e564f9995b44a36a254f350";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DexterityDamage = "42da031feba6f9445aad16be728898b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DexterityDrain = "515778cfaefec0c43ad00c806d94e5d3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DexterityDrainBuff = "e72e53813e634dbbbb356929a359d62d";
@@ -1752,10 +1932,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DirgeOfDoomEffectImmunityBuff = "f423ba267b008524b8b19bb73b3307b3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DirtyTrickEntangledBuff = "3a6c5d8520c3b404883276590b086702";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisableArmorInRestEncounterBuff = "acde512870d2bf547b3e4047e5de1206";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisableDeathFXBuff = "c6f582dbf3ea438ba909087cd0c771c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisarmingStrikeBuff = "a2a60c12e69603e47bb20218602a1119";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisarmMainHandBuff = "f7db19748af8b69469073485a65f37cf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisarmOffHandBuff = "afb1ea46a8c41e04eaab833b7b1b9321";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DIscipleOfThePikeAgileChargeBuff = "5eafb529f7f97c44c8e68de77274ad95";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DiscipleOfThePikeBiggerTheyAreBuff = "65e1d1bba263468298f1c9a709167912";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DiscipleOfThePikeBiggerTheyAreBuff12 = "28608bc5d4684a15aff0d7f183910492";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DiscipleOfThePikeBiggerTheyAreBuff6 = "fef051ec64884a22bb3b60261ee7a3d3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DIscipleOfThePikeDeadlyChargeBuff = "1cf62a5cbfabf284c9ab77aa3e10b9bc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DIscipleOfThePikePikeChargeBuff = "93a658be819faf1458cc6a1c475fcb8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Disease_Cold = "91b76ce75be49ab4fb54f682e453ea93";
@@ -1777,6 +1961,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisruptiveBuff = "b5dc034170f2f7249bafedf6c6f526dc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DisruptiveEffectBuff = "00c4eb8ffaf4b7d47bea8c8307704f3c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DistractingShotsBuff = "d24085bcafced954787c200c0ba9d928";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DistrustOfFellowsAllyBuff = "0573eb2b5ce048a5a67a0b3d8ce0ddd3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DistrustOfFellowsBuff = "fce11420d0ce4f678a7c5a0d6b6e5f92";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DistrustOfFellowsEffectBuff = "f3f82ac17dfd420585f53e928aa95b76";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DistrustOfFellowsShardBuff = "105999c2fd7945d3a246b17f1e68e1ef";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DivinationSchoolBaseBuff = "6d338078b1a8cdc41bf3a39f65247161";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DivinationSchoolForetellAidBuff = "faf473e3a977fd4428cd3f1a526346d2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DivinationSchoolForetellAidEffect = "535ddd49a2e9d74428c56a0ed6c1774c";
@@ -1870,6 +2058,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BlessingInteractionFXBuff = "8a1ab714a14c40bc9cfb2b39d5849f31";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BloodOmoxBuff = "54b52fc0c7b5415089dd7ac60bb7b708";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BludgeoningWeaponsLevelBuff = "ebbeb216ee414e86bdb7238e07ad88f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BludgeoningWeaponsLevelBuffDamage = "3bde6d349cd743c9abb69312bbf8024a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BlurBuff = "b05273526df248dfb2e5d628fef199f3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BonusAttackDamageBowsBuff = "c541ad0952ba428a9bd26e4a1fa93020";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_BonusAttackDamageBowsCount = "55e2680b5646448c9c0c25b6c314e66a";
@@ -1950,6 +2139,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_FriendlyAoEResistanceTransmutationBuff = "787fde796a8c4b008494de149885c099";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_FriendlyAoEResistanceUniversalistBuff = "e307012718a6439181347da262abb697";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_FriendlyAoEResistBuff = "14e7a7c59dc7419ba389b9e2cfa4709d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_FriendlyAoEResistIgnoreDamageBuff = "3b0710d1a3dc46f7be29fd89f0d3bb3e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_GiantDungeonTemplateBuff_CR1 = "8f60fbc6b1714fdaac46f4fc74ff769c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_GiantIslandEnlargeBuff = "1f1a0c31f40741fabb26cad859f0b752";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_GlassesOfundeniableTruthSetBuff = "4141bea0f4f043308237cfbd6fad87ce";
@@ -1976,6 +2166,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_IllusionIslandWillPenaltyBuff = "b1279883b1d04bc3a4ce88052dd7b74d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireCourageBuff = "64b613ff731d44ad9bde74ee1a27592e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireCourageEffectBuff = "77d79c00fb634cb5bd67855a4381b926";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireCourageEffectBuffMythic = "fbf3b94e2fd147f599fca9166c2fa31d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireGreatnessBuff = "9ac89c3e84d94c09880e9a6a7f63b032";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireGreatnessEffectBuff = "439fda2204664f74b702c2df8c7174ec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC3_InspireHeroicsBuff = "4974026466744b0d98898ce26c5811d4";
@@ -2128,6 +2319,150 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC4_UsedBodyCreature = "7eb5f47230824e89ad17cef3cfae851c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC4_UsedBodySwarm = "26e2e84ba2e4410d99016c9d093f9c50";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC4_Wilds_ScoutIllnes = "bb91d2f45ac2447aa737d4c2dc8af6bc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_AbsoluteDarknessBuff = "891cdc0c8cb04fe0bf0e66c5c3513038";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_BeltOfLesserShadowformBuff = "9b13d6dc149f48ba8190490bb0d4ffe5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_BemirBrewBuff = "154d9176525c464bb5a39da0f1a5e689";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_BlindnessImunity = "a51ec89e9b6247e4b5e1aaca74c1a624";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_BottledSunlightBuff = "913cb60ea4f0450eb93e3ff5c11b64d6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_CarrockSleepingSpores = "3d13ba3db3464523aa97f80fc6b76b03";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChampagneOfRiskAntiCurseBuff = "b1c918fcfc444cbd817aa463b4aea35d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChampagneOfRiskBuff = "4b8ddeef2a2b4ca1be5a791e30e0b101";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChampagneOfRiskCheckBuff = "534e859d7a984320abde34b0e241368e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChampagneOfRiskCurseBuff = "4b95ae5f46004b238ccf2b8d1f737d8e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChampagneOfRiskPotionBuff = "67e065e8d6b74544a0f2ba607477c71d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationAspecRaptorBuff = "02f51e366d8e4706934a8d8618d4417a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationAspectGorillaBuff = "79c4613f9b9440f28beef82b645c62a2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationAspectMonkeyBuff = "34edf11ac71a411599218c3d2a39e70d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationAspectRacoonBuff = "084f301c74e744b19dfe1fb7b7e143f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationBalefulPolymorphBuff = "c1e3f35aaaa04e739fd3458c4f175ea3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationBarkskinBuff = "aa20bcb946c84d838877c48586a97875";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationBeastShapeIBuff = "322e68a3732f45b8b3c85a2a65b53550";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationBeastShapeIIBuff = "f3845977d0214b6dbcb1a546beb8198f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationCheckBuff = "3380d505430f41ef87aa5d04018937d5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationElementalBodyAirBuff = "258dabdf3116442abfa1be456121b0d2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationElementalBodyEarthlBuff = "ecf617c1e1324bf4b080756c87fb5a63";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationElementalBodyFireBuff = "8171eefd48c74bcfbea88f052d122815";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationElementalBodyWaterBuff = "63cef51119384f3d94efacac72967877";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationEnlargePersonBuff = "cace8d48668048138a076e870e758f4b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationPotionBuff = "125743b7e6cf4d4b8d4f362b5128dbfb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ChaoticTransformationReducePersonBuff = "8ef70dff830b4f38a877491286c4ec2d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ContagiousLaughterBuff = "5db9afb4452b40b7bfe99c2ef2fb481b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ContagiousLaughterCheckBuff = "3755b5f71f884cfbace073d5fe1a95f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ContagiousLaughterPotionBuff = "85f706ea0e79461f9d161151147965aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ContagiousLaughterSecondaryBuff = "35e402f915c541fc933e0d13fcc170a5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_CorpseAgroBuff = "7fb82ad4898b411aba17e553128c31be";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_CrunchyIceBuff = "480e723ff4934115847bba3f32988d64";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DirgesingersChoirBuff = "494e4d25871540669cd2549a1d65146e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DirgesingersChoirExtraBuff = "a3531c95153d4e6f8355c7309ebda8d2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DirgesingersChoirImmunityBuff = "b9f7aa2923cd4547a660a9f26b80bce6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DragonBossBurning = "7745377e468f473b86876997c641adf9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DragonBossBurningCutscene = "bf212c288f4641199bb25b32c361f626";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_DruchiteArrowsQuiverBuff = "fb6e4498508d49168616136d92c6312e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ForbiddanceBuff = "479a3ee1a8064fc9bf891de8cb311271";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_FrostbiteBuff = "d34bf618d6ab45d7bd0c7e4778b3458c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_FrostWightFX = "dbfb525b21254eba9249a392cea3ca49";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_FrostWightFX1 = "b62b2bfd8dbd47d5b1047a561a7a20f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_FrostWightFX2 = "1fe281f2ea57473aa91bd3fa0abe5d2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_GazeOfSithhudBuff = "bbdbcdc8cbe8490e8c247524d3022a77";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_GetShard_VisualBuff = "e058375cbbe94d26acc27f412630d698";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_GetShard_VisualBuff_2 = "7fb0ce7d880e487c93ddf0765911b59f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_GiantBoss_State2_OverrideVisionRange = "c7ca25b5d5f44122a49d6b1a8ad14d85";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_Gorum_Buff = "7f7ebad90ad94133b8a09005d7323114";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_Haunt_Buff = "95552fa4b7794468ad764ae3ec800c64";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HeadOfSithhudHiddenFXBuff = "d1fbb228d29346ae930c8baac69f68f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HeavySuppressionBuff = "ba96343d59a9463d92630e79f5bd7378";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiant_Butcher_Meat_Grinder_Buff = "92b74292f95d4e22ad55914522fd591d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiantBloodCaller_Buff = "f01fb5da96024745a085251a313345ab";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiantBoss_FrostBarrier_Buff = "91fa97607ced48a48ce0d0fb395046dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiantBoss_FrostBarrier_BuffCounter = "a89a7378dcb843b1b08632fad571b2e6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiantBoss_IceCascade_Buff = "5cf81e88c4174d6ba7ba2460a420b3cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_HillGiantBoss_ShadowDeath_Buff = "007a452d49ca45f3889b8afbca613c81";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_IceRockPolymorph = "721418455899409689238f79ff1dc5df";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_IchorBubbleDeathBuff = "411781959d5348dda4a51280f8cf628a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_IcyArmorArmorBuff = "30004e6d40e64d32816d6bec17c8e221";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_Illusion_Buff = "018897fc8c84424da81a03e8b50b2d0c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LameUnit_Buff = "917f9ec079fd4c43917836939e0c403d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LangratBuff = "c1b7043f551043d887076eee0bfe611a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_CombatBuff = "4a67f3869c624b039ddb7cd806546365";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_KytonBuff = "88b65e4e5c7c449d8090a075d4529f20";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_Polymorph = "b4ae9df2adcf40eb91bb101e5d6cf94b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_Polymorph_Penta = "027dc53c8c904199a0f463b79cc1e219";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_Polymorph_Rekarth = "d9de649ee4334aef80bde52d8b08e6e6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LC_Polymorph_Sendri = "669a9cdaad174721b1245f258329df82";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LesserHaunt_Buff = "becb0ad575664b97bb1fecd689188ab9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LiquidShadowBuff = "9e04980c9cbd4ca991d53465910bbefb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LivingTornadoWhirlwindCheckBuff = "09665faa3ef14e9eaa883474c0288431";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_LivingTornadoWhirlwindDebuff = "11c2b5fdcaa04b7f83347660a433e80d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_MarkBuff = "96f3bec1c2c843bdb1e568ec5ef6c527";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_MinorNightglassBuff = "ca9748b8169a41beb2c20fefa6e06966";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_MinorNightglassInfusedBuff = "a1029730cfc94ac3a9a28107c1925069";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_MinorNightglassShadowTemplateBuff = "a651737f5a4d46bc93c5f96fd3fa3848";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_NormalDedPolymorph = "79bc768a23544677bcd0f7bfa89c5c07";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_RedDragonFrightfulPresenceBuff = "ea89beda278f4db2a6eb4536d48821e7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_RedDragonFrightfulPresenceCooldownBuff = "700eaca2b3554c51a933edca7516091e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_RingOfShadowStealingCooldownBuff = "e2f1361b0f80429ab9197159f7f2d781";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_RitualControllerBuff = "928e019d414e47fa81e28769322628dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_RodOfHangoverBuff = "0f392b4fa45b4c488999ee59f66e0cdc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SarenraeLightBuff = "5241b4e5f336428187076284fa2fecfe";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SarenraeProtectionBuff = "cb41f2aa22bd429dabbd38a154ef6f79";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealOfSithhudHiddenBuff = "551b628e3c8d4033b9512e44315880ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX00 = "3c7588a4103b4464b53fb30ebcfca4b3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX1 = "f2ad31004cf749eb97f27642e537baaf";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX10 = "ecfa99dc5b3c4bbdad0bf6ce560168de";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX2 = "91b822d24a5e49c7bff67cb98e7fe36e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX3 = "1d7143b311e3460984917b72f722feda";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX4 = "70e81aab077843f7a5aa50464f814582";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX5 = "6462a8c5bf224134a6b9047a1b7681bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX6 = "31834efafbf0452fa448e02726c5257c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX7 = "9c0001efa9064186b77a55799dd98095";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX8 = "4832b296027041ddabc215c5d7d309f3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SealVFX9 = "cf5f45965f824721bdd531ea32aedf19";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ShadowPlaneBeltLanternBuff = "f9eb7c677f82465a939bf44a46a7a6aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ShadowPlaneBeltLanternEffectBuff = "7f369327caa54b9a81cbc52122be8ead";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ShadowPlaneBeltLanternVisualBuff = "172ae1bdf48a42048d40076491ee7b1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_ShadowPlanePainBuff = "3582b866a1af4945b5552c1ded1dba9b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudDeathFX = "9a4fad838d6f488dbf20e391220373df";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudEnrage1StageBuff = "98b68d078bcf49d5bfc30f3ad2de5aab";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudEnrage2StageBuff = "2ffbc20b00e24eff8c7ba03fc3a98cb1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudJumpAoeDamageBuff = "8cd6a844deb34ba4928067b412e296a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudJumpAoeDamageBuff2 = "d4a10d5d4a394aa3b7f271820fc27416";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudMaxHPBuff = "80e186ccec1c4b6480b981a30605552a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal10Buff = "6e44938e71354ccf80cdb62837c6edba";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal1Buff = "39556ab3b94d4be7b71ba3c6c9157bf2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal2Buff = "f1868a21664144178b7bb65ce13205a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal3Buff = "c06743ed94544f10877edb285485ba8b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal4Buff = "c838a2142ec546eb86494dfc69651c78";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal5Buff = "306a19d0dd91426e8b937635f2753599";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal6Buff = "bbb63f9581ea4528b342f3344cf65e14";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal7Buff = "64545b3b142540caa34755f59badffe1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal8Buff = "753a73c3d3d94346af378f56286eba7a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSeal9Buff = "37e607e4e6074bd0b883724b547ff2af";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudSealOneBuff = "d62eacd2f0344b6f8f98729f2bdacd24";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudTopLocomotion_Buff = "fd32238dba914f8f8e57d90d44247129";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudVisionBlindFightHiddenBuff = "d961864e60c94ce89c56ff3c765dca32";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SithhudVisionFightHiddenBuff = "9bf1091c9b3142668a70c374e03877a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_Storasta_Escort = "31b2bbef14984e9f983c9b93b6bc5f1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaPolymorphIntoTree = "f28b37da50304bcab14c8f3bfd81a973";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaTemplate = "0288ed98b300485885d700b8ff21388c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaTemplate1 = "5ba4b23b8768405b9846e81c56992009";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaTemplate2 = "4f07a353b826478e871420ef518891cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaTemplateCorruption = "255ac44849094048bcf52c4805f715dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_StorastaTemplatePoision = "d3ff502169ff4324977eb72030276832";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SunlessShieldRank = "5e260fd108f64d7888bf494f5327263c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SunlessShieldRank5 = "3b57409c659c41078a5ccfec553a0ba6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SwordOfSithhudIcyArmorArmorBuff = "a1e55e3ab90248a4b1878534cb6f91cc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_SwordOfSithhudSlowBuff = "8feab1f54ed348619a76d86c766ff9ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_TrueSithhudBloodIchorSummoningBuff = "7a96de7fb7ec4ab280a7ade1c2ccfb33";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_UpgradedSithhudRodBuff = "c4a35ccf20a74046b745ec487535dc6e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_UpgradedSithhudRodEnemyBuff = "1ddb5f13533b4911b610c17e5c3d882d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_VoidShardUsableItemBuff = "72aae6026ba3473c91726db98c864047";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_WatcherColumns_Buff = "b65bd85d898d4b08a77d6cc1af9c5db9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_WildMagic = "6440e985e9b14e45a00412f839bb6047";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_WildMagic_Spells = "8af8b024c95144b7bb214c598e79128f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5_WoundedBuff = "768e75bc4dcb4028962f6ff28cdd7c70";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5ShortCircuitBuff = "a77897d528e545898c742ebb57f8a065";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DLC5ShortCircuitEnergyReleaseBuff = "a733dc27ab5448feb806f5570962cd7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DodgeMythicBuff = "175d1e9fc04e4f2fb28b3860c9c67764";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DogBark_Cooldown = "f469d4c7e7a34c3984ce15f0f4431bbc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DogFamiliarBuff = "6dc1e46ef1e6d314fa36f58a8e949095";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DomainOfTheHungryFleshBuffEntangle = "16ed1bf618c6e364b9c0aca9ce8cb54a";
@@ -2200,6 +2535,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DrovierAspectOfTheFalconAreaBuff = "5d1acd10110bbf24598eab96af98de5d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DrovierAspectOfTheStagAreaBuff = "62a881e2f5487d248b2f5c8aa450aad8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DrovierAspectOfTheWolfAreaBuff = "f6b82aa57ca1c6f4aaa3bc8a73933509";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DruchiteWeaponBuff = "c4325702d3cb4de8ac3c0a73c47eb947";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DualityOfConjurationAndSummoningMadBuff = "114c2fd15fc04add94709aba60528a43";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DuckFamiliarBuff = "53be9307e6f208b4f83e4ad6e4cf76cf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> DuelistCripplingCriticalACActiveBuff = "c25c8f47ec007ff4da4f66d6b4b8e7e6";
@@ -2381,8 +2717,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnforcedVigorBuff = "7eeb6a14278f17641b1d48ab9b45ff33";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargePersonBuff = "4f139d125bb602f48bfaec3d3e1937cb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargePersonBuff_cutscene = "b7d52188829a47c498c9966c26cf50ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargePersonBuffSupressCutscene = "fecbb02c270c4f169c96eb318c4d2d3e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargePersonPrimal16Buff = "f196cb822ac34950a05274bc4d65c8ed";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargePersonPrimal8Buff = "ebe86df0472a48be939946e9b859987e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlargeShadowGiantBuff = "da9f1d7efb144dfb8d1cfa375d39c679";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnlightenedPhilosopherFinalRevelationBuff = "9f1ee3c61ef993d448b0b866ee198ea8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EnliveningLeaderishipBuff = "b66e8a6e3d31d5048a35ce6570c38a15";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EntangleBuff = "f7f6330726121cf4b90a6086b05d2e38";
@@ -2406,6 +2744,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EritriceInspiringSongBuff = "a48907071f4bf5e4b92de6fad884bc6f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EritriceInspiringSongEffectBuff = "ce99c5bd16ce4e243939d945fd38d8d5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EscortBuff = "1a513e7df759656429db10449c24ba4a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EscortBuff_DLC5 = "efd93aade7114c86a3b09d42bd0d50ee";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EscortBuff_RichQarter = "bd4cd1252c8c4096955a48ac5135809b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EscortCounter = "37d229265c40ccb43a7426b095ede5a1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EscortCounter_RichQuarter = "70da8c1546234077baa20b75d8d1319e";
@@ -2415,6 +2754,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EverlastingLightBuff = "88bc343b94e545abbb5a33dba6eda85d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EvilBlessingMinorBuff = "59b2bb88b2cfdf4499a2a23afab1c654";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EvilDomainBaseBuff = "98e7d50d6e1e3b44da6d9cce84f18b43";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> EvilDomainBaseBuffSeparatist = "19ee1737ed9f421e8a1051d734191dc8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ExcaustedBuff = "22643252f59640febb3986cda0f625f5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ExecutionerDevilEnragedBuff = "7579fc2af0504998b394fd26b9f37261";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ExecutionerDevilEnragedCritEdgeBuff = "3a76592b091b42a9a3058622abfdfc85";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Exhausted = "46d1b9cc3d0fd36469a471b047d773a2";
@@ -2455,9 +2796,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FalseLifeBuff = "0fdb3cca6744fd94b9436459e6d9b947";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FalseLifeGreaterBuff = "4814db563c105e64d948161162715661";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateBuff = "555930f121b364a4e82670b433028728";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateBuff_Penta = "853c1f6d8f284d1d9542053297c2955f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateCommonBuff = "9c70d2ae017665b4b845e6c299cb7439";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateEffectBuff = "2d4bd347dec7d8648afd502ee40ae661";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateEffectBuff_Penta = "b952245cd7b047f1882f9ce0054b92b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateEffectBuffFey = "b07a4bdbcf5c46e8832009c693724d30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateEffectImmunityBuff = "a50373fa77d30d34c8c6efb198b36921";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FascinateEffectImmunityBuff_Penta = "cac1f10558a2488cab7b2cb2fe13e33b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FastBombsBuff = "c42ae8f9652bbc14eb13b31d12d20f8a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FastHealing1 = "7b66e71d153c47b459d06cc53285ffe6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FastHealing10 = "29c7bcbb38f2d73499bb0d52e000c27e";
@@ -2504,6 +2849,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FeralTransformationIIISwitchBuff = "ff87df71ad383224bb3cf56a5ec0a570";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FeralTransformationIISwitchBuff = "9deac472695c9004fa96efc555223974";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FeralTransformationISwitchBuff = "f1c49235fc7001c43b4a0d12084c0a7f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FermentedBeerBuff = "9f2a2ed19395418fb2da81614b7e164b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FermentedBeerCooldownBuff = "39d5961b92a24431804f20ed0789a91c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FermentedMediumBeerBuff = "479b26dff02e40a786dba6b30f8a7cf5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FesterBuff = "b896100431869174092b06411aba5b30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FeyStalkerSummonBuff = "5a4b6a4be0c7efc4dbc7159152a21447";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FieldOfFlowersBuffAsleep = "9c7109caf7794d843bd4e14d6e1e21df";
@@ -2526,7 +2874,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishMaw1d8Buff = "826086254e3b0df4f978326ffc2a0a96";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishMaw2d6Buff = "45a1bcd849f261446ba15db5d6f28921";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishMaw3d6Buff = "587f5145e3d1c0b4cad17ef6b9246546";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishQuarryBuff = "68169af633174af8abbba76cc29b5a28";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishQuarryBuffEnemy = "63d1f3d04959a554eab3d9b9a5f583f3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishQuarryBuffImproved = "ff93f8ae724344eb9343f90aa5a973c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishQuarryGoodBuff = "574807014b8a4dae96526472ffd3d8a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishQuarryHolyBuff = "cb228d7cac8c40b7a8f8c939b8861bfe";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendishSmiteGoodBuff = "a9035e49d6d79a64eaec321f2cb629a8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendTotemGreaterRageBuff = "c84ca8f21f63c8249a192f34195f8787";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FiendTotemGreaterRageEffectBuff = "4215707752c06054e9609669f118c865";
@@ -2558,6 +2910,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FighterPrecisePredictionImmunityBuff = "6472378da933487fb6406cbdca560aae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FighterRetaliationBuff = "d9ad45b099e04e3dbdebb91c5f6377e3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FilthFever = "9545a5550d89feb47a84edaeb4e63d0b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FinalJusticeAbilityBuff = "2e6eaaf0855a46c5abb22c050063dd57";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FinalJusticeAbilityBuffCaster = "e5382164f491481983dc586ba5c06b4b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FinalJusticeAbilityBuffCaster1 = "7b21eb1db9ca4fd49627e1bde06ef755";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FindTrapsBuff = "d00eba7ecdf5278428cc6b837d9aa52b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FinneanArmourerArmorBuff = "0d9604f466fee484ab05dcb6c435ab9f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FinneanArmourerWeaponBuff = "62a180135a9a9d54e9edfeca5b68d3c7";
@@ -2601,11 +2956,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlamingArrowsQuiverBuff = "19cb147ab37f9234eb2fed40ca15b774";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlashInfusionBuff = "50cf40b1cb3115546a3e9b44d7687384";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlayForPurposeBuff = "0c80feff745f0a84aab898ebaaf750ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlayingCriticalBuff = "d41b875460534c07a49fb13ac935f087";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlayingCriticalTargetBuff = "0c9bdd7f2dbe4b078edf7136dee604a0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FlayleafBuff = "3ae067cea1f06e44aa0000105ea9b1a8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FLeshOfStoneBuff = "629ebdd300eb64046be26a5e5ec2adbb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FocusCrystall_Buff_DeathThroes = "efcf9f059e684f4286fed496be653cc9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FocusCrystall_Buff_DeathThroesFire = "0be94478446741bdb04f4f931461b5e4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FocusedInfusionBuff = "a3353d5ff5494dd6ab1daf80d4f6e342";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FocusedShotBuff = "008be7892c994b7198e49567eace329c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ForbidSpellCastingBuff = "09794fccbd2948d2bdad8962d7940cf5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ForceDismountBuff = "45f5320d24e7456fa04871a0afa8ecbc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ForcedRepentanceBuff = "45e51da877b45cc498597e9fbf95f8e7";
@@ -2670,6 +3028,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FormOfTheDragonISilverBreathWeaponBuff = "ae5d58afe8b9aa14cae977d36ff090c8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FormOfTheDragonISilverBuff = "feb2ab7613e563e45bcf9f7ffe4e05c6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FormOfTheDragonIWhiteBuff = "a6acd3ad1e9fa6c45998d43fd5dcd86d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FortuneCooldownBuff = "82eaed601b044a55a7b2851c5451f386";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FortuneEffectBuff = "4a024f9cd8e9488681e50f211eb8e532";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FortuneRevelationBuff = "5d8bfdc7cf204e7fb73a1204a7b599dd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FoxfireInfusionBuff = "e671f173fcb75bf4aa78a4078d075792";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FoxsCunningBuff = "c8c9872e9e02026479d82b9264b9cc6b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreebootersBaneBuff = "76dabd40a1c1c644c86ce30e41ad5cab";
@@ -2681,6 +3042,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreedomOfMovementLinnorm = "67519ff6ba615c045afca2347608bfe3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreezingNothingnessEntangledBuff = "6eaeaadabfc5be44480a66da6c0323df";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreezingNothingnessParalyzedBuff = "2975be18c3b5da1408caeadbc81caab4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreezingShakenBuff = "fb23b4897bb04297a4f7e5a708c1aa04";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreezingShotCountBuff = "571faf8600914444ba69560c0825fa3c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FreezingShotDebuff = "3d3ee22a379343b6942696b8a1993549";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FriendlyHugBuff = "3906504d59286b640856b3da63f389a8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Frightened = "f08a7239aa961f34c8301518e71d4cdf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Frightened_cutscene = "a3d3cd4ff70311341abb1cec1d924f87";
@@ -2700,9 +3064,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FrightfulShapeFearBuff = "750937f0f44d43759d38d7131f9158c3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FrostbiteBuff = "5346e1a10aa2d764d8d16154fdeb38b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FrostEmbraceBuff = "4ba973acebdfad74095253fe1562dfa3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FrozenPetrifyBuff = "0a125beb06dc4141b6f9da8a9c1c9ae2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FulsomeQueen_Buff_Smothering = "32bd392409922734bbe9dedbb7e337b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FulsomeQueen_Buff_SmotheringEffect = "a5a44fd003689b84b90e9bde55f6f7a6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FulsomeQueenVisualBuff = "2702fd106e044c8291b73f76e32f41ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FungalInfestationAreaEffectBuff = "29e31d9c441f42c599a41aaa4443c041";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FungalInfestationBleedBuff = "9979d98a4fd54f11b9327d143db57611";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FungalInfestationBuff = "c7155dee0fc44737bc673b6940bf64b3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FuriousFocusBuff = "c632e516f383442489abb8ca810d639a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> FurybornChildPetBuff = "113be968763cea640a6e10d85079151d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Fx_AirElemental00_Big = "5e339598ee8791743a3a6d13f1bc44da";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Fx_AirElemental00_Medium = "3773b68102a30244d9887c97545cad9b";
@@ -2740,6 +3109,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Fx_WhiteBalor_DLC3 = "8792a0a9e9f6445c84fb56d2b4db37ad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Fx_WillOWisp00 = "d1d8218b915a3dc459037d3f5c1c1193";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Fx_WrigglingMan00 = "2033f416b55f5694e95e2a8c02d42003";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GainShardBuff = "239c93c5d5e344329b07bdba9df3278f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Galfrey_AfterCouncilPolymorph = "727d5a386464485ead4b2919b4003b1e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GalfreyChangePortraitAndVisual = "a0e96849c6314a538fc9ad29d80d91e8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GalfreyPolymorph_Old = "8c103824136f4fd6b1bc563b11a00448";
@@ -2769,6 +3139,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GelatinousSwallowed = "a53e457a20ba49b99007cb974f086c8e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GelatinousSwallowWholeSelfMarker = "472edf94173141cabfd227afd5695486";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GendarmeTransfixingChargeBuff = "6334e70d212add149909a36340ef5300";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GendarmeTransfixingChargeBuffDamage = "808e04492a144a39aa66c98991878036";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GendarmeTransfixingCheckBuff = "5573907d3f6c4b8d89158754a40307e3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GenericSwarmAreaBuff = "282bc595d4b5489f9c30fb8966e094c9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GenericSwarmBuff = "aaee201820f34400a2702d46a4260fbf";
@@ -2779,12 +3150,49 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GentlePersuasionBuff = "846c41744b0995848a614a86d8cb4272";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GentlePersuasionPunishmentBuff = "7b4f309988849fe4f84e2304153d6b8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GentlePersuasionRewardBuff = "d569b7b5845ea6e4ba9f021332098e12";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyAbyssBuff = "aee855042d3f4d0caf4d712139e6c3ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyBuff = "48dfbb1b75d849be9010eed3a94e6829";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyCorruptedBuff = "345b245cfe7c4f3f8db3e66c46fad487";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyDesertBuff = "52ee1fbaf8d14c539c817c2c2dcb7bc5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyForestBuff = "7cb35ebe9cb942a68b66d1fe29eb783a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsBuff = "1c78526e8b6c48149de35281d3d946d6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff1 = "602281376cf0469eb644cd83f5eb35cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff10 = "a2cdd14269e44547a891a8fde7f658c3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff2 = "fa9eef23f3ad4cfb985aeb93a11ee99f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff3 = "d275381212db4a3a9d47a54fd417b269";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff4 = "0a38afb0bed640ca8078f24993215065";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff5 = "639a1fef79e94b038d07a520468a2599";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff6 = "08492e9aaf14442e9eb75f1a9a83b5bb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff7 = "a20ad809ebf348a783a29bca8aec05c1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff8 = "a2bcd4117126482bbc7e377eeacf30bc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyHighlandsEffectBuff9 = "44da17460f4e4698bca6d8643499f150";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyUndergroundBuff = "f4534e9183b44c349302ea52c17229b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyUndergroundImmobilied = "402ea2591e144aaab44fe81e69dbe6ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GeomancyUrbanBuff = "c14546df07b643b3a8a0c67b031eafcb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GGCultistsRitualBuff = "2370ee24b03d4cd3b2eb346b7a1a18c0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostAnimations_Buff = "50231c1da3ec48abb52960e2923e3a4d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostFX = "20f79fea035330b479fc899fa201d232";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostFX_StayOnDeath = "bf3f252fc2884b3eaaed5f900dc3fac4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostGreenFX = "8bcfb10ecef16f2408b51afebc61bd91";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderFrightfulGazeIgnoreFearImmuneBuff = "6e76f40f31f540658faa5f1726405e3c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderFrightfulGazeImmunityBuff = "ecb82b5316cd42c380e8c8ec874ed43a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderGhostEthericTetherCasterBuff = "71edbf5636004d64b61802071c1525fe";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderGhostEthericTetherPetBuff = "d0d6d55487094c689e638ab6d7685793";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderGhostSpiritualBondCasterBuff = "2c54edb230874d2d831750f48a347c4f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderGhostSpiritualBondPetBuff = "ab7b63289dfc45d2b1665cc6a7073b92";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderGhostWindAirborneBuff = "81ae6b2b1dd44ec3abf45c6663e82273";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksChaoticBuff = "d8096045ff274214b49fa85d365f0723";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksEvilBuff = "adc4bb6953f54e49920c9e8834525b33";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksGoodBuff = "88593441a4da4e86ad39b0a62189d218";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksLawfulBuff = "86c215e0616242598b99fbbb9d533f9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksPetChaoticBuff = "7b3e8a503fe4458698784731002f7941";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksPetEvilBuff = "8fd58d206f0748f18214b847b878b5e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksPetGoodBuff = "cbabe39fbe0b4915bfa0859fab3407c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderMagicAttacksPetLawfulBuff = "520463ea7a6f404ab7b1c9cc077add50";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderSharedMindsCooldownBuff = "15d81b88553c4270ac7c0ab481725ae0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhostRiderSpiritedMountBuff = "276f914979a5462c8804c42092a29986";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhoulFever = "b959c0c7834b94745a9693bcdacfb264";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GhoulTouchBuff = "bdc12558a89d47a1b4f859b2664bcef3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GiantCentipedePoisonBuff = "2a31331cf5478d6498278f5352f7407c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GiantCentipedePoisonBuff_0 = "625363a810f4d884dad551b26b3454d3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GiantFlytrapPoisonBuff = "bca3d616ddcf65648993cb71fb0d35a1";
@@ -2811,7 +3219,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GlobalSpellNegativeEnergyBlastBuff = "88843368294d4c0b9bfd06a7fd0f9a71";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GlobalSpellTricksterMassHideousLaughterBuff = "6fe217adbe3b4992835e9d72ce0b7c10";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GloryDomainBaseBuff = "55edcfff497a1e04a963f72c485da5cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GloryDomainBaseBuffSeparatist = "72896e3adfc440888ba72803c69be664";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GloryDomainGreaterBuff = "ad66d8c8e4d6e314c8f2f1f41efeee64";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GloryDomainGreaterBuffSeparatist = "8a61fe74740745a390aa9ce38fde04a9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GlovesOfEnduringWizardBuff = "48ea8cd104a0427d912d45dce487ad39";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GlovesOfEntropyBuff = "0911ab7b83e14f349ab63e60189f7cd7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GlovesOfHeavyImpactCountBuff = "0cb5172557744e5a81718983042284b5";
@@ -2846,6 +3256,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodBlessingMajorBuff = "d41ef869493bdd540b1041e374082f30";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodBlessingMinorBuff = "4b55c23d11a140949be65293ad9f75a4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodDomainBaseBuff = "f185e4585bda72b479956772944ee665";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodDomainBaseBuffSeparatist = "741ee7c5f1464048944852be073133da";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodHopeBuff = "85af9f0c5d29e5e4fa2e75ca70442487";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GoodRestInBrothelBuff = "56da6328d76224e4a9f6e3edecac199e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GorgeousGlowingGarnetGarmentBuff = "28b1948265e4478fb034b2aec079fd82";
@@ -2922,6 +3333,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrilledSilverEelBuff = "8f6b8d0147ea13749a1f93455345abb3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrilledSilverEelBuffCompanion = "17e46b403cd9c4346801ce2e6c31cc22";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrimBarrierShieldBuff = "10d5e9ba962cd6c43861aacccb33cbca";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrimGrandeurBuff = "a342688532e340908add3693f2f2c8c9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrimGrandeurEffectBuff = "50f51ce53a6d4625928ad1cc3b490760";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrowingSpikesBuffLevel1 = "b0fdcd99db4042a984ae56bc9683ebb1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrowingSpikesBuffLevel11 = "6d7e0abeb85948c4bec6bd02a4b4eedf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> GrowingSpikesBuffLevel13 = "93d0c6d102e44afb81367ce49b9522b8";
@@ -2942,6 +3355,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagboundWitchVileCurseCooldownBuff = "d1a4d8957788d8f4ead60f09aa228382";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HaggisBuff = "413c102e8e214b240a10517a89280fcb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HaggisBuffCompanion = "8c93c86c16f7a8d4594eef17e624f9ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel1 = "e0659fb336f04206b44edd67b1886e9a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel13 = "9e4d0225bccd48b5b6dde429dd313c8a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel17 = "d74ab33ee2d343eda980702a9e890a96";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel2 = "1d5f94376ffb4be489f137a169764e14";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel5 = "cce52e7d3a7a49fe8ac598a1896233f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HagRivenClawBuffLevel9 = "6e16e75f1d7e4019821513135554e5af";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Halaseliax_FireAuraBuff = "23af505e743147e6bb790f9c5c34368d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Halaseliax_FrightfulPresenceBuff = "9c5b9f4d573541b08aff7acfbfcb8f52";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Halaseliax_PolymorphBuff = "a634ec43f5114a4e8920fe89e1d5752b";
@@ -2972,6 +3391,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HatOfHearteningSongBuff = "2ac1f04db1e7da34cab38a32f9794e28";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HatOfHearteningSongEffectBuff = "7c4ebf464651bbe4798f25e839cead25";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HatOfTheOwlBuff = "debda3c0e47647358dd7455bd9110c50";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HauntFX = "35ae8d55dc6443b296589d6ab29220e5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeadbandOfSubjugatorBuff = "9ac82fb1e69948c418832b98a2b313e8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeadbuttersHelmBuff = "42d7f54a44868974f89a642791e63580";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HealCasterBuff = "d7c5f45357df47a4da588ff49e1639c0";
@@ -3067,6 +3487,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HepzamirahSummonsBE_Cooldown = "222829a37640ceb47a810be9996b6159";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Herald_IllusionBuff = "5a1517175b344e99a0d42b5b258bdfa4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldGeasBuff = "b16c70cd802447f45bc83c7a5a40e307";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldHealthTrigger_Buff = "620651073cab404baf68bb5876b8671a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldHeart_EE_Buff = "0fd68a7e0f9e4979a473e9e9a0c873c2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeraldHeart_EE_Buff_2 = "c3ac3480660340d1ad544996fd6bfa02";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HermitKnightBracersShakenBuff = "f9a1497640775e74f9b57758cf83fe09";
@@ -3081,6 +3502,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeroismBuff = "87ab2fed7feaaff47b62a3320a57ad8d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HeroismGreaterBuff = "b8da3ec045ec04845a126948e1f4fc1a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HideousLaughterBuff = "4b1f07a71a982824988d7f48cd49f3f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HidingBlizardVisualBuff = "e4ba8dde86064ce3b602ad7e7e918928";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HillGiantAgro_Buff = "ef4a4b4d411d453daf2f4f745a819185";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HodagPoison_Buff = "eb7b5e023a29481191657e34455f05a7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HokugolColdAuraBuff = "25fd33a829adb324996c6e284520b014";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HokugolDragonToPlayerBuff = "6d93b6e4ec189a24c8ea4a47d0b6d389";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HoldAnimalBuff = "2090955a573cec3438db7f47707610f9";
@@ -3106,15 +3530,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HuntersRoastBuff = "4fd095d68e3518d43a8f771d453f7963";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HuntersRoastBuffCompanion = "cefecf44453a3924c8602b79549fe8c4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HuntersSurpriseBuff = "12235d99a40af404389d9ab7e270212e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HuntersSurpriseSneakBuff = "1ab471c113124fb8b2ea94e6645bda52";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HuntingSpiderPoisonBuff = "0e344f634d0e1a149a8de79423e37d60";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HurricaneBowBuff = "002c51d933574824c8ef2b04c9d09ff5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> HypnotismBuff = "daebec1cd104ad4448d900892149d7aa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceBodyBuff = "a6da7d6a5c9377047a7bd2680912860f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceCoverBuff = "e49515c0d91041ec89c031c9340da5b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceCoverBuffDragonBoss = "0ac5fe1ae652403aa24eb638c40de849";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceStormAreaBuff = "7326da15f5231b0409475d25f2b9e0e1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceStormDifficultTerrainBuff = "1914ccc0f3da5b1439f0b90d90d05811";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceSubdomainGreaterBuff = "d909098fa0444193ba1a9c38f43cfd03";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IceSubdomainGreaterBuffSeparatist = "95ec6910ea11429b9138cf55e15c6893";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IcyPrisonEntangledBuff = "c53b286bb06a0544c85ca0f8bcc86950";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IcyPrisonParalyzedBuff = "6f0e450771cc7d446aea798e1fef1c7a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IgnitingBuff = "51e6193e2d9887746916e7e700ddde5b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IllOmenBuff = "65d0583ac3d9442b805002cf135a3c91";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IllOmenBuffCount = "0210c948f4804072955cc47bc5e7574f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImitationBarbarianBuff = "784887e3b22b4ed3a37ff220ac3295ce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImitationFighterBuff = "1ac3a3d20bb246d0a732af1d4bfe1149";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImitationMonkBuff = "ada8d8a09e1c41709ca0503a496b8b58";
@@ -3122,12 +3553,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImmenseMandragoraPoisonBuff = "cf5d24e75dad92440911beabbe9b610a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImminentAttackEffectBuff = "5a3cccbcf36306444aeee09317f29d03";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImminentAttackEffectEdgeBuff = "60793e2658b9a0144abeff13ee49e1ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImmunityToFireAuraBuff = "73b309490ec941f4bd7103999ed21572";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImmunitytoFireBuff = "1ee33669450942c9bbea920e7df4048b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImmunityToProneCondition = "7e3cd4e16a990ab4e9ffa5d9ca3c4870";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImmunitytoSummonsBuff = "d6fa5ba2c6e5490196c4c50aba924e86";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImpatienceBuff = "9f5c7ec1879eee541992a7e699e94ae8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImpatienceTickingBuff = "46b39651560c13f41a1f5deebb9caa1a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImpendingEclipseBuff = "d1cef3b4643a49feb9876bebfc4fe1eb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImperialDragon_Buff = "a534ec8a643e46be903b617a6f032129";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImplosionBuff = "4a5c014570e34fb78258b4cd5b67eda6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImplosionImmunityBuff = "1f4929509c7c417086917eac3aac8eb4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImplosionSelfAddActionBuff = "e14b01c46eac41f790b723985b67607a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImplosionSelfBuff = "c875c5b10d7b4f2ca8b7c6a9218b3062";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImpromptuSneakAttackBuff = "47d4e61b336b6a94c9c0d8949af0253b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ImprovedFiendishQuarryBuffEnemy = "c52dfead7d06dd14aa132f03be2bd508";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncenseFog30Buff = "9a96f670eec2ddc44a91d81d15db9eab";
@@ -3143,9 +3580,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncenseFogToxicIncenseBuff = "75f716b41dd23964d9b0cc6f83ed39fb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncenseFogUnsettlingFogBuff = "89313cf7a73cb0b4abfebfae991aef66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageAllBuff = "4bb4c9464138db14d9ec59df8bf452e7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageAllBuffPenta = "9aacb5d91bfd49d1ac0efd3a29196a75";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageAlliesBuff = "67a54db32ec015245b1e7e87a47b1fe4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageEffectImmunityBuff = "b15d0dae2c236a443a8ba6b0ad096cde";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageEnemiesBuff = "b190408f43feb02499e40dd2d6c687d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InciteRageEnemiesBuffPenta = "b0d99dd268f9442d8177de325be81997";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncredibleMightAllyBuff = "8e041bd9d786d934892d892d179fc1e8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncredibleMightAreaBuff = "246e0e55512a28d429755f508d8c5dad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> IncredibleMightCrippledBuff = "ac3aad1d68e70484f8d95c8a6a3a5f8a";
@@ -3181,21 +3620,26 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InsideTheStormBuff = "32e90ae6f8c7656448d9e80173222012";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InsightfulContemplationSongBuff = "9575fd7f7036fce4da6021415a34313a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InsightfulContemplationSongEffectBuff = "70b5a320c87e5f34191caea053a3a1b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InsightfulContemplationSongEffectBuffMythic = "03aa5c56b5ca4cc9bc4820f83219a43a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InsomniacBladeBuff = "50da358c61b80924098d6d58e3199d82";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspirationalLeaderBuff = "26d7e02c431b8f845abe98d6bd05706e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspirationalLeaderEffectBuff = "3eb37748a2d9a954f8eea8835854fb69";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCompetenceBuff = "f58e8500ebc8594499bd804b0277cdd8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCompetenceEffectBuff = "1fa5f733fa1d77743bf54f5f3da5a6b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCompetenceMythicEffectBuff = "dacfe0c89faf4658b0dd6e1325d5b7e9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCourageBuff = "b4027a834204042409248889cc8abf67";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCourageEffectBuff = "6d6d9e06b76f5204a8b7856c78607d5d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireCourageMythicEffectBuff = "c3b8fe0f71eb4744b2a544aa2261a97a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredByDialogue = "e81b26fa0508da54fbece230b2185565";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageAllyToggleSwitchBuff = "9fd2dd27d838f0049ab56e9da3508b25";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageBuff = "220e58fee6ab0bf4fab8d1a66b01edd0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageEffectBuff = "75b3978757908d24aaaecaf2dc209b89";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageEffectBuffBeforeMasterSkald = "345d36cd45f5614409824209f26d0130";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageEffectBuffMythic = "ee51f69e69cb43c3bc7c02002e482d17";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiredRageNoCasterBuff = "49fec57a016749c4aef5da19c84d6adb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireFerocityBaseBuff = "4b3fb3c9473a00f4fa526f4bd3fc8b7a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireFerocityEffectBuff = "9ec69854596674a4ba40802e6337894d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireFerocityEffectBuffMythic = "fb6d392a0fcf4ba2a7cefed7682fb911";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireFerocityRageBuff = "9a8a16f5734eec7439c5c77000316742";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireGreatnessBuff = "8618d4515685b6d4197f254b7f56a68c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireGreatnessEffectBuff = "ec38c2e60d738584983415cb8a4f508d";
@@ -3205,7 +3649,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilityBlindsenseBuff = "bae2fb523458bb14791faab2fdec1a42";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilityBuff = "3f7a7d22cb32697408f9cb3e31125a35";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilityEffectBuff = "d7204fb8ac8a2c943bc81ec70eff6356";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilityEffectBuffMythic = "949459a61d064e848f7e86e2a80e336d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilitySavingThrowBuff = "8e2efbf7e8244044ca3813ba2eb8c363";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspireTranquilitySavingThrowBuffMythic = "60b646069fa949d8983b4d74fc55218b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiringRecoveryBuff = "87cd09cdcde2856489a8dd44a55030dc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InspiringRecoveryCheckBuff = "dc9a8ddf45adbc74aaff7b309f232072";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> InstanRecoveryDamageBuff = "a4eb6d7ae2a94300b72071032d5debf4";
@@ -3330,8 +3776,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemEmeraldBeltBuff = "6a789c4b80104b144a827cf5bf186453";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemEmeraldChainmailBuff = "f827e320a7fb06b4586be97095939bab";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemEmeraldChainmailPartyMemberBuff = "2d7b5be7538ef1f44ae2f66d8b2c59d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemEmeraldShortswordAttackerBuff = "ebafdd8eb81941b2a66cc7b47ccffaa3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemEmeraldShortswordBuff = "8d7f33098ed5fbd42b4bd76a60c481b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemSunsetBeltBuff = "55f44ad3de06b6b4083046a65469dde4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemSunsetBeltDamageBuff = "3bae61acdeef4456b7b8ef35dbbc2e4c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemSunsetChainmailBuff = "1a08f6fe129442a4966e33e0a8323df9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemSunsetChainmailPenaltyBuff = "5eccda5e2c97453b8525cfc7ef5b4c56";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsEmblemSunsetShortswordBuff = "2ac157aea1f6ba844b936ae00807fee7";
@@ -3339,6 +3787,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnightsResolveResoluteBuff = "f7bf9fc0d400d7243aaca01b14f8c935";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnowledgeDomainBaseBuff = "35fa55fe2c60e4442b670a88a70c06c3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnowledgeDomainBaseBuff8 = "afb26c17ea20443f9738fc0747854f1a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnowledgeDomainBaseBuffSeparatist = "b8e7e537f5e14c7e8d7d921589680fda";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KnowledgeDomainGreaterBuff = "847d4ac01ce1b0247af53eb9b2a6b782";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KohhPoisonZoneBuff = "becaeeff91d94a1b8862e3a46a4b26ab";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> KohhPoisonZoneBuff_DLC2 = "2dcba3913f894bc4bf96594d3afc7604";
@@ -3349,6 +3798,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LairDevastatorLarielTimer = "eb74483395d3ca54c895d8a8ce60daf0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LannRosaryBuff = "fd3f80350a9345c2af795ea930ce534a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LannSparringBuff = "0b87395f642f67048aafeaf65146edb0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LastManStandingBuffGiver = "335ce01422794b059a1c2410e945e0c2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LastStandBuff = "c5455f88975e16648b4abc47a28fa120";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LastStandBuffCooldown = "6f47e92597a27384bbfe3bcdf2d05566";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LastStandBuffEffect = "f419534f15255be49a4f0117bc727cad";
@@ -3361,6 +3811,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LawBlessingMajorBuff = "ff5668b54d6f738438151a1be3db1b0e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LawBlessingMinorBuff = "521d5de82a73e9e4a9206c5b299c156f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LawDomainBaseBuff = "da0248dbcf8b8ab43bf3f17953d47044";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LawDomainBaseBuffSeparatist = "c3e6b964902b4bf7ac2ceb4dfa003293";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeadingStrikeBuff = "19de838f122cb924397b6532cb7defa0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeadingStrikeDamageBuff = "254b7f7b4d2749dfaf4ea125a91305c4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeafBladesBuff = "91f43163db96f8941a41e2b584a97514";
@@ -3382,6 +3833,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LethalStanceSwitchBuff = "16649b2e80602eb48bbeaad77f9f365f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeviathanSkinRobeMaximizeSpellBuff = "d7689ab5067015d40a7268de5cbcf069";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeyLineGuardianConduitSurgeBuff = "4770ff0074ebb6246ab1d09b9b261103";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LeyLineGuardianConduitSurgeBuffEffect = "db51fcbaf0d444c49664bbfad6d8d215";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LiberationBlessingMajorBuff = "8b4260a0a0c1c7e499a4f0255b776988";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LiberationDomainGreaterBuff = "aa561f70d2260524e82c794d6140677c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LiberationDomainGreaterEffect = "649d53bad4b29ee42abc06ad28d297c8";
@@ -3404,12 +3856,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LightShieldOfCursedAllegianceShieldPersonalBuff = "0e6509e75ed7f1548aed878da500b30b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LilituTailBrandingBuff = "6ab1b32e5d2a0d44296c12723b90c49f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LimitDamageBuff = "943f8fb9897f41b4b0cfbd571cd2fe39";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LimitedUseShadowCapstone = "6dbbc2144ca846f1bd13aa28e1023e67";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LinnormPoisonBuff = "7fea59d555553ce4c9ca045062e83e12";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LinziCampBuff = "27cbf5f6ec970a74d9f13ade58456aca";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LitanyOfEloquenceBuff = "9e4f5b983490b174bacecd1c7aab29bd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LitanyOfEntanglementBuff = "baf513d97f4194c44a82cb08647e8835";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LitanyofMadnessBuff = "e4cadb1ab4e9dd54a894d36959114060";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingFlameBuff = "45ab88bafcef81e45a232917805256c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueAreaFullDamageBuff = "4985437ea93a4f5dafc104fdffe2d946";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueAreaMoveDamageBuff = "c278a902aed34d4f99687f043efa373a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueAreaReducedDamageBuff = "00549b0b25fa4e8fb2ce4c5436c81ce0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueDeathInParasiteBuff = "f1617339f0dc475093eceb0193eac97f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueDifficultTerrainBuff = "43753a04a3574a388883347ac1f16bbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingPlagueSpawnBuff = "a246eedc99a34002a1fd8e2fe13af68f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LivingTornadoWhirlwindBuff = "af56743dca0d4718adb17bf2b67c2a58";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LizardFamiliarBuff = "d1fdf20857411c548a4b6161e9fbe75c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LizardGrappleBuff = "7916e9c85934493fa5fb0f7d8bf61426";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> LizardGrappledInitiatorBuff = "0498769dcce4428bb0ae8b22693e47db";
@@ -3462,11 +3922,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessBlessingMinorAbilityBuff = "6127a1ab574a4933a891fbd27d087897";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessBlessingMinorAbilityDamageBuff = "1d72ddabb99e48028a494c036ef1b572";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseAttackRollsBuff = "6c69ec7a32190d44d99e746588de4a9c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseAttackRollsBuffSeparatist = "be7b9acc06b641eb9f76cc935d4df7b3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseSavingThrowsBuff = "53c721d7519ac3047b818516bb28b20f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseSavingThrowsBuffSeparatist = "20ce1ab7af144c4db2de6c7b37078b75";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseSkillChecksBuff = "3e42877e5e481894880df63ad924e320";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainBaseSkillChecksBuffSeparatist = "4faf94c8cb394f0aa3de5caeeba72f56";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainGreaterBuff = "73192f96dd97b634cb794ae42f92c2ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainGreaterBuffSeparatist = "8eff1afdafa14770bdf218a26429ce50";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainGreaterEffectBuff = "90f09217c6366414fb3edde07838806e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainGreaterImmunityBuff = "0d77f718092b9c149bfc43c40262e837";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadnessDomainGreaterImmunityBufSeparatist = "e2cc175e118744abb4d2ff89c7acc60b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadSculptorBuff = "78a336ba55abde9478198d7d59adf38e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MadSculptorCasterBuff = "04f372a6c3167534e9d9ddfd1517e7eb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MageArmorBuff = "a92acdf18049d784eaa8f2004f5d2304";
@@ -3503,7 +3968,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagusSpellCombatCheckerBuff = "110c5b1c50774865acecacd519ce3171";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MagusSpellStrikeBuff = "191ceca2b6002a9459fe270c522ae2aa";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MaimerBuff = "1534b8334bceaa44382251f64652e0a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshDragonBuff = "59cd06fd4d444f948d068a6bd6a39780";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshFeyBuff = "b33021d4aacf490a9275c4cc93ae1001";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshFeyImmuneBuff = "f7ddf7d13bbd4ae2bb9a63586dd8939b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshMagicalBeastBuff = "bf6e094937194301911940a3bf0e59b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshMagicalBeastPoisonBuff = "cdacd87339d84d72bc85e60270810537";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshOutsiderBuff = "b8b0c1edad6643d0b785219f19001d6c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshUndeadBuff = "c9b05e29f36942caa7b394c0711f75f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshUndeadImmuneBuff = "b9bedc2ac6fb4b6793c9101c9b45b2ac";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MajorConsumeFleshUndeadImmuneSickenedBuff = "3ef5ea3864fb49429d267e93d0b319ae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MakeFollowPlayer = "6f1d9e5b1bf462642bb7e72d1ed67141";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MalfunctionBuff = "6cef517910e643c0a71a5e84381e4f44";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MandragoraPoisonBuff = "d4836e0e49794504bb58fd03a52c1817";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MandragoraSwarmDamageBuff = "0f4923163104a8748b88e91ec7e14837";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MandragoraSwarmDamageEffectBuff = "a6ddc8a2514ed3b4a9bd2a1f40cba9bb";
@@ -3518,6 +3993,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarilithBoss_Buff_OnInvisibility = "43035246201d0c54985c3400eb1dbf00";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarilithLeadershipAreaBuff = "0d6f66b1412f5684f92c38ec91c85b49";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarilithLeadershipBuff = "9343766524f6cae488a5f921e32f0fd8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarkOfSithhudBuff = "8be67e18aa5e45349e6b274bc37b1c61";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarkPassive = "d6abca706380f4445b217f0473f254c6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarksmansAidArrowsQuiverBuff = "df458d92915bc914ba06b5d27d634a39";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MarksmansAidArrowsQuiverOnCompanionBuff = "a1c864309816eff4093bffa0c8a8dc29";
@@ -3690,6 +4166,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MindFogBuff = "59fa875508d497d43823bf5253299070";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MirrorImageBuff = "98dc7e7cc6ef59f4abe20c65708ac623";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MirrorImageCutsceneBuff = "e0f432ae40dcd894f8d80ee4e81a38d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MisfortuneCooldownBuff = "9661368281d2417e884223bcc74c7f9b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MisfortuneEffectBuff = "c75e6b08d6cb474e9ec8b5336cdc821c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MisfortuneRevelationBuff = "27e47c802a294b8d970b2e4ac473f236";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MobilityUseAbilityBuff = "9dc2afb96879cfd4bb7aed475ed51002";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ModifiedMandragoraSuicideBuff = "3ae20f3161d942a4eb7965d78705ce25";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonadicDevaSolidBlowHelperBuff = "3fcf18db0bbe4dd4aa2697f525dcc90d";
@@ -3697,6 +4176,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonitorLizardPoisonBuff = "0d2aad6b3df1b5848964d07974cfb8c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonitorPoisonBuff = "9121b324b3734c04883a14c0d2a3afbc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonkACBonusBuff = "f132c4c4279e4646a05de26635941bfe";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonkACBonusBuffUnarmored = "d7ff7a9f1fe84e679f98b36e4bacd63c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonkeyFamiliarBuff = "12069085e8a53394c9d360da10e2606b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonsterCasseroleBuff = "223ed7c6ccb9af04594f0946e676181c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MonsterCasseroleBuff_0 = "1033f520b4947c04f8e3cc34c487fb0d";
@@ -3729,6 +4209,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MountedCombatCooldownBuff = "5c9ef8224acdbab4fbaf59c710d0ef23";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MountedCombatTest = "9c8220a1aea311243b5d8905ad0d0157";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MountedShieldBuff = "7514ebdb264362544a4fe104cd4637de";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MountedShieldEffectBuff = "10b5031a2182416b9a3341031e22bf23";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MountedShieldEffectPetBuff = "66497a9a80f44bc4847c82752b8d3698";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MulledWineBuff = "1474be355e341ad419cd7813e5239f66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MummyRotBuff = "72b8c0c5f77229b4287b522ca0581559";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> MuseBuff = "32fe7993493e4459bd4d8569ecfceaeb";
@@ -3874,6 +4356,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OpportunistsBootsBuff = "e1b6685882b6c654b826617ab4667ac8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OppressorsGlovesBuff = "9f34110778b7c644ab43693ddd1c84a9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OptimisticSmileBuff = "20ff8a9d2b09dfd42a3ac2f0c7723590";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenBlackenedBuff = "179c75c30d1b480ea917f2070d626674";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenDemonicCurseBuff = "fbd62b296e4d4ae193c6e2a7b773c97d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenHellboundCurseBuff = "29abf9bf1418463ebeb2e53396dbcde2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenLameCurseBuff = "84deb95a9bea4b4a863f984a79df0cad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenPlaguedCurseBuff = "388b478dcc024a8ea6774967ce1eadfd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenPowerlessProphecyBuff = "4a9ed02f7ab64cf4bcd6233e0b6fffb3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenPrankedCurseBuff = "e4b137c62c0d423db35bd92d211f08b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenWastingCurseBuff = "35431385fca7425a8f5f468aad4781f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleBurdenWolfscarredFaceBuff = "33f31450cd654528bca960e501bcfdec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleNatureFinalRevelationAnimalBuff = "561b5b9381bc2ec40a32b8e007685c2c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleNatureFinalRevelationHealingBuff = "ec586acdbf57b7d43be2a0f5ab563060";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleNatureFinalRevelationPlantBuff = "1d9a1700b7bc35a44b5676906de70f1b";
@@ -3904,6 +4395,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationManeuverMasteryDisarmBuff = "2d8cb604b8945c746978e172bdb4afbf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationManeuverMasterySunderBuff = "ec92ffb75498fd845abda587838365c0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationManeuverMasteryTripBuff = "100139e153a394c4a8e30bbe99fb5794";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationNatureWhispersBuff = "7b86f765d1354ea7bf5683bf4c9aa356";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationSacredCouncilBuff = "a89480407531d3f4f86c3cdb361ecb26";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationSpiritBoostBuff = "0aa22feeb527aa64f9d204e1ac7b949a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OracleRevelationSpiritOfNatureBuff = "d2f288936790a8249aaade7184984144";
@@ -3918,6 +4410,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OrderOfThePawCanineFerocityBuff = "a4a2a29970e84e89b612830b0c2a9f83";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OrderOfThePawDangerWardBuff = "38a9a4e7caa84805a3f104810bc16ad1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Orgomandias_PolymorphBuff = "3c5be1db6ef9488a9c320b6fa188edc5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverseerFXBuff = "2fd46547341b4d7eaf70825eee1ce8ef";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverseerPrebuffCore = "669fa6de44d5411897396eb6ad053ffa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverseerPrebuffNormal = "d9cd5c32023040198f4410fac9622695";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverseerPrebuffUnfair = "93c8f9ee3639417ea9538124874652b0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverwhelmingGriefBuff = "6b81d1245d2b45b49bb98a8e7d32c64d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverwhelmingPresenceBuff = "86a663442ca18284986e73153d51e2a6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> OverwhelmingSoulMentalProwessBuff = "8453bc0f414a9c844a671a14aa7571c7";
@@ -3965,11 +4461,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParagonOfDefendersPenalty = "f3a01ed5e50d80a40ab808f8f033cb8d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParagonOfWinterSummoningBuff = "64e1e6ed2d446f042b51cd7ea0c88c03";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Paralyzed = "af1e2d232ebbb334aaf25e2a46a92591";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParalyzedFearMindAffectingSaveEachTurn = "4d5a2e4c34d24acca575c10003cf8fbc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParalyzedMindAffecting = "5da52d05f021701499d7a1c3dd76b689";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParalyzedMindAffectingSaveEachTurn = "dbbc009c5fb6d4547a501a386d399466";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ParalyzedSaveEachTurn = "d1a7a0dc8c4a1de47af84c555e04ad84";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PazuzuAspectBuff = "46bfd4e6b19df60449cbb2a016b50c7f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PeacemakerBuff = "1ffec3c910d94fb196285c9075528950";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PenetratingHexBuff = "a2c7b44a8d0849acb3e737316df1e3af";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PerfectCavalryBuff = "70f3956865e5428e891761316bc46c3b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PerfectFormEqualToCharismaBuff = "ccd363424d954c668a81b0024012a66a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PerfectFormEqualToConstitutionBuff = "774567a0bcf54a83807f7387d5dd9c23";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PerfectFormEqualToDexterityBuff = "23b87498fac14465bc9c22cc3366e6e7";
@@ -3992,8 +4491,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteRegill = "841a8b3450279a0488f5e82282f9d093";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteSeelah = "33ad5f94d97ee3544ac827c592640d80";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteSosiel = "4435843391d2f1946b942d17345ea286";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteUlbrig = "04d6f672d268436093eb48a5f7b216ea";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteWenduag = "18f1268093e77094684fd4014d470665";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PersonalFavoriteWoljif = "56304db26814d434f9b3b9cd4c2e696e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PestilenceSpiritTrueAbilityBuff = "96906871ea4940b6abf37dbde981c468";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PestilenceSpiritTrueModifyD20Buff = "1cfb00c210e14adda2d2217323d7da12";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PestilenceSpiritTrueSavingThrowBuff = "b6af5096189840ee81c265060911d465";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PetrifiedBuff = "ea0361160ee769242b6de33b4e82c093";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PF2_DLC1_AxisDungeonBuff = "b45138cd46e44dc5b1613076b46551ae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PF2_DLC1_AxisDungeonEffectBuff = "65621628535b43079cf596d49a083f6d";
@@ -4023,6 +4526,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PhantasmalMageSelectiveBuff = "fac1de8143b945aaa1d48d30d25066c2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PhantasmalPutrefactionBuff = "b7219fdf2316d29469ecd125e23301ec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PhantasmalWebGrappledBuff = "bf6c03b98af9a374c8d61988b5f3ba96";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PhantasmalWebNauseatedBuff = "d5464deb784d4606943af572cb7b1bec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PhantomSlayersBracersCountBuff = "9f0b6893113c0c94a8042c9e9738d59b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PharaohsCurseBuff = "94977526b04444dab72c4635bbb5dcd8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Pharasma_Buff = "5ef552f1bd7e47efa2171cd830119ac1";
@@ -4035,8 +4539,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PillarOfLifeImmunityBuff = "9def2de43da64f2e980afda1926756dd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PipefoxBuff = "933eb1e052e34e747af11f7207a5fd88";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PiranhaStrikeBuff = "8af258b1dd322874ba6047b0c24660c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PiranhaStrikeBuffEffect = "b93ed538543945378613b228dfdd4578";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PitOfDespairDamageBuff = "c2bf0bf1c494b0740818b52747ea2721";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PitOfDespairImmunity = "ab6c12dbb08530843aade6df0ba0101d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexAreaBuff = "bbd59c34b83f4b51a507ab7f59df7493";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexBuff = "97345eb635074d8f9ba07433cae0ed36";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexConstitutionBuff = "fa9dcfad788d4f109095680f6f98008b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexConstitutionDamagefromDiseasesBuff = "76772cd4bdbb4031972c417a50ab30d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexDexterityImpairedBuff = "eb94fbe1ae5044ca95495bd83a7071ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexDexterityWeakenedBuff = "1e0f68a5885249ebaaf2416bf5a3d794";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexMentalBefuddledBuff = "bbbb5ffe82374034bb3045997774c3ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexMentalBefuddledCantAct = "514b7adf34644f96ba75115eb9d0f0ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexNotAreaBuff = "5473e3daf6b04fd5825b72b9d292893e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexPhysicalImpairedBuff = "d2dce1b93a36441f917e93d188915cc9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexPhysicalImpairedBuffCooldown = "ef3e8d986e7e44fda9318d30cfa94f7d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexStrengthImpairedBuff = "96cfb408be2042d1914c5025bf3846a1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueHexStrengthWeakenedBuff = "918a06a8d1fd43da878da51067945110";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlaguePersistenceBandedBuff = "aef7171191e13654bb80acc80826f234";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlaguePersistenceQuarterstaffBuff = "26f9b2e682474494822b42be9f23c23e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlagueStormBuff = "c9cfa66593c14544db9af128c21ff712";
@@ -4044,6 +4562,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlannedDistractionEffectBuff = "ea7b666ca40181640bc7add7b398c324";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlantDomainBaseBuff = "77498fabb555d4c4ab6551047cdff178";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlantDomainGreaterBuff = "58d86cc848805024abbbefd6abe2d433";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlantDomainGreaterBuffSeparatist = "9bffa7b824e34146ad73101a20021ff4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Player_restTrigger = "ac7f1eff7837432e8acdccd52308c09b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlayerAeonCorruptionProtectionBuff = "256ae19b117c40868248154da12d17b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PlayerIntoGoldDragon_PolymorphBuff = "84f5bf198fff4f58ad2fc4f0dc4824bb";
@@ -4079,12 +4598,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PolymorphGreaterWyvernBuff = "1a482859d9513e4418f57abcd396d315";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PolymorphHalflingBuff = "fb8bd8bb52245f24a8955d7b87695d6a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PolymorphHumanClericFemaleBuff = "775abf5b070471d479364b8bf400a276";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PolymorphToElephant = "88f10535b86d4d1585bd40e5581b685d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStonePlanarHeadbandBuff = "2a4469e08fa13654aacdd3d7fde3b5bd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStonePlanarSaiBuff = "21e66995618d8d048ab6c618c1f47d39";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStonePlanarSaiCountBuff = "05716acbc62d40cba770b2b06c5a8d50";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderHeadbandBuff = "78e7b13c65eeaeb4a8aa35d36ef09ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderRingAreaBuff = "0c9dc812a674d974c95c92de5f0304b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderRingEffectBuff = "44469ce24e3102048bf64e14dd408cfc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderRingLastStandBuff = "13e02bd5d2514687bf9a27eeb11b9914";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderRingOnSpawnBuff = "56f52d137c164c65a40afd0c02e0b782";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneSpiderSaiBuff = "386a5cc4e3babe84dba6bbd61a9e5d66";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneStanceHeadbandBuff = "9d0e140aece340dfa0087d9cad74ffd8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PortalStoneStanceRingBuff = "166b2a9f1f742c548a278cfd14acded3";
@@ -4094,11 +4616,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PositiveQuickenBuff = "a4f50ee610014abf892cce20d76a26cb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PositiveQuickenChannelBuff = "1d3d3084e93145ffa434b84f2b10c6c8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerAttackBuff = "5898bcf75a0942449a5dc16adc97b279";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerAttackBuffEffect = "bfe8300529214c7ca4ae0024f834f085";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerFromDeathBuff = "a895277a6cf4c3748abe38c879e6dccc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerfulChangeBuff = "be5d23755e7e501448193bbbd71c5256";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerfulChangeBuffGreater = "d6ccf420a9b196e4cae334e0d3ea9e8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerfulStanceEffectBuff = "aabad91034e5c7943986fe3e83bfc78e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerfulStanceSwitchBuff = "539e480bcfe6d6f48bdd90418240b50f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerInTheFleshBuff = "eb0cc044236441aa8926d53d65e43378";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerlessProphecyCurseInsightBuff = "42fbcaf42151d954782b0faae0cb7588";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerlessProphecyCurseInsightEffectBuff = "9cde3d14eb4f8ce4fb3186df9bfca153";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerlessProphecyCurseStaggeredBuff = "ab287c8933fec3048b96e3744dad399b";
@@ -4114,6 +4638,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerOfFaithTier5AreaBuff = "1db744a7b28d12f43bf9f50d77610ff8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerOfFaithTier5Buff = "46edb5da39def9d4b8d66a8972a05f4a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerOfFaithTier5CasterBuff = "72bdf27b202b2e54db9054c2e5443708";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerOverInferiorsBuff = "70077adafa8f4826bc05e8245fc703d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerOverInferiorsHelplessBuff = "4e9d4df51a684124926277457f826c88";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PowerWordBlindBuff = "68bfb238b4feb2e478e392c3b2f705c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PoxPustulesBuff = "a8a28fd665c3d49428463cfee78b79d1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PrayerBuff = "789bae3802e7b6b4c8097aaf566a1cf5";
@@ -4166,10 +4692,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionBlessingMajorBuffEffect = "a9a3a4b202945f8409b4b15221a0f588";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionBlessingMinorBuff = "944fa7a1eb0d891458917d831f906a41";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseBuff = "2ddb4cfc3cfd04c46a66c6cd26df1c06";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseBuffSeparatist = "7a727cb9eb6246daaee52ce430231fc2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseSelfBuff = "74a4fb45f23705d4db2784d16eb93138";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseSelfBuffSeparatist = "4fb055f7cd9d45fbaf280502e98d1049";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseSelfBuffSupress = "3dd1e499f7cd07c40873c9baa9b82e6e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainBaseSelfBuffSupressSeparatist = "7b9cddced97544ffabe6a989d3801161";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainGreaterBuff = "20a4033ef90e66041b16817c7e03bf5c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainGreaterBuffSeparatist = "c1fbcb62af444733b5fc7245930ee6e9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainGreaterEffect = "fea7c44605c90f14fa40b2f2f5ae6339";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionDomainGreaterEffectSeparatist = "ce139bd5b77e4e898b467312ce1af6e7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionFromAcidBuff = "6f9d4b5d2fe2f684e816a54b4973cc58";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionFromArrowsBuff = "241ee6bd8c8767343994bce5dc1a95e0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectionFromArrowsCommunalBuff = "10014a817b0780c49a2d2d954f62fa55";
@@ -4193,8 +4724,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectiveWardBuff = "7567cd41c56f96d4c9554e4bdbef6438";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectiveWardEffectBuff = "c0e5382d22ca3c14593c88d4e657b0e7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProtectVitalsEffectBuff = "5b5e566167a3f2746b7d3a26bc8a50a6";
-    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_Buff = "9ce0c017a94a4e87896f9dbb5ef52e4c";
-    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_CasterBuff = "b96e3a62e33f4c65a031a071b699ba2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_Buff = "8ff9a9868b6c4eb0a55d4b88983b2089";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_Buff_0 = "9ce0c017a94a4e87896f9dbb5ef52e4c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_CasterBuff = "ca1b545520b14b3e87f8bb2b7a62e6fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ProximityTrigger_CasterBuff_0 = "b96e3a62e33f4c65a031a071b699ba2e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PryBeyondVisualOnlyBuff_Cutscene = "00435a448c9a43c498acdf4f0ff45263";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PsychokineticistBurnBuff = "a9e3e785ea41449499b6b5d3d22a0856";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PuluraFall_HoldMonsterMassBuff = "3835cb800289a43448b99ed1c2703cfc";
@@ -4215,6 +4748,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PuzzleEvent_HealthGuard10 = "7e70e7d6b3dfe884e8df6a7f35a67790";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> PuzzleEvent_HealthGuard3 = "08e61dbd53fb61b4786e86399c99a78a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarryBuff = "b44184c7ca33c6a41bc11cc5ed07addb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarryEvilBuff = "cc0795096f9449fca0cedddf869b0fd2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarrySelfBuff = "301139601f66478c858af75225de3113";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarterstaffMasterStyleDisarmBuff = "5d37b0e3e5e34589882df4b6a041de3a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarterstaffMasterStyleSunderBuff = "49599bd4e34c4211a6cd631822291c63";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> QuarterstaffMasterStyleTripBuff = "06741f0055b7416784f345b6b3879470";
@@ -4317,12 +4852,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RealmProtectorAreaBuff = "06f7c666b7716684c9eb0a67e437e28d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RealmProtectorCheckerBuff = "7e288187829b414aab39618b172c5af7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RealmProtectorCountBuff = "e48413be052ec004ca7f1c8d4fa4a008";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReanimatorGreaterReanimationBuff = "4ae00abbd3ad4043aad8429056391210";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReanimatorImprovedReanimationBuff = "40737d4c65c44ef98029074c33f88249";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReanimatorResearchOfCorpsesBombBuff = "afe65e8b343341f7a3c6c535a42fa5d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReanimatorResearchOfCorpsesBuff = "7b938687d4594da1a9c9f67dd51f6625";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReanimatorSimpleReanimationBuff = "621c0d208a6e4ef4b3e2c0e50421082a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> REAvoidanceCriticalFailureBuff = "4a72f62ac3029534ea4b12680ae117bd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RebornDustCreature = "2de1e36c10696204da8ad80b9cc79dd8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RecentlyDeadBuff = "38bb8a5d773243843bbaaa2c340cc19c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RecklessStanceEffectBuff = "a8a733d2605c66548b652f312ea4dbf3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RecklessStanceSwitchBuff = "c52e4fdad5df5d047b7ab077a9907937";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RedCap = "2707f75e7f33ae04ea446335a5b54951";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RedistributionOfLifeBuff = "bf961bb337634ee9b12244bb94b5f349";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RedMask_NoMaskPolymorph = "66024f11a3c940b39e3b2d5c210097f4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RedPanda_Buff = "40995152efb48994684255e140d632f6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReducePersonBuff = "b0793973c61a19744a8630468e8f4174";
@@ -4338,6 +4879,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationDivineHolyUnholy30 = "e2d1c8edc7e96f840b9763df7228e178";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationEvil10 = "8035661fe9d80964cb96c29406a079d9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationFire20 = "a745f556d981450aa90054dee25addc3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationGood10 = "46a47e9a014b48278887c5520905e425";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationGood5 = "a05cc46208707ce41bda909f02e86a8e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationNegative10 = "10ae448b2700f1d44b6264d0434c6475";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RegenerationPositive10 = "d1a6a0a89ecd5514ca363ebf6be4a783";
@@ -4352,7 +4894,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepellingBracersBuff = "5777a37f4a5e4b169b8b9d873bc70315";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReposeBlessingMajorBuff = "e67c5d0067cecb246bd21135a1b6c220";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReposeDomainGreaterBuff = "ed6064c44abb2474ebabb26c58db3e2a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReposeDomainGreaterBuffSeparatist = "63caae624c274fdd9092458d01b71cc8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReposeDomainGreaterEffect = "6dff68e869eeef14a9964d94e03d1d59";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ReposeDomainGreaterEffectSeparatist = "759059c34a844e5ca371320602812ecb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepulsionBuff = "25d15cafaf1d4a179c0ebc9c2f86feb2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepulsionEffectBuff = "dfc7142358934988b716aa51681accdb";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepulsionImmumnityBuff = "12bb6b0b29fb46e29ab7e1d9284a7724";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepulsiveNatureBuffImmunity = "7401fdfea49b9874db8a72579aec7c1f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepulsiveNatureNauseatedBuff = "c9b528fbbd8f3b84fb068bcf9b2c0ebb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RepurposeBuff = "11ff9c86d6929ac4ebec3152c5df1ce0";
@@ -4375,16 +4922,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ResistSonicBuff = "c0f3b16ff3f79b749b121905d659a2d4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ResonatingWordBuff = "45dadc2e291367b45b1110d3be039cad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ResoundingBlowBuff = "06173a778d7067a439acffe9004916e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestlessSpiritBuff = "40b3ea8e057c4126879dc7851148275f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestlessSpiritCooldownBuff = "5f749dd96e4d46479e5a5ddea93d145a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestorationBuff_Bully = "e0e73d2461ea415c8e6159c230c588e8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestorationBuff_Bureaucrat = "efb3e1679e9443be95d751bb6e5f537a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestorationBuff_Gravedigger = "c22b72a2b5e64c528b84a5955f94d0f0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestorationBuff_Healer = "e01ab84d928a40c98b9eb81d60935c99";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RestorationBuff_Musician = "328e0adfec7d4758a3fd4ec23a95ee49";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ResurrectionBuff = "12f2f2cf326dfd743b2cce5b14e99b3c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RevenantImmunitytoGround = "dcbadea98eab41f986a3d685c46303ff";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RevoltAttackBuff = "ad48caada2fd3b14eae09fcb62cf07c5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RevoltRegretBuff = "8db268c71dd515947b39c3cc3d0ce1b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RiceAndNutPuddingBuff = "b77263ec8c310ff4fb9d5d294c0be99f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RiceAndNutPuddingBuffCompanion = "2bf9f6b0e8a7e3649ad83a864012ddfc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RichInnerWorldBuff = "ffacf3fd12bd42468ef08f9e4433f1e7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RiddleOfEternityCantActBuff = "9483f537d10b4c3ab7a19d51bf84d129";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RiddleOfEternityFailBuff = "a8ea86cb9400488c96bfe3e87b5e8d1d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RiddleOfEternityPassBuff = "e65522ae76f0469798d5574a0fbb5d55";
@@ -4422,6 +4973,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfFoeFocusBuff = "82fb86fabc804e658a855647c12b29b5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfGuidingStarBuff = "cb981ea7519b7854980408f9834b327d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfGuidingStarEnemyBuff = "053766b486dd6004398fdedf8d48d92c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfMercyless_Buff = "446fbdb845eb4497ae0bf9ddee5e11c8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfProcrastinatorBuff = "2881955ee76b4c3e8ab61b829ec75a93";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfSharpStrikeBuff = "d26d94c99e68c8049b08d22d1aacf5ea";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RingOfTheDeadPersonalBuff = "5d83d301cb568b842872283f05ad1dfc";
@@ -4462,7 +5014,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RogueSkillMasteryLoreBuff = "b14cc4ede70de9046a58fc8deaba43d9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RogueSkillMasteryStealthBuff = "f5f33a8da49eb7442968b28b462f410b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RollingDodgeEffectBuff = "42a5fea471dfdec4b91c97bb8acde5ff";
-    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RomanceSupressPolimorphe = "cafcc72426214982bc00213d9ca41521";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RomanceSuppressPolymorph = "cafcc72426214982bc00213d9ca41521";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RottenDissectorBuff = "e2f5d6ab60fd07841aca3bcdfad6d816";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RottenDissectorEffectBuff = "4c5dbc39349e0f04898e105dc8af3c2a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RousingRetortBuff = "e68279c5c60064c4f9cfbb7c3ce45134";
@@ -4473,6 +5025,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RumblingFlachionSupressBuff = "28d461e1b0094f9e8a25bb1d01f5adc4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RunBackLogic = "20bb236fe8b79f84cbfd081b7d2ebabd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RuneDomainGreaterBuff = "6f3e707ae4874f2409d288cfedbd848e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RuneDomainGreaterBuffSeparatist = "c378ca81c2c84406b059da66a8a4a114";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RuneOfJandelayBuff = "da3182613f7e4890bd3bbd71f95c6413";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RuneOfJandelayCountBuff = "489ff6a91c304a43ac6bf9b7d3ed6783";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> RupturingStormBuff = "e7cbd65a814479e4a89bbd5592168267";
@@ -4499,9 +5052,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredArmorEnchantSpellResistance17Buff = "d7936988b31c5da4fa592f55f8e11ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredArmorEnchantSpellResistance19Buff = "d0e73cfa8f4e2a7408c8dac298705b1e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredArmorOnBuff = "36bb0571120195e4191d87616baef5e4";
-    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredArmorShieldEnchantArrowDeflectionBuff = "99d6b411868913745af957520a652354";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredArmorShieldOnBuff = "1412d79f6e1985440bcbc752bfea1420";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredNimbusBuff = "57b1c6a69c53f4d4ea9baec7d0a3a93a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantArrowDeflectionBuff = "99d6b411868913745af957520a652354";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantFortification25Buff = "da9d63ad9114403186827dd59b83e3e3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantFortification50Buff = "d62e5c22dde3405db9c7e41ba9869248";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantFortification75Buff = "85d4974ab1174abda8778dc2c4b87400";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantSpellResistance13Buff = "53d3eef66b704efb856d8226b5b6e30d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantSpellResistance15Buff = "7049d83bf9e4403c866d0f0554e9d6f3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantSpellResistance17Buff = "858b196e55d04502ad5ebfdc62a78d89";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorEnchantSpellResistance19Buff = "23646328af354997ba875ecbee3299b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredShieldArmorReflectBuff = "94a13a46d2e744b6bccf85f443557643";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredVengenanceArrowsQuiverBuff = "e6d2aab05650523438bc99cdeea69f69";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredWeaponEnchantAnarchicBuff = "4f1cad5d64816514e8f0f22b3d4a8a61";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SacredWeaponEnchantAxiomaticBuff = "79e3ad6d6f26253439e2760a8c91d5d9";
@@ -4526,10 +5087,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SavageUnityBuff = "998bfa3a50fe4ad693fdbfcfc706079a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SavamelehMythicAbilityBuff = "71b7a32739205ee40bcf525df880d9a0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SavamelekhSpineBuff = "cc4a09b5c7a6403484a35caff14686c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistACBonusBuff = "64acb179cc6a4f19bb3513d094b28d02";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistACBonusUnarmoredBuff = "59a10a29d67f4505b1a0ac31ace427e5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistDraconicFuryAcidBuff = "73abf86b790d9a641a3feab1c89888cd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistDraconicFuryColdBuff = "9b7c0d0f6a0949345909783c383fd088";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistDraconicFuryElectricityBuff = "263cb7951f4e22a4ba8f5840ae37a8a3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistDraconicFuryFireBuff = "138d83559ad70f947b7f3c1d385be0c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScaledFistSupressACBuff = "3edaaece071947f7a34aae47fb602ecd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScapegoatAbilityAllyBuff = "d9c96ebda6a10e041936fc06a5251c48";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScapegoatAbilityEnemyBuff = "9261f8040c97eab458010defa54cb594";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScarecrowCowering = "311c6c10aa62fb741ad4675f92d45ac3";
@@ -4555,6 +5119,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScrollOfResourcefulSmiteBuff = "95d27fb46ac645d4995c637259041daf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScrollOfStompBuff = "73e2cf34c39d405db5500e8d11fd4972";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ScrollOfWingsOfFreedomBuff = "7c900b14951b4686bb1121c528569def";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SculptingTheRiverBuff = "46b66a2823f048baaf51d6a8b70846c3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SculptingTheRiverCasterBuff = "76734c81141746eeb9e122bfe3f25bd5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SE_Delay = "99f577ef059f51049a07e3872dea2161";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SE_TraderDelay = "28fd1604e238c3e4fbc019e164cafe08";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SeamantleBuff = "1c05dd3a1c78b0e4e9f7438a43e7a9fd";
@@ -4564,6 +5130,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SeasonedWingsAndThighsBuffCompanion = "9b4ab9a8c6d6bf64fb54a46c170ba80e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondChanceBuff = "882e8af5972f0eb4e97845cd8852ee73";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondChanceWeaponBuff = "ccf92c73e81951f4b9b2bb4591e26bb2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondPhaseBuff = "8222191dfc0f4dfbab1c45115f5cee82";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondState_Kakuen_takaGargantuanSpawnBuff = "7050911c3f284e3289859ff814595131";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondState_Kakuen_takaHugeSpawnBuff = "efae64cd4dbd492d97e354db5ceafea1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SecondState_Kakuen_takaLargeSpawnBuff = "516b064699c84742a0328a0e09d86fd4";
@@ -4610,12 +5177,29 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowbloodAddictionDebuff = "1814c7cf8142be047b6a9239e78d86f3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowbloodBuff = "acc9bb48f64f5f7489d8adc9306c5776";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowbloodDebuff = "9fc0d2330a268bb48b0f8bbcfedc688a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowControllBuff = "f421c1f91af54a999a5faf21fb384ece";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowDemonAspectEffectBuff = "8b1e3c9b630d61244a3da3fe5e15cd47";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowDemonAspectSwitchBuff = "d5336d599d004e74d9af6b8967c3f217";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowDemonFearAuraBuff = "e1af6b2875a24d2cae82549a5ae0925c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowDisappear = "b35119863be5428396b23dc42eaa90db";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadoweelDrinkBuff = "6ecc45c3129a4157b01374b31fdc7860";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowFormPolymorph = "c12712c5248245fd94ede9da3f954123";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowFX = "8caafe9dc0ff21041b36ad225569d164";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowFX_CutsceneNoDeath = "1512fe2a1b3c4107ac6bc3519916479c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowGiantChainsVisualBuff = "184dded42948493193ffa29641961170";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowGreater_Buff_StrengthDamage = "8d30cd892b232964786a1468674edc7c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessBlindDebuff = "fdb4898976c74d21994587aef568b3c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessBuff = "79aa1817f0b0447d8c81e59ec5c79b30";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessColdVulnerabilityBuff = "bf41d06ec9764145811b48b79356dadc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessEntangledDebuff = "849162de91d24fb8bc2a65672ee297bf";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessFatiguedDebuff = "b045e015ecb94f6c876fffd4519a4ecc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessHealDebuff = "824b53ebe4014076ba91ea2b787b7239";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowMadnessSpeedDebuff = "e95ce7a583fa4ea8a864f4deb3332e28";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowPatrolBuff = "9ccb654ceef14c8baf7ae08fe767b679";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowPlaneMagicBuff = "f7ea19475a444ac09a9e5e58a1913705";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowPowerBuff = "954a090e4c5b4ebb8f4f1147da244dca";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowVeilBuff = "63885637a87d4084b8e70d757f8713a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShadowVisualBuff = "c929402adad84413ae71f74e32c16575";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShaitanSkinBuff = "23aa8086f7e1443387febaad379f1b73";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShaitanSkinFactBuff = "af8ba313844a4954a8bf8f0897df2c5c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShaitanStyleBuff = "854d02f9bf2949139635b6e2bdbabeb0";
@@ -4723,6 +5307,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanNatureSpiritWanderingBaseBuff = "6d9d58be7c2d16b48b5ae8fdd38a6729";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanNatureSpiritWanderingGreaterBuff = "a57830f7d4aa1fa458ef1817174644cb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanNatureSpiritWanderingTrueBuff = "424485526dc813b4d84e21d43246d4ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanPlagueHexCooldownBuff = "78a3b3b681f845ffba85a8103dfddc39";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanStonesSpiritBaseCorrosiveBuff = "0e36c7e91556bb04fa67db89133c6b58";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanStonesSpiritWanderingBaseBuff = "31fa137926c7c8142af917409a1f8731";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShamanStonesSpiritWanderingGreaterBuff = "580414745c1c8a946a9c34834c4b574f";
@@ -4760,13 +5345,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShatterConfidenceBuff = "14225a2e4561bfd46874c9a4a97e7133";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShatterConfidenceBuffCaster = "8b41f9f3e8350a84aa3126bf543e273c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShatteringPunchBuff = "17837e6083663ad4c93121bb8a5e0b47";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShatteringShotBuff = "5902923779804084b0e2a2510aaf328c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Shelyn_Debuff = "78fa46c078b542c987a702dfbf23b47a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShepherdsPieBuff = "e03e9767ae635064eb03f10d7996aae6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShepherdsPieBuffCompanion = "dc435359dc1711e438048a066eb69443";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldBashBuff = "5566971fdebf7fe468a497bbee0d3ed5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldBucklerMythicBuff = "92f567ab7f8a4d5b9a9b93bc6bf50f59";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldBucklerMythicBuffEffect = "b62ff13062de41de8b2152522084434f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldHeavyMythicBuff = "d5f00d6adef54a9696307919f41ab454";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldLightMythicBuff = "e0436aa9fe3c4f898b7612602ade6c2a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldOfDawnBuff = "07abad76e7b688242b56749cd25f5d3d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldOfFaithBuff = "5274ddc289f4a7447b7ace68ad8bebb0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldOfLawBuff = "0da7299aac601d445a355152084c251a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldTowerMythicBuff = "70482839ee6a4cb89554e0ac95d3476c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldTowerMythicBuffDR = "94de06d2396c4545a24adc5cbb68a56c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShieldTowerMythicCooldownBuff = "3b00ce90448e418fa8f6a7b0df019168";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterACBonusBuff = "06cb4711975e4607a66ea6338cdb8c7d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterACBonusHalfBuff = "571be0c75b714afaace65af1e3b4862d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectBearBuff = "a237792fc2644a4ebc6eefa2d325f181";
@@ -4794,6 +5387,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectManticoreDamageBuff = "1fa33a2ad2da46dc899dcedd2755b201";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectSpiderBuff = "49e196492d2c4aa588bafffea6db8c43";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectTigerBuff = "0555960c7ab8431d86de4e7db0c22160";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectWereTouchedBuff = "20433fe89d654779a3eb44cdc9feacee";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectWolfBuff = "d61bd26255d4425d929d73e57ef0e6dd";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterAspectWolverineBuff = "e0b35a32cf234381ab13c831106937f1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterChimeraAspectBuff = "bbf7614374ae4e3da9e284130473a89e";
@@ -4885,6 +5479,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeTigerBuff = "7a5da4b80a494bf2b96fa7756d3f89cc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeTigerBuff15 = "f49109fdb0a24f75a4ab466bf95843af";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeTigerBuff8 = "defa946808514ab0a1023192fa13ede3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereRatBuff = "90c1e1f586bd4e448a6190e50820726e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereRatBuff15 = "9261713e33624de599d6183d6b7cf2e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereRatBuff8 = "b112b566d38e45cb8c5b8d6310057d08";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereTigerBuff = "7ee57fd97181455a89ecf57421cccb74";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereTigerBuff15 = "1bc5f96600c74a079c8a0c6dafeb3320";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereTigerBuff8 = "072824894a1e4dce933febb58c3e67ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereWolfBuff = "93c43b7a806b410caaeed42eb0bf6a61";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereWolfBuff15 = "34273feba56448bc968dd5482cdfffc7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWereWolfBuff8 = "f7ddb0c090ae46c89774780c7a7968c7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWolfBuff = "fe61e45eb3d1441795179eb0bff1ef3b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWolfBuff15 = "14bf6a8c9f9f40dba2f6fc41e6235270";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ShifterWildShapeWolfBuff8 = "a983157daa464ab7a725ed5f53110a32";
@@ -4937,9 +5540,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SignetOfHouseVespertilioBuffUMD = "e60125fc64084c148b08cf64cafc6572";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SignetOfHouseVespertilioBuffWorld = "a15bdfd2a8bdab841a52495a96745ace";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SiphonLifeBuff = "f7f6eb35c3c615649b94d484df6d1b51";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SiphonTimeVisualAllyBuff = "482d55d83a784853a2eae5ad5deb7aad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SiphonTimeVisualEnemyBuff = "73d093966fa949559a779279a91202f9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SithhudsRodBuff = "568b3b13328f4de192547bf145b7a3a4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SithhudsRodCountBuff = "07bd79cfc56840d58832944b4a9a0acc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SithhudsRodEnemyBuff = "72ba64102d164c27ba9d7f3d2a2ef357";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SithhudSupressBuff = "5ea6052a11de49208af9a2311cc9cdf2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SkaldLoreMasterBuff = "d4f7a91e41fc808448de5cf7f3959d21";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SkeletalFingerRodQuickenNormalBuff = "2e03f85b3e759a743b2cae86b687ba4f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SkeletalFingerRodQuickenNormalBuffCount = "764eaf6df3644680979c1ab890a3c315";
@@ -4994,6 +5600,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmokedTroutPateBuffCompanion = "b3ad986dcadd1e24cbb3f2e6bac59fed";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SmokingKillerBuff = "00754e23193329e42b60c9d3d1863a67";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SnowballBuff = "f767ee03a6cb62943b59bacbd8ced2e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SnowcasterChangeDamageBuff = "9a71b88260964515be86bb1a0ec451a0";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SnowHeavyBuff = "4a15ab872f11463da1c1265d5b4324ad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SnowLightBuff = "26d8835510914ca2a8fe74b1519c09ac";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SnowModerateBuff = "845332298344c6447972dc9b131add08";
@@ -5004,6 +5611,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoheiMonasticMountBuff = "cb4b3ae967ef00d469072d8201d490b8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SolarWindsBuff = "7f157cec45d28e54f9e580425d0fbdbe";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoldierTransformation = "3a436243076201940aae722f6726f2f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SomeonesBonesBuff = "c77916b6883a4664a078913fc8615b79";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SOngBirdTeleport = "966f4b362adb402ab6edd80ddf3ae64d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfBrokenChainsBuff = "c0b272d331d88c54c812ba54e00b1414";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfBrokenChainsEffectBuff = "04b290e42dad4524a8f650f511e80627";
@@ -5025,13 +5633,37 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheFallenBuff = "83518d367a854084699b7e1902a3fcc2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheFallenEffectBuff = "7ee5e0130b80af248afd83ee917568e2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheFallenResurrectionBuff = "e2cd971a6a004c53b55abd336ac8da03";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheFallenResurrectionBuffOwnPlace = "a9f029e2495145d9934423b70d8b1f2d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheSensesBuff = "3cef02737be9d434698ba7a1427d2e77";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongOfTheSensesBuff1 = "1e551c146d52e6446aacae961a79164f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SongsOfSteelBuff = "6867deda1eda183499ae61813c2f5ebb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoothingMudBuff = "43987612545014a4fac59bb91d9098a4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoothingMudCooldownBuff = "7039b533f248a9a4aa3abffd6e83c9ca";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoothingMudDifficultTerrainBuff = "c665f5ad38ba1a447b153d0a1ac082a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsAnarchicBuff = "babbdad80ad14f8499566fc5fc9f774e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsBuff = "4d5eeb40095a4f999a78a8407391d468";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsBuffEnchanted1 = "6ef2c6dd0e4643fba2ced7078d02fc90";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsBuffEnchanted2 = "4838a4d663f6446f91d16cdbb7151f22";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsBuffEnchanted3 = "b61f3d60a1e64ac190471668803212fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsCorrosiveBuff = "2304ae0d23e54eba8e67dc42b1f07b11";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsCorrosiveBurstBuff = "7838272d32bc4f768374fb795ecbaae2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsEnchantPlus1Buff = "af1c2bd28bd14d6d8a69b1f5581f3e7c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsEnchantPlus2Buff = "28d99cd4549a45f6aeab5e9cfb0979a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsEnchantPlus3Buff = "e232f956b1f34920948ba9cad57a8a18";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsEnchantPlus4Buff = "77028c4ec6194b7b84002c10d4e46618";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsFlamingBuff = "52184e85ccf94cf693fa00c645ca37c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsFlamingBurstBuff = "520e30f3a33c4fbe8f8679d92d9c2b42";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsFrostBuff = "47b96df5202a467e8833a128b7e647b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsIcyBurstBuff = "eba65404a8604eba94f8d6a5804edd19";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsKeenBuff = "cac7689eaf154921bf3fad960749a5e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsNullifyingBuff = "7f2f64fa82de42f1b1ca0e16749f7c96";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsShockBuff = "12d47af77faa4dac8821832acc4d00b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsShockingBurstBuff = "9b0274de35ec42699fc8b48f46bb801a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsSpeedBuff = "54fb5de44bdf4ac7bf13211eeda3e145";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsUnholyBuff = "cf46ee2e17304ecbab24c1d15b7ef9a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousClawsViciousBuff = "2e4596711b3343148f08d99ea52d460f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SorcerousReflexMythicBuff = "ab4d366a25ab96d4da3db4193040bf80";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Sosiel_NakedPolymorph = "f9abd4a04247494c846ccee056e17799";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Sosiel_Q2_ImpostorArmorPolymorph = "44f41eddb3c6d5b4f9a8ca50afeeaee9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SosielQ2_ShadowGreater_BuffNoFx = "96c233c49474afb49a68bfc8ab4dcf8d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SoulOfStoneBuff1 = "20635613025d507438a71114e5ade215";
@@ -5067,6 +5699,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpikeGrowthBuff = "61e4c91337c2ef645b748482ad639873";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpikeStonesAreaBuff = "65405cf96ae9a69469e9227d97e3df57";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpikeStonesBuff = "d8155deae892d274b882a7ff2092226c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpilledFireBuff = "c0fd5649366c421f814459e0c22fe61b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpiritedChargeBuff = "5a191fc6731bd4845bbbcc8ff3ff4c1d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpiritedChargeCheckMountedBuff = "663b3eb6335c4e8887919c7077814b97";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SpiritThrasherBuff = "0c3d5d3637884aa2834bad78dc065682";
@@ -5117,9 +5750,21 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StoneskinCommunalBuff = "714244637d461354b85b1808e7c6c814";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StonestrikeBuff = "493c3ccfedb94eae8cd461d3ad7cd06a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat = "bef9c5a7d9951ed46b18cf1abda2c6ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat_CampBattle_Beast = "3b68813237444a2b9c7f8a3233aa0c3e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat_CampBattle_Prisoner = "a068818fcb0d4b0d97d1e1aed66ff82f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat_RichQuarter = "d9d57afb721f4e059dd40d59ad6a4ff3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat_RichQuarter1 = "5b118996b9ef41028e97332ef9d4060b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StopCutscenOnCombat_RichQuarter2 = "5e6c55c73f5341f3bc72b76211c305dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaConcentratedPoisionDebuff = "1a7963ecf89d419c89387d25b2904cc5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaConcentratedPoisionDebuff_Poision = "cdcbea8dbbcf4a258e212fecb0d88251";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaCorruptionFXbuff = "48edab17116749fd8da940c5be1c831f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaDruidForestBuff = "f19183c268b4468eae1500b05892bb72";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaFlowerBuff = "dd3d6bc47ce647c48f6aea092489b02f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaFlowerBuff2 = "ae4a12bbb3c14197848a5989387b3c78";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaFlowerDebuff = "214ce56c60364fffac3966c96d708b43";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaFlowerPoisionImmuneBuff = "5e546b27c6aa485782d6877ffc5fbf66";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaIceGround = "1fd0d50453d84f68b3528779920acf38";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StorastaPoisionDebuff = "28aaebffe83f43db9c1e146b147d16b2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StormCallBuff = "e74b11fb5688f7e438ea949475f99d56";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StormcallerBuff = "2f03667e3e37ccd4abd4d266aae119bc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StormKingsBeltBuffFirst = "507a2b21b6b74142908e5c6d374d94be";
@@ -5138,6 +5783,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthBlessingMinorBuff = "2a87749f35b8b914ca57986192e8be01";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthDamage = "fd4946e68a5209e48a05811850be7ee3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthDomainBaseBuff = "94dfcf5f3a72ce8478c8de5db69e752b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthDomainBaseBuffSeparatist = "a69cd61211884ef18b58acb74003ad6d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthDrain = "b004088a3406f96459566209f3973b7a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StrengthDrainBuff = "9c6c55c0959045fea7d28bcf3cf337b5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StudentOfWarDeadlyBlowBuff = "7795183a0e72ec14cb2e4d51acc53773";
@@ -5148,10 +5794,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StudentOfWarKnowYourEnemyMartialStanceExtraBuff = "8fe5dcd328cc9cc4ea2c6aebda52d2e8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StudentOfWarKnowYourEnemyTacticalStanceBuff = "61d4fb7720e25b3498c93043d369c35a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StudentOfWarKnowYourEnemyTacticalStanceExtraBuff = "c7ac255b39684584c962dc02750a25d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StumblingBashBuff = "ab6b5395f4984bf68829c9840b18d9a4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Stunned = "09d39b38bb7c6014394b6daced9bacd3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunnedBuff = "4397f91671007c5488e9787f5c0e6541";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunnedPerfection = "586e6397e05a463981b59a2d5b17bc1e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunningBarrierBuff = "705fec87d90607444a1ae629acfeb94e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunningCriticalBuff = "29229b1722a94d709a5a59a80d6348e5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunningFistOwnerBuff = "d9eaeba5690a7704da8bbf626456a50e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunningFistOwnerFatigueBuff = "696b29374599d4141be64e46a91bd09b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> StunningFistOwnerSickenedBuff = "4d7da6df5cb3b3940a9d96311a2dc311";
@@ -5186,15 +5834,25 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonMonsterFiendishBuffI = "c707fdbe58d0c614a89a872b76777f4b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonMonsterFiendishBuffII = "4b808ccd7e0b7bd43b10b2d47733b1a4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonMonsterZeroBuff = "dd704850ff30c73448f6efcf51845c0f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonShadowAfterDeathBuff = "748509889e514edeaf32336eba2f5e42";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonShadowAfterDeathBuff20 = "f61fb5524e904cea8b912741897c4275";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummonShadowAfterDeathBuffCapStone = "b7e9dfabc81147a2b7d99ef9bdcbd6d5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SummunedCreature_LootPermission_Buff = "a489f5057ceb43b79c82def4be796401";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunbeamBuff = "b91739cccaa7f4c4aa68844973b2875e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunBlessingMajorBuff = "c5081302a5dd5f94b87c01a97cb8191d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunderArmorBuff = "f508d20a350acb34db6293f5654f0b24";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunderHopeBuff = "ce7c49e5417c4988a33f37151442e9e4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterBuff = "1389631f36e53704aba0e1c66ebbd393";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterBuffSeparatist = "0b519a914adf4d4a9e7f8409913b6fa3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterEffect = "961c490ad2a455a4da994d14e8d994f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterEffectSeparatist = "6bde729f14aa49048f9dee8fc304e271";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterImmunityBuff = "b77ed095b1821424594e3b102e5c9d35";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SunDomainGreaterImmunityBuffSeparatist = "d1e945250cde4a5dad35e8882e0ed66d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SuperiorityOfColdBuff = "889002142ad844a8854cfbe49e29c7c8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SupersonicSpeedHasteBuff = "89b097012ac11d74db2a54aa5d28c150";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SuppressAllBuff = "8eca2611e4324e99ab430a4c1f33abcf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SuppressBuffs = "29edf497392033e46acdeba6af27191b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SureFootingBuff = "27d63f8c2f8940389d8f9e3d74a7f0b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SwampGasDOT = "95f87c9e430e5314fab51d882babdecf";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SwampseerPoison = "cf56dedd4dcf19e40a2d297ccf485e92";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SwarmbaneClaspSavingThrowBuff = "facea2a1e2894d0680d4e7cee79ebc3a";
@@ -5223,6 +5881,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SwordSaintPerfectStrikeBuff = "e194d672b44eabd418e80f4bd2308a5b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SwordSaintPerfectStrikeCritBuff = "54deca24695cb0c4fb6fc8e4c1861eef";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SycamoreBanditsSleeping = "57c96a590bfbd4f4cacd5c2e74e2667a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SymbolOfVulnerabilityBuff = "d914c77a783c4daab22ce45150e271b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SymbolOfWeaknessImmunity = "6b00db91842941fb93fbdb53c666dba9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SynapticInfusionBuff = "67fc7492f198c8d4aace14d28e0ad438";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> SynapticInfusionEffectBuff = "d772812e0c5a6014499fc20a6824a545";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TacticalLeaderFeatShareBuff = "a603a90d24a636c41910b3868f434447";
@@ -5230,10 +5890,59 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TaffyBuffCompanion = "4cf235499970c3b4aacf30adf499f06a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TaintedSneakAttackBuff = "7860e92789511a24dba5906ac8d65f90";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TaintedSneakAttackWeaponVulnerabilityBuff = "7acdb0db8a72489bb0458306923fa33e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerBuff5 = "a36a5a55368247b48be08b585dcb1235";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontLetHimFocusBuff10 = "1dc3fbb995744bf68f0127b6d418086e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontLetHimFocusDebuff = "813a2ace7bc34e2f8b29f12574a1b31b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontLetHimFocusPetBuff = "61f3cfa0350643d3977ee935c9658a2c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontLetHimFocusTargetBuff = "dcdf3da7398a41c68f29f94caeff92c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyCasterAttackerBuff = "45fdadbde76943c4a9a79435ee08ebf2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyCasterBuffToAttack = "74308bdcd2fe4783975721ff60539056";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyPetAttackerBuff = "23ef4683eeb54d49af794dc448e47e1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyPetBuff = "dd265c20ca2542468c4f658a903400e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyPetBuffToAttack = "e51d3067385142e997a0053a433c0a72";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerDontTouchMyBuddyPetTargetBuff = "dbc7580fa4b14e5680b64e11db25c6c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItBuff = "71cf34fcef1f402ab6e7a65d9cae88f6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItCMBBuff = "628b91e9af13427db3f8c23ea1bf5eee";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItPetAttackBuff = "aedc5fd2f7954bb29e7e42d20646ebad";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItPetBuff5 = "56fb44d45a234aedb3ef805eff930d1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItPetTargetBuff5 = "6f95c7c597ec4381b1dfda1d87d5d537";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerIPushItYouBiteItTargetBuff = "3221d9e24718454b922e191888aad414";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerMakeItBleedBuff = "ec7719b9c30744d7866161a52278008d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerMakeItBleedPetBuff = "6e9f2ef9f44940c9be24b780089ce760";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerMakeItBleedPetTargetBuff = "8628fad415e54450b2630892e0743953";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerMakeItBleedTargetBuff = "a690349a66824c60821906b05b1db9e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerMyPetBuff = "4af3fd654226468985fec9fbf1dd9238";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerPenetratingCascadeDebuff = "e32be57d84a74d68aeb8ba8738d37655";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerPenetratingCascadePetBuff = "460652787d164f8c9f77654535d7db33";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerStudyTargetBuff = "1a4ca04c05034cdbbfaf82d9b7db387a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerStudyTargetBuff60Feet = "f29c1c8f38a44ac08e9f55358b03450c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerStudyTargetPetBuff = "8c3ef4aa8efe47ae870a3aec1acfada3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTakeYourToyDebuff = "100895a35e1a442a944433bacfce3032";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTakeYourToyMarkBuff = "ecd74790010f4fbaacc03bbd753dc758";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTakeYourToyPetBuff = "3f5f431e476a4fe4beee7dc315e642ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTidbitDebuff = "023a17656eec4ec297ce80a87134dc07";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTidbitIsCasterBuff = "96b2069c88e04b988c1696edf5dae7cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTidbitStartCombatBuff = "ab7cc5c993064615bbd1bac1865e955a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTidbitTargetBuff = "29496fc9e2f74fcd9232d01c8349a96d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerTryToHitMeBuff = "414a36420cae48eab7ddfe3425f459e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerVisualBuff = "784d2c42ebd34a798ef08bb0b7bcbee3";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchOutForTheSpellCooldownBuff = "74db9114764342999aab7af9f61a4247";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchOutForTheSpellPetBuff = "499b7a74611442a5a6e1ede222c22398";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchOutForTheSpellPetCooldownBuff = "934331d95aa74d60a71e808db1a4084a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchYourBackCooldownBuff = "1f48332a1a7e42a5b2c099e04d4a99a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchYourBackPetBuff = "7a5328096ad345459d7145890c6f0267";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWatchYourBackPetCooldownBuff = "a27ad8d5d54d4c0c8cba65a357e1cc31";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWeakenTheSpellDebuff = "7a363ba1ed654ceb84114eb28f1e908e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWeakenTheSpellTargetBuff = "c39f76aaa368446d8a82077beb50a6db";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWorkInTandemBuff = "96c54b4d9c8744d7a66af0c9eaca9c6b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWorkInTandemPetBuff = "67b9d6cf2aa7467c872c75d8bc67ccba";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWorkInTandemPetTargetBuff = "72d3ae6fc35342c2b8f2c7265aa74412";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TandemExecutionerWorkInTandemTargetBuff = "59b856fface7471295d9dc76bbd67e7c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TanglefootBombBuff = "696073ae669097a4ca3a5c8765fa4a3f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TanglefootBuff = "3642547f895815f4786b7f2ac716e03e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TarantulaFamiliarBuff = "0a18a56ea5a7e7c4384b0305e6d8e3ad";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TargetedBombAdmixtureBuff = "768b4b33721a36d4c8030e4878a13d28";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TargetedBombAdmixtureDamageBuff = "0b310bce7d5a4b4f82447250198421b6";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TargetedImpatienceBuff = "15778ac520b29294d8677801f414198d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TargetedPatienceBuff = "01587286983a7334f82a388462e52874";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TarPoolDazeBuff = "a3cbe662a479aa14eafdeb10ef555f68";
@@ -5266,6 +5975,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Test_Bebilith_Blueprint_Buff_3 = "b7c6e2a0793f9f847a0b2cc7a0f5cbce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> test_ghoul_polymorph = "e1c332f071a34d7ea6e0dd752936332e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TestAttackBuff = "c741146e5f8743cba83fbdcf61069562";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> testbuffdr = "ba86e7db53a346c1b1876b2ec548e7ed";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TestKittenSound = "1c37b29619db0a94b900e72e39cf1a83";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThanadaemonFearGazeBuff = "b4da0d8d53a631245b3fe4407ea6a8b3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TheBlizBuff = "acbb335913b0c7f4b9a49c25ec20c4c5";
@@ -5303,6 +6013,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThornBodyBuff = "3749c8ac1a99a5f488f5782f74807eec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThornBodyEffect = "f3ffd9d76eca05f4ebb44cde2e0c2585";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThoughtsenseBuff = "2c219dfbaa010f84f9530a29e9a2bedc";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThousandDiseasesBuff = "3d80ace02167452099201a099cc60c9e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThrowingAxeOfSilenceBuff = "e4b8a158e8aabfe41b5e0bd334d8c386";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThugBrutalBeatingBuff = "a6849b8d135a47e49a94a62e428155c7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ThunderingBlowsCDBuff = "93d9164ecbb4a45409325fd1cfa9a426";
@@ -5316,10 +6027,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TigerGrappleBuff = "8bb05c01ce3c449faaea8b19b9fbc57b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TigerGrappledInitiatorBuff = "652a71aaa0c3492db4ee5b006dfc18fb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TigerGrappledTargetBuff = "a55e4d7febc3488cbb087c632f83fc52";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TigerWeaponCritical15thlevel = "2266d03491294d69bb3ec0586e723786";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TigerWeaponCritical8thlevel = "31931409df1346b1969cffab0ed649f8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TightGripOfAnguishBuff = "2be5c9d017fb420428040539a2238761";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TimelyAssistanceBuff = "a98732802108473e9b01e59a8dee7617";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TiringCriticalBuff = "f9c038203b03ea14498d811b6a61af0a";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TokenOfHonorBuff = "ab092ad237384b46b2fb192e6305f673";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TopplingBashCooldownBuff = "9726b5f26a2f44bb9fdf944bdf69a24e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TopplingBashTripPenaltyBuff = "09605c9c3199448f821b2ed9d2a68c54";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Torag_Buff = "670c68d09634481faec2cc6d948471d1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TorchAnimations_Buff = "06d32871142844e5a14d43c6e0ca9bb4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TouchOfFlawBuff = "f9feed229f370e747b999617ffc6dadd";
@@ -5367,6 +6082,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterInvisibilityAlmostGreaterBuffEffect = "68e1b45cc4d847f4986189017eea0dc4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterLuckyLeaderBuff = "85b38d542e084bf08f3cc9894d3367ec";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterMicroscopicProportionsBuff = "1dfc2f933e7833f41922411962e1d58a";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterPersuasionDebuff = "59d5b088ca25459d9a19a94b3d5fdc68";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterSneakyQuackBuff = "b4c5e546ade2ca043b3d7557a7090f8b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterStealthTier1Buff = "de4428f6828fbd14490a2d821d3063f8";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> TricksterStealthTier2Buff = "cdfb5dca7d93d574cb15f59c0625059c";
@@ -5405,6 +6121,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Tyvanadis_PolymorphBuff = "7043d89b0bb64cadbe74a6814b496b9e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UltrasoundArrowsQuiverBuff = "76ebdeb2b69a61641aebd6537d456e44";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnavoidableDrillBuff = "30feea4a32a4b88438b356649e6cf2aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnboundFormBuff = "f4ff2150f6c74b59ace9f9e727cb697e";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnboundRageBuff = "303c52f8ca064d558f1c47ba354db006";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnboundRageExtraBuff = "11c712b6c587419191226b89e36b324b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnbreakableBondAreaBuff = "80ee3557e312a0b449c7a5af33acf64f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnbreakableBondAzataBuff = "b337e472161a498449f072a129e7b7a1";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnbreakableBondImmunityBuff = "e60806180806b4c488f0d45af1035917";
@@ -5412,6 +6131,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnceasingSlaughterBuff = "5f47399b942cd3c44a60ff1988b58160";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UncertanityPrincipleBuff = "9d548047184ab2740938b071b1250783";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> Unconsious = "31a468926d0f3ab439b714f15d794a8b";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UndeadSubdomainBaseBuff = "82412cb7918c411b9731985a3b3cb3e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UndeadSubdomainBaseBuffSeparatist = "dcc7cc8f186c448ea4446540b07d0a34";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnexpectedResolutionBuff = "3e6a1a17cd025e144be852576dd25df9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnfailingBeaconBuff = "05de8faa859c32d41838326ab1674272";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> UnholyAuraBuff = "9eda82a1f78558747a03c17e0e9a1a68";
@@ -5466,6 +6187,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VavakiaAspectSwitchBuff = "31f37026699ed2a4f84661038570c1ff";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VeilOfHeavenBuff = "f5d3311a675a7174dad7ffa99a81ad56";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VeilOfPositiveEnergyBuff = "d72cc6b3a65d31247b37faf600a17977";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VengefulCometsBuff = "df180c5adffa4d6dbb16e57fc1c48232";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VengefulCometsCooldownBuff = "ca9649b0299345b3824eb03ab0982de2";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VengefulCometsCooldownFireBuff = "a722875127d04151b2777bb5190a8a19";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VenomousSpiderPoisonBuff = "af53df9781214228aaf8bf7dc81719a5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VenomPoisonOneBuff = "66d178727d5804f4d907330437d09ee9";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> VenomPoisonSecondBuff = "dccf1f1c6a7ecfc45be3628afb5d28ed";
@@ -5527,6 +6251,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WardMastersAmuletBuff = "48d4d2cf3b8944448be5c7bb7576e4ce";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WardMastersAmuletPermanentBuff = "26fc95271945cd341aaaac9a14ed0b64";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WarDomainBaseBuff = "aefec65136058694ab20cd71941eec81";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WarDomainBaseBuffSeparatist = "ed756340f71a4022b4031175a39cec2e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WarpriestAspectOfWarBuff = "27d14b07b52c2df42a4dcd6bfb840425";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WarpriestSacredWeaponBuff1d10 = "e62b125c9f49b084b95a487a6bfb1b7c";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WarpriestSacredWeaponBuff1d6 = "75a3eaf9cff6acd4a8385ba91ffa329a";
@@ -5541,6 +6266,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WaterFilthFeverBuff = "803c039d06444c7f9fbf47408c1edcb3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WaterTorrentBuff = "62a04b00cef8bba4ca63e956f6184e6e";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeakenArrowsQuiverBuff = "784043a11f7404c42a97ba4d55417d23";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeakeningSneakAttackDamageBuff = "b7a0fda5f2f247a8990cf4303d42d3d5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeakeningSneakAttackEffectBuff = "0683ba5c2a684b7981313a621fd4865d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeakeningSneakAttackTargetBuff = "fd363e92fbb64207bc495f6b600cbd33";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeakeningWoundBuff = "9e0d01f2eb934a74bb27d0dbe924aaa7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeaponBondAxiomaticBuff = "74414d3b4aebef9488aaf9b9bec60d59";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeaponBondBrilliantEnergyBuff = "dc60f7ff4d985054a9f746aad585558d";
@@ -5558,8 +6286,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeatherBlessingMajorBuff = "28da782b9601987438e286ab302461d4";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeatherBlessingMinorBuff = "05a33a6177bf7f54695443fdf3faa701";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeatherDomainBaseBuff = "d29d7ab73b547954f9395c4738c3ecd5";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WeatherDomainBaseBuffSeparatist = "5a6c8b5b81d0477c95c8bcf9ac695adb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WebBuffSlowMovement = "bb72a758112438e4a9c62f7637c974ae";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WebGrappled = "a719abac0ea0ce346b401060754cc1c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereRatDRBuffInWildShape = "ccef241165754c0da3770d202a3c848c";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereTigerDRBuffInWildShape = "f179c3857759434c8d6e7a6c52be41b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereWolfDRBuffInWildShape = "7821f7f18bd0465f801e0711d9629eef";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereWolfShifterBleedBuff = "a42203df493346ea87d257c58a8757ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereWolfShifterBleedBuff15 = "d66855d9355e443b960d490034a92cfd";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WereWolfShifterBleedBuff8 = "5f5bc888f358434780ec60ed93375ef2";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WhispersOfMadnessBuff = "c3443ad78f555e746b0cbdecd8f9b19b";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WhispersOfMadnessEffectCooldown = "2730acd272e412e47a32f680a68d0a1f";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WhiteroseOystersBuff = "45082bf27cf15e94ca0fae92dc3db992";
@@ -5571,6 +6306,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WickedKukriBuff = "2521b317029abc74c9ee6f9e46bb90a3";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildGazeBuff = "074cd9850a633af43b88d8b9ad7a9f1d";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildGazeImmunity = "2e64086ebcd066c4b8d1e46c00c8636f";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildGazeImmunityBuff = "ea6acde3975147f79d61025b70fb99fb";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildLink_ArcherBuff = "13c1b11c5bcdde848b5d059f8195ccdc";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildLink_ArcherEffectBuff = "f325218a4482d0145a94dcdb5b3bcb42";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> WildLink_MonarchBuff = "5857e506ac57a8846bcd20faf0331319";
@@ -5749,6 +6485,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZombieDeathEffectFrostBuff = "83afc5e1d3364312998d1138ebf4fac7";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZombieDeathEffectPiercingBuff = "0fcc0b579b904cdc9bf9057fd7242cb5";
     public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZombieDeathEffectSlashingBuff = "912375890d1543ddbce40176d06bb85d";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZoneOfFullDarknessBuff = "ac08caf9d3db4c6f8b3a6afbc656d647";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZonKuthonBuff = "83ee9bf48b4249858df8f8ea5fe6ef06";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZonKuthonScarBuff = "fbb677d91f924b99a3610ae79f6468fa";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZonKuthonScarHalfHPBuff = "9a47f56d0a1f42d9bf820da1d78919a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintBuff>> ZonKuthonScarHalfHPTriggerBuff = "b5eb1d0094f744889ca22bb4cfc1e648";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintBuff>>> All =
       new()
@@ -5799,6 +6540,7 @@ namespace BlueprintCore.Blueprints.References
           AcidBombBuff,
           AcidCloudsBuff_DLC2,
           AcidFogBuff,
+          AcidFogBuffPlant,
           AcidicSprayBuff,
           AcidMawBuff,
           AcidMawDamageBuff,
@@ -5890,6 +6632,7 @@ namespace BlueprintCore.Blueprints.References
           AggressorMarkBuff,
           AidBuff,
           AirBlessingMajorBuff,
+          AirBlessingMajorWingsBuff,
           AirBlessingMinorBuff,
           AirElementalInWhirlwind,
           AizerghaulBuff,
@@ -5897,13 +6640,19 @@ namespace BlueprintCore.Blueprints.References
           AlchemicSourceBuff,
           AlchemicSourceNonAlchemistBuff,
           AlchemistsFireBurnBuff,
+          AlchemistThrowAnythingBuff,
           AlderpashFoodBuff,
           AlignWeaponChaosBuff,
           AlignWeaponEvilBuff,
           AlignWeaponGoodBuff,
           AlignWeaponLawfulBuff,
+          AllIsDarknessSmiteBuff_NoScabbard,
+          AllIsDarknessSmiteEvilBuff,
           AllRoundDefenseBuff,
           AllRoundDefenseVisualBuff,
+          aloneinthedarkgiverbuff,
+          AloneInTheDarkStatsAfterDeathBuffGiver,
+          AloneInTheDarkStatsBuff,
           AlushynirraDemodandSlaveBuff,
           AmberLoveLightCrossbowBuff,
           AmberLoveRodBuff,
@@ -5912,6 +6661,7 @@ namespace BlueprintCore.Blueprints.References
           AmiriCampBuff,
           AmuletOfDevourBuff,
           AmuletOfJoustingCountBuff,
+          AmuletOfQuickDrawBuff,
           AmuletOfUnforgivingElementsAcidBuff,
           AmuletOfUnforgivingElementsColdBuff,
           AmuletOfUnforgivingElementsCountBuff,
@@ -6115,7 +6865,9 @@ namespace BlueprintCore.Blueprints.References
           ArcanistExploitSpellResistanceGreaterBuff,
           ArcanistExploitWoodenFleshBuff,
           ArchaeologistConfidentExplorerBuff,
+          ArchaeologistLuckActivatableBuff,
           ArchaeologistLuckBuff,
+          ArchaeologistLuckBuffMythic,
           ArchonsAuraBuff,
           ArchonsAuraEffectBuff,
           ArchonsAuraImmuneBuff,
@@ -6162,6 +6914,15 @@ namespace BlueprintCore.Blueprints.References
           ArmExtendersCountBuff,
           ArmigerArdentRerollBuff,
           ArmigerArdentRerollCooldown,
+          ArmorFocusHeavyMythicFeatureOffenceBuff,
+          ArmorFocusHeavyMythicFeatureVar1Buff,
+          ArmorFocusHeavyMythicFeatureVar2Buff,
+          ArmorFocusLightMythicBuff,
+          ArmorFocusLightMythicOffenceBuff,
+          ArmorFocusLightMythicVar2Buff,
+          ArmorFocusLightMythicVar2BuffExtra,
+          ArmorFocusMediumMythicFeatureOffenceBuff,
+          ArmorFocusMediumMythicFeatureVar2Buff,
           ArmorMasteryBuff,
           ArmorPlatingShifterBuff,
           ArmyACAgainstRangeAuraEffectBuff,
@@ -6376,8 +7137,11 @@ namespace BlueprintCore.Blueprints.References
           Artifact_TricksterCloakBuff,
           Artifact_TricksterCloakPenaltyBuff,
           ArtificeDomainBaseBuff,
+          ArtificeDomainBaseBuffSeparatist,
           ArtificeDomainBaseEffect,
+          ArtificeDomainBaseEffectSeparatist,
           ArtificeDomainGreaterEffect,
+          ArtificeDomainGreaterEffectSeparatist,
           ArueshalaeImmortalityBuff,
           AscendantSummonsBuff,
           AshLeprosyBuff,
@@ -6388,6 +7152,7 @@ namespace BlueprintCore.Blueprints.References
           AspectOfTheStagBuff,
           AspectOfTheWolfBuff,
           AssailantsBeltBuff,
+          AssassinAlterEgoBuff,
           AssassinCreatePoisonAbilityConBuff,
           AssassinCreatePoisonAbilityConBuffEffect,
           AssassinCreatePoisonAbilityDexBuff,
@@ -6396,9 +7161,19 @@ namespace BlueprintCore.Blueprints.References
           AssassinCreatePoisonAbilityStrBuffEffect,
           AssassinDeathAttackAbilityKillBuff,
           AssassinDeathAttackAbilityKillBuffEffect,
+          AssassinDeathAttackAbilityKillCooldownBuff,
           AssassinDeathAttackAbilityParalyzeBuff,
+          AssassinMarkOfDeathBuff,
+          AssassinMarkOfDeathCasterBuff,
+          AssassinMarkOfDeathIgnoreBuff,
+          AssassinMarkOfDeathPenaltyBuff,
+          AssassinPoisonInitialDamageBuff,
+          AssassinPoisonRerollBuff,
+          AssassinPublicExecutionBuff,
           AssertionOfDominanceBuff,
           AssertionOfDominanceBuffResist,
+          AstralDevaSarenraeWrathAuraBuff,
+          AstralDevaSarenraeWrathAuraFeatureBuff,
           AthachPoisonBuff,
           AttachAeonEyeBuffIfPlayerIsAeon,
           AttachAeonEyeBuffIfPlayerIsAeonAfterQ5,
@@ -6412,6 +7187,8 @@ namespace BlueprintCore.Blueprints.References
           AuraOfAngelicAspectGreaterEffectBuff,
           AuraOfClearSightBuff,
           AuraOfClearSightEffectBuff,
+          AuraofColdAreaEffectDebuff,
+          AuraofColdBuff,
           AuraOfCourageBuff,
           AuraOfCourageEffectBuff,
           AuraOfFaithBuff,
@@ -6469,6 +7246,7 @@ namespace BlueprintCore.Blueprints.References
           BakedSpiderLegsBuff,
           BakedSpiderLegsBuffCompanon,
           BalefulPolymorphBuff,
+          BalefulPolymorphFrogBuff,
           Balor_FX,
           Balor_FX_death,
           BalorAspectEffectBuff,
@@ -6515,6 +7293,8 @@ namespace BlueprintCore.Blueprints.References
           BearGrappleBuff,
           BearGrappledInitiatorBuff,
           BearGrappledTargetBuff,
+          BearingTheShardBuff,
+          BearingTheShardTempHPBuff,
           BearsEnduranceBuff,
           BeastShapeIBuff,
           BeastShapeIIBuff,
@@ -6547,6 +7327,7 @@ namespace BlueprintCore.Blueprints.References
           BeltOfPerfection8ExtraBuff,
           BeltOfPrimalForceBuff,
           BeltOfThunderousChargingBuff,
+          BestialHowlBuff,
           BestialRagsBuff,
           BestowCurseDeteriorationBuff,
           BestowCurseFeebleBodyBuff,
@@ -6562,6 +7343,8 @@ namespace BlueprintCore.Blueprints.References
           BetrayalFirstBuff,
           BetrayalSecondBuff,
           BigGameGlovesBuff,
+          BindingFrostBuff,
+          BindingFrostRank,
           BindingsOfThePrinceBuffCaster,
           BindingsOfThePrinceBuffTarget,
           BlackDragonFrightfulPresenceBuff,
@@ -6583,6 +7366,7 @@ namespace BlueprintCore.Blueprints.References
           BleedConst1d4Buff,
           BleedEnchantment1d6Buff,
           BleedImmunity,
+          BleedingCriticalBuff,
           BleedingInfusionBuff,
           BleedingInfusionDamage,
           BleedingInfusionEffectBuff,
@@ -6591,6 +7375,7 @@ namespace BlueprintCore.Blueprints.References
           BlessingOfLuckAndResolveBuff,
           BlessingOfTheSalamanderBuff,
           BlessingOfUnlifeBuff,
+          BlessWeaponBuff,
           BlightedQuickwood_Buff_Fear,
           BlightedQuickwood_Buff_FearAvailable,
           BlightedTreant_Buff_TaintedBlood,
@@ -6605,6 +7390,21 @@ namespace BlueprintCore.Blueprints.References
           BlindnessUnstableCombatBuff,
           BlindVictimBuff,
           BlinkBuff,
+          BlizzardAbyssIcyArmorBuff,
+          BlizzardAbyssTier_I_Buff,
+          BlizzardAbyssTier_II_Buff,
+          BlizzardAbyssTierIDebuffBuff,
+          BlizzardAbyssTierIIDebuffBuff,
+          BlizzardElementalHugeWhirlwindBuff,
+          BlizzardElementalWhirlwindDebuff,
+          BlizzardServantFxBuff,
+          BlizzardServantWhirlwindAbilityBuff,
+          BlizzardServantWhirlwindDamageBonusBuff,
+          BlizzardServantWhirlwindDebuff,
+          BlizzardServantWhirlwindHugeBuff,
+          BlizzardServantWhirlwindLargeBuff,
+          BlizzardServantWhirlwindMediumBuff,
+          BlizzardServantWhirlwindSmallBuff,
           BloodClarityBuff,
           BloodDrinkerBuff,
           BloodFeasterBuff,
@@ -6779,6 +7579,15 @@ namespace BlueprintCore.Blueprints.References
           BloodragerFormOfTheDragonIISilverBuff,
           BloodragerFormOfTheDragonIIWhiteBuff,
           BloodragerGreaterBloodrageBuff,
+          BloodragerHagBloodlineBaseBuff,
+          BloodragerHagBloodlineCurseConduitBuff,
+          BloodragerHagBloodlineEvilEyeBuff,
+          BloodragerHagBloodlineEvilEyeDebuff,
+          BloodragerHagBloodlineEvilEyeDebuff8,
+          BloodragerHagBloodlineHagCovenguardBuff,
+          BloodragerHagBloodlineHagFortitudeBuff,
+          BloodragerHagBloodlineHagTransformationBuff,
+          BloodragerHagBloodlineHagTransformationBuff16,
           BloodragerIndomitableWillBuff,
           BloodragerInfernalBloodlineBaseBuff,
           BloodragerInfernalDiabolicalArroganceBuff,
@@ -6813,15 +7622,22 @@ namespace BlueprintCore.Blueprints.References
           BloomInfusedSpiderMatriarchPoisonBuff,
           BloomInfusedSpiderPoisonBuff,
           BlurBuff,
+          BoarFerocityBuff,
+          BoarShredBuff,
+          BoarStyleBuff,
+          BoarStyleCooldownBuff,
+          BoarStyleTargetBuff,
           BodakDeathGazeBuff,
           BodakLairMiniboss_Buff_DesecrationAura,
           BodakLairMiniboss_Buff_DesecrationAuraEffect,
+          BoilingWaterBuff,
           BombersEyeBuff,
           BoneAmuletBuff,
           BoneFistsBuff,
           BoneShieldBuff,
           BonesOfStoneBuff1,
           BonesOfStoneBuff2,
+          BoneSpearDeleteBuff,
           BoneSpearDismemberBuff,
           BoneSpearProjectileBuff,
           BooksOfDreamsIIIStageBuff,
@@ -6831,6 +7647,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfFreeReinBuff,
           BootsOfMagicalWhirlBuff,
           BootsOfMagicalWhirlCountBuff,
+          BootsOfTheRat_Buff,
           Bosses_Teleport,
           Boulder_Feature,
           BowlingInfusionBuff,
@@ -6853,6 +7670,7 @@ namespace BlueprintCore.Blueprints.References
           BreakControlCountBuff1,
           BreakControlCountBuff2,
           BreakControlCountBuff3,
+          BreathofFliesSickenedBuff,
           BreathOfLifeCheckBuff,
           BrestplateOfWhiteDragonBuff,
           BrilliantInspirationBuff,
@@ -6862,6 +7680,7 @@ namespace BlueprintCore.Blueprints.References
           BrimorakSmokeBreathImmunityBuff,
           BroiledTuskwaterOystersBuff,
           BroiledTuskwaterOystersBuffCompanion,
+          BrokenBuff,
           BrokenPhylacteryBodyRingBuff,
           BrokenPhylacteryBodyScytheBuff,
           BrokenPhylacteryBodyScytheRapidShot2Buff,
@@ -6896,9 +7715,11 @@ namespace BlueprintCore.Blueprints.References
           BullsStrengthBuff,
           BullyBuff,
           BullyBullyingThrillBuff,
+          BurnBuff1d6,
           BurnCutscene,
           BurnEffectBuff,
           BurnFireBuff,
+          BurnFireBuff_FX,
           Burning,
           BurningEntangleBuff,
           BurningEntangleBuffDifficultTerrain,
@@ -6908,6 +7729,7 @@ namespace BlueprintCore.Blueprints.References
           BurningMadnessBuff,
           BurningTomentBuff,
           BurstOfGloryBuff,
+          ButcherCleaver_CooldownBuff,
           BythosAgeBuff1,
           BythosAgeBuff2,
           BythosAgeBuff3,
@@ -6918,6 +7740,11 @@ namespace BlueprintCore.Blueprints.References
           CalebRenamed,
           Calistria_Buff,
           CalistriaRapierBuff,
+          CallingForAFeastBlinkBuff,
+          CallingForAFeastBuff,
+          CallingForAFeastDamageBuff,
+          CallingForAFeastGreaterBuff,
+          CallingForAFeastImprovedBuff,
           CallLightningBuff,
           CallLightningStormBuff,
           CallOfTheWildBeastShapeIBuff,
@@ -6963,9 +7790,11 @@ namespace BlueprintCore.Blueprints.References
           CarnivorousCrystal_Buff_PolymorphRoot,
           CarnivorousCrystal_Buff_SubsonicHum,
           CarnivorousCrystal_Buff_SubsonicHum_Immunity,
+          CarnivorousCrystalBuff,
           CarrionStormDamageBuff,
           CarrionStormDamageEffectBuff,
           CarrionStormDamageEffectImmunity,
+          CasterOnslaughtBuff,
           CastigatefBuff,
           Cat_Buff,
           CatFamiliarBuff,
@@ -7003,6 +7832,7 @@ namespace BlueprintCore.Blueprints.References
           CavalierLionsCallBuff,
           CavalierMightyChargeCheckBuff,
           CavalierMightyChargeEffectBuff,
+          CavalierMightyChargeThreat_Buff,
           CavalierMomentOfTriumphBuff,
           CavalierPawChallengeBuff,
           CavalierRetributionBuff,
@@ -7041,10 +7871,32 @@ namespace BlueprintCore.Blueprints.References
           CelestialTotemLesserBuffCooldown,
           CentipedeFamiliarBuff,
           CentipedePoisonImmunity,
+          ChainedDarkness_Buff_ArmorOfBonesChecker,
+          ChainedDarkness_Buff_BlasphemyTimer,
+          ChainedDarkness_Buff_Bleed,
+          ChainedDarkness_Buff_BoneFists,
+          ChainedDarkness_Buff_EnergyDamageTrigger,
+          ChainedDarkness_Buff_Haste,
+          ChainedDarkness_Buff_HitByAcid,
+          ChainedDarkness_Buff_HitByCold,
+          ChainedDarkness_Buff_HitByElectricity,
+          ChainedDarkness_Buff_HitByFire,
+          ChainedDarkness_Buff_HitBySonic,
+          ChainedDarkness_Buff_NegativeLevelController,
+          ChainedDarkness_Buff_NegativeLevelFailsafe,
+          ChainedDarkness_Buff_NegativeLevels,
+          ChainedDarkness_Buff_ReactiveRegenerationTimer_1,
+          ChainedDarkness_Buff_ReactiveRegenerationTimer_2,
+          ChainedDarkness_Buff_ReactiveRegenerationTimer_3,
+          ChainedDarkness_Buff_ReactiveRegenerationTrigger_1,
+          ChainedDarkness_Buff_ReactiveRegenerationTrigger_2,
+          ChainedDarkness_Buff_ReactiveRegenerationTrigger_3,
+          ChainedDarkness_Buff_SecondLife,
           ChainmailOfDragonFlyBuff,
           ChainmailOfDragonFlyBuff_1,
           ChainmailOfSpitefulBarbsACBuff,
           ChainmailOfSpitefulBarbsMeleeBuff,
+          ChainRingingBuff,
           Chains_BalorBuff,
           ChainshirtOfBrightPerformanceBuff,
           ChainsOfLightBuff,
@@ -7067,6 +7919,7 @@ namespace BlueprintCore.Blueprints.References
           Charm,
           CharmBlessingMajorBuff,
           CharmBlessingMinorBuff,
+          CharmFogBuff,
           CheatEmpowerBuff,
           CheatImmortalityBuff,
           CheeseCrostataBuff,
@@ -7085,17 +7938,33 @@ namespace BlueprintCore.Blueprints.References
           ChorussinaProtectionBuff,
           CircleOfClarityAreaBuff,
           CircleOfClarityTargetBuff,
+          ClawBleedingCriticalBuff,
+          ClawBlindingCriticalBuff,
+          ClawBlindingCriticalBuffEffect,
+          ClawExhaustingCriticalBuff,
+          ClawExhaustingCriticalBuffEffect,
+          ClawFlayingCriticalBuff,
+          ClawSickeningCriticalBuff,
+          ClawSickeningCriticalBuffEffect,
+          ClawStaggeringCriticalBuff,
+          ClawStaggeringCriticalBuffEffect,
+          ClawStunningCriticalBuff,
+          ClawTiringCriticalBuff,
+          ClawTiringCriticalBuffEffect,
           ClayGolemHasteBuff,
           ClayGolemSlowBuff,
           ClearingMindTeaBuff,
           CleavePenaltyBuff,
           CleavingFinishCooldown,
+          ClemencyOfShadowsExclusionBuff,
           CloakOfArcaneReservesBuff,
           CloakOfBloodScentBuff,
           CloakOfChaosBuff,
           CloakOfDarkestRitesBuff,
           CloakofDreamsBuff,
           CloakofDreamsEffectBuff,
+          CloakofDreamsEffectBuff_Carrok,
+          CloakofDreamsEffectBuff_Carrok_System,
           CloakofDreamsEffectBuff_GG,
           CloakofDreamsEffectBuff2_GG,
           CloakOfEfficientInvisibilityBuff,
@@ -7118,6 +7987,9 @@ namespace BlueprintCore.Blueprints.References
           ColdAdaptationBuff,
           ColdBuff,
           ColdIronArrowsQuiverBuff,
+          ColdStareBuff,
+          ColdStareEffectBuff,
+          ColdVisualBuff,
           ColorlessRemainsGoggles_SolidCountBuff,
           ColorlessRemainsQuiver_MadnessBuff,
           ColorlessRemainsQuiver_MadnessCountBuff,
@@ -7165,6 +8037,7 @@ namespace BlueprintCore.Blueprints.References
           CommunityBlessingMajorBuff,
           CommunityBlessingMinorBuff,
           CommunityDomainGreaterBuff,
+          CommunityDomainGreaterBuffSeparatist,
           CompanionKTC_Cooldown,
           CompleteMagicImmunityBuff,
           CompleteMagicImmunityDamageBuff,
@@ -7177,6 +8050,29 @@ namespace BlueprintCore.Blueprints.References
           ConstrictingCoilsBuff,
           ConsumeFearBuff,
           ConsumeFleshBuff,
+          ConsumeFleshDragonBuffAcid,
+          ConsumeFleshDragonBuffCold,
+          ConsumeFleshDragonBuffEffectAcid,
+          ConsumeFleshDragonBuffEffectCold,
+          ConsumeFleshDragonBuffEffectElectricity,
+          ConsumeFleshDragonBuffEffectFire,
+          ConsumeFleshDragonBuffElectricity,
+          ConsumeFleshDragonBuffFire,
+          ConsumeFleshFeyBuff,
+          ConsumeFleshFeyBuffAfterMove,
+          ConsumeFleshFeytBuffEffect,
+          ConsumeFleshMagicalBeastBuff,
+          ConsumeFleshMagicalBeastBuffEffect,
+          ConsumeFleshOutsiderBuffChaos,
+          ConsumeFleshOutsiderBuffEffectChaos,
+          ConsumeFleshOutsiderBuffEffectEvil,
+          ConsumeFleshOutsiderBuffEffectGood,
+          ConsumeFleshOutsiderBuffEffectLaw,
+          ConsumeFleshOutsiderBuffEvil,
+          ConsumeFleshOutsiderBuffGood,
+          ConsumeFleshOutsiderBuffLaw,
+          ConsumeFleshUndeadBuff,
+          ConsumeFleshUndeadBuffEffect,
           ContagionBlindingSicknessBlindBuff,
           ContagionBlindingSicknessBuff,
           ContagionBubonicPlagueBuff,
@@ -7202,6 +8098,8 @@ namespace BlueprintCore.Blueprints.References
           CowerBuff,
           CoweringCommonBuff,
           CR15_GoldGolemDeathThroesBuff,
+          CR17_ImmortalIchorWisdomDrainBuff,
+          CR17_ImmortalIchorWisdomDrainCosmeticBuff,
           CR18_LocustSwarmDamageBuff,
           CR18_LocustSwarmDamageEffectBuff,
           CR18_VescavorSwarmDamageBuff,
@@ -7225,6 +8123,7 @@ namespace BlueprintCore.Blueprints.References
           CripplingBlowsEffectBuff,
           CripplingBlowsPenaltyBuff,
           CripplingKissBuff,
+          CriticalFocusBuff,
           CriticalHitBuff,
           CruelBuff,
           CruelFateBuff,
@@ -7237,6 +8136,7 @@ namespace BlueprintCore.Blueprints.References
           CrushingBurdenExhaustedBuff,
           CrushingBurdenFatiguedBuff,
           CrushingDespairBuff,
+          CrystalClawsBuff,
           CrystalMindBuff,
           Cultist_Buff,
           CultistMinibossBuff,
@@ -7254,6 +8154,7 @@ namespace BlueprintCore.Blueprints.References
           CursedBardVoiceUsable_SirenBuff,
           CursedDelameresArmorBuff,
           CursedDelameresBowCurse,
+          CursedElementalResistanceBuff,
           CursedThornArrowsQuiverBuff,
           CursedThornArrowsQuiverOnEnemyBuff,
           CursedWoundBuff,
@@ -7294,9 +8195,19 @@ namespace BlueprintCore.Blueprints.References
           DarkElementalistOverflowBonusBuff,
           DarkELementalistSoulPowerOnceBuff,
           DarkElementalistSuccessfullSoulPowerBuff,
+          DarkLurkerBladeFromShadowsAttackBuff,
+          DarkLurkerBladeFromShadowsCasterBaseBuff,
+          DarkLurkerBladeFromShadowsCasterBuff,
+          DarkLurkerBladeFromShadowsCasterNearBuff,
+          DarkLurkerBladeFromShadowsInitiativeBuff,
+          DarkLurkerBladeFromShadowsNearLargerBuff,
+          DarkLurkerBladeFromShadowsSneakBuff,
+          DarkLurkerBladeFromShadowsTargetBuff,
+          DarkLurkerBladeFromShadowsTargetEffect,
           Darkness_DimensionLock_Buff,
           DarknessBlessingMinorBuff,
           DarknessDomainBaseBuff,
+          DarknessDomainBaseBuffSeparatist,
           DarknessMachine_Buff_DeathThroesElectricity,
           DarknessObelisk_Buff_DeathThroesAcid,
           DarkRitesAreaBuff,
@@ -7317,6 +8228,7 @@ namespace BlueprintCore.Blueprints.References
           DeadeyeBuff,
           DeadlyAccuracyEffectBuff,
           DeadlyAimBuff,
+          DeadlyAimBuffEffect,
           DeadlyBeautyBuff,
           DeadlyGraceBuff,
           DeadlyMagicBuff,
@@ -7331,6 +8243,7 @@ namespace BlueprintCore.Blueprints.References
           DeathBlessingMajorSwiftBuff,
           DeathBlessingMinorBuff,
           DeathDomainBaseBuff,
+          DeathDomainBaseBuffSeparatist,
           DeathEffect,
           DeathKnell,
           DeathKnellAreaBuff,
@@ -7344,6 +8257,7 @@ namespace BlueprintCore.Blueprints.References
           DeathsnatcherPoisonBuff,
           DeathsnatcherSoulRendBuff,
           DeathThroesBuff,
+          DeathTriggerBuff,
           DeathWardBuff,
           DeathWardBuff_IsFromSpell,
           DebilitatingInjuryBewilderedActiveBuff,
@@ -7354,6 +8268,7 @@ namespace BlueprintCore.Blueprints.References
           DebilitatingInjuryHamperedEffectBuff,
           DecayingDaggerBuff,
           DeceivingFacadeBuff,
+          DedToDragonPolymorphBuff,
           DeepestFearEffectBuff,
           DeepestFearImmunity,
           DeepestFearSourceBuff,
@@ -7449,9 +8364,13 @@ namespace BlueprintCore.Blueprints.References
           DestructionBlessingMajorBuff,
           DestructionBlessingMinorBuff,
           DestructionDomainBaseBuff,
+          DestructionDomainBaseBuffSeparatist,
           DestructionDomainGreaterBuff,
+          DestructionDomainGreaterBuffSeparatist,
           DestructionDomainGreaterEffect,
+          DestructionDomainGreaterEffectSeparatist,
           DestructionJudgmentBuff,
+          DestructiveDispelCooldownBuff,
           DestructiveShockwaveMythicBuff,
           DeterminedZealBuff,
           Devastator_AuraOfCorruptionAreaBuff,
@@ -7465,6 +8384,8 @@ namespace BlueprintCore.Blueprints.References
           DevilApostateEvangelizationCheckBuff,
           DevilImpBuff,
           DevourBuff,
+          DevouredSoulBuff,
+          DevourSoulBuff,
           DexterityDamage,
           DexterityDrain,
           DexterityDrainBuff,
@@ -7490,10 +8411,14 @@ namespace BlueprintCore.Blueprints.References
           DirgeOfDoomEffectImmunityBuff,
           DirtyTrickEntangledBuff,
           DisableArmorInRestEncounterBuff,
+          DisableDeathFXBuff,
           DisarmingStrikeBuff,
           DisarmMainHandBuff,
           DisarmOffHandBuff,
           DIscipleOfThePikeAgileChargeBuff,
+          DiscipleOfThePikeBiggerTheyAreBuff,
+          DiscipleOfThePikeBiggerTheyAreBuff12,
+          DiscipleOfThePikeBiggerTheyAreBuff6,
           DIscipleOfThePikeDeadlyChargeBuff,
           DIscipleOfThePikePikeChargeBuff,
           Disease_Cold,
@@ -7515,6 +8440,10 @@ namespace BlueprintCore.Blueprints.References
           DisruptiveBuff,
           DisruptiveEffectBuff,
           DistractingShotsBuff,
+          DistrustOfFellowsAllyBuff,
+          DistrustOfFellowsBuff,
+          DistrustOfFellowsEffectBuff,
+          DistrustOfFellowsShardBuff,
           DivinationSchoolBaseBuff,
           DivinationSchoolForetellAidBuff,
           DivinationSchoolForetellAidEffect,
@@ -7608,6 +8537,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_BlessingInteractionFXBuff,
           DLC3_BloodOmoxBuff,
           DLC3_BludgeoningWeaponsLevelBuff,
+          DLC3_BludgeoningWeaponsLevelBuffDamage,
           DLC3_BlurBuff,
           DLC3_BonusAttackDamageBowsBuff,
           DLC3_BonusAttackDamageBowsCount,
@@ -7688,6 +8618,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_FriendlyAoEResistanceTransmutationBuff,
           DLC3_FriendlyAoEResistanceUniversalistBuff,
           DLC3_FriendlyAoEResistBuff,
+          DLC3_FriendlyAoEResistIgnoreDamageBuff,
           DLC3_GiantDungeonTemplateBuff_CR1,
           DLC3_GiantIslandEnlargeBuff,
           DLC3_GlassesOfundeniableTruthSetBuff,
@@ -7714,6 +8645,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_IllusionIslandWillPenaltyBuff,
           DLC3_InspireCourageBuff,
           DLC3_InspireCourageEffectBuff,
+          DLC3_InspireCourageEffectBuffMythic,
           DLC3_InspireGreatnessBuff,
           DLC3_InspireGreatnessEffectBuff,
           DLC3_InspireHeroicsBuff,
@@ -7866,6 +8798,150 @@ namespace BlueprintCore.Blueprints.References
           DLC4_UsedBodyCreature,
           DLC4_UsedBodySwarm,
           DLC4_Wilds_ScoutIllnes,
+          DLC5_AbsoluteDarknessBuff,
+          DLC5_BeltOfLesserShadowformBuff,
+          DLC5_BemirBrewBuff,
+          DLC5_BlindnessImunity,
+          DLC5_BottledSunlightBuff,
+          DLC5_CarrockSleepingSpores,
+          DLC5_ChampagneOfRiskAntiCurseBuff,
+          DLC5_ChampagneOfRiskBuff,
+          DLC5_ChampagneOfRiskCheckBuff,
+          DLC5_ChampagneOfRiskCurseBuff,
+          DLC5_ChampagneOfRiskPotionBuff,
+          DLC5_ChaoticTransformationAspecRaptorBuff,
+          DLC5_ChaoticTransformationAspectGorillaBuff,
+          DLC5_ChaoticTransformationAspectMonkeyBuff,
+          DLC5_ChaoticTransformationAspectRacoonBuff,
+          DLC5_ChaoticTransformationBalefulPolymorphBuff,
+          DLC5_ChaoticTransformationBarkskinBuff,
+          DLC5_ChaoticTransformationBeastShapeIBuff,
+          DLC5_ChaoticTransformationBeastShapeIIBuff,
+          DLC5_ChaoticTransformationCheckBuff,
+          DLC5_ChaoticTransformationElementalBodyAirBuff,
+          DLC5_ChaoticTransformationElementalBodyEarthlBuff,
+          DLC5_ChaoticTransformationElementalBodyFireBuff,
+          DLC5_ChaoticTransformationElementalBodyWaterBuff,
+          DLC5_ChaoticTransformationEnlargePersonBuff,
+          DLC5_ChaoticTransformationPotionBuff,
+          DLC5_ChaoticTransformationReducePersonBuff,
+          DLC5_ContagiousLaughterBuff,
+          DLC5_ContagiousLaughterCheckBuff,
+          DLC5_ContagiousLaughterPotionBuff,
+          DLC5_ContagiousLaughterSecondaryBuff,
+          DLC5_CorpseAgroBuff,
+          DLC5_CrunchyIceBuff,
+          DLC5_DirgesingersChoirBuff,
+          DLC5_DirgesingersChoirExtraBuff,
+          DLC5_DirgesingersChoirImmunityBuff,
+          DLC5_DragonBossBurning,
+          DLC5_DragonBossBurningCutscene,
+          DLC5_DruchiteArrowsQuiverBuff,
+          DLC5_ForbiddanceBuff,
+          DLC5_FrostbiteBuff,
+          DLC5_FrostWightFX,
+          DLC5_FrostWightFX1,
+          DLC5_FrostWightFX2,
+          DLC5_GazeOfSithhudBuff,
+          DLC5_GetShard_VisualBuff,
+          DLC5_GetShard_VisualBuff_2,
+          DLC5_GiantBoss_State2_OverrideVisionRange,
+          DLC5_Gorum_Buff,
+          DLC5_Haunt_Buff,
+          DLC5_HeadOfSithhudHiddenFXBuff,
+          DLC5_HeavySuppressionBuff,
+          DLC5_HillGiant_Butcher_Meat_Grinder_Buff,
+          DLC5_HillGiantBloodCaller_Buff,
+          DLC5_HillGiantBoss_FrostBarrier_Buff,
+          DLC5_HillGiantBoss_FrostBarrier_BuffCounter,
+          DLC5_HillGiantBoss_IceCascade_Buff,
+          DLC5_HillGiantBoss_ShadowDeath_Buff,
+          DLC5_IceRockPolymorph,
+          DLC5_IchorBubbleDeathBuff,
+          DLC5_IcyArmorArmorBuff,
+          DLC5_Illusion_Buff,
+          DLC5_LameUnit_Buff,
+          DLC5_LangratBuff,
+          DLC5_LC_CombatBuff,
+          DLC5_LC_KytonBuff,
+          DLC5_LC_Polymorph,
+          DLC5_LC_Polymorph_Penta,
+          DLC5_LC_Polymorph_Rekarth,
+          DLC5_LC_Polymorph_Sendri,
+          DLC5_LesserHaunt_Buff,
+          DLC5_LiquidShadowBuff,
+          DLC5_LivingTornadoWhirlwindCheckBuff,
+          DLC5_LivingTornadoWhirlwindDebuff,
+          DLC5_MarkBuff,
+          DLC5_MinorNightglassBuff,
+          DLC5_MinorNightglassInfusedBuff,
+          DLC5_MinorNightglassShadowTemplateBuff,
+          DLC5_NormalDedPolymorph,
+          DLC5_RedDragonFrightfulPresenceBuff,
+          DLC5_RedDragonFrightfulPresenceCooldownBuff,
+          DLC5_RingOfShadowStealingCooldownBuff,
+          DLC5_RitualControllerBuff,
+          DLC5_RodOfHangoverBuff,
+          DLC5_SarenraeLightBuff,
+          DLC5_SarenraeProtectionBuff,
+          DLC5_SealOfSithhudHiddenBuff,
+          DLC5_SealVFX00,
+          DLC5_SealVFX1,
+          DLC5_SealVFX10,
+          DLC5_SealVFX2,
+          DLC5_SealVFX3,
+          DLC5_SealVFX4,
+          DLC5_SealVFX5,
+          DLC5_SealVFX6,
+          DLC5_SealVFX7,
+          DLC5_SealVFX8,
+          DLC5_SealVFX9,
+          DLC5_ShadowPlaneBeltLanternBuff,
+          DLC5_ShadowPlaneBeltLanternEffectBuff,
+          DLC5_ShadowPlaneBeltLanternVisualBuff,
+          DLC5_ShadowPlanePainBuff,
+          DLC5_SithhudDeathFX,
+          DLC5_SithhudEnrage1StageBuff,
+          DLC5_SithhudEnrage2StageBuff,
+          DLC5_SithhudJumpAoeDamageBuff,
+          DLC5_SithhudJumpAoeDamageBuff2,
+          DLC5_SithhudMaxHPBuff,
+          DLC5_SithhudSeal10Buff,
+          DLC5_SithhudSeal1Buff,
+          DLC5_SithhudSeal2Buff,
+          DLC5_SithhudSeal3Buff,
+          DLC5_SithhudSeal4Buff,
+          DLC5_SithhudSeal5Buff,
+          DLC5_SithhudSeal6Buff,
+          DLC5_SithhudSeal7Buff,
+          DLC5_SithhudSeal8Buff,
+          DLC5_SithhudSeal9Buff,
+          DLC5_SithhudSealOneBuff,
+          DLC5_SithhudTopLocomotion_Buff,
+          DLC5_SithhudVisionBlindFightHiddenBuff,
+          DLC5_SithhudVisionFightHiddenBuff,
+          DLC5_Storasta_Escort,
+          DLC5_StorastaPolymorphIntoTree,
+          DLC5_StorastaTemplate,
+          DLC5_StorastaTemplate1,
+          DLC5_StorastaTemplate2,
+          DLC5_StorastaTemplateCorruption,
+          DLC5_StorastaTemplatePoision,
+          DLC5_SunlessShieldRank,
+          DLC5_SunlessShieldRank5,
+          DLC5_SwordOfSithhudIcyArmorArmorBuff,
+          DLC5_SwordOfSithhudSlowBuff,
+          DLC5_TrueSithhudBloodIchorSummoningBuff,
+          DLC5_UpgradedSithhudRodBuff,
+          DLC5_UpgradedSithhudRodEnemyBuff,
+          DLC5_VoidShardUsableItemBuff,
+          DLC5_WatcherColumns_Buff,
+          DLC5_WildMagic,
+          DLC5_WildMagic_Spells,
+          DLC5_WoundedBuff,
+          DLC5ShortCircuitBuff,
+          DLC5ShortCircuitEnergyReleaseBuff,
+          DodgeMythicBuff,
           DogBark_Cooldown,
           DogFamiliarBuff,
           DomainOfTheHungryFleshBuffEntangle,
@@ -7938,6 +9014,7 @@ namespace BlueprintCore.Blueprints.References
           DrovierAspectOfTheFalconAreaBuff,
           DrovierAspectOfTheStagAreaBuff,
           DrovierAspectOfTheWolfAreaBuff,
+          DruchiteWeaponBuff,
           DualityOfConjurationAndSummoningMadBuff,
           DuckFamiliarBuff,
           DuelistCripplingCriticalACActiveBuff,
@@ -8119,8 +9196,10 @@ namespace BlueprintCore.Blueprints.References
           EnforcedVigorBuff,
           EnlargePersonBuff,
           EnlargePersonBuff_cutscene,
+          EnlargePersonBuffSupressCutscene,
           EnlargePersonPrimal16Buff,
           EnlargePersonPrimal8Buff,
+          EnlargeShadowGiantBuff,
           EnlightenedPhilosopherFinalRevelationBuff,
           EnliveningLeaderishipBuff,
           EntangleBuff,
@@ -8144,6 +9223,7 @@ namespace BlueprintCore.Blueprints.References
           EritriceInspiringSongBuff,
           EritriceInspiringSongEffectBuff,
           EscortBuff,
+          EscortBuff_DLC5,
           EscortBuff_RichQarter,
           EscortCounter,
           EscortCounter_RichQuarter,
@@ -8153,6 +9233,8 @@ namespace BlueprintCore.Blueprints.References
           EverlastingLightBuff,
           EvilBlessingMinorBuff,
           EvilDomainBaseBuff,
+          EvilDomainBaseBuffSeparatist,
+          ExcaustedBuff,
           ExecutionerDevilEnragedBuff,
           ExecutionerDevilEnragedCritEdgeBuff,
           Exhausted,
@@ -8193,9 +9275,13 @@ namespace BlueprintCore.Blueprints.References
           FalseLifeBuff,
           FalseLifeGreaterBuff,
           FascinateBuff,
+          FascinateBuff_Penta,
           FascinateCommonBuff,
           FascinateEffectBuff,
+          FascinateEffectBuff_Penta,
+          FascinateEffectBuffFey,
           FascinateEffectImmunityBuff,
+          FascinateEffectImmunityBuff_Penta,
           FastBombsBuff,
           FastHealing1,
           FastHealing10,
@@ -8242,6 +9328,9 @@ namespace BlueprintCore.Blueprints.References
           FeralTransformationIIISwitchBuff,
           FeralTransformationIISwitchBuff,
           FeralTransformationISwitchBuff,
+          FermentedBeerBuff,
+          FermentedBeerCooldownBuff,
+          FermentedMediumBeerBuff,
           FesterBuff,
           FeyStalkerSummonBuff,
           FieldOfFlowersBuffAsleep,
@@ -8264,7 +9353,11 @@ namespace BlueprintCore.Blueprints.References
           FiendishMaw1d8Buff,
           FiendishMaw2d6Buff,
           FiendishMaw3d6Buff,
+          FiendishQuarryBuff,
           FiendishQuarryBuffEnemy,
+          FiendishQuarryBuffImproved,
+          FiendishQuarryGoodBuff,
+          FiendishQuarryHolyBuff,
           FiendishSmiteGoodBuff,
           FiendTotemGreaterRageBuff,
           FiendTotemGreaterRageEffectBuff,
@@ -8296,6 +9389,9 @@ namespace BlueprintCore.Blueprints.References
           FighterPrecisePredictionImmunityBuff,
           FighterRetaliationBuff,
           FilthFever,
+          FinalJusticeAbilityBuff,
+          FinalJusticeAbilityBuffCaster,
+          FinalJusticeAbilityBuffCaster1,
           FindTrapsBuff,
           FinneanArmourerArmorBuff,
           FinneanArmourerWeaponBuff,
@@ -8339,11 +9435,14 @@ namespace BlueprintCore.Blueprints.References
           FlamingArrowsQuiverBuff,
           FlashInfusionBuff,
           FlayForPurposeBuff,
+          FlayingCriticalBuff,
+          FlayingCriticalTargetBuff,
           FlayleafBuff,
           FLeshOfStoneBuff,
           FocusCrystall_Buff_DeathThroes,
           FocusCrystall_Buff_DeathThroesFire,
           FocusedInfusionBuff,
+          FocusedShotBuff,
           ForbidSpellCastingBuff,
           ForceDismountBuff,
           ForcedRepentanceBuff,
@@ -8408,6 +9507,9 @@ namespace BlueprintCore.Blueprints.References
           FormOfTheDragonISilverBreathWeaponBuff,
           FormOfTheDragonISilverBuff,
           FormOfTheDragonIWhiteBuff,
+          FortuneCooldownBuff,
+          FortuneEffectBuff,
+          FortuneRevelationBuff,
           FoxfireInfusionBuff,
           FoxsCunningBuff,
           FreebootersBaneBuff,
@@ -8419,6 +9521,9 @@ namespace BlueprintCore.Blueprints.References
           FreedomOfMovementLinnorm,
           FreezingNothingnessEntangledBuff,
           FreezingNothingnessParalyzedBuff,
+          FreezingShakenBuff,
+          FreezingShotCountBuff,
+          FreezingShotDebuff,
           FriendlyHugBuff,
           Frightened,
           Frightened_cutscene,
@@ -8438,9 +9543,14 @@ namespace BlueprintCore.Blueprints.References
           FrightfulShapeFearBuff,
           FrostbiteBuff,
           FrostEmbraceBuff,
+          FrozenPetrifyBuff,
           FulsomeQueen_Buff_Smothering,
           FulsomeQueen_Buff_SmotheringEffect,
           FulsomeQueenVisualBuff,
+          FungalInfestationAreaEffectBuff,
+          FungalInfestationBleedBuff,
+          FungalInfestationBuff,
+          FuriousFocusBuff,
           FurybornChildPetBuff,
           Fx_AirElemental00_Big,
           Fx_AirElemental00_Medium,
@@ -8478,6 +9588,7 @@ namespace BlueprintCore.Blueprints.References
           Fx_WhiteBalor_DLC3,
           Fx_WillOWisp00,
           Fx_WrigglingMan00,
+          GainShardBuff,
           Galfrey_AfterCouncilPolymorph,
           GalfreyChangePortraitAndVisual,
           GalfreyPolymorph_Old,
@@ -8507,6 +9618,7 @@ namespace BlueprintCore.Blueprints.References
           GelatinousSwallowed,
           GelatinousSwallowWholeSelfMarker,
           GendarmeTransfixingChargeBuff,
+          GendarmeTransfixingChargeBuffDamage,
           GendarmeTransfixingCheckBuff,
           GenericSwarmAreaBuff,
           GenericSwarmBuff,
@@ -8517,12 +9629,49 @@ namespace BlueprintCore.Blueprints.References
           GentlePersuasionBuff,
           GentlePersuasionPunishmentBuff,
           GentlePersuasionRewardBuff,
+          GeomancyAbyssBuff,
+          GeomancyBuff,
+          GeomancyCorruptedBuff,
+          GeomancyDesertBuff,
+          GeomancyForestBuff,
+          GeomancyHighlandsBuff,
+          GeomancyHighlandsEffectBuff1,
+          GeomancyHighlandsEffectBuff10,
+          GeomancyHighlandsEffectBuff2,
+          GeomancyHighlandsEffectBuff3,
+          GeomancyHighlandsEffectBuff4,
+          GeomancyHighlandsEffectBuff5,
+          GeomancyHighlandsEffectBuff6,
+          GeomancyHighlandsEffectBuff7,
+          GeomancyHighlandsEffectBuff8,
+          GeomancyHighlandsEffectBuff9,
+          GeomancyUndergroundBuff,
+          GeomancyUndergroundImmobilied,
+          GeomancyUrbanBuff,
           GGCultistsRitualBuff,
           GhostAnimations_Buff,
           GhostFX,
           GhostFX_StayOnDeath,
           GhostGreenFX,
+          GhostRiderFrightfulGazeIgnoreFearImmuneBuff,
+          GhostRiderFrightfulGazeImmunityBuff,
+          GhostRiderGhostEthericTetherCasterBuff,
+          GhostRiderGhostEthericTetherPetBuff,
+          GhostRiderGhostSpiritualBondCasterBuff,
+          GhostRiderGhostSpiritualBondPetBuff,
+          GhostRiderGhostWindAirborneBuff,
+          GhostRiderMagicAttacksChaoticBuff,
+          GhostRiderMagicAttacksEvilBuff,
+          GhostRiderMagicAttacksGoodBuff,
+          GhostRiderMagicAttacksLawfulBuff,
+          GhostRiderMagicAttacksPetChaoticBuff,
+          GhostRiderMagicAttacksPetEvilBuff,
+          GhostRiderMagicAttacksPetGoodBuff,
+          GhostRiderMagicAttacksPetLawfulBuff,
+          GhostRiderSharedMindsCooldownBuff,
+          GhostRiderSpiritedMountBuff,
           GhoulFever,
+          GhoulTouchBuff,
           GiantCentipedePoisonBuff,
           GiantCentipedePoisonBuff_0,
           GiantFlytrapPoisonBuff,
@@ -8549,7 +9698,9 @@ namespace BlueprintCore.Blueprints.References
           GlobalSpellNegativeEnergyBlastBuff,
           GlobalSpellTricksterMassHideousLaughterBuff,
           GloryDomainBaseBuff,
+          GloryDomainBaseBuffSeparatist,
           GloryDomainGreaterBuff,
+          GloryDomainGreaterBuffSeparatist,
           GlovesOfEnduringWizardBuff,
           GlovesOfEntropyBuff,
           GlovesOfHeavyImpactCountBuff,
@@ -8584,6 +9735,7 @@ namespace BlueprintCore.Blueprints.References
           GoodBlessingMajorBuff,
           GoodBlessingMinorBuff,
           GoodDomainBaseBuff,
+          GoodDomainBaseBuffSeparatist,
           GoodHopeBuff,
           GoodRestInBrothelBuff,
           GorgeousGlowingGarnetGarmentBuff,
@@ -8660,6 +9812,8 @@ namespace BlueprintCore.Blueprints.References
           GrilledSilverEelBuff,
           GrilledSilverEelBuffCompanion,
           GrimBarrierShieldBuff,
+          GrimGrandeurBuff,
+          GrimGrandeurEffectBuff,
           GrowingSpikesBuffLevel1,
           GrowingSpikesBuffLevel11,
           GrowingSpikesBuffLevel13,
@@ -8680,6 +9834,12 @@ namespace BlueprintCore.Blueprints.References
           HagboundWitchVileCurseCooldownBuff,
           HaggisBuff,
           HaggisBuffCompanion,
+          HagRivenClawBuffLevel1,
+          HagRivenClawBuffLevel13,
+          HagRivenClawBuffLevel17,
+          HagRivenClawBuffLevel2,
+          HagRivenClawBuffLevel5,
+          HagRivenClawBuffLevel9,
           Halaseliax_FireAuraBuff,
           Halaseliax_FrightfulPresenceBuff,
           Halaseliax_PolymorphBuff,
@@ -8710,6 +9870,7 @@ namespace BlueprintCore.Blueprints.References
           HatOfHearteningSongBuff,
           HatOfHearteningSongEffectBuff,
           HatOfTheOwlBuff,
+          HauntFX,
           HeadbandOfSubjugatorBuff,
           HeadbuttersHelmBuff,
           HealCasterBuff,
@@ -8805,6 +9966,7 @@ namespace BlueprintCore.Blueprints.References
           HepzamirahSummonsBE_Cooldown,
           Herald_IllusionBuff,
           HeraldGeasBuff,
+          HeraldHealthTrigger_Buff,
           HeraldHeart_EE_Buff,
           HeraldHeart_EE_Buff_2,
           HermitKnightBracersShakenBuff,
@@ -8819,6 +9981,9 @@ namespace BlueprintCore.Blueprints.References
           HeroismBuff,
           HeroismGreaterBuff,
           HideousLaughterBuff,
+          HidingBlizardVisualBuff,
+          HillGiantAgro_Buff,
+          HodagPoison_Buff,
           HokugolColdAuraBuff,
           HokugolDragonToPlayerBuff,
           HoldAnimalBuff,
@@ -8844,15 +10009,22 @@ namespace BlueprintCore.Blueprints.References
           HuntersRoastBuff,
           HuntersRoastBuffCompanion,
           HuntersSurpriseBuff,
+          HuntersSurpriseSneakBuff,
           HuntingSpiderPoisonBuff,
           HurricaneBowBuff,
           HypnotismBuff,
           IceBodyBuff,
+          IceCoverBuff,
+          IceCoverBuffDragonBoss,
           IceStormAreaBuff,
           IceStormDifficultTerrainBuff,
+          IceSubdomainGreaterBuff,
+          IceSubdomainGreaterBuffSeparatist,
           IcyPrisonEntangledBuff,
           IcyPrisonParalyzedBuff,
           IgnitingBuff,
+          IllOmenBuff,
+          IllOmenBuffCount,
           ImitationBarbarianBuff,
           ImitationFighterBuff,
           ImitationMonkBuff,
@@ -8860,12 +10032,18 @@ namespace BlueprintCore.Blueprints.References
           ImmenseMandragoraPoisonBuff,
           ImminentAttackEffectBuff,
           ImminentAttackEffectEdgeBuff,
+          ImmunityToFireAuraBuff,
+          ImmunitytoFireBuff,
           ImmunityToProneCondition,
           ImmunitytoSummonsBuff,
           ImpatienceBuff,
           ImpatienceTickingBuff,
           ImpendingEclipseBuff,
           ImperialDragon_Buff,
+          ImplosionBuff,
+          ImplosionImmunityBuff,
+          ImplosionSelfAddActionBuff,
+          ImplosionSelfBuff,
           ImpromptuSneakAttackBuff,
           ImprovedFiendishQuarryBuffEnemy,
           IncenseFog30Buff,
@@ -8881,9 +10059,11 @@ namespace BlueprintCore.Blueprints.References
           IncenseFogToxicIncenseBuff,
           IncenseFogUnsettlingFogBuff,
           InciteRageAllBuff,
+          InciteRageAllBuffPenta,
           InciteRageAlliesBuff,
           InciteRageEffectImmunityBuff,
           InciteRageEnemiesBuff,
+          InciteRageEnemiesBuffPenta,
           IncredibleMightAllyBuff,
           IncredibleMightAreaBuff,
           IncredibleMightCrippledBuff,
@@ -8919,21 +10099,26 @@ namespace BlueprintCore.Blueprints.References
           InsideTheStormBuff,
           InsightfulContemplationSongBuff,
           InsightfulContemplationSongEffectBuff,
+          InsightfulContemplationSongEffectBuffMythic,
           InsomniacBladeBuff,
           InspirationalLeaderBuff,
           InspirationalLeaderEffectBuff,
           InspireCompetenceBuff,
           InspireCompetenceEffectBuff,
+          InspireCompetenceMythicEffectBuff,
           InspireCourageBuff,
           InspireCourageEffectBuff,
+          InspireCourageMythicEffectBuff,
           InspiredByDialogue,
           InspiredRageAllyToggleSwitchBuff,
           InspiredRageBuff,
           InspiredRageEffectBuff,
           InspiredRageEffectBuffBeforeMasterSkald,
+          InspiredRageEffectBuffMythic,
           InspiredRageNoCasterBuff,
           InspireFerocityBaseBuff,
           InspireFerocityEffectBuff,
+          InspireFerocityEffectBuffMythic,
           InspireFerocityRageBuff,
           InspireGreatnessBuff,
           InspireGreatnessEffectBuff,
@@ -8943,7 +10128,9 @@ namespace BlueprintCore.Blueprints.References
           InspireTranquilityBlindsenseBuff,
           InspireTranquilityBuff,
           InspireTranquilityEffectBuff,
+          InspireTranquilityEffectBuffMythic,
           InspireTranquilitySavingThrowBuff,
+          InspireTranquilitySavingThrowBuffMythic,
           InspiringRecoveryBuff,
           InspiringRecoveryCheckBuff,
           InstanRecoveryDamageBuff,
@@ -9068,8 +10255,10 @@ namespace BlueprintCore.Blueprints.References
           KnightsEmblemEmeraldBeltBuff,
           KnightsEmblemEmeraldChainmailBuff,
           KnightsEmblemEmeraldChainmailPartyMemberBuff,
+          KnightsEmblemEmeraldShortswordAttackerBuff,
           KnightsEmblemEmeraldShortswordBuff,
           KnightsEmblemSunsetBeltBuff,
+          KnightsEmblemSunsetBeltDamageBuff,
           KnightsEmblemSunsetChainmailBuff,
           KnightsEmblemSunsetChainmailPenaltyBuff,
           KnightsEmblemSunsetShortswordBuff,
@@ -9077,6 +10266,7 @@ namespace BlueprintCore.Blueprints.References
           KnightsResolveResoluteBuff,
           KnowledgeDomainBaseBuff,
           KnowledgeDomainBaseBuff8,
+          KnowledgeDomainBaseBuffSeparatist,
           KnowledgeDomainGreaterBuff,
           KohhPoisonZoneBuff,
           KohhPoisonZoneBuff_DLC2,
@@ -9087,6 +10277,7 @@ namespace BlueprintCore.Blueprints.References
           LairDevastatorLarielTimer,
           LannRosaryBuff,
           LannSparringBuff,
+          LastManStandingBuffGiver,
           LastStandBuff,
           LastStandBuffCooldown,
           LastStandBuffEffect,
@@ -9099,6 +10290,7 @@ namespace BlueprintCore.Blueprints.References
           LawBlessingMajorBuff,
           LawBlessingMinorBuff,
           LawDomainBaseBuff,
+          LawDomainBaseBuffSeparatist,
           LeadingStrikeBuff,
           LeadingStrikeDamageBuff,
           LeafBladesBuff,
@@ -9120,6 +10312,7 @@ namespace BlueprintCore.Blueprints.References
           LethalStanceSwitchBuff,
           LeviathanSkinRobeMaximizeSpellBuff,
           LeyLineGuardianConduitSurgeBuff,
+          LeyLineGuardianConduitSurgeBuffEffect,
           LiberationBlessingMajorBuff,
           LiberationDomainGreaterBuff,
           LiberationDomainGreaterEffect,
@@ -9142,12 +10335,20 @@ namespace BlueprintCore.Blueprints.References
           LightShieldOfCursedAllegianceShieldPersonalBuff,
           LilituTailBrandingBuff,
           LimitDamageBuff,
+          LimitedUseShadowCapstone,
           LinnormPoisonBuff,
           LinziCampBuff,
           LitanyOfEloquenceBuff,
           LitanyOfEntanglementBuff,
           LitanyofMadnessBuff,
           LivingFlameBuff,
+          LivingPlagueAreaFullDamageBuff,
+          LivingPlagueAreaMoveDamageBuff,
+          LivingPlagueAreaReducedDamageBuff,
+          LivingPlagueDeathInParasiteBuff,
+          LivingPlagueDifficultTerrainBuff,
+          LivingPlagueSpawnBuff,
+          LivingTornadoWhirlwindBuff,
           LizardFamiliarBuff,
           LizardGrappleBuff,
           LizardGrappledInitiatorBuff,
@@ -9200,11 +10401,16 @@ namespace BlueprintCore.Blueprints.References
           MadnessBlessingMinorAbilityBuff,
           MadnessBlessingMinorAbilityDamageBuff,
           MadnessDomainBaseAttackRollsBuff,
+          MadnessDomainBaseAttackRollsBuffSeparatist,
           MadnessDomainBaseSavingThrowsBuff,
+          MadnessDomainBaseSavingThrowsBuffSeparatist,
           MadnessDomainBaseSkillChecksBuff,
+          MadnessDomainBaseSkillChecksBuffSeparatist,
           MadnessDomainGreaterBuff,
+          MadnessDomainGreaterBuffSeparatist,
           MadnessDomainGreaterEffectBuff,
           MadnessDomainGreaterImmunityBuff,
+          MadnessDomainGreaterImmunityBufSeparatist,
           MadSculptorBuff,
           MadSculptorCasterBuff,
           MageArmorBuff,
@@ -9241,7 +10447,17 @@ namespace BlueprintCore.Blueprints.References
           MagusSpellCombatCheckerBuff,
           MagusSpellStrikeBuff,
           MaimerBuff,
+          MajorConsumeFleshDragonBuff,
+          MajorConsumeFleshFeyBuff,
+          MajorConsumeFleshFeyImmuneBuff,
+          MajorConsumeFleshMagicalBeastBuff,
+          MajorConsumeFleshMagicalBeastPoisonBuff,
+          MajorConsumeFleshOutsiderBuff,
+          MajorConsumeFleshUndeadBuff,
+          MajorConsumeFleshUndeadImmuneBuff,
+          MajorConsumeFleshUndeadImmuneSickenedBuff,
           MakeFollowPlayer,
+          MalfunctionBuff,
           MandragoraPoisonBuff,
           MandragoraSwarmDamageBuff,
           MandragoraSwarmDamageEffectBuff,
@@ -9256,6 +10472,7 @@ namespace BlueprintCore.Blueprints.References
           MarilithBoss_Buff_OnInvisibility,
           MarilithLeadershipAreaBuff,
           MarilithLeadershipBuff,
+          MarkOfSithhudBuff,
           MarkPassive,
           MarksmansAidArrowsQuiverBuff,
           MarksmansAidArrowsQuiverOnCompanionBuff,
@@ -9428,6 +10645,9 @@ namespace BlueprintCore.Blueprints.References
           MindFogBuff,
           MirrorImageBuff,
           MirrorImageCutsceneBuff,
+          MisfortuneCooldownBuff,
+          MisfortuneEffectBuff,
+          MisfortuneRevelationBuff,
           MobilityUseAbilityBuff,
           ModifiedMandragoraSuicideBuff,
           MonadicDevaSolidBlowHelperBuff,
@@ -9435,6 +10655,7 @@ namespace BlueprintCore.Blueprints.References
           MonitorLizardPoisonBuff,
           MonitorPoisonBuff,
           MonkACBonusBuff,
+          MonkACBonusBuffUnarmored,
           MonkeyFamiliarBuff,
           MonsterCasseroleBuff,
           MonsterCasseroleBuff_0,
@@ -9467,6 +10688,8 @@ namespace BlueprintCore.Blueprints.References
           MountedCombatCooldownBuff,
           MountedCombatTest,
           MountedShieldBuff,
+          MountedShieldEffectBuff,
+          MountedShieldEffectPetBuff,
           MulledWineBuff,
           MummyRotBuff,
           MuseBuff,
@@ -9612,6 +10835,15 @@ namespace BlueprintCore.Blueprints.References
           OpportunistsBootsBuff,
           OppressorsGlovesBuff,
           OptimisticSmileBuff,
+          OracleBurdenBlackenedBuff,
+          OracleBurdenDemonicCurseBuff,
+          OracleBurdenHellboundCurseBuff,
+          OracleBurdenLameCurseBuff,
+          OracleBurdenPlaguedCurseBuff,
+          OracleBurdenPowerlessProphecyBuff,
+          OracleBurdenPrankedCurseBuff,
+          OracleBurdenWastingCurseBuff,
+          OracleBurdenWolfscarredFaceBuff,
           OracleNatureFinalRevelationAnimalBuff,
           OracleNatureFinalRevelationHealingBuff,
           OracleNatureFinalRevelationPlantBuff,
@@ -9642,6 +10874,7 @@ namespace BlueprintCore.Blueprints.References
           OracleRevelationManeuverMasteryDisarmBuff,
           OracleRevelationManeuverMasterySunderBuff,
           OracleRevelationManeuverMasteryTripBuff,
+          OracleRevelationNatureWhispersBuff,
           OracleRevelationSacredCouncilBuff,
           OracleRevelationSpiritBoostBuff,
           OracleRevelationSpiritOfNatureBuff,
@@ -9656,6 +10889,10 @@ namespace BlueprintCore.Blueprints.References
           OrderOfThePawCanineFerocityBuff,
           OrderOfThePawDangerWardBuff,
           Orgomandias_PolymorphBuff,
+          OverseerFXBuff,
+          OverseerPrebuffCore,
+          OverseerPrebuffNormal,
+          OverseerPrebuffUnfair,
           OverwhelmingGriefBuff,
           OverwhelmingPresenceBuff,
           OverwhelmingSoulMentalProwessBuff,
@@ -9703,11 +10940,14 @@ namespace BlueprintCore.Blueprints.References
           ParagonOfDefendersPenalty,
           ParagonOfWinterSummoningBuff,
           Paralyzed,
+          ParalyzedFearMindAffectingSaveEachTurn,
           ParalyzedMindAffecting,
           ParalyzedMindAffectingSaveEachTurn,
           ParalyzedSaveEachTurn,
           PazuzuAspectBuff,
           PeacemakerBuff,
+          PenetratingHexBuff,
+          PerfectCavalryBuff,
           PerfectFormEqualToCharismaBuff,
           PerfectFormEqualToConstitutionBuff,
           PerfectFormEqualToDexterityBuff,
@@ -9730,8 +10970,12 @@ namespace BlueprintCore.Blueprints.References
           PersonalFavoriteRegill,
           PersonalFavoriteSeelah,
           PersonalFavoriteSosiel,
+          PersonalFavoriteUlbrig,
           PersonalFavoriteWenduag,
           PersonalFavoriteWoljif,
+          PestilenceSpiritTrueAbilityBuff,
+          PestilenceSpiritTrueModifyD20Buff,
+          PestilenceSpiritTrueSavingThrowBuff,
           PetrifiedBuff,
           PF2_DLC1_AxisDungeonBuff,
           PF2_DLC1_AxisDungeonEffectBuff,
@@ -9761,6 +11005,7 @@ namespace BlueprintCore.Blueprints.References
           PhantasmalMageSelectiveBuff,
           PhantasmalPutrefactionBuff,
           PhantasmalWebGrappledBuff,
+          PhantasmalWebNauseatedBuff,
           PhantomSlayersBracersCountBuff,
           PharaohsCurseBuff,
           Pharasma_Buff,
@@ -9773,8 +11018,22 @@ namespace BlueprintCore.Blueprints.References
           PillarOfLifeImmunityBuff,
           PipefoxBuff,
           PiranhaStrikeBuff,
+          PiranhaStrikeBuffEffect,
           PitOfDespairDamageBuff,
           PitOfDespairImmunity,
+          PlagueHexAreaBuff,
+          PlagueHexBuff,
+          PlagueHexConstitutionBuff,
+          PlagueHexConstitutionDamagefromDiseasesBuff,
+          PlagueHexDexterityImpairedBuff,
+          PlagueHexDexterityWeakenedBuff,
+          PlagueHexMentalBefuddledBuff,
+          PlagueHexMentalBefuddledCantAct,
+          PlagueHexNotAreaBuff,
+          PlagueHexPhysicalImpairedBuff,
+          PlagueHexPhysicalImpairedBuffCooldown,
+          PlagueHexStrengthImpairedBuff,
+          PlagueHexStrengthWeakenedBuff,
           PlaguePersistenceBandedBuff,
           PlaguePersistenceQuarterstaffBuff,
           PlagueStormBuff,
@@ -9782,6 +11041,7 @@ namespace BlueprintCore.Blueprints.References
           PlannedDistractionEffectBuff,
           PlantDomainBaseBuff,
           PlantDomainGreaterBuff,
+          PlantDomainGreaterBuffSeparatist,
           Player_restTrigger,
           PlayerAeonCorruptionProtectionBuff,
           PlayerIntoGoldDragon_PolymorphBuff,
@@ -9817,12 +11077,15 @@ namespace BlueprintCore.Blueprints.References
           PolymorphGreaterWyvernBuff,
           PolymorphHalflingBuff,
           PolymorphHumanClericFemaleBuff,
+          PolymorphToElephant,
           PortalStonePlanarHeadbandBuff,
           PortalStonePlanarSaiBuff,
           PortalStonePlanarSaiCountBuff,
           PortalStoneSpiderHeadbandBuff,
           PortalStoneSpiderRingAreaBuff,
           PortalStoneSpiderRingEffectBuff,
+          PortalStoneSpiderRingLastStandBuff,
+          PortalStoneSpiderRingOnSpawnBuff,
           PortalStoneSpiderSaiBuff,
           PortalStoneStanceHeadbandBuff,
           PortalStoneStanceRingBuff,
@@ -9832,11 +11095,13 @@ namespace BlueprintCore.Blueprints.References
           PositiveQuickenBuff,
           PositiveQuickenChannelBuff,
           PowerAttackBuff,
+          PowerAttackBuffEffect,
           PowerFromDeathBuff,
           PowerfulChangeBuff,
           PowerfulChangeBuffGreater,
           PowerfulStanceEffectBuff,
           PowerfulStanceSwitchBuff,
+          PowerInTheFleshBuff,
           PowerlessProphecyCurseInsightBuff,
           PowerlessProphecyCurseInsightEffectBuff,
           PowerlessProphecyCurseStaggeredBuff,
@@ -9852,6 +11117,8 @@ namespace BlueprintCore.Blueprints.References
           PowerOfFaithTier5AreaBuff,
           PowerOfFaithTier5Buff,
           PowerOfFaithTier5CasterBuff,
+          PowerOverInferiorsBuff,
+          PowerOverInferiorsHelplessBuff,
           PowerWordBlindBuff,
           PoxPustulesBuff,
           PrayerBuff,
@@ -9904,10 +11171,15 @@ namespace BlueprintCore.Blueprints.References
           ProtectionBlessingMajorBuffEffect,
           ProtectionBlessingMinorBuff,
           ProtectionDomainBaseBuff,
+          ProtectionDomainBaseBuffSeparatist,
           ProtectionDomainBaseSelfBuff,
+          ProtectionDomainBaseSelfBuffSeparatist,
           ProtectionDomainBaseSelfBuffSupress,
+          ProtectionDomainBaseSelfBuffSupressSeparatist,
           ProtectionDomainGreaterBuff,
+          ProtectionDomainGreaterBuffSeparatist,
           ProtectionDomainGreaterEffect,
+          ProtectionDomainGreaterEffectSeparatist,
           ProtectionFromAcidBuff,
           ProtectionFromArrowsBuff,
           ProtectionFromArrowsCommunalBuff,
@@ -9932,7 +11204,9 @@ namespace BlueprintCore.Blueprints.References
           ProtectiveWardEffectBuff,
           ProtectVitalsEffectBuff,
           ProximityTrigger_Buff,
+          ProximityTrigger_Buff_0,
           ProximityTrigger_CasterBuff,
+          ProximityTrigger_CasterBuff_0,
           PryBeyondVisualOnlyBuff_Cutscene,
           PsychokineticistBurnBuff,
           PuluraFall_HoldMonsterMassBuff,
@@ -9953,6 +11227,8 @@ namespace BlueprintCore.Blueprints.References
           PuzzleEvent_HealthGuard10,
           PuzzleEvent_HealthGuard3,
           QuarryBuff,
+          QuarryEvilBuff,
+          QuarrySelfBuff,
           QuarterstaffMasterStyleDisarmBuff,
           QuarterstaffMasterStyleSunderBuff,
           QuarterstaffMasterStyleTripBuff,
@@ -10055,12 +11331,18 @@ namespace BlueprintCore.Blueprints.References
           RealmProtectorAreaBuff,
           RealmProtectorCheckerBuff,
           RealmProtectorCountBuff,
+          ReanimatorGreaterReanimationBuff,
+          ReanimatorImprovedReanimationBuff,
+          ReanimatorResearchOfCorpsesBombBuff,
+          ReanimatorResearchOfCorpsesBuff,
+          ReanimatorSimpleReanimationBuff,
           REAvoidanceCriticalFailureBuff,
           RebornDustCreature,
           RecentlyDeadBuff,
           RecklessStanceEffectBuff,
           RecklessStanceSwitchBuff,
           RedCap,
+          RedistributionOfLifeBuff,
           RedMask_NoMaskPolymorph,
           RedPanda_Buff,
           ReducePersonBuff,
@@ -10076,6 +11358,7 @@ namespace BlueprintCore.Blueprints.References
           RegenerationDivineHolyUnholy30,
           RegenerationEvil10,
           RegenerationFire20,
+          RegenerationGood10,
           RegenerationGood5,
           RegenerationNegative10,
           RegenerationPositive10,
@@ -10090,7 +11373,12 @@ namespace BlueprintCore.Blueprints.References
           RepellingBracersBuff,
           ReposeBlessingMajorBuff,
           ReposeDomainGreaterBuff,
+          ReposeDomainGreaterBuffSeparatist,
           ReposeDomainGreaterEffect,
+          ReposeDomainGreaterEffectSeparatist,
+          RepulsionBuff,
+          RepulsionEffectBuff,
+          RepulsionImmumnityBuff,
           RepulsiveNatureBuffImmunity,
           RepulsiveNatureNauseatedBuff,
           RepurposeBuff,
@@ -10113,16 +11401,20 @@ namespace BlueprintCore.Blueprints.References
           ResistSonicBuff,
           ResonatingWordBuff,
           ResoundingBlowBuff,
+          RestlessSpiritBuff,
+          RestlessSpiritCooldownBuff,
           RestorationBuff_Bully,
           RestorationBuff_Bureaucrat,
           RestorationBuff_Gravedigger,
           RestorationBuff_Healer,
           RestorationBuff_Musician,
           ResurrectionBuff,
+          RevenantImmunitytoGround,
           RevoltAttackBuff,
           RevoltRegretBuff,
           RiceAndNutPuddingBuff,
           RiceAndNutPuddingBuffCompanion,
+          RichInnerWorldBuff,
           RiddleOfEternityCantActBuff,
           RiddleOfEternityFailBuff,
           RiddleOfEternityPassBuff,
@@ -10160,6 +11452,7 @@ namespace BlueprintCore.Blueprints.References
           RingOfFoeFocusBuff,
           RingOfGuidingStarBuff,
           RingOfGuidingStarEnemyBuff,
+          RingOfMercyless_Buff,
           RingOfProcrastinatorBuff,
           RingOfSharpStrikeBuff,
           RingOfTheDeadPersonalBuff,
@@ -10200,7 +11493,7 @@ namespace BlueprintCore.Blueprints.References
           RogueSkillMasteryLoreBuff,
           RogueSkillMasteryStealthBuff,
           RollingDodgeEffectBuff,
-          RomanceSupressPolimorphe,
+          RomanceSuppressPolymorph,
           RottenDissectorBuff,
           RottenDissectorEffectBuff,
           RousingRetortBuff,
@@ -10211,6 +11504,7 @@ namespace BlueprintCore.Blueprints.References
           RumblingFlachionSupressBuff,
           RunBackLogic,
           RuneDomainGreaterBuff,
+          RuneDomainGreaterBuffSeparatist,
           RuneOfJandelayBuff,
           RuneOfJandelayCountBuff,
           RupturingStormBuff,
@@ -10237,9 +11531,17 @@ namespace BlueprintCore.Blueprints.References
           SacredArmorEnchantSpellResistance17Buff,
           SacredArmorEnchantSpellResistance19Buff,
           SacredArmorOnBuff,
-          SacredArmorShieldEnchantArrowDeflectionBuff,
           SacredArmorShieldOnBuff,
           SacredNimbusBuff,
+          SacredShieldArmorEnchantArrowDeflectionBuff,
+          SacredShieldArmorEnchantFortification25Buff,
+          SacredShieldArmorEnchantFortification50Buff,
+          SacredShieldArmorEnchantFortification75Buff,
+          SacredShieldArmorEnchantSpellResistance13Buff,
+          SacredShieldArmorEnchantSpellResistance15Buff,
+          SacredShieldArmorEnchantSpellResistance17Buff,
+          SacredShieldArmorEnchantSpellResistance19Buff,
+          SacredShieldArmorReflectBuff,
           SacredVengenanceArrowsQuiverBuff,
           SacredWeaponEnchantAnarchicBuff,
           SacredWeaponEnchantAxiomaticBuff,
@@ -10264,10 +11566,13 @@ namespace BlueprintCore.Blueprints.References
           SavageUnityBuff,
           SavamelehMythicAbilityBuff,
           SavamelekhSpineBuff,
+          ScaledFistACBonusBuff,
+          ScaledFistACBonusUnarmoredBuff,
           ScaledFistDraconicFuryAcidBuff,
           ScaledFistDraconicFuryColdBuff,
           ScaledFistDraconicFuryElectricityBuff,
           ScaledFistDraconicFuryFireBuff,
+          ScaledFistSupressACBuff,
           ScapegoatAbilityAllyBuff,
           ScapegoatAbilityEnemyBuff,
           ScarecrowCowering,
@@ -10293,6 +11598,8 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfResourcefulSmiteBuff,
           ScrollOfStompBuff,
           ScrollOfWingsOfFreedomBuff,
+          SculptingTheRiverBuff,
+          SculptingTheRiverCasterBuff,
           SE_Delay,
           SE_TraderDelay,
           SeamantleBuff,
@@ -10302,6 +11609,7 @@ namespace BlueprintCore.Blueprints.References
           SeasonedWingsAndThighsBuffCompanion,
           SecondChanceBuff,
           SecondChanceWeaponBuff,
+          SecondPhaseBuff,
           SecondState_Kakuen_takaGargantuanSpawnBuff,
           SecondState_Kakuen_takaHugeSpawnBuff,
           SecondState_Kakuen_takaLargeSpawnBuff,
@@ -10348,12 +11656,29 @@ namespace BlueprintCore.Blueprints.References
           ShadowbloodAddictionDebuff,
           ShadowbloodBuff,
           ShadowbloodDebuff,
+          ShadowControllBuff,
           ShadowDemonAspectEffectBuff,
           ShadowDemonAspectSwitchBuff,
+          ShadowDemonFearAuraBuff,
           ShadowDisappear,
+          ShadoweelDrinkBuff,
+          ShadowFormPolymorph,
           ShadowFX,
           ShadowFX_CutsceneNoDeath,
+          ShadowGiantChainsVisualBuff,
           ShadowGreater_Buff_StrengthDamage,
+          ShadowMadnessBlindDebuff,
+          ShadowMadnessBuff,
+          ShadowMadnessColdVulnerabilityBuff,
+          ShadowMadnessEntangledDebuff,
+          ShadowMadnessFatiguedDebuff,
+          ShadowMadnessHealDebuff,
+          ShadowMadnessSpeedDebuff,
+          ShadowPatrolBuff,
+          ShadowPlaneMagicBuff,
+          ShadowPowerBuff,
+          ShadowVeilBuff,
+          ShadowVisualBuff,
           ShaitanSkinBuff,
           ShaitanSkinFactBuff,
           ShaitanStyleBuff,
@@ -10461,6 +11786,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanNatureSpiritWanderingBaseBuff,
           ShamanNatureSpiritWanderingGreaterBuff,
           ShamanNatureSpiritWanderingTrueBuff,
+          ShamanPlagueHexCooldownBuff,
           ShamanStonesSpiritBaseCorrosiveBuff,
           ShamanStonesSpiritWanderingBaseBuff,
           ShamanStonesSpiritWanderingGreaterBuff,
@@ -10498,13 +11824,21 @@ namespace BlueprintCore.Blueprints.References
           ShatterConfidenceBuff,
           ShatterConfidenceBuffCaster,
           ShatteringPunchBuff,
+          ShatteringShotBuff,
           Shelyn_Debuff,
           ShepherdsPieBuff,
           ShepherdsPieBuffCompanion,
           ShieldBashBuff,
+          ShieldBucklerMythicBuff,
+          ShieldBucklerMythicBuffEffect,
+          ShieldHeavyMythicBuff,
+          ShieldLightMythicBuff,
           ShieldOfDawnBuff,
           ShieldOfFaithBuff,
           ShieldOfLawBuff,
+          ShieldTowerMythicBuff,
+          ShieldTowerMythicBuffDR,
+          ShieldTowerMythicCooldownBuff,
           ShifterACBonusBuff,
           ShifterACBonusHalfBuff,
           ShifterAspectBearBuff,
@@ -10532,6 +11866,7 @@ namespace BlueprintCore.Blueprints.References
           ShifterAspectManticoreDamageBuff,
           ShifterAspectSpiderBuff,
           ShifterAspectTigerBuff,
+          ShifterAspectWereTouchedBuff,
           ShifterAspectWolfBuff,
           ShifterAspectWolverineBuff,
           ShifterChimeraAspectBuff,
@@ -10623,6 +11958,15 @@ namespace BlueprintCore.Blueprints.References
           ShifterWildShapeTigerBuff,
           ShifterWildShapeTigerBuff15,
           ShifterWildShapeTigerBuff8,
+          ShifterWildShapeWereRatBuff,
+          ShifterWildShapeWereRatBuff15,
+          ShifterWildShapeWereRatBuff8,
+          ShifterWildShapeWereTigerBuff,
+          ShifterWildShapeWereTigerBuff15,
+          ShifterWildShapeWereTigerBuff8,
+          ShifterWildShapeWereWolfBuff,
+          ShifterWildShapeWereWolfBuff15,
+          ShifterWildShapeWereWolfBuff8,
           ShifterWildShapeWolfBuff,
           ShifterWildShapeWolfBuff15,
           ShifterWildShapeWolfBuff8,
@@ -10675,9 +12019,12 @@ namespace BlueprintCore.Blueprints.References
           SignetOfHouseVespertilioBuffUMD,
           SignetOfHouseVespertilioBuffWorld,
           SiphonLifeBuff,
+          SiphonTimeVisualAllyBuff,
+          SiphonTimeVisualEnemyBuff,
           SithhudsRodBuff,
           SithhudsRodCountBuff,
           SithhudsRodEnemyBuff,
+          SithhudSupressBuff,
           SkaldLoreMasterBuff,
           SkeletalFingerRodQuickenNormalBuff,
           SkeletalFingerRodQuickenNormalBuffCount,
@@ -10732,6 +12079,7 @@ namespace BlueprintCore.Blueprints.References
           SmokedTroutPateBuffCompanion,
           SmokingKillerBuff,
           SnowballBuff,
+          SnowcasterChangeDamageBuff,
           SnowHeavyBuff,
           SnowLightBuff,
           SnowModerateBuff,
@@ -10742,6 +12090,7 @@ namespace BlueprintCore.Blueprints.References
           SoheiMonasticMountBuff,
           SolarWindsBuff,
           SoldierTransformation,
+          SomeonesBonesBuff,
           SOngBirdTeleport,
           SongOfBrokenChainsBuff,
           SongOfBrokenChainsEffectBuff,
@@ -10763,13 +12112,37 @@ namespace BlueprintCore.Blueprints.References
           SongOfTheFallenBuff,
           SongOfTheFallenEffectBuff,
           SongOfTheFallenResurrectionBuff,
+          SongOfTheFallenResurrectionBuffOwnPlace,
           SongOfTheSensesBuff,
           SongOfTheSensesBuff1,
           SongsOfSteelBuff,
           SoothingMudBuff,
           SoothingMudCooldownBuff,
           SoothingMudDifficultTerrainBuff,
+          SorcerousClawsAnarchicBuff,
+          SorcerousClawsBuff,
+          SorcerousClawsBuffEnchanted1,
+          SorcerousClawsBuffEnchanted2,
+          SorcerousClawsBuffEnchanted3,
+          SorcerousClawsCorrosiveBuff,
+          SorcerousClawsCorrosiveBurstBuff,
+          SorcerousClawsEnchantPlus1Buff,
+          SorcerousClawsEnchantPlus2Buff,
+          SorcerousClawsEnchantPlus3Buff,
+          SorcerousClawsEnchantPlus4Buff,
+          SorcerousClawsFlamingBuff,
+          SorcerousClawsFlamingBurstBuff,
+          SorcerousClawsFrostBuff,
+          SorcerousClawsIcyBurstBuff,
+          SorcerousClawsKeenBuff,
+          SorcerousClawsNullifyingBuff,
+          SorcerousClawsShockBuff,
+          SorcerousClawsShockingBurstBuff,
+          SorcerousClawsSpeedBuff,
+          SorcerousClawsUnholyBuff,
+          SorcerousClawsViciousBuff,
           SorcerousReflexMythicBuff,
+          Sosiel_NakedPolymorph,
           Sosiel_Q2_ImpostorArmorPolymorph,
           SosielQ2_ShadowGreater_BuffNoFx,
           SoulOfStoneBuff1,
@@ -10805,6 +12178,7 @@ namespace BlueprintCore.Blueprints.References
           SpikeGrowthBuff,
           SpikeStonesAreaBuff,
           SpikeStonesBuff,
+          SpilledFireBuff,
           SpiritedChargeBuff,
           SpiritedChargeCheckMountedBuff,
           SpiritThrasherBuff,
@@ -10855,9 +12229,21 @@ namespace BlueprintCore.Blueprints.References
           StoneskinCommunalBuff,
           StonestrikeBuff,
           StopCutscenOnCombat,
+          StopCutscenOnCombat_CampBattle_Beast,
+          StopCutscenOnCombat_CampBattle_Prisoner,
           StopCutscenOnCombat_RichQuarter,
           StopCutscenOnCombat_RichQuarter1,
           StopCutscenOnCombat_RichQuarter2,
+          StorastaConcentratedPoisionDebuff,
+          StorastaConcentratedPoisionDebuff_Poision,
+          StorastaCorruptionFXbuff,
+          StorastaDruidForestBuff,
+          StorastaFlowerBuff,
+          StorastaFlowerBuff2,
+          StorastaFlowerDebuff,
+          StorastaFlowerPoisionImmuneBuff,
+          StorastaIceGround,
+          StorastaPoisionDebuff,
           StormCallBuff,
           StormcallerBuff,
           StormKingsBeltBuffFirst,
@@ -10876,6 +12262,7 @@ namespace BlueprintCore.Blueprints.References
           StrengthBlessingMinorBuff,
           StrengthDamage,
           StrengthDomainBaseBuff,
+          StrengthDomainBaseBuffSeparatist,
           StrengthDrain,
           StrengthDrainBuff,
           StudentOfWarDeadlyBlowBuff,
@@ -10886,10 +12273,12 @@ namespace BlueprintCore.Blueprints.References
           StudentOfWarKnowYourEnemyMartialStanceExtraBuff,
           StudentOfWarKnowYourEnemyTacticalStanceBuff,
           StudentOfWarKnowYourEnemyTacticalStanceExtraBuff,
+          StumblingBashBuff,
           Stunned,
           StunnedBuff,
           StunnedPerfection,
           StunningBarrierBuff,
+          StunningCriticalBuff,
           StunningFistOwnerBuff,
           StunningFistOwnerFatigueBuff,
           StunningFistOwnerSickenedBuff,
@@ -10924,15 +12313,25 @@ namespace BlueprintCore.Blueprints.References
           SummonMonsterFiendishBuffI,
           SummonMonsterFiendishBuffII,
           SummonMonsterZeroBuff,
+          SummonShadowAfterDeathBuff,
+          SummonShadowAfterDeathBuff20,
+          SummonShadowAfterDeathBuffCapStone,
           SummunedCreature_LootPermission_Buff,
           SunbeamBuff,
           SunBlessingMajorBuff,
           SunderArmorBuff,
+          SunderHopeBuff,
           SunDomainGreaterBuff,
+          SunDomainGreaterBuffSeparatist,
           SunDomainGreaterEffect,
+          SunDomainGreaterEffectSeparatist,
           SunDomainGreaterImmunityBuff,
+          SunDomainGreaterImmunityBuffSeparatist,
+          SuperiorityOfColdBuff,
           SupersonicSpeedHasteBuff,
+          SuppressAllBuff,
           SuppressBuffs,
+          SureFootingBuff,
           SwampGasDOT,
           SwampseerPoison,
           SwarmbaneClaspSavingThrowBuff,
@@ -10961,6 +12360,8 @@ namespace BlueprintCore.Blueprints.References
           SwordSaintPerfectStrikeBuff,
           SwordSaintPerfectStrikeCritBuff,
           SycamoreBanditsSleeping,
+          SymbolOfVulnerabilityBuff,
+          SymbolOfWeaknessImmunity,
           SynapticInfusionBuff,
           SynapticInfusionEffectBuff,
           TacticalLeaderFeatShareBuff,
@@ -10968,10 +12369,59 @@ namespace BlueprintCore.Blueprints.References
           TaffyBuffCompanion,
           TaintedSneakAttackBuff,
           TaintedSneakAttackWeaponVulnerabilityBuff,
+          TandemExecutionerBuff5,
+          TandemExecutionerDontLetHimFocusBuff10,
+          TandemExecutionerDontLetHimFocusDebuff,
+          TandemExecutionerDontLetHimFocusPetBuff,
+          TandemExecutionerDontLetHimFocusTargetBuff,
+          TandemExecutionerDontTouchMyBuddyCasterAttackerBuff,
+          TandemExecutionerDontTouchMyBuddyCasterBuffToAttack,
+          TandemExecutionerDontTouchMyBuddyPetAttackerBuff,
+          TandemExecutionerDontTouchMyBuddyPetBuff,
+          TandemExecutionerDontTouchMyBuddyPetBuffToAttack,
+          TandemExecutionerDontTouchMyBuddyPetTargetBuff,
+          TandemExecutionerIPushItYouBiteItBuff,
+          TandemExecutionerIPushItYouBiteItCMBBuff,
+          TandemExecutionerIPushItYouBiteItPetAttackBuff,
+          TandemExecutionerIPushItYouBiteItPetBuff5,
+          TandemExecutionerIPushItYouBiteItPetTargetBuff5,
+          TandemExecutionerIPushItYouBiteItTargetBuff,
+          TandemExecutionerMakeItBleedBuff,
+          TandemExecutionerMakeItBleedPetBuff,
+          TandemExecutionerMakeItBleedPetTargetBuff,
+          TandemExecutionerMakeItBleedTargetBuff,
+          TandemExecutionerMyPetBuff,
+          TandemExecutionerPenetratingCascadeDebuff,
+          TandemExecutionerPenetratingCascadePetBuff,
+          TandemExecutionerStudyTargetBuff,
+          TandemExecutionerStudyTargetBuff60Feet,
+          TandemExecutionerStudyTargetPetBuff,
+          TandemExecutionerTakeYourToyDebuff,
+          TandemExecutionerTakeYourToyMarkBuff,
+          TandemExecutionerTakeYourToyPetBuff,
+          TandemExecutionerTidbitDebuff,
+          TandemExecutionerTidbitIsCasterBuff,
+          TandemExecutionerTidbitStartCombatBuff,
+          TandemExecutionerTidbitTargetBuff,
+          TandemExecutionerTryToHitMeBuff,
+          TandemExecutionerVisualBuff,
+          TandemExecutionerWatchOutForTheSpellCooldownBuff,
+          TandemExecutionerWatchOutForTheSpellPetBuff,
+          TandemExecutionerWatchOutForTheSpellPetCooldownBuff,
+          TandemExecutionerWatchYourBackCooldownBuff,
+          TandemExecutionerWatchYourBackPetBuff,
+          TandemExecutionerWatchYourBackPetCooldownBuff,
+          TandemExecutionerWeakenTheSpellDebuff,
+          TandemExecutionerWeakenTheSpellTargetBuff,
+          TandemExecutionerWorkInTandemBuff,
+          TandemExecutionerWorkInTandemPetBuff,
+          TandemExecutionerWorkInTandemPetTargetBuff,
+          TandemExecutionerWorkInTandemTargetBuff,
           TanglefootBombBuff,
           TanglefootBuff,
           TarantulaFamiliarBuff,
           TargetedBombAdmixtureBuff,
+          TargetedBombAdmixtureDamageBuff,
           TargetedImpatienceBuff,
           TargetedPatienceBuff,
           TarPoolDazeBuff,
@@ -11004,6 +12454,7 @@ namespace BlueprintCore.Blueprints.References
           Test_Bebilith_Blueprint_Buff_3,
           test_ghoul_polymorph,
           TestAttackBuff,
+          testbuffdr,
           TestKittenSound,
           ThanadaemonFearGazeBuff,
           TheBlizBuff,
@@ -11041,6 +12492,7 @@ namespace BlueprintCore.Blueprints.References
           ThornBodyBuff,
           ThornBodyEffect,
           ThoughtsenseBuff,
+          ThousandDiseasesBuff,
           ThrowingAxeOfSilenceBuff,
           ThugBrutalBeatingBuff,
           ThunderingBlowsCDBuff,
@@ -11054,10 +12506,14 @@ namespace BlueprintCore.Blueprints.References
           TigerGrappleBuff,
           TigerGrappledInitiatorBuff,
           TigerGrappledTargetBuff,
+          TigerWeaponCritical15thlevel,
+          TigerWeaponCritical8thlevel,
           TightGripOfAnguishBuff,
           TimelyAssistanceBuff,
           TiringCriticalBuff,
           TokenOfHonorBuff,
+          TopplingBashCooldownBuff,
+          TopplingBashTripPenaltyBuff,
           Torag_Buff,
           TorchAnimations_Buff,
           TouchOfFlawBuff,
@@ -11105,6 +12561,7 @@ namespace BlueprintCore.Blueprints.References
           TricksterInvisibilityAlmostGreaterBuffEffect,
           TricksterLuckyLeaderBuff,
           TricksterMicroscopicProportionsBuff,
+          TricksterPersuasionDebuff,
           TricksterSneakyQuackBuff,
           TricksterStealthTier1Buff,
           TricksterStealthTier2Buff,
@@ -11143,6 +12600,9 @@ namespace BlueprintCore.Blueprints.References
           Tyvanadis_PolymorphBuff,
           UltrasoundArrowsQuiverBuff,
           UnavoidableDrillBuff,
+          UnboundFormBuff,
+          UnboundRageBuff,
+          UnboundRageExtraBuff,
           UnbreakableBondAreaBuff,
           UnbreakableBondAzataBuff,
           UnbreakableBondImmunityBuff,
@@ -11150,6 +12610,8 @@ namespace BlueprintCore.Blueprints.References
           UnceasingSlaughterBuff,
           UncertanityPrincipleBuff,
           Unconsious,
+          UndeadSubdomainBaseBuff,
+          UndeadSubdomainBaseBuffSeparatist,
           UnexpectedResolutionBuff,
           UnfailingBeaconBuff,
           UnholyAuraBuff,
@@ -11204,6 +12666,9 @@ namespace BlueprintCore.Blueprints.References
           VavakiaAspectSwitchBuff,
           VeilOfHeavenBuff,
           VeilOfPositiveEnergyBuff,
+          VengefulCometsBuff,
+          VengefulCometsCooldownBuff,
+          VengefulCometsCooldownFireBuff,
           VenomousSpiderPoisonBuff,
           VenomPoisonOneBuff,
           VenomPoisonSecondBuff,
@@ -11265,6 +12730,7 @@ namespace BlueprintCore.Blueprints.References
           WardMastersAmuletBuff,
           WardMastersAmuletPermanentBuff,
           WarDomainBaseBuff,
+          WarDomainBaseBuffSeparatist,
           WarpriestAspectOfWarBuff,
           WarpriestSacredWeaponBuff1d10,
           WarpriestSacredWeaponBuff1d6,
@@ -11279,6 +12745,9 @@ namespace BlueprintCore.Blueprints.References
           WaterFilthFeverBuff,
           WaterTorrentBuff,
           WeakenArrowsQuiverBuff,
+          WeakeningSneakAttackDamageBuff,
+          WeakeningSneakAttackEffectBuff,
+          WeakeningSneakAttackTargetBuff,
           WeakeningWoundBuff,
           WeaponBondAxiomaticBuff,
           WeaponBondBrilliantEnergyBuff,
@@ -11296,8 +12765,15 @@ namespace BlueprintCore.Blueprints.References
           WeatherBlessingMajorBuff,
           WeatherBlessingMinorBuff,
           WeatherDomainBaseBuff,
+          WeatherDomainBaseBuffSeparatist,
           WebBuffSlowMovement,
           WebGrappled,
+          WereRatDRBuffInWildShape,
+          WereTigerDRBuffInWildShape,
+          WereWolfDRBuffInWildShape,
+          WereWolfShifterBleedBuff,
+          WereWolfShifterBleedBuff15,
+          WereWolfShifterBleedBuff8,
           WhispersOfMadnessBuff,
           WhispersOfMadnessEffectCooldown,
           WhiteroseOystersBuff,
@@ -11309,6 +12785,7 @@ namespace BlueprintCore.Blueprints.References
           WickedKukriBuff,
           WildGazeBuff,
           WildGazeImmunity,
+          WildGazeImmunityBuff,
           WildLink_ArcherBuff,
           WildLink_ArcherEffectBuff,
           WildLink_MonarchBuff,
@@ -11487,6 +12964,11 @@ namespace BlueprintCore.Blueprints.References
           ZombieDeathEffectFrostBuff,
           ZombieDeathEffectPiercingBuff,
           ZombieDeathEffectSlashingBuff,
+          ZoneOfFullDarknessBuff,
+          ZonKuthonBuff,
+          ZonKuthonScarBuff,
+          ZonKuthonScarHalfHPBuff,
+          ZonKuthonScarHalfHPTriggerBuff,
       };
   }
 }

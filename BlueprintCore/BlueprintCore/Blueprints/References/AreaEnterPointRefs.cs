@@ -681,6 +681,104 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_DLC4_Wilds_SecondWizzard_ToWilds = "4eb472db164f4de789b86491038a028b";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_Enter = "534e9ad2940949f3b9bb3883be91fced";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC4_Wilds_WolfEnter = "e6ef70752b3847839e4d60d1d23c39fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_AlternativeStart_Enter = "2e26dfbc86ee484da1d74aa97f60805a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_BasementFromIndoor_Enter = "8cddf84841f5442e9cd761b00852173d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_BasementFromOutdoor_Enter = "04b57042e60c4694a48afabca4e163e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_ChainedDarknessLair = "f4c8a58b03c84ed987a919a07fdfe3a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromIntro = "645075a43cfc4753a0feebad2c7b8ff1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromStorasta = "1f3686088140488da2345dc6593b4f08";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromTheGiantOverseers = "d89a4b5a804248acbfda11241a264de7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromTheGoblinsParty = "edbaa34e79e042309a9e93394519ffe3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromThePlaneOfShadow = "79ea94f95fd244d9bf0e52e9c2b2569a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FromTheTavernBasement = "d6c89e818f6648748f65a53d5fa93a96";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenDreams = "da9c52b5d1c7441ea6d36ab3af1cdb8e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_Abyss_Enter = "4e4a4cf7603b41cba70c0ed46913e795";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_Commander_Enter = "dfd56266f1c04775a7ad3cbb1446a5f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_Commander_SithhudEnter = "ab31a4e7054e4358adda1ff85d855181";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_Enter = "bdfe3b579fc240cab63d1bf94c7439ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_MobilityCheckIn = "e04f77db0cdc4090b090c8dc177fc68d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_FrozenTemple_MobilityCheckOut = "b6e36049b7424f419f1e67901335bc8c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_ClimbRock = "75b96a2ebc044758b8ab008573cf19bc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_Enter = "0dd33136d19645b487547fc80de98ee0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromCampEntrance = "7d507cdeb8354d5882279bb409c130f7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromCampEntrance_2 = "e37d10a5cd6a4e6ba2fcb93c308d5950";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromHodagLair = "0cd48870e2684b02b7ea7fb8ddc7490e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromPrison = "9578c1982a7a4aa29479f402f38eda47";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromStealthPart = "ddaba15bf9a7458d8cd9dc907799d118";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromTheCamp = "f819e7cb696f4d84be072cf10e87e137";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromTheFallenStone = "0d10ce0921b04812b68eda34a2e5f038";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromTheFallenStoneBack = "ef2c5ff41c4d4f7ba8adf14b70d8f81d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromThePitOfBones = "511ad61a23fb4d83b2b847012a7ac3e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GiantsOverseers_FromWildlands = "692033756eef4fb4be70833afae322b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Basement_FormFloor1 = "678a6b7ae85e4f45a9854bfe98e2aa27";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Basement_FormFloor1_Mirror = "acb2a06477ac4f1fb7eebff776ca4f7b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Basement_FromFloor1_1 = "921dbafc076049b7abe715dc372b9bf3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Basement_FromFloor1_2 = "d480abb86a444b5695b5884a7b20daac";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Enter = "85c88b4fe2d84d7091a60e14f448c9b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FormBasement_Mirror = "1e4580aaaeb848a2b866730b5a1c2122";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FormFloor2_Portal = "11f8696c5e394d2484a040427627bed3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromBasement = "e6f71e553c1045008639f7639f944c44";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromBasement_1 = "119d4a90a47f44a499327af57b73ddb0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromBasement_2 = "377bc09db3f046ff8f0095adb6028dc2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromFloor2 = "60f257c11a7646b18e24dbd9e8800cba";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromOutdoor = "bead8edc2768497eb6ba3712ea1385bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor1_FromOutdoor_2 = "0e8a301688954d7692faa0dd380499f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor2_FormFloor3_Library = "8dd38d2f4b844582a2ebe86c06a59dbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor2_FromFloor1 = "2a42c346e4444338a2d77e79bc276667";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor2_FromFloor1_Portal = "65ce7fdce44648769543f22b724874d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor2_FromFloor3 = "9545ef58e8ff47d2b2fbe173f3795937";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor3_FormFloor2 = "bad1583d1f08404da67186a2baace4f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor3_FormFloor2_Library = "7330767890cd45cba02cb30e4dadad4e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor3_FormRoof = "9fd779f99da940ad968d3f738527052b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Floor3_FromFloor2 = "a71b2d65f43c4890b86012d7f974ea24";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromCorridor = "8cd215f60ec141f881ede6c1b96f3185";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal = "6e057cbb680649a690cd70a21137bae1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal_2 = "55afb04276d84b14948c165952d5891e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal_3 = "1677493bac02450db32f6e2c6de1617e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromSecretRoom = "af539d4b7e7f43d2804f66e03dc27aae";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_FromTreasury = "893a4f18224a4b5693dd7a1c1da41fc7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Outdoor_Enter = "6a5369eead2f411ca10551feddf94df0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Outdoor_EnterFromTower = "222658972a3f4b9b9832df1a6b7fc9fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Outdoor_FromFloor1 = "181bd4da1cf6407584f83d1452170d0a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_GoblinsPartyInTheTower_Roof_FormFloor3 = "fe885f50671241a2bcc77b1bb6f8fec9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_IndoorFromBasement_Enter = "cefd246d68d64326b74bc3d343591032";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_IndoorFromOutdoor_Enter = "7becd73847d849c3919de0347df28b7b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_IndoorIntro_Enter = "99467e338bc04f8181f2e616c6be75e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_BarracksToOutDoor = "ce6c884af6d74e578d35a554c26490b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_BarracksToOutDoor_2 = "09b4e06d8d6144ddbc01645634a25d41";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_BasementToBellRoom = "8f72607d7e8f44f7a605f84f3e254195";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_BellRoomToBasement = "d5e6abd1b5bf4f779dcd466a412ca360";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_BellRoomToOutDoor = "3a9f9bf0c776410ca4bfca731824bb57";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_ChapelToOutDoor = "b59554f5dc594a2f828ac64bfec30601";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_ChapelToOutDoor_2 = "ff69ed31869e4d3a8c1d45f7676835e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_LiftDown = "ebbc9974903946d1910b1a0d06160944";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_LiftUp = "f5737ef60bb549ed9f74ac9e67e5bdf6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_LvL1_LvL2 = "ff2748d20c11428f92edae14cc1cf953";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_LvL2_LvL1 = "4bd4634e5d4441d9aa83f2da0f96dbda";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_OutDoorToBarracks = "2700686703d04eca8581e349dd418d2f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_OutDoorToBarracks_2 = "8dcaf454b3bd442ebad2c1fd01112a65";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_OutDoorToBellRoom = "d46b7f5b23a44f86b03645598ddfef85";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_OutDoorToChapel_1 = "4e1c076baa1e41e995d4196b485d6fb2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_OutDoorToChapel_2 = "3d644dba4dc04520b734f0fe89782c0a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_LostChapel_PlaneOfShadow_Enter = "f15866e39a0046cb87e025b0b87e3a21";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_OutdoorFromBasement_Enter = "b65412db8d764fc19fd799f63233a972";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_PlaneOfShadow_Basement_1_Enter = "e17f466c156b4cc4b77166cc46ae6203";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_PlaneOfShadow_Basement_2_Enter = "b8283993d4d44d95bc8e0e21f5e70120";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_PoS_Basement_2_ChainedDarknessTest = "f8a9a1d3f2d241f7be3f1b30295bc3db";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_PoS_Basement_2_FromChainedDarknessLair = "be49b5d5a1af45579c1325966536798c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_SithhudAltarOfSeals = "25e538ac68dd44ceba2460c9548504c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_SithhudLair_Enter = "4ebd854b4e2b43f6a65afd3ff6e8295a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_Balcony = "cde5ca128e3b4a538efa95aa143d1cf0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_Enter = "8e1c65dd65ba4a73a35e8c3c63ce2f3e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_from_Dragon_Ruins = "ec984f7efcde436d8a5fb4a03636a0e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_from_Karokk_Hill = "5495049e4a9940ac8c6addf10f3bac70";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_In_Dragon_Ruins = "1da1873ac05e4fc0b712d43a4c2c9254";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_in_Karokk_Hill = "fb8b103eb19341eca5b53ea4209992a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_Wall_Down = "9e90110377154662a0b10ed386a6beba";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Storasta_Wall_Up = "bee37310517b4d88a1fe947df6b4babb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Tavern_Enter = "e6d22cef303c4c46876a689e3ff65252";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_ToAbyssFromTemple_Enter = "89ca3356ceb44939a764e63b5e9d3cb7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_ToBasementFromTemple_Enter = "f90b82f4092641278231d80dd64a7d43";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_Bridge = "dd57f22149ec2d2488c94b10c73e3b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveIn = "6b6cc86f36384bc4db11397c51a50eaf";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveOut = "82c6efc0397398945be7a9deb3d81679";
@@ -2171,6 +2269,104 @@ namespace BlueprintCore.Blueprints.References
           DLC4_Wilds_DLC4_Wilds_SecondWizzard_ToWilds,
           DLC4_Wilds_Enter,
           DLC4_Wilds_WolfEnter,
+          DLC5_AlternativeStart_Enter,
+          DLC5_BasementFromIndoor_Enter,
+          DLC5_BasementFromOutdoor_Enter,
+          DLC5_ChainedDarknessLair,
+          DLC5_FromIntro,
+          DLC5_FromStorasta,
+          DLC5_FromTheGiantOverseers,
+          DLC5_FromTheGoblinsParty,
+          DLC5_FromThePlaneOfShadow,
+          DLC5_FromTheTavernBasement,
+          DLC5_FrozenDreams,
+          DLC5_FrozenTemple_Abyss_Enter,
+          DLC5_FrozenTemple_Commander_Enter,
+          DLC5_FrozenTemple_Commander_SithhudEnter,
+          DLC5_FrozenTemple_Enter,
+          DLC5_FrozenTemple_MobilityCheckIn,
+          DLC5_FrozenTemple_MobilityCheckOut,
+          DLC5_GiantsOverseers_ClimbRock,
+          DLC5_GiantsOverseers_Enter,
+          DLC5_GiantsOverseers_FromCampEntrance,
+          DLC5_GiantsOverseers_FromCampEntrance_2,
+          DLC5_GiantsOverseers_FromHodagLair,
+          DLC5_GiantsOverseers_FromPrison,
+          DLC5_GiantsOverseers_FromStealthPart,
+          DLC5_GiantsOverseers_FromTheCamp,
+          DLC5_GiantsOverseers_FromTheFallenStone,
+          DLC5_GiantsOverseers_FromTheFallenStoneBack,
+          DLC5_GiantsOverseers_FromThePitOfBones,
+          DLC5_GiantsOverseers_FromWildlands,
+          DLC5_GoblinsPartyInTheTower_Basement_FormFloor1,
+          DLC5_GoblinsPartyInTheTower_Basement_FormFloor1_Mirror,
+          DLC5_GoblinsPartyInTheTower_Basement_FromFloor1_1,
+          DLC5_GoblinsPartyInTheTower_Basement_FromFloor1_2,
+          DLC5_GoblinsPartyInTheTower_Enter,
+          DLC5_GoblinsPartyInTheTower_Floor1_FormBasement_Mirror,
+          DLC5_GoblinsPartyInTheTower_Floor1_FormFloor2_Portal,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromBasement,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromBasement_1,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromBasement_2,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromFloor2,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromOutdoor,
+          DLC5_GoblinsPartyInTheTower_Floor1_FromOutdoor_2,
+          DLC5_GoblinsPartyInTheTower_Floor2_FormFloor3_Library,
+          DLC5_GoblinsPartyInTheTower_Floor2_FromFloor1,
+          DLC5_GoblinsPartyInTheTower_Floor2_FromFloor1_Portal,
+          DLC5_GoblinsPartyInTheTower_Floor2_FromFloor3,
+          DLC5_GoblinsPartyInTheTower_Floor3_FormFloor2,
+          DLC5_GoblinsPartyInTheTower_Floor3_FormFloor2_Library,
+          DLC5_GoblinsPartyInTheTower_Floor3_FormRoof,
+          DLC5_GoblinsPartyInTheTower_Floor3_FromFloor2,
+          DLC5_GoblinsPartyInTheTower_FromCorridor,
+          DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal,
+          DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal_2,
+          DLC5_GoblinsPartyInTheTower_FromFloor3_SecretPortal_3,
+          DLC5_GoblinsPartyInTheTower_FromSecretRoom,
+          DLC5_GoblinsPartyInTheTower_FromTreasury,
+          DLC5_GoblinsPartyInTheTower_Outdoor_Enter,
+          DLC5_GoblinsPartyInTheTower_Outdoor_EnterFromTower,
+          DLC5_GoblinsPartyInTheTower_Outdoor_FromFloor1,
+          DLC5_GoblinsPartyInTheTower_Roof_FormFloor3,
+          DLC5_IndoorFromBasement_Enter,
+          DLC5_IndoorFromOutdoor_Enter,
+          DLC5_IndoorIntro_Enter,
+          DLC5_LostChapel_BarracksToOutDoor,
+          DLC5_LostChapel_BarracksToOutDoor_2,
+          DLC5_LostChapel_BasementToBellRoom,
+          DLC5_LostChapel_BellRoomToBasement,
+          DLC5_LostChapel_BellRoomToOutDoor,
+          DLC5_LostChapel_ChapelToOutDoor,
+          DLC5_LostChapel_ChapelToOutDoor_2,
+          DLC5_LostChapel_LiftDown,
+          DLC5_LostChapel_LiftUp,
+          DLC5_LostChapel_LvL1_LvL2,
+          DLC5_LostChapel_LvL2_LvL1,
+          DLC5_LostChapel_OutDoorToBarracks,
+          DLC5_LostChapel_OutDoorToBarracks_2,
+          DLC5_LostChapel_OutDoorToBellRoom,
+          DLC5_LostChapel_OutDoorToChapel_1,
+          DLC5_LostChapel_OutDoorToChapel_2,
+          DLC5_LostChapel_PlaneOfShadow_Enter,
+          DLC5_OutdoorFromBasement_Enter,
+          DLC5_PlaneOfShadow_Basement_1_Enter,
+          DLC5_PlaneOfShadow_Basement_2_Enter,
+          DLC5_PoS_Basement_2_ChainedDarknessTest,
+          DLC5_PoS_Basement_2_FromChainedDarknessLair,
+          DLC5_SithhudAltarOfSeals,
+          DLC5_SithhudLair_Enter,
+          DLC5_Storasta_Balcony,
+          DLC5_Storasta_Enter,
+          DLC5_Storasta_from_Dragon_Ruins,
+          DLC5_Storasta_from_Karokk_Hill,
+          DLC5_Storasta_In_Dragon_Ruins,
+          DLC5_Storasta_in_Karokk_Hill,
+          DLC5_Storasta_Wall_Down,
+          DLC5_Storasta_Wall_Up,
+          DLC5_Tavern_Enter,
+          DLC5_ToAbyssFromTemple_Enter,
+          DLC5_ToBasementFromTemple_Enter,
           DragonsGraveyard_Bridge,
           DragonsGraveyard_CaveIn,
           DragonsGraveyard_CaveOut,

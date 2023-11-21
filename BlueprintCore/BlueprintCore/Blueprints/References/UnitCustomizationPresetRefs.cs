@@ -95,7 +95,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Bandits_Alchemists = "1bde310c8df148b4b84fd3dcc6313089";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Bandits_Casters_Clerics_Alchemists_Bards_Necromancers = "90d5444d1a3d4587bbac1e30c2bd8a68";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Citizen_Female = "6d6d596daeed4832b8089ff984a649a3";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Citizen_Female_NoGnomes = "f1cf5e290f8b48bb89095a9d8226cd9b";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Citizen_Male = "2f1461cbf22d40938186e71fd03c0fd2";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Citizens_Male_NoGnomes = "6d50535646bc4174b0b569d52b035740";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Coloxus = "961c4d6566ca4637a9016da055ac00ff";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Crusader_EagleWatchSoldier = "fa6e24f79f704b13ab3097c638a1f9b4";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Crusader_KenabresSoldier = "402513270ef54402b92aca9e66f26fd8";
@@ -113,7 +115,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_IncubusMix = "0f78fef59975468c8f326b9cabc94ffc";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Mongrelman = "1df1d70c4580443e9c9df664de229c1a";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Noble_Female = "4fc049cbb0254f56adbdda2030f41342";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Noble_Female_NoGnomes = "ee97ac3ece8f4ed081e201ec34301d53";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Noble_Male = "211e185571ff4946a5c671b26ec2e716";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Noble_Male_NoGnomes = "7254cd9f84874b9fa2da13f1744b0ecc";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_PuluraCultists = "94f5e51f83204fafa440129d422643c4";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_RobinHoodBandit = "c5e433e0ffa94c1598c5c9d5f9f92050";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_Sarc_Peasant = "9db6ce965eaa46ed81f9b24777f044b4";
@@ -142,7 +146,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> CustomizationPreset_ZombieLord_Medium = "b164d3d074444db48136bd882de57f5f";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC4_CustomizationPreset = "c1f5ed7018734c55a892f8379f56eea1";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC4_Human_Ranger_CustomisationPreset = "a0f1c670573642fa878050620d7a30dc";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_KellidCustomizationPreset = "0eb4e9e3c33e44d499bb1b3e72a146e3";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_ShadowPlaneCustomizationPreset = "e7f89993233c4e078bfd1712f1825bec";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_StorastaNPCCustomiastionPreset = "8f0c0ced207d43bc9ac9680d71bcb469";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_StorastaUndeadCustomiastionPreset = "0ebaf60eea15489ea5bd3799675b85bb";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Goblin_CustomizationPreset = "93e00a611e6b479590320a2088750f82";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Knights_CustomizationPresetDLC5 = "6c05d4f78f2f43b09bf2490478864992";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Noble_CustomizationPreset = "d4d7ed9c2bc94bdbbe33e4351857e6bb";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Test_CustomizationPreset = "f2fde6100e2842bb9b08555c11a5a75f";
 
@@ -229,7 +238,9 @@ namespace BlueprintCore.Blueprints.References
           CustomizationPreset_Bandits_Alchemists,
           CustomizationPreset_Bandits_Casters_Clerics_Alchemists_Bards_Necromancers,
           CustomizationPreset_Citizen_Female,
+          CustomizationPreset_Citizen_Female_NoGnomes,
           CustomizationPreset_Citizen_Male,
+          CustomizationPreset_Citizens_Male_NoGnomes,
           CustomizationPreset_Coloxus,
           CustomizationPreset_Crusader_EagleWatchSoldier,
           CustomizationPreset_Crusader_KenabresSoldier,
@@ -247,7 +258,9 @@ namespace BlueprintCore.Blueprints.References
           CustomizationPreset_IncubusMix,
           CustomizationPreset_Mongrelman,
           CustomizationPreset_Noble_Female,
+          CustomizationPreset_Noble_Female_NoGnomes,
           CustomizationPreset_Noble_Male,
+          CustomizationPreset_Noble_Male_NoGnomes,
           CustomizationPreset_PuluraCultists,
           CustomizationPreset_RobinHoodBandit,
           CustomizationPreset_Sarc_Peasant,
@@ -276,7 +289,12 @@ namespace BlueprintCore.Blueprints.References
           CustomizationPreset_ZombieLord_Medium,
           DLC4_CustomizationPreset,
           DLC4_Human_Ranger_CustomisationPreset,
+          DLC5_KellidCustomizationPreset,
+          DLC5_ShadowPlaneCustomizationPreset,
+          DLC5_StorastaNPCCustomiastionPreset,
+          DLC5_StorastaUndeadCustomiastionPreset,
           Goblin_CustomizationPreset,
+          Knights_CustomizationPresetDLC5,
           Noble_CustomizationPreset,
           Test_CustomizationPreset,
       };

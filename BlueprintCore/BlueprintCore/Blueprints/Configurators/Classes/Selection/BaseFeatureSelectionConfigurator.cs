@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         {
           var copyFrom = blueprint.Reference.Get();
           bp.IgnorePrerequisites = copyFrom.IgnorePrerequisites;
+          bp.ExceptWhiteListed = copyFrom.ExceptWhiteListed;
           bp.Obligatory = copyFrom.Obligatory;
           bp.Mode = copyFrom.Mode;
           bp.Group = copyFrom.Group;
@@ -56,6 +57,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         {
           var copyFrom = blueprint.Reference.Get();
           bp.IgnorePrerequisites = copyFrom.IgnorePrerequisites;
+          bp.ExceptWhiteListed = copyFrom.ExceptWhiteListed;
           bp.Obligatory = copyFrom.Obligatory;
           bp.Mode = copyFrom.Mode;
           bp.Group = copyFrom.Group;
@@ -74,6 +76,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bp =>
         {
           bp.IgnorePrerequisites = ignorePrerequisites;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintFeatureSelection.ExceptWhiteListed"/>
+    /// </summary>
+    ///
+    /// <param name="exceptWhiteListed">
+    /// <para>
+    /// InfoBox: If set, &amp;apos;IsFeatureSelectionWhiteList&amp;apos; prerequisites won&amp;apos;t be ignored 
+    /// </para>
+    /// </param>
+    public TBuilder SetExceptWhiteListed(bool exceptWhiteListed = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ExceptWhiteListed = exceptWhiteListed;
         });
     }
 
@@ -272,6 +292,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="thisFeature">
     /// <para>
     /// Blueprint of type BlueprintFeatureSelection. You can pass in the blueprint using:
@@ -288,12 +313,14 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Blueprint<BlueprintFeatureSelectionReference>? thisFeature = null)
     {
       var component = new PrerequisiteSelectionPossible();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.m_ThisFeature = thisFeature?.Reference ?? component.m_ThisFeature;
       if (component.m_ThisFeature is null)
       {

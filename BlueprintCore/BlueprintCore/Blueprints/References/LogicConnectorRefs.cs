@@ -18,6 +18,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> AltarDamage_Actions = "35995aa895b843ab9c2d75d3a158487e";
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> Area52Button = "fdf004a019ae85741bcee792d46900e8";
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> Barrel_explosion = "8fdc96985bf749dfb5f8bd9085d4aeda";
+    public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> DLC5_GoblinsPartyInTheTower_DispelMagic_Actions = "6a7a9ade5a3c4a928eee1c0649d7a4da";
+    public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> DLC5_GoblinsPartyInTheTower_FireDamage_Actions = "b5d07682ed2a43f0a66ba50a09efabd5";
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> FireDamage_Actions = "209d33847e7d4a33a894f9de8350a9c1";
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> GateBLeverLogicConnector = "cd5489028f264804fa7118bef9d1f505";
     public static readonly Blueprint<BlueprintReference<BlueprintLogicConnector>> GateCLeverLogicConnector = "717d88bb7760d6046a9957e59ae637a8";
@@ -34,6 +36,8 @@ namespace BlueprintCore.Blueprints.References
           AltarDamage_Actions,
           Area52Button,
           Barrel_explosion,
+          DLC5_GoblinsPartyInTheTower_DispelMagic_Actions,
+          DLC5_GoblinsPartyInTheTower_FireDamage_Actions,
           FireDamage_Actions,
           GateBLeverLogicConnector,
           GateCLeverLogicConnector,

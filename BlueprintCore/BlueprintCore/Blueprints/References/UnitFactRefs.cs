@@ -137,6 +137,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> HealersWayFact = "274a5268bfca1254cb155327e96ea310";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> InsightArmor5 = "b136ef4013e450a42ad4737bb9a81507";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> LayonHandsFact = "a9f54ba0585042c489232f318a7b4295";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> LayonHandsFactTorturedCrusader = "b4b3221835684359b5e1adabdc68e037";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> LocalMapMarker_POI = "a1fac90afc6b3814f9e89bcdcd9fda24";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> LocalMapMarker_POI_ShowAlways = "8d665cf41716dc24581137ee84ecec27";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> LocalMapMarker_Unit = "86c643ff85c5d1843bb8ec3d15f6ff24";
@@ -223,6 +224,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StandartFocusedRageFact = "8aa3de854579465fb04f797193f6b3d4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StandartRageFact = "4b1f3dd0f61946249a654941fc417a89";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> StonelordDefensiveStanceFact = "8b697e3d49b24bc7a1c357c2e2c8a18e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> TorturedCrusaderLayonHandsFact = "87dba3305d7a4d5ba2db162405f3d70e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> Total_Defence = "5a98959dc4e74716b9c58ba267e32cde";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> TrapMasteryRank1Fact = "7af46619eb5149d581c585f5ed184eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitFact>> TrapMasteryRank2Fact = "1521cc5ecaaf4fca8e2e44b87cda6cfe";
@@ -353,6 +355,7 @@ namespace BlueprintCore.Blueprints.References
           HealersWayFact,
           InsightArmor5,
           LayonHandsFact,
+          LayonHandsFactTorturedCrusader,
           LocalMapMarker_POI,
           LocalMapMarker_POI_ShowAlways,
           LocalMapMarker_Unit,
@@ -439,6 +442,7 @@ namespace BlueprintCore.Blueprints.References
           StandartFocusedRageFact,
           StandartRageFact,
           StonelordDefensiveStanceFact,
+          TorturedCrusaderLayonHandsFact,
           Total_Defence,
           TrapMasteryRank1Fact,
           TrapMasteryRank2Fact,

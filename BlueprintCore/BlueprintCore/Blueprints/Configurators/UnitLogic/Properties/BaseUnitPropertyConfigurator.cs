@@ -405,8 +405,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinCreatePoisonAbilityProperty</term><description>0482fffc039d46fc86a86bda03e00f1a</description></item>
-    /// <item><term>DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty</term><description>b51cd8eea32a4bbbbf736a595d83699e</description></item>
-    /// <item><term>ShifterWolverineLevelProperty</term><description>fddca642fd7d4b5fab836d9e27bd5b2d</description></item>
+    /// <item><term>HalfPaladinLevelsForLayOnHandsProperty</term><description>0f49bfc6c59242429f948061f0c432e1</description></item>
+    /// <item><term>WereWolfDRProperty</term><description>85cb29c9b9034f3786a6407150f4e41b</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -655,7 +655,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>TricksterLoreReligionDarknessDomainProperty</term><description>044b4066d5fd46158ad3eb9f820166fb</description></item>
+    /// <item><term>ShifterWildShapeWolverineProperty</term><description>b7e6b6a93887467a9dda03bf626b46b6</description></item>
     /// <item><term>TricksterLoreReligionWeatherDomainProperty</term><description>7747294b95e64edbb23e1ec5aca774e1</description></item>
     /// </list>
     /// </remarks>
@@ -744,13 +744,30 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>MountedShieldUnitProperty</term><description>7e0d8bc634c04863aa2b891e750ec8df</description></item>
     /// <item><term>ShieldbearerRankProperty</term><description>c76f055879394c2d9a342ab66dac9d97</description></item>
+    /// <item><term>ShieldBucklerMythicProperty</term><description>030c88da16b34dcf8d03f2680ac648d0</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="addShieldBonus">
+    /// <para>
+    /// InfoBox: Помимо основного бонуса, добавить зачарование
+    /// </para>
+    /// </param>
+    /// <param name="addShieldFocus">
+    /// <para>
+    /// InfoBox: Также добавить фокус. Не будет работать корректно, если баф накладывается одновременно с надеванием щита - фокус рассчитывается в тот же момент и возникает конфликт времени исполнения.
+    /// </para>
+    /// </param>
     public TBuilder AddShieldBonusGetter(
+        bool? addShieldBonus = null,
+        bool? addShieldFocus = null,
         PropertySettings? settings = null)
     {
       var component = new ShieldBonusGetter();
+      component.AddShieldBonus = addShieldBonus ?? component.AddShieldBonus;
+      component.AddShieldFocus = addShieldFocus ?? component.AddShieldFocus;
       Validate(settings);
       component.Settings = settings ?? component.Settings;
       return AddComponent(component);
@@ -765,7 +782,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeProperty</term><description>f363c368c37546c3a4793b348963dc28</description></item>
-    /// <item><term>DLC3_HitDieHPRegainMaxHealProperty</term><description>fce61cac8c574a058f760192f3ada3bd</description></item>
+    /// <item><term>DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty</term><description>b51cd8eea32a4bbbbf736a595d83699e</description></item>
     /// <item><term>TricksterUseMagicDeviceTier3CLProperty</term><description>d533bfb6b6304ea3a0f8ce9d159704e9</description></item>
     /// </list>
     /// </remarks>
@@ -857,9 +874,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BeltOfPrimalForceUnitProperty</term><description>eec2faf700144a78a0661675e23c2bff</description></item>
-    /// <item><term>PerfectFormDexterityToIntelligenceProperty</term><description>77d920d8ba584d2b8329d869647e39be</description></item>
-    /// <item><term>RageshaperGroundSlamProperty</term><description>048afa62c2c646d39b6ab492ff12e79c</description></item>
+    /// <item><term>AttackOfOpportunityCountProperty</term><description>b7fffcd88699431c88302b15b15fe837</description></item>
+    /// <item><term>PerfectFormConstitutionToIntelligenceProperty</term><description>bd01072d846c42fdb25968fcd8e63f06</description></item>
+    /// <item><term>TorturedCrusaderUnitProperty</term><description>f3785dfdd23447f5905b4c83e69f9d1a</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddStatValueGetter(
@@ -884,7 +901,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DestructiveDispelProperty</term><description>13e4f1dd08954723b173335a54b48746</description></item>
-    /// <item><term>ScaledFistACBonusProperty2</term><description>d71c095e672c4abfb068aa402899b3ec</description></item>
+    /// <item><term>RageLevelProperty</term><description>6a8e9d4b8ba547f5819354a05dd2a291</description></item>
     /// <item><term>WitchHexSpellLevelProperty</term><description>75efe8b64a3a4cd09dda28cef156cfb5</description></item>
     /// </list>
     /// </remarks>
@@ -1054,6 +1071,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DestructiveDispelProperty</term><description>13e4f1dd08954723b173335a54b48746</description></item>
+    /// <item><term>DirgeOfDoomDCProperty</term><description>c0196f56a1b64f2882b26cfb8f17ad45</description></item>
     /// <item><term>WitchHexDCProperty</term><description>bdc230ce338f427ba74de65597b0d57a</description></item>
     /// </list>
     /// </remarks>

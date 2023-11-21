@@ -44,6 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.m_LightSceneConsoleOverride = copyFrom.m_LightSceneConsoleOverride;
           bp.m_Bounds = copyFrom.m_Bounds;
           bp.m_AudioTimeOfDayVariants = copyFrom.m_AudioTimeOfDayVariants;
+          bp.m_OverrideCampaign = copyFrom.m_OverrideCampaign;
           bp.m_SoundBankNames = copyFrom.m_SoundBankNames;
           bp.m_ManageBanksSeparately = copyFrom.m_ManageBanksSeparately;
           bp.m_UnloadBanksDelay = copyFrom.m_UnloadBanksDelay;
@@ -78,6 +79,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.m_LightSceneConsoleOverride = copyFrom.m_LightSceneConsoleOverride;
           bp.m_Bounds = copyFrom.m_Bounds;
           bp.m_AudioTimeOfDayVariants = copyFrom.m_AudioTimeOfDayVariants;
+          bp.m_OverrideCampaign = copyFrom.m_OverrideCampaign;
           bp.m_SoundBankNames = copyFrom.m_SoundBankNames;
           bp.m_ManageBanksSeparately = copyFrom.m_ManageBanksSeparately;
           bp.m_UnloadBanksDelay = copyFrom.m_UnloadBanksDelay;
@@ -325,6 +327,44 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         {
           if (bp.m_AudioTimeOfDayVariants is null) { return; }
           bp.m_AudioTimeOfDayVariants.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPart.m_OverrideCampaign"/>
+    /// </summary>
+    ///
+    /// <param name="overrideCampaign">
+    /// <para>
+    /// Blueprint of type BlueprintCampaign. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetOverrideCampaign(Blueprint<BlueprintCampaignReference> overrideCampaign)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideCampaign = overrideCampaign?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPart.m_OverrideCampaign"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOverrideCampaign(Action<BlueprintCampaignReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_OverrideCampaign is null) { return; }
+          action.Invoke(bp.m_OverrideCampaign);
         });
     }
 
@@ -697,6 +737,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       if (Blueprint.m_AudioTimeOfDayVariants is null)
       {
         Blueprint.m_AudioTimeOfDayVariants = new SceneReference[0];
+      }
+      if (Blueprint.m_OverrideCampaign is null)
+      {
+        Blueprint.m_OverrideCampaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
       }
       if (Blueprint.m_SoundBankNames is null)
       {

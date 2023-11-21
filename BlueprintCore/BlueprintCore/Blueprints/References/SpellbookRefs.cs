@@ -24,6 +24,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ArmagsBladeSpellbook = "2b3065f56d77f4845891bfa5b78436da";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> AzataSpellbook = "b21b9f5e2831c2549a782d8128fb905b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> BardSpellbook = "bc04fc157a8801d41b877ad0d9af03dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> BardSpellbook_Penta = "0b00eedc8dc8421ca277ddc4c44c60b1";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> BloodragerSpellbook = "e19484252c2f80e4a9439b3681b20f00";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ClericSpellbook = "4673d19a0cf2fab4f885cc4d1353da33";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> CrossbloodedSpellbook = "cb0be5988031ebe4c947086a1170eacc";
@@ -51,6 +52,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> NatureMageSpellbook = "3ed7e38dc8134af28e1a2b105f74fb7b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> OracleSpellbook = "6c03364712b415941a98f74522a81273";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> PaladinSpellbook = "bce4989b070ce924b986bf346f59e885";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> PaladinSpellbookTorturedCrusader = "6886f046087f4cb68f8cbdfdfedbd3d9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> RangerSpellbook = "762858a4a28eaaf43aa00f50441d7027";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> SageSpellbook = "cc2052732997b654e93eac268a39a0a9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ShamanSpellbook = "44f16931dabdff643bfe2a48138e769f";
@@ -83,6 +85,7 @@ namespace BlueprintCore.Blueprints.References
           ArmagsBladeSpellbook,
           AzataSpellbook,
           BardSpellbook,
+          BardSpellbook_Penta,
           BloodragerSpellbook,
           ClericSpellbook,
           CrossbloodedSpellbook,
@@ -110,6 +113,7 @@ namespace BlueprintCore.Blueprints.References
           NatureMageSpellbook,
           OracleSpellbook,
           PaladinSpellbook,
+          PaladinSpellbookTorturedCrusader,
           RangerSpellbook,
           SageSpellbook,
           ShamanSpellbook,

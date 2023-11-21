@@ -33,6 +33,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCatItem = "c26c4b72544948318ec71348ab8931c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCreepingDeath = "11e350708227f3b4eaf641a5b5fd2863";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheLightStepItem = "815cc85ce13ab64428253aea3b6708a8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheRat_Item = "2bf3589bf5104c4789ac7071192cd256";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheSwampItem = "1ccb68fd1e0f6d141b739e3744e5af4e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfWaryStepsItem = "c567d113d0b7053428fcb76e5175e37f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> ConnectiontoEarthBoostItem = "57d89d9340dedb449a279622ec0541be";
@@ -71,6 +72,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfTheCatItem,
           BootsOfTheCreepingDeath,
           BootsOfTheLightStepItem,
+          BootsOfTheRat_Item,
           BootsOfTheSwampItem,
           BootsOfWaryStepsItem,
           ConnectiontoEarthBoostItem,

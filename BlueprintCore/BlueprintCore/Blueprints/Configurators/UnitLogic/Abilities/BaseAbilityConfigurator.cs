@@ -14,6 +14,7 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Blueprints.TurnBasedModifiers;
 using Kingmaker.Craft;
@@ -32,6 +33,7 @@ using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Abilities.Components.Base;
 using Kingmaker.UnitLogic.Abilities.Components.CasterCheckers;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
+using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.Commands.Base;
@@ -87,6 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
           bp.Hidden = copyFrom.Hidden;
           bp.NeedEquipWeapons = copyFrom.NeedEquipWeapons;
+          bp.UseCurrentWeaponAsReasonItem = copyFrom.UseCurrentWeaponAsReasonItem;
           bp.NotOffensive = copyFrom.NotOffensive;
           bp.EffectOnAlly = copyFrom.EffectOnAlly;
           bp.EffectOnEnemy = copyFrom.EffectOnEnemy;
@@ -94,6 +97,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.HasFastAnimation = copyFrom.HasFastAnimation;
           bp.m_TargetMapObjects = copyFrom.m_TargetMapObjects;
           bp.ActionType = copyFrom.ActionType;
+          bp.MinimalTransitionOut = copyFrom.MinimalTransitionOut;
           bp.AvailableMetamagic = copyFrom.AvailableMetamagic;
           bp.m_IsFullRoundAction = copyFrom.m_IsFullRoundAction;
           bp.LocalizedDuration = copyFrom.LocalizedDuration;
@@ -142,6 +146,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.ActionBarAutoFillIgnored = copyFrom.ActionBarAutoFillIgnored;
           bp.Hidden = copyFrom.Hidden;
           bp.NeedEquipWeapons = copyFrom.NeedEquipWeapons;
+          bp.UseCurrentWeaponAsReasonItem = copyFrom.UseCurrentWeaponAsReasonItem;
           bp.NotOffensive = copyFrom.NotOffensive;
           bp.EffectOnAlly = copyFrom.EffectOnAlly;
           bp.EffectOnEnemy = copyFrom.EffectOnEnemy;
@@ -149,6 +154,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
           bp.HasFastAnimation = copyFrom.HasFastAnimation;
           bp.m_TargetMapObjects = copyFrom.m_TargetMapObjects;
           bp.ActionType = copyFrom.ActionType;
+          bp.MinimalTransitionOut = copyFrom.MinimalTransitionOut;
           bp.AvailableMetamagic = copyFrom.AvailableMetamagic;
           bp.m_IsFullRoundAction = copyFrom.m_IsFullRoundAction;
           bp.LocalizedDuration = copyFrom.LocalizedDuration;
@@ -504,6 +510,24 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.UseCurrentWeaponAsReasonItem"/>
+    /// </summary>
+    ///
+    /// <param name="useCurrentWeaponAsReasonItem">
+    /// <para>
+    /// InfoBox: PF-497752
+    /// </para>
+    /// </param>
+    public TBuilder SetUseCurrentWeaponAsReasonItem(bool useCurrentWeaponAsReasonItem = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UseCurrentWeaponAsReasonItem = useCurrentWeaponAsReasonItem;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintAbility.NotOffensive"/>
     /// </summary>
     public TBuilder SetNotOffensive(bool notOffensive = true)
@@ -584,6 +608,18 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         bp =>
         {
           bp.ActionType = actionType;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbility.MinimalTransitionOut"/>
+    /// </summary>
+    public TBuilder SetMinimalTransitionOut(float minimalTransitionOut)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.MinimalTransitionOut = minimalTransitionOut;
         });
     }
 
@@ -1031,8 +1067,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AuraOfJusticeAbility</term><description>7a4f0c48829952e47bb1fd1e4e9da83a</description></item>
-    /// <item><term>LayOnHandsOthers</term><description>caae1dc6fcf7b37408686971ee27db13</description></item>
+    /// <item><term>AllIsDarknessSmiteAbility</term><description>a4ba84cd7a2341409e91d487edcbea82</description></item>
+    /// <item><term>FinalJusticeAbility</term><description>de48d9180fd247eaa704c7c71a551d4d</description></item>
     /// <item><term>WeaponBondSwitchAbility</term><description>7ff088ab58c69854b82ea95c2b0e35b4</description></item>
     /// </list>
     /// </remarks>
@@ -1122,6 +1158,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DivineHunterBondSwitchAbility</term><description>8b405b057dc5051448e20041bd366592</description></item>
+    /// <item><term>FocusedShotAction</term><description>1dc6739a4d9543468d67d94a2bd4306e</description></item>
+    /// <item><term>TandemExecutionerPenetratingCascadeAbility</term><description>83e690c9f7ef4c64986c123e1db7af90</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAbilityCasterHasWeaponWithRangeType(
@@ -1141,7 +1179,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>ConcentratedAcidFlaskAbility</term><description>3b3cbf88432eef046afd627d2b67142b</description></item>
+    /// <item><term>CurseDeteriorationBomb</term><description>3ac7286a18ba6234a908ae5d8b84d107</description></item>
     /// <item><term>TanglefootBomb</term><description>526aa6319e9174e4ab2026e0f299b011</description></item>
     /// </list>
     /// </remarks>
@@ -1173,7 +1211,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>InflictLightWoundsDamage</term><description>f6ff156188dc4e44c850179fb19afaf5</description></item>
+    /// <item><term>HexChannelerChannelPositiveHarm</term><description>fb917ad147d846e42ad22c8e14f44b79</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1209,7 +1247,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidBreathSpell_Cutscene</term><description>1153db4515d4f2b4188a13336930c7cb</description></item>
-    /// <item><term>HellsDecreeAbilityMagicEnchantment</term><description>00ca6b3304aa98d4d9662d98ac4c17d0</description></item>
+    /// <item><term>HellsDecreeAbilityMagicEvocation</term><description>9de59bd09e5bc29409742e33bacaac01</description></item>
     /// <item><term>WyrmshifterSilverBreathWeaponAbility</term><description>fe3c4006044945fc864d2482e9ebe37d</description></item>
     /// </list>
     /// </remarks>
@@ -1242,7 +1280,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrder</term><description>b1723a0239d428243a1be2299696eb85</description></item>
-    /// <item><term>MasterHunterAbility</term><description>8a57e1072da4f6f4faaa55b7b7dc633c</description></item>
+    /// <item><term>MagmaBlastBase</term><description>8c25f52fce5113a4491229fd1265fc3c</description></item>
     /// <item><term>WitchHexRegenerativeSinewAbility</term><description>40d201c6fbbb46e46a63dec8508de65a</description></item>
     /// </list>
     /// </remarks>
@@ -1287,8 +1325,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
-    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
+    /// <item><term>HellsSealVariantFireExplosionDamage</term><description>2505b384e7c80d84a9a8300ad8673edd</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextRankConfig(ContextRankConfig component)
@@ -1305,7 +1343,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1340,7 +1378,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1374,7 +1412,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1408,7 +1446,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1471,7 +1509,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>RapidShotFeature</term><description>9c928dc570bb9e54a9649b3ebfe47a41</description></item>
+    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// </list>
     /// </remarks>
@@ -1507,7 +1545,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
+    /// <item><term>Heroism</term><description>5ab0d42fb68c9e34abae4921822b9d63</description></item>
     /// <item><term>WhiteMageCureLightWoundsCast</term><description>83d6d8f4c4d296941838086f60485fb7</description></item>
     /// </list>
     /// </remarks>
@@ -1524,12 +1562,30 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="featuresExlude">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddRecommendationNoFeatFromGroup(
         List<Blueprint<BlueprintUnitFactReference>> features,
+        List<Blueprint<BlueprintUnitFactReference>>? featuresExlude = null,
         bool? goodIfNoFeature = null)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
+      component.m_FeaturesExlude = featuresExlude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_FeaturesExlude;
+      if (component.m_FeaturesExlude is null)
+      {
+        component.m_FeaturesExlude = new BlueprintUnitFactReference[0];
+      }
       component.GoodIfNoFeature = goodIfNoFeature ?? component.GoodIfNoFeature;
       return AddComponent(component);
     }
@@ -1780,7 +1836,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
-    /// <item><term>GeniekindDjinni</term><description>6f1f99b38e471fa42b1b42f7549b4210</description></item>
+    /// <item><term>FreedomOfMovement</term><description>4c349361d720e844e846ad8c19959b1e</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1810,7 +1866,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
+    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1944,7 +2000,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>InflictCriticalWoundsCast</term><description>651110ed4f117a948b41c05c5c7624c0</description></item>
+    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
     /// <item><term>WrackingRay</term><description>1cde0691195feae45bab5b83ea3f221e</description></item>
     /// </list>
     /// </remarks>
@@ -1978,8 +2034,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChargeAbility</term><description>c78506dd0e14f7c45a599990e4e65038</description></item>
-    /// <item><term>FlyTrampleTest</term><description>f0b622ab2d18ef7439feb8aa5680d6e5</description></item>
-    /// <item><term>OverrunAbility</term><description>1a3b471ecea51f7439a946b23577fd70</description></item>
+    /// <item><term>GriffonDeathFromAboveAbility</term><description>4af0f63ebf3f4eb08dade5a8709ff5a5</description></item>
+    /// <item><term>UmbralDragonDeathFromAboveAbility</term><description>0f5c1141578c47ad921b0a509d20431e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2143,7 +2199,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteDeath</term><description>7d721be6d74f07f4d952ee8d6f8f44a0</description></item>
-    /// <item><term>HolySword</term><description>bea9deffd3ab6734c9534153ddc70bde</description></item>
+    /// <item><term>HoldPersonMass</term><description>defbbeaef79eda64abc645036228a31b</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -2379,6 +2435,57 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityRestrictionByShield"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SacredShieldArmorBlindingAbility</term><description>06048f0ba1b945a098a82f9c746ff002</description></item>
+    /// <item><term>SacredShieldArmorReflectingChoiceAbility</term><description>64ba2b5e3cbf477b8b155c1a1a1dbe90</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="blueprintShieldTypes">
+    /// <para>
+    /// Blueprint of type BlueprintShieldType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddAbilityRestrictionByShield(
+        List<Blueprint<BlueprintShieldTypeReference>>? blueprintShieldTypes = null,
+        bool? filterByBlueprintShieldTypes = null,
+        bool? filterByShieldProficiencyGroup = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        ArmorProficiencyGroupFlag? shiledProficiencyGroupEntries = null)
+    {
+      var component = new AbilityRestrictionByShield();
+      component.m_BlueprintShieldTypes = blueprintShieldTypes?.Select(bp => bp.Reference)?.ToArray() ?? component.m_BlueprintShieldTypes;
+      if (component.m_BlueprintShieldTypes is null)
+      {
+        component.m_BlueprintShieldTypes = new BlueprintShieldTypeReference[0];
+      }
+      component.m_filterByBlueprintShieldTypes = filterByBlueprintShieldTypes ?? component.m_filterByBlueprintShieldTypes;
+      component.m_filterByShieldProficiencyGroup = filterByShieldProficiencyGroup ?? component.m_filterByShieldProficiencyGroup;
+      component.m_ShiledProficiencyGroupEntries = shiledProficiencyGroupEntries ?? component.m_ShiledProficiencyGroupEntries;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextCalculateAbilityParams"/>
     /// </summary>
     ///
@@ -2387,7 +2494,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathThroesFeature</term><description>49a64c524e7f8e548b4d5ea41041a226</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2455,7 +2562,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
+    /// <item><term>MimicChestAdhesiveFeature</term><description>a3ef16a570855b54c9957c026075dd14</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2505,7 +2612,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>InspireFerocityEffectBuffMythic</term><description>fb6d392a0fcf4ba2a7cefed7682fb911</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2534,7 +2641,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2596,6 +2703,34 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.SpellLevel = ContextValues.Constant(0);
       }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="HideDCFromTooltip"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ArmyACBonus3AuraAbility</term><description>7963fb8f26574efcb4e0cb35166d4ce9</description></item>
+    /// <item><term>BlessWeapon</term><description>831e942864e924846a30d2e0678e438b</description></item>
+    /// <item><term>WavesOfExhaustion</term><description>3e4d3b9a5bd03734d9b053b9067c2f38</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddHideDCFromTooltip(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new HideDCFromTooltip();
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2686,12 +2821,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </para>
     /// </param>
     public TBuilder AddArmyAbilityTeleportation(
+        float? appearTime = null,
         bool? cameraShouldFollow = null,
         AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        float? dissapearTime = null,
         bool? hasIsAllyEffectRunConditions = null,
+        UnitAnimationActionLink? landingAnimation = null,
+        float? landingTime = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
@@ -2701,9 +2840,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         AssetLink<PrefabLink>? sideDisappearFx = null,
-        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
+        UnitAnimationActionLink? takeOffAnimation = null,
+        float? takeoffTime = null,
+        bool? useAnimations = null)
     {
       var component = new ArmyAbilityTeleportation();
+      component.AppearTime = appearTime ?? component.AppearTime;
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
       component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
@@ -2725,7 +2868,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      component.DissapearTime = dissapearTime ?? component.DissapearTime;
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landingAnimation);
+      component.LandingAnimation = landingAnimation ?? component.LandingAnimation;
+      component.LandingTime = landingTime ?? component.LandingTime;
       component.PortalBone = portalBone ?? component.PortalBone;
       component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
@@ -2758,6 +2905,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      Validate(takeOffAnimation);
+      component.TakeOffAnimation = takeOffAnimation ?? component.TakeOffAnimation;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
+      component.UseAnimations = useAnimations ?? component.UseAnimations;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2951,6 +3102,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>ConsumeFleshAbility</term><description>be765ae21089408e815fa97a5a0dc3ad</description></item>
     /// <item><term>NightcrawlerBurrowAbility</term><description>06501fbe848142008b21b2065c4c7fbc</description></item>
     /// <item><term>PurpleWormBurrowAbility</term><description>345329c09ee0f1343a7e61564468c6b9</description></item>
     /// </list>
@@ -3064,7 +3216,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitDimensionalSlideAbility</term><description>e81570b9df7758e4195346340231e6e3</description></item>
-    /// <item><term>DimensionDoorMassDLC_cutscene_2</term><description>8bdb37323a2f4457a1556ede3098036e</description></item>
+    /// <item><term>DLC3_FAB_DimensionalRetributionAbility_Stage1</term><description>06ce24e20a7e455293c7d35d69bb36a1</description></item>
     /// <item><term>WitchOfTheVeilShroudedStepAbility8</term><description>5713b048d3a24959b7a27eac48e69943</description></item>
     /// </list>
     /// </remarks>
@@ -3142,12 +3294,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoor(
+        float? appearTime = null,
         bool? cameraShouldFollow = null,
         AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        float? dissapearTime = null,
         bool? hasIsAllyEffectRunConditions = null,
+        UnitAnimationActionLink? landingAnimation = null,
+        float? landingTime = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
@@ -3157,9 +3313,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         AssetLink<PrefabLink>? sideDisappearFx = null,
-        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
+        UnitAnimationActionLink? takeOffAnimation = null,
+        float? takeoffTime = null,
+        bool? useAnimations = null)
     {
       var component = new AbilityCustomDimensionDoor();
+      component.AppearTime = appearTime ?? component.AppearTime;
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
       component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
@@ -3181,7 +3341,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      component.DissapearTime = dissapearTime ?? component.DissapearTime;
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landingAnimation);
+      component.LandingAnimation = landingAnimation ?? component.LandingAnimation;
+      component.LandingTime = landingTime ?? component.LandingTime;
       component.PortalBone = portalBone ?? component.PortalBone;
       component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
@@ -3214,6 +3378,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      Validate(takeOffAnimation);
+      component.TakeOffAnimation = takeOffAnimation ?? component.TakeOffAnimation;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
+      component.UseAnimations = useAnimations ?? component.UseAnimations;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3397,12 +3565,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDimensionDoorTargets(
+        float? appearTime = null,
         bool? cameraShouldFollow = null,
         AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        float? dissapearTime = null,
         bool? hasIsAllyEffectRunConditions = null,
+        UnitAnimationActionLink? landingAnimation = null,
+        float? landingTime = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
@@ -3413,9 +3585,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         AssetLink<PrefabLink>? sideDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
-        UnitEvaluator[]? targets = null)
+        UnitAnimationActionLink? takeOffAnimation = null,
+        float? takeoffTime = null,
+        UnitEvaluator[]? targets = null,
+        bool? useAnimations = null)
     {
       var component = new AbilityCustomDimensionDoorTargets();
+      component.AppearTime = appearTime ?? component.AppearTime;
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
       component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
@@ -3437,7 +3613,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      component.DissapearTime = dissapearTime ?? component.DissapearTime;
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landingAnimation);
+      component.LandingAnimation = landingAnimation ?? component.LandingAnimation;
+      component.LandingTime = landingTime ?? component.LandingTime;
       component.PortalBone = portalBone ?? component.PortalBone;
       component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
@@ -3470,12 +3650,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      Validate(takeOffAnimation);
+      component.TakeOffAnimation = takeOffAnimation ?? component.TakeOffAnimation;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
       Validate(targets);
       component.Targets = targets ?? component.Targets;
       if (component.Targets is null)
       {
         component.Targets = new UnitEvaluator[0];
       }
+      component.UseAnimations = useAnimations ?? component.UseAnimations;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3565,12 +3749,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomDweomerLeap(
+        float? appearTime = null,
         bool? cameraShouldFollow = null,
         AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        float? dissapearTime = null,
         bool? hasIsAllyEffectRunConditions = null,
+        UnitAnimationActionLink? landingAnimation = null,
+        float? landingTime = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
@@ -3580,9 +3768,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         AssetLink<PrefabLink>? sideDisappearFx = null,
-        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
+        UnitAnimationActionLink? takeOffAnimation = null,
+        float? takeoffTime = null,
+        bool? useAnimations = null)
     {
       var component = new AbilityCustomDweomerLeap();
+      component.AppearTime = appearTime ?? component.AppearTime;
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
       component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
@@ -3604,7 +3796,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      component.DissapearTime = dissapearTime ?? component.DissapearTime;
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landingAnimation);
+      component.LandingAnimation = landingAnimation ?? component.LandingAnimation;
+      component.LandingTime = landingTime ?? component.LandingTime;
       component.PortalBone = portalBone ?? component.PortalBone;
       component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
@@ -3637,6 +3833,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      Validate(takeOffAnimation);
+      component.TakeOffAnimation = takeOffAnimation ?? component.TakeOffAnimation;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
+      component.UseAnimations = useAnimations ?? component.UseAnimations;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3737,13 +3937,17 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </para>
     /// </param>
     public TBuilder AddAbilityCustomFlashStep(
+        float? appearTime = null,
         bool? cameraShouldFollow = null,
         AssetLink<PrefabLink>? casterAppearFx = null,
         Blueprint<BlueprintProjectileReference>? casterAppearProjectile = null,
         AssetLink<PrefabLink>? casterDisappearFx = null,
         Blueprint<BlueprintProjectileReference>? casterDisappearProjectile = null,
+        float? dissapearTime = null,
         Blueprint<BlueprintUnitFactReference>? flashShot = null,
         bool? hasIsAllyEffectRunConditions = null,
+        UnitAnimationActionLink? landingAnimation = null,
+        float? landingTime = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         string? portalBone = null,
@@ -3753,9 +3957,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         AssetLink<PrefabLink>? sideAppearFx = null,
         Blueprint<BlueprintProjectileReference>? sideAppearProjectile = null,
         AssetLink<PrefabLink>? sideDisappearFx = null,
-        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null)
+        Blueprint<BlueprintProjectileReference>? sideDisappearProjectile = null,
+        UnitAnimationActionLink? takeOffAnimation = null,
+        float? takeoffTime = null,
+        bool? useAnimations = null)
     {
       var component = new AbilityCustomFlashStep();
+      component.AppearTime = appearTime ?? component.AppearTime;
       component.m_CameraShouldFollow = cameraShouldFollow ?? component.m_CameraShouldFollow;
       component.CasterAppearFx = casterAppearFx?.Get() ?? component.CasterAppearFx;
       if (component.CasterAppearFx is null)
@@ -3777,12 +3985,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CasterDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      component.DissapearTime = dissapearTime ?? component.DissapearTime;
       component.m_FlashShot = flashShot?.Reference ?? component.m_FlashShot;
       if (component.m_FlashShot is null)
       {
         component.m_FlashShot = BlueprintTool.GetRef<BlueprintUnitFactReference>(null);
       }
       component.m_HasIsAllyEffectRunConditions = hasIsAllyEffectRunConditions ?? component.m_HasIsAllyEffectRunConditions;
+      Validate(landingAnimation);
+      component.LandingAnimation = landingAnimation ?? component.LandingAnimation;
+      component.LandingTime = landingTime ?? component.LandingTime;
       component.PortalBone = portalBone ?? component.PortalBone;
       component.PortalFromPrefab = portalFromPrefab?.Get() ?? component.PortalFromPrefab;
       if (component.PortalFromPrefab is null)
@@ -3815,6 +4027,10 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_SideDisappearProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
       }
+      Validate(takeOffAnimation);
+      component.TakeOffAnimation = takeOffAnimation ?? component.TakeOffAnimation;
+      component.TakeoffTime = takeoffTime ?? component.TakeoffTime;
+      component.UseAnimations = useAnimations ?? component.UseAnimations;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3933,7 +4149,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonTeleport_Cutscene</term><description>9c2c6db42de64374bf2d26c08c573c92</description></item>
-    /// <item><term>DLC3_Nahyndri_Golemlike_Teleport</term><description>44d1dd134b5945a29d7a111a4c1d13ef</description></item>
+    /// <item><term>DemonTeleportCutscene</term><description>6f3b3fc3b3ed4333948ecaba6739ea5c</description></item>
     /// <item><term>UncertanityPrincipleTeleport</term><description>66bbb0079b595874f8c698451be2329c</description></item>
     /// </list>
     /// </remarks>
@@ -4105,7 +4321,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalChains</term><description>3b86de15c18e4b44bb7315fc6c116b4d</description></item>
-    /// <item><term>SpindleChargedWaterBlastAbility</term><description>680fe1162cff5294a8375f6eb32652ce</description></item>
+    /// <item><term>SpindleBlueFlameBlastAbility</term><description>3442485bd9cdfeb4fb7faf1984dec5bb</description></item>
     /// <item><term>SpindleWaterBlastAbility</term><description>7021bbe4dca437440a41da4552dce28e</description></item>
     /// </list>
     /// </remarks>
@@ -4299,7 +4515,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>FireSnakeCutscene</term><description>8edbafd845894cd39e9aff959999bf9a</description></item>
+    /// <item><term>FireballStaff</term><description>e11a57dd1da3ff2489ee52dd54e60453</description></item>
     /// <item><term>Yozz_Ability_DirtyTrickBomb</term><description>5caabe7c38d24e7f905bb6f723d1eccc</description></item>
     /// </list>
     /// </remarks>
@@ -4361,6 +4577,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintProjectileReference>>? projectiles = null,
         bool? replaceAttackRollBonusStat = null,
         AbilityProjectileType? type = null,
+        bool? useCastPositionInsteadCasterPosition = null,
         bool? useMaxProjectilesCount = null,
         Blueprint<BlueprintItemWeaponReference>? weapon = null)
     {
@@ -4385,6 +4602,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.ReplaceAttackRollBonusStat = replaceAttackRollBonusStat ?? component.ReplaceAttackRollBonusStat;
       component.Type = type ?? component.Type;
+      component.UseCastPositionInsteadCasterPosition = useCastPositionInsteadCasterPosition ?? component.UseCastPositionInsteadCasterPosition;
       component.UseMaxProjectilesCount = useMaxProjectilesCount ?? component.UseMaxProjectilesCount;
       component.m_Weapon = weapon?.Reference ?? component.m_Weapon;
       if (component.m_Weapon is null)
@@ -4472,6 +4690,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         List<Blueprint<BlueprintProjectileReference>>? projectiles = null,
         bool? replaceAttackRollBonusStat = null,
         AbilityProjectileType? type = null,
+        bool? useCastPositionInsteadCasterPosition = null,
         bool? useMaxProjectilesCount = null,
         Blueprint<BlueprintItemWeaponReference>? weapon = null)
     {
@@ -4498,6 +4717,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       }
       component.ReplaceAttackRollBonusStat = replaceAttackRollBonusStat ?? component.ReplaceAttackRollBonusStat;
       component.Type = type ?? component.Type;
+      component.UseCastPositionInsteadCasterPosition = useCastPositionInsteadCasterPosition ?? component.UseCastPositionInsteadCasterPosition;
       component.UseMaxProjectilesCount = useMaxProjectilesCount ?? component.UseMaxProjectilesCount;
       component.m_Weapon = weapon?.Reference ?? component.m_Weapon;
       if (component.m_Weapon is null)
@@ -4594,7 +4814,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelBringBackTouch</term><description>067035da0186d6e43bb4138f433911ee</description></item>
-    /// <item><term>HealersWayOthers</term><description>428006e0c196ffc48b54a4404b728c51</description></item>
+    /// <item><term>Harm</term><description>137af566f68fd9b428e2e12da43c1482</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
@@ -4734,7 +4954,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CastleOfKnivesVolcanicStorm</term><description>80e18bdfa51719b47b089cb07d677d83</description></item>
-    /// <item><term>ObsidianFlow</term><description>e48638596c955a74c8a32dbc90b518c1</description></item>
+    /// <item><term>IceStorm</term><description>fcb028205a71ee64d98175ff39a0abf9</description></item>
     /// <item><term>VolcanicStorm</term><description>16ce660837fb2544e96c3b7eaad73c63</description></item>
     /// </list>
     /// </remarks>
@@ -4768,7 +4988,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelBringBackCast</term><description>eb0d3e22826725d4199a3aac0db0ad50</description></item>
-    /// <item><term>ForcePunchCast</term><description>fc58ddcff6ab1394eb6c18e9126bb990</description></item>
+    /// <item><term>ForesterBreathOfLifeCast</term><description>7265c87226f54d12bd587bf6cecb63ec</description></item>
     /// <item><term>WhiteMageCureSeriousWoundsCast</term><description>1203e2dab8a593a459c0cc688f568052</description></item>
     /// </list>
     /// </remarks>
@@ -4923,7 +5143,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <listheader>Used by</listheader>
     /// <item><term>ChargeAbility</term><description>c78506dd0e14f7c45a599990e4e65038</description></item>
     /// <item><term>GriffonDeathFromAboveAbility</term><description>4af0f63ebf3f4eb08dade5a8709ff5a5</description></item>
-    /// <item><term>OverrunAbility</term><description>1a3b471ecea51f7439a946b23577fd70</description></item>
+    /// <item><term>UmbralDragonDeathFromAboveAbility</term><description>0f5c1141578c47ad921b0a509d20431e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -5064,7 +5284,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbjurationResistanceAcidAbility</term><description>9b415e09847398644ad6e57a9e3ab06a</description></item>
-    /// <item><term>InvisibilityKitsune</term><description>8177ab918285fb34c8dce57c72801c0c</description></item>
+    /// <item><term>KiAbudantStep</term><description>336a841704b7e2341b51f89fc9491f54</description></item>
     /// <item><term>WitchWanderingHexAbility</term><description>b209beab784d93546b40a2fa2a09ffa8</description></item>
     /// </list>
     /// </remarks>
@@ -5151,8 +5371,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>EcclesitheurgeBondAbility</term><description>f7ca063cf120f9f49a81fd3fca3484a8</description></item>
-    /// <item><term>MagicBlessingMajorAbility</term><description>f67e58b9bb7003a4aaea0deba52b3fd9</description></item>
+    /// <item><term>DLC5_PearlOfPowerEighthLevelAbility</term><description>e98d13f60dcb46bcb7432990487862b3</description></item>
+    /// <item><term>DLC5_PearlOfPowerSeventhLevelAbility</term><description>a01c2abbcf034c2695cc7eeaaf94604d</description></item>
     /// <item><term>ShamanItemBondAbility</term><description>182479736b748334db21b4e72ca67382</description></item>
     /// </list>
     /// </remarks>
@@ -5338,7 +5558,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HellknightCommandGreaterApproach</term><description>7e8627ca0ec19a6499b818843de0b923</description></item>
+    /// <item><term>GeomancyUndergroundAbility8</term><description>3c38004ea77f4764b6c9e9bff691e624</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -5437,7 +5657,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelBringBackCast</term><description>eb0d3e22826725d4199a3aac0db0ad50</description></item>
-    /// <item><term>InflictModerateWoundsCast</term><description>65f0b63c45ea82a4f8b8325768a3832d</description></item>
+    /// <item><term>InflictLightWoundsCast</term><description>e5af3674bb241f14b9a9f6b0c7dc3d27</description></item>
     /// <item><term>WitchDoctorChannelEnergy</term><description>d470eb6b3b31fde4bb44ec753de0b862</description></item>
     /// </list>
     /// </remarks>
@@ -5480,7 +5700,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Archpriest_PossessionAbility</term><description>a3855d55b2304f89b63ebd1a9b1dc144</description></item>
-    /// <item><term>FocusCrystall_Ability_DeathThroesFire</term><description>22b478e2f6cc4734917669c167f9588d</description></item>
+    /// <item><term>FungalBurstAbility</term><description>18d1e27b9d524dbc8f731e251250ac06</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -5610,7 +5830,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinDeathAttackAbility</term><description>744e7c7fd58bd6040b40210cf0864692</description></item>
-    /// <item><term>AssassinDeathAttackAbilityParalyze</term><description>452b64ffab80cff40bd27dc5f350d80c</description></item>
+    /// <item><term>AssassinDeathAttackAbilityKillStandard</term><description>02d129b799da92d40b6377bac27d843f</description></item>
     /// <item><term>ExecutionerAssassinateAbility</term><description>3dad7f131aa884f4c972f2fb759d0df4</description></item>
     /// </list>
     /// </remarks>
@@ -5724,7 +5944,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>EmergencyHelpAbility</term><description>21d6ed348ed6b754c937085dd75bc08d</description></item>
+    /// <item><term>ConsumeFleshAbility</term><description>be765ae21089408e815fa97a5a0dc3ad</description></item>
     /// <item><term>PowerWordBlind</term><description>261e1788bfc5ac1419eec68b1d485dbc</description></item>
     /// <item><term>Stabilize</term><description>0557ccee0a86dc44cb3d3f6a3b235329</description></item>
     /// </list>
@@ -5851,7 +6071,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrderApproach</term><description>d5f853d35d58c104eaa7eab50c25de39</description></item>
-    /// <item><term>OracleRevelationPunitiveTransformationAbility</term><description>2b776d9981f592247ba285fa7006036a</description></item>
+    /// <item><term>OracleRevelationLifeLeachAbility</term><description>4f22925d0df782c49b13d484b864250f</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>
@@ -5873,8 +6093,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// InfoBox: Target should have specified facts gained from caster
     /// </para>
     /// </param>
+    /// <param name="inverted">
+    /// <para>
+    /// InfoBox: Turned off means: target should have at least one of specified facts Turned on means: target should not have any of specified facts
+    /// </para>
+    /// </param>
     public TBuilder AddAbilityTargetHasFact(
         List<Blueprint<BlueprintUnitFactReference>>? checkedFacts = null,
+        BlueprintUnitFact? factCache = null,
         bool? fromCaster = null,
         bool? inverted = null)
     {
@@ -5884,6 +6110,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
       {
         component.m_CheckedFacts = new BlueprintUnitFactReference[0];
       }
+      Validate(factCache);
+      component.m_FactCache = factCache ?? component.m_FactCache;
       component.FromCaster = fromCaster ?? component.FromCaster;
       component.Inverted = inverted ?? component.Inverted;
       return AddComponent(component);
@@ -5931,7 +6159,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrderApproach</term><description>d5f853d35d58c104eaa7eab50c25de39</description></item>
     /// <item><term>DominatePersonKitsune</term><description>2e963a674f99c4c48baabcc515360611</description></item>
-    /// <item><term>PowerWordKill</term><description>2f8a67c483dfa0f439b293e094ca9e3c</description></item>
+    /// <item><term>QuickenedDominatePersonIchorAbility</term><description>dc03a7966c344d4ea3e969bb690ca319</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -6028,7 +6256,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>RemoveCurse 3</term><description>668f4d1ff4dbfc442bd75f9b6f69e05e</description></item>
+    /// <item><term>ImplosionAbilityMove</term><description>0a89f54bcd0645bf923f3b2d635bcb41</description></item>
     /// <item><term>WitchHexVulnerabilityCurseAbility</term><description>8f0eb58c2d6aeab4e8523ec85b4b2bc7</description></item>
     /// </list>
     /// </remarks>
@@ -6209,7 +6437,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Blur</term><description>14ec7a4e52e90fa47a4c8d63c69fd5c1</description></item>
-    /// <item><term>MageLight</term><description>95f206566c5261c42aa5b3e7e0d1e36c</description></item>
+    /// <item><term>KitsuneMageLight</term><description>1fa738778f4811247befeaa9b19da91f</description></item>
     /// <item><term>StoneskinQuickened_Cutscene</term><description>3629dda7a449e4547939024611400e13</description></item>
     /// </list>
     /// </remarks>
@@ -6287,13 +6515,28 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <listheader>Used by</listheader>
     /// <item><term>Daze</term><description>55f14bc84d7c85446b07a1b5dd6b2b4c</description></item>
     /// <item><term>DazeBackgrounds</term><description>1619178bcceb4744db1755672746173c</description></item>
+    /// <item><term>PowerOverInferiorsAbility</term><description>0eca7db45f0e4895acadf9a03fe8855a</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="useContextInstead">
+    /// <para>
+    /// InfoBox: Вместо HitDice использовать контекстное значение кастера. Shared значения при этом не работают - они высчитываются после проверки на возможность каста на цель.
+    /// </para>
+    /// </param>
     public TBuilder AddAbilityTargetMaximumHitDice(
-        int? hitDice = null)
+        ContextValue? contextHitDice = null,
+        int? hitDice = null,
+        bool? useContextInstead = null)
     {
       var component = new AbilityTargetMaximumHitDice();
+      component.ContextHitDice = contextHitDice ?? component.ContextHitDice;
+      if (component.ContextHitDice is null)
+      {
+        component.ContextHitDice = ContextValues.Constant(0);
+      }
       component.HitDice = hitDice ?? component.HitDice;
+      component.UseContextInstead = useContextInstead ?? component.UseContextInstead;
       return AddComponent(component);
     }
 
@@ -6306,6 +6549,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyLayOnHandsAbility</term><description>9065aa008176426b80729aac297f117b</description></item>
+    /// <item><term>DivineGuardianTrothAbility</term><description>ff898ba2c2ff360419dc75d2efdc5a6a</description></item>
     /// <item><term>LayOnHandsOthers</term><description>caae1dc6fcf7b37408686971ee27db13</description></item>
     /// </list>
     /// </remarks>
@@ -6332,6 +6576,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DarkLurkerBladeFromShadowsAbility</term><description>6f0e5b1ae2b54453b02471698c57d88d</description></item>
+    /// <item><term>DarkLurkerBladeFromShadowsFullAttackAbility</term><description>89cfcf9bf8cf41a3ac69846e28933bed</description></item>
     /// <item><term>EmergencySwapAbility</term><description>b50ca9b5d6292fb42b8eab8e5d64842d</description></item>
     /// </list>
     /// </remarks>
@@ -6494,7 +6740,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon5BaneOfDemonsAbility</term><description>843145bc1b9b45229c40b1a2128095f0</description></item>
-    /// <item><term>FormOfTheDragonIIIBlackBreathWeaponAbility</term><description>d9b42ef06ae4f6b4d865554b4cb22d38</description></item>
+    /// <item><term>FormOfTheDragonIIIBlueBreathWeaponAbility</term><description>bd9cba8696e9dfc409ab7713763b8a4f</description></item>
     /// <item><term>WyrmshifterSilverBreathWeaponAbility</term><description>fe3c4006044945fc864d2482e9ebe37d</description></item>
     /// </list>
     /// </remarks>
@@ -6564,7 +6810,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DemonRageActivateAbility</term><description>260daa5144194a8ab5117ff568b680f5</description></item>
-    /// <item><term>TacticalLeaderBattleAcumenPiercing</term><description>0f0542506b076874bbfc43923999f2d2</description></item>
+    /// <item><term>TacticalLeaderBattleAcumenJustice</term><description>ff863b25b08d1da45a726cf995a7ebc9</description></item>
     /// <item><term>TacticalLeaderBattleAcumenSmiting</term><description>43f1d29da0bd6d74ba158d5983711be1</description></item>
     /// </list>
     /// </remarks>
@@ -6647,8 +6893,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinDeathAttackAbility</term><description>744e7c7fd58bd6040b40210cf0864692</description></item>
-    /// <item><term>AssassinDeathAttackAbilityParalyze</term><description>452b64ffab80cff40bd27dc5f350d80c</description></item>
-    /// <item><term>AssassinDeathAttackAbilityStandard</term><description>68a6086913b7cca4283c62be2295ce81</description></item>
+    /// <item><term>AssassinDeathAttackAbilityParalyzeStandard</term><description>614422dc5cdd3eb4ebf0f9900dd0e0ab</description></item>
+    /// <item><term>DarkLurkerBladeFromShadowsFullAttackAbility</term><description>89cfcf9bf8cf41a3ac69846e28933bed</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAbilityCasterMainWeaponIsMelee()
@@ -6738,7 +6984,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>GuidanceBackgrounds</term><description>222fc3d20375d104ba6e5f8c3e5434d7</description></item>
+    /// <item><term>GreaterMutagenDexterityConstitution</term><description>73b97114bf2f9914bba305fc3f032468</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -7015,8 +7261,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>FightDefensivelyFeature</term><description>ca22afeb94442b64fb8536e7a9f7dc11</description></item>
-    /// <item><term>PersuasionUseAbility</term><description>7d2233c3b7a0b984ba058a83b736e6ac</description></item>
+    /// <item><term>FightDefensivelyToggleAbility</term><description>09d742e8b50b0214fb71acfc99cc00b3</description></item>
+    /// <item><term>WitchBetterHexProgression</term><description>38d01811fcb32444a8fe372c029fa0c6</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddHideFeatureInInspect()

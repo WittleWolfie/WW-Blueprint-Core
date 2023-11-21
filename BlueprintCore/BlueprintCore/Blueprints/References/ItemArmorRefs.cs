@@ -80,6 +80,38 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> Artifact_TigerArmorItem = "088ab2857d916d74e991e152d7c72e11";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AssassinsChainshirtItem = "fd54ed3702d98a24283a400bd76c6b03";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AssertionOfDominanceArmorItem = "18ce7a5689b64f9caaf546c949ab616d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBandedStandardPlus3 = "ec22ba6e1b574ac696af44db65216e65";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBandedStandardPlus4 = "c9c5e1f26b1b4d06b504a516e17a799e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBreastplateStandartPlus3 = "d3712e7e176f42bcac114ee606475b81";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBreastplateStandartPlus4 = "84a2cc4aa928493087dcfa158b3f9d98";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBucklerArmorItemPlus3 = "90f738b791dc43a8a4b0c31277aa30e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteBucklerArmorItemPlus4 = "b128d133835f428f9de2a4d3cbe42552";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainmailBardingStandardPlus3 = "476630c318694184a24b4ed2841ac445";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainmailBardingStandardPlus4 = "667bfcfe6ac645b3ae00760aea508a0f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainmailStandartPlus3 = "62eb53e87fdd4c0cbad1636820e292c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainmailStandartPlus4 = "343eb5b843b14e9e8f1cdcb14872a511";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainshirtBardingStandardPlus3 = "b89b302cd157445ea315b5b1148e12e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainshirtBardingStandardPlus4 = "391efb43a4e74422b6f234e7e9c8a73c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainshirtStandartPlus3 = "bf1928b0e1c64b2d9b447fd4b78eb1ab";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteChainshirtStandartPlus4 = "741e5ae153c440e6b41ff9da3a27685a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteFullBardingStandartPlus3 = "46d481e6ebc04044b3a3c08e0c3d2f78";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteFullBardingStandartPlus4 = "ab64798aacb94e879e7ed2484154ac14";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteFullplateStandartPlus3 = "0021a312f4be4ca18e926da850a49a05";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteFullplateStandartPlus4 = "91d99802340f4131a28c88d1cd994241";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHalfplateStandardPlus3 = "559fdfe9241a4000925535760dcbca88";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHalfplateStandardPlus4 = "f9b2dc3b036e4123abbbc7f44660a3d2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHaramakiStandardPlus3 = "7f70b0fe5a80478585e2760db9cb75b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHaramakiStandardPlus4 = "980ed8dc52e545d4aca16b28185e9c31";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHeavyShieldArmorItemPlus3 = "199199a5cdde46aba3a051973aea3fe6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteHeavyShieldArmorItemPlus4 = "aa9f0f53159a453f9210c433e684679d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteLightShieldArmorItemPlus3 = "6aeefc00c7f544059332fd29b8ec7fc3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteLightShieldArmorItemPlus4 = "0d119a02325e4576b33b7fc0e92d1e63";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteScaleBardingStandardPlus3 = "196ff6e8bf104a40b427ed2a8d389907";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteScaleBardingStandardPlus4 = "5d1ea277957b41f2b6c7e7f3b9973e78";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteScalemailStandardPlus3 = "e0f5932f270b42f4906bd7684af6ebdd";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteScalemailStandardPlus4 = "b4b8fce2cdc74929a3154d9957b47f78";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteTowerShieldArmorItemPlus3 = "e4f970bb2c104f55b49d81f9d46720e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AsziteTowerShieldArmorItemPlus4 = "e0612af532e5460584fdebd3e39f3989";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AugmentedPlateItem = "d8ee7209715003b44bbcb02164c6692d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> AvinashFullplate = "47722f4aaa7235641bd25ac8d1049859";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> BandedStandard = "1638fa11f5af1814191cf6c05cdcf2b6";
@@ -203,6 +235,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_DemonhideLeatherArmorItem = "f125e2f29ffd44e7acfb7619586a7e24";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_GuardianHeavyShieldArmor = "4d76a36d73804bef8a02d8c12b3b237f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC3_StandhardFullplateArmorItem = "77dfad25fbaf4f3f842b66fa46e4ebf9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC5_AbsoluteDarknessItem = "7568156f4cd94875899f1f1fc2cfb85f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC5_BreastplateFluff = "23f2276b66424e299ccc826417cc0e7b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DLC5_SunlessShieldArmor = "9de8a1e2aade478da20672e3e80dbb1f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DragonfallItem = "373ad14ed09bfdb458db39e1edff548a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DragonscalePlate = "d0808425cbe661140a636de0ca1a1535";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DrapingVeilOfProwessRobeItem = "bad754cddbddc3741822051eabb8e611";
@@ -615,6 +650,38 @@ namespace BlueprintCore.Blueprints.References
           Artifact_TigerArmorItem,
           AssassinsChainshirtItem,
           AssertionOfDominanceArmorItem,
+          AsziteBandedStandardPlus3,
+          AsziteBandedStandardPlus4,
+          AsziteBreastplateStandartPlus3,
+          AsziteBreastplateStandartPlus4,
+          AsziteBucklerArmorItemPlus3,
+          AsziteBucklerArmorItemPlus4,
+          AsziteChainmailBardingStandardPlus3,
+          AsziteChainmailBardingStandardPlus4,
+          AsziteChainmailStandartPlus3,
+          AsziteChainmailStandartPlus4,
+          AsziteChainshirtBardingStandardPlus3,
+          AsziteChainshirtBardingStandardPlus4,
+          AsziteChainshirtStandartPlus3,
+          AsziteChainshirtStandartPlus4,
+          AsziteFullBardingStandartPlus3,
+          AsziteFullBardingStandartPlus4,
+          AsziteFullplateStandartPlus3,
+          AsziteFullplateStandartPlus4,
+          AsziteHalfplateStandardPlus3,
+          AsziteHalfplateStandardPlus4,
+          AsziteHaramakiStandardPlus3,
+          AsziteHaramakiStandardPlus4,
+          AsziteHeavyShieldArmorItemPlus3,
+          AsziteHeavyShieldArmorItemPlus4,
+          AsziteLightShieldArmorItemPlus3,
+          AsziteLightShieldArmorItemPlus4,
+          AsziteScaleBardingStandardPlus3,
+          AsziteScaleBardingStandardPlus4,
+          AsziteScalemailStandardPlus3,
+          AsziteScalemailStandardPlus4,
+          AsziteTowerShieldArmorItemPlus3,
+          AsziteTowerShieldArmorItemPlus4,
           AugmentedPlateItem,
           AvinashFullplate,
           BandedStandard,
@@ -738,6 +805,9 @@ namespace BlueprintCore.Blueprints.References
           DLC3_DemonhideLeatherArmorItem,
           DLC3_GuardianHeavyShieldArmor,
           DLC3_StandhardFullplateArmorItem,
+          DLC5_AbsoluteDarknessItem,
+          DLC5_BreastplateFluff,
+          DLC5_SunlessShieldArmor,
           DragonfallItem,
           DragonscalePlate,
           DrapingVeilOfProwessRobeItem,

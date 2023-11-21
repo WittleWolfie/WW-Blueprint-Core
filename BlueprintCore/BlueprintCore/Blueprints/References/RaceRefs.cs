@@ -22,11 +22,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ColoxusRace = "82acc85f3fdb48e29f68dc1ace6c1a6e";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DhampirRace = "64e8b7d5f1ae91d45bbf1e56a3fdff01";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DLC3_HalflingBuffedRace = "ee9a6061370b4db2b28e489664b0acb4";
+    public static readonly Blueprint<BlueprintReference<BlueprintRace>> DLC5_HumanRace_Android = "d1d114f539b74468b157ac69c275f266";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DuergarRace = "cd40ff5a556bcf3419bf7479616cd2ad";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DuergarTyrantRace = "315a604df7e8cb34098ed2a3b7e3d068";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> DwarfRace = "c4faf439f0e70bd40b5e36ee80d06be7";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ElfRace = "25a5878d125338244896ebd3238226c8";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ErinyesRace = "24cccae43dd64f0ebf674d229ad217d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintRace>> FetchlingRace = "e29497e082014f35b0ef32e1560f1e8b";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> GhoulRace = "00632bfe4d3449a08b0141dd526ab7fc";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> GhoulRaceSmall = "36b9974a5f9249a08e0aacab25b4a523";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> GnomeRace = "ef35a22c9a27da345a4528f0d5889157";
@@ -58,11 +60,13 @@ namespace BlueprintCore.Blueprints.References
           ColoxusRace,
           DhampirRace,
           DLC3_HalflingBuffedRace,
+          DLC5_HumanRace_Android,
           DuergarRace,
           DuergarTyrantRace,
           DwarfRace,
           ElfRace,
           ErinyesRace,
+          FetchlingRace,
           GhoulRace,
           GhoulRaceSmall,
           GnomeRace,

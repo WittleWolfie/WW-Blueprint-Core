@@ -22,6 +22,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Arrow_Trajectory_0 = "faa51fd9169c00644944063fc061558b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> AshGiantCatapult01_Trajectory = "eef064d052cb521459f10987f7f4dd49";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> AshGiantCatapult02_Trajectory = "b4824b68212cd3b4b847a6a1dca9a9d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Azata_RainbowStarfall00_Trajectory = "218a8b037d654776b9088ce1555e82d2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> BatteringBlast00_Trajectory = "cc46634e5f9fe6845ae0a6ea4848ce3a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> BuffRay00_Trajectory = "eab54999a3d06074090b7368f9af5c9b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> ChannelEnergyCone30Feet00_Trajectory = "46e8118added4c04dba01010fea08d09";
@@ -119,6 +120,7 @@ namespace BlueprintCore.Blueprints.References
           Arrow_Trajectory_0,
           AshGiantCatapult01_Trajectory,
           AshGiantCatapult02_Trajectory,
+          Azata_RainbowStarfall00_Trajectory,
           BatteringBlast00_Trajectory,
           BuffRay00_Trajectory,
           ChannelEnergyCone30Feet00_Trajectory,

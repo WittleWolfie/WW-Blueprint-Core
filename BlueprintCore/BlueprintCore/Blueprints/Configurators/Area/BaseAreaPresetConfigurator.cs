@@ -2,6 +2,7 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.CustomConfigurators;
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
@@ -42,6 +43,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           var copyFrom = blueprint.Reference.Get();
           bp.m_Area = copyFrom.m_Area;
           bp.m_EnterPoint = copyFrom.m_EnterPoint;
+          bp.m_UseAlternativeArea = copyFrom.m_UseAlternativeArea;
+          bp.m_AlternativeCondition = copyFrom.m_AlternativeCondition;
+          bp.m_AlternativeArea = copyFrom.m_AlternativeArea;
+          bp.m_AlternativeEnterPoint = copyFrom.m_AlternativeEnterPoint;
           bp.m_GlobalMapLocation = copyFrom.m_GlobalMapLocation;
           bp.AlsoLoadMechanics = copyFrom.AlsoLoadMechanics;
           bp.MakeAutosave = copyFrom.MakeAutosave;
@@ -90,6 +95,10 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           var copyFrom = blueprint.Reference.Get();
           bp.m_Area = copyFrom.m_Area;
           bp.m_EnterPoint = copyFrom.m_EnterPoint;
+          bp.m_UseAlternativeArea = copyFrom.m_UseAlternativeArea;
+          bp.m_AlternativeCondition = copyFrom.m_AlternativeCondition;
+          bp.m_AlternativeArea = copyFrom.m_AlternativeArea;
+          bp.m_AlternativeEnterPoint = copyFrom.m_AlternativeEnterPoint;
           bp.m_GlobalMapLocation = copyFrom.m_GlobalMapLocation;
           bp.AlsoLoadMechanics = copyFrom.AlsoLoadMechanics;
           bp.MakeAutosave = copyFrom.MakeAutosave;
@@ -199,6 +208,119 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         {
           if (bp.m_EnterPoint is null) { return; }
           action.Invoke(bp.m_EnterPoint);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPreset.m_UseAlternativeArea"/>
+    /// </summary>
+    public TBuilder SetUseAlternativeArea(bool useAlternativeArea = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_UseAlternativeArea = useAlternativeArea;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPreset.m_AlternativeCondition"/>
+    /// </summary>
+    public TBuilder SetAlternativeCondition(ConditionsBuilder alternativeCondition)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AlternativeCondition = alternativeCondition?.Build();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPreset.m_AlternativeCondition"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAlternativeCondition(Action<ConditionsChecker> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_AlternativeCondition is null) { return; }
+          action.Invoke(bp.m_AlternativeCondition);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPreset.m_AlternativeArea"/>
+    /// </summary>
+    ///
+    /// <param name="alternativeArea">
+    /// <para>
+    /// Blueprint of type BlueprintArea. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetAlternativeArea(Blueprint<BlueprintAreaReference> alternativeArea)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AlternativeArea = alternativeArea?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPreset.m_AlternativeArea"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAlternativeArea(Action<BlueprintAreaReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_AlternativeArea is null) { return; }
+          action.Invoke(bp.m_AlternativeArea);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaPreset.m_AlternativeEnterPoint"/>
+    /// </summary>
+    ///
+    /// <param name="alternativeEnterPoint">
+    /// <para>
+    /// Blueprint of type BlueprintAreaEnterPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetAlternativeEnterPoint(Blueprint<BlueprintAreaEnterPointReference> alternativeEnterPoint)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_AlternativeEnterPoint = alternativeEnterPoint?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintAreaPreset.m_AlternativeEnterPoint"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyAlternativeEnterPoint(Action<BlueprintAreaEnterPointReference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_AlternativeEnterPoint is null) { return; }
+          action.Invoke(bp.m_AlternativeEnterPoint);
         });
     }
 
@@ -2384,6 +2506,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
       if (Blueprint.m_EnterPoint is null)
       {
         Blueprint.m_EnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
+      }
+      if (Blueprint.m_AlternativeCondition is null)
+      {
+        Blueprint.m_AlternativeCondition = Utils.Constants.Empty.Conditions;
+      }
+      if (Blueprint.m_AlternativeArea is null)
+      {
+        Blueprint.m_AlternativeArea = BlueprintTool.GetRef<BlueprintAreaReference>(null);
+      }
+      if (Blueprint.m_AlternativeEnterPoint is null)
+      {
+        Blueprint.m_AlternativeEnterPoint = BlueprintTool.GetRef<BlueprintAreaEnterPointReference>(null);
       }
       if (Blueprint.m_GlobalMapLocation is null)
       {

@@ -190,6 +190,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CarvedBeads = "5a76d1b8138615644b214d42abd8b8fc";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CarvedFigurine = "2eb9312ceff3419479d2e66aab1d94e0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CarvedUrn = "c214e0362ff50d54db9260355805c9d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> CaveMonsterPoison_item = "64ee65b5a88c4cc8916b3f3b6e64809a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> CentralSanctumKey = "3240661ba814e62419198269903400d6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ChalishWine = "20a84417284fd5245a540aad2dc825a3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Chardonnay = "21d469dd7bfe29549bf6527b4bc038bc";
@@ -300,6 +301,27 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes = "797033b81fd8472182cb8a24c55dd1e8";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes1 = "39adc16d7619428f952c787146caeffe";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC4_Wilds_Notes2 = "8a0cc36ce16e401f968459ffadc2871e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_AbadarGrant = "26549c1859b845f7bf149c2e67ee3095";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_BunchOfWeapons = "d3a9ae8b11654efdbd47d103c6215142";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_ChainedDarkness_LamashtuUnholySymbolCommon = "002823f4339e4ad0b0429a64bd7f9a1c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_ChainedDarkness_MirrorShard = "57697dabddd74e1c906117c0acac4811";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_GoblinsParty_Cristal = "2d55df5984294036ab7ff59f256c0ce0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_GoblinsParty_KeyForLab = "9eec9bba605f4ba3b34a4dd855edd67e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_GoblinsParty_Letter = "1758940a16484885a01aef3b00ae509e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_LanternNote = "edca8398b4b14d2f854fd4eceb6c75b5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PaladinNote_1 = "ff67303fa7364295a685d7510dd2b2e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PaladinNote_2 = "cc54a2dae9d94dff978b19b9d141b1b1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PaladinNote_3 = "10cfab1bd3d7422d98c29f3f702eb554";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PaladinNote_4 = "1aa1ccab42f54bbabe3f97ecf2df8168";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PrisonKey = "f09292c63322448baadd25e5bae80707";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_PrisonKey_0 = "a0971d4ced34415aaaddf8538307b39f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_LC_Tablet = "617c8bce8825487e8e77618e5cb68008";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_ShadowPlaneTablet = "2e68ddce6f11449b8433d7bca4fcfbd4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_AntiCharmPotion = "1bc3a91dbb0542e4908d1eb9ab41311c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_Book = "667062db77674b48b11b61972db0b9e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_DragonKey = "8ce3db6b967f471bbf72feeb635ee958";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_DruidCorpse = "fd3c08dded074a97b8953f3bebbbea53";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_HusbandFlower = "61c03df6221b4223abd466a68b09844f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DogPelt = "11f8e6d119ec41b4da0fb1bdbe9b5527";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x3 = "45a8d763a44a5a844a6a936f17e4b765";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x4 = "80d9f2dd22aa13a4491cb7f039ce89a6";
@@ -418,6 +440,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GildedHorn = "3bf029b9fdce9cb40b62d888db5dbadb";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GlassShardItem = "2b2107f98002425bb1309d31ff531f37";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GlowingCroissant_item = "adba05c4956e8844592f49acaaa4d4ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoblinsMeat = "1c6a6e516f8c418da1964e4715e569b1";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GodspeedSalad_item = "95de2a5a9e9f6f94381ace2b1c7d74ba";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldCoins = "f2bc0997c24e573448c6c91d2be88afa";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldEmbroideredCarpet = "bbc5b4e709f219d4996c6816d7415a7a";
@@ -511,6 +534,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MamaCard = "c7d09ef2483cebc42a97bceaf09b3415";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MandragoreText_Item = "73ff1dbfdbf84297ad3c0a1022fc23ec";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ManticorePelt = "450b2d61817be2248ae85f1dccb0fbe1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> ManticoreTail_item = "8b2e3db53b8e42faa373e5ae053af6c8";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MarziBone = "8ad5ace1c835ac04f8436e7b5fe067c6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MasterKeyForAbyssalSeals = "d2ccf466d7ac3ac47a6762858d62bfaf";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MastodonMeat = "79afa696a3b96be4fb4329fbdb889520";
@@ -601,6 +625,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> QuasitKey = "54a71aa7144d33048a61c50f2782312f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> QuasitTraining = "a84195a6060f9734d8c5c04151e785a1";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> RadianceScabbard = "cf099332671e417f972eddf4bfb4caa5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> RareMineral_item = "73193db9629243d3adfad12814d0dc1a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> RareRoots = "8cdb03632d9f22a4a8734e81f49f0977";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> RareWine = "e174236c7bc46be44929aa2a79d2e10b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> RealBone = "53938c2871cc5794d8559550421f798e";
@@ -659,6 +684,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SilverPowder = "a8fb959d548fb124ba77f9d84facf17c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SilverSpoon = "ca1922a13065e284093c4e838a6c9976";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SilverStatuette = "103b3efb46eb0b34ba0bc07f6fc68592";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> SithhudSwordPart = "63b923e0fe9d40258e8fca16145d96f9";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SkullberryPie_item = "017e1a0f0a811cb44baff27ea07664e3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SkullSanctumEntranceKey = "ed2d3022400be49449ba5808d4c8b214";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> SmallIndorKey = "73889526afaa4d2880c6aa927ea7f849";
@@ -919,6 +945,7 @@ namespace BlueprintCore.Blueprints.References
           CarvedBeads,
           CarvedFigurine,
           CarvedUrn,
+          CaveMonsterPoison_item,
           CentralSanctumKey,
           ChalishWine,
           Chardonnay,
@@ -1029,6 +1056,27 @@ namespace BlueprintCore.Blueprints.References
           DLC4_Wilds_Notes,
           DLC4_Wilds_Notes1,
           DLC4_Wilds_Notes2,
+          DLC5_AbadarGrant,
+          DLC5_BunchOfWeapons,
+          DLC5_ChainedDarkness_LamashtuUnholySymbolCommon,
+          DLC5_ChainedDarkness_MirrorShard,
+          DLC5_GoblinsParty_Cristal,
+          DLC5_GoblinsParty_KeyForLab,
+          DLC5_GoblinsParty_Letter,
+          DLC5_LC_LanternNote,
+          DLC5_LC_PaladinNote_1,
+          DLC5_LC_PaladinNote_2,
+          DLC5_LC_PaladinNote_3,
+          DLC5_LC_PaladinNote_4,
+          DLC5_LC_PrisonKey,
+          DLC5_LC_PrisonKey_0,
+          DLC5_LC_Tablet,
+          DLC5_ShadowPlaneTablet,
+          DLC5_Storasta_AntiCharmPotion,
+          DLC5_Storasta_Book,
+          DLC5_Storasta_DragonKey,
+          DLC5_Storasta_DruidCorpse,
+          DLC5_Storasta_HusbandFlower,
           DogPelt,
           DominoCyan1x3,
           DominoCyan1x4,
@@ -1147,6 +1195,7 @@ namespace BlueprintCore.Blueprints.References
           GildedHorn,
           GlassShardItem,
           GlowingCroissant_item,
+          GoblinsMeat,
           GodspeedSalad_item,
           GoldCoins,
           GoldEmbroideredCarpet,
@@ -1240,6 +1289,7 @@ namespace BlueprintCore.Blueprints.References
           MamaCard,
           MandragoreText_Item,
           ManticorePelt,
+          ManticoreTail_item,
           MarziBone,
           MasterKeyForAbyssalSeals,
           MastodonMeat,
@@ -1330,6 +1380,7 @@ namespace BlueprintCore.Blueprints.References
           QuasitKey,
           QuasitTraining,
           RadianceScabbard,
+          RareMineral_item,
           RareRoots,
           RareWine,
           RealBone,
@@ -1388,6 +1439,7 @@ namespace BlueprintCore.Blueprints.References
           SilverPowder,
           SilverSpoon,
           SilverStatuette,
+          SithhudSwordPart,
           SkullberryPie_item,
           SkullSanctumEntranceKey,
           SmallIndorKey,

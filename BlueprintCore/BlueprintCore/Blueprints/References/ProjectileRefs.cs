@@ -60,6 +60,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> AxiomitePortal00_CasterDisappear = "30f27957b84f4925afa52c4aa5d8d486";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> AxiomitePortal00_SideAppear = "47cf9903ea07480db967336e7b0a1316";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> AxiomitePortal00_SideDisappear = "570cda19ba65406795f388eaeeffdc28";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Azata_RainbowStarfall00 = "d26cf0bd335a4623b57f9c37fb3fca0c";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> BatteringBlast00 = "7b744bce71ea65f4ab43df2090fe59f2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> BatteringBlast00_Up = "6810bc67dbc33a34e9c7188fc16866a5";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> BloomPortal00_CasterAppear = "46d246105f3ef0e468948951e10ffacf";
@@ -107,6 +108,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Cutscene_Threshold_FinalDungeon_GenericRay00 = "8122cf16cd764e9280805feabc9fe5d8";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Dart_projectile = "533995c13cde02143b8c2f6b5b98598e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeathCurse00_Projectile = "e4072ffb43b821848a5daedfba6c6f9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DemonStrike00_Cold_Projectile = "29a73c6e4ed24451970862b4f3794427";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DemonStrike00_Projectile = "28bc262e706e74542a20bf9b84449c5c";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DevilClawLeft00 = "11a1193626d322b49b3cf5578384142b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DevilClawRight00 = "f76e194520d6f9946bb48d8852ce9e8c";
@@ -124,6 +126,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DisruptUndead00_Up = "fc7468fcca9122544b14eb976746982d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC3_Nahyndri_Golemlike_Projectile = "d6d379c072e84751b174644c8ce84239";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC4_ShifterDemon_Projectile = "50de14be3d204a3899b4b02c11484862";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DLC5_SnowTelegraphProjectile = "baacaed1f60a4f03af3b6efdb219ccc6";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Dummy00_Projectile = "b8e4b2d648683fb43b8a60d2bf36d2b2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00 = "2117f0eb12152c7408b1a26d4965d72a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ElectroBallProjectile00_Up = "b804391dbc792ef4ab42dd7c1723e6c9";
@@ -167,10 +170,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HellfireRay00 = "64abeb7fa600aa94ab2ecd63daf687d9";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HellfireRay00_Up = "0397b120246d6124eb773412d519e6b8";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HitSnapBugProjectile = "bded82753bfc1a54ca59e5f61a6bd4d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> IceSoulSithhudProjectile00 = "666db1ce5c824823915d8f4aae017a7f";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Javelin_projectile = "ba6d2fdae677e664ca76c8837aa1afff";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_AirBlastLine00 = "03689858955c6bf409be06f35f09946a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_Blizzard00_Projectile = "76678c1d607067b4f9e035d54ec08f67";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_Blizzard00_Projectile_Up = "1fdf5df3c2462414e9ce865541a0cdea";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BloodBlast00_Projectile = "59eb92071057428a9383e9399d3de596";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BloodBlastCone00_30Feet_Aoe = "57c58b179af4479da743bbb1dc4b4bc6";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BloodLine00 = "a17359dd2aaa499aa22e85f0b826fc01";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BlueFlame00_Projectile = "e72b90d2ddaae204297120233a74b236";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BlueFlame00_Projectile_Up = "dd5836aae3e3a594397608ec5e349460";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_BlueFlameCone00_15Feet = "4e7b940a44b323444a84098748a61333";
@@ -236,6 +243,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile04 = "43295b5988021f741a28b8bf0424a412";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ManticoreSpike00 = "900a65979f8c453e858d4aaf67b71831";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Meat00_Projectile = "e83075672dfcf7a45ab009d338e5bc33";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MeteorSwarm_00_40Feet_DLC5_Projectile_Up = "ba60927cc86248d4a3b1d5560b44e1d1";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MeteorSwarm_01_40Feet_DLC5_Projectile_Up = "3104194e9e6b488c93881041c1337a12";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MidnightArrow00 = "68d699fa9d0ebe84c8d35ab7c4e5c811";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MoltenOrb00 = "49c812020338e90479b54cfc5b1f6305";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MoltenOrb00_Up = "a5d9e855b3b69024ba0530a689612735";
@@ -301,8 +310,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RayOfExhaustion00_Up = "55713599bc3675c42860e49373979762";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RayOfFrost00 = "d6c9daec1256561408a7a72a6979359e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RayOfFrost00_Up = "093881e34d781a248b4572b8eb0e24ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RitualSearingLight00 = "8bf04cbd59fe4950b59c46df3c5c3b17";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RockThrow00 = "0b84cce27ec7b2346935f1359882d74d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RockThrow00_AshGiantVariant = "387d5ebc759e412798b974df2aca5c60";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RockThrow00_AshGiantVariant_Slowly = "4b80e8c54cc248c5acd4131adb0020f9";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RockThrow00_Up = "c2d7b322ede73d64ebfe018205b5b59b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RQ_Barrel_Projectile = "ed04ffb2ecf242ee8f2bf69749c9c84b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> RQ_cart_Projectile = "ea2ed37bb0884560a27167b8737f3368";
@@ -313,6 +324,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SearingLight00_Up = "2f23fcf5308a699499f5694215b47a05";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Exhaustion00_Projectile_DLC3 = "ad9d0152b82f4477acdd738eb5528546";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Infusion00_Projectile_DLC3 = "f8daba62ae5f454aae7bcd280d924e74";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_FallingIce_Up = "8cd0e673036b45a8bd79c0a7c900af5a";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_Projectile = "285a508b3b714ca29f594319a48e5faf";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_SwordTraceLine00 = "b8e9b14366e046309a1fa7d9589fb1a0";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SnowBall00 = "81a8bff536bae184bacb3a58f0bc381a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SnowBall00_Up = "f372eab8f8afec54da987dee187bb180";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SonicCommonRay00_Projectile = "4be4353c12c18c340823fc7f00727bd1";
@@ -400,6 +414,7 @@ namespace BlueprintCore.Blueprints.References
           AxiomitePortal00_CasterDisappear,
           AxiomitePortal00_SideAppear,
           AxiomitePortal00_SideDisappear,
+          Azata_RainbowStarfall00,
           BatteringBlast00,
           BatteringBlast00_Up,
           BloomPortal00_CasterAppear,
@@ -447,6 +462,7 @@ namespace BlueprintCore.Blueprints.References
           Cutscene_Threshold_FinalDungeon_GenericRay00,
           Dart_projectile,
           DeathCurse00_Projectile,
+          DemonStrike00_Cold_Projectile,
           DemonStrike00_Projectile,
           DevilClawLeft00,
           DevilClawRight00,
@@ -464,6 +480,7 @@ namespace BlueprintCore.Blueprints.References
           DisruptUndead00_Up,
           DLC3_Nahyndri_Golemlike_Projectile,
           DLC4_ShifterDemon_Projectile,
+          DLC5_SnowTelegraphProjectile,
           Dummy00_Projectile,
           ElectroBallProjectile00,
           ElectroBallProjectile00_Up,
@@ -507,10 +524,14 @@ namespace BlueprintCore.Blueprints.References
           HellfireRay00,
           HellfireRay00_Up,
           HitSnapBugProjectile,
+          IceSoulSithhudProjectile00,
           Javelin_projectile,
           Kinetic_AirBlastLine00,
           Kinetic_Blizzard00_Projectile,
           Kinetic_Blizzard00_Projectile_Up,
+          Kinetic_BloodBlast00_Projectile,
+          Kinetic_BloodBlastCone00_30Feet_Aoe,
+          Kinetic_BloodLine00,
           Kinetic_BlueFlame00_Projectile,
           Kinetic_BlueFlame00_Projectile_Up,
           Kinetic_BlueFlameCone00_15Feet,
@@ -576,6 +597,8 @@ namespace BlueprintCore.Blueprints.References
           MagicMissile04,
           ManticoreSpike00,
           Meat00_Projectile,
+          MeteorSwarm_00_40Feet_DLC5_Projectile_Up,
+          MeteorSwarm_01_40Feet_DLC5_Projectile_Up,
           MidnightArrow00,
           MoltenOrb00,
           MoltenOrb00_Up,
@@ -641,8 +664,10 @@ namespace BlueprintCore.Blueprints.References
           RayOfExhaustion00_Up,
           RayOfFrost00,
           RayOfFrost00_Up,
+          RitualSearingLight00,
           RockThrow00,
           RockThrow00_AshGiantVariant,
+          RockThrow00_AshGiantVariant_Slowly,
           RockThrow00_Up,
           RQ_Barrel_Projectile,
           RQ_cart_Projectile,
@@ -653,6 +678,9 @@ namespace BlueprintCore.Blueprints.References
           SearingLight00_Up,
           ShadowBoss_Exhaustion00_Projectile_DLC3,
           ShadowBoss_Infusion00_Projectile_DLC3,
+          Sithhud_FallingIce_Up,
+          Sithhud_Projectile,
+          Sithhud_SwordTraceLine00,
           SnowBall00,
           SnowBall00_Up,
           SonicCommonRay00_Projectile,

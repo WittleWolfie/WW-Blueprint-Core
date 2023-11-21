@@ -18,11 +18,13 @@ using Kingmaker.Corruption;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Buffs.HalfOfPair;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Facts.Restrictions;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -356,8 +358,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FiendflashShifterAspectGreaterDevilBuff</term><description>7a85dfed09f94070a1f6e1f62bcaffce</description></item>
-    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
+    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>ZonKuthonScarHalfHPBuff</term><description>9a47f56d0a1f42d9bf820da1d78919a7</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextStatBonus(
@@ -365,7 +367,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         ContextValue value,
         ModifierDescriptor? descriptor = null,
         int? minimal = null,
-        int? multiplier = null)
+        int? multiplier = null,
+        RestrictionCalculator? restrictions = null)
     {
       var component = new AddContextStatBonus();
       component.Stat = stat;
@@ -374,6 +377,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       component.Minimal = minimal ?? component.Minimal;
       component.HasMinimal = minimal is null;
       component.Multiplier = multiplier ?? component.Multiplier;
+      Validate(restrictions);
+      component.Restrictions = restrictions ?? component.Restrictions;
       return AddComponent(component);
     }
 
@@ -429,8 +434,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
-    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
+    /// <item><term>HellsSealVariantFireExplosionDamage</term><description>2505b384e7c80d84a9a8300ad8673edd</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextRankConfig(ContextRankConfig component)
@@ -447,7 +452,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
+    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -548,6 +553,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>DLC5_GiantBoss_State2_OverrideVisionRange</term><description>c7ca25b5d5f44122a49d6b1a8ad14d85</description></item>
+    /// <item><term>DLC5_IceRockPolymorph</term><description>721418455899409689238f79ff1dc5df</description></item>
     /// <item><term>LannSparringBuff</term><description>0b87395f642f67048aafeaf65146edb0</description></item>
     /// </list>
     /// </remarks>
@@ -634,7 +641,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistArcaneReservoirFeature</term><description>55db1859bd72fd04f9bd3fe1f10e4cbb</description></item>
-    /// <item><term>Player_restTrigger</term><description>ac7f1eff7837432e8acdccd52308c09b</description></item>
+    /// <item><term>MaskOfAreshkagalHeadband_TabulaRasaFeature</term><description>edf05f7d96dc4d59b7242c5985b2e6f7</description></item>
     /// <item><term>TricksterLoreNature3Feature</term><description>b88ca3a5476ebcc4ea63d5c1e92ce222</description></item>
     /// </list>
     /// </remarks>
@@ -798,7 +805,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>MightyBlowOfGoodBuff</term><description>864a5775ceaed974f9f8c3acc1d5dcd1</description></item>
-    /// <item><term>RadianceGoodBuff6</term><description>7b860e2d2b8542e1adc0ba562bed3a6b</description></item>
+    /// <item><term>SorcerousClawsFlamingBuff</term><description>52184e85ccf94cf693fa00c645ca37c7</description></item>
     /// <item><term>TheUndyingLoveOfTheHopebringer_LightNova_GiveBuff</term><description>8c9b07c246a3469e8c154d98ee594ee3</description></item>
     /// </list>
     /// </remarks>
@@ -1083,7 +1090,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelSwordEffectBuff</term><description>f5f500d6a2a39fc4181af32ad79af488</description></item>
+    /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
     /// <item><term>ProfaneAscensionConstitutionBuff1</term><description>4bd5006416df4d13982bb957e82ae8ed</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningBuff</term><description>e248e5ef1ae04d559d5fe82ef719ee47</description></item>
     /// </list>
@@ -1158,7 +1165,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_DressPolymorph</term><description>6267b23ce31a4ad8b1b3557826671708</description></item>
-    /// <item><term>Orgomandias_PolymorphBuff</term><description>3c5be1db6ef9488a9c320b6fa188edc5</description></item>
+    /// <item><term>MythicAngel_AstralDevaPolymorphBuff</term><description>e6be1b0095c745e091004b3c4126b963</description></item>
     /// <item><term>YozzPolymorfBuff</term><description>ed4e29772921bc84098f1a9a1dcc3ddb</description></item>
     /// </list>
     /// </remarks>
@@ -1379,7 +1386,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalAspectGorillaBuff</term><description>2b0b1321fdc53df4dabae1cbf33d46f4</description></item>
-    /// <item><term>AspectOfTheStagBuff</term><description>624ed102958178c4781ce19531d51281</description></item>
+    /// <item><term>DLC5_ChaoticTransformationAspecRaptorBuff</term><description>02f51e366d8e4706934a8d8618d4417a</description></item>
     /// <item><term>IronBodyBuff</term><description>2eabea6a1f9a58246a822f207e8ca79e</description></item>
     /// </list>
     /// </remarks>
@@ -1408,7 +1415,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BurnFireBuff</term><description>55ed3454d637b074e829ae664452a412</description></item>
+    /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
     /// <item><term>DLC3_BrokenTricksterFlowerBuff</term><description>bfe6e5f25a8d43aeae84c416db984ac1</description></item>
     /// <item><term>SmiteEvilBuff</term><description>b6570b8cbb32eaf4ca8255d0ec3310b0</description></item>
     /// </list>
@@ -1469,7 +1476,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeBaseBuff</term><description>da22fac7ee174766a1d924749245b8e9</description></item>
-    /// <item><term>GolemSummerEntangleAuraBuff</term><description>f8ff09d49cdc6a64dbfeca21031bca49</description></item>
+    /// <item><term>GraveShiveringAreaBuff</term><description>d637b23d926a4350aadc08cf534d4ea8</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalAreaBuff</term><description>b2b739c6e18b457d9ba30ab389b0520f</description></item>
     /// </list>
     /// </remarks>
@@ -1660,7 +1667,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BrandedTrollRegeneration</term><description>da6269afb82c5a14f86281c4e7ff9a4d</description></item>
-    /// <item><term>RegenerationEvil10</term><description>8035661fe9d80964cb96c29406a079d9</description></item>
+    /// <item><term>RegenerationColdIronOrFire5</term><description>da6b266204fe2ac4d89786bf66dbe3a9</description></item>
     /// <item><term>WildLink_MonarchEffectBuff</term><description>814b2b51959705945ad6c5ceb08ffbd4</description></item>
     /// </list>
     /// </remarks>
@@ -1716,8 +1723,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AxiomiteMeleeMiniboss_Buff_LegendaryProportions</term><description>acf2b59d0d374711b969c5ea864e9656</description></item>
-    /// <item><term>LegendaryProportionsBuff</term><description>4ce640f9800d444418779a214598d0a3</description></item>
-    /// <item><term>TrueStrikeBuff</term><description>a3ce3b226c1817846b0419fa182e6ea0</description></item>
+    /// <item><term>Gorum_Buff</term><description>e3a9786b626d4b50ac58a8b3cbdc00f4</description></item>
+    /// <item><term>UnboundRageBuff</term><description>303c52f8ca064d558f1c47ba354db006</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddGenericStatBonus(
@@ -1777,6 +1784,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DisplacementBuff</term><description>00402bae4442a854081264e498e7a833</description></item>
+    /// <item><term>IceSubdomainGreaterBuffSeparatist</term><description>95ec6910ea11429b9138cf55e15c6893</description></item>
     /// <item><term>MirrorImageBuff</term><description>98dc7e7cc6ef59f4abe20c65708ac623</description></item>
     /// </list>
     /// </remarks>
@@ -1831,8 +1839,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CarnivorousCrystal_Buff_SubsonicHum_Immunity</term><description>88e345f3233c8024e9d191a807c40223</description></item>
-    /// <item><term>RatSwarmDamageEffectImmunity</term><description>60549b98735cde44e87bf247042604c1</description></item>
+    /// <item><term>AuraOfGreaterCourageBuff</term><description>ff183ce55a2896e43bb2dd9f5d989119</description></item>
+    /// <item><term>MaskOfNothingBuff</term><description>7543a4b16164467a839f7ec16866fb10</description></item>
     /// <item><term>WildGazeImmunity</term><description>2e64086ebcd066c4b8d1e46c00c8636f</description></item>
     /// </list>
     /// </remarks>
@@ -1859,7 +1867,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Colyphyr_HepzamirahDebuff</term><description>28c27ef896fc5704cb232af04f86f694</description></item>
+    /// <item><term>ChainedDarkness_Buff_NegativeLevels</term><description>87b7748c1dda4d61b6f6ad82fab50d2f</description></item>
     /// <item><term>MongrelsBlessingBuff</term><description>c5989f96b6184573988a305b4220b9b5</description></item>
     /// <item><term>NegativeLevelsBuff</term><description>b02b6b9221241394db720ca004ea9194</description></item>
     /// </list>
@@ -1916,7 +1924,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirElementalInWhirlwind</term><description>8b1b723a20f644c469b99bd541a13a3b</description></item>
-    /// <item><term>ImprovedFiendishQuarryBuffEnemy</term><description>c52dfead7d06dd14aa132f03be2bd508</description></item>
+    /// <item><term>GriffonGrappledInitiatorBuff</term><description>426228edb7e84943bd1180edf57ecaf9</description></item>
     /// <item><term>WitchHexDeathCurseBuff2</term><description>5e6aeb6852a77b3449b37a4bdb9f7bb4</description></item>
     /// </list>
     /// </remarks>
@@ -1946,7 +1954,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>HoldAnimalBuff</term><description>2090955a573cec3438db7f47707610f9</description></item>
+    /// <item><term>HideousLaughterBuff</term><description>4b1f07a71a982824988d7f48cd49f3f8</description></item>
     /// <item><term>VinetrapEntangledBuff</term><description>231a622f767e8ed4e9b3e435265a3e99</description></item>
     /// </list>
     /// </remarks>
@@ -2139,7 +2147,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyStandartRageBuff</term><description>77c8d5b837c04fa0a7b44bb7592aee56</description></item>
     /// <item><term>EyeImplantFeature</term><description>4456e13ff90d9e6498462b92cb97ed21</description></item>
-    /// <item><term>WarDomainBaseBuff</term><description>aefec65136058694ab20cd71941eec81</description></item>
+    /// <item><term>WarDomainBaseBuffSeparatist</term><description>ed756340f71a4022b4031175a39cec2e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2382,7 +2390,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathThroesFeature</term><description>49a64c524e7f8e548b4d5ea41041a226</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2450,7 +2458,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
+    /// <item><term>MimicChestAdhesiveFeature</term><description>a3ef16a570855b54c9957c026075dd14</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2500,7 +2508,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>InspireFerocityEffectBuffMythic</term><description>fb6d392a0fcf4ba2a7cefed7682fb911</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2529,7 +2537,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2886,7 +2894,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>HelmOfBattlefieldClarityFeature</term><description>7444d4913a1b1be459bac3b12c6a2933</description></item>
+    /// <item><term>GhostRiderSpiritedMountFeature</term><description>2f05eae7c5bd43238fcd0f4e665a5144</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -2962,6 +2970,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_SicknessHeavyDiseaseBuff</term><description>4a19a78fbde84e03b4547137b11ddc3a</description></item>
+    /// <item><term>ShadowMadnessHealDebuff</term><description>824b53ebe4014076ba91ea2b787b7239</description></item>
+    /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddHealResistance(
@@ -3162,6 +3172,117 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="WatchYourBack"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>GhostRiderSharedMindsFeature</term><description>bfd44a5ed010428abdeede2453e2272b</description></item>
+    /// <item><term>TandemExecutionerWatchOutForTheSpellPetBuff</term><description>499b7a74611442a5a6e1ede222c22398</description></item>
+    /// <item><term>TandemExecutionerWatchYourBackPetBuff</term><description>7a5328096ad345459d7145890c6f0267</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="cooldownBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cooldownRounds">
+    /// <para>
+    /// InfoBox: Сколько раундов длится кулдаун
+    /// </para>
+    /// </param>
+    /// <param name="failedSaveOwner">
+    /// <para>
+    /// InfoBox: Какой спас проваливает хозяин. Если Unknown - не работает.
+    /// </para>
+    /// </param>
+    /// <param name="failedSavePet">
+    /// <para>
+    /// InfoBox: Какой спас проваливает пет. Если Unknown - не работает.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="ownerCanSavePet">
+    /// <para>
+    /// InfoBox: Если выбрано - хозяин может спасти пета
+    /// </para>
+    /// </param>
+    /// <param name="petCanSaveOwner">
+    /// <para>
+    /// InfoBox: Если выбрано - пет может спасти хозяина
+    /// </para>
+    /// </param>
+    /// <param name="statCheckOwner">
+    /// <para>
+    /// InfoBox: Какой стат проверяет хозяин, чтобы спасти пета. Если Unknown - не работает.
+    /// </para>
+    /// </param>
+    /// <param name="statCheckPet">
+    /// <para>
+    /// InfoBox: Какой стат проверяет пет, чтобы спасти хоязина. Если Unknown - не работает.
+    /// </para>
+    /// </param>
+    /// <param name="triggerByFailedSkillCheck">
+    /// <para>
+    /// InfoBox: Если выбрано - то провалы спаса триггерят
+    /// </para>
+    /// </param>
+    /// <param name="triggerByHit">
+    /// <para>
+    /// InfoBox: Если выбрано - то получение урона триггерит
+    /// </para>
+    /// </param>
+    public TBuilder AddWatchYourBack(
+        Blueprint<BlueprintBuffReference>? cooldownBuff = null,
+        int? cooldownRounds = null,
+        FlaggedSavingThrowType? failedSaveOwner = null,
+        FlaggedSavingThrowType? failedSavePet = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? ownerCanSavePet = null,
+        bool? petCanSaveOwner = null,
+        PetType? petType = null,
+        StatType? statCheckOwner = null,
+        StatType? statCheckPet = null,
+        bool? triggerByFailedSkillCheck = null,
+        bool? triggerByHit = null)
+    {
+      var component = new WatchYourBack();
+      component.m_CooldownBuff = cooldownBuff?.Reference ?? component.m_CooldownBuff;
+      if (component.m_CooldownBuff is null)
+      {
+        component.m_CooldownBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_CooldownRounds = cooldownRounds ?? component.m_CooldownRounds;
+      component.m_FailedSaveOwner = failedSaveOwner ?? component.m_FailedSaveOwner;
+      component.m_FailedSavePet = failedSavePet ?? component.m_FailedSavePet;
+      component.m_OwnerCanSavePet = ownerCanSavePet ?? component.m_OwnerCanSavePet;
+      component.m_PetCanSaveOwner = petCanSaveOwner ?? component.m_PetCanSaveOwner;
+      component.m_PetType = petType ?? component.m_PetType;
+      component.m_StatCheckOwner = statCheckOwner ?? component.m_StatCheckOwner;
+      component.m_StatCheckPet = statCheckPet ?? component.m_StatCheckPet;
+      component.m_TriggerByFailedSkillCheck = triggerByFailedSkillCheck ?? component.m_TriggerByFailedSkillCheck;
+      component.m_TriggerByHit = triggerByHit ?? component.m_TriggerByHit;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="ACBonusAgainstCaster"/>
     /// </summary>
     ///
@@ -3170,6 +3291,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DebilitatingInjuryBewilderedEffectBuff</term><description>22b1d98502050cb4cbdb3679ac53115e</description></item>
+    /// <item><term>TandemExecutionerPenetratingCascadeDebuff</term><description>e32be57d84a74d68aeb8ba8738d37655</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -3203,8 +3325,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmyChallengeBuff</term><description>8cd456875ab94e16a3b51d4c6e9fe7b7</description></item>
-    /// <item><term>HalfFiendSmiteGoodBuff</term><description>114af78efc58e5a4c86bb12ee1d907cc</description></item>
+    /// <item><term>AllIsDarknessSmiteBuff_NoScabbard</term><description>3ee42d04faf9477bb7765c3fcb7f7a27</description></item>
+    /// <item><term>ChampionOfTheFaithSmiteBuff</term><description>c362c2d961d28f1438094bac025e06a2</description></item>
     /// <item><term>SmiteEvilBuff_Scabbard</term><description>d0261b79ea01d73418eaf3307352792c</description></item>
     /// </list>
     /// </remarks>
@@ -3311,7 +3433,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneAccuracyBuff</term><description>dd2d0de63be31854794c006dc1077294</description></item>
-    /// <item><term>CommunityDomainGreaterBuff</term><description>672b0149e68d73943ad09ac35a9f5f30</description></item>
+    /// <item><term>DLC3_BrokenTricksterSurvivorBuff</term><description>373dfea7aa504daf875a551250c01aa5</description></item>
     /// <item><term>ShatterConfidenceBuff</term><description>14225a2e4561bfd46874c9a4a97e7133</description></item>
     /// </list>
     /// </remarks>
@@ -3373,8 +3495,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmySmiteChaosBuff</term><description>61d753b863aa449e85fa34fb0374f071</description></item>
-    /// <item><term>FreebootersBaneBuff</term><description>76dabd40a1c1c644c86ce30e41ad5cab</description></item>
+    /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
+    /// <item><term>FinalJusticeAbilityBuff</term><description>2e6eaaf0855a46c5abb22c050063dd57</description></item>
     /// <item><term>VanguardAlliesStudyTargetBuff</term><description>261d47a0e2df6cf4fa6f02ec2cfb528a</description></item>
     /// </list>
     /// </remarks>
@@ -3462,10 +3584,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ApocalypseLocustPoisonBuff</term><description>9857d0c4417c47209dcb0ba64ad14c98</description></item>
-    /// <item><term>DiseaseMindFireBuff</term><description>2e13b4ac81ae4a745989a0e78a4c44e4</description></item>
+    /// <item><term>DoombringingPoisonBuff</term><description>2630df87bbb48f343af3b8c85df8c485</description></item>
     /// <item><term>WyvernPoisonBuff</term><description>b5d9dc8671f8c9c4dab37f0ba52ab9d1</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="weaknessForPoison">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddBuffPoisonStatDamage(
         int? bonus = null,
         ModifierDescriptor? descriptor = null,
@@ -3474,7 +3609,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         StatType? stat = null,
         int? succesfullSaves = null,
         int? ticks = null,
-        DiceFormula? value = null)
+        DiceFormula? value = null,
+        Blueprint<BlueprintBuffReference>? weaknessForPoison = null)
     {
       var component = new BuffPoisonStatDamage();
       component.Bonus = bonus ?? component.Bonus;
@@ -3485,6 +3621,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       component.SuccesfullSaves = succesfullSaves ?? component.SuccesfullSaves;
       component.Ticks = ticks ?? component.Ticks;
       component.Value = value ?? component.Value;
+      component.WeaknessForPoison = weaknessForPoison?.Reference ?? component.WeaknessForPoison;
+      if (component.WeaknessForPoison is null)
+      {
+        component.WeaknessForPoison = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
       return AddComponent(component);
     }
 
@@ -3505,6 +3646,19 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <item><term>AssassinCreatePoisonAbilityStrBuffEffect</term><description>285290cc80941bc4c97461d6f50aaad9</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="weaknessForPoison">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddBuffPoisonStatDamageContext(
         ContextValue? bonus = null,
         ModifierDescriptor? descriptor = null,
@@ -3513,7 +3667,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
         StatType? stat = null,
         ContextValue? succesfullSaves = null,
         ContextValue? ticks = null,
-        ContextDiceValue? value = null)
+        ContextDiceValue? value = null,
+        Blueprint<BlueprintBuffReference>? weaknessForPoison = null)
     {
       var component = new BuffPoisonStatDamageContext();
       component.Bonus = bonus ?? component.Bonus;
@@ -3539,6 +3694,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       if (component.Value is null)
       {
         component.Value = Utils.Constants.Empty.DiceValue;
+      }
+      component.WeaknessForPoison = weaknessForPoison?.Reference ?? component.WeaknessForPoison;
+      if (component.WeaknessForPoison is null)
+      {
+        component.WeaknessForPoison = BlueprintTool.GetRef<BlueprintBuffReference>(null);
       }
       return AddComponent(component);
     }
@@ -3606,7 +3766,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmyChallengeBuff</term><description>8cd456875ab94e16a3b51d4c6e9fe7b7</description></item>
+    /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
     /// <item><term>FreebootersBaneBuff</term><description>76dabd40a1c1c644c86ce30e41ad5cab</description></item>
     /// <item><term>VanguardAlliesStudyTargetBuff</term><description>261d47a0e2df6cf4fa6f02ec2cfb528a</description></item>
     /// </list>
@@ -3639,6 +3799,36 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="IgnoreTargetCritImmunity"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>StudentOfWarDeadlyBlowBuff</term><description>7795183a0e72ec14cb2e4d51acc53773</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddIgnoreTargetCritImmunity(
+        bool? checkCaster = null,
+        bool? checkCasterFriend = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new IgnoreTargetCritImmunity();
+      component.CheckCaster = checkCaster ?? component.CheckCaster;
+      component.CheckCasterFriend = checkCasterFriend ?? component.CheckCasterFriend;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="IgnoreTargetDR"/>
     /// </summary>
     ///
@@ -3646,8 +3836,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmySmiteChaosBuff</term><description>61d753b863aa449e85fa34fb0374f071</description></item>
-    /// <item><term>HalfFiendSmiteGoodBuff</term><description>114af78efc58e5a4c86bb12ee1d907cc</description></item>
+    /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
+    /// <item><term>FinalJusticeAbilityBuff</term><description>2e6eaaf0855a46c5abb22c050063dd57</description></item>
     /// <item><term>StudentOfWarDeadlyBlowBuff</term><description>7795183a0e72ec14cb2e4d51acc53773</description></item>
     /// </list>
     /// </remarks>
@@ -3679,7 +3869,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_BrokenLeg</term><description>13e59e6d056c3ba4e8b44b9dce3b641a</description></item>
-    /// <item><term>DLC2_Player_Wounded_Buff</term><description>6f408add25eb4c6ca4d40d7e9f809d62</description></item>
+    /// <item><term>DLC5_SithhudTopLocomotion_Buff</term><description>fd32238dba914f8f8e57d90d44247129</description></item>
     /// <item><term>TorchAnimations_Buff</term><description>06d32871142844e5a14d43c6e0ca9bb4</description></item>
     /// </list>
     /// </remarks>
@@ -3710,7 +3900,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyBloodLustAuraEnemyBuff</term><description>da30e66cd0144a04ab8275666d34254d</description></item>
-    /// <item><term>DebilitatingInjuryHamperedEffectBuff</term><description>5bfefc22a68e736488b0c309d9c1c1d4</description></item>
+    /// <item><term>DebilitatingInjuryDisorientedEffectBuff</term><description>1f1e42f8c06d7dc4bb70cc12c73dfb38</description></item>
     /// <item><term>Gallu_Buff_RainOfBlood</term><description>1abd01485cd76784f8ca078e80132a76</description></item>
     /// </list>
     /// </remarks>

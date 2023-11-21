@@ -28,7 +28,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>GelatinousSwallowWholeFeature1</term><description>a7d2e6fe676b48f897e334a2cbd30b23</description></item>
+    /// <item><term>GhoulParalysisFeature</term><description>d781b144ccf19b84a89cb0d45cbfb7ee</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -58,8 +58,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandAction 3</term><description>651c3ea9f9323e943823ed497736ac74</description></item>
-    /// <item><term>CommandSpawnUnits1</term><description>4f1d796aae6041fb9893927a9b02b911</description></item>
+    /// <item><term>ChainedDarkness_Buff_NegativeLevelController</term><description>45b2ab2feef04dc089d5875982f7fc45</description></item>
+    /// <item><term>CommandSpawnUnits</term><description>118b954a82ed4afe83b175d023a4347d</description></item>
     /// <item><term>Valmallos_Feature_CombatTrigger</term><description>f4621cc70bec4fe7b0373ed152e40570</description></item>
     /// </list>
     /// </remarks>
@@ -149,8 +149,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0035</term><description>e04a20e1581a72843a53d18ac4e78408</description></item>
-    /// <item><term>Answer_6</term><description>b410fd9e96874a849d94f792fc429d39</description></item>
+    /// <item><term>Answer_0005</term><description>a92755e3dfa24ad8b2f2f7654071ccbb</description></item>
+    /// <item><term>Answer_4</term><description>b8eca38b3d874bcdbf0e0e5f2a1d763c</description></item>
     /// <item><term>MercenaryTrouble6</term><description>0a8297764e3f9bf4ba5757a0edecd019</description></item>
     /// </list>
     /// </remarks>
@@ -282,6 +282,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>Answer_0001</term><description>808ac1acf5a4421790209f192d376e9d</description></item>
     /// <item><term>Answer_0027</term><description>e75acba3688113a40afa7a46f7fd7bb8</description></item>
     /// <item><term>Answer_0095</term><description>deae4190a11f1ca4c9617d9dc2307ba7</description></item>
     /// </list>
@@ -329,6 +330,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>Cue_2</term><description>48c4790378964832ae733ff5e26c7e20</description></item>
     /// <item><term>Cue_2</term><description>c8a45cb530054b0d896148e4e02263b9</description></item>
+    /// <item><term>Cue_3</term><description>e72dfc57d76a4c29b823349babb68420</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder RespecIsFree(

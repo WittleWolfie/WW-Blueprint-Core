@@ -685,7 +685,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ScrollHealMass</term><description>e19e85bfe282a1145a6075567a71970f</description></item>
-    /// <item><term>ScrollOfInflictSeriousWoundsMass</term><description>2d9149f08a6ff4149a76b7a1bb560c6c</description></item>
+    /// <item><term>ScrollOfInflictSeriousWounds</term><description>47d41dd302a14d04faa7df70697d23ec</description></item>
     /// <item><term>ScrollOfWrackingRay</term><description>e3af1f25d3d4fcf439f508377c7493cd</description></item>
     /// </list>
     /// </remarks>
@@ -792,7 +792,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DashingCavaliersGlovesItem</term><description>176da707c9c9d764e972a9da8b444ff3</description></item>
-    /// <item><term>PeriaptOfPlacebosItem</term><description>f823ef25098544a6bcf5366295ee1480</description></item>
+    /// <item><term>Owlcat_Item</term><description>6ea6d3b50bfa24e46a710beafbd95cd0</description></item>
     /// <item><term>SwarmbaneClaspItem</term><description>a4dda39fab2d4e99884a71ecdc8f77ad</description></item>
     /// </list>
     /// </remarks>

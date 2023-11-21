@@ -43,6 +43,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.m_CanBeOutsideNavmesh = copyFrom.m_CanBeOutsideNavmesh;
           bp.Icon = copyFrom.Icon;
           bp.HoverIcon = copyFrom.HoverIcon;
+          bp.IsClearGFXMemory = copyFrom.IsClearGFXMemory;
         });
     }
 
@@ -63,6 +64,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.m_CanBeOutsideNavmesh = copyFrom.m_CanBeOutsideNavmesh;
           bp.Icon = copyFrom.Icon;
           bp.HoverIcon = copyFrom.HoverIcon;
+          bp.IsClearGFXMemory = copyFrom.IsClearGFXMemory;
         });
     }
 
@@ -333,6 +335,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         {
           if (bp.HoverIcon is null) { return; }
           action.Invoke(bp.HoverIcon);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAreaEnterPoint.IsClearGFXMemory"/>
+    /// </summary>
+    public TBuilder SetIsClearGFXMemory(bool isClearGFXMemory = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsClearGFXMemory = isClearGFXMemory;
         });
     }
 

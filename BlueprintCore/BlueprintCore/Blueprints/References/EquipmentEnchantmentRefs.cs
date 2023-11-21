@@ -21,6 +21,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> ALR_GlovesEnchantment = "2b6a3d0a74d740faa06a2e0ad266b4a9";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmberLoveGlovesEnchantment = "09e9b14717e3e0c4cac13a8dbe091e5d";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmberLustGlovesEnchantment = "9ab0f698388a92d459c9604e849a0adb";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmuletOfAlchemicKnowledgeEnchantment = "f3e428ffe59449258e7f151fb7167b6d";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmuletOfApothecaryEnchantment = "70282ab25bba29a459321cb4262954cf";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmuletofArodenBaneNonHumanEnchantment = "b1c0ffa352da4f5d961f24c25e74c1c0";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> AmuletofArodenEnchantment = "bf5be9df0f7046458341345c25588888";
@@ -132,6 +133,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfTheCatEnchantment = "35ddae787ff647fa8d4994e2f2fe8eb3";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfTheCreepingDeathEnchantment = "e643d996dcbf83949a50abff4d5f90e9";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfTheLightStepEnchantment = "8bfc92d8255e36242a5a4a9a9ccab264";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfTheRat_Enchantment = "c19d7c760e9b450aac190b81cd948868";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfTheSwampEnchantment = "4ba297e98fa307340a2bf249ad5b8781";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BootsOfWaryStepsEnchantment = "f327a2d896e87a249b0662786284f569";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> BorealMightEnchantment = "e23546a98d62357418cdf7a93cf11847";
@@ -270,6 +272,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_RobeOfTheSinmageEnchantment = "f583e44cd3a742a28cb5253c09e3db6e";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_RobeOfUnspeakableTruthEnchantment = "52491d2c417244879a718169e2179591";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC3_TrickstersPromiseEnchantment = "c504c67525df49bcacedb76cf79629dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC5_DarkLifeRingEnchantment = "67454e07466246ac916e553ccf268fdd";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLC5_RingOfShadowStealingEnchantment = "bb8c6ec9bf454d83ae01709e2ab550a6";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DLCTestEnchantment = "41e0272c93814e17aa6373af435cb521";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DoublingAnnoyanceEnchantment = "8130290bce6742b4a827a7f380ed8429";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> DragonsHeirloomEnchantment = "8aed62503e40480eb876c67630dae9bf";
@@ -370,9 +374,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeadbandOfSubjugatorEnchantment = "b63c8c303b673864eb14c13740ae2b63";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeadbandOfWiseNegotiatorEnchantment = "e150ea0747ea41fcbeeb5dd183968a95";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeadbuttersHelmEnchantment = "b58b3ea3b9d2b244e8661de97b0162f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeartOfIce_Enchantment = "937e425713cd461cb60f2b690d23f3e1";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeartOfTheHeraldEnchantment = "cf80d6172d85406a9ba459c496580b3e";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeavyPawsEnchantment = "9141d814d99fa354083b1939ff6a3835";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HeavyShieldOfInnateTrustArmorEnchantment = "fe35635b7b6ac2f49a8f39cf718ebb3a";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HellfireBracersEnchantment = "b5d61e48dfee4a02a14ea2db7ec616c9";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HelmetArmagEnchantment = "fde208da81373b048bb695ae322e73db";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HelmetDragonscaleBlackEnchantment = "3beea0a1862614048b879d5bc7ec3ca7";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> HelmetDragonscaleBlueEnchantment = "7a0dbefdad526dc4f8c9db5c18cb6af6";
@@ -530,6 +536,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RascalsGogglesEnchantment = "99f1a30c80639fc4db1776aaa3160319";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RatcatchersGogglesEnchantment = "8b32698fa16296a40b3448e196b061af";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RavagerOfDreadRingEnchantment = "cdcaaef5a02c02a4aa86598a5d04fca0";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RawHolyPowerEnchantment = "4aec56647e1e40f0bb697c722bc422e1";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RecklessVengeanceEnchantment = "79d526a6b44069d4a9a707a7a5ac48ca";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RedDragonHelmetEnchantment = "1ca7f14f0d4f4777a5b4e2e42433619f";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RedSalamandraEnchantment = "5c23114d69a33a24bb994a525a8b9eea";
@@ -577,6 +584,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfImminentDemiseEnchantment = "a53ee894f1a8c894fbc802bc40ad6407";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfImprovedProfeciencyEnchant = "4119c5c9a3470454e9ced5d76cc11c95";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfLawEnchantment = "a5d86ee71825aea40891c648cc87fb41";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfMercyless_Enchantment = "540d4ffb5f0646b1aedf8e81c4bbc534";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfPlanarProtectionEnchant = "fe1fbae6cd5dbdc408d02f7974b008f3";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfProcrastinatorEnchantment = "d9ccd1fcf72f4a83bc11569e38ac0263";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> RingOfPyromaniaEnchantment = "3e4b52d0c7595574fa871fb125a67a83";
@@ -724,6 +732,7 @@ namespace BlueprintCore.Blueprints.References
           ALR_GlovesEnchantment,
           AmberLoveGlovesEnchantment,
           AmberLustGlovesEnchantment,
+          AmuletOfAlchemicKnowledgeEnchantment,
           AmuletOfApothecaryEnchantment,
           AmuletofArodenBaneNonHumanEnchantment,
           AmuletofArodenEnchantment,
@@ -835,6 +844,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfTheCatEnchantment,
           BootsOfTheCreepingDeathEnchantment,
           BootsOfTheLightStepEnchantment,
+          BootsOfTheRat_Enchantment,
           BootsOfTheSwampEnchantment,
           BootsOfWaryStepsEnchantment,
           BorealMightEnchantment,
@@ -973,6 +983,8 @@ namespace BlueprintCore.Blueprints.References
           DLC3_RobeOfTheSinmageEnchantment,
           DLC3_RobeOfUnspeakableTruthEnchantment,
           DLC3_TrickstersPromiseEnchantment,
+          DLC5_DarkLifeRingEnchantment,
+          DLC5_RingOfShadowStealingEnchantment,
           DLCTestEnchantment,
           DoublingAnnoyanceEnchantment,
           DragonsHeirloomEnchantment,
@@ -1073,9 +1085,11 @@ namespace BlueprintCore.Blueprints.References
           HeadbandOfSubjugatorEnchantment,
           HeadbandOfWiseNegotiatorEnchantment,
           HeadbuttersHelmEnchantment,
+          HeartOfIce_Enchantment,
           HeartOfTheHeraldEnchantment,
           HeavyPawsEnchantment,
           HeavyShieldOfInnateTrustArmorEnchantment,
+          HellfireBracersEnchantment,
           HelmetArmagEnchantment,
           HelmetDragonscaleBlackEnchantment,
           HelmetDragonscaleBlueEnchantment,
@@ -1233,6 +1247,7 @@ namespace BlueprintCore.Blueprints.References
           RascalsGogglesEnchantment,
           RatcatchersGogglesEnchantment,
           RavagerOfDreadRingEnchantment,
+          RawHolyPowerEnchantment,
           RecklessVengeanceEnchantment,
           RedDragonHelmetEnchantment,
           RedSalamandraEnchantment,
@@ -1280,6 +1295,7 @@ namespace BlueprintCore.Blueprints.References
           RingOfImminentDemiseEnchantment,
           RingOfImprovedProfeciencyEnchant,
           RingOfLawEnchantment,
+          RingOfMercyless_Enchantment,
           RingOfPlanarProtectionEnchant,
           RingOfProcrastinatorEnchantment,
           RingOfPyromaniaEnchantment,

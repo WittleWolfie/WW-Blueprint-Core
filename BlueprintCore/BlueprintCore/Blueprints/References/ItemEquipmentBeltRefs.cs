@@ -64,10 +64,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> DevilsSashItem = "bfa671a8f5e9f8549ba0abc86f550c9f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> DisplayOfPowerItem = "42831d8b78d38674e83b89657a3e5434";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> DivineSupportBeltItem = "da13dd41c96287e4d934cb10ae069c28";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> DLC5_BeltOfLesserShadowform = "2609206f8cd941f2af8901d609702393";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> EnergizingBeltItem = "44f531c69e18d694187b8856977122f0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> EqualityBeltItem = "b01ed89b10d0da14bbbe1432ed4ca168";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> ExplorersBeltItem = "ec34985b81b9f744488456e7009044ee";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> GozrehsEmbracementBeltItem = "77bfc25b7f08e044d9ce73b76c332651";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> HeartOfIce_Item = "a113c68406d74e37951717e417840bfa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> HermitRopeBeltItem = "c6edeb6c69d5da74a9bf5d73700ed04e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> InfernalCordGreaterItem = "174433eb78a197d4a8926d761b556572";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> KnightsEmblemBelt_IntermediateItem = "cede912533f2f8149ab536ee3f5f12f9";
@@ -142,10 +144,12 @@ namespace BlueprintCore.Blueprints.References
           DevilsSashItem,
           DisplayOfPowerItem,
           DivineSupportBeltItem,
+          DLC5_BeltOfLesserShadowform,
           EnergizingBeltItem,
           EqualityBeltItem,
           ExplorersBeltItem,
           GozrehsEmbracementBeltItem,
+          HeartOfIce_Item,
           HermitRopeBeltItem,
           InfernalCordGreaterItem,
           KnightsEmblemBelt_IntermediateItem,

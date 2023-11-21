@@ -29,6 +29,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorIllusionary = "60169e75789d4c93acc21d851d29965c";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorMindControl = "d65481ede93c4826b98b78cb585ea0f7";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorNegativeEnergy = "461523b537f04734805802d4c91b5e1c";
+    public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorShadowPlaneMagic = "c193257819294a9ca5a717f5fd7b5daf";
+    public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorShadowVeil = "37bfaab150f24acf8481c1519e273cf4";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorTemporalAnomalies = "1ecda3378b5f4435b9cfa974b68a52e9";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorUncotrollableRage = "da74c014108547599047f6dca1937df4";
     public static readonly Blueprint<BlueprintReference<BlueprintDungeonModificator>> DungeonModificatorWildMagic = "9106be5b6d5d4423bbd538be3dfe6464";
@@ -50,6 +52,8 @@ namespace BlueprintCore.Blueprints.References
           DungeonModificatorIllusionary,
           DungeonModificatorMindControl,
           DungeonModificatorNegativeEnergy,
+          DungeonModificatorShadowPlaneMagic,
+          DungeonModificatorShadowVeil,
           DungeonModificatorTemporalAnomalies,
           DungeonModificatorUncotrollableRage,
           DungeonModificatorWildMagic,

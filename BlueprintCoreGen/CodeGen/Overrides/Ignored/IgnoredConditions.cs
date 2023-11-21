@@ -9,6 +9,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
     public static readonly List<Type> Types =
       new()
       {
+        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionProperty),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithSpellSchool),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsShiftersFuryWeapon),

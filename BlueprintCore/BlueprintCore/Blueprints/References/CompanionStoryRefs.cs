@@ -31,8 +31,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Daeran_Q3Evil = "d92c2b8810f3fe24481d47b9ea619de6";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Daeran_Q3Sad = "a1d31f0c26da7324fbac9037a098028f";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Delamere_Q0 = "e9b5070bcf8966d41bc2866f097f77d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC2_ClericStory = "611afa69d7114b978be79f429e6f2f0b";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC2_CompanionStory_Scout = "03fc2300e08849f0a857ba4e7c0fe68c";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC2_CompanionStory_Sorcerer = "1d4debca31514c9d926fb0d6c415b4ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC2_FighterStory = "afd160a1261d44deb0ef96c53fbcee20";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC2_SlayerStory = "26b76a86186a4e53b944a290c485f481";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC5_CompanionStory_Android = "adc5a61423c248c997367ba67b46c790";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC5_CompanionStory_Rekarth = "b2348b8e338f45ac95832d75d86ec4c1";
+    public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> DLC5_CompanionStory_Sendri = "8893ef7003694223b9a8fbb5bb612428";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ember_Broken = "9e2d572b522c1d04c9720cebd4fc4f20";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ember_Q0 = "fb7e192f8fd00f446aeaa58735a5a9cb";
     public static readonly Blueprint<BlueprintReference<BlueprintCompanionStory>> Ember_Q1 = "b5ae470091de5bd4fa5bf054f1f724a3";
@@ -104,8 +110,14 @@ namespace BlueprintCore.Blueprints.References
           Daeran_Q3Evil,
           Daeran_Q3Sad,
           Delamere_Q0,
+          DLC2_ClericStory,
           DLC2_CompanionStory_Scout,
           DLC2_CompanionStory_Sorcerer,
+          DLC2_FighterStory,
+          DLC2_SlayerStory,
+          DLC5_CompanionStory_Android,
+          DLC5_CompanionStory_Rekarth,
+          DLC5_CompanionStory_Sendri,
           Ember_Broken,
           Ember_Q0,
           Ember_Q1,

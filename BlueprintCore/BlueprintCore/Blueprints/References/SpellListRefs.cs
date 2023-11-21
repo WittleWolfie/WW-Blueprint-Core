@@ -51,6 +51,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> GoodDomainSpellList = "dc242eb60eed94a4eb0640d773780090";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> HealingDomainSpellList = "033b2b6a8899be844ae8aa91d4dab477";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> HunterSpelllist = "d090b791bfe381740b98ed4ff909b1cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> IceSubdomainSpellList = "c341ec569c6140bf9ba48f3335fe59f6";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> InquisitorSpellList = "57c894665b7895c499b3dce058c284b3";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> KnowledgeDomainSpellList = "384627980c2a60a43800f14029fbb8a7";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> LawDomainSpellList = "57b0bbdc1114ee846945f1808b13cff7";
@@ -68,6 +69,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> NatureSpiritSpellList = "810e2a7009ed3a84c81b398b2763e7a8";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> NobilityDomainSpellList = "3de1e283971828f4896a4140acd3c84c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PaladinSpellList = "9f5be2f7ea64fe04eb40878347b147bc";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PestilenceSpiritSpellList = "a995ae02b3e741439b82e5e5d5a2e046";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PlantDomainSpellList = "bd7b088a54b79434f90ed53551ca2189";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ProtectionDomainSpellList = "93228f4df23d2d448a0db59141af8aed";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> RangerSpellList = "29f3c338532390546bc5347826a655c4";
@@ -89,6 +91,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> TrickeryDomainSpellList = "2c09ae283ea3e41408665c46fcf0303f";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> TricksterSpelllist = "40f8cfe98ca4ebd43894267dbd3fc3ae";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> TricksterSpelllistMythic = "7a5ea54564c7d494794f34d0f5a9abb3";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> UndeadSubdomainSpellList = "90a101834cff40f09069d5a8c34c96ad";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WarDomainSpellList = "e3c54da90a2b54b4a975a80b5d39c361";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WarpriestSpelllist = "c5a1b8df32914d74c9b44052ba3e686a";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> WaterDomainSpellList = "35e15cd1b353e2d47b507c445d2f8c6f";
@@ -145,6 +148,7 @@ namespace BlueprintCore.Blueprints.References
           GoodDomainSpellList,
           HealingDomainSpellList,
           HunterSpelllist,
+          IceSubdomainSpellList,
           InquisitorSpellList,
           KnowledgeDomainSpellList,
           LawDomainSpellList,
@@ -162,6 +166,7 @@ namespace BlueprintCore.Blueprints.References
           NatureSpiritSpellList,
           NobilityDomainSpellList,
           PaladinSpellList,
+          PestilenceSpiritSpellList,
           PlantDomainSpellList,
           ProtectionDomainSpellList,
           RangerSpellList,
@@ -183,6 +188,7 @@ namespace BlueprintCore.Blueprints.References
           TrickeryDomainSpellList,
           TricksterSpelllist,
           TricksterSpelllistMythic,
+          UndeadSubdomainSpellList,
           WarDomainSpellList,
           WarpriestSpelllist,
           WaterDomainSpellList,

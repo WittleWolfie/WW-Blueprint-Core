@@ -32,6 +32,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionBase = "90406c575576aee40a34917a1b429254";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionDivineHound = "8abc5936b95d4983866f3bcace522e23";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionDomain = "2ecd6c64683b59944a7fe544033bb533";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionDomainSeparatist = "f35a2db6f2a64f9e99e21bb2a9ac621b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionDruid = "571f8434d98560c43935e132df65fe76";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionHunter = "715ac15eb8bd5e342bc8a0a3c9e3e38f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AnimalCompanionSelectionMadDog = "738b59d0b58187f4d846b0caaf0f80d7";
@@ -47,6 +48,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ArcaneRiderMountSelection = "82c791d4790c45dcac6038ef6932c3e3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ArcaneTricksterSpellbookSelection = "ae04b7cdeb88b024b9fd3882cc7d3d76";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ArcanistExploitSelection = "b8bf3d5023f2d8c428fdf6438cecaea7";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ArmorFocusMythicSelection = "068f833e8aea4cd58df003543e11b207";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ArmorFocusSelection = "76d4885a395976547a13c5d6bf95b482";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AscendantElementSelection = "535d4e5d8a5664f4797560c280941782";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> AzataSuperpowersSelection = "8a30e92cd04ff5b459ba7cb03584fda0";
@@ -100,6 +102,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerElementalFeatSelectionGreenrager = "4adc208e35b9ef64285014c1af47fc4a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerFeyFeatSelection = "ae13cd63a0f0c4243bbc6566d1f98485";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerFeyFeatSelectionGreenrager = "4cacd14dc0ed7b94997c96e79bf67335";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerHagFeatSelection = "019780ef68324fcdaf58354921a0931e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerInfernalFeatSelection = "d3139e9bd4146af41938cb10b436a6eb";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerInfernalFeatSelectionGreenrager = "56cc435ae8647354ea3ab6131ae43e8f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> BloodragerSerpentineFeatSelection = "4a84be500fd481c40a79c2adb243905d";
@@ -121,6 +124,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> CrusaderBonusFeat1 = "c5357c05cf4f8414ebd0a33e534aec50";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> CrusaderBonusFeat10 = "50dc57d2662ccbd479b6bc8ab44edc44";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> CrusaderBonusFeat20 = "2049abc955bf6fe41a76f2cb6ba8214a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DarkLurkerRogueTalentSelection = "1edbb68422c046f98a86f4726f6721b2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DeitySelection = "59e7a76987fe3b547b9cce045f4db3e4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DemonAspectSelection = "bbfc0d06955db514ba23337c7bf2cca6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DemonLordAspectSelection = "fc93daa527ec58c40afbe874c157bc91";
@@ -160,10 +164,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExoticWeaponProficiencySelection = "9a01b6815d6c3684cb25f30b8bf20932";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExpandedDefense = "d741f298dfae8fc40b4615aaf83b6548";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExploiterExploitSelection = "2ba8a0040e0149e9ae9bfcb01a8ff01d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraArcanaSelection = "00727883edf145e2a6bce9ad176ecfd8";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraArcanistExploitSelection = "0a7065e13f4449fa81bfb33199bf7f6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraDiscoverySelection = "537965879fc24ad3948aaffa7a1a3a66";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraDomain = "213a8480d22206b45acbfa0619ca5aaf";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraFeatMythicFeat = "e10c4f18a6c8b4342afe6954bde0587b";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraMercySelection = "8a49abed5be9473da1e1fd1e2457562e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraMythicAbilityMythicFeat = "8a6a511c55e67d04db328cc49aaad2b8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraRagePowerSelection = "0c7f01fbbe687bb4baff8195cb02fe6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraRogueTalentSelection = "14d9089df87a43b696fa9451ca2f0a12";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraShamanHexSelection = "d0b4c8245d504b8c9c6d3fccc1f8c5b6";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraSlayerTalentSelection = "53f7237f5b1447bb851ba68045a00e41";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraVivsectionistDiscoverySelection = "10287e7b8cee479e82ea88bd6d2d4dae";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraWildTalentSelection = "0f73730cf1b44ee882671e55d5f6e471";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ExtraWitchHexSelection = "b6054088b4ab4be286724127cbf48b35";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FaithHunterSwornEnemySelection = "4fe6aec92d9e0bc41beab5b06ddd7872";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> Familiar = "363cab72f77c47745bf3a8807074d183";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> FavoriteEnemyRankUp = "c1be13839472aad46b152cf10cf46179";
@@ -180,6 +194,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ForceOfWillRankUpSelection = "3e4dd44c121c753408680b1d5671641c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ForceOfWillSelection = "32fe6903b3a36b344a344624cda5b73f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GendarmeFeatSelection = "ef1cd58e0b7fc7f45baedb09407a1cd1";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GeomancerFavoriteTerrainSelection = "876a82245a004b318e3929b469e2e757";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GeomancerFavoriteTerrainSelectionRankUp = "a04687e5e4a542daa5063debdb07a7f2";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GhostRiderGhostMountSelection = "e4e1f3331d2841a596407d5084916321";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GnomeHeritageSelection = "584d8b50817b49b2bb7aab3d6add8d3a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GrandDiscoverySelection = "2729af328ab46274394cedc3582d6e98";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GreaterElementalFocusSelection = "1c17446a3eb744f438488711b792ca4d";
@@ -284,6 +301,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PaladinDeitySelection = "a7c8b73528d34c2479b4bd638503da1d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PaladinDivineBondSelection = "ad7dc4eba7bf92f4aba23f716d7a9ba6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PaladinDivineMountSelection = "e2f0e0efc9e155e43ba431984429678e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PlagueHexSelection = "68db664d2b5046eab2e6fd267f5d017d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PossessedShamanSharedSkillSelection = "9d0477ebd71d43041b419c216b5d6cff";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistLevel12Selection = "43b684433ff1e7d439b87099f1717154";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> PrimalistLevel16Selection = "63c42e0d1a84f004c8e4290bb26f359a";
@@ -326,7 +344,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondBloodline = "3cf2ab2c320b73347a7c21cf0d0995bd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondBloodragerBloodline = "b7f62628915bdb14d8888c25da3fac56";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondBloodragerBloodlineReformedFiend = "5e4089c46a9f47cdadac7b19d69d11e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondCurseSelection = "cc6fda79e8c340b88c84689414a9abbe";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondDomainsSelection = "43281c3d7fe18cc4d91928395837cd1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondDomainsSeparatistSelection = "42b781e4375d499383b2602d90661283";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondMystery = "277b0164740b97945a3f8022bd572f48";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondMysteryEnlightenedPhilosopher = "4ff6f2905e1f4d1b92930b87f85bf86c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondMysteryHerbalist = "cff5c53fe99c48bf863a0005d768f75a";
@@ -335,6 +355,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SeekerBloodlineSelection = "7bda7cdb0ccda664c9eb8978cf512dbc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SeekerFeatSelection = "c6b609279cc3174478624182ac1ad812";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SelectionMercy = "02b187038a8dce545bb34bbfb346428d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SelfSuffisientBonusFeats = "db3c26e791cb4b70a82203b28563da02";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanHexBattleMasterSelection16 = "a658b783516e2e84380a86dce6289bf0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanHexBattleMasterSelection8 = "f18fea9a4f78fc94e842c02e24b1dad3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanHexSecretSelection = "1342b5bfb876e434797cdcf7311bccad";
@@ -342,6 +363,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanNatureSpiritTrueSelection = "e7f4cfcd7488ac14bbc3e09426b59fd0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanSpiritAnimalSelection = "d22f319fefac4ca4b90f03ac5cb9c714";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShamanSPiritSelection = "00c8c566d1825dd4a871250f35285982";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShardsAbilitiesSelection = "50c8d6e9174b4cc492bae6f35517a6f7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ShifterAspectSelectionFeature = "121829d239124685b430f5263031bf83";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SkaldFeatSelection = "0a1999535b4f77b4d89f689a385e5ec9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SkaldRagePowerSelection = "2476514e31791394fa140f1a07941c96";
@@ -372,6 +394,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SwordSaintChosenWeaponSelection = "3130e3083845b7b4fa2ac5b6f1a1ae6e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SylvanCompanionSelection = "bdeb45c295e93644c9fed3b3b431aa2d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SylvanTricksterTalentSelection = "290bbcc3c3bb92144b853fd8fb8ff452";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> TandemExecutionerTechniquesSelection = "d03312858cd5420e8bad2756ce4a72ba";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> TeamworkFeat = "d87e2f6a9278ac04caeb0f93eff95fcb";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> TeamworkFeat_0 = "90b882830b3988446ae681c6596460cc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> TerrainExpertiseSelection = "1c3413f68270d664ea143182f2abe8a9";
@@ -420,6 +443,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WildTalentBonusFeatWater4 = "ebf90f9f8a5e43f40bee85fd6506b922";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WildTalentBonusFeatWater5 = "40a4fb42aafa7ee4991d3e3140e98856";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WildTalentSelection = "5c883ae0cd6d7d5448b7a420f51f8459";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WinterChildDomainSelection = "79922e274bf4444b93ea77ae0f876bd2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WinterWitchShamanHexSelection = "4e760c5034fafb2438993d8a192150b9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WinterWitchSpellbookSelection = "ea20b26d9d0ede540af3c74246dade41";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> WinterWitchWitchHexSelection = "b921af3627142bd4d9cf3aefb5e2610a";
@@ -454,6 +478,7 @@ namespace BlueprintCore.Blueprints.References
           AnimalCompanionSelectionBase,
           AnimalCompanionSelectionDivineHound,
           AnimalCompanionSelectionDomain,
+          AnimalCompanionSelectionDomainSeparatist,
           AnimalCompanionSelectionDruid,
           AnimalCompanionSelectionHunter,
           AnimalCompanionSelectionMadDog,
@@ -469,6 +494,7 @@ namespace BlueprintCore.Blueprints.References
           ArcaneRiderMountSelection,
           ArcaneTricksterSpellbookSelection,
           ArcanistExploitSelection,
+          ArmorFocusMythicSelection,
           ArmorFocusSelection,
           AscendantElementSelection,
           AzataSuperpowersSelection,
@@ -522,6 +548,7 @@ namespace BlueprintCore.Blueprints.References
           BloodragerElementalFeatSelectionGreenrager,
           BloodragerFeyFeatSelection,
           BloodragerFeyFeatSelectionGreenrager,
+          BloodragerHagFeatSelection,
           BloodragerInfernalFeatSelection,
           BloodragerInfernalFeatSelectionGreenrager,
           BloodragerSerpentineFeatSelection,
@@ -543,6 +570,7 @@ namespace BlueprintCore.Blueprints.References
           CrusaderBonusFeat1,
           CrusaderBonusFeat10,
           CrusaderBonusFeat20,
+          DarkLurkerRogueTalentSelection,
           DeitySelection,
           DemonAspectSelection,
           DemonLordAspectSelection,
@@ -582,10 +610,20 @@ namespace BlueprintCore.Blueprints.References
           ExoticWeaponProficiencySelection,
           ExpandedDefense,
           ExploiterExploitSelection,
+          ExtraArcanaSelection,
+          ExtraArcanistExploitSelection,
+          ExtraDiscoverySelection,
           ExtraDomain,
           ExtraFeatMythicFeat,
+          ExtraMercySelection,
           ExtraMythicAbilityMythicFeat,
           ExtraRagePowerSelection,
+          ExtraRogueTalentSelection,
+          ExtraShamanHexSelection,
+          ExtraSlayerTalentSelection,
+          ExtraVivsectionistDiscoverySelection,
+          ExtraWildTalentSelection,
+          ExtraWitchHexSelection,
           FaithHunterSwornEnemySelection,
           Familiar,
           FavoriteEnemyRankUp,
@@ -602,6 +640,9 @@ namespace BlueprintCore.Blueprints.References
           ForceOfWillRankUpSelection,
           ForceOfWillSelection,
           GendarmeFeatSelection,
+          GeomancerFavoriteTerrainSelection,
+          GeomancerFavoriteTerrainSelectionRankUp,
+          GhostRiderGhostMountSelection,
           GnomeHeritageSelection,
           GrandDiscoverySelection,
           GreaterElementalFocusSelection,
@@ -706,6 +747,7 @@ namespace BlueprintCore.Blueprints.References
           PaladinDeitySelection,
           PaladinDivineBondSelection,
           PaladinDivineMountSelection,
+          PlagueHexSelection,
           PossessedShamanSharedSkillSelection,
           PrimalistLevel12Selection,
           PrimalistLevel16Selection,
@@ -748,7 +790,9 @@ namespace BlueprintCore.Blueprints.References
           SecondBloodline,
           SecondBloodragerBloodline,
           SecondBloodragerBloodlineReformedFiend,
+          SecondCurseSelection,
           SecondDomainsSelection,
+          SecondDomainsSeparatistSelection,
           SecondMystery,
           SecondMysteryEnlightenedPhilosopher,
           SecondMysteryHerbalist,
@@ -757,6 +801,7 @@ namespace BlueprintCore.Blueprints.References
           SeekerBloodlineSelection,
           SeekerFeatSelection,
           SelectionMercy,
+          SelfSuffisientBonusFeats,
           ShamanHexBattleMasterSelection16,
           ShamanHexBattleMasterSelection8,
           ShamanHexSecretSelection,
@@ -764,6 +809,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanNatureSpiritTrueSelection,
           ShamanSpiritAnimalSelection,
           ShamanSPiritSelection,
+          ShardsAbilitiesSelection,
           ShifterAspectSelectionFeature,
           SkaldFeatSelection,
           SkaldRagePowerSelection,
@@ -794,6 +840,7 @@ namespace BlueprintCore.Blueprints.References
           SwordSaintChosenWeaponSelection,
           SylvanCompanionSelection,
           SylvanTricksterTalentSelection,
+          TandemExecutionerTechniquesSelection,
           TeamworkFeat,
           TeamworkFeat_0,
           TerrainExpertiseSelection,
@@ -842,6 +889,7 @@ namespace BlueprintCore.Blueprints.References
           WildTalentBonusFeatWater4,
           WildTalentBonusFeatWater5,
           WildTalentSelection,
+          WinterChildDomainSelection,
           WinterWitchShamanHexSelection,
           WinterWitchSpellbookSelection,
           WinterWitchWitchHexSelection,

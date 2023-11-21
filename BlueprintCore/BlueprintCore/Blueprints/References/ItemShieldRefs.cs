@@ -19,6 +19,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AncientWoodShieldItem = "a39fc345c33c4bf1aaec7988776039ba";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> ArrowguardBucklerItem = "7c034e82710f36b45850f2127406992f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AssertionOfDominanceShieldItem = "2ad512d4b7d1438c97b48fe232fcceb5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteBucklerItemPlus3 = "48c1a9cbd64944ee9474f6581ba01eb0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteBucklerItemPlus4 = "85a55ba689e148edb9cbafa89f1e89f8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteHeavyShieldItemPlus3 = "6e935fd4475241a38c6ee5bc1a86520f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteHeavyShieldItemPlus4 = "6bafbb55c421439fbff2ae0e4aa69d08";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteLightShieldItemPlus3 = "397412c3132d40429f7a5cb15b7e60d7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteLightShieldItemPlus4 = "d1266897c40f4843a23fc85c42528f06";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteTowerShieldItemPlus3 = "fbde60368d444717b6f67bb0844b2985";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> AsziteTowerShieldItemPlus4 = "a290a20212e4463d9102b58c9a1487bf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> BaphometCultistHeavyShield = "59635f8412520134fae8bde02ccfe0bd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> BaphometCultistHeavyShieldItemPlus1 = "051b9c09d2c15e74eb036f8d07ba1ec5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> BaphometCultistLightShield = "b11d28fa19d1e254d9612d214f388d99";
@@ -48,6 +56,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DiskOfUnbalanceShieldItem = "116d8113cb9f44b7b7e3bba4cec2bfe5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DivineProtectorShieldItem = "6d469a9b200f1cd4abb6e7f149832450";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DLC3_GuardianHeavyShieldSetItem = "2d29d6d2674a476fb54c72e8906d7e8e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> DLC5_SunlessShieldItem = "ab871a2ecb5548f48635e83f149fbb35";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> EludingTargetItem = "43659a3401c8b5843b97105150c5f26b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> FallenShield = "0fe26883b8269924b8078762c4d09b5c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> FlameguardShieldItem = "f4b263547ad2cb1459a53476c3eaf442";
@@ -80,6 +89,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldOfInnateTrustShieldItem = "985f01c889de4ae4498a6478bab77931";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldRedWhite = "a5a5b77267afc3d4bb037d519c79bd96";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldRusty = "780499026e07419eac86b816b5f8e77e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyShieldSarenrae = "a76cb1559cdc4d0f8fe953bac0629855";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HeavyWoodenShieldItemPlus3 = "449758ce8ce45df4c9cd3297747d28d6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> HolemakerShieldItem = "c958b1a95bf1407a81670208d89fa986";
     public static readonly Blueprint<BlueprintReference<BlueprintItemShield>> ImpassableGuardShieldItem = "19d785ca55714780bc753b6f9ee7f703";
@@ -143,6 +153,14 @@ namespace BlueprintCore.Blueprints.References
           AncientWoodShieldItem,
           ArrowguardBucklerItem,
           AssertionOfDominanceShieldItem,
+          AsziteBucklerItemPlus3,
+          AsziteBucklerItemPlus4,
+          AsziteHeavyShieldItemPlus3,
+          AsziteHeavyShieldItemPlus4,
+          AsziteLightShieldItemPlus3,
+          AsziteLightShieldItemPlus4,
+          AsziteTowerShieldItemPlus3,
+          AsziteTowerShieldItemPlus4,
           BaphometCultistHeavyShield,
           BaphometCultistHeavyShieldItemPlus1,
           BaphometCultistLightShield,
@@ -172,6 +190,7 @@ namespace BlueprintCore.Blueprints.References
           DiskOfUnbalanceShieldItem,
           DivineProtectorShieldItem,
           DLC3_GuardianHeavyShieldSetItem,
+          DLC5_SunlessShieldItem,
           EludingTargetItem,
           FallenShield,
           FlameguardShieldItem,
@@ -204,6 +223,7 @@ namespace BlueprintCore.Blueprints.References
           HeavyShieldOfInnateTrustShieldItem,
           HeavyShieldRedWhite,
           HeavyShieldRusty,
+          HeavyShieldSarenrae,
           HeavyWoodenShieldItemPlus3,
           HolemakerShieldItem,
           ImpassableGuardShieldItem,

@@ -75,8 +75,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
-    /// <item><term>PF-345441</term><description>6e40b2d12ba948da9527239a6198bd51</description></item>
-    /// <item><term>PF-472203_FreebooterMasterHunter</term><description>afd16a98a8754b60b176b94fc80dd7a8</description></item>
+    /// <item><term>PF-350902</term><description>1dd805fe50634941a40a928ba947ce02</description></item>
+    /// <item><term>PF-505565(6-10lvl)</term><description>9169336de2164cb68fd5049f355065bb</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -258,8 +258,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-390821</term><description>b57e1f6c132c4194bd7bb225033ed08d</description></item>
-    /// <item><term>PF-489442</term><description>6c34d6a66e0545618ad60956e6ee16be</description></item>
+    /// <item><term>PF-400743</term><description>8c5f56e6b06641828d1611402f847e5c</description></item>
+    /// <item><term>PF-494907</term><description>c799ee3588b8492e8cc0476fee31a74a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -338,7 +338,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-341704</term><description>e4782857b49f40fc903acef39d3f7424</description></item>
+    /// <item><term>PF-343632</term><description>09b345b97d734deea2e5004c074b1af5</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>
@@ -726,6 +726,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-383428_EyeOfTruthItem</term><description>f448eb85a25743fb8ec43b17cc1aaf7c</description></item>
+    /// <item><term>PF-383428_EyeOfTruthItem2</term><description>feadfe032d5f4d7087960f0778538892</description></item>
     /// <item><term>UpgradeUnitRobe2ST2DC</term><description>0da99f59dbfc45b49864819a5ad0c3ec</description></item>
     /// </list>
     /// </remarks>
@@ -814,14 +815,18 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>PF-229479-RecreateAreshkagalOnLoad</term><description>c048cb6cb12c4c578c312cf1ea5ebdce</description></item>
-    /// <item><term>PF-296345-RecreateHalDragonOnLoad</term><description>aaf834dd2d2c4348a52de842606ecaad</description></item>
+    /// <item><term>MythicLichSkeletonUnitUpgrader</term><description>c18c22b165284397b06d398a8b0fc67f</description></item>
+    /// <item><term>PF-296210-RecreateSvendackOnLoad</term><description>43a66ab394654e77b0a84be68af28179</description></item>
     /// <item><term>PF-340663-RecreateUnitOnLoad</term><description>0a013e4bab2b456fbd9a265fd32907b2</description></item>
     /// </list>
     /// </remarks>
-    public static ActionsBuilder RecreateOnLoad(this ActionsBuilder builder)
+    public static ActionsBuilder RecreateOnLoad(
+        this ActionsBuilder builder,
+        bool? isCopyEqupment = null)
     {
-      return builder.Add(ElementTool.Create<RecreateOnLoad>());
+      var element = ElementTool.Create<RecreateOnLoad>();
+      element.IsCopyEqupment = isCopyEqupment ?? element.IsCopyEqupment;
+      return builder.Add(element);
     }
 
     /// <summary>
@@ -833,6 +838,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-383428_EyeOfTruthItem</term><description>f448eb85a25743fb8ec43b17cc1aaf7c</description></item>
+    /// <item><term>PF-383428_EyeOfTruthItem2</term><description>feadfe032d5f4d7087960f0778538892</description></item>
     /// <item><term>PF-418068-RecreateVissariyRatimus</term><description>761fd2604960453da5cbbd10e39d1abd</description></item>
     /// </list>
     /// </remarks>

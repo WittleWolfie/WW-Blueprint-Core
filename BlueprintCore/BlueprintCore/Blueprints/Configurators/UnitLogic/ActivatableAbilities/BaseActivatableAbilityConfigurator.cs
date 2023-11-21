@@ -631,7 +631,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeAbility</term><description>3e2d25b97be14414b897fc97f2d76c9a</description></item>
-    /// <item><term>InquisitorGreaterBaneAbility</term><description>de3cadee4492d68439c23e5d4004ba89</description></item>
+    /// <item><term>InciteRageAlliesToggleAbility</term><description>b1d8fdffd132bfd428a8045b7b8b363c</description></item>
     /// <item><term>WitchHexAuraOfPurityActivatableAbility</term><description>298edc3bc21e61044bba25f4e767cb8b</description></item>
     /// </list>
     /// </remarks>
@@ -809,8 +809,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>DragonBloodShifterAspectGood</term><description>c7b27a5210ea4b10a9e56dfa6dd33cc0</description></item>
-    /// <item><term>RingofArodenToggleAbility</term><description>2bf92815e0bd44c78575ad9ec51103ef</description></item>
+    /// <item><term>DragonBloodShifterAspectNeutral</term><description>a489d794e43049bb87baa278018d078e</description></item>
+    /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -855,8 +855,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>DragonBloodShifterAspectNeutral</term><description>a489d794e43049bb87baa278018d078e</description></item>
-    /// <item><term>ShifterFuryActivatableList</term><description>2d62be90202c41dc9a3618262b147f20</description></item>
+    /// <item><term>EnergizedWildShapeToggleAbility</term><description>0344dab893a049b3bfccbf015582112d</description></item>
+    /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1009,8 +1009,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbilityWingsAngel</term><description>13143852b74718144ac4267b949615f0</description></item>
-    /// <item><term>AbilityWingsDraconicGold</term><description>0d610d5c3713d5a46bca0833fad1847e</description></item>
-    /// <item><term>RecklessStanceToggleAbility</term><description>4ee08802b8a2b9b448d21f61e208a306</description></item>
+    /// <item><term>LethalStanceToggleAbility</term><description>43696e91d2a67e34981925f0c62bff40</description></item>
+    /// <item><term>SorcerousClawsVicious</term><description>4f2e31f13b4d4a4eb7aa0ed17d02e765</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1092,7 +1092,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BaneAnimalQuiverAbility</term><description>5a87e26a039902443980a9a8c877036b</description></item>
-    /// <item><term>ForcefulPushArrowsQuiverAbility</term><description>771d81c322b197f449f83e121b33afd6</description></item>
+    /// <item><term>FlamingArrowsQuiverAbility</term><description>5a769135b9b00684ea010d36ae49848e</description></item>
     /// <item><term>WeakenArrowsQuiverAbility</term><description>c930416e9939be4489eea9d4e3b18984</description></item>
     /// </list>
     /// </remarks>
@@ -1126,6 +1126,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DefensiveStanceActivateableAbility</term><description>be68c660b41bc9247bcab727b10d2cd1</description></item>
+    /// <item><term>StonelordDefensiveStanceActivateableAbility</term><description>6a8ddcf2fbda4c1ba4d8eccd565db3f9</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1218,8 +1219,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>FightDefensivelyFeature</term><description>ca22afeb94442b64fb8536e7a9f7dc11</description></item>
-    /// <item><term>PersuasionUseAbility</term><description>7d2233c3b7a0b984ba058a83b736e6ac</description></item>
+    /// <item><term>FightDefensivelyToggleAbility</term><description>09d742e8b50b0214fb71acfc99cc00b3</description></item>
+    /// <item><term>WitchBetterHexProgression</term><description>38d01811fcb32444a8fe372c029fa0c6</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddHideFeatureInInspect()

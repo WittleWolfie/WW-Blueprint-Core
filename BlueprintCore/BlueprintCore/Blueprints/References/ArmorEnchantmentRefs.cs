@@ -64,6 +64,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> Artifact_TigerArmorEnchantment = "700b46713b3ff484c80b0df5f4674377";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AssassinsChainshirtEnchant = "c85f21bc700e11b45bb117d3fce33491";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AssertionOfDominanceArmorEnchantment = "4f0700bdbf8c4c99a4bb491377caf5ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AsziteArmorEnchantment = "b6dff2f7ec3e4a4bbc5090d27752b465";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> AugmentedPlateEnchant = "def6e6e78b2bf0842b2fb075704c2739";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BaphometFireCloth_AnimalisticFireEnchantment = "b94b8fa6ba2e41589319b9f7fd0460d0";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> BaphometFireCloth_BurningCunningEnchantment = "4cad65a642af4533a7b8215a422dd3e7";
@@ -122,6 +123,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_DemonhideLeatherArmorEnchantment = "f8494f446b324cfcb5d8a4be3b859f2d";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_GuardianHeavyShieldEnchantment = "2491c3d7e94f4873bc67e465b0e588d2";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC3_StandhardArmorEnchantment = "d4f5fbfb6ea5460f945146c216681090";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC5_AbsoluteDarknessEnchantment = "45422740774e4e8da7903b7663493b09";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DLC5_SunlessShieldEnchantment = "b48742d5295541cfaaed02921c7b4cbc";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DragonfallEnchantment = "afcdd71ddf0f090448fefbae0fe12b32";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> EarthenEmbraceEnchantment = "e92b599a1fb80574381e515d69f34473";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> ElectricityResistance10Enchant = "1e4dcaf8ffa56c24788e392dae886166";
@@ -361,6 +364,7 @@ namespace BlueprintCore.Blueprints.References
           Artifact_TigerArmorEnchantment,
           AssassinsChainshirtEnchant,
           AssertionOfDominanceArmorEnchantment,
+          AsziteArmorEnchantment,
           AugmentedPlateEnchant,
           BaphometFireCloth_AnimalisticFireEnchantment,
           BaphometFireCloth_BurningCunningEnchantment,
@@ -419,6 +423,8 @@ namespace BlueprintCore.Blueprints.References
           DLC3_DemonhideLeatherArmorEnchantment,
           DLC3_GuardianHeavyShieldEnchantment,
           DLC3_StandhardArmorEnchantment,
+          DLC5_AbsoluteDarknessEnchantment,
+          DLC5_SunlessShieldEnchantment,
           DragonfallEnchantment,
           EarthenEmbraceEnchantment,
           ElectricityResistance10Enchant,

@@ -52,6 +52,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> GearsRuleItem = "c76341cfbc0d0f14ea51ceb30efee432";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> GearsRuleItem_1 = "a4dcb1353e8b40a41b51e78cc2f2b233";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> GoldenHallucinationBracersItem = "c994ba965699973479c0a7c57549ba86";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> HellfireBracersWristItem = "01611c3a767f4716bd0b7f82ced0627e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> LegendaryBracersItem = "3dec5ad0800c41b2aff99cdeceabf00a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> NegotiatorsBracersItem = "29b80b39517c0b84ebfd963abad5433e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> PhantomSlayersBracersItem = "142fb54550dd04947a6593adafe053e8";
@@ -107,6 +108,7 @@ namespace BlueprintCore.Blueprints.References
           GearsRuleItem,
           GearsRuleItem_1,
           GoldenHallucinationBracersItem,
+          HellfireBracersWristItem,
           LegendaryBracersItem,
           NegotiatorsBracersItem,
           PhantomSlayersBracersItem,

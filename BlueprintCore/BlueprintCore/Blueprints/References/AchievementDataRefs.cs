@@ -138,6 +138,27 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_32_Elements_of_Success = "53130328ab594926ac52bfdab3e6f377";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_33_Endangered_Species = "e128a85f614f4674913153675c149397";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC4_34_Beware_of_Still_Water = "b9a5a62886754d7aa990f03312f3539b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_35_A_Waste_Of_Good_Suffering = "783454d555c74487889d75ea5cb7db94";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_36_A_Shard_In_the_Woods = "75dae21fe3344a46bbc7cc606c0f174b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_37_Certified_Adventurers = "626640f6fe554ad5b39f64c482517d63";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_38_Unfair_Challenge = "7f35e54aa6b8418c947c2d338e38caf5";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_39_You_Don_t_Need_It_Anymore = "af25338f50e34ee9b37d6b56a8594c08";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_40_I_Wonder_What_s_Inside = "2e8b523734c94de2952514bd3d0c7991";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_41_Stealthier_Than_a_Shadow = "901dff017bba4f79936836da41a553d4";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_42_Scattered_Notes = "252a49d801534596a8e5dada7a246502";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_43_The_Last_Adventure = "291c6cdd968b4be58714037eeb93e0e5";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_44_The_Last_Spell = "8cb39434bb1a4466b63ac06f58e3e32b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_45_The_Last_Shot = "0e20f542a3be455297f76637cb8a2404";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_46_The_Last_Song = "8fe42fa6c4764094a34b784f6aa849cf";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_47_A_Shard_In_a_Cave = "6d3a95b3b9984751adf99fec1bd99d05";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_48_A_Shard_In_a_Tower = "37c8ed53f8bc49f7a22f540d106c7a94";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_49_A_Shard_In_the_Shadows = "0926366f671e4a7b9f05d0617587e00c";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_50_Thaw = "ba41c83f22a1452e990695edc6a414db";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_51_Cold_Snap = "4a02407a8d374b4aa4ec7eea6a08af40";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_52_Frozen_Pork_Chops = "d9600734879649a7a5f047ee3ff07d76";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_53_Odious_Treasure = "43fdef241ca4477284835cf7f331e7f8";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_54_Prohibition = "6f8caa746e9148e7bc3fe66453f19fe3";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_55_Pain_And_Pleasure_Indivisible = "cb200f23b05743958ed9a08cf939b3d1";
 
     public static readonly List<Blueprint<BlueprintReference<AchievementData>>> All =
       new()
@@ -265,6 +286,27 @@ namespace BlueprintCore.Blueprints.References
           DLC4_32_Elements_of_Success,
           DLC4_33_Endangered_Species,
           DLC4_34_Beware_of_Still_Water,
+          DLC5_35_A_Waste_Of_Good_Suffering,
+          DLC5_36_A_Shard_In_the_Woods,
+          DLC5_37_Certified_Adventurers,
+          DLC5_38_Unfair_Challenge,
+          DLC5_39_You_Don_t_Need_It_Anymore,
+          DLC5_40_I_Wonder_What_s_Inside,
+          DLC5_41_Stealthier_Than_a_Shadow,
+          DLC5_42_Scattered_Notes,
+          DLC5_43_The_Last_Adventure,
+          DLC5_44_The_Last_Spell,
+          DLC5_45_The_Last_Shot,
+          DLC5_46_The_Last_Song,
+          DLC5_47_A_Shard_In_a_Cave,
+          DLC5_48_A_Shard_In_a_Tower,
+          DLC5_49_A_Shard_In_the_Shadows,
+          DLC5_50_Thaw,
+          DLC5_51_Cold_Snap,
+          DLC5_52_Frozen_Pork_Chops,
+          DLC5_53_Odious_Treasure,
+          DLC5_54_Prohibition,
+          DLC5_55_Pain_And_Pleasure_Indivisible,
       };
   }
 }

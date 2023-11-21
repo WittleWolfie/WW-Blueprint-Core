@@ -62,6 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.CorruptionGrowth = copyFrom.CorruptionGrowth;
           bp.LootSetting = copyFrom.LootSetting;
           bp.m_HotAreas = copyFrom.m_HotAreas;
+          bp.IsMayMapWindow = copyFrom.IsMayMapWindow;
         });
     }
 
@@ -94,6 +95,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
           bp.CorruptionGrowth = copyFrom.CorruptionGrowth;
           bp.LootSetting = copyFrom.LootSetting;
           bp.m_HotAreas = copyFrom.m_HotAreas;
+          bp.IsMayMapWindow = copyFrom.IsMayMapWindow;
         });
     }
 
@@ -691,6 +693,18 @@ namespace BlueprintCore.Blueprints.Configurators.Area
         {
           if (bp.m_HotAreas is null) { return; }
           bp.m_HotAreas.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintArea.IsMayMapWindow"/>
+    /// </summary>
+    public TBuilder SetIsMayMapWindow(bool isMayMapWindow = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsMayMapWindow = isMayMapWindow;
         });
     }
 

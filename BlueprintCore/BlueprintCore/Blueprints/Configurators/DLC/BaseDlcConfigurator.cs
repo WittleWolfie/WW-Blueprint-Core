@@ -372,7 +372,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcPreorder</term><description>cce1376687d1452c9f451b0d921bcd4e</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -432,7 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>FreeDlc1</term><description>d185af74fc5b4c198600e0202ca11de8</description></item>
+    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -466,8 +466,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>Dlc2</term><description>4f7ae2d1e6e74a0c807b4020e9e99354</description></item>
     /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
+    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -528,8 +528,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>Dlc2</term><description>4f7ae2d1e6e74a0c807b4020e9e99354</description></item>
     /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
+    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
     /// </list>
     /// </remarks>
     ///

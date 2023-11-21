@@ -18,6 +18,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCampaign>> Dlc1Campaign = "d79943b9b59b446ea5bfc14fa4005b26";
     public static readonly Blueprint<BlueprintReference<BlueprintCampaign>> Dlc2Campaign = "e6fdda2539274c1e89d236be69f5a984";
     public static readonly Blueprint<BlueprintReference<BlueprintCampaign>> Dlc3Campaign = "e1bde745d6ad47c0bc9fb8e479b29153";
+    public static readonly Blueprint<BlueprintReference<BlueprintCampaign>> Dlc5Campaign = "d7f857701f7f44e0a02d571dea798f28";
     public static readonly Blueprint<BlueprintReference<BlueprintCampaign>> MainCampaign = "fd2e11ebb8a14d6599450fc27f03486a";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintCampaign>>> All =
@@ -26,6 +27,7 @@ namespace BlueprintCore.Blueprints.References
           Dlc1Campaign,
           Dlc2Campaign,
           Dlc3Campaign,
+          Dlc5Campaign,
           MainCampaign,
       };
   }

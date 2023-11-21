@@ -2,31 +2,39 @@
 
 using BlueprintCore.Actions.Builder;
 using BlueprintCore.Blueprints.Components.Replacements;
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
+using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Selection;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.Designers.Mechanics.Facts.Restrictions;
 using Kingmaker.Designers.Mechanics.Prerequisites;
 using Kingmaker.Designers.Mechanics.Recommendations;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
+using Kingmaker.Localization;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.Alignments;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -326,8 +334,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FiendflashShifterAspectGreaterDevilBuff</term><description>7a85dfed09f94070a1f6e1f62bcaffce</description></item>
-    /// <item><term>XantirOnlySwarm_MidnightFaneInThePastACFeature</term><description>5c0ef576cc68f374c96a0070fd3b047c</description></item>
+    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>ZonKuthonScarHalfHPBuff</term><description>9a47f56d0a1f42d9bf820da1d78919a7</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextStatBonus(
@@ -335,7 +343,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         ContextValue value,
         ModifierDescriptor? descriptor = null,
         int? minimal = null,
-        int? multiplier = null)
+        int? multiplier = null,
+        RestrictionCalculator? restrictions = null)
     {
       var component = new AddContextStatBonus();
       component.Stat = stat;
@@ -344,6 +353,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Minimal = minimal ?? component.Minimal;
       component.HasMinimal = minimal is null;
       component.Multiplier = multiplier ?? component.Multiplier;
+      Validate(restrictions);
+      component.Restrictions = restrictions ?? component.Restrictions;
       return AddComponent(component);
     }
 
@@ -359,8 +370,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsDecreeAbilityMagicIllusionBuff</term><description>a3720ccc52393f24da5241594084a2d8</description></item>
-    /// <item><term>ZoneOfPredeterminationArea</term><description>1ff4dfed4f7eb504fa0447e93d1bcf64</description></item>
+    /// <item><term>HellsSealVariantFireExplosionDamage</term><description>2505b384e7c80d84a9a8300ad8673edd</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddContextRankConfig(ContextRankConfig component)
@@ -377,7 +388,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GozrehFeature</term><description>4af983eec2d821b40a3065eb5e8c3a72</description></item>
+    /// <item><term>GorumFeature</term><description>8f49a5d8528a82c44b8c117a89f6b68c</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -390,6 +401,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <param name="ingorePrerequisiteCheck">
     /// <para>
     /// InfoBox: PF-470784 - игнорируем проверку на доступность во время создания персонажа.
+    /// </para>
+    /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
     /// </para>
     /// </param>
     /// <param name="merge">
@@ -405,6 +421,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
         bool? ingorePrerequisiteCheck = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -415,6 +432,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
       component.IngorePrerequisiteCheck = ingorePrerequisiteCheck ?? component.IngorePrerequisiteCheck;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -427,7 +445,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanistEldritchFont</term><description>a732797826db0b54ea123d91b4cdaad5</description></item>
-    /// <item><term>HellknightSigniferWitchLeyLineGuardian</term><description>fa000bb03393ad34db8bb20f8d09d3b5</description></item>
+    /// <item><term>LoremasterArcanistUnletteredArcanist</term><description>babe721f43f95f740a81534d339d3c7f</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -456,12 +474,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteArchetypeLevel(
         Blueprint<BlueprintArchetypeReference> archetype,
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         int? level = null)
     {
       var component = new PrerequisiteArchetypeLevel();
@@ -470,6 +494,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.Level = level ?? component.Level;
       return AddComponent(component);
     }
@@ -483,9 +508,15 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
+    /// <item><term>SuperiorityOfCold</term><description>803d7327658b441286d15b3fa6a49963</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -497,6 +528,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -505,6 +537,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -527,13 +560,19 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// InfoBox: Mythic &amp; Alchemist Spellbooks don&amp;apos;t cound
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteCasterTypeSpellLevel(
         bool isArcane,
         bool onlySpontaneous,
         int requiredSpellLevel,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteCasterTypeSpellLevel();
       component.IsArcane = isArcane;
@@ -542,6 +581,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -559,6 +599,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -570,6 +615,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -578,6 +624,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -590,7 +637,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdvancedWeaponTraining1</term><description>3aa4cbdd4af5ba54888b0dc7f07f80c4</description></item>
-    /// <item><term>OracleRevelationStormOfSouls</term><description>0edd5395810cf3441a093ca49efb858f</description></item>
+    /// <item><term>PenetratingStrike</term><description>308cd7dc4f10efd428f531bbf4f2823d</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -607,12 +654,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteClassLevel(
         Blueprint<BlueprintCharacterClassReference> characterClass,
         int level,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         bool? not = null)
     {
       var component = new PrerequisiteClassLevel();
@@ -621,6 +674,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.Not = not ?? component.Not;
       return AddComponent(component);
     }
@@ -651,6 +705,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -662,6 +721,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         int? requiredSpellLevel = null)
@@ -671,6 +731,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.RequiredSpellLevel = requiredSpellLevel ?? component.RequiredSpellLevel;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -701,6 +762,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="uIText">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
@@ -709,6 +775,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         bool? notPlaying = null,
         LocalString? uIText = null)
     {
@@ -717,6 +784,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.NotPlaying = notPlaying ?? component.NotPlaying;
       component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
@@ -735,7 +803,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbundantArcanePool</term><description>8acebba92ada26043873cae5b92cef7b</description></item>
-    /// <item><term>MagicalTail2</term><description>c032f65c0bd9f6048a927fb07fc0195d</description></item>
+    /// <item><term>MasterOfAllArchetype</term><description>bd4e70bfb89a452b876713d61b9b8eb2</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -752,17 +820,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -775,7 +850,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AerialAdaptationFeature</term><description>c8719b3c5c0d4694cb13abcc3b7e893b</description></item>
-    /// <item><term>LoremasterWizardSecretRogue</term><description>66286a8fc619a3847a5a446b334544ad</description></item>
+    /// <item><term>LoremasterWizardSecretSkald</term><description>69a6f42e00464198a36b3d300c04bb6e</description></item>
     /// <item><term>WinterWitchWitchHexSelection</term><description>b921af3627142bd4d9cf3aefb5e2610a</description></item>
     /// </list>
     /// </remarks>
@@ -792,12 +867,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteFeaturesFromList(
         List<Blueprint<BlueprintFeatureReference>> features,
         int? amount = null,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteFeaturesFromList();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
@@ -805,6 +886,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -822,6 +904,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -833,6 +920,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -841,6 +929,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -853,7 +942,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodlineSerpentineSpellLevel8</term><description>df1b1eedae152b541bc1b09fd5041fe9</description></item>
+    /// <item><term>BloodlineUndeadSpellLevel9</term><description>273ac94653a5f3f4cafcac11499c2016</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -882,12 +971,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteNoArchetype(
         Blueprint<BlueprintArchetypeReference> archetype,
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteNoArchetype();
       component.m_Archetype = archetype?.Reference;
@@ -895,6 +990,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -924,17 +1020,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteNoClassLevel(
         Blueprint<BlueprintCharacterClassReference> characterClass,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteNoClassLevel();
       component.m_CharacterClass = characterClass?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -947,8 +1050,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>EmpyrealBloodlineProgression</term><description>8a95d80a3162d274896d50c2f18bb6b1</description></item>
-    /// <item><term>WolfScarredFaceCurseNoPenaltyProgression</term><description>b6c775555bade694e8b8c7e82c7a71fb</description></item>
+    /// <item><term>LiberationDomainProgressionSecondary</term><description>34b0e4bb90e3a4f4183b095f0d44ca5d</description></item>
+    /// <item><term>WolfScarredFaceCurseProgression</term><description>e8a1096467696d14288079c6393bb58c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -964,17 +1067,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteNoFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteNoFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -992,6 +1102,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -1004,6 +1119,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1013,6 +1129,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1054,12 +1171,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellFeature(
         Blueprint<BlueprintFeatureReference> feature,
         Blueprint<BlueprintAbilityReference> spell,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1067,6 +1190,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.ParameterType = FeatureParameterType.LearnSpell;
       return AddComponent(component);
     }
@@ -1097,12 +1221,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponFeature(
         Blueprint<BlueprintFeatureReference> feature,
         WeaponCategory weaponCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1110,6 +1240,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.ParameterType = FeatureParameterType.WeaponCategory;
       return AddComponent(component);
     }
@@ -1140,12 +1271,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteParametrizedSpellSchoolFeature(
         Blueprint<BlueprintFeatureReference> feature,
         SpellSchool spellSchool,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteParametrizedFeature();
       component.m_Feature = feature?.Reference;
@@ -1153,6 +1290,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.ParameterType = FeatureParameterType.SpellSchool;
       return AddComponent(component);
     }
@@ -1183,12 +1321,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteParametrizedWeaponSubcategory(
         Blueprint<BlueprintFeatureReference> feature,
         WeaponSubCategory subCategory,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteParametrizedWeaponSubcategory();
       component.m_Feature = feature?.Reference;
@@ -1196,6 +1340,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -1208,20 +1353,28 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlchemistClass</term><description>0937bec61c0dabc468428f496580c721</description></item>
-    /// <item><term>InquisitorClass</term><description>f1a70d9e1b0b41e49874e1fa9052a1ce</description></item>
+    /// <item><term>HunterClass</term><description>34ecd1b5e1b90b9498795791b0855239</description></item>
     /// <item><term>WizardClass</term><description>ba34257984f4c41408ce1dc2004e342e</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteIsPet(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         bool? not = null)
     {
       var component = new PrerequisiteIsPet();
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.Not = not ?? component.Not;
       return AddComponent(component);
     }
@@ -1252,17 +1405,24 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisitePlayerHasFeature(
         Blueprint<BlueprintFeatureReference> feature,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisitePlayerHasFeature();
       component.m_Feature = feature?.Reference;
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -1275,11 +1435,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmorFocusHeavy</term><description>c27e6d2b0d33d42439f512c6d9a6a601</description></item>
-    /// <item><term>ShieldBashFeature</term><description>121811173a614534e8720d7550aae253</description></item>
+    /// <item><term>FinesseTrainingLightPick</term><description>21014d5e244acbd458e4cf39e92cf484</description></item>
     /// <item><term>SwordlordClass</term><description>90e4d7da3ccd1a8478411e07e91d5750</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -1292,6 +1457,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -1301,6 +1467,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1313,16 +1480,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlliedSpellcaster</term><description>9093ceeefe9b84746a5993d619d7c86f</description></item>
-    /// <item><term>ImprovedCriticalLightCrossbow</term><description>9fb9160d3e5b70d41be3c620a4db72aa</description></item>
+    /// <item><term>ImprovedCriticalHeavyCrossbow</term><description>19558bb038d2b3a4eaf4f0800d011bda</description></item>
     /// <item><term>WinterWitchClass</term><description>eb24ca44debf6714aabe1af1fd905a07</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteStatValue(
         StatType stat,
         int value,
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
-        bool? hideInUI = null)
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null)
     {
       var component = new PrerequisiteStatValue();
       component.Stat = stat;
@@ -1330,6 +1504,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddComponent(component);
     }
 
@@ -1342,7 +1517,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1377,7 +1552,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1411,7 +1586,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1445,7 +1620,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeFeature</term><description>0ab2f21a922feee4dab116238e3150b4</description></item>
-    /// <item><term>PowerAttackFeature</term><description>9972f33f977fc724c838e59641b2fca5</description></item>
+    /// <item><term>Manyshot</term><description>adf54af2a681792489826f7fd1b62889</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -1508,7 +1683,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AccomplishedSneakAttacker</term><description>9f0187869dc23744292c0e5bb364464e</description></item>
-    /// <item><term>RapidShotFeature</term><description>9c928dc570bb9e54a9649b3ebfe47a41</description></item>
+    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
     /// <item><term>WeaponSpecializationGreater</term><description>7cf5edc65e785a24f9cf93af987d66b3</description></item>
     /// </list>
     /// </remarks>
@@ -1544,7 +1719,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
+    /// <item><term>Heroism</term><description>5ab0d42fb68c9e34abae4921822b9d63</description></item>
     /// <item><term>WhiteMageCureLightWoundsCast</term><description>83d6d8f4c4d296941838086f60485fb7</description></item>
     /// </list>
     /// </remarks>
@@ -1561,12 +1736,30 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="featuresExlude">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     public TBuilder AddRecommendationNoFeatFromGroup(
         List<Blueprint<BlueprintUnitFactReference>> features,
+        List<Blueprint<BlueprintUnitFactReference>>? featuresExlude = null,
         bool? goodIfNoFeature = null)
     {
       var component = new RecommendationNoFeatFromGroup();
       component.m_Features = features?.Select(bp => bp.Reference)?.ToArray();
+      component.m_FeaturesExlude = featuresExlude?.Select(bp => bp.Reference)?.ToArray() ?? component.m_FeaturesExlude;
+      if (component.m_FeaturesExlude is null)
+      {
+        component.m_FeaturesExlude = new BlueprintUnitFactReference[0];
+      }
       component.GoodIfNoFeature = goodIfNoFeature ?? component.GoodIfNoFeature;
       return AddComponent(component);
     }
@@ -1813,7 +2006,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
+    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1984,11 +2177,16 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>FrightfulShape </term><description>8e8a34c754d649aa9286fe8ee5cc3f10</description></item>
-    /// <item><term>SwarmThatWalksClass</term><description>5295b8e13c2303f4c88bdb3d7760a757</description></item>
+    /// <item><term>CrossbloodedSecondaryBloodlineDraconicRedProgression</term><description>12484c4d15c3e134f9fd23931c38e996</description></item>
+    /// <item><term>SylvanSorcererArchetype</term><description>711d5024ecc75f346b9cda609c3a1f83</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="uIText">
     /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
     /// </param>
@@ -1997,6 +2195,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         Condition? condition = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         LocalString? uIText = null)
     {
       var component = new PrerequisiteCondition();
@@ -2005,6 +2204,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Condition = condition ?? component.Condition;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.UIText = uIText?.LocalizedString ?? component.UIText;
       if (component.UIText is null)
       {
@@ -2027,6 +2227,11 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// </list>
     /// </remarks>
     ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     /// <param name="merge">
     /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
     /// </param>
@@ -2038,6 +2243,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
         bool? companion = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
@@ -2046,6 +2252,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Companion = companion ?? component.Companion;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2058,14 +2265,21 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalCompanionEmptyCompanion</term><description>472091361cf118049a2b4339c4ea836a</description></item>
-    /// <item><term>AnimalCompanionFeatureLeopard</term><description>2ee2ba60850dd064e8b98bf5c2c946ba</description></item>
-    /// <item><term>MythicalBeastMaster</term><description>89096871a6fdadd43ad31f5046696727</description></item>
+    /// <item><term>AnimalCompanionFeatureMonitor</term><description>ece6bde3dfc76ba4791376428e70621a</description></item>
+    /// <item><term>UnholyBeast</term><description>2101bf9664ce4012b8011da12b4797e5</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisitePet(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         bool? noCompanion = null,
         PetType? type = null)
     {
@@ -2073,6 +2287,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.NoCompanion = noCompanion ?? component.NoCompanion;
       component.Type = type ?? component.Type;
       return AddComponent(component);
@@ -2182,7 +2397,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistArcaneReservoirFeature</term><description>55db1859bd72fd04f9bd3fe1f10e4cbb</description></item>
-    /// <item><term>Player_restTrigger</term><description>ac7f1eff7837432e8acdccd52308c09b</description></item>
+    /// <item><term>MaskOfAreshkagalHeadband_TabulaRasaFeature</term><description>edf05f7d96dc4d59b7242c5985b2e6f7</description></item>
     /// <item><term>TricksterLoreNature3Feature</term><description>b88ca3a5476ebcc4ea63d5c1e92ce222</description></item>
     /// </list>
     /// </remarks>
@@ -2216,7 +2431,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>OracleAncestorsSpells</term><description>a5d8db569c9c62042b1f35d68ed31232</description></item>
-    /// <item><term>ShamanNatureSpiritWanderingProgression</term><description>f3e19b0d6d82e2a4d98957af591f5d36</description></item>
+    /// <item><term>ShamanStonesSpiritProgression</term><description>acff6b0cf279a31439010afea01df912</description></item>
     /// <item><term>WitchWinterPatronProgression</term><description>e98d8d9f907c1814aa7376d6cdaac012</description></item>
     /// </list>
     /// </remarks>
@@ -2296,6 +2511,36 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="CustomKnowledgeCheck"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>AberrationType</term><description>3bec99efd9a363242a6c8d9957b75e91</description></item>
+    /// <item><term>SubtypeAzata</term><description>e422746933151f3469f4c2484f9263db</description></item>
+    /// <item><term>VerminType</term><description>09478937695300944a179530664e42ec</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddCustomKnowledgeCheck(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        StatType? stat = null)
+    {
+      var component = new CustomKnowledgeCheck();
+      component.m_Stat = stat ?? component.m_Stat;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddDispelMagicSuccessTrigger"/>
     /// </summary>
     ///
@@ -2344,7 +2589,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DeathThroesFeature</term><description>49a64c524e7f8e548b4d5ea41041a226</description></item>
+    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2412,7 +2657,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>PlasmaBlastBladeDamage</term><description>fc22c06d63a95154291272577daa0b4d</description></item>
+    /// <item><term>MimicChestAdhesiveFeature</term><description>a3ef16a570855b54c9957c026075dd14</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2462,7 +2707,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>KnightsResolveDeterminedAbility</term><description>29a78cf77ed275f479c0349a95583b94</description></item>
+    /// <item><term>InspireFerocityEffectBuffMythic</term><description>fb6d392a0fcf4ba2a7cefed7682fb911</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2491,7 +2736,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIcebergAbility</term><description>38d7bac2134ff0a48968dc2aacfc5973</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2677,7 +2922,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BolsteredSpellFeat</term><description>fbf5d9ce931f47f3a0c818b3f8ef8414</description></item>
-    /// <item><term>PersistentSpellFeat</term><description>cd26b9fa3f734461a0fcedc81cafaaac</description></item>
+    /// <item><term>PointBlankShot</term><description>0da0c194d6e1d43419eb8d990b28e0ab</description></item>
     /// <item><term>ShiftersRushFeature</term><description>4ddc88f422a84f76a952e24bec7b53e1</description></item>
     /// </list>
     /// </remarks>
@@ -2795,10 +3040,17 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <item><term>VulpinePounce</term><description>cd258f1bce80ef54580f6b236c82608c</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
     public TBuilder AddPrerequisiteFullStatValue(
         bool? checkInProgression = null,
         Prerequisite.GroupType? group = null,
         bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
         StatType? stat = null,
         int? value = null)
     {
@@ -2806,6 +3058,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
       component.Group = group ?? component.Group;
       component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
       component.Stat = stat ?? component.Stat;
       component.Value = value ?? component.Value;
       return AddComponent(component);
@@ -2924,8 +3177,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmorTraining</term><description>3c380607706f209499d951b29d3c44f3</description></item>
-    /// <item><term>PurifierCelestialArmorFeature</term><description>7dc8d7dede2704640956f7bc4102760a</description></item>
+    /// <item><term>ArmorFocusMediumMythicFeatureVar2Buff</term><description>93e80467a5fc4e68927b99732484fbd4</description></item>
+    /// <item><term>LameCurseFeatureLevel10</term><description>1f819e6bc7746d745a37162a1bfbda23</description></item>
     /// <item><term>WarpriestAspectOfWarBuff</term><description>27d14b07b52c2df42a4dcd6bfb840425</description></item>
     /// </list>
     /// </remarks>
@@ -2947,7 +3200,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>HelmOfBattlefieldClarityFeature</term><description>7444d4913a1b1be459bac3b12c6a2933</description></item>
+    /// <item><term>GhostRiderSpiritedMountFeature</term><description>2f05eae7c5bd43238fcd0f4e665a5144</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -3015,6 +3268,23 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="EncumbranceSpeedPenaltyRemoval"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>LameCurseFeatureLevel1</term><description>077dd0c839f5dfd498cb2e34835fb06d</description></item>
+    /// <item><term>LameCurseNoPenaltyFeatureLevel1</term><description>e7c9639c7b27bef4d930ce9df877bc4e</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddEncumbranceSpeedPenaltyRemoval()
+    {
+      return AddComponent(new EncumbranceSpeedPenaltyRemoval());
+    }
+
+    /// <summary>
     /// Adds <see cref="SavesFixerRecalculate"/>
     /// </summary>
     ///
@@ -3023,7 +3293,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alertness</term><description>1c04fe9a13a22bc499ffac03e6f79153</description></item>
-    /// <item><term>EyeOfTheSwarmFeature</term><description>73c9302686b957d4dae298061eb9ffe1</description></item>
+    /// <item><term>ElixirMasterpieceFeature</term><description>e52dae8a5a68b5040a0c3c8761a412d7</description></item>
     /// <item><term>ZenArcherKiArrowsFeature</term><description>604a24b659bb69a4796ddb9fbf957504</description></item>
     /// </list>
     /// </remarks>

@@ -173,7 +173,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Blessing_Interaction</term><description>ff4a347df77e4cad971249c25d9a1589</description></item>
-    /// <item><term>DLC3_WildMagic_Spells_Tier2</term><description>3127d6ffb4a44ad48d39e6746c94987b</description></item>
+    /// <item><term>DLC3_WildMagic_Spells_Tier3</term><description>9966b4a4042745aca41d79420dc0d271</description></item>
     /// <item><term>RewardTrader_Tier3</term><description>b92e487220524c0f945a36436994d2f8</description></item>
     /// </list>
     /// </remarks>
@@ -255,6 +255,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Test_Bebilith Blueprint Camping Encounter</term><description>f2f8355d4bc8aa34195eeb2f5cf66645</description></item>
+    /// <item><term>TriceratopsStatuetteCorrectBuff</term><description>4366d9550c8345da8bedece00a19b7a8</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder InCapital(
@@ -275,7 +276,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CavesShortcutUnlocked</term><description>d1f433e953409144d914f15597db6e34</description></item>
-    /// <item><term>Green_Slot_1_4_IsNotEmpty</term><description>c472c9af55454dd4ca2a845c3c4ad274</description></item>
+    /// <item><term>Green_Slot_1_2_IsNotEmpty</term><description>d44ba5b7fee49e64684ce203920e5c08</description></item>
     /// <item><term>Slot_3_3_IsNotEmpty</term><description>85c097fd43ebd3940b6ea98b57e6f35e</description></item>
     /// </list>
     /// </remarks>
@@ -416,8 +417,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandDelay1</term><description>e0e26f4f40d14bd0a26a5be272ed2e8e</description></item>
-    /// <item><term>Graveyard_WP2_ScriptZone_remain</term><description>f9f78bb0e09c487d940ca97a208311af</description></item>
+    /// <item><term>Answer_9</term><description>0b7d208f5f234f9791097f5aa1d5b8d5</description></item>
+    /// <item><term>Cue_20</term><description>c9596b74c33c49f69906ac33cf28febe</description></item>
     /// <item><term>WatchPoint_SZWall_FoW</term><description>0f1fdc5a42ea41a4b87da4021e89dabd</description></item>
     /// </list>
     /// </remarks>
@@ -448,7 +449,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>d38052d00f394118945e8861f00574f5</description></item>
-    /// <item><term>DLC1_IZ_Irabeth_startDialog</term><description>5bc8820627af4f2080c6e19d4ab8c223</description></item>
+    /// <item><term>DLC5_GoblinsParty_Tornado</term><description>330b16b2cd68420981420113fdd1024d</description></item>
     /// <item><term>TrueLootHideZone9</term><description>168ca19a2ced8d448a9944c2f0f01d72</description></item>
     /// </list>
     /// </remarks>

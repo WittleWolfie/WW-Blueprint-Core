@@ -85,6 +85,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BladeOfOrderEnchantment = "5711a0a430a77b24c888b571f312bf18";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BladeOfTheMercifulEnchant = "a5e3fe4a71e331e4aa41f9a07cfd3729";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Bleed = "ac0108944bfaa7e48aa74f407e3944e3";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BleedConst1d4 = "aa2e3d24a86e49bcb09ed00a7938cdee";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlindingBeautyEnchantment = "6bcb65c9fd1099741928c94a88d1b243";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlindingLightEnchant = "4b2c1eace4b03d647a507f73bb095824";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlindingWrathEnchantment = "324df0233856fab4b85eb26e14464aa0";
@@ -120,9 +121,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BulkyPickEnchantment = "481a50943348e584481d09b36b124c22";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BurnedAshwoodEnchantment = "4de41c0fa24d88541ba4e26baf19a794";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BurningTomentEnchantment = "208b9726a1f9ff3408133114d9f7d863";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ButcherCleaver_Enchantment = "b5707330c89c4279a5cf4e1fe2c782ba";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ButcherOfUndeadEnchantment = "97052dac8d5eb6742a2f6a4e5c02289d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CalistriaRapierEnchantment = "881c4efce7a69864a813fa822ebd9e42";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CallLightningCritical = "ea4da1b2cf1db1147b9e9974135d43ad";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CarroksThornRogueEnch = "0bc0f40c28224e35a216b91178aa6acd";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CaydenRapierEnchantment = "9db5969c5ac51f8428e3823dcb9e7b65";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CeremonialFalcataEnchantment = "db23a8d4abcd1c04ab2e0859a20c272a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ChannelOnCrit = "eed9b44b0b57bd540927b7ccf443557c";
@@ -212,11 +215,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_NahyndrianVorpalBladeWeaponEnchantment = "b17a18b184274136b479eee076f1e588";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_ShadowBalorFX = "9abd18bca8394dc18b17318481e06933";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC3_StaffOfTheMightySummonsEnchantment = "3bba9f4c1d3d427eb026cb6e794d58e7";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_DazzledDaggerEnchantment = "031bd8e80f1e4bbb988c8d2d572873d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_DruchiteArrowsQuiverEnchantment = "0849d96c0600483eaa25765d5f4952fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_ExplosiveEnthusiasmEnchantment = "6aed55fedaca4c8a8351ebdb5fdcae9f";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_GraveWoundsSithhudEnchantment = "22d2d95953b1436884515614500ab521";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_LightCrossbowEnch = "d8021dc13b844fd5a5ea8ca74097e7f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_MidnightFlailEnchantment = "9474511a30b04b7fbbf9423879784fd9";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_SwordOfSithhudGraveWoundsEnchantment = "0f4baabf184640a498541386b288241d";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_SwordOfSithhudIcyArmorEnchantment = "ae8eac604ed346138f42598bd9cb0150";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLC5_TangibleShadowEnchantment = "4b908b39badf49b1b5d04bcff22e9416";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCBardicheRustyEnchantment = "d579b18e60ea4d868a4c43f23aba35b8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCRustyFlailEnchantment = "b317a8d5c0e048a882bccf35118ddeb2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DLCShortswordEnchantment = "e09c0fd1fd8248059db544e2a14bc2f0";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DragonEssenceBaneDragon = "dd4285c1c3a8d834f888cac9cb0f980a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DreadfulOnslaughtEnchantment = "09f3d2fb87a35104587bcf19273a5a33";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DruchiteWeaponEnchantment = "e6a7a2b6f26b488783c612add1e9a8bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DuelingSwordPositiveDamagePlus3Enchantment = "3da86e9be2744738b9e53d7cd0fcdd31";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DuranceEnchantment = "8e2cc3e249d794b4aa5428437f20556d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DwarvenChampionEnchant = "0b3de02f95fe1a74d9d1c822e4e43555";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EarthBreakerHolyEnchantment = "069e7ed4198aeed428f9b2439c62061a";
@@ -317,6 +331,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreataxeOfFireSquallEnchantment = "1abdea88a0f5b6b47903d4ffc3225185";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreatclubOfSacredCindersEnchantment = "e6716f81a0e3495a9442237b3ce9f380";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreaterBaneEverything = "bb434647a70ca7e4f9c8050c55a7d235";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreatswordSunSwordWeaponEnchantment = "41cbbcfcde784ddb9987660f57587742";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreenskinHunterHandCrosbwDex2 = "eb5ec62d7384c904890b3753c6975c05";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GreenskinHunterHandCrosbwMobility5 = "bd19e1e9b58c0d5468c6ec6a8c76a640";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> GrimEndingEnchantment = "e96b10d7226fbc8418d4552bbade258b";
@@ -544,6 +559,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarenraeLifeSourceHeavyFlailEnchantment = "04001fb3490346e992c254443aad1c09";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarenraeObliteratingLightHeavyFlailEnchantment = "8f40a996b74c25441b91fff4bcc961ce";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarkorianWeddingEarthBreakerEnchantment = "82ff09a4ed964f33ac20c3a6f189edb3";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarkorisDirgeEnchantment = "e02dedda1d5248b3aa9016f918722c2e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SavamelekhSpineEnchantment = "ad5f40720af64b9a943bfabf8d3bb878";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SaviourEnchantment = "4235ec0877a7e2f4bac610202681a7e3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScarecrowFearTouch = "436316d7c48c396418a8b2a91ec8f7ec";
@@ -566,6 +582,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SickleOfAcidEnchantment = "b708053d62ba78046ace86bf0f1e6de5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SickleOfFalterEnchantment = "16be5807cf000e44c82b9370b14675c2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SickleOfWickedRitesEnchantment = "f37a8b936bb2438690c1e895f945dff9";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SilverWeaponEnchantment = "9012b1095c9645e0a6152f673fc07d0a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SingingEdgeEnchantment = "a3a40379e5950cf408d4bcf375072d26";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SkullCrusherEnchantment = "b0298f3a930f91040963beb130a53583";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SkyScorcherEnchantment = "2dcb98a4735e3674b9f624583477cc9d";
@@ -776,6 +793,7 @@ namespace BlueprintCore.Blueprints.References
           BladeOfOrderEnchantment,
           BladeOfTheMercifulEnchant,
           Bleed,
+          BleedConst1d4,
           BlindingBeautyEnchantment,
           BlindingLightEnchant,
           BlindingWrathEnchantment,
@@ -811,9 +829,11 @@ namespace BlueprintCore.Blueprints.References
           BulkyPickEnchantment,
           BurnedAshwoodEnchantment,
           BurningTomentEnchantment,
+          ButcherCleaver_Enchantment,
           ButcherOfUndeadEnchantment,
           CalistriaRapierEnchantment,
           CallLightningCritical,
+          CarroksThornRogueEnch,
           CaydenRapierEnchantment,
           CeremonialFalcataEnchantment,
           ChannelOnCrit,
@@ -903,11 +923,22 @@ namespace BlueprintCore.Blueprints.References
           DLC3_NahyndrianVorpalBladeWeaponEnchantment,
           DLC3_ShadowBalorFX,
           DLC3_StaffOfTheMightySummonsEnchantment,
+          DLC5_DazzledDaggerEnchantment,
+          DLC5_DruchiteArrowsQuiverEnchantment,
+          DLC5_ExplosiveEnthusiasmEnchantment,
+          DLC5_GraveWoundsSithhudEnchantment,
+          DLC5_LightCrossbowEnch,
+          DLC5_MidnightFlailEnchantment,
+          DLC5_SwordOfSithhudGraveWoundsEnchantment,
+          DLC5_SwordOfSithhudIcyArmorEnchantment,
+          DLC5_TangibleShadowEnchantment,
           DLCBardicheRustyEnchantment,
           DLCRustyFlailEnchantment,
           DLCShortswordEnchantment,
           DragonEssenceBaneDragon,
           DreadfulOnslaughtEnchantment,
+          DruchiteWeaponEnchantment,
+          DuelingSwordPositiveDamagePlus3Enchantment,
           DuranceEnchantment,
           DwarvenChampionEnchant,
           EarthBreakerHolyEnchantment,
@@ -1008,6 +1039,7 @@ namespace BlueprintCore.Blueprints.References
           GreataxeOfFireSquallEnchantment,
           GreatclubOfSacredCindersEnchantment,
           GreaterBaneEverything,
+          GreatswordSunSwordWeaponEnchantment,
           GreenskinHunterHandCrosbwDex2,
           GreenskinHunterHandCrosbwMobility5,
           GrimEndingEnchantment,
@@ -1235,6 +1267,7 @@ namespace BlueprintCore.Blueprints.References
           SarenraeLifeSourceHeavyFlailEnchantment,
           SarenraeObliteratingLightHeavyFlailEnchantment,
           SarkorianWeddingEarthBreakerEnchantment,
+          SarkorisDirgeEnchantment,
           SavamelekhSpineEnchantment,
           SaviourEnchantment,
           ScarecrowFearTouch,
@@ -1257,6 +1290,7 @@ namespace BlueprintCore.Blueprints.References
           SickleOfAcidEnchantment,
           SickleOfFalterEnchantment,
           SickleOfWickedRitesEnchantment,
+          SilverWeaponEnchantment,
           SingingEdgeEnchantment,
           SkullCrusherEnchantment,
           SkyScorcherEnchantment,

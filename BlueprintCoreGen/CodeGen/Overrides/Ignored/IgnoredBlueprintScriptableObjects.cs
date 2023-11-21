@@ -14,6 +14,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintGenericPackLoot),
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonSetting),
         typeof(Kingmaker.Dungeon.Blueprints.BlueprintDungeonLocatorGroup),
+        typeof(Kingmaker.EntitySystem.Properties.PropertyCalculatorBlueprint),
         typeof(Kingmaker.Blueprints.BlueprintPet),
         typeof(Kingmaker.Blueprints.BlueprintActionList),
         typeof(Kingmaker.Blueprints.Items.Equipment.BlueprintItemEquipmentHandSimple),

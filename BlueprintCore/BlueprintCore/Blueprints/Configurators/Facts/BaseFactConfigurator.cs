@@ -84,9 +84,9 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArmyAlloutAttackBuff</term><description>43e6799499554b92ae115151a7e38052</description></item>
-    /// <item><term>DLC3_WildMagic_Spells_Tier1</term><description>abc14e27cad2498d90d70acbd62988f1</description></item>
-    /// <item><term>StonelordDefensiveStanceBuff</term><description>99ab5d010faa4c83b7d41bdd6b1afa83</description></item>
+    /// <item><term>ArchaeologistLuckActivatableBuff</term><description>176b86df542146ee81fe7d2f11920862</description></item>
+    /// <item><term>DLC4_TimerKostil</term><description>cf1a37b4f4fb4b9d9ab4a002b6bda877</description></item>
+    /// <item><term>StorastaIceGround</term><description>1fd0d50453d84f68b3528779920acf38</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddBuffActions(
@@ -122,8 +122,8 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetOfWeakeningTortureBuff</term><description>b82d6b31abc127646b0895a83d1882b2</description></item>
-    /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
+    /// <item><term>HealingJudgmentBuff</term><description>b1b7eeb49d703b047a3a534f17863001</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddFactContextActions(

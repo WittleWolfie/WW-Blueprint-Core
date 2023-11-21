@@ -25,6 +25,7 @@ using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Utility;
+using Kingmaker.Visual.Animation.Kingmaker;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,7 +47,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AboutIzyagna</term><description>fa1f67444ec844508ea2eb6549581d5d</description></item>
-    /// <item><term>ManualOfBodilyHealthPlus2_Ability</term><description>0493abf04d169454da50709f235caef5</description></item>
+    /// <item><term>ManualOfGainfulExercisePlus2_Ability</term><description>a8b94294f28dec848b11c2651dcbabe0</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalFeature</term><description>1f6fabee66d54992bc912236d36b50f8</description></item>
     /// </list>
     /// </remarks>
@@ -163,8 +164,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetOfTheGuidingLightTrueStrikeAbility</term><description>ed48a9f011ec4e6448ee576ae29dd24b</description></item>
-    /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
+    /// <item><term>HellDemonicRageBabauAbility</term><description>599eaa300c2aba1489de8bb5f03a8769</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -219,8 +220,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetOfTheGuidingLightTrueStrikeAbility</term><description>ed48a9f011ec4e6448ee576ae29dd24b</description></item>
-    /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
+    /// <item><term>HellDemonicRageBabauAbility</term><description>599eaa300c2aba1489de8bb5f03a8769</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -277,8 +278,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HelmetOfTheGuidingLightTrueStrikeAbility</term><description>ed48a9f011ec4e6448ee576ae29dd24b</description></item>
-    /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
+    /// <item><term>HellDemonicRageBabauAbility</term><description>599eaa300c2aba1489de8bb5f03a8769</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -446,7 +447,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CornugonSmash</term><description>ceea53555d83f2547ae5fc47e0399e14</description></item>
+    /// <item><term>AssassinPublicExecutionAbility</term><description>eed8738fb6374f1fac7175f0ee3b9b09</description></item>
     /// <item><term>ExecutionerAssassinateDemoralizeAction</term><description>3e7780219eb23b64f8dac5b29bb32e23</description></item>
     /// <item><term>TricksterPersuasionTier1Feature</term><description>4eefa883f5908a347a0b0a891fb859dd</description></item>
     /// </list>
@@ -720,7 +721,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HellKnightOrderOfTheScourgeFeature5</term><description>05a7202154a23424f8c3e7da65c03d59</description></item>
+    /// <item><term>HellDemonicRageIncubusAbility</term><description>7b9640c444d3a854997cbfb8915e8343</description></item>
     /// <item><term>ZombieDeathEffectSlashingBuff</term><description>912375890d1543ddbce40176d06bb85d</description></item>
     /// </list>
     /// </remarks>
@@ -787,7 +788,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -812,7 +813,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -835,7 +836,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -860,7 +861,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -885,7 +886,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -908,7 +909,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmiriCampBuff</term><description>f04177fdba7bb324589b7f2b0fd67604</description></item>
-    /// <item><term>Hypnotism</term><description>88367310478c10b47903463c5d0152b0</description></item>
+    /// <item><term>ImbueArrowFeature</term><description>f6371c1d2c5513a458b0a87edd91a4e5</description></item>
     /// <item><term>WreckingBlowsEffectBuff</term><description>15dd42009de61334692b22fd7a576b79</description></item>
     /// </list>
     /// </remarks>
@@ -966,7 +967,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnotherDragon_UndeadBreath</term><description>b17a9c289501ba740bf5853db381d4a9</description></item>
-    /// <item><term>KalavakusAspectEffectBuff</term><description>c9cdd3af3c5f93c4fb8e9119adaa582e</description></item>
+    /// <item><term>DLC5_InhaleofSithhudAbilityALL</term><description>47fd76f78ced443eafd2042ac867bdee</description></item>
     /// <item><term>TwoHandedFighterPiledriverTripBuff</term><description>fd53e986469242228806a38f431f0ac6</description></item>
     /// </list>
     /// </remarks>
@@ -1039,11 +1040,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIBlackBreathWeaponAbility</term><description>f5469bc342ed1c445bcdb0d4ef907fe6</description></item>
-    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
+    /// <item><term>FrigidTouch</term><description>c83447189aabc72489164dfc246f3a36</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="addAdditionalDamage">
+    /// <para>
+    /// InfoBox: Добавить урону Additional Damage (например, вдохновение барда)
+    /// </para>
+    /// </param>
+    /// <param name="addFavoredEnemyDamage">
+    /// <para>
+    /// InfoBox: Добавить урону бонус от Favored Enemy, работает только если был Attack Roll
+    /// </para>
+    /// </param>
     /// <param name="criticalSharedValue">
     /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
@@ -1068,7 +1079,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         DamageTypeDescription damageType,
         ContextDiceValue value,
+        bool? addAdditionalDamage = null,
+        bool? addFavoredEnemyDamage = null,
         AbilitySharedValue? criticalSharedValue = null,
+        bool? disableSneakDamage = null,
         bool? half = null,
         bool? halfIfSaved = null,
         bool? ignoreCritical = null,
@@ -1084,8 +1098,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(damageType);
       element.DamageType = damageType;
       element.Value = value;
+      element.AddAdditionalDamage = addAdditionalDamage ?? element.AddAdditionalDamage;
+      element.AddFavoredEnemyDamage = addFavoredEnemyDamage ?? element.AddFavoredEnemyDamage;
       element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
       element.WriteCriticalToSharedValue = criticalSharedValue is not null;
+      element.DisableSneakDamage = disableSneakDamage ?? element.DisableSneakDamage;
       element.Half = half ?? element.Half;
       element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
       element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
@@ -1111,11 +1128,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIBlackBreathWeaponAbility</term><description>f5469bc342ed1c445bcdb0d4ef907fe6</description></item>
-    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
+    /// <item><term>FrigidTouch</term><description>c83447189aabc72489164dfc246f3a36</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="addAdditionalDamage">
+    /// <para>
+    /// InfoBox: Добавить урону Additional Damage (например, вдохновение барда)
+    /// </para>
+    /// </param>
+    /// <param name="addFavoredEnemyDamage">
+    /// <para>
+    /// InfoBox: Добавить урону бонус от Favored Enemy, работает только если был Attack Roll
+    /// </para>
+    /// </param>
     /// <param name="criticalSharedValue">
     /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
@@ -1140,8 +1167,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         DamageTypeDescription damageType,
         AbilitySharedValue preRolledSharedValue,
+        bool? addAdditionalDamage = null,
+        bool? addFavoredEnemyDamage = null,
         bool? alreadyHalved = null,
         AbilitySharedValue? criticalSharedValue = null,
+        bool? disableSneakDamage = null,
         bool? half = null,
         bool? halfIfSaved = null,
         bool? ignoreCritical = null,
@@ -1157,9 +1187,12 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.DamageType = damageType;
       element.PreRolledSharedValue = preRolledSharedValue;
       element.ReadPreRolledFromSharedValue = true;
+      element.AddAdditionalDamage = addAdditionalDamage ?? element.AddAdditionalDamage;
+      element.AddFavoredEnemyDamage = addFavoredEnemyDamage ?? element.AddFavoredEnemyDamage;
       element.AlreadyHalved = alreadyHalved ?? element.AlreadyHalved;
       element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
       element.WriteCriticalToSharedValue = criticalSharedValue is not null;
+      element.DisableSneakDamage = disableSneakDamage ?? element.DisableSneakDamage;
       element.Half = half ?? element.Half;
       element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
       element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
@@ -1185,11 +1218,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIBlackBreathWeaponAbility</term><description>f5469bc342ed1c445bcdb0d4ef907fe6</description></item>
-    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
+    /// <item><term>FrigidTouch</term><description>c83447189aabc72489164dfc246f3a36</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="addAdditionalDamage">
+    /// <para>
+    /// InfoBox: Добавить урону Additional Damage (например, вдохновение барда)
+    /// </para>
+    /// </param>
+    /// <param name="addFavoredEnemyDamage">
+    /// <para>
+    /// InfoBox: Добавить урону бонус от Favored Enemy, работает только если был Attack Roll
+    /// </para>
+    /// </param>
     /// <param name="criticalSharedValue">
     /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
@@ -1209,7 +1252,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         StatType abilityType,
         ContextDiceValue value,
+        bool? addAdditionalDamage = null,
+        bool? addFavoredEnemyDamage = null,
         AbilitySharedValue? criticalSharedValue = null,
+        bool? disableSneakDamage = null,
         bool? drain = null,
         bool? halfIfSaved = null,
         bool? ignoreCritical = null,
@@ -1222,8 +1268,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       var element = ElementTool.Create<ContextActionDealDamage>();
       element.AbilityType = abilityType;
       element.Value = value;
+      element.AddAdditionalDamage = addAdditionalDamage ?? element.AddAdditionalDamage;
+      element.AddFavoredEnemyDamage = addFavoredEnemyDamage ?? element.AddFavoredEnemyDamage;
       element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
       element.WriteCriticalToSharedValue = criticalSharedValue is not null;
+      element.DisableSneakDamage = disableSneakDamage ?? element.DisableSneakDamage;
       element.Drain = drain ?? element.Drain;
       element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
       element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
@@ -1247,11 +1296,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIBlackBreathWeaponAbility</term><description>f5469bc342ed1c445bcdb0d4ef907fe6</description></item>
-    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
+    /// <item><term>FrigidTouch</term><description>c83447189aabc72489164dfc246f3a36</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="addAdditionalDamage">
+    /// <para>
+    /// InfoBox: Добавить урону Additional Damage (например, вдохновение барда)
+    /// </para>
+    /// </param>
+    /// <param name="addFavoredEnemyDamage">
+    /// <para>
+    /// InfoBox: Добавить урону бонус от Favored Enemy, работает только если был Attack Roll
+    /// </para>
+    /// </param>
     /// <param name="criticalSharedValue">
     /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
@@ -1275,7 +1334,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     public static ActionsBuilder DealDamagePermanentNegativeLevels(
         this ActionsBuilder builder,
         ContextDiceValue value,
+        bool? addAdditionalDamage = null,
+        bool? addFavoredEnemyDamage = null,
         AbilitySharedValue? criticalSharedValue = null,
+        bool? disableSneakDamage = null,
         bool? halfIfSaved = null,
         bool? ignoreCritical = null,
         bool? ignoreUnitModifiers = null,
@@ -1286,8 +1348,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     {
       var element = ElementTool.Create<ContextActionDealDamage>();
       element.Value = value;
+      element.AddAdditionalDamage = addAdditionalDamage ?? element.AddAdditionalDamage;
+      element.AddFavoredEnemyDamage = addFavoredEnemyDamage ?? element.AddFavoredEnemyDamage;
       element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
       element.WriteCriticalToSharedValue = criticalSharedValue is not null;
+      element.DisableSneakDamage = disableSneakDamage ?? element.DisableSneakDamage;
       element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
       element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
       element.IgnoreUnitModifiers = ignoreUnitModifiers ?? element.IgnoreUnitModifiers;
@@ -1310,11 +1375,21 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FormOfTheDragonIIBlackBreathWeaponAbility</term><description>f5469bc342ed1c445bcdb0d4ef907fe6</description></item>
-    /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
+    /// <item><term>FrigidTouch</term><description>c83447189aabc72489164dfc246f3a36</description></item>
+    /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="addAdditionalDamage">
+    /// <para>
+    /// InfoBox: Добавить урону Additional Damage (например, вдохновение барда)
+    /// </para>
+    /// </param>
+    /// <param name="addFavoredEnemyDamage">
+    /// <para>
+    /// InfoBox: Добавить урону бонус от Favored Enemy, работает только если был Attack Roll
+    /// </para>
+    /// </param>
     /// <param name="criticalSharedValue">
     /// <para>
     /// If specified and the attack roll is a critical, this shared value is set to 1
@@ -1339,7 +1414,10 @@ namespace BlueprintCore.Actions.Builder.ContextEx
         this ActionsBuilder builder,
         ContextDurationValue duration,
         ContextDiceValue value,
+        bool? addAdditionalDamage = null,
+        bool? addFavoredEnemyDamage = null,
         AbilitySharedValue? criticalSharedValue = null,
+        bool? disableSneakDamage = null,
         bool? halfIfSaved = null,
         bool? ignoreCritical = null,
         bool? ignoreUnitModifiers = null,
@@ -1353,8 +1431,11 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       builder.Validate(duration);
       element.Duration = duration;
       element.Value = value;
+      element.AddAdditionalDamage = addAdditionalDamage ?? element.AddAdditionalDamage;
+      element.AddFavoredEnemyDamage = addFavoredEnemyDamage ?? element.AddFavoredEnemyDamage;
       element.CriticalSharedValue = criticalSharedValue ?? element.CriticalSharedValue;
       element.WriteCriticalToSharedValue = criticalSharedValue is not null;
+      element.DisableSneakDamage = disableSneakDamage ?? element.DisableSneakDamage;
       element.HalfIfSaved = halfIfSaved ?? element.HalfIfSaved;
       element.IgnoreCritical = ignoreCritical ?? element.IgnoreCritical;
       element.IgnoreUnitModifiers = ignoreUnitModifiers ?? element.IgnoreUnitModifiers;
@@ -1377,7 +1458,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeAllyBuff</term><description>5f628dc321f74a6bbadec25f665a402d</description></item>
-    /// <item><term>HealersWaySelf</term><description>c6ae677c7c1eee74bbf3d44ce25961b8</description></item>
+    /// <item><term>HealersWayOthers</term><description>428006e0c196ffc48b54a4404b728c51</description></item>
     /// <item><term>ZombieDispelExplosion</term><description>bcd9277193ef41dfb8d3b292ee33c828</description></item>
     /// </list>
     /// </remarks>
@@ -1650,7 +1731,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abadar_Buff</term><description>70b34e1de03641b4a5a35b5fda6f0642</description></item>
-    /// <item><term>LawDomainGreaterAbility</term><description>0b1615ec2dabc6f4294a254b709188a4</description></item>
+    /// <item><term>GoodDomainGreaterAbilitySeparatist</term><description>27319b95f227473899bb0db2dfd401c7</description></item>
     /// <item><term>TestEnchantWeapon</term><description>65eb9b6865a556f47a0b67ddce1689de</description></item>
     /// </list>
     /// </remarks>
@@ -1794,7 +1875,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelCleansingFlames</term><description>3c4c33f314a8bd64994d34ed5db2b96f</description></item>
-    /// <item><term>PowerOfFaithTier3Area</term><description>9175b3337ba088446b4050e9d4473c47</description></item>
+    /// <item><term>PowerOfFaithTier2Area</term><description>1f6882347ee534d4ab9421e0e282adaa</description></item>
     /// <item><term>WitchHexRegenerativeSinewRestorationAbility</term><description>0a6effb356101cc46aa0bed8c3ab6fd4</description></item>
     /// </list>
     /// </remarks>
@@ -1835,16 +1916,18 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HexChannelerChannelNegativeHeal</term><description>b0ad6982a41ed5245bd622c276d88580</description></item>
+    /// <item><term>Harm</term><description>137af566f68fd9b428e2e12da43c1482</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder HealTarget(
         this ActionsBuilder builder,
-        ContextDiceValue value)
+        ContextDiceValue value,
+        bool? disableBattleLog = null)
     {
       var element = ElementTool.Create<ContextActionHealTarget>();
       element.Value = value;
+      element.DisableBattleLog = disableBattleLog ?? element.DisableBattleLog;
       return builder.Add(element);
     }
 
@@ -1857,7 +1940,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneMovementFeature</term><description>16c1ec2a313ce0b49ac1acbda42496e8</description></item>
-    /// <item><term>GelatinousSwallowWholeFeature1</term><description>a7d2e6fe676b48f897e334a2cbd30b23</description></item>
+    /// <item><term>GreaterWyrmshifterBlueBreathWeaponAbility</term><description>9abb021bbe00460f966f9e0d63ba6cb4</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -1881,8 +1964,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonPrimordialMagicSupportGazeAllyBuff</term><description>7e86ccb12393470db3f0fc6757acb17b</description></item>
-    /// <item><term>FeralRaiderEnchantment</term><description>50309931d32f4b758181af05c7fe617c</description></item>
-    /// <item><term>SongOfTheFallenEffectArea</term><description>7ee5526cb80b4ded87e9aa09cb5f5095</description></item>
+    /// <item><term>NemaryStigma_ObedienceBuff</term><description>c55cdee7f49d4a19891619e1a6f33b81</description></item>
+    /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder OnOwner(
@@ -1906,8 +1989,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidMaw</term><description>75de4ded3e731dc4f84d978fe947dc67</description></item>
-    /// <item><term>AnimalFocusStagBuff</term><description>e3f45c588ddbd3e408d45ea7a0cd3fc8</description></item>
-    /// <item><term>SoheiMonasticMountAbility</term><description>15029d70cc507ae4cb480a7092775302</description></item>
+    /// <item><term>GhostRiderMagicAttacksLawfulBuff</term><description>86c215e0616242598b99fbbb9d533f9a</description></item>
+    /// <item><term>TandemExecutionerWorkInTandemPetBuff</term><description>67b9d6cf2aa7467c872c75d8bc67ccba</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1961,8 +2044,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelPhoenixGiftBuff</term><description>9988e25ec217c0249a28213e7dc0017c</description></item>
-    /// <item><term>GauntletsOfMightySwipeBuff</term><description>20ea90af5be842841b71ef3c8241d1d7</description></item>
-    /// <item><term>NokNokCampBuff</term><description>f2c1c3b5db4ff444b9496b7f6127e2ee</description></item>
+    /// <item><term>IceSplash</term><description>fec71ecb6d9c4e0fa159f34a86b4520a</description></item>
+    /// <item><term>WhistlingKillerEnchantment</term><description>ac101b3efbf679b4c97b8f1a2c3ec1db</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2056,7 +2139,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Archpriest_PossessionAbility</term><description>a3855d55b2304f89b63ebd1a9b1dc144</description></item>
-    /// <item><term>DLC2_HealWizard_Spell</term><description>d531862b380248028238aef16983ee55</description></item>
+    /// <item><term>DLC2_Wizard_TestHeal_Spell1</term><description>f845d634115a4b4d9d35123308565d1a</description></item>
     /// <item><term>VampiricTouchForImbueArrow</term><description>e317cd6700fcb894ca5bb00b9f742eba</description></item>
     /// </list>
     /// </remarks>
@@ -2091,7 +2174,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmberLoveGlovesFeature</term><description>12d49e8aa9ce501429f98c2ed564d94c</description></item>
-    /// <item><term>FlagTrickster3Combat</term><description>ccce7eabea0241f9a8c2f63dcf9754ed</description></item>
+    /// <item><term>ExplosiveExpert</term><description>8a551fcca93446f0adfbe5e57e5bc636</description></item>
     /// <item><term>Vrolikai_AreaEffect_DeathStealingGaze</term><description>9fd8c97fa994e5b4da2ff5a9606faab5</description></item>
     /// </list>
     /// </remarks>
@@ -2119,7 +2202,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmberLoveGlovesFeature</term><description>12d49e8aa9ce501429f98c2ed564d94c</description></item>
-    /// <item><term>FlagTrickster3Combat</term><description>ccce7eabea0241f9a8c2f63dcf9754ed</description></item>
+    /// <item><term>ExplosiveExpert</term><description>8a551fcca93446f0adfbe5e57e5bc636</description></item>
     /// <item><term>Vrolikai_AreaEffect_DeathStealingGaze</term><description>9fd8c97fa994e5b4da2ff5a9606faab5</description></item>
     /// </list>
     /// </remarks>
@@ -2156,6 +2239,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <listheader>Used by</listheader>
     /// <item><term>SkeletalFingerRodQuickenNormalFeature</term><description>5e441ed7d3887d24bbc9a6e600dbb7d2</description></item>
     /// <item><term>SkeletalFingerRodQuickenNormalKillBuff</term><description>e1c9d88a7be14454bd110a2ea406c3e0</description></item>
+    /// <item><term>TriceratopsStatuetteCorrectBuff</term><description>4366d9550c8345da8bedece00a19b7a8</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -2273,7 +2357,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>KitsunePolymorphBuff_NenioSpecial</term><description>047b715d404d5f245ad37019b5b6f1de</description></item>
+    /// <item><term>InspiringRecovery</term><description>788d72e7713cf90418ee1f38449416dc</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
@@ -2324,8 +2408,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordSwitchAbility</term><description>9efd605503f248a428df32e20b3152a6</description></item>
-    /// <item><term>MetamorphFormOfTheDragonIIBrass</term><description>ea8c61f93fbb8ab45ac43ef4ce2b77fe</description></item>
-    /// <item><term>WitchHexAnimalSkinAbility</term><description>3cae80cecdc2fb84b86587032132d48f</description></item>
+    /// <item><term>MetamorphFormOfTheDragonIIWhite</term><description>dc1b6e9b728af304a882f2fb884ff300</description></item>
+    /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RemoveBuffsByDescriptor(
@@ -2384,7 +2468,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusBearBuff</term><description>fa25fec82271c93478194c52a20ce733</description></item>
     /// <item><term>AnimalFocusOwlBuff</term><description>f4cbf4c08bb972c46a63a793b926d738</description></item>
-    /// <item><term>RitualEnervationAbility</term><description>c7ada41e7da849aeb85672b669116364</description></item>
+    /// <item><term>VengefulComets</term><description>0e1272506f9f4480b7c3e7e1e53b6439</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RepeatedActions(
@@ -2407,7 +2491,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistConsumeSpellsAbility1</term><description>46ac75e80be0cbd448ac48af6e75303f</description></item>
-    /// <item><term>BloodragerStandartRageBuff</term><description>5eac31e457999334b98f98b60fc73b2f</description></item>
+    /// <item><term>ConsumeFleshMagicalBeastBuff</term><description>839e1be496764258b8139bf7fdeb3a23</description></item>
     /// <item><term>SecondBreath</term><description>d7e6f8a0369530341b50987d3ebdfe57</description></item>
     /// </list>
     /// </remarks>
@@ -2454,7 +2538,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistConsumeSpellsAbility1</term><description>46ac75e80be0cbd448ac48af6e75303f</description></item>
-    /// <item><term>BloodragerStandartRageBuff</term><description>5eac31e457999334b98f98b60fc73b2f</description></item>
+    /// <item><term>ConsumeFleshMagicalBeastBuff</term><description>839e1be496764258b8139bf7fdeb3a23</description></item>
     /// <item><term>SecondBreath</term><description>d7e6f8a0369530341b50987d3ebdfe57</description></item>
     /// </list>
     /// </remarks>
@@ -2598,7 +2682,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>FireSnake</term><description>ebade19998e1f8542a1b55bd4da766b3</description></item>
+    /// <item><term>ForcefulPushArrowsQuiverEnchantment</term><description>875713a1ec809e540a17af03ac9b45ba</description></item>
     /// <item><term>ZachariusFearAuraArea</term><description>d363527fe31581149b2d53686075c14d</description></item>
     /// </list>
     /// </remarks>
@@ -2792,7 +2876,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidFog</term><description>dbf99b00cd35d0a4491c6cc9e771b487</description></item>
-    /// <item><term>RainbowDomeElecticity</term><description>f8ba0223241905e40ba55f8d80c57987</description></item>
+    /// <item><term>PoisonousHydraBreathWeaponCloud</term><description>cd8bff58dabcc2f48b049c89af3a3a8f</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -2880,7 +2964,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbrogailSummonPersonalGuard</term><description>43ca50d925914df3b98d11a026ab076a</description></item>
-    /// <item><term>MonsterTacticianSummonVd3</term><description>e13ba416a447d8e42a4af18ee2dfe2ee</description></item>
+    /// <item><term>MonsterTacticianSummonIVSingle</term><description>cdb6e834d7f3ace4caf4f0ac177dcf95</description></item>
     /// <item><term>WrigglingManSummon</term><description>e3a62a210a59e3c44b153b79279884fb</description></item>
     /// </list>
     /// </remarks>
@@ -2936,7 +3020,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbrogailSummonPersonalGuard</term><description>43ca50d925914df3b98d11a026ab076a</description></item>
-    /// <item><term>MonsterTacticianSummonVd3</term><description>e13ba416a447d8e42a4af18ee2dfe2ee</description></item>
+    /// <item><term>MonsterTacticianSummonIVSingle</term><description>cdb6e834d7f3ace4caf4f0ac177dcf95</description></item>
     /// <item><term>WrigglingManSummon</term><description>e3a62a210a59e3c44b153b79279884fb</description></item>
     /// </list>
     /// </remarks>
@@ -3178,7 +3262,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptEndEnchantment</term><description>66f1ac1f205e99f4e83c9b3aa8f0b0b1</description></item>
-    /// <item><term>DLC3_DivineGoodBuff</term><description>c2d1a55f7e3844518036e5f329a4bc33</description></item>
+    /// <item><term>DLC3_DivineEvilBuff</term><description>8a680f3160e34f368528aaf2f7b6f802</description></item>
     /// <item><term>TouchOfGracelessnessBuff</term><description>dc2fb898c3d07a546b31bd5d49ffadba</description></item>
     /// </list>
     /// </remarks>
@@ -3378,7 +3462,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GiantCentipedePoisonFeature</term><description>7edf8a604926e364e8c07fafa8c54001</description></item>
+    /// <item><term>GeomancyAbyssAbility3</term><description>be269ade02814f0c95f1672e20d3b2b2</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
@@ -3409,6 +3493,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>ButcherCleaver_Feature</term><description>2d9fb4a894454933938035ac124bb420</description></item>
     /// <item><term>MaskOfTheFastBitesFeature</term><description>d3d641fceaa54209b40489b4cef44b7c</description></item>
     /// </list>
     /// </remarks>
@@ -3465,8 +3550,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordOverwhelmingFlamesAbility</term><description>2b3166ffad7420f4fb02ed71660b2a8c</description></item>
-    /// <item><term>RangedCleaveAbility</term><description>632c6ae9f851d6c4a8a4a83e8fa45851</description></item>
-    /// <item><term>VigilantWatchFeature</term><description>d4cf7afc49b81e34989f2dfa76889fed</description></item>
+    /// <item><term>RovagugRelicSteppeBuff</term><description>3bd677c6ff3a47219e82405a1d5234dd</description></item>
+    /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -3514,8 +3599,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Kakuen_takaConsumeFleshFeature</term><description>48aec80376d74a70931b3160fa1519b7</description></item>
-    /// <item><term>SwarmFeastArea</term><description>23d8c63c3af634843aa11f5a169683b5</description></item>
+    /// <item><term>ConsumeFleshAbility</term><description>be765ae21089408e815fa97a5a0dc3ad</description></item>
+    /// <item><term>SwarmDevourAbility</term><description>dabe876d25b785d4caa22b7a23b6fa67</description></item>
     /// <item><term>SwarmProtectCorpseArea</term><description>4634d1da7c394ec4a49cb38e59e91f44</description></item>
     /// </list>
     /// </remarks>
@@ -3766,7 +3851,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteDeath</term><description>7d721be6d74f07f4d952ee8d6f8f44a0</description></item>
-    /// <item><term>HolyWord</term><description>4737294a66c91b844842caee8cf505c8</description></item>
+    /// <item><term>HellsSealVariantDevouringFlamesDamage</term><description>0d40de6855b755c429bf64ecf52c86e0</description></item>
     /// <item><term>WordOfChaos</term><description>69f2e7aff2d1cd148b8075ee476515b1</description></item>
     /// </list>
     /// </remarks>
@@ -3805,6 +3890,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>AssassinMarkOfDeathAbility</term><description>e39feaf61d4d485ab045b349f2e0d116</description></item>
     /// <item><term>StudentOfWarKnowFastYourEnemyAbility</term><description>0190e1225d974ad4affccae4bf19fc66</description></item>
     /// <item><term>StudentOfWarKnowYourEnemyAbility</term><description>4c056d3a0d3c4414399d1476c4142edb</description></item>
     /// </list>
@@ -3863,25 +3949,29 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyMeleeCounterAttackFeature</term><description>9f86b8f30438920458feda7313591ec2</description></item>
-    /// <item><term>CoupDeGraceAbility</term><description>32280b137ca642c45be17e2d92898758</description></item>
+    /// <item><term>CoupDeGraceSelfAbility</term><description>059c9f3bba1a42e8a1a898987522dae6</description></item>
     /// <item><term>TwoHandedFighterPiledriverTripAbility</term><description>1202b3d188c9bdc46987a5da168ec6d9</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder MeleeAttack(
         this ActionsBuilder builder,
+        UnitAnimationType? animationType = null,
         bool? autoCritConfirmation = null,
         bool? autoCritThreat = null,
         bool? autoHit = null,
         bool? extraAttack = null,
+        bool? forceStartAnimation = null,
         bool? fullAttack = null,
         bool? ignoreStatBonus = null,
         bool? selectNewTarget = null)
     {
       var element = ElementTool.Create<ContextActionMeleeAttack>();
+      element.AnimationType = animationType ?? element.AnimationType;
       element.AutoCritConfirmation = autoCritConfirmation ?? element.AutoCritConfirmation;
       element.AutoCritThreat = autoCritThreat ?? element.AutoCritThreat;
       element.AutoHit = autoHit ?? element.AutoHit;
       element.ExtraAttack = extraAttack ?? element.ExtraAttack;
+      element.ForceStartAnimation = forceStartAnimation ?? element.ForceStartAnimation;
       element.FullAttack = fullAttack ?? element.FullAttack;
       element.IgnoreStatBonus = ignoreStatBonus ?? element.IgnoreStatBonus;
       element.SelectNewTarget = selectNewTarget ?? element.SelectNewTarget;
@@ -3940,7 +4030,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC3_FAB_ShatterScream_Stage2</term><description>ca923546508b4c42a42e39dbdcbc14ed</description></item>
-    /// <item><term>SwordlordCounterattack</term><description>ff125ecc8b2c1894b879b7bcf34e1b17</description></item>
+    /// <item><term>TandemExecutionerDontTouchMyBuddyCasterArea</term><description>198c3d3e6f87429fa8821db16483f00f</description></item>
+    /// <item><term>TandemExecutionerDontTouchMyBuddyPetAttackAbility</term><description>b03327ddd4c74fcfafaeeb8efbe59a4b</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder ProvokeAttackFromCaster(this ActionsBuilder builder)
@@ -4007,25 +4098,29 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyRangedCounterAttackFeature</term><description>4d59f676f59579944948f8c461731ab8</description></item>
-    /// <item><term>BackrankAssistanceEnemyBuff</term><description>63e80c5f1e57a504496d6ec7c0f8acbd</description></item>
     /// <item><term>DLC3_EvercoldHeavyCrossbowEnchantment</term><description>7eea1f49ab5648e2a4433debe95341be</description></item>
+    /// <item><term>TandemExecutionerPenetratingCascadeAbility</term><description>83e690c9f7ef4c64986c123e1db7af90</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RangedAttack(
         this ActionsBuilder builder,
+        UnitAnimationType? animationType = null,
         bool? autoCritConfirmation = null,
         bool? autoCritThreat = null,
         bool? autoHit = null,
         bool? extraAttack = null,
+        bool? forceStartAnimation = null,
         bool? fullAttack = null,
         bool? ignoreStatBonus = null,
         bool? selectNewTarget = null)
     {
       var element = ElementTool.Create<ContextActionRangedAttack>();
+      element.AnimationType = animationType ?? element.AnimationType;
       element.AutoCritConfirmation = autoCritConfirmation ?? element.AutoCritConfirmation;
       element.AutoCritThreat = autoCritThreat ?? element.AutoCritThreat;
       element.AutoHit = autoHit ?? element.AutoHit;
       element.ExtraAttack = extraAttack ?? element.ExtraAttack;
+      element.ForceStartAnimation = forceStartAnimation ?? element.ForceStartAnimation;
       element.FullAttack = fullAttack ?? element.FullAttack;
       element.IgnoreStatBonus = ignoreStatBonus ?? element.IgnoreStatBonus;
       element.SelectNewTarget = selectNewTarget ?? element.SelectNewTarget;
@@ -4097,8 +4192,8 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceBuff</term><description>4cf7aa3c1b2e2354b877135e4b4f32b2</description></item>
-    /// <item><term>HellsDecreeAbilityRageAllyBonusBuff</term><description>3e4ab56c5f87ee04e85fe0eb9bb894cb</description></item>
-    /// <item><term>ZeorisDaggerRing_BetrayalEnemyFeature</term><description>1a695b8dfffc46f7a74527e510fd452b</description></item>
+    /// <item><term>HellsSealVariantFireHealingBuff</term><description>7dff1e5c8150dc441b7600468092a8c6</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RemoveSelf(this ActionsBuilder builder)
@@ -4173,6 +4268,22 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.m_Target = target ?? element.m_Target;
       element.m_UpToSpellLevel = upToSpellLevel ?? element.m_UpToSpellLevel;
       return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionSpendAttackOfOpportunity"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TandemExecutionerIPushItYouBiteItPetAttack</term><description>2127dc2ca7f94b79aa3de71e6ec9578a</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder SpendAttackOfOpportunity(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ContextActionSpendAttackOfOpportunity>());
     }
 
     /// <summary>
