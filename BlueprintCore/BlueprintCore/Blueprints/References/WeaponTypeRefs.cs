@@ -118,6 +118,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> RockThrow = "7d5254ebdffd64847ac34a9535fc30f1";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> RustedDawnWeaponType = "4bc949681456e834886f924ba4a554a0";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Sai = "0944f411666c7594aa1398a7476ecf7d";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> SawtoothSabre = "ef50f200e4ab429b8bcb66a56f886c2f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Scimitar = "d9fbec4637d71bd4ebc977628de3daf3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Scythe = "4eacfc7e152930a45a1a16217c35011c";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponType>> Shortbow = "99ce02fb54639b5439d07c99c55b8542";
@@ -266,6 +267,7 @@ namespace BlueprintCore.Blueprints.References
           RockThrow,
           RustedDawnWeaponType,
           Sai,
+          SawtoothSabre,
           Scimitar,
           Scythe,
           Shortbow,

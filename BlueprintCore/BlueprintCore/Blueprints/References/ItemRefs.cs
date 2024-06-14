@@ -31,6 +31,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Ale = "b3b17f5ac384ceb4582d202af74f42fc";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Almanac_Estrod = "6f104e3422c8af7499e9aa851ae6ad21";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AlmestrDiary = "ea3c8a6623f1d7e499a008314cb70492";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> AlmostSunOrchid_item = "82e96a348f9043f48d9d8b864f32bbb0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ALR_AreeluSecretProject = "514b6f38b0318f14ebadde0589e604d0";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ALR_CasketNote = "2edad072f6958774fb33328709b6a588";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> ALR_Gloves = "5352747a81e7900419c2a4429761bcc8";
@@ -46,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AlushinyrraToken3 = "d343d09091087f44493eb737be00ece6";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Amber = "793cc55b9b7eea04b9070be8f1422a6f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AmberRod_IntermediateItem = "df7cfdb0808133a4d80b5c38c0823ee5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> AndoranBestWine_item = "3e1b348082cd441d979d59e59b1aa626";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AndoranLiquor = "00d9c0481080ff74ca12297e2f55c12a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AngelFlower = "b02cf322530257b4ea8d8564191dab23";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> AngelFlowerCrown = "6b3a168521d7eec4a9ea265edf3640f8";
@@ -322,6 +324,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_DragonKey = "8ce3db6b967f471bbf72feeb635ee958";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_DruidCorpse = "fd3c08dded074a97b8953f3bebbbea53";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC5_Storasta_HusbandFlower = "61c03df6221b4223abd466a68b09844f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerAeon = "21a4d8a068a44b98b29c76eaaf753364";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerAngel = "e15fa34cdd0d475d918d49601eba3e18";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerAzata = "789134f002bf4ad5a0bae4ff158e59c3";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerDemon = "2a9314b462914ad8ba3d4533c5746557";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerDevil = "6a6037214c8f4c429307d3f95d676c50";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerDragon = "324dfac1f4674fa092afebe7b8ba959b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerLegend = "18f5f1e26fab405ebcf46c090ebf5aed";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerLich = "cb0acf4380034b51942e52ff0e91bb18";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_BannerTrickster = "0d4e6efd60a04f5a8ff57a8e04e34e63";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_CameliaNotes = "a1c99ef005a24c30a3da21ee4d81170a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_ChoirKey = "ed7882fe31f542edba6918c1e135424c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_CultistKey = "7a951e6c45dd41fe8345379a5b1bc7fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_CultistNote = "2e2199900d5947679d4932b566f4d70b";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_FakeRazmirNote = "c6532f7efc4e4211968ae2b0f85a02ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_GuardsKey = "2f6cb6e254a04fe7b429e4701c0955f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> DLC6_HalfCoin_item = "b15e3e77a9cd441da14aa83f02e36aa3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DogPelt = "11f8e6d119ec41b4da0fb1bdbe9b5527";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x3 = "45a8d763a44a5a844a6a936f17e4b765";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> DominoCyan1x4 = "80d9f2dd22aa13a4491cb7f039ce89a6";
@@ -432,6 +450,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> FleshmarketArk_Mark = "6210ba9b808803547a9ddc292db502fe";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Flour = "418a5f5ce964b5244bc7d2f1787bfe4f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Fowl = "132d9f3fdf1f00f4db22304ab930e409";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> FreshJogurtItem = "f1b32a89e473442c96b62214263b5cc5";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> FreshNahCrystall = "b4d15b762b88e714bb61e6e182a050e2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Fruits = "3e44c07f1bd3e834fa82486ff1cbab1c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GGMainKey = "b648bd3aecb51574e8021f1cbd3f3d01";
@@ -446,6 +465,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldEmbroideredCarpet = "bbc5b4e709f219d4996c6816d7415a7a";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenAshtray = "29945d36d9eefc149a9d1193b47c2b19";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenChalice = "ba130e491a4c5c54aa6b9d2bc758fc2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenChaliceFake = "f130f102ab034f06bd2b83145443257c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenChaliceVeryPricy = "4cd8cd5029174e06992a55f7d51e498b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenEarring = "1a562c5ea7163654e8a8c3c0acc97abf";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenIngot = "6f0b2c6a856175e469224e102d41b90b";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> GoldenStatuette = "8adb329f4ac14694eaec87f42a8684d2";
@@ -521,6 +542,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LinnormPelt = "ba2f26d2188cc5641b1db51e20b5cb5c";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LinnormTenderloin = "735627add0780bf40a36eaaf1545ed52";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LostWine_item = "07d9a69fd9d04a35919a3f339917b16f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> LovePoetry_item = "9f75df379c1d4474b42f5826f536f700";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> LuckyHandSandwitch_item = "7789b058cf5aabb4d9ede1f54599b984";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MadSurgeonsNotes = "653a2e26fc752f849ac6fcfd37d70ce2";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MagicAccumItem = "1fabd5886aaa4b619d1730870d684152";
@@ -541,6 +563,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MastodonPelt = "b9eb281338ceb5c4ea9c0846852864d3";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Mead = "683f4592244f99241ad9242a8a26f3de";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Meat = "8faddcf56f3810a4ba2423cb20926333";
+    public static readonly Blueprint<BlueprintReference<BlueprintItem>> MedicineForDrunkard_Item = "251c1632a66c47ea986e767deff6064f";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> MegalocerosPelt = "cde9a1fbd41601d49a4efca79d699db5";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Memento_CyclopsCoin = "ea8288077ec1e5241a460f2e920bde13";
     public static readonly Blueprint<BlueprintReference<BlueprintItem>> Memento_DryadToken = "85bd30e46f2245740ab130984795245d";
@@ -786,6 +809,7 @@ namespace BlueprintCore.Blueprints.References
           Ale,
           Almanac_Estrod,
           AlmestrDiary,
+          AlmostSunOrchid_item,
           ALR_AreeluSecretProject,
           ALR_CasketNote,
           ALR_Gloves,
@@ -801,6 +825,7 @@ namespace BlueprintCore.Blueprints.References
           AlushinyrraToken3,
           Amber,
           AmberRod_IntermediateItem,
+          AndoranBestWine_item,
           AndoranLiquor,
           AngelFlower,
           AngelFlowerCrown,
@@ -1077,6 +1102,22 @@ namespace BlueprintCore.Blueprints.References
           DLC5_Storasta_DragonKey,
           DLC5_Storasta_DruidCorpse,
           DLC5_Storasta_HusbandFlower,
+          DLC6_BannerAeon,
+          DLC6_BannerAngel,
+          DLC6_BannerAzata,
+          DLC6_BannerDemon,
+          DLC6_BannerDevil,
+          DLC6_BannerDragon,
+          DLC6_BannerLegend,
+          DLC6_BannerLich,
+          DLC6_BannerTrickster,
+          DLC6_CameliaNotes,
+          DLC6_ChoirKey,
+          DLC6_CultistKey,
+          DLC6_CultistNote,
+          DLC6_FakeRazmirNote,
+          DLC6_GuardsKey,
+          DLC6_HalfCoin_item,
           DogPelt,
           DominoCyan1x3,
           DominoCyan1x4,
@@ -1187,6 +1228,7 @@ namespace BlueprintCore.Blueprints.References
           FleshmarketArk_Mark,
           Flour,
           Fowl,
+          FreshJogurtItem,
           FreshNahCrystall,
           Fruits,
           GGMainKey,
@@ -1201,6 +1243,8 @@ namespace BlueprintCore.Blueprints.References
           GoldEmbroideredCarpet,
           GoldenAshtray,
           GoldenChalice,
+          GoldenChaliceFake,
+          GoldenChaliceVeryPricy,
           GoldenEarring,
           GoldenIngot,
           GoldenStatuette,
@@ -1276,6 +1320,7 @@ namespace BlueprintCore.Blueprints.References
           LinnormPelt,
           LinnormTenderloin,
           LostWine_item,
+          LovePoetry_item,
           LuckyHandSandwitch_item,
           MadSurgeonsNotes,
           MagicAccumItem,
@@ -1296,6 +1341,7 @@ namespace BlueprintCore.Blueprints.References
           MastodonPelt,
           Mead,
           Meat,
+          MedicineForDrunkard_Item,
           MegalocerosPelt,
           Memento_CyclopsCoin,
           Memento_DryadToken,

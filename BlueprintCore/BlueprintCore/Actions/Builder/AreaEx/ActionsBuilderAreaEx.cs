@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic.Capital;
 using Kingmaker.Blueprints;
@@ -11,7 +12,10 @@ using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Localization;
+using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -98,6 +102,33 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     {
       var element = ElementTool.Create<ChangeCurrentAreaName>();
       element.RestoreDefault = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DestroyMapObject"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <para>
+    /// ComponentName: Actions/DestroyMapObject
+    /// </para>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CommandAction</term><description>8d5833adb08148e98d1fdcc37f0913bc</description></item>
+    /// <item><term>CommandAction4</term><description>eefd9ec9e18748728a57677ddc97e5b5</description></item>
+    /// <item><term>CutsceneCommandFadeout</term><description>f95a96fcb7084b5687bc8e73e58fc930</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder DestroyMapObject(
+        this ActionsBuilder builder,
+        MapObjectEvaluator mapObject)
+    {
+      var element = ElementTool.Create<DestroyMapObject>();
+      builder.Validate(mapObject);
+      element.MapObject = mapObject;
       return builder.Add(element);
     }
 
@@ -450,9 +481,9 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_Int_Tier_1_Island_10</term><description>9a1e689e6c0046eba81b05be0086442a</description></item>
-    /// <item><term>DLC3_Int_Tier_2_Island_3</term><description>a229fa51b4e7405a8f4ff886984d62d2</description></item>
-    /// <item><term>ShadowVeilBuff</term><description>63885637a87d4084b8e70d757f8713a4</description></item>
+    /// <item><term>AlignmentsModificatorBuff</term><description>af02bae272e84516bf5153426886bdfe</description></item>
+    /// <item><term>DLC3_Int_Tier_1_Island_8</term><description>79bb813b4e784da58314086145c5d9a1</description></item>
+    /// <item><term>UncotrollableRageBuff</term><description>06bf19096c1f4d9c9252cf60a08e0e2c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -543,8 +574,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandAction</term><description>c2fba818bb632aa4bb5908337b9f5b51</description></item>
-    /// <item><term>CommandAction</term><description>8e798750795e4bb48fdea00e6b9175f1</description></item>
+    /// <item><term>Arena_Tier01_Encounter01</term><description>ad41d8e820504dae9a694b8d5c53fa09</description></item>
+    /// <item><term>CommandAction</term><description>bc725e134eb9b5f42ac6e70c2fb8e92e</description></item>
     /// <item><term>FourthPart</term><description>24417ce44ab52e24388edd18d6b5e115</description></item>
     /// </list>
     /// </remarks>
@@ -565,6 +596,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         this ActionsBuilder builder,
         List<Blueprint<BlueprintAbilityAreaEffectReference>>? areaEffects = null,
         EndAreaEffects.FilterType? filter = null,
+        bool? immediately = null,
         AreaEffectTags? tags = null)
     {
       var element = ElementTool.Create<EndAreaEffects>();
@@ -574,6 +606,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
         element.m_AreaEffects = new BlueprintAbilityAreaEffectReference[0];
       }
       element.m_Filter = filter ?? element.m_Filter;
+      element.m_Immediately = immediately ?? element.m_Immediately;
       element.m_Tags = tags ?? element.m_Tags;
       return builder.Add(element);
     }
@@ -646,7 +679,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0003</term><description>e4bf5e3beae06ca4da6dfa1191026031</description></item>
-    /// <item><term>GrayGarrison_FinalSiege</term><description>65d1f8bdc93f3234e9e7537c172336a6</description></item>
+    /// <item><term>Cue_0027</term><description>cfcf8cb9d71d4255acfe046cd1fc66ed</description></item>
     /// <item><term>WorldWoundGMReturn2KenabresTestPreset</term><description>bc2c980845879dd4fa97f97cb9dadb0b</description></item>
     /// </list>
     /// </remarks>
@@ -678,19 +711,21 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>DLC3_Int_StarMaracaDeath</term><description>2eadfc8b3a0441f8b4f90b16682e0d73</description></item>
+    /// <item><term>Darkness_DimensionLockCrystall</term><description>9098cbfd345f4b34af4952c1a2efc030</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder HideMapObject(
         this ActionsBuilder builder,
         MapObjectEvaluator? mapObject = null,
-        bool? unhide = null)
+        bool? unhide = null,
+        bool? useEntityFader = null)
     {
       var element = ElementTool.Create<HideMapObject>();
       builder.Validate(mapObject);
       element.MapObject = mapObject ?? element.MapObject;
       element.Unhide = unhide ?? element.Unhide;
+      element.UseEntityFader = useEntityFader ?? element.UseEntityFader;
       return builder.Add(element);
     }
 
@@ -748,7 +783,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonKenabresRebuilded</term><description>470c835355608c34fa4571ba4f65cbc3</description></item>
-    /// <item><term>DLC3_TwilightWaters</term><description>b5779a222f98475b87ffb13337cdffda</description></item>
+    /// <item><term>Cue_0019</term><description>6934c7382f32455eb76264dc408d1add</description></item>
     /// <item><term>UlbrigNotInParty_KickedOut</term><description>3b31ef42338b4f83ab822fbcae79a41c</description></item>
     /// </list>
     /// </remarks>
@@ -863,7 +898,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CombineS_1_1</term><description>ecd04cedec8a498cb07d1c50951d0310</description></item>
-    /// <item><term>CombineS_3_7</term><description>c23b576effb7437787c726309aed7abf</description></item>
+    /// <item><term>CombineS_4_1</term><description>38e54ea736e940fa830866745d9be8e9</description></item>
     /// <item><term>SecretCompartment_Actions</term><description>9fa9b3ba43252124ba4021816436cdbd</description></item>
     /// </list>
     /// </remarks>
@@ -1072,7 +1107,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>Cue_0007</term><description>c2382e8386daabf4b885a664662e0b66</description></item>
+    /// <item><term>Cue_0003</term><description>47073f3c3c7845242911f926d5d7e511</description></item>
     /// <item><term>WoundWormLair_Event_Mechanics</term><description>fa1e44ec4639c4242b745b9b7c72cc03</description></item>
     /// </list>
     /// </remarks>
@@ -1110,7 +1145,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>DLC2_Catacombs_EscapistLeft_SZ</term><description>c25f874ffb77410f9363b36f6b2501f6</description></item>
+    /// <item><term>DLC4_RuinedVillage_ThirdVisitNobody_Preset</term><description>62341ec258e249658fb1003eededdfb1</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -1181,8 +1216,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
-    /// <item><term>CommandAction5</term><description>622f000c81c34fcbbdbe2b4497d098fa</description></item>
-    /// <item><term>SummonedCrusaderDrezenLeftHanded</term><description>e3862f8f01298f240b171e50f2d4302c</description></item>
+    /// <item><term>CommandAction5</term><description>7b3c6c0663564b418b255e3369e98661</description></item>
+    /// <item><term>TEST_ReflectionChange_4_SZ</term><description>bf233b16d3ee459b9b04287e6301ea69</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder SetDeviceState(
@@ -1211,7 +1246,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>a1359088a0c30cd408411b966916d5e6</description></item>
-    /// <item><term>CommandAction1</term><description>1b93fe4d34cf45848f011ec30f5e8079</description></item>
+    /// <item><term>CommandAction1</term><description>6a994f7baf404037a99227fa9ebdfebb</description></item>
     /// <item><term>DLC5_SithhudHimself_dialogue</term><description>a50d47dd6d6a49d698d87c21c3b692bf</description></item>
     /// </list>
     /// </remarks>
@@ -1308,7 +1343,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Angel_Sword_Trigger</term><description>2f6b1393c35fcf748b49fd9223ce59da</description></item>
-    /// <item><term>CommandAction 1</term><description>66052721d8dc6364c9cbaf4f902815cb</description></item>
+    /// <item><term>CommandAction 1</term><description>710b5154433e9ec4f8831940ff759f98</description></item>
     /// <item><term>TrapTutorial</term><description>5e218b9b57c12224bb4238a5951e7b06</description></item>
     /// </list>
     /// </remarks>
@@ -1364,7 +1399,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>d728ab3139e4a474d9fe75a15dfa2b27</description></item>
+    /// <item><term>Cue_0012</term><description>c0aa3e6a3c985ef4e858a393806ec97c</description></item>
     /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
     /// </list>
     /// </remarks>
@@ -1417,7 +1452,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaFinalFight</term><description>131316c1965bfb54e97f6134de6698e1</description></item>
-    /// <item><term>CommandAction 1</term><description>bd5646257aa6b8843a6fae34b893f1f5</description></item>
+    /// <item><term>CommandAction</term><description>1cc55e44bdaba1b42b6fe63f61675a75</description></item>
     /// <item><term>WinThirdFight_dialogue</term><description>2038c62fd9e036c4285deb60e2012e19</description></item>
     /// </list>
     /// </remarks>
@@ -1454,7 +1489,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction1</term><description>9cdd609a287f47e28f33fa88e5d85066</description></item>
+    /// <item><term>CommandAction1</term><description>78e1f3f1e04f46669766183a5377c650</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1494,7 +1529,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>1247182d56f46e9439ae1d9a74085604</description></item>
-    /// <item><term>CommandAction 7</term><description>74228bc041543c648bbe931b3266883c</description></item>
+    /// <item><term>CommandAction 6</term><description>e8f0a1fd5b83f1247823210eaef5a836</description></item>
     /// <item><term>TrappedChestGood5_OnDestructionActions</term><description>9a41a80c55a34003b3fa830e5e4a1c9c</description></item>
     /// </list>
     /// </remarks>
@@ -1579,7 +1614,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Cue_0023</term><description>058f685f053b66748a2fe1d382466910</description></item>
+    /// <item><term>Cue_0022</term><description>a05b695416654e84b94a0d24eee59454</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>d6793bcea861d3b49857067532fcedc0</description></item>
     /// </list>
     /// </remarks>

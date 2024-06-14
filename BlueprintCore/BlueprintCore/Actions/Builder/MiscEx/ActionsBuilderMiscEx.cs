@@ -1,17 +1,25 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker;
 using Kingmaker.Achievements.Actions;
+using Kingmaker.Achievements.Blueprints;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Loot;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
+using Kingmaker.DLC;
 using Kingmaker.Dungeon.Actions;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Localization;
 using Kingmaker.Tutorial;
 using Kingmaker.Tutorial.Actions;
 using Kingmaker.UI.MVVM._VM.ServiceWindows.Inventory;
 using Kingmaker.UnitLogic.FactLogic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -33,7 +41,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>Cue_7</term><description>0bdaad140ed44573b0c9a6cb332580c5</description></item>
+    /// <item><term>Cue_23</term><description>36ad062f4c39429ea95fab944c7ec1bb</description></item>
     /// <item><term>Unfair Challenge</term><description>deef16f3e31e47a3aa91df404fe0edd5</description></item>
     /// </list>
     /// </remarks>
@@ -67,9 +75,9 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Chapter01_Extra</term><description>318f49bf0efcfb4449d0973a3cb3bb73</description></item>
-    /// <item><term>DLC4_PremiumReward</term><description>b73761304e7145ada8fa98e99f771353</description></item>
-    /// <item><term>DLC4_ShifterLevelGained</term><description>c044d7ade3a84547b7e01bf72c01e62a</description></item>
+    /// <item><term>Answer_0004</term><description>61ec9675e81645c9b9323d29ee23456c</description></item>
+    /// <item><term>DLC6_TavernRebuilded_DaeranRomance_Preset</term><description>4131a6d9b4c9408ba43e0b0df3d3e224</description></item>
+    /// <item><term>DLC6_TavernRebuilded_WenduagRomance_Preset</term><description>6ebcbc9cbb944647998a076c680eba13</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -633,11 +641,17 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// Tooltip: If true, buttons Close, Back and Esc will be disable in chargen
     /// </para>
     /// </param>
+    /// <param name="mayLoopLevelUp">
+    /// <para>
+    /// Tooltip: If need few levelup
+    /// </para>
+    /// </param>
     public static ActionsBuilder OpenSelectMythicUI(
         this ActionsBuilder builder,
         ActionsBuilder? afterCommitActions = null,
         ActionsBuilder? afterStopActions = null,
-        bool? lockStopChargen = null)
+        bool? lockStopChargen = null,
+        bool? mayLoopLevelUp = null)
     {
       var element = ElementTool.Create<OpenSelectMythicUI>();
       element.m_AfterCommitActions = afterCommitActions?.Build() ?? element.m_AfterCommitActions;
@@ -651,6 +665,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         element.m_AfterStopActions = Utils.Constants.Empty.Actions;
       }
       element.m_LockStopChargen = lockStopChargen ?? element.m_LockStopChargen;
+      element.m_MayLoopLevelUp = mayLoopLevelUp ?? element.m_MayLoopLevelUp;
       return builder.Add(element);
     }
 
@@ -667,7 +682,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0039</term><description>f1c267e263671b140a82dd13f63fdfda</description></item>
+    /// <item><term>Cue_0033</term><description>6704efe68a504d0a9dff4d34544af8ed</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -716,14 +731,15 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0011</term><description>ac4468a7eded7fd43946f1a730791ff0</description></item>
-    /// <item><term>Cue_0080</term><description>755d8bb8870a3354da8f496d039d4b54</description></item>
+    /// <item><term>Cue_0094_TrickReinf</term><description>062f826dcda44cb4b9ae5649e95a974e</description></item>
     /// <item><term>RevertYellow</term><description>0aa2618093d44ed7bce51a1fbadddff8</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder RemoveItemsFromCollection(
         this ActionsBuilder builder,
         ItemsCollectionEvaluator? collection = null,
-        List<LootEntry>? loot = null)
+        List<LootEntry>? loot = null,
+        RemoveItemsFromCollection.RemoveStrategyType? removeStrategy = null)
     {
       var element = ElementTool.Create<RemoveItemsFromCollection>();
       builder.Validate(collection);
@@ -734,6 +750,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       {
         element.Loot = new();
       }
+      element.RemoveStrategy = removeStrategy ?? element.RemoveStrategy;
       return builder.Add(element);
     }
 
@@ -867,7 +884,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>daab00a6e6c650246a7ebb32c9fd8240</description></item>
-    /// <item><term>DLC1_ThresholdOutdoor_BET_NormalCamp</term><description>e67f735c38b444b680c94bf090b3a334</description></item>
+    /// <item><term>DLC1_ThresholdOutdoor_BET_MixedFar</term><description>a5dca28200034f298e04270b0aed3d5d</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -907,7 +924,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>32346e6ee58b4139a2bbabab80317c28</description></item>
-    /// <item><term>Cue_0006</term><description>5867dfe6156215944ab9b9d8b414c8a7</description></item>
+    /// <item><term>Cue_0006</term><description>561562e8a34945e7809db870c951837a</description></item>
     /// <item><term>WoljifFarewell_dialogue</term><description>0e94cfa04d06db1438eb565f60c0012c</description></item>
     /// </list>
     /// </remarks>
@@ -930,7 +947,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CamelliaQ2</term><description>ab6e8c0132ddd2a4495408cfacb660f7</description></item>
-    /// <item><term>Cue_0005</term><description>4a6d7932f3ea74845af2651c425431fa</description></item>
+    /// <item><term>CommandAction7</term><description>21e12a3472654797a96aa5b780fb29b9</description></item>
     /// <item><term>LannWantsTraining_Sparring</term><description>35d585854f8cfa84491a58e49642d4c0</description></item>
     /// </list>
     /// </remarks>
@@ -965,7 +982,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>6ced3f48dbdf44b2aa3e526a755f994e</description></item>
     /// <item><term>Cue_0051</term><description>3df7adbce79f77f41a2830ac44b85591</description></item>
-    /// <item><term>DLC5_GoblinsPartyInTheTower_Torture_FeedAnimal</term><description>88da324898df45da92eecbb20c991b0a</description></item>
+    /// <item><term>LivingGrimoireHolyBookBuffSecondary</term><description>0688ae60216d4356b46b8a71338b7b88</description></item>
     /// </list>
     /// </remarks>
     ///

@@ -44,6 +44,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> EarthDomainSpellList = "df3bc5bda7deb9d46b0f177db3bb7876";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> EvilDomainSpellList = "81bff1165d9468a44b2f815f7c26a373";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FeyspeakerSpelllist = "640b4c89527334e45b19d884dd82e500";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> Fire_BlessedAnkouSpellList = "f73d071370404e239238745a206e7b41";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FireDomainSpellList = "d8f30625d1b1f9d41a24446cbf7ac52e";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FlamesSpiritSpellList = "659fbc54fc519b44dacacc78e7d46dec";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FrostSpiritSpellList = "bbae401660bbad94c865d71029d8439e";
@@ -63,15 +64,18 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> LifeSpiritSpellList = "1e6ea0d1d642c8c43ab7e72dd8f607a9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> LuckDomainSpellList = "9e756552e9b05ce459feac658dd2d8fb";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MadnessDomainSpellList = "1d1638d47e7f8404baeed23bc35ec2f2";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MagicDeceiverSpellList = "cf20c10b131344c1a61b75e9cc4a4c13";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MagicDomainSpellList = "f997258a28a9e5f4192d973433edec5f";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MagusSpellList = "4d72e1e7bd6bc4f4caaea7aa43a14639";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MonsterEmptySpellllist = "9e4658592e5f66146a6826120e21ed26";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> MurderSubdomainSpellList = "b5eadf57c3c34f2ab656d14923089d0d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> NatureSpiritSpellList = "810e2a7009ed3a84c81b398b2763e7a8";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> NobilityDomainSpellList = "3de1e283971828f4896a4140acd3c84c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PaladinSpellList = "9f5be2f7ea64fe04eb40878347b147bc";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PestilenceSpiritSpellList = "a995ae02b3e741439b82e5e5d5a2e046";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PlantDomainSpellList = "bd7b088a54b79434f90ed53551ca2189";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ProtectionDomainSpellList = "93228f4df23d2d448a0db59141af8aed";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> PrototypeSpellList = "501daadf18c34543a14b02a3e2c2683c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> RangerSpellList = "29f3c338532390546bc5347826a655c4";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ReposeDomainSpellList = "5376474a39713514ca2135d6f9584563";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> RuneDomainSpellList = "30076fe3d5f4ef845a7bafb0be57fe44";
@@ -141,6 +145,7 @@ namespace BlueprintCore.Blueprints.References
           EarthDomainSpellList,
           EvilDomainSpellList,
           FeyspeakerSpelllist,
+          Fire_BlessedAnkouSpellList,
           FireDomainSpellList,
           FlamesSpiritSpellList,
           FrostSpiritSpellList,
@@ -160,15 +165,18 @@ namespace BlueprintCore.Blueprints.References
           LifeSpiritSpellList,
           LuckDomainSpellList,
           MadnessDomainSpellList,
+          MagicDeceiverSpellList,
           MagicDomainSpellList,
           MagusSpellList,
           MonsterEmptySpellllist,
+          MurderSubdomainSpellList,
           NatureSpiritSpellList,
           NobilityDomainSpellList,
           PaladinSpellList,
           PestilenceSpiritSpellList,
           PlantDomainSpellList,
           ProtectionDomainSpellList,
+          PrototypeSpellList,
           RangerSpellList,
           ReposeDomainSpellList,
           RuneDomainSpellList,

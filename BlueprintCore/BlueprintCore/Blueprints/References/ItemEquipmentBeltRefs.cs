@@ -68,6 +68,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> EnergizingBeltItem = "44f531c69e18d694187b8856977122f0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> EqualityBeltItem = "b01ed89b10d0da14bbbe1432ed4ca168";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> ExplorersBeltItem = "ec34985b81b9f744488456e7009044ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> GorgonBelt = "a2206ab9a731411dbe5055ab48175a22";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> GozrehsEmbracementBeltItem = "77bfc25b7f08e044d9ce73b76c332651";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> HeartOfIce_Item = "a113c68406d74e37951717e417840bfa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> HermitRopeBeltItem = "c6edeb6c69d5da74a9bf5d73700ed04e";
@@ -91,6 +92,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> StormKingsBeltItem = "896925074ea6446abc108e0cd47e79de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> TimelyAssistanceItem = "b76383fb806d61b41bfe93f0651e3964";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> UnceasingSlaughterItem = "cd015f36cdccb134e86a0b4daa0283e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>> WarKiltOfSarenrae = "6af69da499184fe7ae0839105be416be";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentBelt>>> All =
       new()
@@ -148,6 +150,7 @@ namespace BlueprintCore.Blueprints.References
           EnergizingBeltItem,
           EqualityBeltItem,
           ExplorersBeltItem,
+          GorgonBelt,
           GozrehsEmbracementBeltItem,
           HeartOfIce_Item,
           HermitRopeBeltItem,
@@ -171,6 +174,7 @@ namespace BlueprintCore.Blueprints.References
           StormKingsBeltItem,
           TimelyAssistanceItem,
           UnceasingSlaughterItem,
+          WarKiltOfSarenrae,
       };
   }
 }

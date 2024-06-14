@@ -250,6 +250,15 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableAlchemistsKits = "65722f89c76447e78b6f4dd8158d37ee";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableLockpicks = "ebc89b26ca684de1891bbf3c3f183342";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC5_VendorTableMagicShieldsPlus1 = "fe575ee4449f42a6bebbd605989c0584";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_BlacksmithTraderVendorTable1 = "433eee5c47f047859999436da5dad1cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_BlacksmithTraderVendorTable3 = "0c027b1b84264a58926f3594d91d5ef3";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_CarnivalVendorTable = "6c43a106cf7d47328339f39b9301d9d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_FoodTraderVendorTable1 = "9ca804b8b38148b3aca8ba01d5ccba1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_JewelerTraderVendorTable1 = "53156a7dce0f4b4e9efc5b10ef5c34f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_JewelerTraderVendorTable2 = "b81ad1b5cbe0411f95c06a13a196f0c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_NewVendorTable = "a9b7fd07beb1497eb667dab9a6d22e05";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_SorcererTraderVendorTable1 = "827920a99cd34810bbb6cb1d7cb91c40";
+    public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> DLC6_StrangeMageTrader_VendorTable = "d4ebb4020bb14967bd2ed9ed4aaabe2f";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_DefendersHeartVendorTable = "a7948df9d37efc34e841284cf883370e";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Equipment_Vendor_DLC2 = "e5cdfb113e884ab6967650f5eacbcb42";
     public static readonly Blueprint<BlueprintReference<BlueprintSharedVendorTable>> Exotic_Chapter3VendorTable = "9c597a1f92dde2f4f8adb27ee5730188";
@@ -592,6 +601,15 @@ namespace BlueprintCore.Blueprints.References
           DLC5_VendorTableAlchemistsKits,
           DLC5_VendorTableLockpicks,
           DLC5_VendorTableMagicShieldsPlus1,
+          DLC6_BlacksmithTraderVendorTable1,
+          DLC6_BlacksmithTraderVendorTable3,
+          DLC6_CarnivalVendorTable,
+          DLC6_FoodTraderVendorTable1,
+          DLC6_JewelerTraderVendorTable1,
+          DLC6_JewelerTraderVendorTable2,
+          DLC6_NewVendorTable,
+          DLC6_SorcererTraderVendorTable1,
+          DLC6_StrangeMageTrader_VendorTable,
           Equipment_DefendersHeartVendorTable,
           Equipment_Vendor_DLC2,
           Exotic_Chapter3VendorTable,

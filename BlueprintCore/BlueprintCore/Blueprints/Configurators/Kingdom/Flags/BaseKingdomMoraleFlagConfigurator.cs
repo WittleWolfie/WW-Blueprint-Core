@@ -6,7 +6,10 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Localization;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom.Flags
 {

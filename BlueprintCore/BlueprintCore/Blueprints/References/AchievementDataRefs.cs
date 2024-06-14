@@ -159,6 +159,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_53_Odious_Treasure = "43fdef241ca4477284835cf7f331e7f8";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_54_Prohibition = "6f8caa746e9148e7bc3fe66453f19fe3";
     public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_55_Pain_And_Pleasure_Indivisible = "cb200f23b05743958ed9a08cf939b3d1";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC5_56_Glaciation = "05e687ca70a240d498f7aec2e928d89b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_57_Cosplayer = "bbd8c0a79a654bc492de52b22945b9e8";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_58_SuspiciousCat = "fce3b71d7cfd4507984014cce9ae7353";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_59_Champion = "ca7e52b96952476f8169cff30d414503";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_60_Victory = "071c347032154aae9bb51ec248c2beae";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_61_Hyperactivity = "7e2a4ebff9c04ed7bf0e971019b03123";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_62_KissOfLove = "70e17c1de68c43b384620cb17c2785f6";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_63_Glorious_1 = "3671cc654c0f46f288c932aebb7c62b4";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_64_Glorious_2 = "77de200f9d42442b847751a130562c8b";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_65_Glorious_3 = "e79a24a5aad247a09e44d09ee68199eb";
+    public static readonly Blueprint<BlueprintReference<AchievementData>> DLC6_66_Hunger = "eaf44346f4574a2593746b27af84da62";
 
     public static readonly List<Blueprint<BlueprintReference<AchievementData>>> All =
       new()
@@ -307,6 +318,17 @@ namespace BlueprintCore.Blueprints.References
           DLC5_53_Odious_Treasure,
           DLC5_54_Prohibition,
           DLC5_55_Pain_And_Pleasure_Indivisible,
+          DLC5_56_Glaciation,
+          DLC6_57_Cosplayer,
+          DLC6_58_SuspiciousCat,
+          DLC6_59_Champion,
+          DLC6_60_Victory,
+          DLC6_61_Hyperactivity,
+          DLC6_62_KissOfLove,
+          DLC6_63_Glorious_1,
+          DLC6_64_Glorious_2,
+          DLC6_65_Glorious_3,
+          DLC6_66_Hunger,
       };
   }
 }

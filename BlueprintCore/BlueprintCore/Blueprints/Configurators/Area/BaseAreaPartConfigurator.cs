@@ -6,12 +6,14 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Visual.Effects.WeatherSystem;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area

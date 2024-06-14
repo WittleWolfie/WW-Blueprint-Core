@@ -41,10 +41,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellsKnownTable = "c133d22305bab964c88a767cc69b1f9b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellSlotsTable = "83d3e15962e5d6949b90b5c226a2b487";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> LichSpellsPerDay = "4924b73038564c543a371b4c4d1def45";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MagicDeceiverSlotsTable = "0965015334a5458da741e213626abf23";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MagusSpellLevels = "6326b540f7c6a604f9d6f82cc0e2293c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MonsterMythicSpellTablePerDay = "90c0102266d315a4dbaf2e2bce1cd0ea";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MythicSpontaneousSpellsKnownTable = "2d574ccdea8543bda1dffe63b0f16760";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> PaladinSpellLevels = "9aed4803e424ae8429c392d8fbfb88ff";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> PrototypeSpellsKnownTable = "140fc176f47641b49a7ff25458f47170";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> RangerSpellLevels = "d2b0abf29cfaf8842b75c2efc7f40157";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> ShamanSpellLevels = "ce51ca64670b6a147a4bd4960a91a490";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> SkaldSpellsKnownTable = "84eee37ad49807f41836729761955da3";
@@ -87,10 +89,12 @@ namespace BlueprintCore.Blueprints.References
           InquisitorSpellsKnownTable,
           InquisitorSpellSlotsTable,
           LichSpellsPerDay,
+          MagicDeceiverSlotsTable,
           MagusSpellLevels,
           MonsterMythicSpellTablePerDay,
           MythicSpontaneousSpellsKnownTable,
           PaladinSpellLevels,
+          PrototypeSpellsKnownTable,
           RangerSpellLevels,
           ShamanSpellLevels,
           SkaldSpellsKnownTable,

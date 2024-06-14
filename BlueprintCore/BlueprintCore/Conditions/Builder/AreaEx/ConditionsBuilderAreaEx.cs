@@ -3,12 +3,16 @@
 using BlueprintCore.Utils;
 using Kingmaker.Assets.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.AreaEx
 {
@@ -93,7 +97,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_44</term><description>c42102cf12524af0af7f808441a5c47a</description></item>
+    /// <item><term>Cue_53</term><description>51afcdfbe2584ed6a196361bd8cae8fb</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
@@ -418,7 +422,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_9</term><description>0b7d208f5f234f9791097f5aa1d5b8d5</description></item>
-    /// <item><term>Cue_20</term><description>c9596b74c33c49f69906ac33cf28febe</description></item>
+    /// <item><term>CommandUnitCastSpell2</term><description>33608356b8364cafa4c9305443372913</description></item>
     /// <item><term>WatchPoint_SZWall_FoW</term><description>0f1fdc5a42ea41a4b87da4021e89dabd</description></item>
     /// </list>
     /// </remarks>
@@ -449,7 +453,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0002</term><description>d38052d00f394118945e8861f00574f5</description></item>
-    /// <item><term>DLC5_GoblinsParty_Tornado</term><description>330b16b2cd68420981420113fdd1024d</description></item>
+    /// <item><term>DLC1_IZ_Irabeth_startDialog</term><description>5bc8820627af4f2080c6e19d4ab8c223</description></item>
     /// <item><term>TrueLootHideZone9</term><description>168ca19a2ced8d448a9944c2f0f01d72</description></item>
     /// </list>
     /// </remarks>
@@ -476,8 +480,8 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AreeluLabFalseName</term><description>2bbe2729cac14033a4aa094f2df60fdc</description></item>
-    /// <item><term>PF-217333</term><description>e99f249471e442279e2687a1a5ef5264</description></item>
+    /// <item><term>Answer_0010</term><description>8bbacd42e94344f8a0267b59dfbb4b8b</description></item>
+    /// <item><term>Cue_0016</term><description>2cec7e312adf465989d916ac69358412</description></item>
     /// <item><term>Venduag_Q2_interlude_spawnConditions</term><description>7d2e7755a041e0241ad6babe959f8454</description></item>
     /// </list>
     /// </remarks>

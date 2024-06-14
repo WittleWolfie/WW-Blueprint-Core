@@ -1,12 +1,16 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.Localization;
+using Kingmaker.Utility;
 using Kingmaker.Visual.Sound;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Visual
 {
@@ -87,7 +91,7 @@ namespace BlueprintCore.Blueprints.Configurators.Visual
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Barks</term><description>97c7b7df236d38d4083756c6e71e038b</description></item>
-    /// <item><term>Jabberwock_Barks</term><description>7caad4a9aafa55b4185293e6475c06ab</description></item>
+    /// <item><term>Kalavakus_Barks</term><description>291595dc771a12e46ba63b1f09aec713</description></item>
     /// <item><term>Zombie_Barks</term><description>5b77c4c031391294b920f5a1e119b959</description></item>
     /// </list>
     /// </remarks>

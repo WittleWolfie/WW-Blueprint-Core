@@ -43,8 +43,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimalFuryBite = "8c01e7fccbb829947bc5894f63fb389a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_BardicheItem = "83dc2eb955e4b1b4cbf6503e4b1b78dd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_DwarvenWaraxeItem = "84654147a02a6cd42a2623f6a30a2742";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_ElderShockLongswordItem = "583747914fb24277886e6d39451462a5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_FireLongswordItem = "3a83936771cb4314a6046cba25a8100d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_FrostLongswordItem = "1e68aed2dc294595a39816422311f297";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_LongbowItem = "090285c7c82e2c64ba56fd4f36efe1fb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_LongswordItem = "13fd065b46e7eb24daa98359eae5488c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnimatedWeapon_PoisonedLongswordItem = "7c30287784334774bdd0a971b5473744";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> AnnihilatorItem = "c5a8db9ef4d16cc45a516b3876dcfa03";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ArcaneEnforcerItem = "1e7bb481ce637ba4cbd12a4989ba8022";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ArcaneProtector = "493c0cee946597141a71c99589fabf08";
@@ -170,6 +174,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteDragonHuge2d6 = "9c20ebc9f7b701743944b1c76d4bf598";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteDragonLarge1d8 = "c988aa874d11ff84d873508ddc9b928f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteGargantuanStandard2d8 = "61fb13235c614f744ad42ff6141fab0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteGargantuanStandard6d6 = "aff1d5d4884d4267a4b0abe82c917204";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteHuge2d6 = "d2f99947db522e24293a7ec4eded453f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteHuge2d8 = "54af541fa85b3634cb6b801d96c3f2c9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BiteHuge3d6 = "a63315767e2bfe841959644dbe6383dc";
@@ -181,6 +186,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BlackDragonsFangItem = "cc91b45fb458a434faa46d775129364f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BlackSaltItem = "0719364187329ce43abff3c214587df7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BlackStarItem = "a662282ca2939144592ee4b1c8b1522e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BladeboundBlackBladeWeapon = "a5a968e98e5b4d9bb8708c85e2595de4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BladeOfBloodKnightFalcionItem = "59c7c75f8eaf4249a5dce59116d06ba0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BladeOfOrderItem = "4aafece401c2b0b4ea251c20c8341921";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BladeOfTheMercifulItem = "58a5d7af98c250944acf5f54ab88a924";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> BleedHeartseekerCompositeLongbowPlus5 = "1c4fbfd06f4a427d8c5ab80f8e82e76f";
@@ -424,6 +431,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronRapier = "ec731c55e657cf0408fd89c648ccc536";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronRapierPlus3 = "925d399524ae74748ac78b49f48785c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronSai = "9c7881ebbb9c96944ad18adca92fdb4c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronSawtoothSabre = "45e76b1480d14d959d780f1182a6cabf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronScimitar = "ed7e22f153240d645af7a56c5bcf7faf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronScythe = "446a31d5375f43f45bf5fea69405120c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ColdIronShortspear = "f713232cb92bde747aa32dc6b45f1ca7";
@@ -472,6 +480,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CorrosiveLightHammerPlus2Item = "d0a9721d027e7ce4e8d63639b12c77db";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CorrosiveRapierPlus1 = "b81f92a30b55e0345bf32b21713e2ece";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CrimsonCounselor = "436ec3989c26a3442ab12cb055b2b22f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CrimsonMoonItem = "e77bb8df912b4e98b6587b179d1bcc80";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CrimsonVerdictItem = "b5bce68b0ef14639b0132bac655d47d1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CripplingKissItem = "419f4a94bdf5b25418228755389a20ae";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CrossbowOfEscape = "8762d9897514dd241b19e32ee9cf3f54";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> CrossbowOfJudgementItem = "a3ff2c87ed85178448b89e80d1d347c1";
@@ -497,6 +507,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerOfFateFirstItem = "bf301596ad8e90446880be62a93cc64f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerOfFateSecondItem = "a074b8cc7a0fa0940ad6bc8bec1be8de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerOfLifeItem = "2005289e2e10f194089bd781168e3630";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerOfTheBetrayer = "440888881c1f4ef38ce9153eacfaaa37";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerofWeakness = "02edf077ed6285643984fdd994d31c9e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerPlus1 = "2a45458f776442e43bba57de65f9b738";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DaggerPlus2 = "4607f83de16245844acb4596fc797147";
@@ -602,6 +613,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DLC5_MidnightFlailItem = "22a21d0f9a8548908a1b1a62161ef051";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DLC5_SwordOfSithhudItem = "4d40781982594f1f9b0de558521a261c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DLC5_TangibleShadow = "37ad1af13a5245d8a9da355d65143bf0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DLC6_ReapersScythe = "42e64f728cfe467bb22b5b7c3f202414";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DLCShortswordItem = "97aa30da8c0b4d36b90b267678cbcfec";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DRAFT_TerrorBringer = "bbfe6703b5dcf054aa8a31edef6a3e83";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> DragonbaneShortbowPlus1 = "4838544b7e2a2024e8fc98f4645c7cfb";
@@ -1111,6 +1123,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSaiStage2 = "553276983017cc44d93c4b08a13e0bed";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSaiStage3Base = "970bbcd3350c1574bb42b5ebaf7ea0d7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSaiStage3Lich = "bd13e1af2981f914fa30637bdb8bac90";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSawtoothSabreStage1 = "8d0f8e80a0b54b02871548c6817b190c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSawtoothSabreStage2 = "77fcb6274a8847a3bf2b3a7a10b639fe";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSawtoothSabreStage3Base = "e1dc7bdad79f442f9c4252e6c70bb67a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanSawtoothSabreStage3Lich = "d88abbbd41c04b4a9a84240d0e649d42";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanScimitarStage1 = "738af55ecb0349b429d403c2ed691dda";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanScimitarStage2 = "414c020c2ee7bd84b90d2effa4ace81c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> FinneanScimitarStage3Base = "3c3a403360540b042ba822023904a789";
@@ -1314,6 +1330,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordKeenBaneLycanPlus2 = "e803ac987fdea3d48a5ec6a5998f2570";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordKeenPlus1 = "881309440ff4a2347b9eaea530d05e3b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordMovanicDeva = "de889bf84998b8e46a4ba9b6b84cf1d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordMovanicDevaPlus3 = "ddabfb3949a24ff3b8f6ad458d7efb5d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordPlus1 = "e4925df9c7ab2714793cd5834e0a3039";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordPlus2 = "8b0ad785727b2154ab4029508738fbdd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> GreatswordPlus3 = "b734631d6b981a844bd817c2961d5f29";
@@ -1473,6 +1490,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> IronGolemSlam = "15bb40b3d07d6d0488a6b1a11a809e3a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JaethalDagger = "e1108159fa11a2e41bb60899c775e5b3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JagannathKhanda = "d4527cae04ea33b41aeada428880b864";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JaggedClawItem = "9245bb68ba304c29bc43427f8ef917de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JavelinCorrosivePlus1 = "e24f753bbbbefb84cb94223df00d837a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JavelinCorrosivePlus2 = "f879e7d5f8f16ca4bbfec1555c57bdb0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> JavelinFlamingPlus1 = "d0523b9dafcc27845b641c99a311bfba";
@@ -1682,6 +1700,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LiLura_Prize = "7e2097936431eb94484f5d1008cfa867";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LionsClaw = "3d389d17a341eba49859791ad8e091e6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LissomItem = "41664943b58f3e04f9d898a9747295aa";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LivingGrimoireHolyBookWeapon = "690d26bcc63c4a2e912b6104d1d531e7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LizardKingTrident = "2ccd5aef5d47a954dac78a98de13d591";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LongbowBanePlus1 = "91282d3565a1485cb87d8ea740238840";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> LongbowCorrosivePlus1 = "d768c986bb03ba548b6f8cd0fb527585";
@@ -1753,6 +1772,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MagmaKineticBladeWeapon = "f58bc29b252308242a81b3f84a1d176a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MaimerItem = "bf237e581a31401449567b8bcc4727f6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MaliceLightMaceItem = "dec4acdd0677f1c4eaf2f5a180dfa4f5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MantisFavorItem = "74c54cabfe3244df99870f71202fabc3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MapBardiche_IntermediateItem = "b6f13e910327412429ee45a4f350b611";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MapFormationBardicheItem = "559088bb334d8d141ba00b2268115d95";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MapFormationHeavyPickItem = "934941fdd98438c41a50675e447910a6";
@@ -1851,9 +1871,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MirrorBowItem = "2a01ad1ad8ef3e44e8c1798c6e02aab6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MiteStoneThrow = "733aaf11fb7b50e4eb49fc2194621270";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralBastardSwordPlus2Item = "1e785267696a49d40a5abd57d2de1910";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralDaggerPlus2 = "fbfff43b86d84c4282db1c7a8cf30754";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralFlailPlus2 = "f1980ea9f036b424e98c45c66447b67a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralFlailPlus3 = "9903baa7e01c2ea4e97f71a74fb3ac82";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralGreataxePlus2 = "ff2fc2b16311473a84822c2468844076";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralHandaxePlus2 = "bb1fc8489a674c0585c3909bd262ccbf";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralLongswordPlus2 = "3b8a8ce9bec44f4eb82996416ed212bb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralRapierPlus2 = "4f3f00c9de404493991a4e01ab40d786";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralShortspearPlus3LycanthropeBaneItem = "5a12c750ac285e7419b274cf4d2be0b7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralShortswordPlus2 = "cf68418f179640439980397a459b0f87";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralWarhammerPlus = "fbd9b36ae457429aabc84841eb23802b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralWeaponHeavyPlus2Shield = "88cfc5d3353bc2d46ac38ee1ff00314d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralWeaponLightPlus2Shield = "c9ca4abf4afff914aa24ff6b3dc2e527";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> MithralWeaponLightShield = "b0e71eae672c190449c14b500129e8a2";
@@ -1959,6 +1986,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> PortalStoneSpiderSaiItem = "829aba5a56615aa4ab12a7528833f8d0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> PortalStoneStanceSaiItem = "8aad5b82266bbce4b8c4c952f00e1bfa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> PowerfulPummelItem = "b1fed3da40c47634f8d27d89ad0b2572";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> PrayingKillerItem = "f3b3227cac1f472983a619bc38d8fbd3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> PrimeWiperItem = "16a21907f1988ae4bb92b5ef1579af01";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Pulura_RewardDagger = "40cb2aa35a04b204eab6da2dd310ec89";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Pulura_SarcorianDagger_1 = "1d0319631405127448c47f147caebd11";
@@ -2024,6 +2052,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> QuarterstaffSpeedPlus3 = "5d7b95eb75d18784cbe5e6b32c960ddc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> QuickbladeItem = "7ac52934f882e3d4bade1187548ab350";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> QuickDeathItem = "ca3a8e29c3c426448924dfcc213ec440";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> QuickPunishmentItem = "38a104ecee0141b7b1f643d3c4a409f9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> QuickwoodRoots = "f76b563b69718a943a9a1c89bf81215f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RabidUnderdogItem = "76c5fd96f4a1b904292488ce4ce48831";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RackingPointItem = "6243e1af975775245b669f7e35555530";
@@ -2035,6 +2064,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RadiantElderFrostCompositeShortbowPlus5 = "0667228b757540cda6c682b5737dad30";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RadiantKukriPlus1Item = "0984f5d4dc23c71418948f0b69de6c58";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Rageclaw = "4d252540a4b40e747bbd932fd410684e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RampantCarnageItem = "9e3c406f73c9440c9a51549067ff8412";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Rapier = "c83ff52bb6f90c3469660e0da575c9f8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RapierAbrogail = "f021494157894c8597c41ac1ca1b3e13";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RapierAgileFlamingFrostPlus5 = "7b2e3871f63937b4fb392df10702f4f4";
@@ -2101,6 +2131,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RuinItem = "d9f0df00399b0f246ac75a6339342719";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RulebreakerItem = "84b9e4531be18cd4893100aea05f5c1a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RumblingFlachionItem = "7bf6089d245c0df4c98602e11b06ef65";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RunelordsHatefulRanseur = "63b3f2bebf0a42149c1299a14c0c16b4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RupturingStormItem = "c4a3b3f397e4aac4ebced84597372c89";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RushlightItem = "7701ca7ff07e429e92bf69e37cd5cd41";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> RustedDawnItem = "4e82b54975834f14b81814e9255873e3";
@@ -2132,6 +2163,32 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SarkorisDirgeItem = "cffc4037c224475ca2a0c0b6bfda8688";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SavamelekhSpineWeapon = "63d15bb603874b9c9baa497d3df766b9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SaviourItem = "2e0b3b777a5b24d49ad368f463860408";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreAgilePlus1 = "a227af015839494a9d8121e6b256d6c5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreAgileThunderingPlus2 = "a4f2f5a72aee48709112cf23e121a4c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreCorrosivePlus1 = "fe0806d557df4cbe99723d09b126de01";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreCorrosivePlus2 = "6809552ded06494d992a46e6f2fbb3ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreElderChokingBurstHolyPlus3 = "f86a332e62fa4b719b5d38556fd6deeb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreFlamingPlus1 = "c92eca91caf844f9a990bed7f6905a61";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreFlamingPlus2 = "db1117c8d80c41fc961fb3013182ae96";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreFrostPlus1 = "f9e75af3041447e8ab72dbfe0c68fc3f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreFrostPlus2 = "120e1ca7473e48b98ec66127886905ea";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreFrostShockPlus1 = "946ccdec95484cbab9d67266d6442141";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreHolyPlus2 = "3e94249fd78c467e8dfeda0106c59ff0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreHolyPlus3 = "2ecd15ccaa324269bbc636ecb98c5e97";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreKeenGhostTouchPlus3 = "446e091c02a7483abc14c640e540cdc0";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreKeenPlus1 = "bfed10523de248f1923178befd580110";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreKeenPlus2 = "d18628267121411ca1d3320f8ddc9948";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreKeenShockPlus1 = "18b301b9810340ee99b703753ad804b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabrePlus1 = "13b9e6657b26404eb0e2a683bb5b6a2c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabrePlus2 = "a221aa1f5f30420bb894c72266db9a42";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabrePlus3 = "4839be363dfa48cbb05ece475034e121";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabrePlus4 = "4041b467c8b0442a93658273fd2570e2";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabrePlus5 = "615b36d8fad64ed5bbce397f68c1b86e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreShockPlus1 = "7ee167f5a75f420fbfaa3bb1f663e214";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreShockPlus2 = "876d22dc9fd24906a4c254b4a310102c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreSpeedAgilePlus5 = "be02693ac35a4e709497fb84bd632fdb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreSpeedPlus3 = "0b08ea0673244277a4d94c869c746fde";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreViciousAgilePlus5 = "996d0f49fdab451f9982a0f770d7782c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScarecrowSlam = "10687d9b0cc29d54cb86a06c07f1400e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScepterOfWoe = "21ae3e4a55b4a56468fc5b5529fb7e2b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScimitarAxiomaticBanePlus1 = "cdfc681e7df542ba92cdc47411055b39";
@@ -2263,8 +2320,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SickleShockPlus1 = "916b5817ad23ef0488e00fdede539e90";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SickleShockPlus2 = "21a18203ced257b4489df44ba4cdadd5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilentWhispererItem = "bde50faeaa5a3cf48872a9dc3da14fef";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilverBattleaxePlus2 = "960474308bba410e9929c35f819a2aa9";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilverGlaivePlus2 = "884c0207a43b40b1a87c472bdb8764c1";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilverLightPickPlus2 = "d2eab70b952b452eba19c06b0348d276";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilverLongswordPlus5 = "6a7ada6334b64eb4b7c872e3282cc021";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SilverPunchingDaggerPlus2 = "fe83823456f740188cc606fb78760e07";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SimpleEnergyBlasterBracerItem = "fe2acd72f8e79884f8b693b1e020a20c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SingingEdgeItem = "1626d4d5c862bd148bf17a06e7e72f38";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SinmageStaff = "19f9506b61ed4190bffc66eb0cad39de";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Skullcrusher = "60d447726ca562c4ba9b4576beaee7f5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SkullCrusherItem = "1ce5dc8b364db1240a58adb8e6d53592";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SkyScorcherItem = "7cd35777395a2754a848bd501d87ac95";
@@ -2676,6 +2739,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SwiftBlowItem = "0a3fb024f4e27c64f8d1d00932e676d5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SwordOfEternalSquire = "59a594b9b6d72c74692d53632ed29b0d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SwordsmansPassion = "a34e72aec02da454a8bbe6b127237413";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Tail1d2Large = "c42e22dbdee84d3d9ac8fe06c1e8a54e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Tail1d4 = "898c1e3fdec34ccebe3702c78a2f20e8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Tail1d6 = "b21cd5b03fbb0f542815580e66f85915";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Tail1d8 = "29e50b018da8468c8dcb411148ba6413";
@@ -2707,6 +2771,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Test_TrollBite_Hudge = "685c7ae9ba28a434e9b1cb96c89e354b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Test_TrollClaw_Hudge = "b188356bd432fa846b3de8ca4ad548cd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Test_TrollhoundBite_Large = "da170c931b3564a429aa18419a71d926";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ThatWhoBathesInBloodItem = "d2ee36d38ee9432bb96991b190e3047a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TheAncientRootItem = "fdbd65b48ec19274083090ea815c9a5f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Theatre_Shortspear = "98f7953b0eb649cd804521c26a0bb275";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TheBlitzCutItem = "49ad83e23e75fe046860b67720751a85";
@@ -2826,6 +2891,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> TyrantItem = "bdc39e9b171a7344893d9089e1e6480d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> UltrasoundGhostTouchLightMacePlus2Item = "db1ec7471af0bb1469d8255774d69366";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> UltrasoundHeartseekerKukriPlus5 = "9fcfd9534c32459ab83960b8d4faceba";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> UltraThinEdgeItem = "bf3d67f806e94e8683739c5f9ce5b5a2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Unarmed1d10 = "ee31a19c8aa965f46a90ae02d59d4af7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Unarmed1d3 = "e5ea5042194712040a3b2944e6944d10";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> Unarmed1d6 = "f60c5a820b69fb243a4cce5d1d07d06e";
@@ -2893,6 +2959,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WaterElementalSlam_Small = "db22244b1a3811944ac1452092195f0a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WaterKineticBladeWeapon = "6a1bc011f6bbc7745876ce2692ecdfb5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WeaponEmptyHand = "20375b5a0c9243d45966bd72c690ab74";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WeaponForBombEmulate = "934e60c19112413aabf5d68127d108f5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WeaponHeavyShieldCorrosivePlus1 = "25c66fa757987ea43950e14182a1a3a9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WeaponHeavyShieldCorrosivePlus2 = "27753a5a683f7ff409decc417610f967";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> WeaponHeavyShieldFlamingPlus1 = "a3c2e1cf55e0b144eab9adb957000b56";
@@ -2992,8 +3059,12 @@ namespace BlueprintCore.Blueprints.References
           AnimalFuryBite,
           AnimatedWeapon_BardicheItem,
           AnimatedWeapon_DwarvenWaraxeItem,
+          AnimatedWeapon_ElderShockLongswordItem,
+          AnimatedWeapon_FireLongswordItem,
+          AnimatedWeapon_FrostLongswordItem,
           AnimatedWeapon_LongbowItem,
           AnimatedWeapon_LongswordItem,
+          AnimatedWeapon_PoisonedLongswordItem,
           AnnihilatorItem,
           ArcaneEnforcerItem,
           ArcaneProtector,
@@ -3119,6 +3190,7 @@ namespace BlueprintCore.Blueprints.References
           BiteDragonHuge2d6,
           BiteDragonLarge1d8,
           BiteGargantuanStandard2d8,
+          BiteGargantuanStandard6d6,
           BiteHuge2d6,
           BiteHuge2d8,
           BiteHuge3d6,
@@ -3130,6 +3202,8 @@ namespace BlueprintCore.Blueprints.References
           BlackDragonsFangItem,
           BlackSaltItem,
           BlackStarItem,
+          BladeboundBlackBladeWeapon,
+          BladeOfBloodKnightFalcionItem,
           BladeOfOrderItem,
           BladeOfTheMercifulItem,
           BleedHeartseekerCompositeLongbowPlus5,
@@ -3373,6 +3447,7 @@ namespace BlueprintCore.Blueprints.References
           ColdIronRapier,
           ColdIronRapierPlus3,
           ColdIronSai,
+          ColdIronSawtoothSabre,
           ColdIronScimitar,
           ColdIronScythe,
           ColdIronShortspear,
@@ -3421,6 +3496,8 @@ namespace BlueprintCore.Blueprints.References
           CorrosiveLightHammerPlus2Item,
           CorrosiveRapierPlus1,
           CrimsonCounselor,
+          CrimsonMoonItem,
+          CrimsonVerdictItem,
           CripplingKissItem,
           CrossbowOfEscape,
           CrossbowOfJudgementItem,
@@ -3446,6 +3523,7 @@ namespace BlueprintCore.Blueprints.References
           DaggerOfFateFirstItem,
           DaggerOfFateSecondItem,
           DaggerOfLifeItem,
+          DaggerOfTheBetrayer,
           DaggerofWeakness,
           DaggerPlus1,
           DaggerPlus2,
@@ -3551,6 +3629,7 @@ namespace BlueprintCore.Blueprints.References
           DLC5_MidnightFlailItem,
           DLC5_SwordOfSithhudItem,
           DLC5_TangibleShadow,
+          DLC6_ReapersScythe,
           DLCShortswordItem,
           DRAFT_TerrorBringer,
           DragonbaneShortbowPlus1,
@@ -4060,6 +4139,10 @@ namespace BlueprintCore.Blueprints.References
           FinneanSaiStage2,
           FinneanSaiStage3Base,
           FinneanSaiStage3Lich,
+          FinneanSawtoothSabreStage1,
+          FinneanSawtoothSabreStage2,
+          FinneanSawtoothSabreStage3Base,
+          FinneanSawtoothSabreStage3Lich,
           FinneanScimitarStage1,
           FinneanScimitarStage2,
           FinneanScimitarStage3Base,
@@ -4263,6 +4346,7 @@ namespace BlueprintCore.Blueprints.References
           GreatswordKeenBaneLycanPlus2,
           GreatswordKeenPlus1,
           GreatswordMovanicDeva,
+          GreatswordMovanicDevaPlus3,
           GreatswordPlus1,
           GreatswordPlus2,
           GreatswordPlus3,
@@ -4422,6 +4506,7 @@ namespace BlueprintCore.Blueprints.References
           IronGolemSlam,
           JaethalDagger,
           JagannathKhanda,
+          JaggedClawItem,
           JavelinCorrosivePlus1,
           JavelinCorrosivePlus2,
           JavelinFlamingPlus1,
@@ -4631,6 +4716,7 @@ namespace BlueprintCore.Blueprints.References
           LiLura_Prize,
           LionsClaw,
           LissomItem,
+          LivingGrimoireHolyBookWeapon,
           LizardKingTrident,
           LongbowBanePlus1,
           LongbowCorrosivePlus1,
@@ -4702,6 +4788,7 @@ namespace BlueprintCore.Blueprints.References
           MagmaKineticBladeWeapon,
           MaimerItem,
           MaliceLightMaceItem,
+          MantisFavorItem,
           MapBardiche_IntermediateItem,
           MapFormationBardicheItem,
           MapFormationHeavyPickItem,
@@ -4800,9 +4887,16 @@ namespace BlueprintCore.Blueprints.References
           MirrorBowItem,
           MiteStoneThrow,
           MithralBastardSwordPlus2Item,
+          MithralDaggerPlus2,
           MithralFlailPlus2,
           MithralFlailPlus3,
+          MithralGreataxePlus2,
+          MithralHandaxePlus2,
+          MithralLongswordPlus2,
+          MithralRapierPlus2,
           MithralShortspearPlus3LycanthropeBaneItem,
+          MithralShortswordPlus2,
+          MithralWarhammerPlus,
           MithralWeaponHeavyPlus2Shield,
           MithralWeaponLightPlus2Shield,
           MithralWeaponLightShield,
@@ -4908,6 +5002,7 @@ namespace BlueprintCore.Blueprints.References
           PortalStoneSpiderSaiItem,
           PortalStoneStanceSaiItem,
           PowerfulPummelItem,
+          PrayingKillerItem,
           PrimeWiperItem,
           Pulura_RewardDagger,
           Pulura_SarcorianDagger_1,
@@ -4973,6 +5068,7 @@ namespace BlueprintCore.Blueprints.References
           QuarterstaffSpeedPlus3,
           QuickbladeItem,
           QuickDeathItem,
+          QuickPunishmentItem,
           QuickwoodRoots,
           RabidUnderdogItem,
           RackingPointItem,
@@ -4984,6 +5080,7 @@ namespace BlueprintCore.Blueprints.References
           RadiantElderFrostCompositeShortbowPlus5,
           RadiantKukriPlus1Item,
           Rageclaw,
+          RampantCarnageItem,
           Rapier,
           RapierAbrogail,
           RapierAgileFlamingFrostPlus5,
@@ -5050,6 +5147,7 @@ namespace BlueprintCore.Blueprints.References
           RuinItem,
           RulebreakerItem,
           RumblingFlachionItem,
+          RunelordsHatefulRanseur,
           RupturingStormItem,
           RushlightItem,
           RustedDawnItem,
@@ -5081,6 +5179,32 @@ namespace BlueprintCore.Blueprints.References
           SarkorisDirgeItem,
           SavamelekhSpineWeapon,
           SaviourItem,
+          SawtoothSabreAgilePlus1,
+          SawtoothSabreAgileThunderingPlus2,
+          SawtoothSabreCorrosivePlus1,
+          SawtoothSabreCorrosivePlus2,
+          SawtoothSabreElderChokingBurstHolyPlus3,
+          SawtoothSabreFlamingPlus1,
+          SawtoothSabreFlamingPlus2,
+          SawtoothSabreFrostPlus1,
+          SawtoothSabreFrostPlus2,
+          SawtoothSabreFrostShockPlus1,
+          SawtoothSabreHolyPlus2,
+          SawtoothSabreHolyPlus3,
+          SawtoothSabreKeenGhostTouchPlus3,
+          SawtoothSabreKeenPlus1,
+          SawtoothSabreKeenPlus2,
+          SawtoothSabreKeenShockPlus1,
+          SawtoothSabrePlus1,
+          SawtoothSabrePlus2,
+          SawtoothSabrePlus3,
+          SawtoothSabrePlus4,
+          SawtoothSabrePlus5,
+          SawtoothSabreShockPlus1,
+          SawtoothSabreShockPlus2,
+          SawtoothSabreSpeedAgilePlus5,
+          SawtoothSabreSpeedPlus3,
+          SawtoothSabreViciousAgilePlus5,
           ScarecrowSlam,
           ScepterOfWoe,
           ScimitarAxiomaticBanePlus1,
@@ -5212,8 +5336,14 @@ namespace BlueprintCore.Blueprints.References
           SickleShockPlus1,
           SickleShockPlus2,
           SilentWhispererItem,
+          SilverBattleaxePlus2,
+          SilverGlaivePlus2,
+          SilverLightPickPlus2,
+          SilverLongswordPlus5,
+          SilverPunchingDaggerPlus2,
           SimpleEnergyBlasterBracerItem,
           SingingEdgeItem,
+          SinmageStaff,
           Skullcrusher,
           SkullCrusherItem,
           SkyScorcherItem,
@@ -5625,6 +5755,7 @@ namespace BlueprintCore.Blueprints.References
           SwiftBlowItem,
           SwordOfEternalSquire,
           SwordsmansPassion,
+          Tail1d2Large,
           Tail1d4,
           Tail1d6,
           Tail1d8,
@@ -5656,6 +5787,7 @@ namespace BlueprintCore.Blueprints.References
           Test_TrollBite_Hudge,
           Test_TrollClaw_Hudge,
           Test_TrollhoundBite_Large,
+          ThatWhoBathesInBloodItem,
           TheAncientRootItem,
           Theatre_Shortspear,
           TheBlitzCutItem,
@@ -5775,6 +5907,7 @@ namespace BlueprintCore.Blueprints.References
           TyrantItem,
           UltrasoundGhostTouchLightMacePlus2Item,
           UltrasoundHeartseekerKukriPlus5,
+          UltraThinEdgeItem,
           Unarmed1d10,
           Unarmed1d3,
           Unarmed1d6,
@@ -5842,6 +5975,7 @@ namespace BlueprintCore.Blueprints.References
           WaterElementalSlam_Small,
           WaterKineticBladeWeapon,
           WeaponEmptyHand,
+          WeaponForBombEmulate,
           WeaponHeavyShieldCorrosivePlus1,
           WeaponHeavyShieldCorrosivePlus2,
           WeaponHeavyShieldFlamingPlus1,

@@ -30,6 +30,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfOutbreakItem = "e55f0210859bb3b4883958e41c155490";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfStampedeItem = "1e67f0071700eb5418b82009427bce8a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfSwiftFoot = "8644bca1c3bf6f64ab4d89be643a8850";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheBattleHerald = "039c98d84eba4ab58a95cf7ee1d2964a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCatItem = "c26c4b72544948318ec71348ab8931c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheCreepingDeath = "11e350708227f3b4eaf641a5b5fd2863";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheLightStepItem = "815cc85ce13ab64428253aea3b6708a8";
@@ -37,6 +38,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfTheSwampItem = "1ccb68fd1e0f6d141b739e3744e5af4e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> BootsOfWaryStepsItem = "c567d113d0b7053428fcb76e5175e37f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> ConnectiontoEarthBoostItem = "57d89d9340dedb449a279622ec0541be";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> DaredevilBoots = "d6354aa44a4745088ec9bef8900e6394";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> DevilsBootsItem = "0da402fcbd1ab3d4e852a4a831c3f468";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> DLC3_BootsOfUndersumpItem = "77e8e9ceb50447bfbae19f6c9a850d76";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentFeet>> EvadingStepsItem = "91b1162500bb78545b0f802e33dfd8d6";
@@ -69,6 +71,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfOutbreakItem,
           BootsOfStampedeItem,
           BootsOfSwiftFoot,
+          BootsOfTheBattleHerald,
           BootsOfTheCatItem,
           BootsOfTheCreepingDeath,
           BootsOfTheLightStepItem,
@@ -76,6 +79,7 @@ namespace BlueprintCore.Blueprints.References
           BootsOfTheSwampItem,
           BootsOfWaryStepsItem,
           ConnectiontoEarthBoostItem,
+          DaredevilBoots,
           DevilsBootsItem,
           DLC3_BootsOfUndersumpItem,
           EvadingStepsItem,

@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -337,7 +338,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Selection
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BloodOfDragonsSelection</term><description>da48f9d7f697ae44ca891bfc50727988</description></item>
+    /// <item><term>AnimalCompanionSelectionDomain</term><description>2ecd6c64683b59944a7fe544033bb533</description></item>
     /// <item><term>EldritchScionBloodlineSelection</term><description>94c29f69cdc34594a6a4677441ed7375</description></item>
     /// <item><term>SorcererBloodlineSelection</term><description>24bef8d1bee12274686f6da6ccbc8914</description></item>
     /// </list>

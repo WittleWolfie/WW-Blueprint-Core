@@ -7,6 +7,7 @@ using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Armies.Brain

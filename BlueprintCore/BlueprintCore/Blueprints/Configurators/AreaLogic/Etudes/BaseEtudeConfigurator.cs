@@ -9,12 +9,14 @@ using Kingmaker.AreaLogic.Capital;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.Controllers.Combat;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
@@ -1073,7 +1075,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DHOutdoorDefault</term><description>0ad51df6001a4f8479cd1efa2506ea54</description></item>
-    /// <item><term>Nexus02Camp</term><description>a306a45af54d10742be60c756337725b</description></item>
+    /// <item><term>DLC6_WenduagLabyrinth</term><description>d6534b86b1d34038aaa9be12f8540580</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -1198,8 +1200,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>MythicAeon_RankUp02_Option01</term><description>596bea8abb1914744940987bffe597af</description></item>
+    /// <item><term>0Prologue</term><description>cee461e88e5d62b4ebdfc1f4cecc13c5</description></item>
+    /// <item><term>KTC_TricksterRankUp3Notification</term><description>49f6aa23feef4f25be41c8144ba87280</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -1270,7 +1272,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>HungryMessEtude</term><description>d15ccfad7a534c1db742fd16b2e1ed28</description></item>
+    /// <item><term>GreenBarrelKill</term><description>fe42439974f743c8a8d474a90484fab4</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1345,7 +1347,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>LegendThreshold</term><description>372e9738ef0875643bb22b30f8153014</description></item>
+    /// <item><term>KohhDungeon_disableMount_InCutscene</term><description>1cb612bc6945441b96d7fc27208ca080</description></item>
     /// <item><term>Woljif_AbandonedMansion_CutScenePat</term><description>1bbf7d9eff0f47ea9bc50f2d88ae39fc</description></item>
     /// </list>
     /// </remarks>
@@ -1423,7 +1425,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>Drezen_SecondState_Demon_Audio</term><description>6ff9ad83d8614348ac443b8478394b6f</description></item>
+    /// <item><term>DLC6_TavernRebuilded_SecondStage_Audio</term><description>84691b7d84a84e12ae9e1f3d6a909b05</description></item>
     /// <item><term>ZigguratSound</term><description>f2035ebb6d074f33aaa1ec362d0f1929</description></item>
     /// </list>
     /// </remarks>
@@ -1655,8 +1657,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Chapter01</term><description>df17ab913c348644b9bd3fe3f9781a84</description></item>
-    /// <item><term>Chapter06</term><description>41bf413e0fa2ea34b937d4445edd5f89</description></item>
-    /// <item><term>DLC5_LowFantasy2</term><description>1135a744682f45079dc60b7bbf500cb6</description></item>
+    /// <item><term>DLC1_Megaepic</term><description>99622b80d692457890f58f73ed864f30</description></item>
+    /// <item><term>DLC6_DanceOfMasks</term><description>3fdcad8348254e08ad94e9a5742d1da2</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeBracketEnsureAudio(
@@ -1676,7 +1678,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AneviaFollow</term><description>b5f1df4ce72c8cd459eb18a1cffc091b</description></item>
-    /// <item><term>MagesFlamingSpearSquadFollowing</term><description>06469a4947151034f978ef7529ae27a1</description></item>
+    /// <item><term>LatimasFollow</term><description>5d4d883a918142a9bebfc22f6625f1f5</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -1778,7 +1780,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreshkagalArena_NenioIgnoreCombat</term><description>35399489cd494583af28e059e5726d6c</description></item>
-    /// <item><term>PartyAssemble</term><description>5722b2a325c3d7043968fe44bd4b443c</description></item>
+    /// <item><term>LichCiar_Nexus_EXRemotePassive</term><description>688c6a9a56fd4614852b0e2ee7708d88</description></item>
     /// <item><term>Woljif_Nexus_EXRemotePassive</term><description>e6055ae3cde11e9418628e1d446ac193</description></item>
     /// </list>
     /// </remarks>
@@ -1822,7 +1824,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssaultFinished_Audio</term><description>6851b9b86373937429e7bf68079c2501</description></item>
-    /// <item><term>GibberingSwarmStorySound</term><description>6886c36c43db595458ba8f9782bcf500</description></item>
+    /// <item><term>Drezen1_SiegeSoundEtude</term><description>c99a1bae98fb35c46b4e335ae8cdbda0</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -1847,7 +1849,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_BeforeQuest</term><description>a271248ab27e0be49bbc08a423214a16</description></item>
-    /// <item><term>ExoticCapitalTraderInCapital</term><description>f5d08d5c41d6b584ca59081039a19f20</description></item>
+    /// <item><term>DLC6_TraderJeweler</term><description>6b53d3013d644a578afa956bd7ce7941</description></item>
     /// <item><term>WarCamp_DefaultPeaceful_Outdoor</term><description>27d07416c620e0e48865bd88d74cbb82</description></item>
     /// </list>
     /// </remarks>
@@ -1877,7 +1879,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_AfterQuest</term><description>d40a0634e36e06f4fa674d3cb273c60a</description></item>
-    /// <item><term>AeonQ7_AfterQuest_VileniaInTavern_Failed</term><description>0a4734c8d8214e99ac2ef69206b84939</description></item>
+    /// <item><term>AeonQ9_AfterQuest_LellanInPrison</term><description>409e0dc5a2c767e4286c921152f18b96</description></item>
     /// <item><term>MutasafenLab_BarksAfter</term><description>137bd44a0ba94b778bbd077c51301861</description></item>
     /// </list>
     /// </remarks>
@@ -1912,7 +1914,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>PetDragonAzata_ThresholdCamp</term><description>0269f7669ea74d18a0b16896385f8945</description></item>
+    /// <item><term>PetDragonAzata_Nexus</term><description>8ec49bab42a211e4f85f593718ecc536</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1955,8 +1957,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Coronation_LocustUltimate</term><description>026bc6aeff8f4b6180822db75115a66d</description></item>
-    /// <item><term>DLC5_TavernBasement_Weather</term><description>7d4c4737eb064eb29b219dd515f84ca3</description></item>
-    /// <item><term>Prologue_Kenabres_Weather</term><description>f7fa92f20aa04f1f8d3a33575bbf3c67</description></item>
+    /// <item><term>DLC5_TavernIndoor_Weather</term><description>e1ef2e05c0e84ab0b313dda9fa2d4712</description></item>
+    /// <item><term>TEST_ReflectionWeather_HeavyInstant</term><description>700db55747ec498cb8b8494c3d9933df</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeBracketOverrideWeatherInclemency(
@@ -1981,8 +1983,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DeskariHasArrived</term><description>9daf0401427a8e444941bdd1a8c6e301</description></item>
-    /// <item><term>Drezen_SecondState_locust_Audio_And_Weather</term><description>c18e781020de448488e0b2bbe5d6743b</description></item>
-    /// <item><term>SarkorianWedding_Ghost_Mechanics</term><description>ba17c86a4c334cefab1e0a4ea6cef63c</description></item>
+    /// <item><term>Ending_Legend_OtherPlane</term><description>8983b7ee630d407f94ce0688b30645c1</description></item>
+    /// <item><term>TEST_ReflectionWeather_Blood</term><description>2f823d30aadd44799a6d68ea60221c1e</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeBracketOverrideWeatherProfile(
@@ -2027,8 +2029,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>LichSkeletonInDrezen</term><description>9eed74c36e7b42878d87201aa58c79e7</description></item>
-    /// <item><term>PetDragonAzata_Nexus</term><description>8ec49bab42a211e4f85f593718ecc536</description></item>
+    /// <item><term>DLC6_AivuInKenabres</term><description>b92ed1f4f7f54c38a5523f619e0abd1e</description></item>
+    /// <item><term>Nexus02Camp_CapitalCompanionLogic</term><description>875e1da9c2dcabb45b301b8c15b40660</description></item>
     /// <item><term>PetDragonAzata_ThroneRoom</term><description>e4a1eb7ccc927bb41afbe8b20f00861f</description></item>
     /// </list>
     /// </remarks>
@@ -2164,6 +2166,33 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     }
 
     /// <summary>
+    /// Adds <see cref="EtudeBracketSkipTimeAction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>DLC6_DaeranUnusualDate</term><description>cbcb7376b21441c7a4d5dc7b740085a9</description></item>
+    /// <item><term>DLC6_FestiveKenabres_DefaultPeaceful</term><description>4def8ef7e75e483382365a8f144afc79</description></item>
+    /// <item><term>DLC6_KenabresRitualHouse</term><description>42783bfc91cc4424a9b103b455b531de</description></item>
+    /// </list>
+    /// </remarks>
+    public TBuilder AddEtudeBracketSkipTimeAction(
+        ActionsBuilder? actions = null,
+        bool? preventSkipTime = null)
+    {
+      var component = new EtudeBracketSkipTimeAction();
+      component.Actions = actions?.Build() ?? component.Actions;
+      if (component.Actions is null)
+      {
+        component.Actions = Utils.Constants.Empty.Actions;
+      }
+      component.PreventSkipTime = preventSkipTime ?? component.PreventSkipTime;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="EtudeBracketSummonpoolOverrideDialog"/>
     /// </summary>
     ///
@@ -2295,7 +2324,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
+    /// <item><term>DLC6_WenduagLabyrinth</term><description>d6534b86b1d34038aaa9be12f8540580</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -2313,7 +2342,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>DrezenCapital_DefaultMechanic</term><description>30862a76dd4a11049be42d3de26159fb</description></item>
+    /// <item><term>DLC6_WenduagLabyrinth</term><description>d6534b86b1d34038aaa9be12f8540580</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
@@ -2331,7 +2360,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_KenabresInThePast_Peaceful_Audio</term><description>958e97c093f2405caf2ee25ee23974bb</description></item>
-    /// <item><term>Prologue_Kenabres_Peaceful_Audio</term><description>4b0f1642257755343b193bfc99c78bdc</description></item>
+    /// <item><term>DLC6_WenduagLabyrinth</term><description>d6534b86b1d34038aaa9be12f8540580</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>
@@ -2349,7 +2378,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>GoddessesSummit_HideAllPets</term><description>5fc90ace2efa4f11bfa3e059147b2221</description></item>
+    /// <item><term>DLC6_UlbrigToGarden</term><description>5fa2a8fc5e4d4cb3b56850674a91330f</description></item>
     /// <item><term>Woljif_AbandonedMansion_CutScenePat</term><description>1bbf7d9eff0f47ea9bc50f2d88ae39fc</description></item>
     /// </list>
     /// </remarks>
@@ -2368,12 +2397,14 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     public TBuilder AddHideAllPets(
         bool? hideOnRemoteAndEx = null,
         bool? leaveAzataDragon = null,
+        bool? leavePetOfMainCharacter = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideAllPets();
       component.HideOnRemoteAndEx = hideOnRemoteAndEx ?? component.HideOnRemoteAndEx;
       component.LeaveAzataDragon = leaveAzataDragon ?? component.LeaveAzataDragon;
+      component.LeavePetOfMainCharacter = leavePetOfMainCharacter ?? component.LeavePetOfMainCharacter;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -2417,7 +2448,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AllowCombat</term><description>0704c7b789ce4ddaa2fd29d43abc92d3</description></item>
-    /// <item><term>GalfreyInDH</term><description>bcba97110780285489da48e728acd806</description></item>
+    /// <item><term>Dream_InFire</term><description>b97643e712f2fbb40959de464a357ac6</description></item>
     /// <item><term>WarCamp_EarlyBeginning</term><description>4be1dcbb5f0a05f43b8915e14251b76c</description></item>
     /// </list>
     /// </remarks>

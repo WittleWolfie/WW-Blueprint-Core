@@ -359,7 +359,14 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MadnessDomainProgressionSecondary = "ae9c936c86d248848b2fb90b32b3b41d";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MadnessDomainProgressionSeparatist = "f1c18d677cdb4926815b4f1e5a08b503";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicalBeastProgression = "72e2c425695e97d4e8c12ee185ed7fff";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfFakeCelebrityProgression = "fc120e8f61a84694adfd5ff5298be820";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfLivingGodProgression = "464ffaf88140474a949618bec7955e78";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfMagicalInventorProgression = "a0c82ce4664a4adf82b676b1603bcf35";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfRazmiriInfiltratorProgression = "cd96109ca30b45dcb6d7390945c8487d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfSharlatanProgression = "3a30422ecd00418d857e0fcf30bf504f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDeceiverWayOfTimeManipulatorProgression = "4796db76ba4b4baeb010c52c26ed3be5";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDomainProgression = "8f90e7129b0f3b742921c2c9c9bd64fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDomainProgressionFake = "a490170187d446d4839038ef774ddc49";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDomainProgressionSecondary = "9c5053b1ad83a9742839b3ab824abbd2";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagicDomainProgressionSeparatist = "7a8a6023c27d45fc97c237f9c311fa31";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MagmaBlastProgression = "cb19d1cbf6daf7a46bf38c05af1c2fb0";
@@ -377,6 +384,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MonsterMythicQualityNeutralProgresion = "aac7d71c0f96d2947ae668daec79aa0d";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MonstrousHumanoidProgression = "74b05814c8dc58946b343be646b190b7";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MudBlastProgression = "648d3c01bcab7614595facd302e88184";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MurderSubdomainProgression = "3b75b9afcb5a485aab990f12c1a22e64";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MurderSubdomainProgressionDruid = "f6c6c595314f40fdb64cf45516dcf7fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MurderSubdomainProgressionSecondary = "61955d5db8a74ca2a8089ae333d33190";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MurderSubdomainProgressionSeparatist = "c7aaf0477ed1424d8fd9cd5f20179ae4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeAngelfireApostleProgression = "531a91faf90da634eaf2a08a90d28494";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeClericProgression = "8bac42667e6f67047acbcbd668cf2029";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> MysticTheurgeCrusaderProgression = "a238c4d2f1b56724d862d72c07d6bf8c";
@@ -404,6 +415,28 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OracleRevelationBondedMountProgression = "7d1c29c3101dd7643a625448fbbaa919";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OracleRevelationFormOfFlame = "9c8997f740d5a634fb19ac32e0517180";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OracleRevelationWeaponMastery = "0a4c3556355747241b2d3dcc0a88ec10";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyAberrationsProgression = "0e2e022299a54b1bbc8ee317ccce8970";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyAnimalsProgression = "6677739552b74348a40f256bc638f6f4";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyConstructsProgression = "c9c2076a64114e28b6c5837c588b055c";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyDemonOfMagicProgression = "befc145854e64865b227a06c4813cb36";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyDemonOfSlaughterProgression = "44d3e5e31aaf44a0bf8390785612d90b";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyDemonOfStrengthProgression = "809aca4962b4494db4f1649128d1b605";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyDragonsProgression = "b3376fcfe9f441298fc01c78744dab72";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyDwarfsProgression = "78cc386ccf474ca0b75299a79e51561f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyElfsProgression = "a161d8b644834a3ea053fc1ae140026d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyFeyProgression = "bad00bacd4f546b78d448ae9214159ed";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyGiantsProgression = "dc74387d14de4e5392c9d52738500db9";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyGnomeProgression = "c11df41e32264752b083c749e9c4983d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyGoblinsProgression = "ae403d6aaf2d44f9be6de660ed024bcc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyHalflingProgression = "065bd5eaa2684df8a3e7ca39c4061d72";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyHumanProgression = "7e011821b3e642ec8c9dfbfbf7d0f938";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyMagicalBeastsProgression = "2259eb6d3f9e4a189ca357b7882e34b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyMonstrousHumanoidProgression = "dfa3a87c01114c4685aea70b914978ab";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyOutsiderProgression = "871df9af90064d34bb258779898306b0";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyPlantProgression = "9e9bda1c015e4c9ea4439375c264326a";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyReptilianProgression = "9aa5374e5d6c47eca4e8ce736a4ee60c";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyUndeadProgression = "3fff9c64c8474e3996a878809ef357dd";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OrderOfTheNailFavoriteEnemyVerminProgression = "3ee5df39ada24a0ca22c99d2b12c2505";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> OutsiderProgression = "d63657c4ae347ac4fb87f123b98f78d4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PaladinDivineMountProgression = "b82ac7a5661a3044596398a203188c22";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PaladinProgression = "fd325cbba872e5f40b618970678db002";
@@ -436,6 +469,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ProtectionDomainProgression = "b750650400d9d554b880dbf4c8347b24";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ProtectionDomainProgressionSecondary = "6be37e1316160d949aa2e5a0be99404a";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ProtectionDomainProgressionSeparatist = "8946570bc2c34584ac7e7560e21c245a";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> PrototypeProgression = "e0fd4d648118471ab919114905877017";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RacerProgression = "c4c7d8360043ad34dbc565824d954fc2";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RangerAnimalCompanionProgression = "152450aedc0788e41b4f9e745c091437";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RangerProgression = "97261d609529d834eba4fd4da1bc44dc";
@@ -446,6 +480,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RuneDomainProgression = "6d4dac497c182754d8b1f49071cca3fd";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RuneDomainProgressionSecondary = "8d176f8fe5616a64ca37835be7c2ccfe";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> RuneDomainProgressionSeparatist = "b98292eec7a746a789b54084a2064572";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SableMarineAnimalCompanionProgression = "5ae998815e434033ac7260c812ed657f";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SacredHuntsmasterAnimalCompanionProgression = "924fb4b659dcb4f4f906404ba694b690";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SageBloodlineProgression = "7d990675841a7354c957689a6707c6c2";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SandstormBlastProgression = "f05a7bde1b2bf9e4e927b3b1aeca8bfb";
@@ -584,6 +619,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WinterWitchProgression = "2703dc14f69421a44866e9046a95f348";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WinterWitchShamanHexProgression = "028cad27dabad7643844a6057bce1480";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WinterWitchShamanProgression = "0bb1ebe4749807244ab344e1ed25986f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WinterWitchWinterChildProgression = "b43cc3384c834e408eafd02a2c1a859b";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WinterWitchWitchHexProgression = "095f3616fa267d94b825a0444afadb35";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WitchAgilityPatronProgression = "08518b2a62446c74b9ae08ee73664047";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> WitchAncestorsPatronProgression = "b9c4e782706099f42a2ebc901acf492d";
@@ -954,7 +990,14 @@ namespace BlueprintCore.Blueprints.References
           MadnessDomainProgressionSecondary,
           MadnessDomainProgressionSeparatist,
           MagicalBeastProgression,
+          MagicDeceiverWayOfFakeCelebrityProgression,
+          MagicDeceiverWayOfLivingGodProgression,
+          MagicDeceiverWayOfMagicalInventorProgression,
+          MagicDeceiverWayOfRazmiriInfiltratorProgression,
+          MagicDeceiverWayOfSharlatanProgression,
+          MagicDeceiverWayOfTimeManipulatorProgression,
           MagicDomainProgression,
+          MagicDomainProgressionFake,
           MagicDomainProgressionSecondary,
           MagicDomainProgressionSeparatist,
           MagmaBlastProgression,
@@ -972,6 +1015,10 @@ namespace BlueprintCore.Blueprints.References
           MonsterMythicQualityNeutralProgresion,
           MonstrousHumanoidProgression,
           MudBlastProgression,
+          MurderSubdomainProgression,
+          MurderSubdomainProgressionDruid,
+          MurderSubdomainProgressionSecondary,
+          MurderSubdomainProgressionSeparatist,
           MysticTheurgeAngelfireApostleProgression,
           MysticTheurgeClericProgression,
           MysticTheurgeCrusaderProgression,
@@ -999,6 +1046,28 @@ namespace BlueprintCore.Blueprints.References
           OracleRevelationBondedMountProgression,
           OracleRevelationFormOfFlame,
           OracleRevelationWeaponMastery,
+          OrderOfTheNailFavoriteEnemyAberrationsProgression,
+          OrderOfTheNailFavoriteEnemyAnimalsProgression,
+          OrderOfTheNailFavoriteEnemyConstructsProgression,
+          OrderOfTheNailFavoriteEnemyDemonOfMagicProgression,
+          OrderOfTheNailFavoriteEnemyDemonOfSlaughterProgression,
+          OrderOfTheNailFavoriteEnemyDemonOfStrengthProgression,
+          OrderOfTheNailFavoriteEnemyDragonsProgression,
+          OrderOfTheNailFavoriteEnemyDwarfsProgression,
+          OrderOfTheNailFavoriteEnemyElfsProgression,
+          OrderOfTheNailFavoriteEnemyFeyProgression,
+          OrderOfTheNailFavoriteEnemyGiantsProgression,
+          OrderOfTheNailFavoriteEnemyGnomeProgression,
+          OrderOfTheNailFavoriteEnemyGoblinsProgression,
+          OrderOfTheNailFavoriteEnemyHalflingProgression,
+          OrderOfTheNailFavoriteEnemyHumanProgression,
+          OrderOfTheNailFavoriteEnemyMagicalBeastsProgression,
+          OrderOfTheNailFavoriteEnemyMonstrousHumanoidProgression,
+          OrderOfTheNailFavoriteEnemyOutsiderProgression,
+          OrderOfTheNailFavoriteEnemyPlantProgression,
+          OrderOfTheNailFavoriteEnemyReptilianProgression,
+          OrderOfTheNailFavoriteEnemyUndeadProgression,
+          OrderOfTheNailFavoriteEnemyVerminProgression,
           OutsiderProgression,
           PaladinDivineMountProgression,
           PaladinProgression,
@@ -1031,6 +1100,7 @@ namespace BlueprintCore.Blueprints.References
           ProtectionDomainProgression,
           ProtectionDomainProgressionSecondary,
           ProtectionDomainProgressionSeparatist,
+          PrototypeProgression,
           RacerProgression,
           RangerAnimalCompanionProgression,
           RangerProgression,
@@ -1041,6 +1111,7 @@ namespace BlueprintCore.Blueprints.References
           RuneDomainProgression,
           RuneDomainProgressionSecondary,
           RuneDomainProgressionSeparatist,
+          SableMarineAnimalCompanionProgression,
           SacredHuntsmasterAnimalCompanionProgression,
           SageBloodlineProgression,
           SandstormBlastProgression,
@@ -1179,6 +1250,7 @@ namespace BlueprintCore.Blueprints.References
           WinterWitchProgression,
           WinterWitchShamanHexProgression,
           WinterWitchShamanProgression,
+          WinterWitchWinterChildProgression,
           WinterWitchWitchHexProgression,
           WitchAgilityPatronProgression,
           WitchAncestorsPatronProgression,

@@ -6,12 +6,15 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.AreaLogic.Etudes;
+using Kingmaker.Armies;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Prerequisites;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Blueprints.Root.Strings.GameLog;
 using Kingmaker.Controllers.Rest;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.EventConditionActionSystem.Events;
@@ -22,6 +25,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Items;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Buffs;
@@ -30,6 +34,8 @@ using Kingmaker.PubSubSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components.TargetCheckers;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Components;
@@ -76,7 +82,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarMaleBloodrager</term><description>7ba4a4bdb55b46779ebca045d7955e82</description></item>
-    /// <item><term>DruchiteKukriPlus2</term><description>c5a66dc7c0bc46f8bb4019c5481c0612</description></item>
+    /// <item><term>DruchiteTongiPlus3</term><description>bd75f3ca977a4ca1af3a176025e22aba</description></item>
     /// <item><term>WinterGrasp</term><description>406c6e4a631b43ce8f7a77844b75bf75</description></item>
     /// </list>
     /// </remarks>
@@ -196,7 +202,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ImprovedCritical</term><description>f4201c85a991369408740c6888362e20</description></item>
+    /// <item><term>FinesseTrainingBite</term><description>bcebc021271be1e45b012729f22dadcc</description></item>
+    /// <item><term>FinesseTrainingTail</term><description>ba5616910c9b4545bf9846b7dea024f3</description></item>
     /// <item><term>WeaponFocus</term><description>1e1f627d26ad36f43bbd26cc2bf8ac7e</description></item>
     /// </list>
     /// </remarks>
@@ -286,6 +293,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC5_RitualControllerBuff</term><description>928e019d414e47fa81e28769322628dd</description></item>
+    /// <item><term>TimerReturnMephisto</term><description>9e624e985b1641608eb37c34e901268b</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddTimerContextActions(
@@ -304,6 +312,35 @@ namespace BlueprintCore.Blueprints.Configurators
       component.m_LastGameTime = lastGameTime ?? component.m_LastGameTime;
       component.RunAsContextAction = runAsContextAction ?? component.RunAsContextAction;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CustomImmuneMessageComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>NegativeLevelsBuff</term><description>b02b6b9221241394db720ca004ea9194</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddCustomImmuneMessageComponent(
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        GameLogMessage? message = null)
+    {
+      var component = new CustomImmuneMessageComponent();
+      Validate(message);
+      component.Message = message ?? component.Message;
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -327,6 +364,7 @@ namespace BlueprintCore.Blueprints.Configurators
         bool? onlyHit = null,
         bool? onlyMiss = null,
         bool? onlyNatural20 = null,
+        bool? onlySpells = null,
         bool? onOwner = null,
         bool? sneakAttack = null,
         WeaponCategory? weaponCategory = null)
@@ -343,6 +381,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.OnlyHit = onlyHit ?? component.OnlyHit;
       component.OnlyMiss = onlyMiss ?? component.OnlyMiss;
       component.OnlyNatural20 = onlyNatural20 ?? component.OnlyNatural20;
+      component.OnlySpells = onlySpells ?? component.OnlySpells;
       component.OnOwner = onOwner ?? component.OnOwner;
       component.SneakAttack = sneakAttack ?? component.SneakAttack;
       component.WeaponCategory = weaponCategory ?? component.WeaponCategory;
@@ -358,11 +397,23 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>GreatclubOfSacredCindersEnchantment</term><description>e6716f81a0e3495a9442237b3ce9f380</description></item>
+    /// <item><term>GreataxeOfFireSquallEnchantment</term><description>1abdea88a0f5b6b47903d4ffc3225185</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningFeature</term><description>0faee0a55f634902895b4e1faf828502</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="weaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     /// <param name="weaponType">
     /// <para>
     /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
@@ -382,6 +433,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponCategory? category = null,
         bool? checkDistance = null,
         bool? checkPhysicalDamageForm = null,
+        bool? checkWeaponBlueprint = null,
         bool? checkWeaponCategory = null,
         bool? checkWeaponGroup = null,
         bool? checkWeaponRangeType = null,
@@ -407,6 +459,7 @@ namespace BlueprintCore.Blueprints.Configurators
         WeaponRangeType? rangeType = null,
         bool? reduceHPToZero = null,
         bool? triggerBeforeAttack = null,
+        Blueprint<BlueprintItemWeaponReference>? weaponBlueprint = null,
         Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new AddInitiatorAttackWithWeaponTrigger();
@@ -420,6 +473,7 @@ namespace BlueprintCore.Blueprints.Configurators
       component.Category = category ?? component.Category;
       component.CheckDistance = checkDistance ?? component.CheckDistance;
       component.CheckPhysicalDamageForm = checkPhysicalDamageForm ?? component.CheckPhysicalDamageForm;
+      component.CheckWeaponBlueprint = checkWeaponBlueprint ?? component.CheckWeaponBlueprint;
       component.CheckWeaponCategory = checkWeaponCategory ?? component.CheckWeaponCategory;
       component.CheckWeaponGroup = checkWeaponGroup ?? component.CheckWeaponGroup;
       component.CheckWeaponRangeType = checkWeaponRangeType ?? component.CheckWeaponRangeType;
@@ -445,6 +499,11 @@ namespace BlueprintCore.Blueprints.Configurators
       component.RangeType = rangeType ?? component.RangeType;
       component.ReduceHPToZero = reduceHPToZero ?? component.ReduceHPToZero;
       component.TriggerBeforeAttack = triggerBeforeAttack ?? component.TriggerBeforeAttack;
+      component.m_WeaponBlueprint = weaponBlueprint?.Reference ?? component.m_WeaponBlueprint;
+      if (component.m_WeaponBlueprint is null)
+      {
+        component.m_WeaponBlueprint = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
+      }
       component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
       if (component.m_WeaponType is null)
       {
@@ -462,7 +521,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdaptiveTactics</term><description>e01152417a8ac2248b4f69711b819441</description></item>
-    /// <item><term>HugeFireElementalBurnFeature</term><description>616573fa84577274fa2a4f670a5448db</description></item>
+    /// <item><term>HermitKnightBracersFeature</term><description>489fd6aff7ad28d4699718392397fb2e</description></item>
     /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
@@ -529,7 +588,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinMarkOfDeathBuff</term><description>9955b71ef19e44b09e2e596db4e2daef</description></item>
-    /// <item><term>StrandOfTheTangledKnotBuff</term><description>4604d951e941479caa31474562903c51</description></item>
+    /// <item><term>MasterOfArenaPolymorphBuff</term><description>e9136d4606c841eba131db95ee962ba9</description></item>
     /// <item><term>WitchHexProtectiveLuckBuff</term><description>1ba3d3a0942d080448ce6aa865bbbd65</description></item>
     /// </list>
     /// </remarks>
@@ -577,7 +636,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidMawBuff</term><description>f1a6799b05a40144d9acdbdca1d7c228</description></item>
-    /// <item><term>FlailOfLightburstEnchantmentNew</term><description>56b6450b77c34525a41746a2508f5f61</description></item>
+    /// <item><term>GreataxeOfFireSquallDamageBuff</term><description>79acc67e537d4ec0963801fe92cd1a6f</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
@@ -739,7 +798,8 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>GendarmeTransfixingChargeBuffDamage</term><description>808e04492a144a39aa66c98991878036</description></item>
+    /// <item><term>AlchemistBombsFeature</term><description>c59b2f256f5a70a4d896568658315b7d</description></item>
+    /// <item><term>ElementalPunisherLongbowEnchantment</term><description>0bf0156eb3687254b9fb0f6b4067da20</description></item>
     /// <item><term>RingOfPyromaniaFeature</term><description>3789253d5e8af5c42a22cd97ef4d9e65</description></item>
     /// </list>
     /// </remarks>
@@ -873,24 +933,34 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <listheader>Used by</listheader>
     /// <item><term>DragonFerocityBuff</term><description>8709a00782de26d4a8524732879000fa</description></item>
     /// <item><term>TreantCreatureSturdy</term><description>845339bae62597d47990469030bcf32a</description></item>
-    /// <item><term>TwoHandedFighterOverhandChop</term><description>ad4d4db6bb9c75a4a9bc59174b948769</description></item>
+    /// <item><term>UnstoppableStrikeFeature</term><description>7d60d8bb86a14e3188d208652d4a5581</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="gripStyle">
+    /// <para>
+    /// InfoBox: Никогда не выбирайте Auto опцию, она для внутреннего использования.
+    /// </para>
+    /// </param>
     public TBuilder AdditionalStatBonusOnAttackDamage(
         float? bonus = null,
         WeaponCategory? category = null,
         bool? checkCategory = null,
+        bool? checkGripStyle = null,
         bool? checkTwoHanded = null,
         ConditionEnum? firstAttack = null,
-        ConditionEnum? fullAttack = null)
+        ConditionEnum? fullAttack = null,
+        GripType? gripStyle = null)
     {
       var component = new AdditionalStatBonusOnAttackDamage();
       component.Bonus = bonus ?? component.Bonus;
       component.Category = category ?? component.Category;
       component.CheckCategory = checkCategory ?? component.CheckCategory;
+      component.m_checkGripStyle = checkGripStyle ?? component.m_checkGripStyle;
       component.CheckTwoHanded = checkTwoHanded ?? component.CheckTwoHanded;
       component.FirstAttack = firstAttack ?? component.FirstAttack;
       component.FullAttack = fullAttack ?? component.FullAttack;
+      component.m_gripStyle = gripStyle ?? component.m_gripStyle;
       return AddComponent(component);
     }
 
@@ -1425,7 +1495,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
-    /// <item><term>SecondaryElementFire</term><description>caa7edca64af1914d9e14785beb6a143</description></item>
+    /// <item><term>MidnightFaneStory</term><description>711ca7b7c2332d94bba0e878ce799fc8</description></item>
     /// <item><term>WarCamp_DefaultPeaceful_Lann</term><description>c82f78f0f7fee3c40a7d1164d202bebd</description></item>
     /// </list>
     /// </remarks>
@@ -1460,8 +1530,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
-    /// <item><term>DLC2_Sv_Healer_DeadBody</term><description>36dac84675c846bbb6bfe11343a84eba</description></item>
-    /// <item><term>UlbrigRomance_GardenGods_Chapter03</term><description>9b3a54e4a1e445808fe6e8f9487a18cc</description></item>
+    /// <item><term>DLC5_TavernAmbienceStates</term><description>b33a9ed5bd144b26af36302cc8a54184</description></item>
+    /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddAreaDidLoadTrigger(
@@ -1495,7 +1565,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_FindLab_Alternate_Notification</term><description>fb8ddf3aaf3305548a36acea1ef02ceb</description></item>
+    /// <item><term>KTC_AbrogailVisit_Notification</term><description>b9fcf9fcd1ac9ca4c95778a2d246c582</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -1564,7 +1634,7 @@ namespace BlueprintCore.Blueprints.Configurators
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ActivatingSwordOfValor</term><description>071f4953d481d5242b250b1aa7482dce</description></item>
+    /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
     /// <item><term>Fleshmarket_Dyunk</term><description>decab5093aaa4e78a36345545b3e094d</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
@@ -1599,7 +1669,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_CH1_AlchemistLair</term><description>546bf66870894657beb8e058b2702dfb</description></item>
-    /// <item><term>DLC5_SithhudBattleAtTheAltar</term><description>63835e0ca7b14bd781e86c65359bd16f</description></item>
+    /// <item><term>DLC6_CamelliaInKenabres</term><description>f25c603080364a85857f0607d45396a0</description></item>
     /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
     /// </list>
     /// </remarks>
@@ -1869,7 +1939,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>FoolKing</term><description>9f6faafaaea0e354eb1e0f0acc1dd700</description></item>
+    /// <item><term>FightWithSilkShadow</term><description>4528b09e870e2a842819270c5326126c</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1919,7 +1989,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlushinyrraLowerCity_DefaultEtude</term><description>deecc937a263ca24c9f1a64a4874451a</description></item>
-    /// <item><term>DLC5_PrisonActivities</term><description>7f0926a7a2a74360b027211015036ce5</description></item>
+    /// <item><term>DLC6_RobberyEvent2ndStage</term><description>d28f1276a9b34a6589c8ef25e798027b</description></item>
     /// <item><term>TempleOfDelamereBefore</term><description>4af827231749d094fb76d4a1419ef06e</description></item>
     /// </list>
     /// </remarks>
@@ -2143,7 +2213,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DrezenCitadel_Level2_MainEtude</term><description>bd1644e2ffad4e344a1ea59f4d309baf</description></item>
+    /// <item><term>DLC6_FinalFight</term><description>986c6ae5c6c246ba9c3f0508e0e563ff</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

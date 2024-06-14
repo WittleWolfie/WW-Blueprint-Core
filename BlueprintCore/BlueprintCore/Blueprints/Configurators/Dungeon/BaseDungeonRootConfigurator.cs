@@ -1,15 +1,19 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers.EventConditionActionSystem.Evaluators;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Dungeon.Enums;
 using Kingmaker.ElementsSystem;
 using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.View.Roaming;
 using System;

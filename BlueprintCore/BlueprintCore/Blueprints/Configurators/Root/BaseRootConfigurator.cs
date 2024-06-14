@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
@@ -8,11 +9,19 @@ using Kingmaker.AI.Blueprints;
 using Kingmaker.Armies.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Root;
+using Kingmaker.Blueprints.Root.Fx;
+using Kingmaker.Console.PS5.PSNObjects;
 using Kingmaker.Corruption;
 using Kingmaker.Craft;
+using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Interaction;
+using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.RazerChroma;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Settings;
@@ -20,10 +29,13 @@ using Kingmaker.Settings.Difficulty;
 using Kingmaker.Tutorial;
 using Kingmaker.UI.PhotoMode;
 using Kingmaker.UI.SettingsUI;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.Utility;
 using Kingmaker.Visual.Animation;
+using Kingmaker.Visual.HitSystem;
 using Kingmaker.Visual.Sound;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -134,6 +146,8 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_SpellSchoolRoot = copyFrom.m_SpellSchoolRoot;
           bp.m_SettingsWindowConfig = copyFrom.m_SettingsWindowConfig;
           bp.m_GameUIConfig = copyFrom.m_GameUIConfig;
+          bp.m_OverrideLegacyUnits = copyFrom.m_OverrideLegacyUnits;
+          bp.m_PSNObjects = copyFrom.m_PSNObjects;
         });
     }
 
@@ -231,6 +245,8 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           bp.m_SpellSchoolRoot = copyFrom.m_SpellSchoolRoot;
           bp.m_SettingsWindowConfig = copyFrom.m_SettingsWindowConfig;
           bp.m_GameUIConfig = copyFrom.m_GameUIConfig;
+          bp.m_OverrideLegacyUnits = copyFrom.m_OverrideLegacyUnits;
+          bp.m_PSNObjects = copyFrom.m_PSNObjects;
         });
     }
 
@@ -2929,6 +2945,82 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_OverrideLegacyUnits"/>
+    /// </summary>
+    ///
+    /// <param name="overrideLegacyUnits">
+    /// <para>
+    /// Blueprint of type OverrideLegacyUnits. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetOverrideLegacyUnits(Blueprint<OverrideLegacyUnits.Reference> overrideLegacyUnits)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_OverrideLegacyUnits = overrideLegacyUnits?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_OverrideLegacyUnits"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOverrideLegacyUnits(Action<OverrideLegacyUnits.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_OverrideLegacyUnits is null) { return; }
+          action.Invoke(bp.m_OverrideLegacyUnits);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintRoot.m_PSNObjects"/>
+    /// </summary>
+    ///
+    /// <param name="pSNObjects">
+    /// <para>
+    /// Blueprint of type BlueprintPSNObjectsRoot. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder SetPSNObjects(Blueprint<BlueprintPSNObjectsRoot.Reference> pSNObjects)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_PSNObjects = pSNObjects?.Reference;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintRoot.m_PSNObjects"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPSNObjects(Action<BlueprintPSNObjectsRoot.Reference> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.m_PSNObjects is null) { return; }
+          action.Invoke(bp.m_PSNObjects);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -3088,6 +3180,14 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.m_GameUIConfig is null)
       {
         Blueprint.m_GameUIConfig = BlueprintTool.GetRef<GameUIConfig.Reference>(null);
+      }
+      if (Blueprint.m_OverrideLegacyUnits is null)
+      {
+        Blueprint.m_OverrideLegacyUnits = BlueprintTool.GetRef<OverrideLegacyUnits.Reference>(null);
+      }
+      if (Blueprint.m_PSNObjects is null)
+      {
+        Blueprint.m_PSNObjects = BlueprintTool.GetRef<BlueprintPSNObjectsRoot.Reference>(null);
       }
     }
   }

@@ -69,6 +69,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> OutsiderClass = "92ab5f2fe00631b44810deffcc1a97fd";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> PaladinClass = "bfa11238e7ae3544bbeb4d0b92e897ec";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> PlantClass = "9393cc36ea29d084bab7433e3a28d40b";
+    public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> PrototypeClass = "fb7a0be8af1d405e8387648ad8513c9c";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> RangerClass = "cda0615668a6df14eb36ba19ee881af6";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> RogueClass = "299aa766dee3cbf4790da4efb8c72484";
     public static readonly Blueprint<BlueprintReference<BlueprintCharacterClass>> ShamanClass = "145f1d3d360a7ad48bd95d392c81b38e";
@@ -146,6 +147,7 @@ namespace BlueprintCore.Blueprints.References
           OutsiderClass,
           PaladinClass,
           PlantClass,
+          PrototypeClass,
           RangerClass,
           RogueClass,
           ShamanClass,

@@ -26,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClaspOfDeathRobeItem = "d8c0d242f1844c4fa1e40e91eae3f198";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfBlazingFighterItem = "fa9c152b414fa8c418c9064043fdfa34";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> ClothOfHeavyFortificationItem = "6c29087271234af1819123d31bf9f3c8";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> CorsetOfDireWitchcraft = "ded0ec6431f54b85be50a464006ac815";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DarkAcolytesRobeItemCorrect = "2394c36e06b84f008f49754c7ed0317e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DarkMastersRobeItemShirt = "62d2df6b7f534378b3492a4d2f78889d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> DemonicAltarAgilityClothItem = "8ac08cece7840174a80407516fdff043";
@@ -50,9 +51,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfEarth_CorrectItem = "9bb667825cf2469a830eeb0e129e1877";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfFalseDeathCorrectItem = "4f56360fd24e44049d8899fe17f132d2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfFire_CorrectItem = "2055779fa05642a7a069b2d958e3be97";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMagma = "7dca2a51b1e143cd9ab0b05aedd26ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMaliceItem = "2e78284d218c51643bc3e1f0a530a5fc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfMephistophelesItem = "204b71bd46194f9ab523dcd728f2f370";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfOrderItem = "32f8cc0a9152d224f933a5c0879ec368";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfRunes = "24542aceda6747ad80ed9566ff715ffa";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfTheOvermind = "03def2744aa54aebb034bc164d5b8a1d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfTheWiseItemCorrect = "009c8ed2e4fe4b62b1df9b577b5d4e29";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfTrampleItem = "f3989bdf3f1e92248950ed7b0922dd8e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> RobeOfVirtueItem = "17c5e2686dbb5a843b5ba859f22aeea1";
@@ -62,6 +66,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> Set2_Robe = "0361af3514c14b18868b01139f011af7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> SilkyVeilItem = "32fd0a44742ca084aad9d599794f1355";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> SilverRobeItem = "a9f65e1bb03ba7542880f2280bf39e1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> SorceriousGown = "77c2024fba05473bb0bbcd63dd0de99f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> TrueSerenityItem = "2625cd306722421d860b958845774cbc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> TunicOfArdentWarpriestItem = "10b4e06e151d35d4783ee9dada7c6df4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShirt>> WanderingConmanItem = "fdc89dbe3502c7843ac5685099aac211";
@@ -80,6 +85,7 @@ namespace BlueprintCore.Blueprints.References
           ClaspOfDeathRobeItem,
           ClothOfBlazingFighterItem,
           ClothOfHeavyFortificationItem,
+          CorsetOfDireWitchcraft,
           DarkAcolytesRobeItemCorrect,
           DarkMastersRobeItemShirt,
           DemonicAltarAgilityClothItem,
@@ -104,9 +110,12 @@ namespace BlueprintCore.Blueprints.References
           RobeOfEarth_CorrectItem,
           RobeOfFalseDeathCorrectItem,
           RobeOfFire_CorrectItem,
+          RobeOfMagma,
           RobeOfMaliceItem,
           RobeOfMephistophelesItem,
           RobeOfOrderItem,
+          RobeOfRunes,
+          RobeOfTheOvermind,
           RobeOfTheWiseItemCorrect,
           RobeOfTrampleItem,
           RobeOfVirtueItem,
@@ -116,6 +125,7 @@ namespace BlueprintCore.Blueprints.References
           Set2_Robe,
           SilkyVeilItem,
           SilverRobeItem,
+          SorceriousGown,
           TrueSerenityItem,
           TunicOfArdentWarpriestItem,
           WanderingConmanItem,

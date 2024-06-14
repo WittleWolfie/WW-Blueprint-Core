@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
@@ -164,6 +165,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodlineUndeadGraspOfTheDeadResource = "036289444750509408fc27ff21b62772";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodlineUndeadGraveTouchResource = "1d202784027a1df4c9d232a3e0d446c6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodlineUndeadIncorporealFormResource = "7640face1bb861e458efe067048288e8";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodPoolResource = "d776a80421be411e8d3b62fc956b80d2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodragerArcaneGreaterSpellResource = "bcb2a93bd0d826b49a7482f2e7684a8f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodragerArcaneSpellResource = "7eb57afd44202604085702fd1e0df291";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> BloodragerArcaneTrueSpellResource = "3b1d8ed77d4d638478e515c07f0ade41";
@@ -220,6 +222,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CharmDomainGreaterResource = "d49f0e3460fd52d4e9660a8ce52142a0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CharmDomainGreaterResourceSeparatist = "b0eb3c16f91e4f9fad8a266779f314cd";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CharonsTouchFalseLifeResource = "2542e3c2ab4044044b2dd22db3e67c66";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ChronomancyResource = "2a8710cf3b6340a3a242825f9c3cb0e4";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ChronoTriggerResource = "e0fe78ee8ca04eba846e3e4c62fe493a";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CommunityDomainBaseResource = "7ffdbca082a175b498c25064a28262e2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CommunityDomainBaseResourceSeparatist = "0d72ed218a4a435a9cf5967ada308d7b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> CommunityDomainGreaterResource = "d10996c87b2aa3942bf65167436fa228";
@@ -255,6 +259,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DragonbloodShifterBreathResource = "72e7ec0822604f7da75c3dd32e93d5ea";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DragonbloodShifterResource = "80923bd575dc48f5813c2343517414cf";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DrovierAspectResource = "ef7fb483effafc145923ab907caf414b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DrunkenKiPowerResource = "fd01f3f969a04febab7877a17aebb812";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarEnlargePersonResource = "cf4613322038b7f468d12e7bef8c1c53";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> DuergarInvisibilityResource = "0d9b1e48bfa420f43b3298b66f144c7f";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> EarthDomainBaseResource = "40e2c67afaecf4d47a60c619e2228d5a";
@@ -281,6 +286,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> EvilSuccubusDominateResource = "ed6ae2de49924c6388bf90cdd2c02327";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ExtendedArcanaResource = "2bec0149af1e3fd46b2a27c3e2308898";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FaithHunterSwornEnemySmiteResource = "93a43a8b1a5332a4699c1fb8655680bf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FakeCelebrityResource = "63c6df02067d42dd94fe65a0fc4ec696";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FieldOfTreantsResource = "264d87113ec6a4c4cb7b346b04bd08ff";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FighterOverwhelmingShoutResource = "0d821c18cb944201b4862e0b0aed94cc";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> FireDomainBaseResource = "c65febce6d0dbde408de41d663a3bcb8";
@@ -347,6 +353,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> JudgementAuraResource = "9e67ee41c4ef4f1882cc00a1af7bdfd9";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> JudgeSentenceResource = "3dbf27fbf6f54fa5894c82f802809f21";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> JudgmentResource = "394088e9e54ccd64698c7bd87534027f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> KineticSharpshooterBurnResource = "c79b8a58222749db8a5ba608983f6246";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> KiPowerResource = "9d9c90a9a1f52d04799294bf91c80a82";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> KitsuneMagicTail1Resource = "bef38216043d3584cb838bf578aa0220";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> KitsuneMagicTail2Resource = "99028133744fa6a4e853489362a16cf9";
@@ -379,6 +386,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LiberationDomainGreaterResourceSeparatist = "c76e34eab2634405bda26a0f33862c93";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LichChannelNegativeResource = "e5ef1aae31818f041bccbc9fd37662bf";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LichSummonResource = "b01711c04b72d2e429d3888b3c5dd532";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LivingGrimoireSacredWordResource = "7306d5c84435403abc068ceb8f8e5c90";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LuckDomainBaseResource = "baadd20621e5251499b32786978fffb2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LuckDomainBaseResourceSeparatist = "70adb79468db4ea7a3cc8bd6b513674d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> LuckDomainGreaterResource = "b209ca75fbea5144c9d73ecb29055a08";
@@ -391,6 +399,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainBaseResourceSeparatist = "7d7774e1127f4f70840b7e3bc8d3fc51";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResource = "3aecc0c5d17390443b30774309145854";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResourceSeparatist = "61267901476b4973b5a160eefd2b713d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MantisZealotAspectOfTheMantisResource = "e357603c8917485db93d477e5cbb0415";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MantisZealotRedShroudResource = "3e37658132c2468d9c92b89932a3c873";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MartyrPerformanceResource = "875aac46f5e879f4c9ec3ba46847d86e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResource = "09156c2a513d27f4781505f486c4ac4e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MasterHunterResourceAberrations = "08a5bffbd8004621becf684df62293e9";
@@ -421,6 +431,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MixedBloodlineResource = "50a0d597e5c7493cb414cc023e8fb19b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MixedBloodlineResource2 = "a3d624a2f46d4342b81b853cb82e77a0";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MonsterTacticianSummonResource = "a516a9bbb398c85478b83550e1779c62";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MurderSubdomainGreaterResource = "4c4ae73944e04ccbb25cb08ea56dbbbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MurderSubdomainGreaterResourceSeparatist = "297a650ca61f45d5bebe437c3746a788";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MutagenResource = "3b163587f010382408142fc8a97852b6";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MythicPowersFromDLC1AbilityResource = "30f78d5b0b2a4272a02962369dab4edc";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MythicSummonResource = "367eb305fbe04290af9c0890072e7698";
@@ -552,6 +564,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanBoneSpiritBaseResource = "994e3febb0dc9a742bb840d9adde97ba";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanBoneSpiritGreaterResource = "6a5d889f1ec1d26448c7c75a619f8204";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanBoneSpiritTrueResource = "9414090b61cc1294db755200376ae91f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanBonesSpiritPowerWordKillResource = "aad9a3c0bc4a412eab3f919678eaade8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanFlameSpiritBaseResource = "f962b3502a5a83249a3bf5f8692717f8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanFLameSpiritGreaterResource = "ff07659a456ddab469d20011f7b46fb3";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanFLameSpiritTrueResource = "7b33dd30411f39c4ca604d70b5a610e5";
@@ -564,6 +577,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanLifeSpiritChannelEnergyResource = "027cb4deb3e668b46904dde64f5d06b1";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanLifeSpiritTrueResource = "b160c023044fda84bad25428e6569a60";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanNatureSpiritBaseResource = "6d983585afc9fec498902fd99a4031ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanNatureSpiritManifestationResource = "20598613d0104df4aec252603007be43";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanNatureSpiritWanderingTrueResource = "5d851efd86a54ac44a47869b8986e187";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanPlagueSpiritBaseResource = "974e3455bdbc435292e98f6f8e97eab4";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ShamanStonesSpiritBaseResource = "e80c3bc33de66bf48abbad61d84f5f92";
@@ -593,6 +607,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SmiteEvilResource = "b4274c5bb0bf2ad4190eb7c44859048b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SomeonesBonesResource = "9a172f952a7a4ea9a73e6419526fce92";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SoulsCloakVampiricTouchResource = "2a585f6dc27d80645af259cb386d5217";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SpellFoolResource = "c87ebc92464e4d7fbd48809b38617e54";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SpellMasterFocusedSpellsResource = "32947324b3054fdea55092735de9c82c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SPiritWardenChannelResource = "d4a66a2d91b7e5d469a73a4acef12de2";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SpontaneousHealingResource = "0b417a7292b2e924782ef2aab9451816";
@@ -679,6 +694,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> WitchHexLifeGiverResource = "6e649d13e6c78554bb35757e0744a713";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> WitchOfTheVeilShroudedStepResource = "e2a5bc6923df46eaa12c35ffb00519c8";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> WitchWanderingHexResource = "69a59a4670b17ef4dbccecd4cda6b898";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> WordOfGodResource = "40101512f93f4d6ebd26e7c8b07a8d90";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintAbilityResource>>> All =
       new()
@@ -833,6 +849,7 @@ namespace BlueprintCore.Blueprints.References
           BloodlineUndeadGraspOfTheDeadResource,
           BloodlineUndeadGraveTouchResource,
           BloodlineUndeadIncorporealFormResource,
+          BloodPoolResource,
           BloodragerArcaneGreaterSpellResource,
           BloodragerArcaneSpellResource,
           BloodragerArcaneTrueSpellResource,
@@ -889,6 +906,8 @@ namespace BlueprintCore.Blueprints.References
           CharmDomainGreaterResource,
           CharmDomainGreaterResourceSeparatist,
           CharonsTouchFalseLifeResource,
+          ChronomancyResource,
+          ChronoTriggerResource,
           CommunityDomainBaseResource,
           CommunityDomainBaseResourceSeparatist,
           CommunityDomainGreaterResource,
@@ -924,6 +943,7 @@ namespace BlueprintCore.Blueprints.References
           DragonbloodShifterBreathResource,
           DragonbloodShifterResource,
           DrovierAspectResource,
+          DrunkenKiPowerResource,
           DuergarEnlargePersonResource,
           DuergarInvisibilityResource,
           EarthDomainBaseResource,
@@ -950,6 +970,7 @@ namespace BlueprintCore.Blueprints.References
           EvilSuccubusDominateResource,
           ExtendedArcanaResource,
           FaithHunterSwornEnemySmiteResource,
+          FakeCelebrityResource,
           FieldOfTreantsResource,
           FighterOverwhelmingShoutResource,
           FireDomainBaseResource,
@@ -1016,6 +1037,7 @@ namespace BlueprintCore.Blueprints.References
           JudgementAuraResource,
           JudgeSentenceResource,
           JudgmentResource,
+          KineticSharpshooterBurnResource,
           KiPowerResource,
           KitsuneMagicTail1Resource,
           KitsuneMagicTail2Resource,
@@ -1048,6 +1070,7 @@ namespace BlueprintCore.Blueprints.References
           LiberationDomainGreaterResourceSeparatist,
           LichChannelNegativeResource,
           LichSummonResource,
+          LivingGrimoireSacredWordResource,
           LuckDomainBaseResource,
           LuckDomainBaseResourceSeparatist,
           LuckDomainGreaterResource,
@@ -1060,6 +1083,8 @@ namespace BlueprintCore.Blueprints.References
           MagicDomainBaseResourceSeparatist,
           MagicDomainGreaterResource,
           MagicDomainGreaterResourceSeparatist,
+          MantisZealotAspectOfTheMantisResource,
+          MantisZealotRedShroudResource,
           MartyrPerformanceResource,
           MasterHunterResource,
           MasterHunterResourceAberrations,
@@ -1090,6 +1115,8 @@ namespace BlueprintCore.Blueprints.References
           MixedBloodlineResource,
           MixedBloodlineResource2,
           MonsterTacticianSummonResource,
+          MurderSubdomainGreaterResource,
+          MurderSubdomainGreaterResourceSeparatist,
           MutagenResource,
           MythicPowersFromDLC1AbilityResource,
           MythicSummonResource,
@@ -1221,6 +1248,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanBoneSpiritBaseResource,
           ShamanBoneSpiritGreaterResource,
           ShamanBoneSpiritTrueResource,
+          ShamanBonesSpiritPowerWordKillResource,
           ShamanFlameSpiritBaseResource,
           ShamanFLameSpiritGreaterResource,
           ShamanFLameSpiritTrueResource,
@@ -1233,6 +1261,7 @@ namespace BlueprintCore.Blueprints.References
           ShamanLifeSpiritChannelEnergyResource,
           ShamanLifeSpiritTrueResource,
           ShamanNatureSpiritBaseResource,
+          ShamanNatureSpiritManifestationResource,
           ShamanNatureSpiritWanderingTrueResource,
           ShamanPlagueSpiritBaseResource,
           ShamanStonesSpiritBaseResource,
@@ -1262,6 +1291,7 @@ namespace BlueprintCore.Blueprints.References
           SmiteEvilResource,
           SomeonesBonesResource,
           SoulsCloakVampiricTouchResource,
+          SpellFoolResource,
           SpellMasterFocusedSpellsResource,
           SPiritWardenChannelResource,
           SpontaneousHealingResource,
@@ -1348,6 +1378,7 @@ namespace BlueprintCore.Blueprints.References
           WitchHexLifeGiverResource,
           WitchOfTheVeilShroudedStepResource,
           WitchWanderingHexResource,
+          WordOfGodResource,
       };
   }
 }

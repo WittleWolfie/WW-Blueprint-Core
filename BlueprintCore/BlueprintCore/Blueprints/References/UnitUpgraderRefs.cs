@@ -17,6 +17,7 @@ namespace BlueprintCore.Blueprints.References
   {
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> AnimalCompanionMamonthUpgrader = "273450b33ade4cfdb052ca7f7da6bf34";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> MythicLichSkeletonUnitUpgrader = "c18c22b165284397b06d398a8b0fc67f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> MythicLichSkeletonUnitUpgrader1 = "e7e36817b7c9461eb2f13094fcfd8425";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_229479_RecreateAreshkagalOnLoad = "c048cb6cb12c4c578c312cf1ea5ebdce";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_232061_RecreateUnitOnLoad = "7110698b88404d1180b63c167b5e583b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitUpgrader>> PF_273507_CohhDungeonRecreateUnitOnLoad = "30145387552d480bb44ec2e304e6dab4";
@@ -40,6 +41,7 @@ namespace BlueprintCore.Blueprints.References
       {
           AnimalCompanionMamonthUpgrader,
           MythicLichSkeletonUnitUpgrader,
+          MythicLichSkeletonUnitUpgrader1,
           PF_229479_RecreateAreshkagalOnLoad,
           PF_232061_RecreateUnitOnLoad,
           PF_273507_CohhDungeonRecreateUnitOnLoad,

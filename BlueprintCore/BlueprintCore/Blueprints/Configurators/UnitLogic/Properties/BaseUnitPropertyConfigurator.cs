@@ -1,10 +1,14 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Assets.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
 using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.Utility;
@@ -137,6 +141,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CoupDeGraceAgregatorProperty</term><description>bd9224781e76429b92f0e60b13c079cc</description></item>
+    /// <item><term>FeintPropertyBAB</term><description>e7b2296d485e4c25b4c745d5a7fe42cb</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddBaseAtackGetter(
@@ -327,6 +332,45 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     }
 
     /// <summary>
+    /// Adds <see cref="AbilityResourceGetter"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>UnitPropertyDrunken</term><description>d9b65b07fbb4447d995900ffcf42d387</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilityResource">
+    /// <para>
+    /// Blueprint of type BlueprintAbilityResource. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddAbilityResourceGetter(
+        Blueprint<BlueprintAbilityResourceReference>? abilityResource = null,
+        PropertySettings? settings = null)
+    {
+      var component = new AbilityResourceGetter();
+      component.m_AbilityResource = abilityResource?.Reference ?? component.m_AbilityResource;
+      if (component.m_AbilityResource is null)
+      {
+        component.m_AbilityResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      Validate(settings);
+      component.Settings = settings ?? component.Settings;
+      return AddComponent(component);
+    }
+
+    /// <summary>
     /// Adds <see cref="AnimalPetOwnerRankGetter"/>
     /// </summary>
     ///
@@ -405,8 +449,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AssassinCreatePoisonAbilityProperty</term><description>0482fffc039d46fc86a86bda03e00f1a</description></item>
-    /// <item><term>HalfPaladinLevelsForLayOnHandsProperty</term><description>0f49bfc6c59242429f948061f0c432e1</description></item>
-    /// <item><term>WereWolfDRProperty</term><description>85cb29c9b9034f3786a6407150f4e41b</description></item>
+    /// <item><term>HellKnightOrderOfTheRackDCProperty</term><description>41f1001fac3d4464ad243e9abab51783</description></item>
+    /// <item><term>WordOfGodDCProperty</term><description>bab0e9d8395145a18f983224e023ff93</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -655,8 +699,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>ShifterWildShapeWolverineProperty</term><description>b7e6b6a93887467a9dda03bf626b46b6</description></item>
-    /// <item><term>TricksterLoreReligionWeatherDomainProperty</term><description>7747294b95e64edbb23e1ec5aca774e1</description></item>
+    /// <item><term>ShadowEvocationGreaterProperty</term><description>0f813eb338594c5bb840c5583fd29c3d</description></item>
+    /// <item><term>WordOfGodDCProperty</term><description>bab0e9d8395145a18f983224e023ff93</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -763,13 +807,23 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     public TBuilder AddShieldBonusGetter(
         bool? addShieldBonus = null,
         bool? addShieldFocus = null,
-        PropertySettings? settings = null)
+        ItemsFilter.ItemType[]? itemTypes = null,
+        bool? onlyFromItems = null,
+        PropertySettings? settings = null,
+        bool? useItemTypeFilter = null)
     {
       var component = new ShieldBonusGetter();
       component.AddShieldBonus = addShieldBonus ?? component.AddShieldBonus;
       component.AddShieldFocus = addShieldFocus ?? component.AddShieldFocus;
+      component.ItemTypes = itemTypes ?? component.ItemTypes;
+      if (component.ItemTypes is null)
+      {
+        component.ItemTypes = new ItemsFilter.ItemType[0];
+      }
+      component.OnlyFromItems = onlyFromItems ?? component.OnlyFromItems;
       Validate(settings);
       component.Settings = settings ?? component.Settings;
+      component.UseItemTypeFilter = useItemTypeFilter ?? component.UseItemTypeFilter;
       return AddComponent(component);
     }
 
@@ -782,7 +836,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAreaEffectsGazeProperty</term><description>f363c368c37546c3a4793b348963dc28</description></item>
-    /// <item><term>DLC3_Nahyndri_Golemlike_Single_DeathAttackProperty</term><description>b51cd8eea32a4bbbbf736a595d83699e</description></item>
+    /// <item><term>ExplodingArrowsKineticProperty</term><description>b98f2e23c10f4194b7568905bafba22c</description></item>
     /// <item><term>TricksterUseMagicDeviceTier3CLProperty</term><description>d533bfb6b6304ea3a0f8ce9d159704e9</description></item>
     /// </list>
     /// </remarks>
@@ -829,6 +883,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>ArcaneSpiritProperty</term><description>0d7001b2514044a1a86d553543083125</description></item>
+    /// <item><term>FeintPropertyMobility</term><description>7a3e6ab651804ad6ad0c0853450d92da</description></item>
     /// <item><term>TricksterStealthTier3Property</term><description>5175cafadfc249ddb2f39fc447d6bda1</description></item>
     /// </list>
     /// </remarks>
@@ -875,8 +931,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AttackOfOpportunityCountProperty</term><description>b7fffcd88699431c88302b15b15fe837</description></item>
-    /// <item><term>PerfectFormConstitutionToIntelligenceProperty</term><description>bd01072d846c42fdb25968fcd8e63f06</description></item>
-    /// <item><term>TorturedCrusaderUnitProperty</term><description>f3785dfdd23447f5905b4c83e69f9d1a</description></item>
+    /// <item><term>PerfectFormConstitutionToCharismaProperty</term><description>8dc476d6b7f94d73960fd68a57a7485e</description></item>
+    /// <item><term>WordOfGodDCProperty</term><description>bab0e9d8395145a18f983224e023ff93</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddStatValueGetter(
@@ -900,8 +956,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DestructiveDispelProperty</term><description>13e4f1dd08954723b173335a54b48746</description></item>
-    /// <item><term>RageLevelProperty</term><description>6a8e9d4b8ba547f5819354a05dd2a291</description></item>
+    /// <item><term>dcproperty</term><description>71c98426939e408a97f0679b6d196fe7</description></item>
+    /// <item><term>MarvelousEnduranceFastHealingProperty</term><description>ca1b4b40b9f5407f904738b575bac1ca</description></item>
     /// <item><term>WitchHexSpellLevelProperty</term><description>75efe8b64a3a4cd09dda28cef156cfb5</description></item>
     /// </list>
     /// </remarks>

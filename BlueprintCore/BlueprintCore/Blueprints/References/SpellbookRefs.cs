@@ -46,6 +46,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> LichSkeletalInquisitorMinorSpellbook = "d71cb34f8a66a2c479ba8289a1683112";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> LichSkeletalMagusSpellbookMinor = "c9ff1f4b3b26dcb47ba75b218ccadd23";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> LichSpellbook = "08a80074263809c4b9616aac05af90ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> LivingGrimoireSpellbook = "8d904686a43f4eaeb451798e9088b9b9";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> MagicDeceiverSpellbook = "587066af76a74f47a904bb017697ba08";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> MagusSpellbook = "5d8d04e76dff6c5439de99af0d57be63";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> MasterSpySpellbook = "12bfcf91d5416b047a2a9110ff8968c5";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> MonsterMythicSpellbook = "7425972fc2e2f294a8f8b56568337d00";
@@ -53,6 +55,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> OracleSpellbook = "6c03364712b415941a98f74522a81273";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> PaladinSpellbook = "bce4989b070ce924b986bf346f59e885";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> PaladinSpellbookTorturedCrusader = "6886f046087f4cb68f8cbdfdfedbd3d9";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> PrototypeSpellbook = "b88f5e3bd86549c8b67ed451edec7ceb";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> RangerSpellbook = "762858a4a28eaaf43aa00f50441d7027";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> SageSpellbook = "cc2052732997b654e93eac268a39a0a9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ShamanSpellbook = "44f16931dabdff643bfe2a48138e769f";
@@ -107,6 +110,8 @@ namespace BlueprintCore.Blueprints.References
           LichSkeletalInquisitorMinorSpellbook,
           LichSkeletalMagusSpellbookMinor,
           LichSpellbook,
+          LivingGrimoireSpellbook,
+          MagicDeceiverSpellbook,
           MagusSpellbook,
           MasterSpySpellbook,
           MonsterMythicSpellbook,
@@ -114,6 +119,7 @@ namespace BlueprintCore.Blueprints.References
           OracleSpellbook,
           PaladinSpellbook,
           PaladinSpellbookTorturedCrusader,
+          PrototypeSpellbook,
           RangerSpellbook,
           SageSpellbook,
           ShamanSpellbook,

@@ -64,6 +64,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> PrologueRing = "f24cc854fb1e08c479d33cc1a7085ea6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> ProtectionOfColdItem = "5cd01cf5ae523e9438690b70ba667825";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RavagerOfDreadRingItem = "3d9c6db97f82b284b8aca0813a402b21";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RazmirRing = "1ef783f955584050972c13f9399eb9d8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RedSalamandraItem = "6f8105a52cd227c45b860d526ce7c661";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RinfOfHintsItem = "4f98129ba5e3bc74c88390d29858877c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingMasterpieceItem = "459cff3f67aea3846a228e0119f5e522";
@@ -105,6 +106,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingofMagicDevices = "66ab84747fa8c5f43851b4bd02ed3f85";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfMercyless_Item = "fd8e043dd85848108e4e6c1f3034f709";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPlanarProtectionItem = "38d067e54e1aa0049a7d707d4b9213c4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPowerfulBloodMagic = "c5e9e714a758420191d0188a0d5eca08";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfPowerStoneItem = "e270a14888c38dd44a6818ce2599ebbf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProcrastinatorItem = "951e3e908bce44a09ab0879ea5560585";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentRing>> RingOfProtection1 = "f333bf86cd122974792162cbcd27c9ed";
@@ -212,6 +214,7 @@ namespace BlueprintCore.Blueprints.References
           PrologueRing,
           ProtectionOfColdItem,
           RavagerOfDreadRingItem,
+          RazmirRing,
           RedSalamandraItem,
           RinfOfHintsItem,
           RingMasterpieceItem,
@@ -253,6 +256,7 @@ namespace BlueprintCore.Blueprints.References
           RingofMagicDevices,
           RingOfMercyless_Item,
           RingOfPlanarProtectionItem,
+          RingOfPowerfulBloodMagic,
           RingOfPowerStoneItem,
           RingOfProcrastinatorItem,
           RingOfProtection1,

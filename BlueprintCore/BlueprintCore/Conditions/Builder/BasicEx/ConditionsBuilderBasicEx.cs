@@ -1,13 +1,21 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.Designers;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.ElementsSystem;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Conditions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.BasicEx
 {
@@ -49,7 +57,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0058</term><description>70feca2bda2039f4fa472f0f4d09edde</description></item>
-    /// <item><term>Slot_3_3_ItemRestriction</term><description>bdbd56ea4b93f494e81ea3dcf49849a0</description></item>
+    /// <item><term>Slot_3_3_ItemRestriction</term><description>4f0361cf4f7412d49b0aef6b8061c8a8</description></item>
     /// <item><term>Slot_7_5_ItemRestriction</term><description>b9e743b4c4b467a409a37905af58ce4b</description></item>
     /// </list>
     /// </remarks>
@@ -148,7 +156,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Alushinyrra_HigherCity_VellodusMansion</term><description>d062cf7333b145b8bb85d4400dbea44d</description></item>
-    /// <item><term>Cue_0031</term><description>719bf2ed753883b40afab7eb62822675</description></item>
+    /// <item><term>Cue_0027</term><description>d840080822d64e14fac385010630d8c3</description></item>
     /// <item><term>Yozz_GreyborQ2Bark_Conditions</term><description>e25cbb4124873114ba3b75176e004517</description></item>
     /// </list>
     /// </remarks>
@@ -203,7 +211,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0015</term><description>72050eac97c4b944f9a99ce16a680f16</description></item>
-    /// <item><term>CommandUnitPlayCutsceneAnimation7</term><description>80f8440b255441218242b9d496c80332</description></item>
+    /// <item><term>DLC6_GreyborDiedOutsideKenabres</term><description>fff61aabdc5f4e28ab2e5b1e7abaaeca</description></item>
     /// <item><term>UlbrigNotInParty_Dead</term><description>4863a2dfe7f847e588df50710ebf2a3f</description></item>
     /// </list>
     /// </remarks>
@@ -224,6 +232,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
         this ConditionsBuilder builder,
         bool? anyCompanion = null,
         Blueprint<BlueprintUnitReference>? companion = null,
+        bool? includeRemote = null,
         bool negate = false)
     {
       var element = ElementTool.Create<CompanionIsDead>();
@@ -233,6 +242,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
       {
         element.m_companion = BlueprintTool.GetRef<BlueprintUnitReference>(null);
       }
+      element.includeRemote = includeRemote ?? element.includeRemote;
       element.Not = negate;
       return builder.Add(element);
     }
@@ -293,7 +303,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC3_GiantHeart_SZ</term><description>1108e32529a04a5abe2f6820f3518a6c</description></item>
+    /// <item><term>DLC1_SpinnerLair</term><description>20b90b6349c54efaac72075bf9d533f0</description></item>
     /// <item><term>WhispersOfMadnessAttach</term><description>72d6ba35e78ff9e4f8e59ef16f192c60</description></item>
     /// </list>
     /// </remarks>
@@ -337,8 +347,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AmuletOfUnforgivingElementsFeature</term><description>2cc9b7e8d7117a9458285333822bf95d</description></item>
-    /// <item><term>CommandAction1</term><description>1455ebd5173a4e63808f6236fc96ba7a</description></item>
-    /// <item><term>ThirdElementWater</term><description>86eff374d040404438ad97fedd7218bc</description></item>
+    /// <item><term>CommandDelay 23</term><description>c1ca606efdb69534da31e82867e55bef</description></item>
+    /// <item><term>UncotrollableRageBuff</term><description>06bf19096c1f4d9c9252cf60a08e0e2c</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -441,7 +451,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AneviaDialog</term><description>85d9ab0f99b3f914bb10671c9c63f6a3</description></item>
-    /// <item><term>Graveyard_RegularDSTR_SZ</term><description>6c8c234c316748479f6493d8416599e3</description></item>
+    /// <item><term>Graveyard_2WP_Skipped_SZ</term><description>4701a72e8988461e85a3e7f87ed5ac00</description></item>
     /// <item><term>WP_1_ScriptZone</term><description>0613d54edb72463e8bcada03f359bf91</description></item>
     /// </list>
     /// </remarks>
@@ -635,7 +645,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Bowl_ItemRestriction</term><description>10283016767d4ed3b36db71bea8c450d</description></item>
-    /// <item><term>Purple_Slot_1_3_Art_1_3f</term><description>693c7be5caccc6d4eaf06e4bb1cfac75</description></item>
+    /// <item><term>Purple_Slot_1_3_Art_1_2f</term><description>4d8f9308cb80ab3488acb8ed79eda4ed</description></item>
     /// <item><term>YellowPuzzleSolveChecker</term><description>00016e6128651a548b2c50f23456a3e0</description></item>
     /// </list>
     /// </remarks>
@@ -716,7 +726,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Button_Empty</term><description>7c349e8a4cf4c834399e18a7747041af</description></item>
+    /// <item><term>Banter_Seelah_ch5_2</term><description>d10472a181109b94aa8cbf156f8b91d9</description></item>
     /// <item><term>ZeorisDagger_ReforgeProject</term><description>22e8219563e84f11b6aed62661030770</description></item>
     /// </list>
     /// </remarks>
@@ -810,7 +820,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BossCastSpell_zone</term><description>5efbf1ebdf0387041b437ba46fc2773c</description></item>
-    /// <item><term>mAzataUnlock</term><description>7a83f57c35d24a29a33c6f762b0bf5c5</description></item>
+    /// <item><term>Leaver_D4</term><description>bb1882474ed5493cb1c7b8aa8209d006</description></item>
     /// <item><term>WatchPoint_SZWall_FoW</term><description>0f1fdc5a42ea41a4b87da4021e89dabd</description></item>
     /// </list>
     /// </remarks>
@@ -884,7 +894,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>f2c31b4d7efe2fd49a391e65f44d8b6e</description></item>
-    /// <item><term>Cue_0035</term><description>c1a8b930c3827b74b9a2c0f253a08910</description></item>
+    /// <item><term>Cue_0033</term><description>bfab14e84cdc6b04ca914029e263cdf6</description></item>
     /// <item><term>WarCamp_TheatreFirstVisit</term><description>f546a7d95bfda0e4f9cb798f00b69db3</description></item>
     /// </list>
     /// </remarks>
@@ -908,7 +918,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>07930ce9ce7a4211a6e0aacfa91c3585</description></item>
-    /// <item><term>DLC5_EvilSendriInTemple_SZ</term><description>f259b4e7f79d4db2965bfa239b85ced7</description></item>
+    /// <item><term>DLC5_PrisonersBarks_Actions</term><description>da00c07cd04b457997b687b0c3141c63</description></item>
     /// <item><term>PF-487847</term><description>685b8dc82e8b4131b3155baa846ffe8f</description></item>
     /// </list>
     /// </remarks>
@@ -995,8 +1005,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DLC3_VeryHotIslandBuff</term><description>8c61a2a184da402daac616cfc5f77273</description></item>
-    /// <item><term>DLC3_VeryHotIslandBuff_TEST</term><description>92f6e7811ae74e32a0cc0ac90aad0c60</description></item>
+    /// <item><term>ArmorFocusHeavyMythicFeatureOffenceBuff</term><description>fcd913568e1544108eceb8db2a90cd0f</description></item>
+    /// <item><term>ArmorFocusMediumMythicFeatureOffenceBuff</term><description>a9446282d567471496566a3b464559dc</description></item>
     /// <item><term>DLC3_VeryHotIslandMod</term><description>a9352268e6a74a9fb7db6defb71cc55a</description></item>
     /// </list>
     /// </remarks>
@@ -1037,7 +1047,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarGirlSlave_Actions</term><description>4c1760ddc1a183b4f94ee50cc47f4c37</description></item>
-    /// <item><term>CommandMoveUnit2</term><description>961fbe025c684333982aba87a9fa2a1f</description></item>
+    /// <item><term>CommandMoveUnit1</term><description>fa02f90950884855bb003c789fa30b05</description></item>
     /// <item><term>WenduTraitor_DrezensStreet</term><description>aaa0452f52514e46bbc9a52fa95f467b</description></item>
     /// </list>
     /// </remarks>
@@ -1141,8 +1151,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>Cue_0181</term><description>5480d4baf7c3f9642bb17ff693f37c2e</description></item>
-    /// <item><term>Timer_Before_KTC_MythicDemonRankUp2</term><description>5caab08042b37f641ad9ff9ad411c44e</description></item>
+    /// <item><term>Cue_0016</term><description>3443b336153f4377a199216f7d211d72</description></item>
+    /// <item><term>TrueRazmirLoser_dialogue</term><description>a8c8f86b2f6d4d11958e459937d8846b</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1199,7 +1209,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlarmZone</term><description>a7081ca4e21e8594f93bc84a4eb2a7a8</description></item>
-    /// <item><term>Cue_0009</term><description>fd5e797ef983498bb43dc3eaf44005ce</description></item>
+    /// <item><term>CommandUnitPlayCutsceneAnimation 93</term><description>7036a0b60c9b45e99480d18d165fc88b</description></item>
     /// <item><term>Ziggurat_ZachariusBeginRitual</term><description>8a020a9f01405ae4fa417500e1efd2e6</description></item>
     /// </list>
     /// </remarks>
@@ -1300,7 +1310,8 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>4825507512d7234448eaa92ad6384268</description></item>
-    /// <item><term>CommandAction</term><description>6406c24f83d2450ba83fd3a5b770ca1d</description></item>
+    /// <item><term>CommandUnitPlayCutsceneAnimation 67</term><description>b63766d2c96a45acb9a9ca1308024417</description></item>
+    /// <item><term>DLC6_SpawnedUnitBecomesCosplayer_Actions_CutsceneNeutral</term><description>360a220ca7be40a3a52b9bc56c3f4987</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder UnitGender(
@@ -1326,7 +1337,7 @@ namespace BlueprintCore.Conditions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>3943d90f59434f979bae0d2f0c7937e6</description></item>
-    /// <item><term>CommandMoveUnit9</term><description>c7390581eca749ada8fc71be46887a2d</description></item>
+    /// <item><term>CommandSetCombatMode 2</term><description>6dbcd56d8a6c4974382459bcf30a8c79</description></item>
     /// <item><term>Sitting_Param</term><description>02c9b508081b1954e4329af6db335091</description></item>
     /// </list>
     /// </remarks>

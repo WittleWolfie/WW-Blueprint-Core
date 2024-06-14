@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -8,8 +9,11 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.ElementsSystem;
+using Kingmaker.Utility;
 using Kingmaker.Visual.Animation.Kingmaker;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Area
 {
@@ -305,7 +309,7 @@ namespace BlueprintCore.Blueprints.Configurators.Area
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR14_DeepShadowDemonTough</term><description>580e014994544fefbe22e9f6164ad49b</description></item>
+    /// <item><term>DLC3_CR16_BabauElite</term><description>e3f4366b69cd47dc8a9c23518b670b4a</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>

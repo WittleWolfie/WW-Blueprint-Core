@@ -96,6 +96,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> LocketOfMagicMissileMasteryItem = "6c1f471b01500eb409ed73711ef3b79e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> LocketOfPerfectCantripsItem = "828561d73332c5846b11ffb4bd6df94d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> MayasCharmItem = "5719bea74c11d8d4eb66fac430435f04";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> MedallionOfDemonicDisruption = "96c3f59318944afeaaa003197733e02d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> MenanceOfDeathAmuletItem = "8c7525cda7ad79a47a578197dab6c487";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> MesmerizingNecklaceItem = "d0a0bd80c6c61ba4495abd1191bd4e8a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> NahCollar = "ab3ee90fd2faffb46a00f889a2d226c8";
@@ -107,10 +108,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PeriaptOfPlacebosItem = "f823ef25098544a6bcf5366295ee1480";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PitchTunerItem = "46ef4528d79b830489ffe99688db39d4";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> PlayersPhylacteryAmuletItem = "7efa2d3fd0da4769b380caf9b221233a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> QueenOfNightHagHeartstone = "8be02221ec8b4b0e8ff4491fc32814f1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> RecklessVengeanceItem = "9343a0ba1c98d7f4eb5f5cb517280764";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> RiverFoxPendantItem = "169fd99b68c1dd04692c2368a7b957b7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> RiversongAmuletItem = "c4b62855e9f9bfa40b710445cbd91141";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SarzaksisPayzaItem = "7a1921b84c2d958489c9f3b70b7f5093";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> ScarabOfProtection = "84ee111dfdec40cb9bb782c16593d08d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SecretsOfSuramgaminNecklaceItem = "6bbf04b71ee91734dab328837fc168cf";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SilverChain = "b8a84c05641f88e4ca5a6181ddc9eb79";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentNeck>> SilverMedallion = "06846b7beaca5444d8eebfebc320adca";
@@ -208,6 +211,7 @@ namespace BlueprintCore.Blueprints.References
           LocketOfMagicMissileMasteryItem,
           LocketOfPerfectCantripsItem,
           MayasCharmItem,
+          MedallionOfDemonicDisruption,
           MenanceOfDeathAmuletItem,
           MesmerizingNecklaceItem,
           NahCollar,
@@ -219,10 +223,12 @@ namespace BlueprintCore.Blueprints.References
           PeriaptOfPlacebosItem,
           PitchTunerItem,
           PlayersPhylacteryAmuletItem,
+          QueenOfNightHagHeartstone,
           RecklessVengeanceItem,
           RiverFoxPendantItem,
           RiversongAmuletItem,
           SarzaksisPayzaItem,
+          ScarabOfProtection,
           SecretsOfSuramgaminNecklaceItem,
           SilverChain,
           SilverMedallion,

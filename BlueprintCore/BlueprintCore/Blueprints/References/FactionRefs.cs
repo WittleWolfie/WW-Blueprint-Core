@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
@@ -15,6 +16,7 @@ namespace BlueprintCore.Blueprints.References
   public static class FactionRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> AngelTeam = "ff7b854fc400a64419f4f45273eed7ee";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> ArenaTricksterMobsFaction = "eaf45903fd2441a0842d78ce0e96eb7a";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Attack_everyone = "f69acd336dd8e2b4ca9e9618c7142658";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Bandits = "28460a5d00a62b742b80c90c37559644";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> Bosses = "2d609e6d09b676345a878f4266f408f0";
@@ -33,6 +35,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_GundrunEnemies = "af9919037b3c4844b5c7860a56c0a298";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC4_UstalavEnemies = "9ea2c2f061a7449f80c53945ceb92148";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC5_CorruptedCreatures = "8afd6b7c9aee4dab904f5d145b0af46d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DLC6_ReaperBossFaction = "8d7540b51e4348c3af5af50a5bb96dee";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenChorussina = "2648700405e96f049988ac15fd5da6a9";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DrezenCultists = "c393ee9c1e09f114f907819cb3296468";
     public static readonly Blueprint<BlueprintReference<BlueprintFaction>> DummyFaction = "f53d9de2a5cd4144596a0ef9e26ffa9c";
@@ -67,6 +70,7 @@ namespace BlueprintCore.Blueprints.References
       new()
       {
           AngelTeam,
+          ArenaTricksterMobsFaction,
           Attack_everyone,
           Bandits,
           Bosses,
@@ -85,6 +89,7 @@ namespace BlueprintCore.Blueprints.References
           DLC4_GundrunEnemies,
           DLC4_UstalavEnemies,
           DLC5_CorruptedCreatures,
+          DLC6_ReaperBossFaction,
           DrezenChorussina,
           DrezenCultists,
           DummyFaction,

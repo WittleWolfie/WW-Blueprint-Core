@@ -1,14 +1,19 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom.Blueprints;
+using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Globalmap
@@ -51,6 +56,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
           bp.EnterAzataIslandAction = copyFrom.EnterAzataIslandAction;
           bp.IsKenabres = copyFrom.IsKenabres;
           bp.CampLocation = copyFrom.CampLocation;
+          bp.PlayerArmyPawnPrefab = copyFrom.PlayerArmyPawnPrefab;
+          bp.OrdinaryDemonsArmyPawnPrefab = copyFrom.OrdinaryDemonsArmyPawnPrefab;
+          bp.SpecialDemonsArmyPawnPrefab = copyFrom.SpecialDemonsArmyPawnPrefab;
+          bp.TravellingDemonsArmyPawnPrefab = copyFrom.TravellingDemonsArmyPawnPrefab;
+          bp.GarrisonPrefab = copyFrom.GarrisonPrefab;
+          bp.ExploredLocationVisual = copyFrom.ExploredLocationVisual;
+          bp.UnexploredLocationVisual = copyFrom.UnexploredLocationVisual;
+          bp.LineTemplate = copyFrom.LineTemplate;
+          bp.ClaimedResourceVisual = copyFrom.ClaimedResourceVisual;
+          bp.WaypointVisual = copyFrom.WaypointVisual;
         });
     }
 
@@ -81,6 +96,16 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
           bp.EnterAzataIslandAction = copyFrom.EnterAzataIslandAction;
           bp.IsKenabres = copyFrom.IsKenabres;
           bp.CampLocation = copyFrom.CampLocation;
+          bp.PlayerArmyPawnPrefab = copyFrom.PlayerArmyPawnPrefab;
+          bp.OrdinaryDemonsArmyPawnPrefab = copyFrom.OrdinaryDemonsArmyPawnPrefab;
+          bp.SpecialDemonsArmyPawnPrefab = copyFrom.SpecialDemonsArmyPawnPrefab;
+          bp.TravellingDemonsArmyPawnPrefab = copyFrom.TravellingDemonsArmyPawnPrefab;
+          bp.GarrisonPrefab = copyFrom.GarrisonPrefab;
+          bp.ExploredLocationVisual = copyFrom.ExploredLocationVisual;
+          bp.UnexploredLocationVisual = copyFrom.UnexploredLocationVisual;
+          bp.LineTemplate = copyFrom.LineTemplate;
+          bp.ClaimedResourceVisual = copyFrom.ClaimedResourceVisual;
+          bp.WaypointVisual = copyFrom.WaypointVisual;
         });
     }
 
@@ -636,6 +661,296 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
         });
     }
 
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.PlayerArmyPawnPrefab"/>
+    /// </summary>
+    ///
+    /// <param name="playerArmyPawnPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetPlayerArmyPawnPrefab(AssetLink<PrefabLink> playerArmyPawnPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.PlayerArmyPawnPrefab = playerArmyPawnPrefab?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.PlayerArmyPawnPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyPlayerArmyPawnPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.PlayerArmyPawnPrefab is null) { return; }
+          action.Invoke(bp.PlayerArmyPawnPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.OrdinaryDemonsArmyPawnPrefab"/>
+    /// </summary>
+    ///
+    /// <param name="ordinaryDemonsArmyPawnPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetOrdinaryDemonsArmyPawnPrefab(AssetLink<PrefabLink> ordinaryDemonsArmyPawnPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.OrdinaryDemonsArmyPawnPrefab = ordinaryDemonsArmyPawnPrefab?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.OrdinaryDemonsArmyPawnPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyOrdinaryDemonsArmyPawnPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.OrdinaryDemonsArmyPawnPrefab is null) { return; }
+          action.Invoke(bp.OrdinaryDemonsArmyPawnPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.SpecialDemonsArmyPawnPrefab"/>
+    /// </summary>
+    ///
+    /// <param name="specialDemonsArmyPawnPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetSpecialDemonsArmyPawnPrefab(AssetLink<PrefabLink> specialDemonsArmyPawnPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpecialDemonsArmyPawnPrefab = specialDemonsArmyPawnPrefab?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.SpecialDemonsArmyPawnPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifySpecialDemonsArmyPawnPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.SpecialDemonsArmyPawnPrefab is null) { return; }
+          action.Invoke(bp.SpecialDemonsArmyPawnPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.TravellingDemonsArmyPawnPrefab"/>
+    /// </summary>
+    ///
+    /// <param name="travellingDemonsArmyPawnPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetTravellingDemonsArmyPawnPrefab(AssetLink<PrefabLink> travellingDemonsArmyPawnPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.TravellingDemonsArmyPawnPrefab = travellingDemonsArmyPawnPrefab?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.TravellingDemonsArmyPawnPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyTravellingDemonsArmyPawnPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.TravellingDemonsArmyPawnPrefab is null) { return; }
+          action.Invoke(bp.TravellingDemonsArmyPawnPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.GarrisonPrefab"/>
+    /// </summary>
+    ///
+    /// <param name="garrisonPrefab">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetGarrisonPrefab(AssetLink<PrefabLink> garrisonPrefab)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.GarrisonPrefab = garrisonPrefab?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.GarrisonPrefab"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyGarrisonPrefab(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.GarrisonPrefab is null) { return; }
+          action.Invoke(bp.GarrisonPrefab);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.ExploredLocationVisual"/>
+    /// </summary>
+    ///
+    /// <param name="exploredLocationVisual">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetExploredLocationVisual(AssetLink<PrefabLink> exploredLocationVisual)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ExploredLocationVisual = exploredLocationVisual?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.ExploredLocationVisual"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyExploredLocationVisual(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ExploredLocationVisual is null) { return; }
+          action.Invoke(bp.ExploredLocationVisual);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.UnexploredLocationVisual"/>
+    /// </summary>
+    ///
+    /// <param name="unexploredLocationVisual">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetUnexploredLocationVisual(AssetLink<PrefabLink> unexploredLocationVisual)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.UnexploredLocationVisual = unexploredLocationVisual?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.UnexploredLocationVisual"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyUnexploredLocationVisual(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.UnexploredLocationVisual is null) { return; }
+          action.Invoke(bp.UnexploredLocationVisual);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.LineTemplate"/>
+    /// </summary>
+    ///
+    /// <param name="lineTemplate">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetLineTemplate(AssetLink<PrefabLink> lineTemplate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.LineTemplate = lineTemplate?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.LineTemplate"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyLineTemplate(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.LineTemplate is null) { return; }
+          action.Invoke(bp.LineTemplate);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.ClaimedResourceVisual"/>
+    /// </summary>
+    ///
+    /// <param name="claimedResourceVisual">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetClaimedResourceVisual(AssetLink<PrefabLink> claimedResourceVisual)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.ClaimedResourceVisual = claimedResourceVisual?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.ClaimedResourceVisual"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyClaimedResourceVisual(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.ClaimedResourceVisual is null) { return; }
+          action.Invoke(bp.ClaimedResourceVisual);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintGlobalMap.WaypointVisual"/>
+    /// </summary>
+    ///
+    /// <param name="waypointVisual">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    public TBuilder SetWaypointVisual(AssetLink<PrefabLink> waypointVisual)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.WaypointVisual = waypointVisual?.Get();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintGlobalMap.WaypointVisual"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWaypointVisual(Action<PrefabLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.WaypointVisual is null) { return; }
+          action.Invoke(bp.WaypointVisual);
+        });
+    }
+
     protected override void OnConfigureCompleted()
     {
       base.OnConfigureCompleted();
@@ -667,6 +982,46 @@ namespace BlueprintCore.Blueprints.Configurators.Globalmap
       if (Blueprint.CampLocation is null)
       {
         Blueprint.CampLocation = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
+      }
+      if (Blueprint.PlayerArmyPawnPrefab is null)
+      {
+        Blueprint.PlayerArmyPawnPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.OrdinaryDemonsArmyPawnPrefab is null)
+      {
+        Blueprint.OrdinaryDemonsArmyPawnPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.SpecialDemonsArmyPawnPrefab is null)
+      {
+        Blueprint.SpecialDemonsArmyPawnPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.TravellingDemonsArmyPawnPrefab is null)
+      {
+        Blueprint.TravellingDemonsArmyPawnPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.GarrisonPrefab is null)
+      {
+        Blueprint.GarrisonPrefab = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.ExploredLocationVisual is null)
+      {
+        Blueprint.ExploredLocationVisual = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.UnexploredLocationVisual is null)
+      {
+        Blueprint.UnexploredLocationVisual = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.LineTemplate is null)
+      {
+        Blueprint.LineTemplate = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.ClaimedResourceVisual is null)
+      {
+        Blueprint.ClaimedResourceVisual = Utils.Constants.Empty.PrefabLink;
+      }
+      if (Blueprint.WaypointVisual is null)
+      {
+        Blueprint.WaypointVisual = Utils.Constants.Empty.PrefabLink;
       }
     }
   }

@@ -10,10 +10,16 @@ using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Weapons;
+using Kingmaker.Controllers.Rest.Cooking;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.DialogSystem.Blueprints;
+using Kingmaker.DLC;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
@@ -639,7 +645,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcornPie_item</term><description>83864a3611c89f047b4242f139872fff</description></item>
-    /// <item><term>GodspeedSalad_item</term><description>95de2a5a9e9f6f94381ace2b1c7d74ba</description></item>
+    /// <item><term>GlowingCroissant_item</term><description>adba05c4956e8844592f49acaaa4d4ea</description></item>
     /// <item><term>SpicyPastry_item</term><description>b0a3bb682cfe6054bac65d0f4d68d3d0</description></item>
     /// </list>
     /// </remarks>
@@ -685,7 +691,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ScrollHealMass</term><description>e19e85bfe282a1145a6075567a71970f</description></item>
-    /// <item><term>ScrollOfInflictSeriousWounds</term><description>47d41dd302a14d04faa7df70697d23ec</description></item>
+    /// <item><term>ScrollOfInflictSeriousWoundsMass</term><description>2d9149f08a6ff4149a76b7a1bb560c6c</description></item>
     /// <item><term>ScrollOfWrackingRay</term><description>e3af1f25d3d4fcf439f508377c7493cd</description></item>
     /// </list>
     /// </remarks>
@@ -719,6 +725,35 @@ namespace BlueprintCore.Blueprints.Configurators.Items
       {
         component.m_CustomSpell = BlueprintTool.GetRef<BlueprintAbilityReference>(null);
       }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CustomItemAbilityActionType"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>BrokenPhylacterySoulRingItem</term><description>29c12c43b02e5ad41895388d47bf4efb</description></item>
+    /// <item><term>ColorlessRemainsGoggles_MadnessItem</term><description>5b2fa590883042948dcebfa162025ead</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddCustomItemAbilityActionType(
+        UnitCommand.CommandType? actionType = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new CustomItemAbilityActionType();
+      component.m_ActionType = actionType ?? component.m_ActionType;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

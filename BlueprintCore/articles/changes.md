@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.5 Release
+
+* Updated for A Dance of Masks DLC
+
 ## v2.8.4 Release
 
 * Updated for The Lord of Nothing DLC

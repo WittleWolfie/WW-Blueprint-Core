@@ -26,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> DemonSlayerSoupRecipe = "f58df7e3cb1b7f84095926c44e6321d6";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> DLC2_SpicyPastryRecipe = "a2143ca289c3493c8c32a25bd3ee0637";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> FishOnaStickRecipe = "0eea67c01740861419c52c92696c3bc4";
+    public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> FreshJogurtRecipe = "0432eab8a2df43149673a7d43afe6956";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> GlowingCroissantRecipe = "deb7f1dcf1440044e96ca22197c9df73";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> GodspeedSaladRecipe = "4d80045a70ccefa4a968293461e7d6f7";
     public static readonly Blueprint<BlueprintReference<BlueprintCookingRecipe>> LuckyHandSandwitchRecipe = "69bbe64572a9e4a4b943dcb7c25db7e5";
@@ -55,6 +56,7 @@ namespace BlueprintCore.Blueprints.References
           DemonSlayerSoupRecipe,
           DLC2_SpicyPastryRecipe,
           FishOnaStickRecipe,
+          FreshJogurtRecipe,
           GlowingCroissantRecipe,
           GodspeedSaladRecipe,
           LuckyHandSandwitchRecipe,

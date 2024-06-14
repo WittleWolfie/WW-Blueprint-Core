@@ -6,12 +6,17 @@ using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Designers.Mechanics.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
+using Kingmaker.Items;
 using Kingmaker.UI.UnitSettings.Blueprints;
 using Kingmaker.UnitLogic;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.ActivatableAbilities.Restrictions;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Class.Kineticist.ActivatableAbility;
 using Kingmaker.UnitLogic.Commands.Base;
 using Kingmaker.UnitLogic.FactLogic;
@@ -517,9 +522,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>DragonbloodShifterBlackAbility</term><description>950d6040a7f04b17b60000827fae66e1</description></item>
-    /// <item><term>ShifterAspectBoarAbility</term><description>43bc6e6b0f91413095d4f68206598a69</description></item>
-    /// <item><term>ShifterChimeraAspectAcitvatableAbilityGreater</term><description>3dd2025ac4af4d6e8478d54b9eb9276c</description></item>
+    /// <item><term>ArchaeologistLuckAbility</term><description>12dc796147c42e04487fcad3aaa40cea</description></item>
+    /// <item><term>InciteRageAllToggleAbility</term><description>32d247b6e6b65794ab47fc372c444a96</description></item>
+    /// <item><term>StormCallToggleAbility</term><description>d5ee8a2e5bf46c549988e9b09a59acd4</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddTriggerOnActivationChanged(
@@ -574,9 +579,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>KineticBladeAirBlastAbility</term><description>89acea313b9a9cb4d86bbbca01b90346</description></item>
+    /// <item><term>BladeboundBlackBladeAbilityLeft</term><description>65fd595a95a44cd986d765f4f01c1cfc</description></item>
     /// <item><term>KineticBladeIceBlastAbility</term><description>3f68b8bdd90ccb0428acd38b84934d30</description></item>
-    /// <item><term>KineticBladeWaterBlastAbility</term><description>70524e9d61b22e948aee1dfe11dc67c8</description></item>
+    /// <item><term>LivingGrimoireHolyBookAbilitySecondary</term><description>89dd193b6cc946b898667275a7c6731a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -588,11 +593,13 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// </param>
     public TBuilder AddRestrictionCanUseKineticBlade(
         bool? ignoreIfStarted = null,
+        bool? ignoreKineticClass = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new RestrictionCanUseKineticBlade();
       component.IgnoreIfStarted = ignoreIfStarted ?? component.IgnoreIfStarted;
+      component.IgnoreKineticClass = ignoreKineticClass ?? component.IgnoreKineticClass;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -631,7 +638,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeAbility</term><description>3e2d25b97be14414b897fc97f2d76c9a</description></item>
-    /// <item><term>InciteRageAlliesToggleAbility</term><description>b1d8fdffd132bfd428a8045b7b8b363c</description></item>
+    /// <item><term>InciteRageAllToggleAbility</term><description>32d247b6e6b65794ab47fc372c444a96</description></item>
     /// <item><term>WitchHexAuraOfPurityActivatableAbility</term><description>298edc3bc21e61044bba25f4e767cb8b</description></item>
     /// </list>
     /// </remarks>
@@ -678,6 +685,30 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="resourceCostDecreasingFacts">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="resourceCostIncreasingFacts">
+    /// <para>
+    /// Blueprint of type BlueprintUnitFact. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
     /// <param name="useListForFreeBlueprints">
     /// <para>
     /// InfoBox: If true it&amp;apos;s possible to choose a list of facts to make the resource free instead of the one.
@@ -690,6 +721,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         Blueprint<BlueprintAbilityResourceReference>? requiredResource = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostDecreasingFacts = null,
+        List<Blueprint<BlueprintUnitFactReference>>? resourceCostIncreasingFacts = null,
         ActivatableAbilityResourceLogic.ResourceSpendType? spendType = null,
         bool? useListForFreeBlueprints = null)
     {
@@ -713,6 +746,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
       if (component.m_RequiredResource is null)
       {
         component.m_RequiredResource = BlueprintTool.GetRef<BlueprintAbilityResourceReference>(null);
+      }
+      component.m_ResourceCostDecreasingFacts = resourceCostDecreasingFacts?.Select(bp => bp.Reference)?.ToList() ?? component.m_ResourceCostDecreasingFacts;
+      if (component.m_ResourceCostDecreasingFacts is null)
+      {
+        component.m_ResourceCostDecreasingFacts = new();
+      }
+      component.m_ResourceCostIncreasingFacts = resourceCostIncreasingFacts?.Select(bp => bp.Reference)?.ToList() ?? component.m_ResourceCostIncreasingFacts;
+      if (component.m_ResourceCostIncreasingFacts is null)
+      {
+        component.m_ResourceCostIncreasingFacts = new();
       }
       component.SpendType = spendType ?? component.SpendType;
       component.m_UseListForFreeBlueprints = useListForFreeBlueprints ?? component.m_UseListForFreeBlueprints;
@@ -809,7 +852,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>DragonBloodShifterAspectNeutral</term><description>a489d794e43049bb87baa278018d078e</description></item>
+    /// <item><term>LivingGrimoireSacredWordChoiceAbility</term><description>f068f20ec5274c82aa9cec0cd2835267</description></item>
     /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
@@ -855,7 +898,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>EnergizedWildShapeToggleAbility</term><description>0344dab893a049b3bfccbf015582112d</description></item>
+    /// <item><term>LivingGrimoireSacredWordChoiceAbility</term><description>f068f20ec5274c82aa9cec0cd2835267</description></item>
     /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
@@ -883,7 +926,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneStrikeAbility</term><description>006c6015761e75e498026cd3cd88de7e</description></item>
-    /// <item><term>DragonStyleToggleAbility</term><description>2c0a8b11e3bb37c4c80c73cc0f706c84</description></item>
+    /// <item><term>DivaStyleActivatableAbility</term><description>5fedded3684a40ca870c9b66b43f2e41</description></item>
     /// <item><term>ShaitanStyleToggleAbility</term><description>afa28b1723934561a4fc73e6ec07e5ed</description></item>
     /// </list>
     /// </remarks>
@@ -899,6 +942,34 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new DeactivateImmediatelyIfNoAttacksThisRound();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="DeactivateOnGripChanged"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SpellCombatAbility</term><description>8898a573e8a8a184b8186dbc3a26da74</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDeactivateOnGripChanged(
+        GripType? gripStyle = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new DeactivateOnGripChanged();
+      component.GripStyle = gripStyle ?? component.GripStyle;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1009,7 +1080,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbilityWingsAngel</term><description>13143852b74718144ac4267b949615f0</description></item>
-    /// <item><term>LethalStanceToggleAbility</term><description>43696e91d2a67e34981925f0c62bff40</description></item>
+    /// <item><term>GuardedStanceToggleAbility</term><description>7517c892b30fdf643b33807a2f5abd31</description></item>
     /// <item><term>SorcerousClawsVicious</term><description>4f2e31f13b4d4a4eb7aa0ed17d02e765</description></item>
     /// </list>
     /// </remarks>
@@ -1092,7 +1163,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BaneAnimalQuiverAbility</term><description>5a87e26a039902443980a9a8c877036b</description></item>
-    /// <item><term>FlamingArrowsQuiverAbility</term><description>5a769135b9b00684ea010d36ae49848e</description></item>
+    /// <item><term>ForcefulPushArrowsQuiverAbility</term><description>771d81c322b197f449f83e121b33afd6</description></item>
     /// <item><term>WeakenArrowsQuiverAbility</term><description>c930416e9939be4489eea9d4e3b18984</description></item>
     /// </list>
     /// </remarks>
@@ -1219,7 +1290,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>FightDefensivelyToggleAbility</term><description>09d742e8b50b0214fb71acfc99cc00b3</description></item>
+    /// <item><term>FightDefensivelyFeature</term><description>ca22afeb94442b64fb8536e7a9f7dc11</description></item>
     /// <item><term>WitchBetterHexProgression</term><description>38d01811fcb32444a8fe372c029fa0c6</description></item>
     /// </list>
     /// </remarks>

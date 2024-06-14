@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
@@ -10,6 +11,7 @@ using Kingmaker.Localization;
 using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 

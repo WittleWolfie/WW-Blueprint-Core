@@ -2,6 +2,7 @@
 
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
+using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Assets.UnitLogic.Mechanics.Actions;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
@@ -13,6 +14,9 @@ using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.Visual.Animation.Actions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Actions.Builder.AVEx
 {
@@ -86,7 +90,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelRevealLight_Buff</term><description>b3f693c8d4a4c964796fb33f8a24a0ef</description></item>
-    /// <item><term>NightcrawlerUnburrowedBuff</term><description>88b7ded46fa24358adafa0fff50eef4c</description></item>
+    /// <item><term>CommandSpawnUnits</term><description>c33474082188414897bdcce861b03d65</description></item>
     /// <item><term>TigerOfSin_SpawnActions</term><description>d8416de51062a1a43af32df8764870a2</description></item>
     /// </list>
     /// </remarks>
@@ -118,7 +122,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AboutIzyagna</term><description>fa1f67444ec844508ea2eb6549581d5d</description></item>
-    /// <item><term>HowToMythicADemon</term><description>e9fe24ad25c54b6b8f288ef822c549ce</description></item>
+    /// <item><term>GrimoireOfTheBeast</term><description>beaa7a8b2f5bfd8459042db7f81867d7</description></item>
     /// <item><term>ZachariusNecromancy</term><description>de12840a4662481f937ff9542a6beb6b</description></item>
     /// </list>
     /// </remarks>
@@ -156,7 +160,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_TrueForm_Cutscene</term><description>18d9251a3c5682a429e1c3769431f4ee</description></item>
-    /// <item><term>InciteRageAllArea</term><description>d63dce0f272ba2d4aa13000470398d63</description></item>
+    /// <item><term>HypnotismBuff</term><description>daebec1cd104ad4448d900892149d7aa</description></item>
     /// <item><term>ZombieDispelExplosion</term><description>bcd9277193ef41dfb8d3b292ee33c828</description></item>
     /// </list>
     /// </remarks>
@@ -207,7 +211,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>6264845f5654cdd48809fe36f5dc4ffb</description></item>
-    /// <item><term>Cue_0025</term><description>77f7973d5a4527949814b13d113ec21f</description></item>
+    /// <item><term>Cue_0029</term><description>e6c1d14727803964eb118d83bc31787e</description></item>
     /// <item><term>Wardstone_SoldiersAndDemonsFight</term><description>76de06039af340ddba4ed13149ecb72a</description></item>
     /// </list>
     /// </remarks>
@@ -252,7 +256,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction2</term><description>9512db4863254af5a5a6f1310d4375b6</description></item>
+    /// <item><term>CommandAction21</term><description>45fc1e6a76184940a58411f94362de0b</description></item>
     /// <item><term>WillSaveGhoulCheckPassed_Actions</term><description>0a39e8f4368328949aca5616589abe5d</description></item>
     /// </list>
     /// </remarks>
@@ -298,7 +302,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>979c0288728143d4cadd65e43eb70f77</description></item>
-    /// <item><term>CommandAction20</term><description>175796f1249b431cbbf16a3be8559510</description></item>
+    /// <item><term>CommandAction20</term><description>ba1e4180bad647ebbf1328a675dea59b</description></item>
     /// <item><term>ZK_Knowledge</term><description>9adabce8e4fa4cfd8be491a9ea798fd6</description></item>
     /// </list>
     /// </remarks>
@@ -387,7 +391,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>DreamVisit_1-1_Dialogue</term><description>bd3ffe8afa177e14ea76cecfcf948f07</description></item>
+    /// <item><term>DLC5_Storasta_CharmedGuys_2</term><description>5b1062d46f414d4aa3bd6e5558e075e1</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -415,7 +419,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Necromancer_SpawnActions</term><description>966067be66094e699fd7247f4507dd1a</description></item>
-    /// <item><term>Cue_0056</term><description>bffff805b343be145ab2b5d357a18831</description></item>
+    /// <item><term>Cue_0053</term><description>96c37e3d78d9a8c4c9a3c70660f7c7af</description></item>
     /// <item><term>Zone3_Epigraph_SZ</term><description>fde009ee2ae62024baaac478de277b28</description></item>
     /// </list>
     /// </remarks>
@@ -461,7 +465,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arueshalae_DemonWarningKTC</term><description>58b51cce24b484e40ae075c5f56ad2e5</description></item>
-    /// <item><term>KTC_LichRankUp_6</term><description>ca49b13b14484b81bbe33d0048861ba2</description></item>
+    /// <item><term>KTC_LocustMeetsArenaMaster</term><description>ebc5142e78f7460aa8faa70eacf59e34</description></item>
     /// <item><term>WenduagKTC_WenduagRomance_TroublesInTheTavern</term><description>70260967f8e8efc40934a31a346221b0</description></item>
     /// </list>
     /// </remarks>
@@ -489,8 +493,8 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction34</term><description>11f8d7b34e3f4153baa5f150098e62eb</description></item>
-    /// <item><term>TerendelevPast_dialogue</term><description>848b9fe70613fd4408ff6c8ab4c95e14</description></item>
+    /// <item><term>CommandAction33</term><description>8a73ffeb9bc944739a4789951f75fda5</description></item>
+    /// <item><term>Wenduag_TakeMeHome_dialogue</term><description>bc265dbf76c34729b7af2cdcce59444f</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder SetSoundState(
@@ -516,7 +520,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>EtudeCubeChecklinked1_CheckPassedActions</term><description>60939703d436d364d8c3b31a8b0b0fc1</description></item>
+    /// <item><term>DLC6_GratefulCitizensInteraction_Actions</term><description>8f2cf62d657e43a2baf0bc5f3d8342c9</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -612,7 +616,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abducted_dialogue</term><description>43c9a316be2e45678606133610e80063</description></item>
-    /// <item><term>FinalBattleBliss_dialogue</term><description>97b90d7a241161e4ebb622a4e74b73af</description></item>
+    /// <item><term>EmberQ3_DemonsRedemption_Dialogue</term><description>b53963ca9c9b6fc42b384155fcdfe19c</description></item>
     /// <item><term>ZachariusLostChapel_dialogue</term><description>484953d7dfcc1244fadfdeab34a363ff</description></item>
     /// </list>
     /// </remarks>
@@ -634,7 +638,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>Cue_0020</term><description>40fa9cdc5e8dcf84ba766874e4490b3a</description></item>
+    /// <item><term>Cue_0016</term><description>8d1d0690d7cd4fd48eb5780a10811a95</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -658,11 +662,13 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// </param>
     public static ActionsBuilder StopCutscene(
         this ActionsBuilder builder,
+        bool? allCutscenesFromUnit = null,
         StopCutscene.UnitCheckType? checkType = null,
         Blueprint<CutsceneReference>? cutscene = null,
         UnitEvaluator? withUnit = null)
     {
       var element = ElementTool.Create<StopCutscene>();
+      element.m_AllCutscenesFromUnit = allCutscenesFromUnit ?? element.m_AllCutscenesFromUnit;
       element.m_CheckType = checkType ?? element.m_CheckType;
       element.m_Cutscene = cutscene?.Reference ?? element.m_Cutscene;
       if (element.m_Cutscene is null)
@@ -683,7 +689,7 @@ namespace BlueprintCore.Actions.Builder.AVEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ArenaCombat</term><description>bdd2b9ebe0ec2f240b9ac1d6b4c430ab</description></item>
-    /// <item><term>CommandAction3</term><description>b1db453c54e34744b9795d8fd231d47c</description></item>
+    /// <item><term>CommandAction3</term><description>e9b44ed7f9bc4bc88154c236b11e7638</description></item>
     /// <item><term>Ziggurat_CorruptionReducer_Cleanse_CheckPassedActions</term><description>a53e004ccda24065b81f49c9ee3b0e49</description></item>
     /// </list>
     /// </remarks>

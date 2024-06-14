@@ -1,13 +1,17 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.ElementsSystem;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.Mechanics.Components;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Facts
 {
@@ -84,14 +88,21 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArchaeologistLuckActivatableBuff</term><description>176b86df542146ee81fe7d2f11920862</description></item>
+    /// <item><term>AngelSwordSpeedOfLightBuff</term><description>58d3b0b98ce4f9346b3c1fb4c7dbc9bf</description></item>
     /// <item><term>DLC4_TimerKostil</term><description>cf1a37b4f4fb4b9d9ab4a002b6bda877</description></item>
-    /// <item><term>StorastaIceGround</term><description>1fd0d50453d84f68b3528779920acf38</description></item>
+    /// <item><term>ThatWhoBathesInBloodBuffIgnore</term><description>c24d590b030d41bdb43488a287699964</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="dispose">
+    /// <para>
+    /// InfoBox: Срабатывает, когда бафф снимают совсем, а не просто подавляют или выключают на время.
+    /// </para>
+    /// </param>
     public TBuilder AddBuffActions(
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
+        ActionsBuilder? dispose = null,
         ActionsBuilder? newRound = null)
     {
       var component = new AddBuffActions();
@@ -104,6 +115,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       if (component.Deactivated is null)
       {
         component.Deactivated = Utils.Constants.Empty.Actions;
+      }
+      component.Dispose = dispose?.Build() ?? component.Dispose;
+      if (component.Dispose is null)
+      {
+        component.Dispose = Utils.Constants.Empty.Actions;
       }
       component.NewRound = newRound?.Build() ?? component.NewRound;
       if (component.NewRound is null)
@@ -122,13 +138,20 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HealingJudgmentBuff</term><description>b1b7eeb49d703b047a3a534f17863001</description></item>
+    /// <item><term>HellsSealVariantFireExplosionDamageBuff</term><description>d933f3c49a7a1914d84228e6b9e961a0</description></item>
     /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>
+    ///
+    /// <param name="dispose">
+    /// <para>
+    /// InfoBox: Срабатывает, когда бафф снимают совсем, а не просто подавляют или выключают на время.
+    /// </para>
+    /// </param>
     public TBuilder AddFactContextActions(
         ActionsBuilder? activated = null,
         ActionsBuilder? deactivated = null,
+        ActionsBuilder? dispose = null,
         ActionsBuilder? newRound = null)
     {
       var component = new AddFactContextActions();
@@ -141,6 +164,11 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
       if (component.Deactivated is null)
       {
         component.Deactivated = Utils.Constants.Empty.Actions;
+      }
+      component.Dispose = dispose?.Build() ?? component.Dispose;
+      if (component.Dispose is null)
+      {
+        component.Dispose = Utils.Constants.Empty.Actions;
       }
       component.NewRound = newRound?.Build() ?? component.NewRound;
       if (component.NewRound is null)

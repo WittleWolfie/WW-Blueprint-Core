@@ -525,6 +525,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> QuatermasterSaves1_buff = "0a7846f3107944408f101877ba1cb6a3";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> QuatermasterSaves2_buff = "36a62419ddc7451c96ece4990e23cc6e";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> QuatermasterSupport_buff = "0014787969f64d9e97f7147b86658767";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> ReserveCallCooldown = "181ec6bf5664467098b3a8554e0975cb";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> SettlementsTracker_buff = "71dd611cd70443fcb04f0dce3bda76ef";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Trickster2CommonCooldown = "b8a7e6a6329f41f1bf33e95571b91828";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomBuff>> Trickster4BardruidCooldown = "5a3cd054325b437d84a7e1bd22e25fa9";
@@ -1049,6 +1050,7 @@ namespace BlueprintCore.Blueprints.References
           QuatermasterSaves1_buff,
           QuatermasterSaves2_buff,
           QuatermasterSupport_buff,
+          ReserveCallCooldown,
           SettlementsTracker_buff,
           Trickster2CommonCooldown,
           Trickster4BardruidCooldown,

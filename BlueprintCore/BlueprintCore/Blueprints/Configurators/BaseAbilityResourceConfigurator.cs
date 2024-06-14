@@ -1,11 +1,15 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Localization;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -38,6 +42,7 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.m_UseMax = copyFrom.m_UseMax;
           bp.m_Max = copyFrom.m_Max;
           bp.m_Min = copyFrom.m_Min;
+          bp.IsDomainAbility = copyFrom.IsDomainAbility;
         });
     }
 
@@ -58,6 +63,7 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.m_UseMax = copyFrom.m_UseMax;
           bp.m_Max = copyFrom.m_Max;
           bp.m_Min = copyFrom.m_Min;
+          bp.IsDomainAbility = copyFrom.IsDomainAbility;
         });
     }
 
@@ -211,6 +217,18 @@ namespace BlueprintCore.Blueprints.Configurators
         bp =>
         {
           bp.m_Min = min;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintAbilityResource.IsDomainAbility"/>
+    /// </summary>
+    public TBuilder SetIsDomainAbility(bool isDomainAbility = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsDomainAbility = isDomainAbility;
         });
     }
 

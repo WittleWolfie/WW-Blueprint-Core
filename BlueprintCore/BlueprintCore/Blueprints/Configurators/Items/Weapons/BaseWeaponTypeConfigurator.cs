@@ -1,9 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -13,6 +16,7 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -56,6 +60,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_FighterGroupFlags = copyFrom.m_FighterGroupFlags;
           bp.m_Weight = copyFrom.m_Weight;
           bp.m_IsTwoHanded = copyFrom.m_IsTwoHanded;
+          bp.m_IsOneHanded = copyFrom.m_IsOneHanded;
           bp.m_IsLight = copyFrom.m_IsLight;
           bp.m_IsMonk = copyFrom.m_IsMonk;
           bp.m_IsNatural = copyFrom.m_IsNatural;
@@ -95,6 +100,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
           bp.m_FighterGroupFlags = copyFrom.m_FighterGroupFlags;
           bp.m_Weight = copyFrom.m_Weight;
           bp.m_IsTwoHanded = copyFrom.m_IsTwoHanded;
+          bp.m_IsOneHanded = copyFrom.m_IsOneHanded;
           bp.m_IsLight = copyFrom.m_IsLight;
           bp.m_IsMonk = copyFrom.m_IsMonk;
           bp.m_IsNatural = copyFrom.m_IsNatural;
@@ -486,6 +492,18 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Weapons
         bp =>
         {
           bp.m_IsTwoHanded = isTwoHanded;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintWeaponType.m_IsOneHanded"/>
+    /// </summary>
+    public TBuilder SetIsOneHanded(bool isOneHanded = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_IsOneHanded = isOneHanded;
         });
     }
 

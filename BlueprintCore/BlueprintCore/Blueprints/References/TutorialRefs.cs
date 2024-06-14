@@ -58,6 +58,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_Insanity = "fbab9776b700c784dbdff8d3016e1890";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_ItemUpgrade = "4284c23456ccafb42bdaff2d987e74a6";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_LowHPHeal = "62e42f2bf35ff1e4daa63b2a68c0b264";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_MagicHack = "1beaf639f9ce4c54ad720684c8e9ca21";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_MagicRod = "14ec930dfe4b4394193e2d3a943738fa";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_MagicWand = "d0304ab7f1236e64c920fac2623c568f";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ContextTutor_MagicWand_Gamepad = "94619144ccf24f02ab745e916af9938c";
@@ -124,6 +125,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> CrusadeTutorial_13_Regions_Gamepad = "498f81fcdc5842fe807de4eb951ed2bc";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> CrusadeTutorial_14_Buildings = "659b920f412b46b08ab4e66824a7092b";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> CrusadeTutorial_14_Buildings_Gamepad = "98c855b4f5aa4508bb930372a1ae9c58";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> CrusadeTutorial_15_AutoBattle = "38486aa08c12489ea02e062e629c02b3";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Disease_Tutorial = "198c7d046c964fd9861017631c593c8d";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Exp_Tutorial = "f40025596e04499882fe90d3af812409";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> DLC2_Interacting_Tutorial = "da7959a67c81407c832d0527e247ecf6";
@@ -228,6 +230,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> ShardsTutorial = "3ef2931471ba45dc8e1a55c01e8d06c5";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> TestTutorialDRSmall = "9b1b19c27c8bf9b40a05e72c07134092";
     public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> TestTutorialSC = "2e48c8330634d544489e1fc14ccf5eaa";
+    public static readonly Blueprint<BlueprintReference<BlueprintTutorial>> TwoHandedGripTutorial = "9025b278f1c24fb2ab6ccfb067622513";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintTutorial>>> All =
       new()
@@ -275,6 +278,7 @@ namespace BlueprintCore.Blueprints.References
           ContextTutor_Insanity,
           ContextTutor_ItemUpgrade,
           ContextTutor_LowHPHeal,
+          ContextTutor_MagicHack,
           ContextTutor_MagicRod,
           ContextTutor_MagicWand,
           ContextTutor_MagicWand_Gamepad,
@@ -341,6 +345,7 @@ namespace BlueprintCore.Blueprints.References
           CrusadeTutorial_13_Regions_Gamepad,
           CrusadeTutorial_14_Buildings,
           CrusadeTutorial_14_Buildings_Gamepad,
+          CrusadeTutorial_15_AutoBattle,
           DLC2_Disease_Tutorial,
           DLC2_Exp_Tutorial,
           DLC2_Interacting_Tutorial,
@@ -445,6 +450,7 @@ namespace BlueprintCore.Blueprints.References
           ShardsTutorial,
           TestTutorialDRSmall,
           TestTutorialSC,
+          TwoHandedGripTutorial,
       };
   }
 }

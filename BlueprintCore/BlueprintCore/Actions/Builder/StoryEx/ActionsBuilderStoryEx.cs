@@ -1,16 +1,24 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using Kingmaker.AreaLogic;
+using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Quests;
 using Kingmaker.Designers.EventConditionActionSystem.Actions;
 using Kingmaker.Designers.EventConditionActionSystem.NamedParameters;
 using Kingmaker.Designers.Quests.Common;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
+using Kingmaker.Localization;
+using Kingmaker.RandomEncounters.Settings;
 using Kingmaker.UI;
 using Kingmaker.UnitLogic.Alignments;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -32,7 +40,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>03_SanctumBosses</term><description>d44f91b07f9914349aa0b6c082d98c25</description></item>
-    /// <item><term>Cue_0064</term><description>b27138ccd1f2809498b61b54bdba3006</description></item>
+    /// <item><term>Cue_0057</term><description>7a433b2edec243aaa7d500ba059c6ccd</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -71,7 +79,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>Cue_0034</term><description>0c6bc0a3700c34c4f99e8f09d9758662</description></item>
+    /// <item><term>Cue_0027</term><description>80509450b69c4775b0c209b3f6176ff9</description></item>
     /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
     /// </list>
     /// </remarks>
@@ -102,7 +110,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_DuringQuest</term><description>fb99a426b8bf1f247a2272920a1fd13d</description></item>
-    /// <item><term>Cue_0034</term><description>0c6bc0a3700c34c4f99e8f09d9758662</description></item>
+    /// <item><term>Cue_0027</term><description>80509450b69c4775b0c209b3f6176ff9</description></item>
     /// <item><term>ThresholdCamp_Scripts03</term><description>21cfdbf1fe184c7e9325ec071d06fbd2</description></item>
     /// </list>
     /// </remarks>
@@ -163,7 +171,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>Cue_0031</term><description>ee7ba9910e429d845a1e6d4c6b8f512c</description></item>
+    /// <item><term>Cue_0032</term><description>656f6b37c2de6764fac7ce75f60ba112</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -202,18 +210,20 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Nocticula]_SpawnActions</term><description>d77f996b50fad684bb0435c1d12a526d</description></item>
-    /// <item><term>CommandAction3</term><description>4b8ff1a81e4746e0af33158d5483b6d5</description></item>
+    /// <item><term>CommandAction3</term><description>20898666f0084ed4a0dcde2fba4e88ca</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder HideUnit(
         this ActionsBuilder builder,
         bool? fade = null,
+        bool? setHideInSaves = null,
         UnitEvaluator? target = null,
         bool? unhide = null)
     {
       var element = ElementTool.Create<HideUnit>();
       element.Fade = fade ?? element.Fade;
+      element.SetHideInSaves = setHideInSaves ?? element.SetHideInSaves;
       builder.Validate(target);
       element.Target = target ?? element.Target;
       element.Unhide = unhide ?? element.Unhide;
@@ -233,7 +243,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
-    /// <item><term>Daeran_Q2_Stage_0</term><description>162afa0be21e6f84dbaac42696b3ea17</description></item>
+    /// <item><term>Cue_0017</term><description>6c8b8eaab80112545acd7a07ec6f1f95</description></item>
     /// <item><term>WoundedInCamp_SpawnActions</term><description>e714318adb3985b4eaecfb632bb9c31b</description></item>
     /// </list>
     /// </remarks>
@@ -262,7 +272,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>Check_Shrine_Spoils</term><description>f791d8ab7098b3940918fbd171dca642</description></item>
+    /// <item><term>CommandAction1</term><description>2058ca596a23435f99011835550b95f1</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -306,7 +316,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Ch5_QueenInDrezen_Mechanic</term><description>46bd4af031b869248b305629b396d6c2</description></item>
-    /// <item><term>CommandAction 5</term><description>a4cb709c170b6964ab9a6cefee55511a</description></item>
+    /// <item><term>CommandAction 6</term><description>be567a6f4284ae147bc9d91391b19b28</description></item>
     /// <item><term>WayUp_Actions</term><description>83d0eb422bd7e774eb1710025088ed0f</description></item>
     /// </list>
     /// </remarks>
@@ -371,7 +381,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>DLC3_ExitCheckTier3_SZ</term><description>adc7ec584d3d4c00869ecb79f52d295c</description></item>
+    /// <item><term>DLC2_Bureaucrat_Combat</term><description>604e2679bc3a4c23bbf037e9252b5fd2</description></item>
     /// <item><term>Wintersun_Default</term><description>87839550c801db944b102f61084fd245</description></item>
     /// </list>
     /// </remarks>
@@ -409,8 +419,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Answer_0010</term><description>256754d9917f45d2835490b33d376f45</description></item>
-    /// <item><term>Answer_0112</term><description>bdd52f320db765e44adc09990797cf6e</description></item>
+    /// <item><term>Answer_0006</term><description>92bd03db46724a0ab07f7512a8e9d250</description></item>
+    /// <item><term>Answer_0086</term><description>ee3ef65e8532d2248b6be0c62a0197e9</description></item>
     /// <item><term>MarhevokMain_dialogue</term><description>da43f91cbb6a4e289e30b5da85f4c871</description></item>
     /// </list>
     /// </remarks>
@@ -832,10 +842,12 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// </param>
     public static ActionsBuilder RecruitInactive(
         this ActionsBuilder builder,
+        bool? availableDelay = null,
         Blueprint<BlueprintUnitReference>? companionBlueprint = null,
         ActionsBuilder? onRecruit = null)
     {
       var element = ElementTool.Create<RecruitInactive>();
+      element.AvailableDelay = availableDelay ?? element.AvailableDelay;
       element.m_CompanionBlueprint = companionBlueprint?.Reference ?? element.m_CompanionBlueprint;
       if (element.m_CompanionBlueprint is null)
       {
@@ -858,7 +870,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>301e51edf1251a9489244d37421d89fb</description></item>
-    /// <item><term>Cue_0339</term><description>56153336782439f4887fd8bca8366b4e</description></item>
+    /// <item><term>Cue_16</term><description>da91b904f6cc43e29d401fef8a0d028e</description></item>
     /// <item><term>MythicLevel</term><description>dc66b7adec0e41c2b948b4bc9c31ec99</description></item>
     /// </list>
     /// </remarks>
@@ -1096,7 +1108,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>Cue_0033</term><description>22f8f5836ce960f4b86ef64d572d8267</description></item>
+    /// <item><term>Cue_0034</term><description>47619821ad187d84cb794ee9c2d691d0</description></item>
     /// <item><term>ZoeyPendantTeleport</term><description>9a90929e2db1be448b495509170a4251</description></item>
     /// </list>
     /// </remarks>
@@ -1139,7 +1151,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>4fa67e84c3ddbd5448debce210a6d7b6</description></item>
-    /// <item><term>DLC5_IntroInAbyss</term><description>21b1609ee9e440c88c04930f5bc9116e</description></item>
+    /// <item><term>Cue_5</term><description>565b310ae6bb4172b36bca31f4666928</description></item>
     /// <item><term>WoljifDemonEndingGood</term><description>709161cd9da156146ac6e3c394caa854</description></item>
     /// </list>
     /// </remarks>
@@ -1254,7 +1266,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluWelcome_FN_dialog</term><description>5e1e26deee65d5e4082864de2dba2d7d</description></item>
-    /// <item><term>KingdomMoraleFlagChapter2</term><description>6195e82164ff47d3a67ff5fd0d74d5e3</description></item>
+    /// <item><term>FlagLocust</term><description>328fc139938f4582a605917a729169f3</description></item>
     /// <item><term>XCOM_Battle</term><description>f830cff9020aa434c8b8a49980af4035</description></item>
     /// </list>
     /// </remarks>
@@ -1292,7 +1304,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>2f7e1fcc714b426ab4c5b5780a19a070</description></item>
-    /// <item><term>DLC5_PoS_GolemsPool</term><description>c82c51a597fb47e2bb7df4efd5cea549</description></item>
+    /// <item><term>DLC6_RazmirBuff</term><description>5e8d9fe32c1f4df19f746d01d672f71c</description></item>
     /// <item><term>Threshold</term><description>207fad718f41237449b0acf414cc991a</description></item>
     /// </list>
     /// </remarks>
@@ -1346,8 +1358,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AlushinyrraHigherCity_DefaultEtude</term><description>41574c2d4b6d89e41b096094d0aed4f2</description></item>
-    /// <item><term>CommandAction2</term><description>665f209f5cb645c4857a9d73dc7c772c</description></item>
+    /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
+    /// <item><term>CommandAction2</term><description>001429289bc14f498d9e31ffae86820d</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -1383,7 +1395,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>DLC5_Storasta_DrakeMeet</term><description>4361e4c31b6c4dbb9a8649e2afe816aa</description></item>
+    /// <item><term>DLC6_KidsAgainstNobles_SZ</term><description>873122d2372c45c19597f798ac3e0570</description></item>
     /// <item><term>ZombiesDead</term><description>c042c6cb0eaaafc418c94615e4aac891</description></item>
     /// </list>
     /// </remarks>
@@ -1492,7 +1504,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_IzDrezen</term><description>09c503b7a398d49469b9463ee9d22fd4</description></item>
-    /// <item><term>Cue_0029</term><description>860e98d931913dd41a77be32912d5bf6</description></item>
+    /// <item><term>Cue_0029</term><description>d07647bcdf0e2dc47b9534a3ca4cb048</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1601,7 +1613,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>10State_0</term><description>1f815765df0d4d7ba19f731dfa064081</description></item>
-    /// <item><term>CommandAction2</term><description>1e3d5f4d22e74f5a80ee687c1941e86e</description></item>
+    /// <item><term>CommandAction18</term><description>57e48f1b80ae42b0b48bba6e4bfe694e</description></item>
     /// <item><term>Zantir_Switch</term><description>9fb1869b916481d49a39a9ba82bf6051</description></item>
     /// </list>
     /// </remarks>
@@ -1630,7 +1642,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Hepzamirah]_SpawnActions</term><description>df28026f8a4845a3978f48834852e6b0</description></item>
-    /// <item><term>CommandSpawnUnits2</term><description>e87e197ff8c744ad9fa5403df08aeb73</description></item>
+    /// <item><term>CrazyMythicDemonAggro</term><description>8fa22e1e65aaf674a98d16026383f16c</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1678,7 +1690,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DoorComp (2)_CheckPassedActions</term><description>7a0360d304c5f154ea8708f3d1bdb919</description></item>
+    /// <item><term>Door1Lever_OpenActionsRichQuarterStables</term><description>06571c45ddf1414e85cd964a8f01e861</description></item>
     /// <item><term>YeribethHall_FinishCipher1</term><description>d5c8170f5bf5725459b6f7f895ecd458</description></item>
     /// </list>
     /// </remarks>
@@ -1705,7 +1717,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>(CR 6) Skeleton_2H_SpawnActions</term><description>483880b43aba4e45bbc3e30f9bf81ed6</description></item>
-    /// <item><term>CommandAction2</term><description>81417e2a101f4500afc0fa385b4293ec</description></item>
+    /// <item><term>CommandAction2</term><description>5b576f80dbb7479f8de23a0741adb949</description></item>
     /// <item><term>Graveyard_MobsSwitches</term><description>1aa3edfb014a45d29bbb84bf63dcca4b</description></item>
     /// </list>
     /// </remarks>
@@ -1829,7 +1841,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcrobaticCheckS1_CheckFailedActions</term><description>024cfea8fa605e5438485ae1bdb6c4f8</description></item>
-    /// <item><term>CommandAction1</term><description>1c7234ba40884a9fb14a10530d65af55</description></item>
+    /// <item><term>CommandAction2</term><description>afa7f0fb9a1749dba1019f2cfe25a481</description></item>
     /// <item><term>Zaval_CheckFailedActions</term><description>57342a166ff440cf8df490f6d8a1bfca</description></item>
     /// </list>
     /// </remarks>
@@ -1862,8 +1874,8 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>0345db4a50d64c97bdd84d615583836e</description></item>
-    /// <item><term>CommandAction27</term><description>ff522dc822b543b094fc2f3b1b618270</description></item>
-    /// <item><term>Warcamp_Tour_Seelah_Dialogue</term><description>f7facc83e8c6ed4489341f31cb72505c</description></item>
+    /// <item><term>CommandAction3</term><description>a17c46b44151443597ca9ace69eab066</description></item>
+    /// <item><term>Woljif_Event_dialogue</term><description>770745733c5a4f2399be03ab8f7eb89d</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder UnitLookAt(
@@ -1931,7 +1943,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>Cue_0044</term><description>4f31068235066be48b67a0aeda712c1b</description></item>
+    /// <item><term>Cue_0044</term><description>48603d90a41347d5972f9e1b3574538a</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1972,7 +1984,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>05d101f17f0b47f5a03c5b6e1f9c2f33</description></item>
-    /// <item><term>Cue_0098_FifthRiddle</term><description>a4378804c4a6acd44a3f76c7e1cf519c</description></item>
+    /// <item><term>Cue_0096_ThirdRiddle</term><description>34443ccf736d0f34094fec0faa577ac6</description></item>
     /// <item><term>UnmarkAnswers</term><description>3c7ada0ed1917924780a24fdc46afd9b</description></item>
     /// </list>
     /// </remarks>
@@ -2013,7 +2025,7 @@ namespace BlueprintCore.Actions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0019</term><description>4e30b6b69abc1b24ba38f211f98b9da2</description></item>
-    /// <item><term>Cue_0030</term><description>cc0c5db8477d4098b843a2a202428163</description></item>
+    /// <item><term>Cue_0043</term><description>c75b69b005f00f54f974c236bfd5f692</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>

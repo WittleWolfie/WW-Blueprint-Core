@@ -1,13 +1,19 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators.Items;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Components;
 using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Alignments;
 using Kingmaker.Utility;
+using Kingmaker.Visual.CharacterSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -511,7 +517,7 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Equipment
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdamantineBanded</term><description>ed04d2a914a93e046aadee8cc3109f65</description></item>
-    /// <item><term>HalfElfMaleTailorMasterpieceItem</term><description>0bdafe60be63fa54ebf9c37fbcbe2cfd</description></item>
+    /// <item><term>Halfplate2THAgainstDazeShakenPlus3</term><description>44e9ceef32db77f46b914880ec8dcf4c</description></item>
     /// <item><term>WelcomeRespiteItem</term><description>55d88efb08e2eea4c9d214cd4c54e87c</description></item>
     /// </list>
     /// </remarks>

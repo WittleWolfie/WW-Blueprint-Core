@@ -1,6 +1,7 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators.Area;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -8,6 +9,7 @@ using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
 using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Buffs;

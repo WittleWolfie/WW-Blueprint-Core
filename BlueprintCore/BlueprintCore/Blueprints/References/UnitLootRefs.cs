@@ -53,6 +53,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_6levelminibossLoot = "e2620334c84f40d2a3543a3d39bb9780";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_9levelminibossLoot = "657374aa97ca47e99d9ce9ba7c068c79";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_GnomeCashUnitLoot = "8334604ab4424e3a8327a27a2bfde95d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_NewLoot = "4e938a1e1e434f1da21da3a5f806fbe6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StartingGold = "9664424d72a94e858e59899ef3321346";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_1 = "8df6559bcce54277b22356c79a478d21";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC3_StoryLootMiniBoss_10 = "59a4a7a85532463aa50f38d1fdec20a0";
@@ -71,6 +72,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_LC_PrisonKey = "f9b304fe07714c8b8786044eef8d0931";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_Storasta_DragonKeyUnitLoot = "3d5158128ea843f1beb3d7e08aa8d45a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC5_Storasta_HusbandFlowerLoot = "a09a1a64e99e4ba4a8a04f132e1ecb0b";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DLC6_CultistLoot = "209d9a6f445f422d8386d8d1c7adcbe6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DogLoot = "15ebc42d2ffefc848b17f68ff457f051";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomercatLoot = "d2c4914b339ff9f4eb60d31634f746a0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitLoot>> DweomerlionLoot = "8dfddd5847e1bc24bbbebe75a63c083b";
@@ -238,6 +240,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_6levelminibossLoot,
           DLC3_9levelminibossLoot,
           DLC3_GnomeCashUnitLoot,
+          DLC3_NewLoot,
           DLC3_StartingGold,
           DLC3_StoryLootMiniBoss_1,
           DLC3_StoryLootMiniBoss_10,
@@ -256,6 +259,7 @@ namespace BlueprintCore.Blueprints.References
           DLC5_LC_PrisonKey,
           DLC5_Storasta_DragonKeyUnitLoot,
           DLC5_Storasta_HusbandFlowerLoot,
+          DLC6_CultistLoot,
           DogLoot,
           DweomercatLoot,
           DweomerlionLoot,

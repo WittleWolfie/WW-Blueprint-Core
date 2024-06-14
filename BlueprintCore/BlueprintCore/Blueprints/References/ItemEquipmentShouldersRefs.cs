@@ -32,7 +32,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CallToViolenceItem = "25b37490da95d9541b73972837354eff";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CapeOfDesinsectorItem = "b7a92cca052b687469ab53ed5d6a36c5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CapeOfDivinationItem = "7d3f4612780724b458836605cc769b73";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CapeOfFeinting = "3b12f5f57ab14e029576f8c0d25b136a";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CelestialProtectionItem = "38ab96e73df32c448ad72b6b2097aa7a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> ChromaticCloak = "6614f5a2b3004214820ad968b505a716";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakFromThickPeltItem = "0c69a27820d52ed4ead5476786f91aa0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfArcaneReservesItem = "2d38bb0ae9d48904ab2bebf5dac57a36";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfAstoundingProwessItem = "6d14fc0b4c6a421e921f68ee3172311a";
@@ -73,6 +75,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> DungeoneersCloakItem = "fd1ed44854da4b35a70c613fac2d3d8f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> EnchantersCapeItem = "41cd16a5d7c786c4ab7fb134f436a135";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> ExtraplanarCloakItem = "dafc585c01487b74781ae43f1a747d9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> GrandFestivalCloak = "12836afa5ce54260895c4f54d8a3bb4d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> GraveShiveringItem = "fa95fadb2b774f61b8ea1edbec79ab5d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> GrimMantleItem = "aff7db5f5fa7c1a429ad1338908fd8a3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> HerbalistCapeItem = "e8157dd509418c449a642dbe4c4dd102";
@@ -119,7 +122,9 @@ namespace BlueprintCore.Blueprints.References
           CallToViolenceItem,
           CapeOfDesinsectorItem,
           CapeOfDivinationItem,
+          CapeOfFeinting,
           CelestialProtectionItem,
+          ChromaticCloak,
           CloakFromThickPeltItem,
           CloakOfArcaneReservesItem,
           CloakOfAstoundingProwessItem,
@@ -160,6 +165,7 @@ namespace BlueprintCore.Blueprints.References
           DungeoneersCloakItem,
           EnchantersCapeItem,
           ExtraplanarCloakItem,
+          GrandFestivalCloak,
           GraveShiveringItem,
           GrimMantleItem,
           HerbalistCapeItem,

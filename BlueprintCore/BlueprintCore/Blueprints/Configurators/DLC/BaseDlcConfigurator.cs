@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
@@ -9,6 +10,7 @@ using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DLC
@@ -300,7 +302,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -402,7 +404,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -432,7 +434,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
+    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -466,8 +468,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
-    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
+    /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
+    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -490,6 +492,44 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     }
 
     /// <summary>
+    /// Adds <see cref="DlcStorePS5"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
+    /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
+    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddDlcStorePS5(
+        List<DlcStorePS5.ConditionalItem>? conditionalEntitlementLabels = null,
+        string? defaultEntitlementLabel = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        int? serviceLabel = null)
+    {
+      var component = new DlcStorePS5();
+      component.m_ConditionalEntitlementLabels = conditionalEntitlementLabels ?? component.m_ConditionalEntitlementLabels;
+      if (component.m_ConditionalEntitlementLabels is null)
+      {
+        component.m_ConditionalEntitlementLabels = new();
+      }
+      component.m_DefaultEntitlementLabel = defaultEntitlementLabel ?? component.m_DefaultEntitlementLabel;
+      component.m_ServiceLabel = serviceLabel ?? component.m_ServiceLabel;
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="DlcStoreSteam"/>
     /// </summary>
     ///
@@ -498,7 +538,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
     /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
     /// </list>
     /// </remarks>
@@ -528,8 +568,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>Dlc3</term><description>962e8c01fd834805b3ddf93134f77d44</description></item>
-    /// <item><term>Dlc5</term><description>95a25ca16bd54ce3b3ea56f83538fa0d</description></item>
+    /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
+    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
     /// </list>
     /// </remarks>
     ///

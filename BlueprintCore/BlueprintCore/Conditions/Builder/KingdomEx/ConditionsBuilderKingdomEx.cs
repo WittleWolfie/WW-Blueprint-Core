@@ -4,12 +4,17 @@ using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Armies.Components;
 using Kingmaker.Blueprints;
+using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Conditions;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.KingdomEx
 {

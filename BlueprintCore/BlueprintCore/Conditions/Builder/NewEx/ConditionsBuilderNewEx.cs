@@ -2,6 +2,9 @@
 
 using BlueprintCore.Conditions.New;
 using BlueprintCore.Utils;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.NewEx
 {

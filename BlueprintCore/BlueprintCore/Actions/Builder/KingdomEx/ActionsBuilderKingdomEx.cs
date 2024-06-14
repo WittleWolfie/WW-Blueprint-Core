@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Actions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Types;
 using Kingmaker.AreaLogic;
@@ -10,6 +11,9 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.GameActions;
 using Kingmaker.Armies.TacticalCombat.Grid;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Crusade.GlobalMagic;
 using Kingmaker.Crusade.GlobalMagic.Actions;
@@ -22,15 +26,19 @@ using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Globalmap.State;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Actions;
+using Kingmaker.Kingdom.AI;
 using Kingmaker.Kingdom.Armies;
 using Kingmaker.Kingdom.Armies.Actions;
+using Kingmaker.Kingdom.Artisans;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Kingdom.Flags;
 using Kingmaker.Kingdom.Settlements;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -1490,6 +1498,22 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     }
 
     /// <summary>
+    /// Adds <see cref="ClearArmyDismissalExp"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>Chapter05</term><description>5b01aa690202e584888dfc600a4aac0a</description></item>
+    /// </list>
+    /// </remarks>
+    public static ActionsBuilder ClearArmyDismissalExp(this ActionsBuilder builder)
+    {
+      return builder.Add(ElementTool.Create<ClearArmyDismissalExp>());
+    }
+
+    /// <summary>
     /// Adds <see cref="ContextActionByArmyLeader"/>
     /// </summary>
     ///
@@ -1580,6 +1604,43 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       if (element.RollsCount is null)
       {
         element.RollsCount = ContextValues.Constant(0);
+      }
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="CreateArmyAsDismissalCompensation"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ReserveCall</term><description>546e9a2a77c944b7b34f3fe46368eea6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="location">
+    /// <para>
+    /// Blueprint of type BlueprintGlobalMapPoint. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ActionsBuilder CreateArmyAsDismissalCompensation(
+        this ActionsBuilder builder,
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
+    {
+      var element = ElementTool.Create<CreateArmyAsDismissalCompensation>();
+      element.m_Location = location?.Reference ?? element.m_Location;
+      if (element.m_Location is null)
+      {
+        element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
       return builder.Add(element);
     }
@@ -1748,7 +1809,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>UlbrigRomance_GardenGods_LightState01</term><description>12993a3773c44833bbaaf3f91a3687b9</description></item>
+    /// <item><term>DLC6_FestiveKenabres_DayState</term><description>4d87554255b2410d916d7f974144d4a7</description></item>
+    /// <item><term>DLC6_UlbrigToGarden</term><description>5fa2a8fc5e4d4cb3b56850674a91330f</description></item>
     /// <item><term>UlbrigRomance_GardenGods_LightState02</term><description>da1d94ab114f4c78985ca7d5b7f0fd09</description></item>
     /// </list>
     /// </remarks>
@@ -2249,7 +2311,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add4_GotoMoltenScar</term><description>f6694c696284e2046b0f064f83c320c2</description></item>
-    /// <item><term>KTC_LichRankUp_1_Notification</term><description>34a1fb6d575b3cd458fd6ce51c89491c</description></item>
+    /// <item><term>KTC_LichRankUp_2_Notification</term><description>4abb17b17bb56db40b52e116b69a2a16</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm_Notification</term><description>2cd5a9a5a2531f645acdd5f72ef3218e</description></item>
     /// </list>
     /// </remarks>
@@ -2505,7 +2567,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add3_SearchMoltenScar</term><description>39a11378f06fff740b8211686247d943</description></item>
-    /// <item><term>KTC_Fail_Notification</term><description>93e8ee34311b5e64788bcd5c53bfed0f</description></item>
+    /// <item><term>KTC_FestivalInKenabres_Notification</term><description>4ba26a5c4f164b18b249968f52879d02</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>

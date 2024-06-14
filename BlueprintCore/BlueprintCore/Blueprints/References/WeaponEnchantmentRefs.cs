@@ -27,11 +27,13 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AmberLustLightCrossbowEnchantment = "99ee077a2bb409b41b77a5732f6d2de5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Anarchic = "57315bc1e1f62a741be0efde688087e9";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AngelSwordEnchantment = "8a24f0fa51f3a2843be5aec58befefb6";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AnimatedWeaponPoisonEnchant = "f70c01b2c3fa4550929d869242f1f281";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AnnihilatorEnchantment = "8a81f8592efd70e4aa2ff95d57e1626e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ArcaneEnforcerEnchantment = "c61988ac4121223468471c301da4709f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ArcaneProtectorEnchant = "d3118dd2796883645a56c888880ecfba";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ArdentEnchantment = "d789f454dad251e4eae200350f8cbac9";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ArmagsBladeSpellsEnchant = "379d6169631ca244fab1df99830cec5d";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ArtificeBlessingMinorWeaponEnchantment = "85cc0eb7659649e9b9ce6a6e7960311b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AshmakerEnchantment = "3cf303da46e98c54d857a9a7ef5a58a2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AssassinsEdgeEnchantment = "3bd1ae7c49dbf58489437f13f5d16ac5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> AstringentPacifierEnchantment = "b5d3a19e9a7f436aa7396b18e81c2cc7";
@@ -50,6 +52,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneDragon = "e5cb46a0a658b0a41854447bea32d2ee";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneEverything = "1a93ab9c46e48f3488178733be29342a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneFey = "b6948040cdb601242884744a543050d4";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneHumanoid = "a286a93eaeee466db974ad2c3d450624";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneHumanoidGiant = "dcecb5f2ffacfd44ead0ed4f8846445d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneHumanoidGiant2d6 = "1e25d1f515c867d40b9c0642e0b40ec2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BaneHumanoidReptilian = "c4b9cce255d1d6641a6105a255934e2e";
@@ -82,6 +85,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlackDragonsFangEnchantment = "7992b610dfbe8734799d7aa3a5e212dc";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlackSaltEnchantment = "d686790990d66394b937f0a1ad536682";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BlackStarEnchantment = "4c1343790d544ce4da26986b2541bdf4";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BladeboundBlackBladeWeaponEnchantment = "b2cc94d271f3457fa1ad514fe15acffe";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BladeOfOrderEnchantment = "5711a0a430a77b24c888b571f312bf18";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> BladeOfTheMercifulEnchant = "a5e3fe4a71e331e4aa41f9a07cfd3729";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Bleed = "ac0108944bfaa7e48aa74f407e3944e3";
@@ -146,6 +150,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Corrosive = "633b38ff1d11de64a91d490c683ab1c8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Corrosive2d6 = "2becfef47bec13940b9ee71f1b14d2dd";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CorrosiveBurst = "0cf34703e67e37b40905845ca14b1380";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CrimsonMoonEnchantment = "6344f483e53d491fabbdc28fbedfa832";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CripplingKissEnchantment = "271cf24a8f1ba92499f42b8b295c4b68";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CritAutoconfirmAgainstEvil = "8c381459747746341be72f7fa0112e10";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> CriticalMultiplierIncrease = "5b1550c536bd09740bf43a6ddd1ad919";
@@ -161,6 +166,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DaggerOfFateFirstEnchantment = "5179b6ef2b3248d2ab22f5fa7c1308df";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DaggerOfFateSecondEnchantment = "aa9cc203a4a24a7580ec7791f9b4b7da";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DaggerOfLifeEnchantment = "bf9f64c90a800a9448d83a4ebc74284b";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DaggerOfTheBetrayerEnchantment = "dad4a4a2d92a4cd0bd363112b19d79bc";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DarkBiddingSlingstaffNecrotic2d8 = "c2229230ff9292048b07a8429d6536c6";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DarkForestEnchantment = "cddac7596abd9d94c83151db6b909736";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DarkwindDaggerEnchantment = "cb1808d911056cc4b912516c68f939fc";
@@ -233,6 +239,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DuelingSwordPositiveDamagePlus3Enchantment = "3da86e9be2744738b9e53d7cd0fcdd31";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DuranceEnchantment = "8e2cc3e249d794b4aa5428437f20556d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> DwarvenChampionEnchant = "0b3de02f95fe1a74d9d1c822e4e43555";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EarthBlessingAcidDamage = "a74477d44bf6450bb188926c0a0dc547";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EarthBreakerHolyEnchantment = "069e7ed4198aeed428f9b2439c62061a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EarthKineticBladeEnchantment = "9ec51457bd973bf4297c5eac4cc736b1";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> EdgeOfExpulsionEnchantment = "c532a411ec4741ebaa7db391ac2a36ef";
@@ -293,6 +300,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FinneanChapter3Enchantment = "b183bd491793d194c9e4c96cd11769b1";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FinneanChapter5EnchantmentBase = "6b66e949f348ccd4989a5fd9254f8958";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FinneanChapter5EnchantmentLich = "9aa9af4b654662945a410644d3db8d99";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FireBlessingFireDamage = "810a3c22736844e6af0e12cf7a6861c7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FirebornWarhammerEnchantmentFire = "5f2fdab15f558084494b83b48064a844";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Firebrand = "7b314775d394a2846a9b64651e84a9c6";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> FireGemstone = "eecfce4c53be9fa4d900fd2fd29cf29a";
@@ -378,6 +386,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JagannathKhandaDamageReductionEnchant = "01cfd260209e1904082829ec12ea5aa9";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JagannathKhandaMindAffectingEnchant = "b521c08e57d60344885eb46c915c7b8d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JagannathKhandaPoisonEnchant = "ff83ca13c3d633446a2b031ee3ffc557";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JaggedClawEnchantment = "79c0791367194232b1898310e3cf69e2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JinxEnchantment = "bd25c2459871281428593cf57f8b43b3";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JokeOfFateEnchantment = "4e8df6596bcb2634d935312dffb82359";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> JokeOfNatureArrowsQuiverEnchantment = "3eee945a1954548438ac5ccf11cc46e6";
@@ -404,6 +413,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LilituClawEdgeIncreasedEnchantment = "7b91496aec56ec4479bd86b1ed304cf0";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LilituTailBrandingEnchantment = "f8e64fbcff0d14a4a8f3b4122bb90c08";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LissomEnchantment = "f0c6dfdbb88afdf429da07534d7dc5db";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LivingGrimoireHolyBookWeaponEnchantment = "1af8a1594a6d4dcdaf46f91a63d9a5fc";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LongbowOfErastilEnchant = "cff454fecd039c043b930a757c251804";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LongbowOfLeechingStrikeEnchantment = "3b1f04ee5dfce85468dffc55e99a2e19";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> LongbowOfTheColdMoonEnchantment = "9007910ac92ac624b9e67827104b9d77";
@@ -421,6 +431,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MagmaKineticBladeEnchantment = "624d2f973c9dc584d94367956103efaa";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MaimerEnchantment = "cdc77fe04f7f11748a25d10498ae1974";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MaliceLightMaceEnchantment = "b9690aff334a6b34da0f741c749a387a";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MantisFavorEnchantment = "80a4d80748a74bd59ad2034dcaa18e73";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MapFormationBardicheEnchantment = "a7fdfb3bf41bbd241b475b8f4380c9c6";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MapPlaningBardicheEnchantment = "47f2aca64ba035c44bf00b23aa2882ec";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> MapWoundEnchantment = "c942bcf31d4abb74296f7b56c84db2be";
@@ -500,6 +511,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PortalStoneSpiderSaiEnchantment = "4f15588f1f00ad84894c74c3723ccdf7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PortalStoneStanceSaiEnchantment = "59cfbb419e008ae489b452e25bfbc175";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PowerfulPummelEnchantment = "232d98cd3f29e524ea6998b04e09fffc";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PrayingKillerEnchantment = "05c195d03ee442b48a9f1f9a1444ea03";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PrimeWiperEnchantment = "d2c44ce3070d72a4da99162b896b1825";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ProtectionFromEvil = "b5c80d332c8b8ab4e982adf5a276f9fb";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> PureSavagerylEnchantment = "aaf9cdbdeeea57542bbf9ea7b7b5d09a";
@@ -508,6 +520,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> QuarterstaffOfWarMageEnchantment = "b97f6c22d96d2e24ebdb3e259387b810";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> QuickbladeEnchant = "1e428c24d94987c4cb20e38bfbf4e164";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> QuickDeathEnchantment = "58382d6172e0b9a4eb0bacd5a20c5642";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> QuickPunishmentEnchantment = "29093cf543a94380ab2ec4273d789fe4";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RabidUnderdogEnchantment = "071ff6076375dfa4f9e9d76a2021bece";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RackingPointEnchantment = "c06d81cd31ea9104790a379f6b7b757b";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceBadEnchantment = "40433f161d052d74aa80769dcaf1df09";
@@ -517,6 +530,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RadianceMasterworkEnchantment = "fd95b7769eb76c846a8d7e18dae961e7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Radiant = "5ac5c88157f7dde48a2a5b24caf40131";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RainOfArrowsQuiverEnchantment = "385715affec7e8f4da68ebf744e8a327";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RampantCarnageEnchantment = "1fff8605ee2447268f00ad9362876749";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RandomizerEnergyWeapon_AcidEnchantment = "c97a0a0816a74624e9524303f6332832";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RandomizerEnergyWeapon_ColdEnchantment = "93b71be9723d8ca4086e3c3282ca8268";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RandomizerEnergyWeapon_ElectricityEnchantment = "93b919a81ac057a47814c836dcbffbaa";
@@ -547,6 +561,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RuinEnchantment = "283b66f859d225d489d213cad7fa1df7";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RulebreakerEnchantment = "e3fda0731288831418832fbee760baff";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RumblingFlachionEnchantment = "e6ab79c26e6e4269a9d54a85dcd2ee44";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RunelordsHatefulRanseurEnchantment = "37ef2c2d5a324ff581593875b72266a2";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RupturingStormEnchantment = "3c5fba40046d7064b8b6942e73c57857";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RushlightEnchantment = "7b9b8050d1c24363b02bb7a6479f5ef9";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> RustedDawnEnchantment = "6c73603b691801e42ba82850cc96f85e";
@@ -584,6 +599,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SickleOfWickedRitesEnchantment = "f37a8b936bb2438690c1e895f945dff9";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SilverWeaponEnchantment = "9012b1095c9645e0a6152f673fc07d0a";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SingingEdgeEnchantment = "a3a40379e5950cf408d4bcf375072d26";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SinmageStaffEnchantment = "d83601ef01c64feea609fa8fc23b201f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SkullCrusherEnchantment = "b0298f3a930f91040963beb130a53583";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SkyScorcherEnchantment = "2dcb98a4735e3674b9f624583477cc9d";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SlaughteringSilenceEnchantment = "c218fb7dad104019bd4949fec9506026";
@@ -636,6 +652,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TenderTouchEnchantment = "b60cff65105fb784b856eacf189a25b5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TerrifyingTrembleEnchantment = "d8adb04d2aac4a53aa09b2b05ce30647";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TestEnchantWeapon_Enchant = "984af243541407942ad108e1b41f7189";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ThatWhoBathesInBloodACIgnoreEnchantment = "f169e6d494de4696a3564558ffa3aac5";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ThatWhoBathesInBloodEnchantment = "8dca7853d2c84684b8edc5786a0e60cf";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TheAncientRootEnchantment = "2eac1c756a3bf1f4d88a599d51df74a4";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TheBlitzCutEnchantment = "b669780861c5ab040bb7679f3ee2b026";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TheBlitzCutEnchantmentNew = "2c1a6294591b48ba86540a9d813a3edd";
@@ -677,6 +695,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> TyrantEnchantment = "0ffd4a027e17f3d4c9a5148a237f61c1";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> Ultrasound = "582849db96824254ebcc68f0b7484e51";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> UltrasoundArrowsQuiverEnchantment = "a57a3d4669722794688f1ed4270b20ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> UltraThinEdgeEnchantment = "1b26f03c53eb49009208bfd2dba3d75f";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> UnavoidableDrillEnchantment = "17be79b34d7615f4b8b7a83ea5319201";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> UnbendingEnchantment = "9c8562848f7ba344799b231c38cc25a8";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> UnboundBladeEnchant = "77a0480d8c240ba4b844e5939375eea8";
@@ -705,6 +724,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WeakenArrowsQuiverEnchantment = "c4fe1891ba41da346ab553a94107fd96";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WeaponBondFlamingBurstEnchant = "b166fefa25b04b40a840fc5461e4feb5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WeaponOfDeathEnchantment = "829c9dff37adb4141888c8a3a0d0ffd7";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WeatherBlessingElectroDamage = "f3524fb5e96e44f58f6a771bb943efae";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WhimsyEnchant = "80f8342174f839846bcb9e0cb9984113";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WhirlwindCompLongBowDex2 = "4cdedb04a456c0447a8541a034605495";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> WhistlingKillerEnchantment = "ac101b3efbf679b4c97b8f1a2c3ec1db";
@@ -735,11 +755,13 @@ namespace BlueprintCore.Blueprints.References
           AmberLustLightCrossbowEnchantment,
           Anarchic,
           AngelSwordEnchantment,
+          AnimatedWeaponPoisonEnchant,
           AnnihilatorEnchantment,
           ArcaneEnforcerEnchantment,
           ArcaneProtectorEnchant,
           ArdentEnchantment,
           ArmagsBladeSpellsEnchant,
+          ArtificeBlessingMinorWeaponEnchantment,
           AshmakerEnchantment,
           AssassinsEdgeEnchantment,
           AstringentPacifierEnchantment,
@@ -758,6 +780,7 @@ namespace BlueprintCore.Blueprints.References
           BaneDragon,
           BaneEverything,
           BaneFey,
+          BaneHumanoid,
           BaneHumanoidGiant,
           BaneHumanoidGiant2d6,
           BaneHumanoidReptilian,
@@ -790,6 +813,7 @@ namespace BlueprintCore.Blueprints.References
           BlackDragonsFangEnchantment,
           BlackSaltEnchantment,
           BlackStarEnchantment,
+          BladeboundBlackBladeWeaponEnchantment,
           BladeOfOrderEnchantment,
           BladeOfTheMercifulEnchant,
           Bleed,
@@ -854,6 +878,7 @@ namespace BlueprintCore.Blueprints.References
           Corrosive,
           Corrosive2d6,
           CorrosiveBurst,
+          CrimsonMoonEnchantment,
           CripplingKissEnchantment,
           CritAutoconfirmAgainstEvil,
           CriticalMultiplierIncrease,
@@ -869,6 +894,7 @@ namespace BlueprintCore.Blueprints.References
           DaggerOfFateFirstEnchantment,
           DaggerOfFateSecondEnchantment,
           DaggerOfLifeEnchantment,
+          DaggerOfTheBetrayerEnchantment,
           DarkBiddingSlingstaffNecrotic2d8,
           DarkForestEnchantment,
           DarkwindDaggerEnchantment,
@@ -941,6 +967,7 @@ namespace BlueprintCore.Blueprints.References
           DuelingSwordPositiveDamagePlus3Enchantment,
           DuranceEnchantment,
           DwarvenChampionEnchant,
+          EarthBlessingAcidDamage,
           EarthBreakerHolyEnchantment,
           EarthKineticBladeEnchantment,
           EdgeOfExpulsionEnchantment,
@@ -1001,6 +1028,7 @@ namespace BlueprintCore.Blueprints.References
           FinneanChapter3Enchantment,
           FinneanChapter5EnchantmentBase,
           FinneanChapter5EnchantmentLich,
+          FireBlessingFireDamage,
           FirebornWarhammerEnchantmentFire,
           Firebrand,
           FireGemstone,
@@ -1086,6 +1114,7 @@ namespace BlueprintCore.Blueprints.References
           JagannathKhandaDamageReductionEnchant,
           JagannathKhandaMindAffectingEnchant,
           JagannathKhandaPoisonEnchant,
+          JaggedClawEnchantment,
           JinxEnchantment,
           JokeOfFateEnchantment,
           JokeOfNatureArrowsQuiverEnchantment,
@@ -1112,6 +1141,7 @@ namespace BlueprintCore.Blueprints.References
           LilituClawEdgeIncreasedEnchantment,
           LilituTailBrandingEnchantment,
           LissomEnchantment,
+          LivingGrimoireHolyBookWeaponEnchantment,
           LongbowOfErastilEnchant,
           LongbowOfLeechingStrikeEnchantment,
           LongbowOfTheColdMoonEnchantment,
@@ -1129,6 +1159,7 @@ namespace BlueprintCore.Blueprints.References
           MagmaKineticBladeEnchantment,
           MaimerEnchantment,
           MaliceLightMaceEnchantment,
+          MantisFavorEnchantment,
           MapFormationBardicheEnchantment,
           MapPlaningBardicheEnchantment,
           MapWoundEnchantment,
@@ -1208,6 +1239,7 @@ namespace BlueprintCore.Blueprints.References
           PortalStoneSpiderSaiEnchantment,
           PortalStoneStanceSaiEnchantment,
           PowerfulPummelEnchantment,
+          PrayingKillerEnchantment,
           PrimeWiperEnchantment,
           ProtectionFromEvil,
           PureSavagerylEnchantment,
@@ -1216,6 +1248,7 @@ namespace BlueprintCore.Blueprints.References
           QuarterstaffOfWarMageEnchantment,
           QuickbladeEnchant,
           QuickDeathEnchantment,
+          QuickPunishmentEnchantment,
           RabidUnderdogEnchantment,
           RackingPointEnchantment,
           RadianceBadEnchantment,
@@ -1225,6 +1258,7 @@ namespace BlueprintCore.Blueprints.References
           RadianceMasterworkEnchantment,
           Radiant,
           RainOfArrowsQuiverEnchantment,
+          RampantCarnageEnchantment,
           RandomizerEnergyWeapon_AcidEnchantment,
           RandomizerEnergyWeapon_ColdEnchantment,
           RandomizerEnergyWeapon_ElectricityEnchantment,
@@ -1255,6 +1289,7 @@ namespace BlueprintCore.Blueprints.References
           RuinEnchantment,
           RulebreakerEnchantment,
           RumblingFlachionEnchantment,
+          RunelordsHatefulRanseurEnchantment,
           RupturingStormEnchantment,
           RushlightEnchantment,
           RustedDawnEnchantment,
@@ -1292,6 +1327,7 @@ namespace BlueprintCore.Blueprints.References
           SickleOfWickedRitesEnchantment,
           SilverWeaponEnchantment,
           SingingEdgeEnchantment,
+          SinmageStaffEnchantment,
           SkullCrusherEnchantment,
           SkyScorcherEnchantment,
           SlaughteringSilenceEnchantment,
@@ -1344,6 +1380,8 @@ namespace BlueprintCore.Blueprints.References
           TenderTouchEnchantment,
           TerrifyingTrembleEnchantment,
           TestEnchantWeapon_Enchant,
+          ThatWhoBathesInBloodACIgnoreEnchantment,
+          ThatWhoBathesInBloodEnchantment,
           TheAncientRootEnchantment,
           TheBlitzCutEnchantment,
           TheBlitzCutEnchantmentNew,
@@ -1385,6 +1423,7 @@ namespace BlueprintCore.Blueprints.References
           TyrantEnchantment,
           Ultrasound,
           UltrasoundArrowsQuiverEnchantment,
+          UltraThinEdgeEnchantment,
           UnavoidableDrillEnchantment,
           UnbendingEnchantment,
           UnboundBladeEnchant,
@@ -1413,6 +1452,7 @@ namespace BlueprintCore.Blueprints.References
           WeakenArrowsQuiverEnchantment,
           WeaponBondFlamingBurstEnchant,
           WeaponOfDeathEnchantment,
+          WeatherBlessingElectroDamage,
           WhimsyEnchant,
           WhirlwindCompLongBowDex2,
           WhistlingKillerEnchantment,

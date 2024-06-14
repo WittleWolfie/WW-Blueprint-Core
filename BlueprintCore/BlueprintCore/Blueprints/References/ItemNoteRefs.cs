@@ -40,6 +40,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BerengerMessage = "b3190ffa36f74212afa869439edfa911";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BonfireNight = "f2772c09d52c423a905e9c11b1efb90d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BookKostchtchie = "e11733ae14364f4ca24916f424ab0ffd";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BookOfThirteenthDecree = "08e3e15a2ced48d4882b1d0dce47fc38";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> BrimAdventures = "baecf2a3520d4ecabde3c0ce8959db15";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> ChiefKey = "8214cfe5880d2ff4ca6b5dd634d40339";
     public static readonly Blueprint<BlueprintReference<BlueprintItemNote>> CounselorNote_Item = "0047b221426b4f81aa01b10496a9e0be";
@@ -177,6 +178,7 @@ namespace BlueprintCore.Blueprints.References
           BerengerMessage,
           BonfireNight,
           BookKostchtchie,
+          BookOfThirteenthDecree,
           BrimAdventures,
           ChiefKey,
           CounselorNote_Item,

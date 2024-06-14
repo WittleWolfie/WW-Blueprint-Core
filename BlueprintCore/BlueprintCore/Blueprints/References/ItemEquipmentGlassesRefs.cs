@@ -15,6 +15,7 @@ namespace BlueprintCore.Blueprints.References
   /// </remarks>
   public static class ItemEquipmentGlassesRefs
   {
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> ArachnidGoggles = "8c655e837b9f4009a460e6fb8044a312";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> CinderGogglesItem = "7e8fdec022c503a4ab8feddd08a712c9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> ColorlessRemainsGoggles_IntermediateItem = "feb0918810144ff984ad1e3614404fa5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> ColorlessRemainsGoggles_MadnessItem = "5b2fa590883042948dcebfa162025ead";
@@ -25,6 +26,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> DLC3_TrickstersPromiseGlassesItem = "50f228dd56294800adb2432e6aa1cddd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> EyeOfTruthItem = "b4274bc460014562a0d0efc3bfcba2d6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> EyesOfEagleCorrectItem = "f780cd67dd4e4bce9044d8ebc550cf65";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> EyesOfTheDragon = "c3bf24ba54024fbe8f2a682371a9fc51";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfDreadfulJudgeItem = "f60c4386186224f4f8c4e4f823729516";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfFeriociousPactItem = "76d219c4b02f2d64bbf15363565647c3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GogglesOfMalocchioItem = "8f476e6a796971a48b1c87e822aca941";
@@ -35,15 +37,22 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> GooglesOfMadScientistItem = "ff4db4ecacfb46bea1c4751dc05b44d8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> HawksEyesItem = "6624d096cb193784a906f0fc1c779e04";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> LensesOfProlonguedGaze_CorrectItem = "50f803b35e824b618132750c06dcb1fb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MaskOfEllegancyItem = "c2ccf69a888d4d4ab62ad60e84018a1b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MaskOfTheFastBitesItem = "e71b0d384c7d47618fcf27be493ee3fd";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MephistophelesGogglesItem = "fd724c344be64719a700bc0426e64484";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MephistophelesGogglesItemCorrect = "f22670905bc245238e86fd59da07616a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> MindmastersEyes = "dd245b8645dc4930af554ab700a99e43";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RascalsGogglesItem = "0cea5c218f759bc44a24ac626706a35e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RatcatchersGogglesItem = "0285111eb68f0da429409ee16c40f868";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RazmirMask = "9338510a8d5c4b43b1284470b706128d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RazmiryInfiltratorMask = "23c7116a5fd244169718f8228b66ec66";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RazmiryInfiltratorMaskGold = "3eef3a2e84d24db4909edb2a943dfe22";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>> RazmiryInfiltratorMaskSilver = "a56599028493481d854dd03ccdb22877";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentGlasses>>> All =
       new()
       {
+          ArachnidGoggles,
           CinderGogglesItem,
           ColorlessRemainsGoggles_IntermediateItem,
           ColorlessRemainsGoggles_MadnessItem,
@@ -54,6 +63,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_TrickstersPromiseGlassesItem,
           EyeOfTruthItem,
           EyesOfEagleCorrectItem,
+          EyesOfTheDragon,
           GogglesOfDreadfulJudgeItem,
           GogglesOfFeriociousPactItem,
           GogglesOfMalocchioItem,
@@ -64,11 +74,17 @@ namespace BlueprintCore.Blueprints.References
           GooglesOfMadScientistItem,
           HawksEyesItem,
           LensesOfProlonguedGaze_CorrectItem,
+          MaskOfEllegancyItem,
           MaskOfTheFastBitesItem,
           MephistophelesGogglesItem,
           MephistophelesGogglesItemCorrect,
+          MindmastersEyes,
           RascalsGogglesItem,
           RatcatchersGogglesItem,
+          RazmirMask,
+          RazmiryInfiltratorMask,
+          RazmiryInfiltratorMaskGold,
+          RazmiryInfiltratorMaskSilver,
       };
   }
 }

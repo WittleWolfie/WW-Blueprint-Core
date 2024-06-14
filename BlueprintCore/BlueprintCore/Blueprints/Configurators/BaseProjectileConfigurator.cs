@@ -1,13 +1,17 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.ResourceLinks;
+using Kingmaker.Utility;
 using Kingmaker.Visual.HitSystem;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace BlueprintCore.Blueprints.Configurators
@@ -555,8 +559,8 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>MagicMissile01</term><description>741743ccd287a854fbb68ce70f75fa05</description></item>
-    /// <item><term>MagicMissile03</term><description>caadaf27d789793459a3e32cb0615d14</description></item>
-    /// <item><term>MagicMissile04</term><description>43295b5988021f741a28b8bf0424a412</description></item>
+    /// <item><term>MaskThrow_ProjectileLeftFar</term><description>640bdac8a3224e8ab844937986258b54</description></item>
+    /// <item><term>MaskThrow_ProjectileRightNotFar</term><description>5912b2bce91849ecb91f712ada93a3e2</description></item>
     /// </list>
     /// </remarks>
     ///

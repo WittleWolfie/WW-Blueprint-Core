@@ -9,7 +9,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
     public static readonly List<Type> Types =
       new()
       {
-        typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionProperty),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionCasterIsPartyEnemy),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionHasBuffWithSpellSchool),
         typeof(Kingmaker.UnitLogic.Mechanics.Conditions.ContextConditionIsShiftersFuryWeapon),
@@ -40,7 +39,6 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState),
-        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.IsDlcActive),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsExpedition),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsIslandCurrentFinished),

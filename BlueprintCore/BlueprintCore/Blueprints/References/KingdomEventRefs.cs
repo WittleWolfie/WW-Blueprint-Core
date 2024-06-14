@@ -46,6 +46,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_AngelRankUp04 = "fffb4af1cd8b4d1cb14848c6d7da1b95";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_AngelRankUp05 = "694121243d4f43cd8ad1077924a04d36";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_AngelRankUp06 = "1f8529d5d25c46c4bc0d32e27f285553";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_ArenaMasterArrives = "2e91491ba74a4ab49550c9f40d322290";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_ArueshalaeVSDemon = "c9e08bfce7d64c66b39c57fe296af532";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_ArushaDreams_Q1 = "6440f179b32ef5241bc118ab7b0362f6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_ArushaDreams_Q3 = "3747a2fc81f0cea458cf62431e54eff2";
@@ -95,6 +96,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_FlameLance_Klejm = "3582ab0febe764947a018f95574fa1d5";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_FlameLance_Nystra = "ec212cdabacd87b4692810fbb68863c6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_FoolKingArrives = "f8ff61be821deaa429b1534c445c6c62";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_GoKillSithhud = "e8b2c79c7e484e5fa306f619ea383104";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_GreyborAssasination = "e92263c9af58c38439e8ff06899b7597";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_HellknightsVisit_C3 = "ec6c0fff092eb8a4191a80e76092f6bb";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Irabeth_AboutCiar = "08bd120052e6b7142bc177ee34d225ee";
@@ -109,13 +111,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LichRankUp05_Zacharius = "d5764ed73f22417a954abbda6131d565";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LichRankUp06_NoZacharius = "dc1228c489ee45b6ac9d6a24b450c99f";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LichRankUp06_Zacharius = "d44ae473fcef406c90d0769592098277";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustMeetsArenaMaster = "fd58fb6b1a894e3aa3fcf803bab08be2";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustRankUp01 = "5d9280e0d70449b7acd8558a167524b6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustRankUp02 = "5b3b5783468e45afa576fb8ada690704";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustRankUp03 = "38812b8feedd45a7b0f2ef97bc3653b5";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustRankUp04 = "f4135111fbbd47adbb832a29c2759015";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustRankUp05 = "1fef9c5f951241db9366aa07383bdf41";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_LocustStartDLC6 = "e824880c3a7d402991247b34683af564";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Malessa = "0aac09aa9ab56234a8481279e68bfc76";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Markyll = "2c3b752313d8d4a4fb266bb0dde09ab1";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_MephistoOffer = "a22f779f86ee4261b95e387a87cf82e9";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Mimics = "cfd3fc41075fc7a46ae9e3d9b1c52085";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_MythicC5_Socot = "0fd71687c3c2bbe47bd5cfb896d2ce6b";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Prelate_Chun = "106a9d34b7f711549a78e928047de800";
@@ -131,6 +136,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Sosiel_Eskiz_c3 = "e4b87d96d34f45e42b9d98ecc173afa7";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Sosiel_Romance_Breakup_c5 = "3f43f81bcc390844c847561c051cdfe4";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_SosielRomance_Portrait_Invitation = "530e5aacc4c5bb745a2f219b08339bf3";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_StartDLC6 = "cbde59ccadec40a088b870509727ce69";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Theatre_5ChapterCalling = "ea45f1f768ae27e488d579806fe80ddf";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Theatre_SecondVisit_c3 = "7111f3395091dfc42b82f7bb1c65600f";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_TrentsArrive = "6d81789e5c9f29f49a07dd476e85d22a";
@@ -140,6 +146,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_TricksterRankUp4 = "b291470da49c4b9a8804a519a9af9907";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_TricksterRankUp5 = "73e863b1dbcc4a108619347c74a08682";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_TricksterRankUp6 = "87ea8682041b430caffdd264def74fd5";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_Turmoil = "d88d10e334064d6c826d21090fe24e9a";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_WiseMentorAzata = "f53121f14bbe0c54aa08279d38a6c1c6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> KTC_YakerReportsAttack = "2ff4e5d27258ba84dba7fd091b4a1d9f";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomEvent>> LannKTC_LannCantDo = "1d7004a6695470e47948ca9dad064593";
@@ -189,6 +196,7 @@ namespace BlueprintCore.Blueprints.References
           KTC_AngelRankUp04,
           KTC_AngelRankUp05,
           KTC_AngelRankUp06,
+          KTC_ArenaMasterArrives,
           KTC_ArueshalaeVSDemon,
           KTC_ArushaDreams_Q1,
           KTC_ArushaDreams_Q3,
@@ -238,6 +246,7 @@ namespace BlueprintCore.Blueprints.References
           KTC_FlameLance_Klejm,
           KTC_FlameLance_Nystra,
           KTC_FoolKingArrives,
+          KTC_GoKillSithhud,
           KTC_GreyborAssasination,
           KTC_HellknightsVisit_C3,
           KTC_Irabeth_AboutCiar,
@@ -252,13 +261,16 @@ namespace BlueprintCore.Blueprints.References
           KTC_LichRankUp05_Zacharius,
           KTC_LichRankUp06_NoZacharius,
           KTC_LichRankUp06_Zacharius,
+          KTC_LocustMeetsArenaMaster,
           KTC_LocustRankUp01,
           KTC_LocustRankUp02,
           KTC_LocustRankUp03,
           KTC_LocustRankUp04,
           KTC_LocustRankUp05,
+          KTC_LocustStartDLC6,
           KTC_Malessa,
           KTC_Markyll,
+          KTC_MephistoOffer,
           KTC_Mimics,
           KTC_MythicC5_Socot,
           KTC_Prelate_Chun,
@@ -274,6 +286,7 @@ namespace BlueprintCore.Blueprints.References
           KTC_Sosiel_Eskiz_c3,
           KTC_Sosiel_Romance_Breakup_c5,
           KTC_SosielRomance_Portrait_Invitation,
+          KTC_StartDLC6,
           KTC_Theatre_5ChapterCalling,
           KTC_Theatre_SecondVisit_c3,
           KTC_TrentsArrive,
@@ -283,6 +296,7 @@ namespace BlueprintCore.Blueprints.References
           KTC_TricksterRankUp4,
           KTC_TricksterRankUp5,
           KTC_TricksterRankUp6,
+          KTC_Turmoil,
           KTC_WiseMentorAzata,
           KTC_YakerReportsAttack,
           LannKTC_LannCantDo,

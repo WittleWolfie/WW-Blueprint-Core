@@ -16,6 +16,7 @@ namespace BlueprintCore.Blueprints.References
   public static class DlcRewardRefs
   {
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> Dlc4Reward = "e38ada3f1eab4110ae331b613162a05b";
+    public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> Dlc6Reward = "b94f823171a84e30ad7a1b892433ab5d";
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> DlcCommanderPackReward = "52e2a91ac53442a594a413007c302d83";
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> DlcKickstarterPremiumReward = "62b96baa0fdc46a186bb58cd23cf92d6";
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> DlcKickstarterReward = "546913f3c89f43f9af2d4a41c99d4f3a";
@@ -29,6 +30,7 @@ namespace BlueprintCore.Blueprints.References
       new()
       {
           Dlc4Reward,
+          Dlc6Reward,
           DlcCommanderPackReward,
           DlcKickstarterPremiumReward,
           DlcKickstarterReward,

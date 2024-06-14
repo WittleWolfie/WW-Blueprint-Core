@@ -1,17 +1,23 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Actions.Builder;
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
+using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Quests;
+using Kingmaker.Blueprints.Root;
+using Kingmaker.DialogSystem.Blueprints;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Dungeon.Enums;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Globalmap.Blueprints;
 using Kingmaker.Kingdom;
+using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.Utility;
 using System;

@@ -1,11 +1,15 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Loot;
 using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Loot
 {
@@ -107,7 +111,7 @@ namespace BlueprintCore.Blueprints.Configurators.Loot
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aminas_Chapter5VendorTable</term><description>8b2dae3f8da96f640995594f6bcf7a29</description></item>
-    /// <item><term>DLC5_BarmenGemilHokksCookingAfterGiants</term><description>660b61848f4345dab3b7c5561821ad0f</description></item>
+    /// <item><term>DLC5_BarmenGemilHokksLootTable</term><description>6afe35de6a40417f88e23db08fc4c81b</description></item>
     /// <item><term>WyvernMeatLoot</term><description>abe034c3a49a1854496fa6fe1f439114</description></item>
     /// </list>
     /// </remarks>

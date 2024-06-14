@@ -343,6 +343,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> PuluraProject = "13152ef1efaff484a88534b5b17a63a4";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> PurchasingQualityEquipment = "e85c806af6594a44b905a4ae29c3f0d3";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> ReluctantSoldiers = "870ceeb8e6424aa1af08031475f6f14d";
+    public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> ReserveCall = "546e9a2a77c944b7b34f3fe46368eea6";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> RovagugRelic_ReforgeProject = "7134798e182ca834385ce2768e1e2e21";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> RovagugRelicBattleaxeProject_Enchanting = "7c36c27f87afe944f8836959b699aa7f";
     public static readonly Blueprint<BlueprintReference<BlueprintKingdomProject>> RovagugRelicGreataxeProject_Enchanting = "e3575b4fce784c9ab9b0a43e653f121b";
@@ -705,6 +706,7 @@ namespace BlueprintCore.Blueprints.References
           PuluraProject,
           PurchasingQualityEquipment,
           ReluctantSoldiers,
+          ReserveCall,
           RovagugRelic_ReforgeProject,
           RovagugRelicBattleaxeProject_Enchanting,
           RovagugRelicGreataxeProject_Enchanting,

@@ -48,6 +48,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> SuccubusRace = "56f58bf7ee0f4bbb951f98045c6b6d8f";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> TieflingRace = "5c4e42124dc2b4647af6e36cf2590500";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> WildHuntRace_Fake = "f414c5b12f2296c41901e71b889ef436";
+    public static readonly Blueprint<BlueprintReference<BlueprintRace>> WormThatWalksRace = "6e9549faf0e847d39e46f28a05ac580f";
     public static readonly Blueprint<BlueprintReference<BlueprintRace>> ZombiesRace = "b9668860eed943eca2419fd8c371f481";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintRace>>> All =
@@ -86,6 +87,7 @@ namespace BlueprintCore.Blueprints.References
           SuccubusRace,
           TieflingRace,
           WildHuntRace_Fake,
+          WormThatWalksRace,
           ZombiesRace,
       };
   }

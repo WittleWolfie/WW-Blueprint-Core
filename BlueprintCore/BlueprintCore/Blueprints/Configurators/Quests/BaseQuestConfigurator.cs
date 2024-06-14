@@ -7,11 +7,13 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes.Experience;
 using Kingmaker.Blueprints.Quests;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.ElementsSystem;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Quests
@@ -44,6 +46,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
           bp.m_DescriptionPriority = copyFrom.m_DescriptionPriority;
           bp.m_Type = copyFrom.m_Type;
           bp.m_LastChapter = copyFrom.m_LastChapter;
+          bp.m_QuestMarkerColorType = copyFrom.m_QuestMarkerColorType;
           bp.m_Objectives = copyFrom.m_Objectives;
           bp.OnSetAutoKingdom = copyFrom.OnSetAutoKingdom;
         });
@@ -66,6 +69,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
           bp.m_DescriptionPriority = copyFrom.m_DescriptionPriority;
           bp.m_Type = copyFrom.m_Type;
           bp.m_LastChapter = copyFrom.m_LastChapter;
+          bp.m_QuestMarkerColorType = copyFrom.m_QuestMarkerColorType;
           bp.m_Objectives = copyFrom.m_Objectives;
           bp.OnSetAutoKingdom = copyFrom.OnSetAutoKingdom;
         });
@@ -203,6 +207,18 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
         bp =>
         {
           bp.m_LastChapter = lastChapter;
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintQuest.m_QuestMarkerColorType"/>
+    /// </summary>
+    public TBuilder SetQuestMarkerColorType(QuestMarkerColors.QuestMarkerColorType questMarkerColorType)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.m_QuestMarkerColorType = questMarkerColorType;
         });
     }
 
@@ -355,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR14_DeepShadowDemonTough</term><description>580e014994544fefbe22e9f6164ad49b</description></item>
+    /// <item><term>DLC3_CR16_BabauElite</term><description>e3f4366b69cd47dc8a9c23518b670b4a</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>

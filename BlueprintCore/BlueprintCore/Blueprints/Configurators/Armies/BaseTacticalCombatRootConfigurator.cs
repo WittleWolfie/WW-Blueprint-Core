@@ -1,17 +1,21 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
+using Kingmaker.AreaLogic.Cutscenes;
 using Kingmaker.Armies.TacticalCombat.Blueprints;
 using Kingmaker.Armies.TacticalCombat.Brain;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Localization;
 using Kingmaker.ResourceLinks;
 using Kingmaker.Sound;
 using Kingmaker.Utility;
 using Owlcat.Runtime.Core.Math;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 

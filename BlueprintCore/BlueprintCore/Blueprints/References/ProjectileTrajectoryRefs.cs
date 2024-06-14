@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
@@ -34,6 +35,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Creature_PainajaiSpear02_Trajectory = "4ddd94ab98ae0f7419ecfb52f6cb405b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Cutscene_ShadowSpawn00_Trajectory = "9011c94c3f784a66a79456b96738261d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> DeathCurse00_Trajectory = "fc97e10d3943ebf4e81bfb7eb798c8be";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Deceiver00_Trajectory = "3219aada48d84655ba938d90fac43449";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> DeceiverLine00_Trajectory = "e3fbbd51abbd49d1a64ac5e44ac01885";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> DimensionDoor00_Trajectory = "7d689d77661da1c4197e596f066f9a8e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> DisruptUndead00_Trajectory = "2005cb4579da19a4fa85d61fdc3993ce";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> ElectroBallProjectile00_Trajectory = "a091396ad98f6b742a17a189c882a16e";
@@ -68,6 +71,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MagicMissile02_Trajectory = "438b395a152816e4aaefa33a5660c82d";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MagicMissile03_Trajectory = "94cde76eb07e6c442a6b8bc6d42f88cd";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MagicMissile04_Trajectory = "c5666a5f7f524db49bea07670900dc6a";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_Cutscene1 = "4b8691a6539e407ba308d000a711884f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_Cutscene2 = "59b5bbf8ed724bac83367797d4285cd1";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_Cutscene3 = "a6e85dc57c36465c8e94a627a53fa418";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_Cutscene4 = "58ab22299faf4a10b530ca3c67bea0c2";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_Cutscene5 = "7d7cfda5c7794df294ead9ce9e87c559";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_LeftFar = "dc64ba244620461587f31e5216d66ea7";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_LeftNotFar = "e4c2ed0372f14dde83d8153cccb6d1a9";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_NormalGolem = "d0a8ecc7140b4a9f8b51655afbf0a3ca";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_RightFar = "0ffda1da30c64942addbb4b90d5cc1c0";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> MaskThrow00_Trajectory_RightNotFar = "76f35b5e1add4bec81e106a6cd3bc85b";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic4lvlDemon_AbyssalChains00_Trajectory1 = "4e3b947f297449c44bc0935ee2b3a07a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic4lvlDemon_AbyssalChains00_Trajectory2 = "7febd42121c9fe64a9fb3f0b5276a212";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectileTrajectory>> Mythic4lvlDemon_AbyssalChains00_Trajectory3 = "cf7572cb2d56f4346ae98f7cfd520770";
@@ -132,6 +145,8 @@ namespace BlueprintCore.Blueprints.References
           Creature_PainajaiSpear02_Trajectory,
           Cutscene_ShadowSpawn00_Trajectory,
           DeathCurse00_Trajectory,
+          Deceiver00_Trajectory,
+          DeceiverLine00_Trajectory,
           DimensionDoor00_Trajectory,
           DisruptUndead00_Trajectory,
           ElectroBallProjectile00_Trajectory,
@@ -166,6 +181,16 @@ namespace BlueprintCore.Blueprints.References
           MagicMissile02_Trajectory,
           MagicMissile03_Trajectory,
           MagicMissile04_Trajectory,
+          MaskThrow00_Trajectory_Cutscene1,
+          MaskThrow00_Trajectory_Cutscene2,
+          MaskThrow00_Trajectory_Cutscene3,
+          MaskThrow00_Trajectory_Cutscene4,
+          MaskThrow00_Trajectory_Cutscene5,
+          MaskThrow00_Trajectory_LeftFar,
+          MaskThrow00_Trajectory_LeftNotFar,
+          MaskThrow00_Trajectory_NormalGolem,
+          MaskThrow00_Trajectory_RightFar,
+          MaskThrow00_Trajectory_RightNotFar,
           Mythic4lvlDemon_AbyssalChains00_Trajectory1,
           Mythic4lvlDemon_AbyssalChains00_Trajectory2,
           Mythic4lvlDemon_AbyssalChains00_Trajectory3,

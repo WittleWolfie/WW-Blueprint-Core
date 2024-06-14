@@ -6,7 +6,14 @@ using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Encyclopedia;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Equipment;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
@@ -20,7 +27,11 @@ using Kingmaker.Tutorial.Triggers;
 using Kingmaker.UI.Kingdom;
 using Kingmaker.UnitLogic;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
+using Kingmaker.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -2039,6 +2050,50 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     }
 
     /// <summary>
+    /// Adds <see cref="TutorialTriggerNewGripFlexibleWeapon"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>TwoHandedGripTutorial</term><description>9025b278f1c24fb2ab6ccfb067622513</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="enchantment">
+    /// <para>
+    /// Blueprint of type BlueprintItemEnchantment. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddTutorialTriggerNewGripFlexibleWeapon(
+        Blueprint<BlueprintItemEnchantmentReference>? enchantment = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new TutorialTriggerNewGripFlexibleWeapon();
+      component.m_Enchantment = enchantment?.Reference ?? component.m_Enchantment;
+      if (component.m_Enchantment is null)
+      {
+        component.m_Enchantment = BlueprintTool.GetRef<BlueprintItemEnchantmentReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="TutorialTriggerNewItemWithEnchantment"/>
     /// </summary>
     ///
@@ -2590,7 +2645,7 @@ namespace BlueprintCore.Blueprints.Configurators.Tutorial
     /// <listheader>Used by</listheader>
     /// <item><term>CrusadeTutorial_02_Battle</term><description>e00f8f602dc54e04b0d4c65205a25f17</description></item>
     /// <item><term>CrusadeTutorial_04_GeneralInCombat</term><description>c689b8fdec744cb98f4231ff1e5e01af</description></item>
-    /// <item><term>CrusadeTutorial_04_GeneralInCombat_Gamepad</term><description>7e56b8279f084a0abb5da219130bd0c3</description></item>
+    /// <item><term>CrusadeTutorial_15_AutoBattle</term><description>38486aa08c12489ea02e062e629c02b3</description></item>
     /// </list>
     /// </remarks>
     ///

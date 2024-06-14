@@ -1,16 +1,19 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Blueprints.Components.Replacements;
+using BlueprintCore.Blueprints.Configurators.Items.Ecnchantments;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Facts;
 using Kingmaker.Blueprints.Items.Ecnchantments;
 using Kingmaker.Designers.Mechanics.EquipmentEnchants;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.WeaponEnchants;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
@@ -18,6 +21,7 @@ using Kingmaker.Enums.Damage;
 using Kingmaker.ResourceLinks;
 using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules.Damage;
+using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.Utility;
 using System;
@@ -940,8 +944,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BloodthirstNegative3d6</term><description>f79f6fc9e5ab7da4daf93d665e4935bf</description></item>
-    /// <item><term>LightHammerOfRighteousnessEnchantment</term><description>dd78f3841a990c44cb8e8f9c4f615879</description></item>
-    /// <item><term>WeaponBondFlamingBurstEnchant</term><description>b166fefa25b04b40a840fc5461e4feb5</description></item>
+    /// <item><term>IcyBurst</term><description>564a6924b246d254c920a7c44bf2a58b</description></item>
+    /// <item><term>WeatherBlessingElectroDamage</term><description>f3524fb5e96e44f58f6a771bb943efae</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1101,7 +1105,8 @@ namespace BlueprintCore.Blueprints.Configurators.Items.Ecnchantments
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ColdIronWeaponEnchantment</term><description>e5990dc76d2a613409916071c898eee8</description></item>
+    /// <item><term>AdamantineWeaponEnchantment</term><description>ab39e7d59dd12f4429ffef5dca88dc7b</description></item>
+    /// <item><term>MithralWeaponEnchantment</term><description>0ae8fc9f2e255584faf4d14835224875</description></item>
     /// <item><term>SilverWeaponEnchantment</term><description>9012b1095c9645e0a6152f673fc07d0a</description></item>
     /// </list>
     /// </remarks>

@@ -15,6 +15,7 @@ namespace BlueprintCore.Blueprints.References
   /// </remarks>
   public static class UnitCustomizationPresetRefs
   {
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> AsmodeanCultistCustomizationPreset = "704119da363b45f0b56daf136ed49f91";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Bandits_CustomizationPreset = "7033ff076a464555bac0a43a43351492";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Bandits_CustomizationPreset_1 = "8aa53fd9d00142798bad570283968024";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> BanditsCaster_CustomizationPreset = "3713f9081d874170bffaf7495db2067b";
@@ -150,6 +151,20 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_ShadowPlaneCustomizationPreset = "e7f89993233c4e078bfd1712f1825bec";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_StorastaNPCCustomiastionPreset = "8f0c0ced207d43bc9ac9680d71bcb469";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC5_StorastaUndeadCustomiastionPreset = "0ebaf60eea15489ea5bd3799675b85bb";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_ArueshalaeCustomPreset = "f24dc8799ab34525b006c1a5100dcb82";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_CameliaCustomPreset = "529d8e7d86674c2ca9b25ff092fcb6f9";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_DaeranCustomPreset = "1ab12ffc32044fcfbda5147d289d8f44";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_EmberCustomPreset = "bd9b5178244641f1a33056963bc841df";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_GreyborCustomPreset = "cb2216804b0d458f8ffaa0ccfb08339a";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_LannCustomPreset = "8fda45c9f44b4cbd977f8ccb620c03b3";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_NenioCustomPreset = "fd4456e4c1ed4778b4cd3b0572746f4b";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_RegillCustomPreset = "904c69a7828e45a082e868974196974f";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_SeelahCustomPreset = "81cafb7102f44ea88ac5f9fb885ae0b4";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_SosielCustomPreset = "f23f6f4ab3eb4011b03cd2b25dbcdcf8";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_UlbrigCustomPreset = "f7e8af57b6d04fdc8edc1d1e1fe2e6c6";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_WenduCustomPreset = "5baafcd1c114432d88fbfbf4016735dd";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> DLC6_WoljifCustomPreset = "01a3ae8195f147ebbcd8f7f12e2fe196";
+    public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> FestiveGuardsCustompreset = "658c27a4d3cd4d6da2eda227a29de274";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Goblin_CustomizationPreset = "93e00a611e6b479590320a2088750f82";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Knights_CustomizationPresetDLC5 = "6c05d4f78f2f43b09bf2490478864992";
     public static readonly Blueprint<BlueprintReference<UnitCustomizationPreset>> Noble_CustomizationPreset = "d4d7ed9c2bc94bdbbe33e4351857e6bb";
@@ -158,6 +173,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly List<Blueprint<BlueprintReference<UnitCustomizationPreset>>> All =
       new()
       {
+          AsmodeanCultistCustomizationPreset,
           Bandits_CustomizationPreset,
           Bandits_CustomizationPreset_1,
           BanditsCaster_CustomizationPreset,
@@ -293,6 +309,20 @@ namespace BlueprintCore.Blueprints.References
           DLC5_ShadowPlaneCustomizationPreset,
           DLC5_StorastaNPCCustomiastionPreset,
           DLC5_StorastaUndeadCustomiastionPreset,
+          DLC6_ArueshalaeCustomPreset,
+          DLC6_CameliaCustomPreset,
+          DLC6_DaeranCustomPreset,
+          DLC6_EmberCustomPreset,
+          DLC6_GreyborCustomPreset,
+          DLC6_LannCustomPreset,
+          DLC6_NenioCustomPreset,
+          DLC6_RegillCustomPreset,
+          DLC6_SeelahCustomPreset,
+          DLC6_SosielCustomPreset,
+          DLC6_UlbrigCustomPreset,
+          DLC6_WenduCustomPreset,
+          DLC6_WoljifCustomPreset,
+          FestiveGuardsCustompreset,
           Goblin_CustomizationPreset,
           Knights_CustomizationPresetDLC5,
           Noble_CustomizationPreset,

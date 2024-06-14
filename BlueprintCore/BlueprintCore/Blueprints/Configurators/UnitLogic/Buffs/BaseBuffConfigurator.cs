@@ -12,13 +12,18 @@ using Kingmaker.Armies.TacticalCombat.Components;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills;
 using Kingmaker.Armies.TacticalCombat.LeaderSkills.UnitBuffComponents;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Ecnchantments;
+using Kingmaker.Blueprints.Items.Equipment;
 using Kingmaker.Blueprints.Items.Weapons;
 using Kingmaker.Corruption;
 using Kingmaker.Designers.Mechanics.Buffs;
 using Kingmaker.Designers.Mechanics.Buffs.HalfOfPair;
 using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Designers.Mechanics.Facts.Restrictions;
+using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Enums.Damage;
@@ -27,16 +32,19 @@ using Kingmaker.RuleSystem;
 using Kingmaker.RuleSystem.Rules;
 using Kingmaker.UI.GenericSlot;
 using Kingmaker.UnitLogic.Abilities;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
 using Kingmaker.UnitLogic.ActivatableAbilities;
 using Kingmaker.UnitLogic.Buffs;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
+using Kingmaker.UnitLogic.Class;
 using Kingmaker.UnitLogic.Class.Kineticist;
 using Kingmaker.UnitLogic.FactLogic;
 using Kingmaker.UnitLogic.Mechanics;
 using Kingmaker.UnitLogic.Mechanics.Actions;
 using Kingmaker.UnitLogic.Mechanics.Components;
+using Kingmaker.UnitLogic.Mechanics.Properties;
 using Kingmaker.UnitLogic.Parts;
 using Kingmaker.Utility;
 using Kingmaker.Visual;
@@ -358,7 +366,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FirstWorldMincePieBuffIntelligence</term><description>cb3c2f5d3a0824b4c8746a59e31118e8</description></item>
+    /// <item><term>FinneanArmourerWeaponBuff</term><description>62a180135a9a9d54e9edfeca5b68d3c7</description></item>
     /// <item><term>ZonKuthonScarHalfHPBuff</term><description>9a47f56d0a1f42d9bf820da1d78919a7</description></item>
     /// </list>
     /// </remarks>
@@ -395,7 +403,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BlackLinnormStewBuff</term><description>4fbf48fff5bff9148accad55c116b8f2</description></item>
-    /// <item><term>FinneanArmourerArmorBuff</term><description>0d9604f466fee484ab05dcb6c435ab9f</description></item>
+    /// <item><term>FocusCrystall_Feature_HealthHard</term><description>fe34c4009816484a9167c5635b0dfc96</description></item>
     /// <item><term>VrolikaiAspectFeature</term><description>0ed608f1a0695cd4cb80bf6d415ab295</description></item>
     /// </list>
     /// </remarks>
@@ -434,7 +442,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
-    /// <item><term>HellsSealVariantFireExplosionDamage</term><description>2505b384e7c80d84a9a8300ad8673edd</description></item>
+    /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
     /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
     /// </remarks>
@@ -452,7 +460,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HexChannelerChannelNegativeEnergy</term><description>fb2df4978dd4fd745a7aaecfd1068512</description></item>
+    /// <item><term>HagCatPolymorphBuff</term><description>ccc0b6dd542149528035c755b2c60393</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -804,7 +812,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>MightyBlowOfGoodBuff</term><description>864a5775ceaed974f9f8c3acc1d5dcd1</description></item>
+    /// <item><term>BlessedScriptBaneWeaponBuff</term><description>45628d9632fd42979c10f4eebad6fb41</description></item>
     /// <item><term>SorcerousClawsFlamingBuff</term><description>52184e85ccf94cf693fa00c645ca37c7</description></item>
     /// <item><term>TheUndyingLoveOfTheHopebringer_LightNova_GiveBuff</term><description>8c9b07c246a3469e8c154d98ee594ee3</description></item>
     /// </list>
@@ -869,7 +877,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlignWeaponChaosBuff</term><description>2f2eb113da65b6b4fbf69e35c90afe02</description></item>
-    /// <item><term>Inquisitor_Buff_Bane</term><description>4efb6790e1edf3c419bad6b52f36e32f</description></item>
+    /// <item><term>MarksmansAidArrowsQuiverBuff</term><description>df458d92915bc914ba06b5d27d634a39</description></item>
     /// <item><term>WeaponOfDeathBuff</term><description>a8c1e364f631f8a46b8ef23a5528c806</description></item>
     /// </list>
     /// </remarks>
@@ -939,8 +947,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BootsOfMagicalWhirlCountBuff</term><description>815fa1c6d2dc4c56859bfa84eee96107</description></item>
-    /// <item><term>DisarmMainHandBuff</term><description>f7db19748af8b69469073485a65f37cf</description></item>
+    /// <item><term>AloneInTheDarkBuffCooldown</term><description>9555466f9a8e46b3a4c1459fe0c858c1</description></item>
+    /// <item><term>DemonRageBuffUncontrollable</term><description>325e00281f7e4a54cbc60627f2f66cec</description></item>
     /// <item><term>ShiftersRushBuff</term><description>c3365d5a75294b9b879c587668620bd4</description></item>
     /// </list>
     /// </remarks>
@@ -1091,7 +1099,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AllIsDarknessSmiteEvilBuff</term><description>c09d87fb8a5742499d6b820a0e700504</description></item>
-    /// <item><term>ProfaneAscensionConstitutionBuff1</term><description>4bd5006416df4d13982bb957e82ae8ed</description></item>
+    /// <item><term>NemaryStigma_ObedienceBuff</term><description>c55cdee7f49d4a19891619e1a6f33b81</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningBuff</term><description>e248e5ef1ae04d559d5fe82ef719ee47</description></item>
     /// </list>
     /// </remarks>
@@ -1111,6 +1119,52 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     }
 
     /// <summary>
+    /// Adds <see cref="AddMaskOfRazmiry"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>RazmiryMaskBuff</term><description>29c573b30274452baba4b9f0be987959</description></item>
+    /// <item><term>RazmiryMaskBuffGold</term><description>a3d5452afb1041b1a2637c63bf405ff1</description></item>
+    /// <item><term>RazmiryMaskBuffSilver</term><description>3356e7e835ed45dfa96d777d39493a8a</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="item">
+    /// <para>
+    /// Blueprint of type BlueprintItemEquipmentGlasses. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddMaskOfRazmiry(
+        Blueprint<BlueprintItemEquipmentGlassesReference>? item = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+    {
+      var component = new AddMaskOfRazmiry();
+      component.m_Item = item?.Reference ?? component.m_Item;
+      if (component.m_Item is null)
+      {
+        component.m_Item = BlueprintTool.GetRef<BlueprintItemEquipmentGlassesReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddKineticistBlade"/>
     /// </summary>
     ///
@@ -1118,9 +1172,9 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>KineticBladeAirBlastBuff</term><description>f7a55ccd8553f974a89482dd98672bbc</description></item>
+    /// <item><term>BladeboundBlackBladeBuffLeft</term><description>79582509d2414ab1b5ed4b75464d501e</description></item>
     /// <item><term>KineticBladeIceBlastBuff</term><description>9e7a7d7e8334a5748a8834b0116cf6c4</description></item>
-    /// <item><term>KineticBladeWaterBlastBuff</term><description>abe55a6590a056f4e8161802ae2b43c5</description></item>
+    /// <item><term>LivingGrimoireHolyBookBuffSecondary</term><description>0688ae60216d4356b46b8a71338b7b88</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1142,10 +1196,16 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <param name="mergeBehavior">
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
+    /// <param name="useSecondaryHandInstead">
+    /// <para>
+    /// Tooltip: Обычно используем правую руку, можем использовать левую вместо этого.
+    /// </para>
+    /// </param>
     public TBuilder AddKineticistBlade(
         Blueprint<BlueprintItemWeaponReference>? blade = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? useSecondaryHandInstead = null)
     {
       var component = new AddKineticistBlade();
       component.m_Blade = blade?.Reference ?? component.m_Blade;
@@ -1153,6 +1213,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       {
         component.m_Blade = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
       }
+      component.UseSecondaryHandInstead = useSecondaryHandInstead ?? component.UseSecondaryHandInstead;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1165,7 +1226,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Anevia_DressPolymorph</term><description>6267b23ce31a4ad8b1b3557826671708</description></item>
-    /// <item><term>MythicAngel_AstralDevaPolymorphBuff</term><description>e6be1b0095c745e091004b3c4126b963</description></item>
+    /// <item><term>MidnightFane_HuskPolymorphBuff_3</term><description>34f2ec90458a4f1582199a52168b19d9</description></item>
     /// <item><term>YozzPolymorfBuff</term><description>ed4e29772921bc84098f1a9a1dcc3ddb</description></item>
     /// </list>
     /// </remarks>
@@ -1476,7 +1537,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAoOGazeBaseBuff</term><description>da22fac7ee174766a1d924749245b8e9</description></item>
-    /// <item><term>GraveShiveringAreaBuff</term><description>d637b23d926a4350aadc08cf534d4ea8</description></item>
+    /// <item><term>GloryDomainGreaterBuffSeparatist</term><description>8a61fe74740745a390aa9ce38fde04a9</description></item>
     /// <item><term>ZeorisDaggerRing_BetrayalAreaBuff</term><description>b2b739c6e18b457d9ba30ab389b0520f</description></item>
     /// </list>
     /// </remarks>
@@ -1723,7 +1784,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AxiomiteMeleeMiniboss_Buff_LegendaryProportions</term><description>acf2b59d0d374711b969c5ea864e9656</description></item>
-    /// <item><term>Gorum_Buff</term><description>e3a9786b626d4b50ac58a8b3cbdc00f4</description></item>
+    /// <item><term>EnlargePersonPrimal8Buff</term><description>ebe86df0472a48be939946e9b859987e</description></item>
     /// <item><term>UnboundRageBuff</term><description>303c52f8ca064d558f1c47ba354db006</description></item>
     /// </list>
     /// </remarks>
@@ -1924,7 +1985,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirElementalInWhirlwind</term><description>8b1b723a20f644c469b99bd541a13a3b</description></item>
-    /// <item><term>GriffonGrappledInitiatorBuff</term><description>426228edb7e84943bd1180edf57ecaf9</description></item>
+    /// <item><term>GolemAutumnGrappledBuff</term><description>077537d7c64aa4e44b559b914693d085</description></item>
     /// <item><term>WitchHexDeathCurseBuff2</term><description>5e6aeb6852a77b3449b37a4bdb9f7bb4</description></item>
     /// </list>
     /// </remarks>
@@ -1953,7 +2014,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
+    /// <item><term>AloneInTheDarkBuffCooldown</term><description>9555466f9a8e46b3a4c1459fe0c858c1</description></item>
     /// <item><term>HideousLaughterBuff</term><description>4b1f07a71a982824988d7f48cd49f3f8</description></item>
     /// <item><term>VinetrapEntangledBuff</term><description>231a622f767e8ed4e9b3e435265a3e99</description></item>
     /// </list>
@@ -2146,7 +2207,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyStandartRageBuff</term><description>77c8d5b837c04fa0a7b44bb7592aee56</description></item>
-    /// <item><term>EyeImplantFeature</term><description>4456e13ff90d9e6498462b92cb97ed21</description></item>
+    /// <item><term>DLC3_SicknessCannibalBuff</term><description>7f528559113d4d58bc255da154e24bd6</description></item>
     /// <item><term>WarDomainBaseBuffSeparatist</term><description>ed756340f71a4022b4031175a39cec2e</description></item>
     /// </list>
     /// </remarks>
@@ -2390,7 +2451,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DemodandTarry_Feature_Adhesion</term><description>675601139e08f8248a37415632e1f98f</description></item>
+    /// <item><term>DemonicFormIVVavakia_Breath</term><description>7d5c9412bc0f32d4dbfb642f31d83f75</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2458,7 +2519,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>MimicChestAdhesiveFeature</term><description>a3ef16a570855b54c9957c026075dd14</description></item>
+    /// <item><term>MudBlastBladeDamage</term><description>f82cfcf11b94bef49bf1a8f57aad5c13</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2508,7 +2569,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>InspireFerocityEffectBuffMythic</term><description>fb6d392a0fcf4ba2a7cefed7682fb911</description></item>
+    /// <item><term>InspireTranquilityEffectBuffMythic</term><description>949459a61d064e848f7e86e2a80e336d</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2537,7 +2598,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
+    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2894,12 +2955,27 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonBaneFeature</term><description>0b25e8d8b0488c84c9b5714e9ca0a204</description></item>
-    /// <item><term>GhostRiderSpiritedMountFeature</term><description>2f05eae7c5bd43238fcd0f4e665a5144</description></item>
+    /// <item><term>HeartOfEarthShifterFeature</term><description>0b09ce94b5fe48dfa81b9a6f9d55a351</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
     ///
     /// <param name="checkedBuff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="checkedBuffList">
+    /// <para>
+    /// Tooltip: If you need more than 1 buff to check - additional field bc of compatibility issues. First fill in the first field, only then additional!
+    /// </para>
     /// <para>
     /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
     /// <list type ="bullet">
@@ -2937,6 +3013,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     /// </param>
     public TBuilder AddBuffExtraEffects(
         Blueprint<BlueprintBuffReference>? checkedBuff = null,
+        List<Blueprint<BlueprintBuffReference>>? checkedBuffList = null,
         Blueprint<BlueprintUnitFactReference>? exceptionFact = null,
         Blueprint<BlueprintBuffReference>? extraEffectBuff = null,
         bool? useBaffContext = null)
@@ -2946,6 +3023,11 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
       if (component.m_CheckedBuff is null)
       {
         component.m_CheckedBuff = BlueprintTool.GetRef<BlueprintBuffReference>(null);
+      }
+      component.m_CheckedBuffList = checkedBuffList?.Select(bp => bp.Reference)?.ToArray() ?? component.m_CheckedBuffList;
+      if (component.m_CheckedBuffList is null)
+      {
+        component.m_CheckedBuffList = new BlueprintBuffReference[0];
       }
       component.m_ExceptionFact = exceptionFact?.Reference ?? component.m_ExceptionFact;
       if (component.m_ExceptionFact is null)
@@ -3432,8 +3514,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Buffs
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>ArcaneAccuracyBuff</term><description>dd2d0de63be31854794c006dc1077294</description></item>
-    /// <item><term>DLC3_BrokenTricksterSurvivorBuff</term><description>373dfea7aa504daf875a551250c01aa5</description></item>
+    /// <item><term>ArmyDragonPlagueBuff</term><description>5b7d53fbb5e442d785da22e2de073db3</description></item>
+    /// <item><term>DLC5_SithhudSeal10Buff</term><description>6e44938e71354ccf80cdb62837c6edba</description></item>
     /// <item><term>ShatterConfidenceBuff</term><description>14225a2e4561bfd46874c9a4a97e7133</description></item>
     /// </list>
     /// </remarks>

@@ -1,5 +1,6 @@
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints;
 using System.Collections.Generic;
 
 namespace BlueprintCore.Blueprints.References
@@ -108,6 +109,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Cutscene_Threshold_FinalDungeon_GenericRay00 = "8122cf16cd764e9280805feabc9fe5d8";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Dart_projectile = "533995c13cde02143b8c2f6b5b98598e";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeathCurse00_Projectile = "e4072ffb43b821848a5daedfba6c6f9e";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Deceiver00_Up = "f9fb1227e25d4b40b14c72118cf41ef2";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverCone15Feet00 = "405589e5140e4e4b87b123a628065f21";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverCone30Feet00 = "c7c29d384b8f4052992695fb6fd2dbb6";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverCone50Feet00 = "c9e48a63525e48c5bca66ec3d44187bd";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverLine = "985cc5cc1a4a4f59977bd681a0ba2e41";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverProjectile = "986d885a6b8d4180b613ef02b922dd98";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverProjectile10 = "a34afb2b83ed49f39c0b3436c346deef";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverProjectile15 = "0408af17be954d5f96809b88f913d82f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverProjectile20 = "1b4c2ec1b2014d0bbc9604e090855e72";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DeceiverProjectile30 = "895b31f2a560430284487e00c0a5a1dc";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DemonStrike00_Cold_Projectile = "29a73c6e4ed24451970862b4f3794427";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DemonStrike00_Projectile = "28bc262e706e74542a20bf9b84449c5c";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> DevilClawLeft00 = "11a1193626d322b49b3cf5578384142b";
@@ -169,8 +180,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HandOfTheApprenticeProjectile = "c8559cabbf082234e80ad8e046bfa1a1";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HellfireRay00 = "64abeb7fa600aa94ab2ecd63daf687d9";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HellfireRay00_Up = "0397b120246d6124eb773412d519e6b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Hippogriff_AirCone30Feet00_Aoe = "1f673eabbf94441aa04c57c8ad394875";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> HitSnapBugProjectile = "bded82753bfc1a54ca59e5f61a6bd4d0";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> IceSoulSithhudProjectile00 = "666db1ce5c824823915d8f4aae017a7f";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Inquisitor_LivingGrimoire_Projectile = "2495df62840a48acb80617069904e5ee";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Javelin_projectile = "ba6d2fdae677e664ca76c8837aa1afff";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_AirBlastLine00 = "03689858955c6bf409be06f35f09946a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Kinetic_Blizzard00_Projectile = "76678c1d607067b4f9e035d54ec08f67";
@@ -242,6 +255,16 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile03 = "caadaf27d789793459a3e32cb0615d14";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MagicMissile04 = "43295b5988021f741a28b8bf0424a412";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ManticoreSpike00 = "900a65979f8c453e858d4aaf67b71831";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileCutscene1 = "8bc391217d3c4a339586caa1730e9576";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileCutscene2 = "8fd153ad37294a829533c1c4efd40536";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileCutscene3 = "61c66b3bd9f8497ea4c320d61ab60a05";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileCutscene4 = "8c84390917d2481c9b1eaf30c466934d";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileCutscene5 = "79b86829f31d4eebae40eeb75f5214cb";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileLeftFar = "640bdac8a3224e8ab844937986258b54";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileLeftNotFar = "45e30da5aa0541fbb40978b368e218fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileNormalGolem = "de428371157f48499281ab805927bab8";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileRightFar = "b2decc64eb0b42a9b6d3d76f450da545";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MaskThrow_ProjectileRightNotFar = "5912b2bce91849ecb91f712ada93a3e2";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Meat00_Projectile = "e83075672dfcf7a45ab009d338e5bc33";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MeteorSwarm_00_40Feet_DLC5_Projectile_Up = "ba60927cc86248d4a3b1d5560b44e1d1";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> MeteorSwarm_01_40Feet_DLC5_Projectile_Up = "3104194e9e6b488c93881041c1337a12";
@@ -324,6 +347,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SearingLight00_Up = "2f23fcf5308a699499f5694215b47a05";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Exhaustion00_Projectile_DLC3 = "ad9d0152b82f4477acdd738eb5528546";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> ShadowBoss_Infusion00_Projectile_DLC3 = "f8daba62ae5f454aae7bcd280d924e74";
+    public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> SilverDartsCone15Feet00 = "68982081a8d44670882385f840005c80";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_FallingIce_Up = "8cd0e673036b45a8bd79c0a7c900af5a";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_Projectile = "285a508b3b714ca29f594319a48e5faf";
     public static readonly Blueprint<BlueprintReference<BlueprintProjectile>> Sithhud_SwordTraceLine00 = "b8e9b14366e046309a1fa7d9589fb1a0";
@@ -462,6 +486,16 @@ namespace BlueprintCore.Blueprints.References
           Cutscene_Threshold_FinalDungeon_GenericRay00,
           Dart_projectile,
           DeathCurse00_Projectile,
+          Deceiver00_Up,
+          DeceiverCone15Feet00,
+          DeceiverCone30Feet00,
+          DeceiverCone50Feet00,
+          DeceiverLine,
+          DeceiverProjectile,
+          DeceiverProjectile10,
+          DeceiverProjectile15,
+          DeceiverProjectile20,
+          DeceiverProjectile30,
           DemonStrike00_Cold_Projectile,
           DemonStrike00_Projectile,
           DevilClawLeft00,
@@ -523,8 +557,10 @@ namespace BlueprintCore.Blueprints.References
           HandOfTheApprenticeProjectile,
           HellfireRay00,
           HellfireRay00_Up,
+          Hippogriff_AirCone30Feet00_Aoe,
           HitSnapBugProjectile,
           IceSoulSithhudProjectile00,
+          Inquisitor_LivingGrimoire_Projectile,
           Javelin_projectile,
           Kinetic_AirBlastLine00,
           Kinetic_Blizzard00_Projectile,
@@ -596,6 +632,16 @@ namespace BlueprintCore.Blueprints.References
           MagicMissile03,
           MagicMissile04,
           ManticoreSpike00,
+          MaskThrow_ProjectileCutscene1,
+          MaskThrow_ProjectileCutscene2,
+          MaskThrow_ProjectileCutscene3,
+          MaskThrow_ProjectileCutscene4,
+          MaskThrow_ProjectileCutscene5,
+          MaskThrow_ProjectileLeftFar,
+          MaskThrow_ProjectileLeftNotFar,
+          MaskThrow_ProjectileNormalGolem,
+          MaskThrow_ProjectileRightFar,
+          MaskThrow_ProjectileRightNotFar,
           Meat00_Projectile,
           MeteorSwarm_00_40Feet_DLC5_Projectile_Up,
           MeteorSwarm_01_40Feet_DLC5_Projectile_Up,
@@ -678,6 +724,7 @@ namespace BlueprintCore.Blueprints.References
           SearingLight00_Up,
           ShadowBoss_Exhaustion00_Projectile_DLC3,
           ShadowBoss_Infusion00_Projectile_DLC3,
+          SilverDartsCone15Feet00,
           Sithhud_FallingIce_Up,
           Sithhud_Projectile,
           Sithhud_SwordTraceLine00,

@@ -20,6 +20,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<DirectionConsideration>> DLC3_DirectionConsideration_Front_180 = "d4e643e1f7404ca8846f0a48d91a2e51";
     public static readonly Blueprint<BlueprintReference<DirectionConsideration>> DLC3_DirectionConsideration_Front_90 = "3a9b259e38d94243a3e621c7c237f053";
     public static readonly Blueprint<BlueprintReference<DirectionConsideration>> DLC3_DirectionConsideration_Front_90_Clear = "5e6f5dc2f4f14f67b842c0a97dbfa66b";
+    public static readonly Blueprint<BlueprintReference<DirectionConsideration>> RuinsRaidGalluBossCorpseBlastDirectionConsideration = "e2313fe6a14f4d3a8f5583695afb806c";
 
     public static readonly List<Blueprint<BlueprintReference<DirectionConsideration>>> All =
       new()
@@ -29,6 +30,7 @@ namespace BlueprintCore.Blueprints.References
           DLC3_DirectionConsideration_Front_180,
           DLC3_DirectionConsideration_Front_90,
           DLC3_DirectionConsideration_Front_90_Clear,
+          RuinsRaidGalluBossCorpseBlastDirectionConsideration,
       };
   }
 }

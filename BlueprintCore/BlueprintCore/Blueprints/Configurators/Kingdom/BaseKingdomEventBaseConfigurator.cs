@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Conditions.Builder;
 using BlueprintCore.Utils;
@@ -8,7 +9,10 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.Kingdom;
 using Kingmaker.Kingdom.Blueprints;
 using Kingmaker.Localization;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Kingdom
 {
@@ -352,7 +356,7 @@ namespace BlueprintCore.Blueprints.Configurators.Kingdom
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_StartKTC</term><description>9b7fdf9a6d722d942879c7922daa507f</description></item>
-    /// <item><term>KTC_ElyankaComing</term><description>b631d3337a4d5134f8f1f163c6d9f59a</description></item>
+    /// <item><term>KTC_EveryoneVSLocust</term><description>8c158f6492b0ce04da8485e942f15825</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>b0281d9068d670845927a1827be6e7bb</description></item>
     /// </list>
     /// </remarks>

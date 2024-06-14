@@ -39,6 +39,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIIStageItem = "6dbf16bf75b64035b55e1a1d92854acb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIStageItem = "90a63a8227de4a9ea72cb7c597afe382";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsItem = "289842de01a049249f0e921c18bd91a4";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BotomlessMug = "401a40d73744474c9947a486451de7ea";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BrazenWhipItem = "e4177a7d7096159408f5679720fd589c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> Briar = "a997311fafaaf6548be896f0a9ef24ec";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> Cat_Item = "bcc767d66c7d2c74f9fe70b73c83c286";
@@ -98,6 +99,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_SuccubusCandleItem = "17f420ec65504252ba65757be0aaa447";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_UpgradedSithhudRodItem = "371113ed05ba49feb78adf926ee3430b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC5_VoidShardUsableItem = "7d470e46e61143ada87e8d4857bf0a4d";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DLC6_RodOfHangoverItem = "67a05c9788664afa8ebcde577391a9d7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DriedHandOfmartyrItem = "363e0db503c3a7b47a06567c8f35dbd6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> DualityOfConjurationAndSummoningItem = "ba856bd4ba814f12a3b30d56c1c3df1c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ElixirMasterpiece = "5219d5846529ae949b88c87858c1bb9e";
@@ -134,8 +136,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterBolsterExtraCharges = "837ac0a02d0e41f3af77777c92962c52";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterEmpower = "81d504243708f504dbfe3f8f72efdeda";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterExtend = "9bab0e37c72be78418516e57a5e78a99";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterIntensified = "fd8122d61cc34463a615878dd59aee30";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterMaximize = "d0b7d29c9bea99d4bb25f8f6a29261c5";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterPersistent = "6a20e0aef61e4e29990b4c805cc0baa6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterPiercing = "ae152f07c6494f318735eaa9c4858577";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterQuicken = "843ae85d505be8441b9fbb47b04e19e0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterQuickenExtraCharges = "89ff878248e24a4fa74989671b55a0b7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodGreaterReach = "08942f26792fed84cb28b8e97b2de5c7";
@@ -143,9 +147,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserBolster = "ae780d1a290b4e4fac61d68558499277";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserEmpower = "1e7a5a4d257cf434a87e687c9ee7a872";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserExtend = "1cf04842d5dbd0f49946b1af1022cd1a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserIntensified = "6f5d788ee7384e47895bc58a291eec7f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserKinetic = "289beaa0fe4bf644cb0817a7fa9e9cf2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserMaximize = "651b0460f600d5f42b0467e7186aab80";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserPersistent = "44ef288ddd2f48f7912ae98fa5e94ae5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserPiercing = "de51e892ce5442ba9cbc02d21262b275";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserQuicken = "55a059b32df920c4abe65b8ee8b56056";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserReach = "8b0261621069c9a41a70f1aaefa21c75";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodLesserSelective = "b1728ccecbb54c939575dfeb866c1e9f";
@@ -154,8 +160,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalBolster = "01647c118c00482eab6378ca9b81e995";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalEmpower = "a02f06b63af839a448147dadff3724f2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalExtend = "1b2a09528da9e9948aa9026037bada90";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalIntensified = "a35044c76afa45c69f4baedf13ad5ac9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalMaximize = "9a511d3b04f08944eb3db4462f88c2c0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalPersistent = "8316c5db3ffd43e79b00e785d498c8c5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalPiercing = "b50be8b008be40199903dd0c28c6312e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalQuicken = "551dcb2932443c944a6f120048c7d9f7";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalReach = "648f56fbbaa71624c8ba968ade382ac6";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> MetamagicRodNormalSelective = "c256be263e99480da5b7cf2a1da1ef17";
@@ -959,6 +967,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWavesOfFatigue = "3baaaa7cb91704342b0314b6f06cdc91";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWeb = "efc97cdb15c92194bbbe4a2a3c1ecd78";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWeird = "33ac9588ff822a64c92167bdcec7df65";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWindsOfVengeance = "1cec1b52030041d69b93017ceb4d97b2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWingsOfFreedomItem = "db8c888f3000436da696855e4f6dbac3";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWinterGrasp = "bb44a82b86a74cec9b9b5657b38d1f9b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> ScrollOfWordOfChaos = "f2f5d38201bc9e44991b9347039f5b9b";
@@ -977,6 +986,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TokenOfHonor = "905ec00744cd4627b0e00f187e215d4b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfClearThoughtPlus2 = "3584c2a2f8b5b1b43ae11128f0ff1583";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfLeadershipAndInfluencePlus2 = "37e2f09923a96234ca486bc9db0b6ad6";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfPerfection = "0574c938014f45cb82d43b90439e380f";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TomeOfUnderstandingPlus2 = "419a486154514594c99193da785d4302";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> TriceratopsStatuetteItem = "d8d32918de5e11246a048269e7e0bbb9";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> UltrasoundArrowsQuiverItem = "110bf851d5d2f354986f44b48fa2e7f8";
@@ -1239,6 +1249,7 @@ namespace BlueprintCore.Blueprints.References
           BooksOfDreamsIIIStageItem,
           BooksOfDreamsIIStageItem,
           BooksOfDreamsItem,
+          BotomlessMug,
           BrazenWhipItem,
           Briar,
           Cat_Item,
@@ -1298,6 +1309,7 @@ namespace BlueprintCore.Blueprints.References
           DLC5_SuccubusCandleItem,
           DLC5_UpgradedSithhudRodItem,
           DLC5_VoidShardUsableItem,
+          DLC6_RodOfHangoverItem,
           DriedHandOfmartyrItem,
           DualityOfConjurationAndSummoningItem,
           ElixirMasterpiece,
@@ -1334,8 +1346,10 @@ namespace BlueprintCore.Blueprints.References
           MetamagicRodGreaterBolsterExtraCharges,
           MetamagicRodGreaterEmpower,
           MetamagicRodGreaterExtend,
+          MetamagicRodGreaterIntensified,
           MetamagicRodGreaterMaximize,
           MetamagicRodGreaterPersistent,
+          MetamagicRodGreaterPiercing,
           MetamagicRodGreaterQuicken,
           MetamagicRodGreaterQuickenExtraCharges,
           MetamagicRodGreaterReach,
@@ -1343,9 +1357,11 @@ namespace BlueprintCore.Blueprints.References
           MetamagicRodLesserBolster,
           MetamagicRodLesserEmpower,
           MetamagicRodLesserExtend,
+          MetamagicRodLesserIntensified,
           MetamagicRodLesserKinetic,
           MetamagicRodLesserMaximize,
           MetamagicRodLesserPersistent,
+          MetamagicRodLesserPiercing,
           MetamagicRodLesserQuicken,
           MetamagicRodLesserReach,
           MetamagicRodLesserSelective,
@@ -1354,8 +1370,10 @@ namespace BlueprintCore.Blueprints.References
           MetamagicRodNormalBolster,
           MetamagicRodNormalEmpower,
           MetamagicRodNormalExtend,
+          MetamagicRodNormalIntensified,
           MetamagicRodNormalMaximize,
           MetamagicRodNormalPersistent,
+          MetamagicRodNormalPiercing,
           MetamagicRodNormalQuicken,
           MetamagicRodNormalReach,
           MetamagicRodNormalSelective,
@@ -2159,6 +2177,7 @@ namespace BlueprintCore.Blueprints.References
           ScrollOfWavesOfFatigue,
           ScrollOfWeb,
           ScrollOfWeird,
+          ScrollOfWindsOfVengeance,
           ScrollOfWingsOfFreedomItem,
           ScrollOfWinterGrasp,
           ScrollOfWordOfChaos,
@@ -2177,6 +2196,7 @@ namespace BlueprintCore.Blueprints.References
           TokenOfHonor,
           TomeOfClearThoughtPlus2,
           TomeOfLeadershipAndInfluencePlus2,
+          TomeOfPerfection,
           TomeOfUnderstandingPlus2,
           TriceratopsStatuetteItem,
           UltrasoundArrowsQuiverItem,

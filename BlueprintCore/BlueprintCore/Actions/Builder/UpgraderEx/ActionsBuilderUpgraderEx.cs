@@ -1,10 +1,20 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
 using BlueprintCore.Utils;
+using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
+using Kingmaker.Blueprints.Classes.Selection;
+using Kingmaker.Blueprints.Classes.Spells;
+using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items;
+using Kingmaker.Blueprints.Root;
 using Kingmaker.EntitySystem.Persistence.Versioning.PlayerUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UnitUpgraderOnlyActions;
 using Kingmaker.EntitySystem.Persistence.Versioning.UpgraderOnlyActions;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -75,8 +85,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
-    /// <item><term>PF-350902</term><description>1dd805fe50634941a40a928ba947ce02</description></item>
-    /// <item><term>PF-505565(6-10lvl)</term><description>9169336de2164cb68fd5049f355065bb</description></item>
+    /// <item><term>PF-354992_DefensiveStance</term><description>8dcbb4fedddc4f308febd605c56779e9</description></item>
+    /// <item><term>PF-516991</term><description>cb0396b0e3654bfc9f537fca514cc9f1</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -338,7 +348,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-343632</term><description>09b345b97d734deea2e5004c074b1af5</description></item>
+    /// <item><term>PF-350902</term><description>1dd805fe50634941a40a928ba947ce02</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>
@@ -425,8 +435,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-191269</term><description>90edf140bf514ebaa3fff74c4f576e4d</description></item>
-    /// <item><term>PF-436307_MammothTrippingBite</term><description>bb8cb706e07f476a808bcbecafb428c4</description></item>
-    /// <item><term>PF-477572_KitsuneTails</term><description>0ed9316d44c74c618ff3e92c382cb812</description></item>
+    /// <item><term>PF-440979_LeopardUpgrader</term><description>270cc025b3814600871e3af69ccf60df</description></item>
+    /// <item><term>PF-518666_ArmoredBattlemageArmorTraining</term><description>93c4eed242a1460d8571784d73a9a9d6</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1070,6 +1080,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-217882</term><description>b8f8b5021f9c4189a73f29573f39b70b</description></item>
     /// <item><term>PF-324729_RestoreSneakAttack</term><description>f90026a880c64f55ad602929dc969d89</description></item>
+    /// <item><term>PF-505307_WarpriestProgression2</term><description>22a4b194f1e84fffb97abbb2ce9807d3</description></item>
     /// </list>
     /// </remarks>
     ///

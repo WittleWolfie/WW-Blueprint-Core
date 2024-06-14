@@ -20,6 +20,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> Dlc3 = "962e8c01fd834805b3ddf93134f77d44";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> Dlc4 = "35b89606cfe9405085a35b02cf15017f";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> Dlc5 = "95a25ca16bd54ce3b3ea56f83538fa0d";
+    public static readonly Blueprint<BlueprintReference<BlueprintDlc>> Dlc6 = "c2340df3fdaf403baffe824ae7a0a547";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> DlcCommanderPack = "d2f0852710c5497eac91979c71131c90";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> DlcKickstarter = "1bd03396427542699c4cfe4e17961191";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> DlcKickstarterPremium = "1cf79baad3874b3aaf700b6187c7f0e1";
@@ -39,6 +40,7 @@ namespace BlueprintCore.Blueprints.References
           Dlc3,
           Dlc4,
           Dlc5,
+          Dlc6,
           DlcCommanderPack,
           DlcKickstarter,
           DlcKickstarterPremium,

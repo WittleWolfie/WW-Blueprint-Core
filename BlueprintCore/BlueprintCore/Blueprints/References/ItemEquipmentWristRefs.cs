@@ -42,6 +42,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfMindBreakItem = "b474319876ac44f46a934d640bbe52a0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfOverwhelmingVigorItem = "3ef2c9ea26cd01f419ae4afc5a44a632";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfRoughLandingItem = "c7f2133ed2a154d4983cca2a82f73641";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfSlaughter = "5122fe7ea5af45aba48e8f7438f3e05d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> BracersOfWizardItem = "341bdc12a923fbb4097bc68492f67420";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> ChaosScourgeItem = "d7ac91cca37741c4bc743ad658498bb0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> CharonsTouch = "47f01a08b59205c4eac8c33a1fcb6b6a";
@@ -66,6 +67,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> Set2_Bracers = "ba8fd2a707644a54a07c8c54be6276ea";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> Set3_Bracers = "0c3dacfec6354a1ba200603ebb059a7b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> StormlordsResolveItem = "28c18f4bdd1321e41aa96dad4732336a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> SwallowtailBracers = "3196e3d722594522926b4cb361be5f17";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>> VeteranMarksmansBracersItem = "ddc7f55ecbc1b6d45a0dd1840217e07c";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintItemEquipmentWrist>>> All =
@@ -98,6 +100,7 @@ namespace BlueprintCore.Blueprints.References
           BracersOfMindBreakItem,
           BracersOfOverwhelmingVigorItem,
           BracersOfRoughLandingItem,
+          BracersOfSlaughter,
           BracersOfWizardItem,
           ChaosScourgeItem,
           CharonsTouch,
@@ -122,6 +125,7 @@ namespace BlueprintCore.Blueprints.References
           Set2_Bracers,
           Set3_Bracers,
           StormlordsResolveItem,
+          SwallowtailBracers,
           VeteranMarksmansBracersItem,
       };
   }

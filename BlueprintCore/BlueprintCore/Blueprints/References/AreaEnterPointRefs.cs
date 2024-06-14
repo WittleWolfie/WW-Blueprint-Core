@@ -295,6 +295,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Daeran_Q2_HeavenDoorstep_test_S3 = "600d530ae16dc1544943956da3c7586f";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Daeran_Q3_Autodafe_Enter = "f385db39d0f683d41873bb8a10e85a7f";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Daeran_Q3_Cutscene_Enter = "bd7ef70cc82c7ab48a47819afba84abb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_Enter = "bf3e7db03ba84188bf1ca0ba3cd88c70";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_From2To1 = "65cc0c9b39a44dcc95e65bc2e04ab6c6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_Mirror1Enter = "4238ef47806947c0924286bb70d7a168";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_Mirror2Enter = "ed874eb109a446db8ddc5213e34f727c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_Mirror2Enter1 = "886e437a6e3048f0a2a53d798fb8894e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DC6_RazmirDungeon_Mirror3Enter = "f1a4c64684a6409fa90157f089c39d25";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DebugDialogPlayer_Enter = "e38032930f60fad47b6c66028d34f487";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DefendersHeart_DefendersHeart_Enter = "81b33df4ecc0f5e44abbb3b66e2e9943";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DefendersHeart_DefendersHeart_Fake = "9b36671b0e91ea142894ac5349d0020f";
@@ -304,6 +310,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DefendersHeart_FromIndoorToOutdoor = "4083b430a48dba6409b13aeb89914a38";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DefendersHeart_FromOutdoorToBasement = "79a8fc541e3b2194eb2e5f280be5e6e5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DefendersHeart_FromOutdoorToIndoor = "cd8c832e0459d8c43b1306be51de5ea2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DelTestLabyrinth_2_Enter = "d5d9c9bc27774cc0a59017f5416bc3e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DelTestLabyrinth_Enter = "61686697528b4ca7bff38224c375fab5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DemodandLair_CaveFromOutdoor = "837680dde8145d44882854463b8b3640";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DemodandLair_DemodandLair_Enter = "89359a893e5b7fa40a26ffdde4463df7";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DemodandLair_OutdoorFromCave = "47279765e6e77fd4bb0051ce1503e1f1";
@@ -779,6 +787,37 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_Tavern_Enter = "e6d22cef303c4c46876a689e3ff65252";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_ToAbyssFromTemple_Enter = "89ca3356ceb44939a764e63b5e9d3cb7";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC5_ToBasementFromTemple_Enter = "f90b82f4092641278231d80dd64a7d43";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_Arena1_DLC6_Arena1_Enter2 = "645b684bdb674822b31957ee17af7c53";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_Arena1_Enter = "11a97c8ece7f4ebea7f084a25bcda80a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_Arena2_DLC6_Arena2_Enter2 = "e1710eb022be4ef58f86b49f5e335cd9";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_Arena2_Enter = "8e28ac3fa67745749b5ac9b614909339";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_ArueshalaeRomance_Enter = "d7f18e67dc5c4c749bc2999e0ddadd80";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_CamelliaRomance_Enter = "baba416401a34d1e9079902c47b61da7";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_DaeranRomance_ClimbOver_Enter = "14be2cb1b42d42a08fa09e7fc6884c87";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_DaeranRomance_Enter = "7f4e3d08391f426fb2ab23eed1ca5c98";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_Arena_Enter = "faf6bd2750044c21b5cd0a6b553e292f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_Arena_FirstEnter = "5b0d53f209d94bbb81132da94296fa2b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_Enter = "07c96e4ddfd8494dad87caaae09d3acb";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_LannRomance = "6bacb5026926454fa7b14bfe1c336be2";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_RitualHouse_Basement_Enter = "3ea4baa76558497e8802973008e7d19f";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_RitualHouse_Enter = "1f25b5d8571e4e09854e891ddcdbcac0";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_RitualHouse_FirstFloor_Enter = "44b42d916c564c3b9f83ce18ab71fddd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_RitualHouse_FromeBasement_Enter = "cbb5765589b04551a039ef7c51b5f151";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_FestiveKenabres_RitualHouse_SecondFloor_Enter = "a62e4804c2ef45a8aed997a18044617a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_IvoryBloodArena_Enter = "fde61c0288804eafbf6af6f50e04fdcf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_IvoryBloodArena_Enter1 = "41b30130690f4cc3a45369c5254cadbe";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresForSwarm_Enter = "c346cf9abf2e40d4ad480657206e424b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresGates_DLC6_GatesFromArena = "841de28983614e5cb8d157041175103c";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresGates_Enter = "0a10b772e79340cf82384d5a70c35221";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresRitualHouse_Basement_Enter = "5347bf31606744b2be39d6900cbe2eed";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresRitualHouse_Enter = "69d62cd292ad434292466b1f63f7c029";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_KenabresRitualHouse_FromeBasement_Enter = "e3b63a09c8174142bacb982d3a9507e6";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_LannRomance_Enter = "72ac1939929440c09ac9c0b90b801222";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_TavernRebuilded_EnterFromIndoor = "72b548a6e0c34551b37c0f243f7d279e";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_TavernRebuilded_EnterFromMap = "425d8b4dd9d542b1bca1b7c02aeb0f28";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_TavernRebuildedIndoor_EnterFromOutdoor = "8a9efe9ff69445f8bd1c030c5023d3bf";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_UlbrigRomance_Enter = "723e32a9be8348e5bc204bf0cb20f1ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DLC6_WenduagRomance_Enter = "0434d0d21fbb4afeba07410e2fcb2853";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_Bridge = "dd57f22149ec2d2488c94b10c73e3b62";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveIn = "6b6cc86f36384bc4db11397c51a50eaf";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DragonsGraveyard_CaveOut = "82c6efc0397398945be7a9deb3d81679";
@@ -791,6 +830,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_DaeranRomance_NotADateOutside = "bd27ade3a0e755743997135e983cf9e6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_Enter = "cdaba43118a82ff429b803ae846b35b0";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_From_JewelShop = "1b31c0105d5a68d4582037ca9b1e2bed";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_FromArena = "a9a74230af374657ac2f0ca4e76df7a8";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_FromBarracksBackDoor = "83c60cb36ce0d4347ae515b2d4393b79";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_FromBarracksMainEnter = "ef82ccaade8b66c4eb6ffe8e5c4eb869";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_FromBarracksRoof = "f4415b86d30bf9c49a720a31d1357092";
@@ -814,6 +854,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_SosielEskizEntPoint = "01e5c06845b0c1e4ab2d941d70d24b60";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_Temple_SeelahQ3_Final = "f87c294ee232179439caec214fcd5dcd";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_Theatre_EnterPoint = "4d75ecff1a96c7a42b048f8749055882";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapital_TurmoilScene = "61d392b6024840378a109ee9b35910a5";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapitalAbandonedBuildingBasement_Enter = "0d0a3abb6d2023848a1ee98fc17f8fd1";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapitalAbandonedBuildingF1_Enter = "3c86bac7bb632ec4da2e3592bd776d7d";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> DrezenCapitalAbandonedBuildingF1Basement_Enter = "b46772df99b576c43b6a30233c8be38d";
@@ -1266,6 +1307,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Outskirts_Enter = "8aa4853adc03a654baf96e6568c3087e";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Outskirts_River_Enter = "d89f650110986fa43aa9270615cc7a92";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> PartyPositionEnterPoint = "72d546c63dc23ae479230f1a90cb7c1b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> PentasArea_Enter = "e4c294c8a4a946fa836e6dd40b598860";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> PharasmasCourt_Enter = "f5e892db399f444ba40805a42104ca1f";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Pitax_Enter = "64c8c49b2ba83b14bbb9803554b73b25";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> PortalFromFane_Enter = "af3b027c7833958428f51b1544a51e4c";
@@ -1386,6 +1428,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> RoguePaladin_SE1_RoguePaladin_SE1_Enter = "20cd8afabcb4735458a2da910adad8d0";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> RoguePaladin_SE2_RoguePaladin_SE2_Enter = "af8974b00054a5f43894fb22f1f9d8e6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> RoguePaladin_SE3_RoguePaladin_SE3_Enter = "e0868e982c9ce3549943b27add4b73db";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> RuinsRaidPlace_Enter = "dfaf02efcb3a4e50a99f1107e0bc0be6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> S1_close = "75d887f9926b4d24b9604a9597edc713";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> S1_far = "0dfb9fc69b492aa4ab50aaec10a3b3d6";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> S1_Mishap = "83a6ba461a7ee91479eafda87357a734";
@@ -1883,6 +1926,12 @@ namespace BlueprintCore.Blueprints.References
           Daeran_Q2_HeavenDoorstep_test_S3,
           Daeran_Q3_Autodafe_Enter,
           Daeran_Q3_Cutscene_Enter,
+          DC6_RazmirDungeon_Enter,
+          DC6_RazmirDungeon_From2To1,
+          DC6_RazmirDungeon_Mirror1Enter,
+          DC6_RazmirDungeon_Mirror2Enter,
+          DC6_RazmirDungeon_Mirror2Enter1,
+          DC6_RazmirDungeon_Mirror3Enter,
           DebugDialogPlayer_Enter,
           DefendersHeart_DefendersHeart_Enter,
           DefendersHeart_DefendersHeart_Fake,
@@ -1892,6 +1941,8 @@ namespace BlueprintCore.Blueprints.References
           DefendersHeart_FromIndoorToOutdoor,
           DefendersHeart_FromOutdoorToBasement,
           DefendersHeart_FromOutdoorToIndoor,
+          DelTestLabyrinth_2_Enter,
+          DelTestLabyrinth_Enter,
           DemodandLair_CaveFromOutdoor,
           DemodandLair_DemodandLair_Enter,
           DemodandLair_OutdoorFromCave,
@@ -2367,6 +2418,37 @@ namespace BlueprintCore.Blueprints.References
           DLC5_Tavern_Enter,
           DLC5_ToAbyssFromTemple_Enter,
           DLC5_ToBasementFromTemple_Enter,
+          DLC6_Arena1_DLC6_Arena1_Enter2,
+          DLC6_Arena1_Enter,
+          DLC6_Arena2_DLC6_Arena2_Enter2,
+          DLC6_Arena2_Enter,
+          DLC6_ArueshalaeRomance_Enter,
+          DLC6_CamelliaRomance_Enter,
+          DLC6_DaeranRomance_ClimbOver_Enter,
+          DLC6_DaeranRomance_Enter,
+          DLC6_FestiveKenabres_Arena_Enter,
+          DLC6_FestiveKenabres_Arena_FirstEnter,
+          DLC6_FestiveKenabres_Enter,
+          DLC6_FestiveKenabres_LannRomance,
+          DLC6_FestiveKenabres_RitualHouse_Basement_Enter,
+          DLC6_FestiveKenabres_RitualHouse_Enter,
+          DLC6_FestiveKenabres_RitualHouse_FirstFloor_Enter,
+          DLC6_FestiveKenabres_RitualHouse_FromeBasement_Enter,
+          DLC6_FestiveKenabres_RitualHouse_SecondFloor_Enter,
+          DLC6_IvoryBloodArena_Enter,
+          DLC6_IvoryBloodArena_Enter1,
+          DLC6_KenabresForSwarm_Enter,
+          DLC6_KenabresGates_DLC6_GatesFromArena,
+          DLC6_KenabresGates_Enter,
+          DLC6_KenabresRitualHouse_Basement_Enter,
+          DLC6_KenabresRitualHouse_Enter,
+          DLC6_KenabresRitualHouse_FromeBasement_Enter,
+          DLC6_LannRomance_Enter,
+          DLC6_TavernRebuilded_EnterFromIndoor,
+          DLC6_TavernRebuilded_EnterFromMap,
+          DLC6_TavernRebuildedIndoor_EnterFromOutdoor,
+          DLC6_UlbrigRomance_Enter,
+          DLC6_WenduagRomance_Enter,
           DragonsGraveyard_Bridge,
           DragonsGraveyard_CaveIn,
           DragonsGraveyard_CaveOut,
@@ -2379,6 +2461,7 @@ namespace BlueprintCore.Blueprints.References
           DrezenCapital_DaeranRomance_NotADateOutside,
           DrezenCapital_Enter,
           DrezenCapital_From_JewelShop,
+          DrezenCapital_FromArena,
           DrezenCapital_FromBarracksBackDoor,
           DrezenCapital_FromBarracksMainEnter,
           DrezenCapital_FromBarracksRoof,
@@ -2402,6 +2485,7 @@ namespace BlueprintCore.Blueprints.References
           DrezenCapital_SosielEskizEntPoint,
           DrezenCapital_Temple_SeelahQ3_Final,
           DrezenCapital_Theatre_EnterPoint,
+          DrezenCapital_TurmoilScene,
           DrezenCapitalAbandonedBuildingBasement_Enter,
           DrezenCapitalAbandonedBuildingF1_Enter,
           DrezenCapitalAbandonedBuildingF1Basement_Enter,
@@ -2854,6 +2938,7 @@ namespace BlueprintCore.Blueprints.References
           Outskirts_Enter,
           Outskirts_River_Enter,
           PartyPositionEnterPoint,
+          PentasArea_Enter,
           PharasmasCourt_Enter,
           Pitax_Enter,
           PortalFromFane_Enter,
@@ -2974,6 +3059,7 @@ namespace BlueprintCore.Blueprints.References
           RoguePaladin_SE1_RoguePaladin_SE1_Enter,
           RoguePaladin_SE2_RoguePaladin_SE2_Enter,
           RoguePaladin_SE3_RoguePaladin_SE3_Enter,
+          RuinsRaidPlace_Enter,
           S1_close,
           S1_far,
           S1_Mishap,

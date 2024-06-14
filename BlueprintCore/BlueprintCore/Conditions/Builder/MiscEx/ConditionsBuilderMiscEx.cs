@@ -4,11 +4,15 @@ using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Items;
 using Kingmaker.Designers.EventConditionActionSystem.Conditions;
+using Kingmaker.DLC;
 using Kingmaker.ElementsSystem;
 using Kingmaker.GameModes;
 using Kingmaker.Settings.Difficulty;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.UnitLogic.Mechanics.Conditions;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Conditions.Builder.MiscEx
 {
@@ -59,7 +63,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChainedDarkness_Buff_NegativeLevelController</term><description>45b2ab2feef04dc089d5875982f7fc45</description></item>
-    /// <item><term>CommandSpawnUnits</term><description>118b954a82ed4afe83b175d023a4347d</description></item>
+    /// <item><term>CommandSetCombatMode9</term><description>0cf101aae70646d682444a0900a3781e</description></item>
     /// <item><term>Valmallos_Feature_CombatTrigger</term><description>f4621cc70bec4fe7b0373ed152e40570</description></item>
     /// </list>
     /// </remarks>
@@ -164,6 +168,45 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     }
 
     /// <summary>
+    /// Adds <see cref="IsDlcActive"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>PF-524476</term><description>e84963bdacf842d69a2d7562d49ebaab</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="blueprintDlcReward">
+    /// <para>
+    /// Blueprint of type BlueprintDlcReward. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public static ConditionsBuilder IsDlcActive(
+        this ConditionsBuilder builder,
+        Blueprint<BlueprintDlcRewardReference>? blueprintDlcReward = null,
+        bool negate = false)
+    {
+      var element = ElementTool.Create<IsDlcActive>();
+      element.m_BlueprintDlcReward = blueprintDlcReward?.Reference ?? element.m_BlueprintDlcReward;
+      if (element.m_BlueprintDlcReward is null)
+      {
+        element.m_BlueprintDlcReward = BlueprintTool.GetRef<BlueprintDlcRewardReference>(null);
+      }
+      element.Not = negate;
+      return builder.Add(element);
+    }
+
+    /// <summary>
     /// Adds <see cref="IsDLCEnabled"/>
     /// </summary>
     ///
@@ -172,7 +215,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRace</term><description>b7f02ba92b363064fb873963bec275ee</description></item>
-    /// <item><term>Edge_SarkorianWedding_Chapter05_Army21</term><description>f5867b88ae4d4b189c025df9161e75d4</description></item>
+    /// <item><term>Edge_SarkorianWedding_Chapter05_Army14</term><description>b3c8bd9291a34edc88b62353f2f847f9</description></item>
     /// <item><term>UlbrigCompanion</term><description>9a8d5b9a632a405dbc8e3af8f647a471</description></item>
     /// </list>
     /// </remarks>

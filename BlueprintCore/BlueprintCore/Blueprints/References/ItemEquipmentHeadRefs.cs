@@ -38,6 +38,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DoublingAnnoyanceItem = "63c9d4fc0810432aa6d85111d345aa84";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> DravensHatItem = "0160c8eabe704db41b6309af0d26a8e0";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> EelCircletItem = "f7d8c27c57d6bd949a5c2a85dc5ca045";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> EmptyHeadEquipment = "464ef68ad5fd47008f145b6b26830622";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> EvasiveRoundHelmetItem = "bb0ed39b655024946b04396b247081ca";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> ExpertsHatItem = "405abbf543c9cc148a6f091bb5e58d14";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> EyesOfEagle = "303e3a1df232b0747b7fde723828fa45";
@@ -113,6 +114,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> IdentifyingGlasses = "2140811c26dede24aa00bf7fe6cf3a1d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> InquisitorCapItem = "ea9a08013ecff744597cc1f9318b58d1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> JasperCirclet = "35f2344d0c7b8e24a865dbc440adcdb5";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> JesterCap = "d3e3a641c5dd40dd971bd1c587d7f6a8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> KillerHelm_easterEgg = "0034a132380641a0840ff684facbd476";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> KineticDiademGreaterItem = "0865657a3c16182458dfe0e190f15998";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentHead>> KineticDiademItem = "cd6b1dda38c5b614cb428969770bb08d";
@@ -197,6 +199,7 @@ namespace BlueprintCore.Blueprints.References
           DoublingAnnoyanceItem,
           DravensHatItem,
           EelCircletItem,
+          EmptyHeadEquipment,
           EvasiveRoundHelmetItem,
           ExpertsHatItem,
           EyesOfEagle,
@@ -272,6 +275,7 @@ namespace BlueprintCore.Blueprints.References
           IdentifyingGlasses,
           InquisitorCapItem,
           JasperCirclet,
+          JesterCap,
           KillerHelm_easterEgg,
           KineticDiademGreaterItem,
           KineticDiademItem,

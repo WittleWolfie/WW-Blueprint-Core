@@ -1,12 +1,20 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Classes.Spells;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
+using Kingmaker.UnitLogic.Abilities.Blueprints;
+using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
 {
@@ -48,6 +56,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
           bp.CanCopyScrolls = copyFrom.CanCopyScrolls;
           bp.IsArcane = copyFrom.IsArcane;
           bp.IsArcanist = copyFrom.IsArcanist;
+          bp.IsIgnoreAddSpellKnownTemporary = copyFrom.IsIgnoreAddSpellKnownTemporary;
           bp.HasSpecialSpellList = copyFrom.HasSpecialSpellList;
           bp.SpecialSpellListName = copyFrom.SpecialSpellListName;
         });
@@ -80,6 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
           bp.CanCopyScrolls = copyFrom.CanCopyScrolls;
           bp.IsArcane = copyFrom.IsArcane;
           bp.IsArcanist = copyFrom.IsArcanist;
+          bp.IsIgnoreAddSpellKnownTemporary = copyFrom.IsIgnoreAddSpellKnownTemporary;
           bp.HasSpecialSpellList = copyFrom.HasSpecialSpellList;
           bp.SpecialSpellListName = copyFrom.SpecialSpellListName;
         });
@@ -502,6 +512,18 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
     }
 
     /// <summary>
+    /// Sets the value of <see cref="BlueprintSpellbook.IsIgnoreAddSpellKnownTemporary"/>
+    /// </summary>
+    public TBuilder SetIsIgnoreAddSpellKnownTemporary(bool isIgnoreAddSpellKnownTemporary = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.IsIgnoreAddSpellKnownTemporary = isIgnoreAddSpellKnownTemporary;
+        });
+    }
+
+    /// <summary>
     /// Sets the value of <see cref="BlueprintSpellbook.HasSpecialSpellList"/>
     /// </summary>
     public TBuilder SetHasSpecialSpellList(bool hasSpecialSpellList = true)
@@ -611,6 +633,284 @@ namespace BlueprintCore.Blueprints.Configurators.Classes.Spells
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new IsSinMagicSpecialistSpellbook();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="MagicHackSpellbookComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>MagicDeceiverSpellbook</term><description>587066af76a74f47a904bb017697ba08</description></item>
+    /// <item><term>PrototypeSpellbook</term><description>b88f5e3bd86549c8b67ed451edec7ceb</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilities">
+    /// <para>
+    /// Tooltip: 10 блюпринтов, по одному под каждый слот хака
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="burst10Fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="burst10Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="burst15Fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="burst15Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="burst20Fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="burst20Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="burst30Fx">
+    /// You can pass in the animation using a PrefabLink or it's AssetId.
+    /// </param>
+    /// <param name="burst30Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cone15Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cone30Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="cone50Projectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="lineProjectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="maxDamageDicesPerAction">
+    /// <para>
+    /// Tooltip: Максимум кубиков урона в экшоне Deal Damage, начиная со спеллов 1 круга
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="singleProjectile">
+    /// <para>
+    /// Blueprint of type BlueprintProjectile. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="touchAbilities">
+    /// <para>
+    /// Tooltip: 10 блюпринтов для тачей, по одному под каждый слот хака
+    /// </para>
+    /// <para>
+    /// Blueprint of type BlueprintAbility. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddMagicHackSpellbookComponent(
+        List<Blueprint<BlueprintAbilityReference>>? abilities = null,
+        AssetLink<PrefabLink>? burst10Fx = null,
+        Blueprint<BlueprintProjectileReference>? burst10Projectile = null,
+        AssetLink<PrefabLink>? burst15Fx = null,
+        Blueprint<BlueprintProjectileReference>? burst15Projectile = null,
+        AssetLink<PrefabLink>? burst20Fx = null,
+        Blueprint<BlueprintProjectileReference>? burst20Projectile = null,
+        AssetLink<PrefabLink>? burst30Fx = null,
+        Blueprint<BlueprintProjectileReference>? burst30Projectile = null,
+        Blueprint<BlueprintProjectileReference>? cone15Projectile = null,
+        Blueprint<BlueprintProjectileReference>? cone30Projectile = null,
+        Blueprint<BlueprintProjectileReference>? cone50Projectile = null,
+        Blueprint<BlueprintProjectileReference>? lineProjectile = null,
+        int[]? maxDamageDicesPerAction = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        Blueprint<BlueprintProjectileReference>? singleProjectile = null,
+        List<Blueprint<BlueprintAbilityReference>>? touchAbilities = null)
+    {
+      var component = new MagicHackSpellbookComponent();
+      component.m_Abilities = abilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Abilities;
+      if (component.m_Abilities is null)
+      {
+        component.m_Abilities = new BlueprintAbilityReference[0];
+      }
+      component.m_Burst10Fx = burst10Fx?.Get() ?? component.m_Burst10Fx;
+      if (component.m_Burst10Fx is null)
+      {
+        component.m_Burst10Fx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_Burst10Projectile = burst10Projectile?.Reference ?? component.m_Burst10Projectile;
+      if (component.m_Burst10Projectile is null)
+      {
+        component.m_Burst10Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Burst15Fx = burst15Fx?.Get() ?? component.m_Burst15Fx;
+      if (component.m_Burst15Fx is null)
+      {
+        component.m_Burst15Fx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_Burst15Projectile = burst15Projectile?.Reference ?? component.m_Burst15Projectile;
+      if (component.m_Burst15Projectile is null)
+      {
+        component.m_Burst15Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Burst20Fx = burst20Fx?.Get() ?? component.m_Burst20Fx;
+      if (component.m_Burst20Fx is null)
+      {
+        component.m_Burst20Fx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_Burst20Projectile = burst20Projectile?.Reference ?? component.m_Burst20Projectile;
+      if (component.m_Burst20Projectile is null)
+      {
+        component.m_Burst20Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Burst30Fx = burst30Fx?.Get() ?? component.m_Burst30Fx;
+      if (component.m_Burst30Fx is null)
+      {
+        component.m_Burst30Fx = Utils.Constants.Empty.PrefabLink;
+      }
+      component.m_Burst30Projectile = burst30Projectile?.Reference ?? component.m_Burst30Projectile;
+      if (component.m_Burst30Projectile is null)
+      {
+        component.m_Burst30Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Cone15Projectile = cone15Projectile?.Reference ?? component.m_Cone15Projectile;
+      if (component.m_Cone15Projectile is null)
+      {
+        component.m_Cone15Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Cone30Projectile = cone30Projectile?.Reference ?? component.m_Cone30Projectile;
+      if (component.m_Cone30Projectile is null)
+      {
+        component.m_Cone30Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_Cone50Projectile = cone50Projectile?.Reference ?? component.m_Cone50Projectile;
+      if (component.m_Cone50Projectile is null)
+      {
+        component.m_Cone50Projectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_LineProjectile = lineProjectile?.Reference ?? component.m_LineProjectile;
+      if (component.m_LineProjectile is null)
+      {
+        component.m_LineProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_MaxDamageDicesPerAction = maxDamageDicesPerAction ?? component.m_MaxDamageDicesPerAction;
+      if (component.m_MaxDamageDicesPerAction is null)
+      {
+        component.m_MaxDamageDicesPerAction = new int[0];
+      }
+      component.m_SingleProjectile = singleProjectile?.Reference ?? component.m_SingleProjectile;
+      if (component.m_SingleProjectile is null)
+      {
+        component.m_SingleProjectile = BlueprintTool.GetRef<BlueprintProjectileReference>(null);
+      }
+      component.m_TouchAbilities = touchAbilities?.Select(bp => bp.Reference)?.ToArray() ?? component.m_TouchAbilities;
+      if (component.m_TouchAbilities is null)
+      {
+        component.m_TouchAbilities = new BlueprintAbilityReference[0];
+      }
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 

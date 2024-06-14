@@ -1,5 +1,6 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators.DialogSystem;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using Kingmaker.Blueprints;
@@ -9,6 +10,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.DialogSystem
@@ -38,6 +40,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           bp.DC = copyFrom.DC;
           bp.Hidden = copyFrom.Hidden;
           bp.DCModifiers = copyFrom.DCModifiers;
+          bp.BanPartyCheckInCamp = copyFrom.BanPartyCheckInCamp;
           bp.m_Success = copyFrom.m_Success;
           bp.m_Fail = copyFrom.m_Fail;
           bp.m_UnitEvaluator = copyFrom.m_UnitEvaluator;
@@ -59,6 +62,7 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
           bp.DC = copyFrom.DC;
           bp.Hidden = copyFrom.Hidden;
           bp.DCModifiers = copyFrom.DCModifiers;
+          bp.BanPartyCheckInCamp = copyFrom.BanPartyCheckInCamp;
           bp.m_Success = copyFrom.m_Success;
           bp.m_Fail = copyFrom.m_Fail;
           bp.m_UnitEvaluator = copyFrom.m_UnitEvaluator;
@@ -176,6 +180,18 @@ namespace BlueprintCore.Blueprints.Configurators.DialogSystem
         {
           if (bp.DCModifiers is null) { return; }
           bp.DCModifiers.ForEach(action);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCheck.BanPartyCheckInCamp"/>
+    /// </summary>
+    public TBuilder SetBanPartyCheckInCamp(bool banPartyCheckInCamp = true)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.BanPartyCheckInCamp = banPartyCheckInCamp;
         });
     }
 

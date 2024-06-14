@@ -1,9 +1,12 @@
 //***** AUTO-GENERATED - DO NOT EDIT *****//
 
+using BlueprintCore.Blueprints.Configurators;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
 using BlueprintCore.Utils.Assets;
 using Kingmaker.Blueprints;
+using Kingmaker.Blueprints.Area;
+using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Root;
 using Kingmaker.DLC;
 using Kingmaker.Localization;
@@ -13,6 +16,7 @@ using Kingmaker.Sound;
 using Kingmaker.UI.SettingsUI;
 using Kingmaker.Utility;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BlueprintCore.Blueprints.Configurators.Root
@@ -40,6 +44,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           var copyFrom = blueprint.Reference.Get();
           bp.Title = copyFrom.Title;
           bp.Description = copyFrom.Description;
+          bp.WinMainMenuText = copyFrom.WinMainMenuText;
           bp.KeyArtLink = copyFrom.KeyArtLink;
           bp.ComingSoon = copyFrom.ComingSoon;
           bp.HideInRelease = copyFrom.HideInRelease;
@@ -71,6 +76,7 @@ namespace BlueprintCore.Blueprints.Configurators.Root
           var copyFrom = blueprint.Reference.Get();
           bp.Title = copyFrom.Title;
           bp.Description = copyFrom.Description;
+          bp.WinMainMenuText = copyFrom.WinMainMenuText;
           bp.KeyArtLink = copyFrom.KeyArtLink;
           bp.ComingSoon = copyFrom.ComingSoon;
           bp.HideInRelease = copyFrom.HideInRelease;
@@ -145,6 +151,35 @@ namespace BlueprintCore.Blueprints.Configurators.Root
         {
           if (bp.Description is null) { return; }
           action.Invoke(bp.Description);
+        });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="BlueprintCampaign.WinMainMenuText"/>
+    /// </summary>
+    ///
+    /// <param name="winMainMenuText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    public TBuilder SetWinMainMenuText(LocalString winMainMenuText)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.WinMainMenuText = winMainMenuText?.LocalizedString;
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="BlueprintCampaign.WinMainMenuText"/> by invoking the provided action.
+    /// </summary>
+    public TBuilder ModifyWinMainMenuText(Action<LocalizedString> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.WinMainMenuText is null) { return; }
+          action.Invoke(bp.WinMainMenuText);
         });
     }
 
@@ -767,6 +802,10 @@ namespace BlueprintCore.Blueprints.Configurators.Root
       if (Blueprint.Description is null)
       {
         Blueprint.Description = Utils.Constants.Empty.String;
+      }
+      if (Blueprint.WinMainMenuText is null)
+      {
+        Blueprint.WinMainMenuText = Utils.Constants.Empty.String;
       }
       if (Blueprint.m_StartGamePreset is null)
       {

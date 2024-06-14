@@ -216,6 +216,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> ColorlessRemainsBreastplate_MadnessItem = "692f4af5a7164f65afd34d2c3aa30c4d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> ColorlessRemainsBreastplate_SolidItem = "d5a53604d7ad4fc2b6f6d359c5a7e5d1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> CryptRaidersArmorItem = "101bd3323219cfb4bb2860ba061318a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> CrystalMaiden = "ffab4231aeb3493d933364f2c7b26cde";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> CursedDelameresArmorItem = "a374b79fe2c710e4fb2cec1ce74cc062";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DarkAcolytesRobeItem = "af4a17dffcc97914fb29199eb3cbe923";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> DarkMastersRobeItem = "987c0cf4f89acd64eb984e29a383d630";
@@ -385,6 +386,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LeatherStandartPlus5_0 = "382eaa7d1669d0f44a2a967c19026e31";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LeatherStealthPlus2 = "5bd17941c1509124aaa6ba262a4e866d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LeviathanSkinRobeItem = "10df573e9968ccd48906d56fcdc8bc2a";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LifeInfuser = "e5d3c2148c854b5ba5d56390f8fcc72c";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LightAbsorberChainshirtItem = "aec36d117bf9a1646ac85bc3089c3430";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LightenedHarnessItem = "310567e56a8320c428fac41b2acd819d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LightShieldArmorItem = "00fd9875aaabba74099c8a2f35532133";
@@ -398,6 +400,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LightShieldArmorRustyItem = "941ecd762e534ad293ba282b18cc2b32";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LightShieldOfCursedAllegianceArmorItem = "c86cf926c8fbaad4594fabea815a4f13";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LinnormHideItem = "8fa54f5d50b3fd44abb6e5045f6e3fcb";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LivingFortress = "6c8fd3c960ce4197a3aa0e86dc3a565b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LivingRamItem = "d1a7c882c2f56f2439d9278440153fe8";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> LoneWolfsScalemailItem = "c8c15f3ba931e5b4d827b6264bf059c1";
     public static readonly Blueprint<BlueprintReference<BlueprintItemArmor>> MarkOfTheGuardianArmorItem = "21bcbc018a604214cb10694abb3a5056";
@@ -786,6 +789,7 @@ namespace BlueprintCore.Blueprints.References
           ColorlessRemainsBreastplate_MadnessItem,
           ColorlessRemainsBreastplate_SolidItem,
           CryptRaidersArmorItem,
+          CrystalMaiden,
           CursedDelameresArmorItem,
           DarkAcolytesRobeItem,
           DarkMastersRobeItem,
@@ -955,6 +959,7 @@ namespace BlueprintCore.Blueprints.References
           LeatherStandartPlus5_0,
           LeatherStealthPlus2,
           LeviathanSkinRobeItem,
+          LifeInfuser,
           LightAbsorberChainshirtItem,
           LightenedHarnessItem,
           LightShieldArmorItem,
@@ -968,6 +973,7 @@ namespace BlueprintCore.Blueprints.References
           LightShieldArmorRustyItem,
           LightShieldOfCursedAllegianceArmorItem,
           LinnormHideItem,
+          LivingFortress,
           LivingRamItem,
           LoneWolfsScalemailItem,
           MarkOfTheGuardianArmorItem,

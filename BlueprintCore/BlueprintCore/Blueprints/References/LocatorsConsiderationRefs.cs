@@ -16,6 +16,7 @@ namespace BlueprintCore.Blueprints.References
   public static class LocatorsConsiderationRefs
   {
     public static readonly Blueprint<BlueprintReference<LocatorsConsideration>> DLC5_SithhudLocatorConsideration = "2de6c0add6414344a790b9704b6ffc3d";
+    public static readonly Blueprint<BlueprintReference<LocatorsConsideration>> GalluBossTeleportConsideration = "69817c9e1c0c44feaec49b4f5a543c64";
     public static readonly Blueprint<BlueprintReference<LocatorsConsideration>> Overseer_Consideration_Locators = "a8f9a277c2914a72ad87398bfc923d70";
     public static readonly Blueprint<BlueprintReference<LocatorsConsideration>> Sithhud_Consideration_Locator_Bite_Center = "2afb2640058e4157a8a92681ec4e966e";
     public static readonly Blueprint<BlueprintReference<LocatorsConsideration>> Sithhud_Consideration_Locator_Bite_Center_Double = "0aa3cf890e04482d9d9def7fbc53bdd0";
@@ -32,6 +33,7 @@ namespace BlueprintCore.Blueprints.References
       new()
       {
           DLC5_SithhudLocatorConsideration,
+          GalluBossTeleportConsideration,
           Overseer_Consideration_Locators,
           Sithhud_Consideration_Locator_Bite_Center,
           Sithhud_Consideration_Locator_Bite_Center_Double,

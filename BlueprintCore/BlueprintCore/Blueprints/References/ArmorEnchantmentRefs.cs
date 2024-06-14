@@ -99,6 +99,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> ColorlessRemainsBreastplate_SolidEnchantment = "87345c9a8b004ac29a23d56523f2fdce";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> ConnectiontoEarthBoostEnchantment = "f5469ce203c55ab48b05abbc8a21e475";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> CryptRaidersArmorEnchantment = "c482520d00b7e334aacc463f37b08626";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> CrystalMaidenEnchantment = "69c69daf94e34daebffe70614fe28670";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> CursedDelameresArmorEnchantment = "62a6f27e8086f4e4c983e8c55002e811";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DamageResistance2Enchant = "ac5ecc3e9ea3cc24b90e641d3684c067";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> DamageResistance2MeleeEnchant = "500d0eaa4ab890442b0b10e21baa7452";
@@ -195,6 +196,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LightenedHarnessEnchantment = "a8411bbd68294e540972a2030943776f";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LightShieldEnhancementRusty = "ee0909bbf49d4736b21aa06d8e31161d";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LinnormHideEnchant = "d5fe1c47e0def5547a805fbf640a8682";
+    public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LivingFortressEnchantment = "55998d5a87df43ef9ef85601b0501eef";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LivingRamEnchantment = "32ada6d4c9592f840a99ec72354cb006";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LoneWolfsScalemailEnchantment = "a5cf021e733b4cb4a85b918070f9b1cd";
     public static readonly Blueprint<BlueprintReference<BlueprintArmorEnchantment>> LoremastersRobeEnchantment = "590c35b95cbe40f6bf7b8aafc7925235";
@@ -399,6 +401,7 @@ namespace BlueprintCore.Blueprints.References
           ColorlessRemainsBreastplate_SolidEnchantment,
           ConnectiontoEarthBoostEnchantment,
           CryptRaidersArmorEnchantment,
+          CrystalMaidenEnchantment,
           CursedDelameresArmorEnchantment,
           DamageResistance2Enchant,
           DamageResistance2MeleeEnchant,
@@ -495,6 +498,7 @@ namespace BlueprintCore.Blueprints.References
           LightenedHarnessEnchantment,
           LightShieldEnhancementRusty,
           LinnormHideEnchant,
+          LivingFortressEnchantment,
           LivingRamEnchantment,
           LoneWolfsScalemailEnchantment,
           LoremastersRobeEnchantment,
