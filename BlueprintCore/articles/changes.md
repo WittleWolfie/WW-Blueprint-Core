@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.6 Release
+
+* Update for latest game patch
+
 ## v2.8.5 Release
 
 * Updated for A Dance of Masks DLC

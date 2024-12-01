@@ -15,7 +15,7 @@
 
     <!-- Package Config -->
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>2.8.5</Version>
+    <Version>2.8.6</Version>
     <Authors>WittleWolfie</Authors>
     <Company />
 
