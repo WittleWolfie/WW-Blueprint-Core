@@ -481,7 +481,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloToggleAbility</term><description>248bbb747c273684d9fdf2ed38935def</description></item>
-    /// <item><term>MobilityUseAbility</term><description>4be5757b85af47545a5789f1d03abda9</description></item>
+    /// <item><term>LizardFamiliarAbility</term><description>89bf05685c936374f94a82fc04e9b535</description></item>
     /// <item><term>ViperFamiliarAbility</term><description>52b0d34465ad50545836fddd437cf5c9</description></item>
     /// </list>
     /// </remarks>
@@ -523,7 +523,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArchaeologistLuckAbility</term><description>12dc796147c42e04487fcad3aaa40cea</description></item>
-    /// <item><term>InciteRageAllToggleAbility</term><description>32d247b6e6b65794ab47fc372c444a96</description></item>
+    /// <item><term>InspiredRageAbility</term><description>264e93ac44ace16488226b8f7756bf26</description></item>
     /// <item><term>StormCallToggleAbility</term><description>d5ee8a2e5bf46c549988e9b09a59acd4</description></item>
     /// </list>
     /// </remarks>
@@ -852,7 +852,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>LivingGrimoireSacredWordChoiceAbility</term><description>f068f20ec5274c82aa9cec0cd2835267</description></item>
+    /// <item><term>RingofArodenToggleAbility</term><description>2bf92815e0bd44c78575ad9ec51103ef</description></item>
     /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
@@ -898,7 +898,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AnimalFocusHunterActivatable</term><description>bf6bbf41ae5141b29e30307624b8e3d2</description></item>
-    /// <item><term>LivingGrimoireSacredWordChoiceAbility</term><description>f068f20ec5274c82aa9cec0cd2835267</description></item>
+    /// <item><term>RingofArodenToggleAbility</term><description>2bf92815e0bd44c78575ad9ec51103ef</description></item>
     /// <item><term>SorcerousClawsAbility</term><description>35da2ec74ea147d3852662c878a38948</description></item>
     /// </list>
     /// </remarks>
@@ -966,10 +966,12 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     public TBuilder AddDeactivateOnGripChanged(
         GripType? gripStyle = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
-        ComponentMerge mergeBehavior = ComponentMerge.Fail)
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? thisIsSpellCombat = null)
     {
       var component = new DeactivateOnGripChanged();
       component.GripStyle = gripStyle ?? component.GripStyle;
+      component.ThisIsSpellCombat = thisIsSpellCombat ?? component.ThisIsSpellCombat;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -1080,7 +1082,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.ActivatableAbilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbilityWingsAngel</term><description>13143852b74718144ac4267b949615f0</description></item>
-    /// <item><term>GuardedStanceToggleAbility</term><description>7517c892b30fdf643b33807a2f5abd31</description></item>
+    /// <item><term>FiendishQuarryActivatableAbilityImproved</term><description>cbf73eca56394e8fa8c607f6db9767b4</description></item>
     /// <item><term>SorcerousClawsVicious</term><description>4f2e31f13b4d4a4eb7aa0ed17d02e765</description></item>
     /// </list>
     /// </remarks>

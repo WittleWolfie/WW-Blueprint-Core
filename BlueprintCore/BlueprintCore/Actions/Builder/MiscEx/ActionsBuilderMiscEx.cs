@@ -77,7 +77,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0004</term><description>61ec9675e81645c9b9323d29ee23456c</description></item>
     /// <item><term>DLC6_TavernRebuilded_DaeranRomance_Preset</term><description>4131a6d9b4c9408ba43e0b0df3d3e224</description></item>
-    /// <item><term>DLC6_TavernRebuilded_WenduagRomance_Preset</term><description>6ebcbc9cbb944647998a076c680eba13</description></item>
+    /// <item><term>MortaCollabPremiumReward</term><description>a57e8f79685648de87267ca248cad82d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -467,6 +467,11 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
     /// </para>
     /// </param>
+    /// <param name="clearPreviousImport">
+    /// <para>
+    /// InfoBox: Удаляет упоминание об импорте этого кампейна, но НЕ ОЧИЩАЕТ фактический импорт. Использовать только для починки сломанных сейвов, как в PF-523639. Фактическую очистку импорта можно попробовать сделать отдельными экшонами.
+    /// </para>
+    /// </param>
     /// <param name="letPlayerChooseSave">
     /// <para>
     /// Tooltip: Display a prompt asking to choose a save from a list, if any. Otherwise the save will be chosen automatically and silently imported.
@@ -476,6 +481,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
         this ActionsBuilder builder,
         bool? autoImportIfOnlyOneSave = null,
         Blueprint<BlueprintCampaignReference>? campaign = null,
+        bool? clearPreviousImport = null,
         bool? letPlayerChooseSave = null,
         bool? notImmediatly = null)
     {
@@ -486,6 +492,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
       {
         element.m_Campaign = BlueprintTool.GetRef<BlueprintCampaignReference>(null);
       }
+      element.m_ClearPreviousImport = clearPreviousImport ?? element.m_ClearPreviousImport;
       element.m_LetPlayerChooseSave = letPlayerChooseSave ?? element.m_LetPlayerChooseSave;
       element.m_NotImmediatly = notImmediatly ?? element.m_NotImmediatly;
       return builder.Add(element);
@@ -682,7 +689,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0033</term><description>6704efe68a504d0a9dff4d34544af8ed</description></item>
+    /// <item><term>Cue_0033</term><description>5bb030028b6caa34dbb6c1099880146a</description></item>
     /// <item><term>ZeorisDaggerRingProject_Enchanting</term><description>0dc3a4e036064970857b3c3e296a7d94</description></item>
     /// </list>
     /// </remarks>
@@ -885,7 +892,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0005</term><description>daab00a6e6c650246a7ebb32c9fd8240</description></item>
     /// <item><term>DLC1_ThresholdOutdoor_BET_MixedFar</term><description>a5dca28200034f298e04270b0aed3d5d</description></item>
-    /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
+    /// <item><term>ZigguratNoMoreLichTransition</term><description>857ac3ee06be46688c1040033fd2224a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -924,7 +931,7 @@ namespace BlueprintCore.Actions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0001</term><description>32346e6ee58b4139a2bbabab80317c28</description></item>
-    /// <item><term>Cue_0006</term><description>561562e8a34945e7809db870c951837a</description></item>
+    /// <item><term>Cue_0007</term><description>b5745ab9578437c468acbea59d33f5fb</description></item>
     /// <item><term>WoljifFarewell_dialogue</term><description>0e94cfa04d06db1438eb565f60c0012c</description></item>
     /// </list>
     /// </remarks>

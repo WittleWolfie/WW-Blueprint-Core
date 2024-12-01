@@ -396,8 +396,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MadnessDomainGreaterResource = "3289ee86c57f6134d81770865c315e8b";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MadnessDomainGreaterResourceSeparatist = "08a0a3c8eb794b4ea29fa5f207b90d36";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainBaseResource = "da9e93791894b9d49a1f2bebd80e8085";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainBaseResourceFake = "eae7f960c712419eb0db629d98473ced";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainBaseResourceSeparatist = "7d7774e1127f4f70840b7e3bc8d3fc51";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResource = "3aecc0c5d17390443b30774309145854";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResourceFake = "bcc183f07f074bd7949d25b20d7ffd27";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MagicDomainGreaterResourceSeparatist = "61267901476b4973b5a160eefd2b713d";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MantisZealotAspectOfTheMantisResource = "e357603c8917485db93d477e5cbb0415";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> MantisZealotRedShroudResource = "3e37658132c2468d9c92b89932a3c873";
@@ -553,6 +555,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SacredWeaponEnchantResource = "cc700ef06c6fec449ab085cbcd74709c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SageRayResource = "432a8a861b0dc4c45a14cb3c897a63ba";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ScaledFistPowerResource = "7d002c1025fbfe2458f1509bf7a89ce1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ScalykindDomainBaseResource = "91d9ca7313dd4955a0bd2fa853640129";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ScalykindDomainBaseResourceSeparatist = "7e875e69c40a44a8adbe34268e760b37";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> ScapegoatResource = "8e0fb60f57ef0be48bd2c2e4951c3b9e";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SearingFleshResource = "081b766c9a8c1b84fa0b38b46912451c";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityResource>> SenseiPerformanceResource = "ac5600c9642692145b7eb4553a703c1a";
@@ -1080,8 +1084,10 @@ namespace BlueprintCore.Blueprints.References
           MadnessDomainGreaterResource,
           MadnessDomainGreaterResourceSeparatist,
           MagicDomainBaseResource,
+          MagicDomainBaseResourceFake,
           MagicDomainBaseResourceSeparatist,
           MagicDomainGreaterResource,
+          MagicDomainGreaterResourceFake,
           MagicDomainGreaterResourceSeparatist,
           MantisZealotAspectOfTheMantisResource,
           MantisZealotRedShroudResource,
@@ -1237,6 +1243,8 @@ namespace BlueprintCore.Blueprints.References
           SacredWeaponEnchantResource,
           SageRayResource,
           ScaledFistPowerResource,
+          ScalykindDomainBaseResource,
+          ScalykindDomainBaseResourceSeparatist,
           ScapegoatResource,
           SearingFleshResource,
           SenseiPerformanceResource,

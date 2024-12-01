@@ -7,6 +7,7 @@ using Kingmaker.Assets.UnitLogic.Mechanics.Properties;
 using Kingmaker.Blueprints;
 using Kingmaker.Blueprints.Classes;
 using Kingmaker.Blueprints.Facts;
+using Kingmaker.Blueprints.Items.Armors;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.UI.Common;
 using Kingmaker.UnitLogic.Class.Kineticist.Properties;
@@ -698,8 +699,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>BearerOfSorrowProperty</term><description>5f462b3f7c405f24fac73c3e46e8c326</description></item>
-    /// <item><term>ShadowEvocationGreaterProperty</term><description>0f813eb338594c5bb840c5583fd29c3d</description></item>
+    /// <item><term>AnimateDeadProperty</term><description>7797b8f47b0f44369abef797e472acf0</description></item>
+    /// <item><term>ShadowEvocationProperty</term><description>a6500531899940c2803695f26f513caa</description></item>
     /// <item><term>WordOfGodDCProperty</term><description>bab0e9d8395145a18f983224e023ff93</description></item>
     /// </list>
     /// </remarks>
@@ -804,17 +805,46 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     /// InfoBox: Также добавить фокус. Не будет работать корректно, если баф накладывается одновременно с надеванием щита - фокус рассчитывается в тот же момент и возникает конфликт времени исполнения.
     /// </para>
     /// </param>
+    /// <param name="armorTypes">
+    /// <para>
+    /// Blueprint of type BlueprintArmorType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="useArmorTypeFilter">
+    /// <para>
+    /// InfoBox: Если источник AC это блюпринт BlueprintItemArmor, то проверить его поле Type
+    /// </para>
+    /// </param>
+    /// <param name="useItemTypeFilter">
+    /// <para>
+    /// InfoBox: BlueprintItemShield не даёт AC напрямую, для этого используется вложенный BlueprintItemArmor
+    /// </para>
+    /// </param>
     public TBuilder AddShieldBonusGetter(
         bool? addShieldBonus = null,
         bool? addShieldFocus = null,
+        List<Blueprint<BlueprintArmorTypeReference>>? armorTypes = null,
         ItemsFilter.ItemType[]? itemTypes = null,
         bool? onlyFromItems = null,
         PropertySettings? settings = null,
+        bool? useArmorTypeFilter = null,
         bool? useItemTypeFilter = null)
     {
       var component = new ShieldBonusGetter();
       component.AddShieldBonus = addShieldBonus ?? component.AddShieldBonus;
       component.AddShieldFocus = addShieldFocus ?? component.AddShieldFocus;
+      component.ArmorTypes = armorTypes?.Select(bp => bp.Reference)?.ToArray() ?? component.ArmorTypes;
+      if (component.ArmorTypes is null)
+      {
+        component.ArmorTypes = new BlueprintArmorTypeReference[0];
+      }
       component.ItemTypes = itemTypes ?? component.ItemTypes;
       if (component.ItemTypes is null)
       {
@@ -823,6 +853,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
       component.OnlyFromItems = onlyFromItems ?? component.OnlyFromItems;
       Validate(settings);
       component.Settings = settings ?? component.Settings;
+      component.UseArmorTypeFilter = useArmorTypeFilter ?? component.UseArmorTypeFilter;
       component.UseItemTypeFilter = useItemTypeFilter ?? component.UseItemTypeFilter;
       return AddComponent(component);
     }
@@ -956,8 +987,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Properties
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>dcproperty</term><description>71c98426939e408a97f0679b6d196fe7</description></item>
-    /// <item><term>MarvelousEnduranceFastHealingProperty</term><description>ca1b4b40b9f5407f904738b575bac1ca</description></item>
+    /// <item><term>BloodlineSerpentineSerpentsFangPoisonDCProperty</term><description>0225cc7431cc4e7eae07cc227f00f925</description></item>
+    /// <item><term>MantisZealotMantisSwarmDCProperty</term><description>1a5e61241e70401c85846bdd146351b7</description></item>
     /// <item><term>WitchHexSpellLevelProperty</term><description>75efe8b64a3a4cd09dda28cef156cfb5</description></item>
     /// </list>
     /// </remarks>

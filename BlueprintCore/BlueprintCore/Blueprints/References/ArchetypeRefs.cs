@@ -56,6 +56,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DarkLurkerArchetype = "33eb002078e5437b8c25db4b80b4a4fe";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DarkSisterArchetype = "411fa458481e44f0855d47a19358874b";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DeathtouchedArchetype = "3ae8abeef5615294c85a2d0f92f592de";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DefenderOfTheHearthArchetype = "6c96dc1f5573487399336cd351ef8f2c";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DefenderOfTheTrueWorld = "782c46afacd88d448afba6178471a744";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DelivererArchetype = "738c5666f8ef46c45942df9100a0d254";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> DemonDancerArchetype = "9c46c4e4303e5da40b63faa6df18e2c2";
@@ -164,6 +165,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> QuarterstaffMasterArchetype = "dde7724382ae4f63aa9786cb9b3b64b2";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RacerArchetype = "98ce0856db141964ebb3ad46379c66b5";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RageshaperShifterArchetype = "41d5b44e421048d09d32623689173e11";
+    public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RayMasterWitchArchetype = "d37f299738894b97bbc0808c1c44e6d2";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ReanimatorArchetype = "5faf2921393d422d94467174d029e4cd";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> ReformedFiendArchetype = "d55163eed9214367820654f0ebe0ff69";
     public static readonly Blueprint<BlueprintReference<BlueprintArchetype>> RowdyArchetype = "4dbc4b7f2d5149ce83854bffa72035ce";
@@ -271,6 +273,7 @@ namespace BlueprintCore.Blueprints.References
           DarkLurkerArchetype,
           DarkSisterArchetype,
           DeathtouchedArchetype,
+          DefenderOfTheHearthArchetype,
           DefenderOfTheTrueWorld,
           DelivererArchetype,
           DemonDancerArchetype,
@@ -379,6 +382,7 @@ namespace BlueprintCore.Blueprints.References
           QuarterstaffMasterArchetype,
           RacerArchetype,
           RageshaperShifterArchetype,
+          RayMasterWitchArchetype,
           ReanimatorArchetype,
           ReformedFiendArchetype,
           RowdyArchetype,

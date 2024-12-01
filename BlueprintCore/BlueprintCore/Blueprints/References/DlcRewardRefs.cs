@@ -25,6 +25,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> FreeDlc2Reward = "0b1a6e5516154dbaa132604675117e15";
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> FreeDlc3Reward = "b75d56812b63445882687383426d0357";
     public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> FreeDlc4Reward = "89e5119ac73f4e32a0906b66482539cf";
+    public static readonly Blueprint<BlueprintReference<BlueprintDlcReward>> FreeDlc5Reward = "6ecd2ebff4304538b62a5465afa6e3b5";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintDlcReward>>> All =
       new()
@@ -39,6 +40,7 @@ namespace BlueprintCore.Blueprints.References
           FreeDlc2Reward,
           FreeDlc3Reward,
           FreeDlc4Reward,
+          FreeDlc5Reward,
       };
   }
 }

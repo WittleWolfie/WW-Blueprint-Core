@@ -404,6 +404,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ApocalypseLocusImmortalityFeature = "74da4a38e6c7466a8a7f3392a9681cde";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ApocalypseLocustPoisonFeature = "6a1ba071ebc94d1aace81675cf07073b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ApprenticeRobeFeature = "3443f54b269d30540a0ab2e97005e416";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ApsuFeature = "772e2673945e4583a804ae01f67efea0";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ApsuSacredWeaponFeature = "0c0d5d2d92684538a9d9833e33db0b28";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ArachnidGogglesFeature = "ec270440c7b34774819d197b6d141e48";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Aranka_Feature_InspireCourage = "672411c5dc4202f4598265e8a974e7c3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ArcaneAccuracyFeature = "2eacbdbf1c4f4134aa7fea99ab8763dc";
@@ -1418,6 +1420,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeboundBlackBladeWeaponFeature = "3591ca0844534e1285d6826227950312";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeboundIndependentEgoFeature = "8c306308b09848bbb49c835dd3ea1030";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeboundLifeDrinkerFeature = "3fc2666011fd4f128b235b040d9818af";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeboundTrueBondFeature = "fc7d5f4108a84caf84d3574558ede229";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladedPlateFeature = "4c563bcf2ce558e43887265525f56ac2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeguardBucklerFeature = "0a360a4c2d97acb4a8e3ab6c78c92df8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> BladeOfTheMercifulFeature = "03b9a40ea7bcd29409936fffa8c1efde";
@@ -2213,6 +2216,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CannyDefense = "9a0a447e161207d46829ce2bd8b3cc6f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CannyDefense_0 = "ee72afbb4a1a58c46a93cd5ec539ba50";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CannyObserver = "68a23a419b330de45b4c3789649b5b41";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CantripMasteryFeature = "55019449a6a346a5a7a5dea407cd97f3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CapeOfDesinsectorFeature = "3324580696eb62645994508ec0e4a1ad";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CapeOfDivinationFeature = "f52c198c6370f8e48b5d2615f9029172";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CapeOfFeintingFeature = "927905afa09f4ccd9325c5051eddaa40";
@@ -2421,6 +2425,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfDisguiseFeature = "d665a364a60b7744c9bab833da6f9492";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfDreamsQuickenedFeature = "4e48d1d39098538489cc6fcb778700f0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfLoneWolfFeature = "68ae7033fa554d0cbf8e34101676bd28";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfMortaFeature = "7918cbeb4dab42339126e1495f50b492";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfMortaFeatureBlink = "8c9d59de3fea4536a55d878e8a212138";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfMortaFeatureDC = "ea7c96bad79347318961e12a6642de66";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfMortaFreedomOfMovement = "1d96c608b7a24b2ca10a0cb1dbf37813";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfResistance7ExtraFeature = "5764b34d72ef4a4da31533cf186efdcc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfSacredStudiesFeature = "ac938a3fe82c4dab8ebc2f1053961d38";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CloakOfSharpFangsFeature = "ae71234003a6d0a43a7f22334f9fd66d";
@@ -2533,6 +2541,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CoordinatedDefense = "992fd59da1783de49b135ad89142c6d7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CoordinatedManeuvers = "b186cea78dce3a04aacff0a81786008c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CornugonSmash = "ceea53555d83f2547ae5fc47e0399e14";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CorruptedGoldenDragonFeature = "1e66cfb4f351466fb05636082bce50d6";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CorruptedHerald_AuraOfFear = "62361b6cced4c434f8d9de12726cd05e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CorruptedHerald_Phase2_CorruptedHealing = "ba0894ba3ffe29e4792b518fe0a042f7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> CorruptedMongrelmanAdditionalNatArmor = "9e845b228a2edb14b89ec3b278ef296b";
@@ -2695,6 +2704,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DaggerOfLifeFeature = "ea30904d76a703647b314675dec22b9f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DaggerOfTheBetrayerFeature = "c5a4240f62804dd1a1ed94c8f40e9bca";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DaggerProficiency = "b776c19291928cf4184d4dc65f09f3a6";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DahakFeature = "8f7118d68f6e44dea94dddb51f38cbdd";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DahakSacredWeaponFeature = "1bc6e1f53b3447478638d1ea41a94ccc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DamageInsteadOfFatigue = "bc6fe6188f5fb4b41866a2abdc519dc7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DamageReduction = "cffb5cddefab30140ac133699d52a8f8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DamageReductionDrunkenMaster = "187ddd9028a1413fa256fdc9f46bf7d5";
@@ -2795,6 +2806,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DeceivingFacadeFeature = "a939cc14c6e378b4c9d747267aa833db";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DeepestFearFeature = "b9607e7ebdffb9d44bdb0cd4d9a21594";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DeepShadowDemonBossFeature = "2c89add51e3e5154abb2ec05635fe381";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DefenderGiftFeature = "f7be09207a174faca0a6f438fd5bb25a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DefendersBulwarkShieldFeature = "f60ba7b1df763b144a902e31f9d48075";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DefendersNemesisFeature = "c641b977bf4b452097e1ada29a2e33fd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DefensiveCombatTraining = "479c7f3b0dba69a4bbcb43e101f3f7f9";
@@ -3018,6 +3030,30 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterBondPlus5 = "49c1390a1fa5484fa3102dcba4c3cbc8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterBondPlus6 = "6752ecab81984f05830764b321355eb0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterDistantMercyFeature = "12678d8f1c24b7b4fbeeee096e7873e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusCharismaFeature = "c4479282ca2c45d7b1d8ffd7bacf0c9f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusCharismaFeatureSecond = "182283b25e07446c910f21c940bed22e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusCharismaFirst = "9d4ed7d3abea49dcb777b8241ed6f848";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusCharismaSecond = "2aa3f0ed804748968fcffa41b5f05fc0";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusConstitutionFeature = "5d6ab9f42926444cb26a89deea38668c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusConstitutionFeatureSecond = "6d5a16dd251e41dcb8850ac5507665c4";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusConstitutionFirst = "e2a6a229d5154f5ba72308eacf5adb62";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusConstitutionSecond = "e20dab3ba1574a4db4304f268d3a02ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusDexterityFeature = "7fb8d62282e1459eb2dec41acabd084c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusDexterityFeatureSecond = "cfbae02695694bc59d13aee8b7dcf27c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusDexterityFirst = "8231365f87974524bcbd2dd04d461251";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusDexteritySecond = "5361cc2680274efc883070862fa98885";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusIntelligenceFeature = "a691fb6416a145d5b09d0c12e590dd41";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusIntelligenceFeatureSecond = "c41f6a9c421f4bed838d3ede9dfc3856";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusIntelligenceFirst = "bdd12ea0c9a34d9f9b311f5b3052d5b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusIntelligenceSecond = "48940db1f6684f81b4f569b17ff65c87";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusStrengthFeature = "1e854ffe325c4e0aa91661d03426b3c5";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusStrengthFeatureSecond = "3421a9b3c1f345c98c42006041e76d82";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusStrengthFirst = "c925d15a4407446da3f7dbcd48db2328";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusStrengthSecond = "f0b2001098cc4788ab0bb0a49b27c8c4";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusWisdomFeature = "2ed0acc7eb974ba890d38047faaa1535";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusWisdomFeatureSecond = "9f6e0d2e139a4227afc5234efb68bafa";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusWisdomFirst = "c3a5cb12fe8748be93f30976875ea26d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterPetBonusWisdomSecond = "698e18c1e60244118011f1c3270f5295";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHunterProficiencies = "9fceea5f433969e44bb124ab3a95bb58";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineHuntersBlessingFeature = "ae98475b3f5d3aa4bb830d352655a8ed";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DivineInsightFeature = "ea37740e395f48b09298eb275a8e1dac";
@@ -3280,6 +3316,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC6PrimalInevitable_Feature_Aeon = "0a63c4746ab141c691fcf93dc65ba3c4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC6PrimalInevitable_Feature_AeonGaze = "4cddc7fd8b92411da802f3020efa02ca";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC6PrimalInevitable_Feature_CombatTrigger = "9921e8aec3ce4c2b97f71aaf232e7358";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLC7_CR7_Goblin_Sorcerer_EmpowerFeature = "f966df924eb6456bb76ab5960ce792a0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DLCTestFeature = "81573b5c71a94053bec0ab1ec2e8b882";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Dodge = "97e216dbb46ae3c4faef90cf6bbe6fd5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> DodgeMythicFeat = "3812d9ca1377c014c97fb3ac421ba9e6";
@@ -3717,6 +3754,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalRampagerClaws1d8 = "c88eb191d1dd4f5dafc9988822ae24fd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalRampagerRampageFeature = "64c5dfe0ba664dd38b7e914ef0912a1c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalResistance15Feature = "156cfcb07f2d0bf45aa9d35c76dda5d3";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalVortexFeature = "03dfd2326a44434c96d2c05dbcade21e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalWallFeature = "de877714f4d224949b403205e8582de4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalWaterBloodlineRequisiteFeature = "cfd48c078a14ee247aa7eabe263ad132";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ElementalWaterElderFreezeAbility = "3b70a2dff4cd7544fb4c120c6df0738c";
@@ -4080,6 +4118,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingPunchingDagger = "a591ea5d2af6a9c4eac84ddeac0e204e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingRapier = "c14d36ec2c807ef418ce77b8d93fa3c5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingSai = "72724581b38799a42904f6a6db745dd6";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingSawtoothSabre = "9143942781ef437a9ab0243d9b667aa1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingShortsword = "71fb4704ad838ad4d91ed429b8936313";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingSickle = "5dc60a449311b3544be118bf89b1f446";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> FinesseTrainingSlam = "3411b8c822dc4e148f4725a391e714df";
@@ -4368,6 +4407,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GogglesOfPiercingGazeFeature = "946b597ee9e74ce4eaacdafc73d2ec3c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GogglesOfPureSightFeature = "2bc02e064e491d648975364751b5e395";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GogglesOfQuickGraspFeature = "6d63d986455b4cfb9531fba967de7e46";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathAnnihilating = "e8b9aad5295c49539f1bbf901d314964";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathBrainwashing = "a9ce14a6601c4bd1aea5d29d41e9162d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathBurning = "0cc6e15e961b4bb9b4328002cbc57388";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathDecaying = "c606a6897125480ebde14b63bb8fb18e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathDisrupting = "eb26e9df19a54ae2a634828f1cb7a708";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathEmpowering = "d6fa1c8aead34a2ba2c18fc7a41a649c";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathEnlighting = "0351c6c95adc48b3b39073167094cd19";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathOverhelming = "9266dd19a70f44068929107484dc1250";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathRejuvinating = "ef3690c36872422d9bfadeb276b5c3fe";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonBreathSpellbane = "34b85b2c587545d383804455525c53b2";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldDragonSpellBookFeature = "2c797926d83c4f77878b884d6fb35bc5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldenDragonBreathFeature = "63bb12d87f99c4748a890956e5f6b4c7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldenDragonSharedSkillUMD = "4e0b919e4fbd85142bce959fae129d1a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GoldenDragonSpellDamageFeature = "a83dd922ad1441fd8224bd01a5948331";
@@ -4411,6 +4461,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GowrowSonicSpikedLightShieldFeature = "c783ab33ddb06e14a98782505c34c192";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GozrehFeature = "4af983eec2d821b40a3065eb5e8c3a72";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GozrehSacredWeaponFeature = "5af93ce0555c7a940891fbb643a99836";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GrabTiger = "0744543019af47f28c178e89b6cb101b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GrandCognatogenFeature = "af4a320648eb5724889d6ff6255090b2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GrandMutagenFeature = "6f5cb651e26bd97428523061b07ffc85";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> GrapplingInfusionFeature = "e2d70b95e80549b439d30df29a79cb58";
@@ -4613,6 +4664,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeartstoneFeature = "91756d59020b478b9539f4f14de6c445";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeatAdaptationFeature = "2825e3a53c76ad944a47c5c44fb6109f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeavenlyVestFeature = "ecf385becc589ed45a1529d11da5b68f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeavenStrikeFeature = "a7662fc393334b0ca61d26d7715a66f1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeavyArmorProficiency = "1b0f68188dcc435429fb87a022239681";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeavyBardingProficiency = "aed0b33e17a3b3d44a718852e87305bd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> HeavyFlailProficiency = "a22e30bd35fbb704cab2d7e3c00717c1";
@@ -4858,6 +4910,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImpromptuSneakAttackFeature = "8ec618121de114845981933a3d5c4b02";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Improved_Initiative = "797f25d709f559546b29e7bcb181cc74";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImprovedBullRush = "b3614622866fe7046b787a548bbd7f59";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImprovedCantripsFeature = "d26fb54b74d44a45b84ef7150a460348";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImprovedCleavingFinish = "ffa1b373190af4f4db7a5501904a1983";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImprovedCriticalBastardSword = "8e205ae32e4b56d43b9c105dc90cb58f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ImprovedCriticalBastardSwordOversized = "ab68f89c33f248542b0282652e0678a1";
@@ -5117,6 +5170,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticQuiverFeature = "e41305eb63584a60ae726af61c318fa9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticRestorationFeature = "ed01d50910ae67b4dadc050f16d93bdf";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticRevificationFeature = "0377fcf4c10871f4187809d273af7f5d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticSharpshooterCapstoneFeature = "dc059bdc9229446fb24ab00089a3a7f1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticSharpshooterMainFeature = "b6092295c3164f848256302280668189";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticSharpshooterProficiencies = "80f7afbee34145459ac5c77f3aac51c5";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KineticSharpshootterMainMechanicalHiddenFeature = "a62d155ca5b5458abde794ef5bee93cb";
@@ -5148,6 +5202,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightOfTheWallDefensiveChallenge = "00aa75c03e259e045a2e5378f115a1be";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightOfTheWallDeflectiveShield = "f22ba62eb96de4546b9b2d0829744a4e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightOfTheWallSoulShield = "896040a4ae977124bb68ddeca398fcac";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightsEmblemEmeraldBeltDrunkenMonkFeature = "03933678693340f88ce87ccd934a5d0f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightsEmblemEmeraldBeltFeature = "386886690bf04665a67bd5ab5fa9f999";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightsEmblemSunsetChainmailFeature = "3cd86486f747b174c9b43ed6b066dbfc";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> KnightsEmblemSunsetShortswordFeature = "277fd4291f558fd458e3c73c9b658f6c";
@@ -5417,6 +5472,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterGreaterLore = "d9961b36abaf72d48b154a07e631aac3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterHunterLevelUp = "c8ec38137b01492696cd516a73cabab8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterInquisitorLevelUp = "ebfb9e77e0b10f44bbbb773d8b99f60f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterLivingGrimoireLevelUp = "c7c1c05751d644d6ad2c1b73b52bd858";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterLore = "d0647dc19e74bd543b5069d0e0ab0527";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterOracleLevelUp = "0f5c3d9d29ef9ed40ad35cb16c6f0b3b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LoremasterPaladinLevelUp = "816b22266227b724abc645e6c7677145";
@@ -5436,6 +5492,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LuckDomainGreaterFeatureSeparatist = "58db10a0b5a143e2a4867793ca869225";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LuckDomainSpellListFeature = "3ddb12c64ec9db64bb963c2a38650d66";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LuckDomainSpellListFeatureDruid = "d368f6bd0c275af4b84ad4697d21d410";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LucySwiftFeature = "bcced4af2e3a46b7b73ab342fce87e28";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LungeFeature = "d41d5bd9a775d7245929256d58a3e03e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LycanthropeType = "9a122a03b2548d94ba90546083d999c0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> LycanthropicTrackerFeature = "e6d789e3531a433991fe37ab5d918a5e";
@@ -5497,8 +5554,10 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainAllowed = "08a5686378a87b64399d329ba4ef71b8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainAllowedSeparatist = "0cdeca405da848d49f922a9422fefa3c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainBaseFeature = "90f939eb611ac3743b5de3dd00135e22";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainBaseFeatureFake = "1a4bb1a08e644e77b3140c2e4ff6a9d0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainBaseFeatureSeparatist = "e04e3432601140808d6f58d7d1087894";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainGreaterFeature = "cf47e96abd88c9f418f8e67f5a14381f";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainGreaterFeatureFake = "4cd9c5a1bba840308424a436c1f7a95f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainGreaterFeatureSeparatist = "724216a6124d486fa55d7476db26bf1a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicDomainSpellListFeature = "407c27880ec3c5f4d9bc48ed0bf64f5c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MagicHackFeature = "dadb8bdf6c084309b9d9c8011700c432";
@@ -5753,6 +5812,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonitorPoisonFeature = "c8adb7597ab42de42a3a36eefd129a11";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkACBonus = "e241bdfd6333b9843a7bfd674d607ac4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkACBonusUnlock = "2615c5f87b3d72b42ac0e73b56d895e0";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkCaydenCayleanLock = "c60b5d1fcfe0448f8fe1ea97d9560ea1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkeyFamiliarBondFeature = "5551dd90b1480e84a9caf4c5fd5adf65";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkFastMovement = "ac18d5741dfb2f541b222e3a416c5942";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> MonkFastMovementUnlock = "73ab5b41fa465ee429ad6658368c6629";
@@ -6235,6 +6295,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> Persuasive = "86d93a5891d299d4983bdc6ef3987afd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PestilenceSpiritFeature = "59456a1bad5e44b5b9f524614019cdf3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PestilenceSpiritGreaterFeature = "494f7e13a506489baa9da89b46e138e9";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PestilenceSpiritManifestationFeature = "2e193b5df54c4726b1894bc0a7dfc6c1";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PestilenceSpiritTrueFeature = "05bd7ec913174efdbfb8800ccf36da27";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PetrifyingStrike = "719d4539f7824eb99b8c6668e77820d2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> PF2_DLC1_ChaoticFeature = "626cf7f920a440fda24b88cbd56876f3";
@@ -6899,6 +6960,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScaledFistSuddenSpeedFeature = "0f20a31e37fdb8240957b5a5c38e8226";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScaledFistTrueStrikeFeature = "8059b100625d18141a0f4c7d87105f72";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScaledFistWholenessOfBodyFeature = "ae997f16b38fcee4fb4ad31e0588cd07";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindBlessingFeature = "606ca13281f4404a9c224aa7ce8a802e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindBlessingMajorFeature = "739c0a625d0c4c928b5cb4eb13edd4ae";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainAllowed = "c8326083da8e40c4931f473bfa70f9f0";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainAllowedSeparatist = "4448c8005c854a72a0853319171f29e6";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainBaseFeature = "e22881ef284148fa972af9f521abf66d";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainBaseFeatureSeparatist = "867fc058107b4636a4d33a7eb25f302e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainGreaterFeature = "3f004c3af7494afe9075c393179dc876";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainGreaterFeature_0 = "0df9225b14194e0c9b339a52c45ec611";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainGreaterFeatureSeparatist = "0a2bd25106074517bec17193657d98da";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainSpellListFeature = "9f19e862197c49acaa67c3779cd2d569";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScalykindDomainSpellListFeatureDruid = "55020fb393834f9eaead4c2e6c0f9fc3";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScapegoatFeature = "cffe3f12c8d00ba4fa15d0c6fcd375c8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScarabOfProtectionFeature = "c652a3854fce41399e3e3819ec7cc3a0";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ScarecrowFascinatingGaze = "97677858a439d4d47af6ecc6a5d678f2";
@@ -7124,6 +7196,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharedPrecisionFeature = "3fc1ad7b5f67543488d6c84fc6bc48c9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShareFavoredEnemyPet = "cd7b831693c0f3947b019321c0510915";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShareTransmutation = "c4ed8d1a90c93754eacea361653a7d56";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehCriticalRangeIncrease12 = "e72ea4085ca6418ab26278db11670075";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehCriticalRangeIncrease16 = "6bf8f672fa5f4f2fb54b93be9b170cb7";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehCriticalRangeIncrease4 = "b38ceab4ccf3446b84b2e5881940dacf";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehCriticalRangeIncrease8 = "6fd9709a4e354e41ac6feb8ac471260e";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehCriticalRangeIncreaseUI = "38eee152c88b463987e75893c948e294";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeehWeapon = "6f47ca06960a44ec805de39ef14d85ec";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SharpTeethFeature = "1fb15984335a4694a29b0346cac282c2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShatterConfidence = "51f5a63f1a0cb9047acdad77fc437312";
@@ -7134,6 +7211,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShelynSacredWeaponFeature = "0e95fb0d75b58104392ae4149ca751f8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldBashFeature = "121811173a614534e8720d7550aae253";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldbearerShieldAdeptFeature = "f2a0e9234b3e3564ba5eabadc4af0447";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldBlockFeature = "08ef60cbb8324d13a8524ba552fa579e";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldBucklerMythicFeat = "874cd4a453cb44e595c6ee34e97feafd";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldedCaster = "0b707584fc2ea724aa72c396c2230dc7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> ShieldFocus = "ac57069b6bf8c904086171683992a92a";
@@ -7364,6 +7442,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilkShadow_UniqueFeature = "d1031163348444018aad08fcb609ac9c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilkShadow_UniqueFeature1 = "d80af04e206647fe8efdca905fc4144a";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverDragon_QuickenSpellFeature = "3f17ed050c6ab4b489be6580f9466b43";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverDragon_QuickenSpellFeatureMedium = "2b4327f0f7354c388d3aceba4eebf9fd";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverDragon_SpellTurningFeature = "4d67d955ede14c9b824bed14af7d8b18";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverMistFeature = "999252131550432a95abfab927317579";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverRobeFeature = "641f29dc936a75442a57e5bad16a5258";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> SilverTongueAmuletFeature = "c28a420b59bed6b4ba2e4901ef740cfb";
@@ -8104,6 +8184,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionReposeDomainRankFeature = "84d911b3d13948209c0df8d827de866f";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionRuneDomainFeature = "0b08e6a69c5c4e1a9e162245d95653b8";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionRuneDomainRankFeature = "5cb6a8bd344740bc91d50e2f144d1a7b";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionScalykindDomainFeature = "38ff8b57036b45a49492aafd3004e0dc";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionScalykindDomainRankFeature = "8fc5359d2e814ae4aa40f032bba53d2d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionStrengthDomainFeature = "baeb86e6678e4d9ebc3329718d450208";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionStrengthDomainRankFeature = "899566469d7a4eedbba4efb3928392b7";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> TricksterLoreReligionSunDomainFeature = "5f72100f333241f297b40a5ff14534ea";
@@ -8646,6 +8728,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WhildShapeIVShamblingMoundPoisonFeature = "a3c59457611edeb4facd4d81ab3cfa1d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WhiteMageSpontaneousHealing = "1f90a0504ae3f11408ca0ff54444b9a4";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WhiteMageSpontaneousHealing10 = "e0d20af8a458e0849bb5f814bc4e9e95";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WightBossCommanderAuraFeature = "5d209699e92146a0ae644cfc20291239";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WightEnergyDrainAbility = "35a7f7e6ad5b4374e812fc10ec1c836c";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WildernessMagicFeature = "8b07a781b2ad23f4588cb8fe78307b60";
     public static readonly Blueprint<BlueprintReference<BlueprintFeature>> WildGazeFeature = "330624ea5dafe804f9c976b4781b4e15";
@@ -9409,6 +9492,8 @@ namespace BlueprintCore.Blueprints.References
           ApocalypseLocusImmortalityFeature,
           ApocalypseLocustPoisonFeature,
           ApprenticeRobeFeature,
+          ApsuFeature,
+          ApsuSacredWeaponFeature,
           ArachnidGogglesFeature,
           Aranka_Feature_InspireCourage,
           ArcaneAccuracyFeature,
@@ -10423,6 +10508,7 @@ namespace BlueprintCore.Blueprints.References
           BladeboundBlackBladeWeaponFeature,
           BladeboundIndependentEgoFeature,
           BladeboundLifeDrinkerFeature,
+          BladeboundTrueBondFeature,
           BladedPlateFeature,
           BladeguardBucklerFeature,
           BladeOfTheMercifulFeature,
@@ -11218,6 +11304,7 @@ namespace BlueprintCore.Blueprints.References
           CannyDefense,
           CannyDefense_0,
           CannyObserver,
+          CantripMasteryFeature,
           CapeOfDesinsectorFeature,
           CapeOfDivinationFeature,
           CapeOfFeintingFeature,
@@ -11426,6 +11513,10 @@ namespace BlueprintCore.Blueprints.References
           CloakOfDisguiseFeature,
           CloakOfDreamsQuickenedFeature,
           CloakOfLoneWolfFeature,
+          CloakOfMortaFeature,
+          CloakOfMortaFeatureBlink,
+          CloakOfMortaFeatureDC,
+          CloakOfMortaFreedomOfMovement,
           CloakOfResistance7ExtraFeature,
           CloakOfSacredStudiesFeature,
           CloakOfSharpFangsFeature,
@@ -11538,6 +11629,7 @@ namespace BlueprintCore.Blueprints.References
           CoordinatedDefense,
           CoordinatedManeuvers,
           CornugonSmash,
+          CorruptedGoldenDragonFeature,
           CorruptedHerald_AuraOfFear,
           CorruptedHerald_Phase2_CorruptedHealing,
           CorruptedMongrelmanAdditionalNatArmor,
@@ -11700,6 +11792,8 @@ namespace BlueprintCore.Blueprints.References
           DaggerOfLifeFeature,
           DaggerOfTheBetrayerFeature,
           DaggerProficiency,
+          DahakFeature,
+          DahakSacredWeaponFeature,
           DamageInsteadOfFatigue,
           DamageReduction,
           DamageReductionDrunkenMaster,
@@ -11800,6 +11894,7 @@ namespace BlueprintCore.Blueprints.References
           DeceivingFacadeFeature,
           DeepestFearFeature,
           DeepShadowDemonBossFeature,
+          DefenderGiftFeature,
           DefendersBulwarkShieldFeature,
           DefendersNemesisFeature,
           DefensiveCombatTraining,
@@ -12023,6 +12118,30 @@ namespace BlueprintCore.Blueprints.References
           DivineHunterBondPlus5,
           DivineHunterBondPlus6,
           DivineHunterDistantMercyFeature,
+          DivineHunterPetBonusCharismaFeature,
+          DivineHunterPetBonusCharismaFeatureSecond,
+          DivineHunterPetBonusCharismaFirst,
+          DivineHunterPetBonusCharismaSecond,
+          DivineHunterPetBonusConstitutionFeature,
+          DivineHunterPetBonusConstitutionFeatureSecond,
+          DivineHunterPetBonusConstitutionFirst,
+          DivineHunterPetBonusConstitutionSecond,
+          DivineHunterPetBonusDexterityFeature,
+          DivineHunterPetBonusDexterityFeatureSecond,
+          DivineHunterPetBonusDexterityFirst,
+          DivineHunterPetBonusDexteritySecond,
+          DivineHunterPetBonusIntelligenceFeature,
+          DivineHunterPetBonusIntelligenceFeatureSecond,
+          DivineHunterPetBonusIntelligenceFirst,
+          DivineHunterPetBonusIntelligenceSecond,
+          DivineHunterPetBonusStrengthFeature,
+          DivineHunterPetBonusStrengthFeatureSecond,
+          DivineHunterPetBonusStrengthFirst,
+          DivineHunterPetBonusStrengthSecond,
+          DivineHunterPetBonusWisdomFeature,
+          DivineHunterPetBonusWisdomFeatureSecond,
+          DivineHunterPetBonusWisdomFirst,
+          DivineHunterPetBonusWisdomSecond,
           DivineHunterProficiencies,
           DivineHuntersBlessingFeature,
           DivineInsightFeature,
@@ -12285,6 +12404,7 @@ namespace BlueprintCore.Blueprints.References
           DLC6PrimalInevitable_Feature_Aeon,
           DLC6PrimalInevitable_Feature_AeonGaze,
           DLC6PrimalInevitable_Feature_CombatTrigger,
+          DLC7_CR7_Goblin_Sorcerer_EmpowerFeature,
           DLCTestFeature,
           Dodge,
           DodgeMythicFeat,
@@ -12722,6 +12842,7 @@ namespace BlueprintCore.Blueprints.References
           ElementalRampagerClaws1d8,
           ElementalRampagerRampageFeature,
           ElementalResistance15Feature,
+          ElementalVortexFeature,
           ElementalWallFeature,
           ElementalWaterBloodlineRequisiteFeature,
           ElementalWaterElderFreezeAbility,
@@ -13085,6 +13206,7 @@ namespace BlueprintCore.Blueprints.References
           FinesseTrainingPunchingDagger,
           FinesseTrainingRapier,
           FinesseTrainingSai,
+          FinesseTrainingSawtoothSabre,
           FinesseTrainingShortsword,
           FinesseTrainingSickle,
           FinesseTrainingSlam,
@@ -13373,6 +13495,17 @@ namespace BlueprintCore.Blueprints.References
           GogglesOfPiercingGazeFeature,
           GogglesOfPureSightFeature,
           GogglesOfQuickGraspFeature,
+          GoldDragonBreathAnnihilating,
+          GoldDragonBreathBrainwashing,
+          GoldDragonBreathBurning,
+          GoldDragonBreathDecaying,
+          GoldDragonBreathDisrupting,
+          GoldDragonBreathEmpowering,
+          GoldDragonBreathEnlighting,
+          GoldDragonBreathOverhelming,
+          GoldDragonBreathRejuvinating,
+          GoldDragonBreathSpellbane,
+          GoldDragonSpellBookFeature,
           GoldenDragonBreathFeature,
           GoldenDragonSharedSkillUMD,
           GoldenDragonSpellDamageFeature,
@@ -13416,6 +13549,7 @@ namespace BlueprintCore.Blueprints.References
           GowrowSonicSpikedLightShieldFeature,
           GozrehFeature,
           GozrehSacredWeaponFeature,
+          GrabTiger,
           GrandCognatogenFeature,
           GrandMutagenFeature,
           GrapplingInfusionFeature,
@@ -13618,6 +13752,7 @@ namespace BlueprintCore.Blueprints.References
           HeartstoneFeature,
           HeatAdaptationFeature,
           HeavenlyVestFeature,
+          HeavenStrikeFeature,
           HeavyArmorProficiency,
           HeavyBardingProficiency,
           HeavyFlailProficiency,
@@ -13863,6 +13998,7 @@ namespace BlueprintCore.Blueprints.References
           ImpromptuSneakAttackFeature,
           Improved_Initiative,
           ImprovedBullRush,
+          ImprovedCantripsFeature,
           ImprovedCleavingFinish,
           ImprovedCriticalBastardSword,
           ImprovedCriticalBastardSwordOversized,
@@ -14122,6 +14258,7 @@ namespace BlueprintCore.Blueprints.References
           KineticQuiverFeature,
           KineticRestorationFeature,
           KineticRevificationFeature,
+          KineticSharpshooterCapstoneFeature,
           KineticSharpshooterMainFeature,
           KineticSharpshooterProficiencies,
           KineticSharpshootterMainMechanicalHiddenFeature,
@@ -14153,6 +14290,7 @@ namespace BlueprintCore.Blueprints.References
           KnightOfTheWallDefensiveChallenge,
           KnightOfTheWallDeflectiveShield,
           KnightOfTheWallSoulShield,
+          KnightsEmblemEmeraldBeltDrunkenMonkFeature,
           KnightsEmblemEmeraldBeltFeature,
           KnightsEmblemSunsetChainmailFeature,
           KnightsEmblemSunsetShortswordFeature,
@@ -14422,6 +14560,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterGreaterLore,
           LoremasterHunterLevelUp,
           LoremasterInquisitorLevelUp,
+          LoremasterLivingGrimoireLevelUp,
           LoremasterLore,
           LoremasterOracleLevelUp,
           LoremasterPaladinLevelUp,
@@ -14441,6 +14580,7 @@ namespace BlueprintCore.Blueprints.References
           LuckDomainGreaterFeatureSeparatist,
           LuckDomainSpellListFeature,
           LuckDomainSpellListFeatureDruid,
+          LucySwiftFeature,
           LungeFeature,
           LycanthropeType,
           LycanthropicTrackerFeature,
@@ -14502,8 +14642,10 @@ namespace BlueprintCore.Blueprints.References
           MagicDomainAllowed,
           MagicDomainAllowedSeparatist,
           MagicDomainBaseFeature,
+          MagicDomainBaseFeatureFake,
           MagicDomainBaseFeatureSeparatist,
           MagicDomainGreaterFeature,
+          MagicDomainGreaterFeatureFake,
           MagicDomainGreaterFeatureSeparatist,
           MagicDomainSpellListFeature,
           MagicHackFeature,
@@ -14758,6 +14900,7 @@ namespace BlueprintCore.Blueprints.References
           MonitorPoisonFeature,
           MonkACBonus,
           MonkACBonusUnlock,
+          MonkCaydenCayleanLock,
           MonkeyFamiliarBondFeature,
           MonkFastMovement,
           MonkFastMovementUnlock,
@@ -15240,6 +15383,7 @@ namespace BlueprintCore.Blueprints.References
           Persuasive,
           PestilenceSpiritFeature,
           PestilenceSpiritGreaterFeature,
+          PestilenceSpiritManifestationFeature,
           PestilenceSpiritTrueFeature,
           PetrifyingStrike,
           PF2_DLC1_ChaoticFeature,
@@ -15904,6 +16048,17 @@ namespace BlueprintCore.Blueprints.References
           ScaledFistSuddenSpeedFeature,
           ScaledFistTrueStrikeFeature,
           ScaledFistWholenessOfBodyFeature,
+          ScalykindBlessingFeature,
+          ScalykindBlessingMajorFeature,
+          ScalykindDomainAllowed,
+          ScalykindDomainAllowedSeparatist,
+          ScalykindDomainBaseFeature,
+          ScalykindDomainBaseFeatureSeparatist,
+          ScalykindDomainGreaterFeature,
+          ScalykindDomainGreaterFeature_0,
+          ScalykindDomainGreaterFeatureSeparatist,
+          ScalykindDomainSpellListFeature,
+          ScalykindDomainSpellListFeatureDruid,
           ScapegoatFeature,
           ScarabOfProtectionFeature,
           ScarecrowFascinatingGaze,
@@ -16129,6 +16284,11 @@ namespace BlueprintCore.Blueprints.References
           SharedPrecisionFeature,
           ShareFavoredEnemyPet,
           ShareTransmutation,
+          SharpTeehCriticalRangeIncrease12,
+          SharpTeehCriticalRangeIncrease16,
+          SharpTeehCriticalRangeIncrease4,
+          SharpTeehCriticalRangeIncrease8,
+          SharpTeehCriticalRangeIncreaseUI,
           SharpTeehWeapon,
           SharpTeethFeature,
           ShatterConfidence,
@@ -16139,6 +16299,7 @@ namespace BlueprintCore.Blueprints.References
           ShelynSacredWeaponFeature,
           ShieldBashFeature,
           ShieldbearerShieldAdeptFeature,
+          ShieldBlockFeature,
           ShieldBucklerMythicFeat,
           ShieldedCaster,
           ShieldFocus,
@@ -16369,6 +16530,8 @@ namespace BlueprintCore.Blueprints.References
           SilkShadow_UniqueFeature,
           SilkShadow_UniqueFeature1,
           SilverDragon_QuickenSpellFeature,
+          SilverDragon_QuickenSpellFeatureMedium,
+          SilverDragon_SpellTurningFeature,
           SilverMistFeature,
           SilverRobeFeature,
           SilverTongueAmuletFeature,
@@ -17109,6 +17272,8 @@ namespace BlueprintCore.Blueprints.References
           TricksterLoreReligionReposeDomainRankFeature,
           TricksterLoreReligionRuneDomainFeature,
           TricksterLoreReligionRuneDomainRankFeature,
+          TricksterLoreReligionScalykindDomainFeature,
+          TricksterLoreReligionScalykindDomainRankFeature,
           TricksterLoreReligionStrengthDomainFeature,
           TricksterLoreReligionStrengthDomainRankFeature,
           TricksterLoreReligionSunDomainFeature,
@@ -17651,6 +17816,7 @@ namespace BlueprintCore.Blueprints.References
           WhildShapeIVShamblingMoundPoisonFeature,
           WhiteMageSpontaneousHealing,
           WhiteMageSpontaneousHealing10,
+          WightBossCommanderAuraFeature,
           WightEnergyDrainAbility,
           WildernessMagicFeature,
           WildGazeFeature,

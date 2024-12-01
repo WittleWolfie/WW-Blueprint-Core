@@ -345,6 +345,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterFeyspeakerProgression = "6042b0f9a2f23cc48829d9c4417f3a8b";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterHunterProgression = "e9be08cf2e3b4586b11f42d6b45b50aa";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterInquisitorProgression = "3528ad685de3e7d4ca03199a5e47a673";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterLivingGrimoireProgression = "b59ab16e98d640ecbe73a75812784949";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterOracleProgression = "0cc8ebe63ef94a847968122cdfb45929";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterPaladinProgression = "0eeb308fbec42c84591016146ac7b28f";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> LoremasterProgression = "2bcd2330cc2c5a747968a8c782d4fa0a";
@@ -494,6 +495,11 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScaledFistRedProgression = "6bbc4b6a4a6007c429ee7a87dd5e306f";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScaledFistSilverProgression = "80c8d99fb9c1daf4f98cfa7f9e186ce4";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScaledFistWhiteProgression = "3506251410c7b2d48a5afc36670e95d0";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScalykindDomainAnimalCompanionProgression = "85897f37276f4a3896c76f9c6a523623";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScalykindDomainAnimalCompanionProgressionSeparatist = "5721e2a933ed4ca5ba2dda2e753429b8";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScalykindDomainProgression = "67034c0985b240e5ad6e41e905461951";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScalykindDomainProgressionSecondary = "af40f7b8e21048ae80123b5a395b3bbb";
+    public static readonly Blueprint<BlueprintReference<BlueprintProgression>> ScalykindDomainProgressionSeparatist = "3a5f747801a4420fb3e8d820985d4615";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SecondaryElementAir = "659c39542b728c04b83e969c834782a9";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SecondaryElementEarth = "956b65effbf37e5419c13100ab4385a3";
     public static readonly Blueprint<BlueprintReference<BlueprintProgression>> SecondaryElementFire = "caa7edca64af1914d9e14785beb6a143";
@@ -976,6 +982,7 @@ namespace BlueprintCore.Blueprints.References
           LoremasterFeyspeakerProgression,
           LoremasterHunterProgression,
           LoremasterInquisitorProgression,
+          LoremasterLivingGrimoireProgression,
           LoremasterOracleProgression,
           LoremasterPaladinProgression,
           LoremasterProgression,
@@ -1125,6 +1132,11 @@ namespace BlueprintCore.Blueprints.References
           ScaledFistRedProgression,
           ScaledFistSilverProgression,
           ScaledFistWhiteProgression,
+          ScalykindDomainAnimalCompanionProgression,
+          ScalykindDomainAnimalCompanionProgressionSeparatist,
+          ScalykindDomainProgression,
+          ScalykindDomainProgressionSecondary,
+          ScalykindDomainProgressionSeparatist,
           SecondaryElementAir,
           SecondaryElementEarth,
           SecondaryElementFire,

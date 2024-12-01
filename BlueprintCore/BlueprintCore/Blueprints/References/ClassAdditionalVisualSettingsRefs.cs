@@ -21,6 +21,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Angel_2_Visual = "5e0ebb38155345d598c85db0566fa318";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Azata_1_Visual = "75b8702dd23a4801ad7cc66a03d9f979";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Azata_2_Visual = "08f51a1af4a34121acd18af2e9b7fbba";
+    public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> CorruptedDragon_1_Visual = "5bf34a2758df4f7fa6fe6fdb66266185";
+    public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> CorruptedDragon_2_Visual = "c50d3ae73bf749b5bc9fa8b0c5a3b009";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Demon_1_Visual = "a445d385eac846c5af9a7960e659fce9";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Demon_2_Visual = "200266dd7e7341968944e03c8ec9e8db";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettings>> Devil_1_Visual = "5dccea2af2364ab7bcb892623243cbec";
@@ -43,6 +45,8 @@ namespace BlueprintCore.Blueprints.References
           Angel_2_Visual,
           Azata_1_Visual,
           Azata_2_Visual,
+          CorruptedDragon_1_Visual,
+          CorruptedDragon_2_Visual,
           Demon_1_Visual,
           Demon_2_Visual,
           Devil_1_Visual,

@@ -29,6 +29,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> BloodragerSpellKnownTable = "d9e9437865e83344b864ef49ffa53013";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> BloodragerSpellPerDayTable = "caf7018942861664ebe87687893ad05d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> ClericSpellLevels = "fb5ef8ddad475284c82257b79bf1749e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> CorruptedGoldDragonSpellsTable = "d36031262cd24a50a46bb468327c0431";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> CrossbloodedSpellsKnownTable = "aa44e19184bdb7f4fb17d4aeeecb79b9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> CrusaderSpellLevels = "799265ebe0ed27641b6d415251943d03";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> DemonSpellKnownTable = "9d3c8e3d1c00a9144b98dc435b7cbf13";
@@ -38,6 +39,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> DruidSpellLevels = "6a45ad1fb1b9f7240aea942b7c22111d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> EldritchFontSpellSlots = "67682cefce9401e469bee46dac597051";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> EldritchFontSpellsPerDayTable = "c0c98a8587a4470cb8c1004d43a7c97d";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> GoldDragonSpellsPerDay = "5b2266070d72466eadbee7ed168c1d4a";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellsKnownTable = "c133d22305bab964c88a767cc69b1f9b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> InquisitorSpellSlotsTable = "83d3e15962e5d6949b90b5c226a2b487";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> LichSpellsPerDay = "4924b73038564c543a371b4c4d1def45";
@@ -45,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MagusSpellLevels = "6326b540f7c6a604f9d6f82cc0e2293c";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MonsterMythicSpellTablePerDay = "90c0102266d315a4dbaf2e2bce1cd0ea";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MythicSpontaneousSpellsKnownTable = "2d574ccdea8543bda1dffe63b0f16760";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> MythicSpontaneousSpellsKnownTableGoldDragon = "17c7b00428674df29c29c85da81a6be0";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> PaladinSpellLevels = "9aed4803e424ae8429c392d8fbfb88ff";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> PrototypeSpellsKnownTable = "140fc176f47641b49a7ff25458f47170";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellsTable>> RangerSpellLevels = "d2b0abf29cfaf8842b75c2efc7f40157";
@@ -77,6 +80,7 @@ namespace BlueprintCore.Blueprints.References
           BloodragerSpellKnownTable,
           BloodragerSpellPerDayTable,
           ClericSpellLevels,
+          CorruptedGoldDragonSpellsTable,
           CrossbloodedSpellsKnownTable,
           CrusaderSpellLevels,
           DemonSpellKnownTable,
@@ -86,6 +90,7 @@ namespace BlueprintCore.Blueprints.References
           DruidSpellLevels,
           EldritchFontSpellSlots,
           EldritchFontSpellsPerDayTable,
+          GoldDragonSpellsPerDay,
           InquisitorSpellsKnownTable,
           InquisitorSpellSlotsTable,
           LichSpellsPerDay,
@@ -93,6 +98,7 @@ namespace BlueprintCore.Blueprints.References
           MagusSpellLevels,
           MonsterMythicSpellTablePerDay,
           MythicSpontaneousSpellsKnownTable,
+          MythicSpontaneousSpellsKnownTableGoldDragon,
           PaladinSpellLevels,
           PrototypeSpellsKnownTable,
           RangerSpellLevels,

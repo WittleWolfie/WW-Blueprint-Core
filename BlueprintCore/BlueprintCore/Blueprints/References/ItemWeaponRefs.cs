@@ -2189,6 +2189,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreSpeedAgilePlus5 = "be02693ac35a4e709497fb84bd632fdb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreSpeedPlus3 = "0b08ea0673244277a4d94c869c746fde";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> SawtoothSabreViciousAgilePlus5 = "996d0f49fdab451f9982a0f770d7782c";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScalykindBlessingFangBite1d4Poison = "a2bd66167b954e01b96add96585637e2";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScarecrowSlam = "10687d9b0cc29d54cb86a06c07f1400e";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScepterOfWoe = "21ae3e4a55b4a56468fc5b5529fb7e2b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemWeapon>> ScimitarAxiomaticBanePlus1 = "cdfc681e7df542ba92cdc47411055b39";
@@ -5205,6 +5206,7 @@ namespace BlueprintCore.Blueprints.References
           SawtoothSabreSpeedAgilePlus5,
           SawtoothSabreSpeedPlus3,
           SawtoothSabreViciousAgilePlus5,
+          ScalykindBlessingFangBite1d4Poison,
           ScarecrowSlam,
           ScepterOfWoe,
           ScimitarAxiomaticBanePlus1,

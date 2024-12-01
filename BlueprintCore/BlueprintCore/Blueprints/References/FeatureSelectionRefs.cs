@@ -138,6 +138,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DisenchanterFeatSelection9 = "f20d10e43ed9ede43959678bb246c531";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineGuardianBonusFeat = "5a4560c300c368b4289ae2b4e4da58cf";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHerbalistMysterySelection = "c11ff5dbd8518c941849b3112d4d6b68";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHunterAnimalDomainTypeBonusSelectionFirst = "cb2d6e74641e4facbd250b53892bafa3";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHunterAnimalDomainTypeBonusSelectionSecond = "7ad7db0cbdc44428ad2e5334ef378586";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DivineHunterDomainsSelection = "72909a37a1ed5344f88ec9d1d31f5c5b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DomainsSelection = "48525e5da45c9c243a343fc6545dbdb9";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> DragonAspectSelection = "c2872505b99c43b8b146ed89ffeb9af5";
@@ -202,6 +204,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GeomancerFavoriteTerrainSelectionRankUp = "a04687e5e4a542daa5063debdb07a7f2";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GhostRiderGhostMountSelection = "e4e1f3331d2841a596407d5084916321";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GnomeHeritageSelection = "584d8b50817b49b2bb7aab3d6add8d3a";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GoldDragonBreathFeatureSelection = "81fe63677a4f4f7fb64e9be7cf075948";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GrandDiscoverySelection = "2729af328ab46274394cedc3582d6e98";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GreaterElementalFocusSelection = "1c17446a3eb744f438488711b792ca4d";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> GreaterShifterFeyAspectSelection = "947c8db8b3be4e5f985327ffaf892a6a";
@@ -349,6 +352,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ScaledFistBonusFeatSelectionLevel6 = "92f7b37ef1cf5484db02a924592ceb74";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ScaledFistDragonSelection = "f9042eed12dac2745a2eb7a9a936906b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ScaledFistKiPowerSelection = "4694f6ac27eaed34abb7d09ab67b4541";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ScalykindCompanionSelectionDomain = "de9a327caa5b45eeb05ed9fe0f0ed4ce";
+    public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> ScalykindCompanionSelectionDomainSeparatist = "f2806f436f80427b99875962784ef80b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondatyElementalFocusSelection = "4204bc10b3d5db440b1f52f0c375848b";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondBlessingSelection = "b7ce4a67287cda746a59b31c042305cf";
     public static readonly Blueprint<BlueprintReference<BlueprintFeatureSelection>> SecondBloodline = "3cf2ab2c320b73347a7c21cf0d0995bd";
@@ -597,6 +602,8 @@ namespace BlueprintCore.Blueprints.References
           DisenchanterFeatSelection9,
           DivineGuardianBonusFeat,
           DivineHerbalistMysterySelection,
+          DivineHunterAnimalDomainTypeBonusSelectionFirst,
+          DivineHunterAnimalDomainTypeBonusSelectionSecond,
           DivineHunterDomainsSelection,
           DomainsSelection,
           DragonAspectSelection,
@@ -661,6 +668,7 @@ namespace BlueprintCore.Blueprints.References
           GeomancerFavoriteTerrainSelectionRankUp,
           GhostRiderGhostMountSelection,
           GnomeHeritageSelection,
+          GoldDragonBreathFeatureSelection,
           GrandDiscoverySelection,
           GreaterElementalFocusSelection,
           GreaterShifterFeyAspectSelection,
@@ -808,6 +816,8 @@ namespace BlueprintCore.Blueprints.References
           ScaledFistBonusFeatSelectionLevel6,
           ScaledFistDragonSelection,
           ScaledFistKiPowerSelection,
+          ScalykindCompanionSelectionDomain,
+          ScalykindCompanionSelectionDomainSeparatist,
           SecondatyElementalFocusSelection,
           SecondBlessingSelection,
           SecondBloodline,

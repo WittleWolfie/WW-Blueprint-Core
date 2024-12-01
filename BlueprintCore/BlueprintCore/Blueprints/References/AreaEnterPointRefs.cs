@@ -1277,6 +1277,17 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Mineshaft14_FromIndoor = "87eb6be915aa0c743a9f3f68d3150ac4";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> Mineshaft14_Indoor_Enter = "a86e7165999d62b4d827bb45ba5b98cc";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MoltenScar_MoltenScar_Enter = "3002f2fdf9c1aff4a8c385e638d710ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_Enter = "246867b6eda54a75baa0146671273f51";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_FromPlatfrom = "739a249ea2f94953b67f83584f713fb1";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_FromRift = "f465b7464188490b935a516e4b4750cd";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_InJohnCave_FromStreet = "95dec6e8f0ca40088969e881aec00fe3";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_InRift = "c6abe12cc6a347508ccc9b6628225979";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_InRykerCave_FromStreet = "061719f6f62744639af8dbec335c23e5";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_InStreet_FromJohnCave = "1d4ca0408b85433696726d6b4c552c20";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_InStreet_FromRykerCave = "1daeb450d77e4d7fbedcb4a85104df0b";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_Loot = "e25196b303434cbe8a3fa749301dd7fc";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_Loot1 = "55bd9de939c7464aaa4bf3525b3867fe";
+    public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MortaCollab_ToPlatfrom = "ac8aa38271be46f390137450ca8f431f";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MutasafenLair_Cutscene = "e18ae723264bb694f850e44f85c050a1";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MutasafenLair_FromGM = "87ad2ce9c34a0d242b7cf8c28c292b83";
     public static readonly Blueprint<BlueprintReference<BlueprintAreaEnterPoint>> MutasafenLair_LabFromOutdoor = "effc1980bfab26e4ab2e921b070d992e";
@@ -2908,6 +2919,17 @@ namespace BlueprintCore.Blueprints.References
           Mineshaft14_FromIndoor,
           Mineshaft14_Indoor_Enter,
           MoltenScar_MoltenScar_Enter,
+          MortaCollab_Enter,
+          MortaCollab_FromPlatfrom,
+          MortaCollab_FromRift,
+          MortaCollab_InJohnCave_FromStreet,
+          MortaCollab_InRift,
+          MortaCollab_InRykerCave_FromStreet,
+          MortaCollab_InStreet_FromJohnCave,
+          MortaCollab_InStreet_FromRykerCave,
+          MortaCollab_Loot,
+          MortaCollab_Loot1,
+          MortaCollab_ToPlatfrom,
           MutasafenLair_Cutscene,
           MutasafenLair_FromGM,
           MutasafenLair_LabFromOutdoor,

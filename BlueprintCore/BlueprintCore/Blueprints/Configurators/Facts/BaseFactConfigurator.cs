@@ -89,7 +89,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelSwordSpeedOfLightBuff</term><description>58d3b0b98ce4f9346b3c1fb4c7dbc9bf</description></item>
-    /// <item><term>DLC4_TimerKostil</term><description>cf1a37b4f4fb4b9d9ab4a002b6bda877</description></item>
+    /// <item><term>DLC4_UlbrigGriffonGodPowerSurge</term><description>1e3f23e0a1c844aea0b982d2afca5a41</description></item>
     /// <item><term>ThatWhoBathesInBloodBuffIgnore</term><description>c24d590b030d41bdb43488a287699964</description></item>
     /// </list>
     /// </remarks>
@@ -138,7 +138,7 @@ namespace BlueprintCore.Blueprints.Configurators.Facts
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>HellsSealVariantFireExplosionDamageBuff</term><description>d933f3c49a7a1914d84228e6b9e961a0</description></item>
+    /// <item><term>HellsDecreeAbilityWalkingOnCoalsCountBuff</term><description>5d04d0ce39ff419e909b33389002d23f</description></item>
     /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
     /// </list>
     /// </remarks>

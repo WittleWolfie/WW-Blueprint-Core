@@ -31,6 +31,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc2 = "470dbced885b41488aa619ce58adec42";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc3 = "aa65dbd3c0bb44b49343b020c9a4c8a3";
     public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc4 = "a9262dad08654d3dbad64476978c0f95";
+    public static readonly Blueprint<BlueprintReference<BlueprintDlc>> FreeDlc5 = "5510e434b3974f90b99dae681d7c6e9a";
 
     public static readonly List<Blueprint<BlueprintReference<BlueprintDlc>>> All =
       new()
@@ -51,6 +52,7 @@ namespace BlueprintCore.Blueprints.References
           FreeDlc2,
           FreeDlc3,
           FreeDlc4,
+          FreeDlc5,
       };
   }
 }

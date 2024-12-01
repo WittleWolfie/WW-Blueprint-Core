@@ -371,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Quests
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR16_BabauElite</term><description>e3f4366b69cd47dc8a9c23518b670b4a</description></item>
+    /// <item><term>DLC3_CR16_FaerieDragonHungryMagicSummon</term><description>1f238fcbd1bb41cfbc35729a2d7c0d2c</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>

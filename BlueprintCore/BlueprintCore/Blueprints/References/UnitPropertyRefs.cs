@@ -20,6 +20,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AeonPowerOfLawGazeDCProperty = "f82cc21811694adeb7b3a8da546d5154";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AloneinthedarkCounter = "a2d8f4649ede406993c93be5004dce65";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> Angel4WardFromWeaknessProperty = "077e52a62381442099143b51d9838d42";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnimateDeadProperty = "7797b8f47b0f44369abef797e472acf0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnomalyDistortionCoreDCProperty = "130cce155a1d48a9aad26f8eda290166";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnomalyDistortionNormalDCProperty = "0cc67f363c944539bb09217f2ba3e149";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> AnomalySpellNormalDCProperty = "3ca97cd192c54684b88c4d3e6da543ba";
@@ -44,6 +45,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BleedPropertylevel8 = "a03e8771f62b42719a779a21695b1f36";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BlizzardElemental_NumbingColdDCProperty = "a87aa3a196a24ac39d073305f6abc12b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BlizzardServantWhirlwindProperty = "304ec04a5e6e4a7491a414bb11688e23";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BloodlineSerpentineSerpentsFangPoisonDCProperty = "0225cc7431cc4e7eae07cc227f00f925";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BloodlustProperty1 = "24aaf4af8e584eb1b314601b5adb8fcd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BloodragerAbyssalBloodrageBonusProperty = "415f71e5a47f4cccb3dbd10bd7a0f8f8";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> BloodragerUnitProperty = "c4690b982d034fb1b78410c00a664785";
@@ -55,6 +57,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> CombatExpertiseAttackPenaltyProperty = "8a63b06d20838954e97eb444f805ec89";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> CoupDeGraceAgregatorProperty = "bd9224781e76429b92f0e60b13c079cc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> dcproperty = "71c98426939e408a97f0679b6d196fe7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DeadlyVibratoProperty = "db826d276912424e8465e246c36bfed0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DeathThroesDC = "d17aeb4cff7d4ffab8c68d40530f4de5";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DecaySpreaderProperty = "3d9c37a06e8a4a6aa0dd5e2d80e207fe";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> DemonicFormIINabasuGazeDCProperty = "bfd5362f22e8437eab27436e836af4a8";
@@ -237,6 +240,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> RuinsRaidGalluBlastCorpse_Property = "80e50b9db9af4cc6a343957843df5a81";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ScaledFistACBonusProperty1 = "fe9315a1e1ad4529ae9fe85f16d5c162";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ScaledFistACBonusProperty2 = "d71c095e672c4abfb068aa402899b3ec";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ScalykindBlessingFangPoisonProperty = "ddefeb20d85d40448a68a37dce605162";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> SelfRelianceUnitProperty = "0b7db8db78f2a884491c53a3fd9ba63a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> SeparatistCasterLevelPropery = "93d211bd5f4946f3bbed1b651d107377";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> SeparatistDCProperty = "8061868c1e9e47b0a5cf15b0e39dadd0";
@@ -252,6 +256,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShieldBucklerMythicProperty = "030c88da16b34dcf8d03f2680ac648d0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShieldOfFaithDefenceProperty = "1bd806ea8cbecd549ab89109b8d2bc9b";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShieldOfFaithDurationProperty = "6d9bce562690f034489d9cea1c07b0e1";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShiftersEdgeCheckProperty = "5692045964f04a6193c1809571d49239";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShifterWildShapeWolverineProperty = "b7e6b6a93887467a9dda03bf626b46b6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ShifterWolverineLevelProperty = "fddca642fd7d4b5fab836d9e27bd5b2d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> StewardsHelmetProperty = "7276918a98694f84b80792c123cf15a0";
@@ -264,6 +269,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> SylvanTricksterCastingStatProperty = "86690c37305b7c34ab038200e773ed07";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TerrifyingTrembleProperty = "c558b1d341a844ceac7320526ea81ccd";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TheVenomProperty = "0bf35b049fc015e4ea495b1e0c8eac32";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> ThousandDiseasesProperty = "c32c2de90b3b448aa3efcde16a299eac";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TorturedCrusaderUnitProperty = "f3785dfdd23447f5905b4c83e69f9d1a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TriceratopsStatuetteProperty = "24298931f90d4f4ba98305537584c753";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionArtificeDomainProperty = "c04858d251d5415ebda35f7984ea2545";
@@ -284,6 +290,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionProtectionDomainProperty = "820ca4996ff44f34ac9e0081f2092a6c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionReposeDomainProperty = "e5d8791e552f4e60a7798e8bdb54a466";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionRuneDomainProperty = "5acc1120ecf144f48d08030e031285a7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionScalykindDomainProperty = "6e22db084b5a49c18cbe5ca3960919fc";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionSunDomainProperty = "7ed5944fcaed4ee58fc6b04f1da96353";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionTravelDomainProperty = "7e1fbd01321947bdaef73158d73a2963";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> TricksterLoreReligionTrickeryDomainProperty = "11e756454a0d4ba5a7e43f1bee98bb1f";
@@ -294,6 +301,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> UncotrollableRageProperty = "fa045e8c33ae4cbaa384aac812ffc6d3";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> UnitPropertyDrunken = "d9b65b07fbb4447d995900ffcf42d387";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> Valmallos_Property_GazeDC = "6b4d68be65f54d818fafc6f6ccd5dc9c";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> VolleyFireStackProperty = "56dc07bd2c15488f87bfc53a7415ec24";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> WeakeningTrapAttackReductionProperty = "6d5c72e8c0334621b1e6b4098ccc4750";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> WereTigerDRProperty = "cc5e4630dedc4c1db4caaf07c862905e";
     public static readonly Blueprint<BlueprintReference<BlueprintUnitProperty>> WereWolfDRProperty = "85cb29c9b9034f3786a6407150f4e41b";
@@ -311,6 +319,7 @@ namespace BlueprintCore.Blueprints.References
           AeonPowerOfLawGazeDCProperty,
           AloneinthedarkCounter,
           Angel4WardFromWeaknessProperty,
+          AnimateDeadProperty,
           AnomalyDistortionCoreDCProperty,
           AnomalyDistortionNormalDCProperty,
           AnomalySpellNormalDCProperty,
@@ -335,6 +344,7 @@ namespace BlueprintCore.Blueprints.References
           BleedPropertylevel8,
           BlizzardElemental_NumbingColdDCProperty,
           BlizzardServantWhirlwindProperty,
+          BloodlineSerpentineSerpentsFangPoisonDCProperty,
           BloodlustProperty1,
           BloodragerAbyssalBloodrageBonusProperty,
           BloodragerUnitProperty,
@@ -346,6 +356,7 @@ namespace BlueprintCore.Blueprints.References
           CombatExpertiseAttackPenaltyProperty,
           CoupDeGraceAgregatorProperty,
           dcproperty,
+          DeadlyVibratoProperty,
           DeathThroesDC,
           DecaySpreaderProperty,
           DemonicFormIINabasuGazeDCProperty,
@@ -528,6 +539,7 @@ namespace BlueprintCore.Blueprints.References
           RuinsRaidGalluBlastCorpse_Property,
           ScaledFistACBonusProperty1,
           ScaledFistACBonusProperty2,
+          ScalykindBlessingFangPoisonProperty,
           SelfRelianceUnitProperty,
           SeparatistCasterLevelPropery,
           SeparatistDCProperty,
@@ -543,6 +555,7 @@ namespace BlueprintCore.Blueprints.References
           ShieldBucklerMythicProperty,
           ShieldOfFaithDefenceProperty,
           ShieldOfFaithDurationProperty,
+          ShiftersEdgeCheckProperty,
           ShifterWildShapeWolverineProperty,
           ShifterWolverineLevelProperty,
           StewardsHelmetProperty,
@@ -555,6 +568,7 @@ namespace BlueprintCore.Blueprints.References
           SylvanTricksterCastingStatProperty,
           TerrifyingTrembleProperty,
           TheVenomProperty,
+          ThousandDiseasesProperty,
           TorturedCrusaderUnitProperty,
           TriceratopsStatuetteProperty,
           TricksterLoreReligionArtificeDomainProperty,
@@ -575,6 +589,7 @@ namespace BlueprintCore.Blueprints.References
           TricksterLoreReligionProtectionDomainProperty,
           TricksterLoreReligionReposeDomainProperty,
           TricksterLoreReligionRuneDomainProperty,
+          TricksterLoreReligionScalykindDomainProperty,
           TricksterLoreReligionSunDomainProperty,
           TricksterLoreReligionTravelDomainProperty,
           TricksterLoreReligionTrickeryDomainProperty,
@@ -585,6 +600,7 @@ namespace BlueprintCore.Blueprints.References
           UncotrollableRageProperty,
           UnitPropertyDrunken,
           Valmallos_Property_GazeDC,
+          VolleyFireStackProperty,
           WeakeningTrapAttackReductionProperty,
           WereTigerDRProperty,
           WereWolfDRProperty,

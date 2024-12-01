@@ -31,8 +31,8 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AngelRepelTheProfaneBuff</term><description>50a18ee630a4973479e9950011425748</description></item>
-    /// <item><term>GhoulParalysisFeature</term><description>d781b144ccf19b84a89cb0d45cbfb7ee</description></item>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>Ecorche_Buff_SeizeSkin</term><description>88f1ab751a9555a40abe9d7743e865fb</description></item>
     /// <item><term>WightEnergyDrainAbility</term><description>35a7f7e6ad5b4374e812fc10ec1c836c</description></item>
     /// </list>
     /// </remarks>
@@ -63,7 +63,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChainedDarkness_Buff_NegativeLevelController</term><description>45b2ab2feef04dc089d5875982f7fc45</description></item>
-    /// <item><term>CommandSetCombatMode9</term><description>0cf101aae70646d682444a0900a3781e</description></item>
+    /// <item><term>CommandSpawnUnits</term><description>118b954a82ed4afe83b175d023a4347d</description></item>
     /// <item><term>Valmallos_Feature_CombatTrigger</term><description>f4621cc70bec4fe7b0373ed152e40570</description></item>
     /// </list>
     /// </remarks>
@@ -175,6 +175,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
+    /// <item><term>KTC_GoKillStihhud_dialogue</term><description>114504f5db4c459990d9215b93fefe4b</description></item>
     /// <item><term>PF-524476</term><description>e84963bdacf842d69a2d7562d49ebaab</description></item>
     /// </list>
     /// </remarks>
@@ -215,7 +216,7 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRace</term><description>b7f02ba92b363064fb873963bec275ee</description></item>
-    /// <item><term>Edge_SarkorianWedding_Chapter05_Army14</term><description>b3c8bd9291a34edc88b62353f2f847f9</description></item>
+    /// <item><term>Edge_SarkorianWedding_Chapter05_Army21</term><description>f5867b88ae4d4b189c025df9161e75d4</description></item>
     /// <item><term>UlbrigCompanion</term><description>9a8d5b9a632a405dbc8e3af8f647a471</description></item>
     /// </list>
     /// </remarks>
@@ -347,8 +348,9 @@ namespace BlueprintCore.Conditions.Builder.MiscEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>CommandAction 1</term><description>41b3f8f33a2c0404e8f8aab17f04911a</description></item>
-    /// <item><term>CommandAction 3</term><description>37d0bc9b4ebab6f4e9fe53edffaf4cf1</description></item>
+    /// <item><term>Answer_0033</term><description>bb510f271e04d5c4d942566fed118745</description></item>
+    /// <item><term>CommandAction14</term><description>a38d0e0b04704a36b76ebe555a59eeac</description></item>
+    /// <item><term>LostChapelStory</term><description>74e355c8ae61ef6469cf0026de5026f6</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder IsUnitCustomCompanion(

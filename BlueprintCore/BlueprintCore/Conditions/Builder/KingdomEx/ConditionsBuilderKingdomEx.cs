@@ -413,7 +413,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Add4_GotoMoltenScar</term><description>f6694c696284e2046b0f064f83c320c2</description></item>
-    /// <item><term>Event61DrakePoison</term><description>23bd72781ce34695bc9af2468456b8af</description></item>
+    /// <item><term>Event61MountTraining</term><description>775f8746730f47b08008672653b9f52b</description></item>
     /// <item><term>Trickster5ThugPaladin</term><description>e83a6a99081d467fb56d8afe1de6a4d5</description></item>
     /// </list>
     /// </remarks>
@@ -460,7 +460,7 @@ namespace BlueprintCore.Conditions.Builder.KingdomEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CreateSettlementFort21</term><description>0b7377f7c46c6aa43bf66af6ec618836</description></item>
-    /// <item><term>CreateSettlementNearRegill</term><description>8b4cd3ebd7b3f3b4ea201bbfed62fa28</description></item>
+    /// <item><term>Cue_0058</term><description>7e1a31d409836274b93e59796d60c19e</description></item>
     /// <item><term>PF-412703</term><description>8cddb1adab904075a656a7d4bf226271</description></item>
     /// </list>
     /// </remarks>

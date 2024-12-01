@@ -5,6 +5,7 @@ using BlueprintCore.Blueprints.Components.Replacements;
 using BlueprintCore.Blueprints.Configurators.Classes;
 using BlueprintCore.Blueprints.CustomConfigurators;
 using BlueprintCore.Utils;
+using BlueprintCore.Utils.Assets;
 using BlueprintCore.Utils.Types;
 using Kingmaker.AreaLogic.Etudes;
 using Kingmaker.Armies.TacticalCombat.Components;
@@ -25,6 +26,7 @@ using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
 using Kingmaker.Enums;
 using Kingmaker.Localization;
+using Kingmaker.ResourceLinks;
 using Kingmaker.UnitLogic.Abilities;
 using Kingmaker.UnitLogic.Abilities.Blueprints;
 using Kingmaker.UnitLogic.Abilities.Components;
@@ -334,7 +336,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrogail_Feature_Prebuff</term><description>f0cad5e5b57b49f8b0983392a8c72eea</description></item>
-    /// <item><term>FinneanArmourerWeaponBuff</term><description>62a180135a9a9d54e9edfeca5b68d3c7</description></item>
+    /// <item><term>FinalWyrmshifterBlackBreathPenaltyBuff</term><description>4d6ccea8444744e88f5b3bd42e8538ab</description></item>
     /// <item><term>ZonKuthonScarHalfHPBuff</term><description>9a47f56d0a1f42d9bf820da1d78919a7</description></item>
     /// </list>
     /// </remarks>
@@ -369,7 +371,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
+    /// <item><term>5_DeadStage_AcidBuff</term><description>b730dbbb5e8143abbba6a066bc82c19a</description></item>
     /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
     /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
@@ -388,7 +390,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GorumFeature</term><description>8f49a5d8528a82c44b8c117a89f6b68c</description></item>
+    /// <item><term>GoodDomainProgressionSecondary</term><description>efc4219c7894afc438180737adc0b7ac</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -637,7 +639,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdvancedWeaponTraining1</term><description>3aa4cbdd4af5ba54888b0dc7f07f80c4</description></item>
-    /// <item><term>OracleRevelationBlizzard</term><description>d518226e0f83aaf40aed6466d0ab3fb0</description></item>
+    /// <item><term>MythicStartingClass</term><description>247aa787806d5da4f89cfc3dff0b217f</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -688,7 +690,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanist</term><description>7cab956d45dc51c4ea9e71bba366a250</description></item>
-    /// <item><term>HellknightSigniferThassilonianEvocation</term><description>f8ed1800725b3e74ebb86783dbde933a</description></item>
+    /// <item><term>HellknightSigniferThassilonianIllusion</term><description>444211da5e9592f41a4334825eb7ea2c</description></item>
     /// <item><term>WinterWitchWitchLeyLineGuardian</term><description>56adf819599827f4695395924a060996</description></item>
     /// </list>
     /// </remarks>
@@ -803,7 +805,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbundantArcanePool</term><description>8acebba92ada26043873cae5b92cef7b</description></item>
-    /// <item><term>MasterStrike</term><description>72dcf1fb106d5054a81fd804fdc168d3</description></item>
+    /// <item><term>MasterOfAllArchetype</term><description>bd4e70bfb89a452b876713d61b9b8eb2</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -944,7 +946,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodragerAbyssalFeatSelectionGreenrager</term><description>989a6fd870f7c944dac365381a7c7c31</description></item>
+    /// <item><term>BloodragerCelestialFeatSelectionGreenrager</term><description>0c96650e80e712f439c2a4da8a4272d9</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1004,8 +1006,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
+    /// <item><term>AchaekekFeature</term><description>a3189d5b7c4d4d91beaa8bfffac3e38e</description></item>
+    /// <item><term>GreenFaithCameliaFeature</term><description>ca763809e01f4247a3639965364c26cb</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -2008,7 +2010,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagCatPolymorphBuff</term><description>ccc0b6dd542149528035c755b2c60393</description></item>
+    /// <item><term>Halaseliax_FireBreathWeapon</term><description>cef56b3867604e7394e61fcbeb51dae5</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -2296,6 +2298,74 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     }
 
     /// <summary>
+    /// Adds <see cref="PrerequisiteAnySpellsInSpellbook"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SpellSpecialization1</term><description>e69a85f633ae8ca4398abeb6fa11b1fe</description></item>
+    /// <item><term>SpellSpecialization19</term><description>09a6ff29f55dad544b9949702f2ed2c8</description></item>
+    /// <item><term>SpellSpecializationFirst</term><description>f327a765a4353d04f872482ef3e48c35</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="shouldHaveSpellText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="spellSpecializationFeat">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddPrerequisiteAnySpellsInSpellbook(
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        LocalString? shouldHaveSpellText = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? spellSpecializationFeat = null)
+    {
+      var component = new PrerequisiteAnySpellsInSpellbook();
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
+      component.m_ShouldHaveSpellText = shouldHaveSpellText?.LocalizedString ?? component.m_ShouldHaveSpellText;
+      if (component.m_ShouldHaveSpellText is null)
+      {
+        component.m_ShouldHaveSpellText = Utils.Constants.Empty.String;
+      }
+      component.m_SpellSpecializationFeat = spellSpecializationFeat?.Reference ?? component.m_SpellSpecializationFeat;
+      if (component.m_SpellSpecializationFeat is null)
+      {
+        component.m_SpellSpecializationFeat = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
     /// Adds <see cref="AddFeaturesFromSelectionToDescription"/>
     /// </summary>
     ///
@@ -2451,8 +2521,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>OracleAncestorsSpells</term><description>a5d8db569c9c62042b1f35d68ed31232</description></item>
-    /// <item><term>ShamanStonesSpiritProgression</term><description>acff6b0cf279a31439010afea01df912</description></item>
+    /// <item><term>ImprovedCantripsFeature</term><description>d26fb54b74d44a45b84ef7150a460348</description></item>
+    /// <item><term>ShamanNatureSpiritWanderingProgression</term><description>f3e19b0d6d82e2a4d98957af591f5d36</description></item>
     /// <item><term>WitchWinterPatronProgression</term><description>e98d8d9f907c1814aa7376d6cdaac012</description></item>
     /// </list>
     /// </remarks>
@@ -2529,6 +2599,90 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.Multiplier = multiplier ?? component.Multiplier;
       component.Stat = stat ?? component.Stat;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ChangeMythicClassArtComponent"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>CorruptedGoldenDragonFeature</term><description>1e66cfb4f351466fb05636082bce50d6</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="abilityFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="commonFrameDecor">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="emblem">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="portraitFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="portraits">
+    /// <para>
+    /// Blueprint of type BlueprintPortrait. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="selectorFrame">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortrait">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    /// <param name="selectorPortraitLineart">
+    /// You can pass in the animation using a SpriteLink or it's AssetId.
+    /// </param>
+    public TBuilder AddChangeMythicClassArtComponent(
+        AssetLink<SpriteLink>? abilityFrame = null,
+        AssetLink<SpriteLink>? commonFrame = null,
+        AssetLink<SpriteLink>? commonFrameDecor = null,
+        AssetLink<SpriteLink>? emblem = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        AssetLink<SpriteLink>? portraitFrame = null,
+        List<Blueprint<BlueprintPortraitReference>>? portraits = null,
+        AssetLink<SpriteLink>? selectorFrame = null,
+        AssetLink<SpriteLink>? selectorPortrait = null,
+        AssetLink<SpriteLink>? selectorPortraitLineart = null)
+    {
+      var component = new ChangeMythicClassArtComponent();
+      component.m_AbilityFrame = abilityFrame?.Get() ?? component.m_AbilityFrame;
+      component.m_CommonFrame = commonFrame?.Get() ?? component.m_CommonFrame;
+      component.m_CommonFrameDecor = commonFrameDecor?.Get() ?? component.m_CommonFrameDecor;
+      component.m_Emblem = emblem?.Get() ?? component.m_Emblem;
+      component.m_PortraitFrame = portraitFrame?.Get() ?? component.m_PortraitFrame;
+      component.m_Portraits = portraits?.Select(bp => bp.Reference)?.ToArray() ?? component.m_Portraits;
+      if (component.m_Portraits is null)
+      {
+        component.m_Portraits = new BlueprintPortraitReference[0];
+      }
+      component.m_SelectorFrame = selectorFrame?.Get() ?? component.m_SelectorFrame;
+      component.m_SelectorPortrait = selectorPortrait?.Get() ?? component.m_SelectorPortrait;
+      component.m_SelectorPortraitLineart = selectorPortraitLineart?.Get() ?? component.m_SelectorPortraitLineart;
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>
@@ -2610,7 +2764,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DemonicFormIVVavakia_Breath</term><description>7d5c9412bc0f32d4dbfb642f31d83f75</description></item>
+    /// <item><term>DemonPlagueFeature</term><description>096156df0b5aa4f458d35db066b27f35</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2678,7 +2832,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>MudBlastBladeDamage</term><description>f82cfcf11b94bef49bf1a8f57aad5c13</description></item>
+    /// <item><term>NereidBeguilingAuraBuff</term><description>ab6181f9447a4d945bdcbe6466c42189</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2728,7 +2882,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>InspireTranquilityEffectBuffMythic</term><description>949459a61d064e848f7e86e2a80e336d</description></item>
+    /// <item><term>InspireTranquilitySavingThrowBuffMythic</term><description>60b646069fa949d8983b4d74fc55218b</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2757,7 +2911,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -3134,7 +3288,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>HellknightSigniferAngelfireApostleLevelUp</term><description>e23f94ccb99a86442bd101c415767235</description></item>
-    /// <item><term>LoremasterPaladinLevelUp</term><description>816b22266227b724abc645e6c7677145</description></item>
+    /// <item><term>LoremasterOracleLevelUp</term><description>0f5c3d9d29ef9ed40ad35cb16c6f0b3b</description></item>
     /// <item><term>WinterWitchWinterChildLevelUp</term><description>8146ffda8c4f4bb795db89341a16324a</description></item>
     /// </list>
     /// </remarks>
@@ -3199,8 +3353,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmorFocusMediumMythicFeatureVar2SubBuff</term><description>457d5cde294c435ea7b4ee66f4949956</description></item>
-    /// <item><term>LameCurseFeatureLevel10</term><description>1f819e6bc7746d745a37162a1bfbda23</description></item>
-    /// <item><term>WarpriestAspectOfWarBuff</term><description>27d14b07b52c2df42a4dcd6bfb840425</description></item>
+    /// <item><term>PurifierCelestialArmorFeature</term><description>7dc8d7dede2704640956f7bc4102760a</description></item>
+    /// <item><term>StrengthBlessingMajorBuff</term><description>833cdb09f6fc62f4888b3459f48b5854</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddArmorSpeedPenaltyRemoval()
@@ -3319,6 +3473,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <listheader>Used by</listheader>
     /// <item><term>LameCurseFeatureLevel1</term><description>077dd0c839f5dfd498cb2e34835fb06d</description></item>
     /// <item><term>LameCurseNoPenaltyFeatureLevel1</term><description>e7c9639c7b27bef4d930ce9df877bc4e</description></item>
+    /// <item><term>WarpriestAspectOfWarBuff</term><description>27d14b07b52c2df42a4dcd6bfb840425</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEncumbranceSpeedPenaltyRemoval()
@@ -3335,7 +3490,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AlchemistBombsFeature</term><description>c59b2f256f5a70a4d896568658315b7d</description></item>
-    /// <item><term>FiendishQuarryFeature</term><description>c5a04078f35e23d4dbdb18a1b17dc346</description></item>
+    /// <item><term>GoldDragonBreathEmpowering</term><description>d6fa1c8aead34a2ba2c18fc7a41a649c</description></item>
     /// <item><term>ZenArcherKiArrowsFeature</term><description>604a24b659bb69a4796ddb9fbf957504</description></item>
     /// </list>
     /// </remarks>

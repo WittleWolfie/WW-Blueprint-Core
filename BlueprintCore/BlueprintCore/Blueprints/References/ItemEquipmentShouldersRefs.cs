@@ -47,6 +47,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfHeroism = "dd7e65ef127b930488b85a48616b4baa";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfInnerWarmthItem = "8dfafc99c41d5f645888eb15388904ea";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfLoneWolfItem = "700eae066f5a50c47a482fbdf8378327";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfMorta = "1c28fa1d710041289dd83e18dfc8316d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfResistance1 = "4aea6773c1da01c42bd382c1b7c384bc";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfResistance2 = "04dff7841c5f499478c91487d9bbdcef";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentShoulders>> CloakOfResistance3 = "9f3c56d5247154e47b5ca9500f4d86ce";
@@ -137,6 +138,7 @@ namespace BlueprintCore.Blueprints.References
           CloakOfHeroism,
           CloakOfInnerWarmthItem,
           CloakOfLoneWolfItem,
+          CloakOfMorta,
           CloakOfResistance1,
           CloakOfResistance2,
           CloakOfResistance3,

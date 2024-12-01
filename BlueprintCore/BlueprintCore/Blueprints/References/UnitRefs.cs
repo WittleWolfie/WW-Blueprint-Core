@@ -562,6 +562,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Berengar = "fe02f4ee5f0b1374884aa45caf4231d0";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Berengar_Balor = "80318a4117554ddeac0a8c1bceacec45";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackBladeIndependentEgo = "9a7f8f6588b2475e9aaa5a5d30843afe";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackDragonSummonedHuge = "8702a370ae6541388517518b9ec4ab62";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackDragonSummonedLarge = "ad69318237794178ad75a2f634b7f69e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackDragonSummonedMedium = "c4c73d3711bc47bf80a7190751c623e2";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackFireAdeptLeader_Cage = "86022e77965831d45ae751b9c923203a";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackFireAdeptTalker1_Experiment = "27121bbc3f248814fbfb77d8004e7cba";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> BlackFireAdeptTalker2_Experiment = "ef8881d01b80dfc4eb77a8cd2ae3e4c2";
@@ -4277,6 +4280,25 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC6_WoljifCosplayer = "615e46eb9af54b72873834d28e43e905";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC6_YoungKenabresCrusader = "314a8d10e1aa4f9fb8dac4027bfcacef";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC6PrimalInevitable = "1b461d9b46f041d49138d2230fc75d34";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR11_SigniferGhost_Sorcerer = "01cebbac761b4d1ebc2c8cf6c96fae36";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR11_SigniferGhost_SorcererDebuffer = "ec48e84bd8e84d7db19082ecf1fc5e2e";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR12_WightFighterBoss = "84026439d1994563996b96f251c13cb2";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR6_Goblin_Archer = "40e9764294854fd5aab28297255e203d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR6_Goblin_ArcherNormal = "6a2d87ef93864883960c568d3721e791";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR6_Goblin_EliteRogueMelee = "72f3648de10e4ad6aa5eb0959094dc63";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR6_Goblin_EliteRogueMeleeNormal = "db9227a569ec4305bc9e9ca8389290d8";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR6_Goblin_LeaderSpeaker = "ceeebbeaca5b43b48a1fedca5dcd907d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_Oracle = "f77e897762c4441a87e6a157b6774c64";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_OracleNormal = "e93ab06d489b4d6e88102b9335d36e12";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_Sorcerrer = "98428004492140cf9264ce2ec9d7ea28";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_SorcerrerNormal = "36e73b06ade84f329a69f8c9e6bd5f67";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_Tough = "b39a35faddd84f4bb0eeff7d4a68ada5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR7_Goblin_ToughNormal = "42e81717c4234ea095c8baab835417c7";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR8_WightArcher = "d858167364d746cebc6763dd6445c26d";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_CR8_WightRogue = "5ddd685b35ab46f180d7921bb0ab786a";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_John = "2bcfe75592e34132881f3a6a45ce95ba";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_Lucy = "91945c7f09464e6e9c0f19d3c5c9e4af";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DLC7_Ryker = "5e658a54b3ca4dc3b1e389ad207555da";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DogSummoned = "77f3f2ddf1ec2da45ab956c433e3b557";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> DontLikeGuestsLeader = "519f773f79ea48447ac028a37c388a12";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Doppelganger = "d6a0567eafa16f64fb6ace31d79de3a0";
@@ -4883,8 +4905,12 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Locust_SeelahEnemy = "88542dca21ef4e538bfbded6cba83197";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Locust_SosielVaenicEnemy = "9971d26557034d53bfbd5a8a692ac214";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Locust_TreverEnemy = "04e7798bb4ad42f499dd502eb8ac4341";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustBlacksmithCapitalTrader = "00e08bf7ddbc4565830caf911d9f7c17";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustExoticCapitalTrader = "211accbf1ebc4124b6e3d3173521cfb5";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustJewelerCapitalTrader = "564c07c1dd2846ad8f3dbe37f93a0302";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustSwarm = "feee47100c095054086d3ebf75c3a738";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustSwarm_Xantir = "e7c7b3cf7dea4a24b933a2b9a380a86f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustTailorCapitalTrader = "00ddb489f4724997aa6a3b8e4009e08f";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LocustVescavorQueen = "e3cbfef493c4a3f4fa2abb660ba6aad6";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> Logistics_Prisoner = "bedefe8c744446a1beb175c1f288cad4";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> LostChapel_GargoyleMiniboss = "e779beab8b72a444f864c9ca1b01b855";
@@ -5597,6 +5623,9 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragon_Battle = "25b5c837d4b01b1498e541b032c32e4d";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragon_Drezen = "0124b953e2dd44e39d0e8e127b393f8c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragon_Story = "23219497f5cda9e47bd4afd710008f01";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragonSummonedHuge = "c03cfae380ae44bba2642daeecd11f1f";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragonSummonedLarge = "307ac370c2274802b99fe265de32c467";
+    public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SilverDragonSummonedMedium = "12f7e3fbd9e548ec816f8f3acbb23081";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SirAllfrey = "188524c2ff2dee749909a59e98e41b1c";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SirAllfreySquire1 = "f1c7f8ed5fb67ca4b986d714fc1b7954";
     public static readonly Blueprint<BlueprintReference<BlueprintUnit>> SirAllfreySquire2 = "0309cb4973ac0a74fbe2a155cb6e8a87";
@@ -6672,6 +6701,9 @@ namespace BlueprintCore.Blueprints.References
           Berengar,
           Berengar_Balor,
           BlackBladeIndependentEgo,
+          BlackDragonSummonedHuge,
+          BlackDragonSummonedLarge,
+          BlackDragonSummonedMedium,
           BlackFireAdeptLeader_Cage,
           BlackFireAdeptTalker1_Experiment,
           BlackFireAdeptTalker2_Experiment,
@@ -10387,6 +10419,25 @@ namespace BlueprintCore.Blueprints.References
           DLC6_WoljifCosplayer,
           DLC6_YoungKenabresCrusader,
           DLC6PrimalInevitable,
+          DLC7_CR11_SigniferGhost_Sorcerer,
+          DLC7_CR11_SigniferGhost_SorcererDebuffer,
+          DLC7_CR12_WightFighterBoss,
+          DLC7_CR6_Goblin_Archer,
+          DLC7_CR6_Goblin_ArcherNormal,
+          DLC7_CR6_Goblin_EliteRogueMelee,
+          DLC7_CR6_Goblin_EliteRogueMeleeNormal,
+          DLC7_CR6_Goblin_LeaderSpeaker,
+          DLC7_CR7_Goblin_Oracle,
+          DLC7_CR7_Goblin_OracleNormal,
+          DLC7_CR7_Goblin_Sorcerrer,
+          DLC7_CR7_Goblin_SorcerrerNormal,
+          DLC7_CR7_Goblin_Tough,
+          DLC7_CR7_Goblin_ToughNormal,
+          DLC7_CR8_WightArcher,
+          DLC7_CR8_WightRogue,
+          DLC7_John,
+          DLC7_Lucy,
+          DLC7_Ryker,
           DogSummoned,
           DontLikeGuestsLeader,
           Doppelganger,
@@ -10993,8 +11044,12 @@ namespace BlueprintCore.Blueprints.References
           Locust_SeelahEnemy,
           Locust_SosielVaenicEnemy,
           Locust_TreverEnemy,
+          LocustBlacksmithCapitalTrader,
+          LocustExoticCapitalTrader,
+          LocustJewelerCapitalTrader,
           LocustSwarm,
           LocustSwarm_Xantir,
+          LocustTailorCapitalTrader,
           LocustVescavorQueen,
           Logistics_Prisoner,
           LostChapel_GargoyleMiniboss,
@@ -11707,6 +11762,9 @@ namespace BlueprintCore.Blueprints.References
           SilverDragon_Battle,
           SilverDragon_Drezen,
           SilverDragon_Story,
+          SilverDragonSummonedHuge,
+          SilverDragonSummonedLarge,
+          SilverDragonSummonedMedium,
           SirAllfrey,
           SirAllfreySquire1,
           SirAllfreySquire2,

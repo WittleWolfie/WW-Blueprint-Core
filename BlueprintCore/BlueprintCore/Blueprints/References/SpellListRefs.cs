@@ -35,6 +35,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> CharmDomainSpellList = "31c742d02fc33204cad4e02dddf028dd";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ClericSpellList = "8443ce803d2d31347897a3d85cc32f53";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> CommunityDomainSpellList = "75576ed8cab010644a11f9ecd512a7f9";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> CorruptedGoldDragonSpellList = "76fbd76383804843b521fd1e6a9a4477";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> CorruptedGoldDragonSpellListMythic = "1c22336fc26f4f67a5acda54445e02b8";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> DarknessDomainSpellList = "fa79e8d1fe20b0e43bf3ebca4cef93b9";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> DeathDomainSpellList = "436986e90d1e81b45a1accb6fa7261f0";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> DemonSpelllist = "abb1991bf6e996348bb743471ee7e1c1";
@@ -49,6 +51,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FlamesSpiritSpellList = "659fbc54fc519b44dacacc78e7d46dec";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> FrostSpiritSpellList = "bbae401660bbad94c865d71029d8439e";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> GloryDomainSpellList = "7b3506924ed8354419b7829736ab2c7e";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> GoldDragonSpellList = "6b8d215a54cd49d88a6de62352e9cac2";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> GoldDragonSpellListMythic = "aea55635393a4dbc91130a9a39185b1b";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> GoodDomainSpellList = "dc242eb60eed94a4eb0640d773780090";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> HealingDomainSpellList = "033b2b6a8899be844ae8aa91d4dab477";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> HunterSpelllist = "d090b791bfe381740b98ed4ff909b1cf";
@@ -79,6 +83,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> RangerSpellList = "29f3c338532390546bc5347826a655c4";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ReposeDomainSpellList = "5376474a39713514ca2135d6f9584563";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> RuneDomainSpellList = "30076fe3d5f4ef845a7bafb0be57fe44";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ScalykindDomainSpellList = "2af2f5129c984dcfbe161934a5b3dc58";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> ShamanSpelllist = "c0c40e42f07ff104fa85492da464ac69";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> SpiritWardenSpellList = "767db8f0d64e5b048a8cf4d2ddc10521";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellList>> StoneSpiritSpellList = "87a3e296757412e45910493e5fed1417";
@@ -136,6 +141,8 @@ namespace BlueprintCore.Blueprints.References
           CharmDomainSpellList,
           ClericSpellList,
           CommunityDomainSpellList,
+          CorruptedGoldDragonSpellList,
+          CorruptedGoldDragonSpellListMythic,
           DarknessDomainSpellList,
           DeathDomainSpellList,
           DemonSpelllist,
@@ -150,6 +157,8 @@ namespace BlueprintCore.Blueprints.References
           FlamesSpiritSpellList,
           FrostSpiritSpellList,
           GloryDomainSpellList,
+          GoldDragonSpellList,
+          GoldDragonSpellListMythic,
           GoodDomainSpellList,
           HealingDomainSpellList,
           HunterSpelllist,
@@ -180,6 +189,7 @@ namespace BlueprintCore.Blueprints.References
           RangerSpellList,
           ReposeDomainSpellList,
           RuneDomainSpellList,
+          ScalykindDomainSpellList,
           ShamanSpelllist,
           SpiritWardenSpellList,
           StoneSpiritSpellList,

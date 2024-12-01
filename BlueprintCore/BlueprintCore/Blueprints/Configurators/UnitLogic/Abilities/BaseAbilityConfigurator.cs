@@ -1229,7 +1229,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>HeroicInvocation</term><description>43740dab07286fe4aa00a6ee104ce7c1</description></item>
+    /// <item><term>HeroismGreater</term><description>e15e5e7045fda2244b98c8f010adfe31</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1242,12 +1242,14 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// </param>
     public TBuilder AddAbilityEffectRunAction(
         ActionsBuilder actions,
+        bool? ignoreCaster = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
         SavingThrowType? savingThrowType = null)
     {
       var component = new AbilityEffectRunAction();
       component.Actions = actions?.Build();
+      component.IgnoreCaster = ignoreCaster ?? component.IgnoreCaster;
       component.SavingThrowType = savingThrowType ?? component.SavingThrowType;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
@@ -1342,7 +1344,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>5_DeadStage_AcidBuff</term><description>96afbbab53c34c549a5313a1f7aed13b</description></item>
+    /// <item><term>5_DeadStage_AcidBuff</term><description>b730dbbb5e8143abbba6a066bc82c19a</description></item>
     /// <item><term>HellsDecreeAbilityMagicNecromancyBuff</term><description>c695587d5307d234cb34f62750ff7616</description></item>
     /// <item><term>ZonKuthonScarBuff</term><description>fbb677d91f924b99a3610ae79f6468fa</description></item>
     /// </list>
@@ -1854,7 +1856,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarRedMask_Ability_CombatInstantBuff</term><description>4b8d9931bcfc4a6b8fbe50fd8097ff20</description></item>
-    /// <item><term>FormOfTheDragonIIWhiteDragonDisciple</term><description>5ab0a62a49a234546b482c6011951da1</description></item>
+    /// <item><term>FormOfTheDragonIISilver</term><description>c7adf4e83543f45419a37e6fb3651c77</description></item>
     /// <item><term>ZoneOfPredetermination</term><description>756f1d07f9ae29448888ecf016fa40a7</description></item>
     /// </list>
     /// </remarks>
@@ -1884,7 +1886,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abrikandilu_Frozen_Buff</term><description>b2df7031cdad480caddf962c894ca484</description></item>
-    /// <item><term>HagCatPolymorphBuff</term><description>ccc0b6dd542149528035c755b2c60393</description></item>
+    /// <item><term>Halaseliax_FireBreathWeapon</term><description>cef56b3867604e7394e61fcbeb51dae5</description></item>
     /// <item><term>ZachariusFearAuraBuff</term><description>4d9144b465bbefe4786cfe86c745ea4e</description></item>
     /// </list>
     /// </remarks>
@@ -1976,7 +1978,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarHaloToggleAbility</term><description>248bbb747c273684d9fdf2ed38935def</description></item>
-    /// <item><term>MobilityUseAbility</term><description>4be5757b85af47545a5789f1d03abda9</description></item>
+    /// <item><term>LizardFamiliarAbility</term><description>89bf05685c936374f94a82fc04e9b535</description></item>
     /// <item><term>ViperFamiliarAbility</term><description>52b0d34465ad50545836fddd437cf5c9</description></item>
     /// </list>
     /// </remarks>
@@ -2018,7 +2020,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidArrow</term><description>9a46dfd390f943647ab4395fc997936d</description></item>
-    /// <item><term>HideousLaughter</term><description>fd4d9fd7f87575d47aafe2a64a6e2d8d</description></item>
+    /// <item><term>HeroismGreater</term><description>e15e5e7045fda2244b98c8f010adfe31</description></item>
     /// <item><term>WrackingRay</term><description>1cde0691195feae45bab5b83ea3f221e</description></item>
     /// </list>
     /// </remarks>
@@ -2052,7 +2054,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChargeAbility</term><description>c78506dd0e14f7c45a599990e4e65038</description></item>
-    /// <item><term>GriffonDeathFromAboveAbility</term><description>4af0f63ebf3f4eb08dade5a8709ff5a5</description></item>
+    /// <item><term>HippogriffFlyingAttackAbility</term><description>7d0bc62733414cabae1466df04f04910</description></item>
     /// <item><term>UmbralDragonDeathFromAboveAbility</term><description>0f5c1141578c47ad921b0a509d20431e</description></item>
     /// </list>
     /// </remarks>
@@ -2566,7 +2568,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
-    /// <item><term>DemonicFormIVVavakia_Breath</term><description>7d5c9412bc0f32d4dbfb642f31d83f75</description></item>
+    /// <item><term>DemonPlagueFeature</term><description>096156df0b5aa4f458d35db066b27f35</description></item>
     /// <item><term>Yozz_Feature_AdditionalAttacks</term><description>bcf37abbb0b1485b83059600ed440881</description></item>
     /// </list>
     /// </remarks>
@@ -2634,7 +2636,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirBlastAbility</term><description>31f668b12011e344aa542aa07ab6c8d9</description></item>
-    /// <item><term>MudBlastBladeDamage</term><description>f82cfcf11b94bef49bf1a8f57aad5c13</description></item>
+    /// <item><term>NereidBeguilingAuraBuff</term><description>ab6181f9447a4d945bdcbe6466c42189</description></item>
     /// <item><term>XantirOnlySwarm_MidnightFaneInThePastFeature</term><description>5131c4b93f314bd4589edf612b4eb600</description></item>
     /// </list>
     /// </remarks>
@@ -2684,7 +2686,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbyssalCreatureAcidTemplate</term><description>6e6fda1c8a35069468e7398082cd30f5</description></item>
-    /// <item><term>InspireTranquilityEffectBuffMythic</term><description>949459a61d064e848f7e86e2a80e336d</description></item>
+    /// <item><term>InspireTranquilitySavingThrowBuffMythic</term><description>60b646069fa949d8983b4d74fc55218b</description></item>
     /// <item><term>WrackBloodBlastAbility</term><description>0199d49f59833104198e2c0196235a45</description></item>
     /// </list>
     /// </remarks>
@@ -2713,7 +2715,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbruptForceEnchantment</term><description>c31b3edcf2088a64e80133ebbd6374cb</description></item>
-    /// <item><term>HeartOfIraArea</term><description>3a636a7438e92a14386fc460f466be1b</description></item>
+    /// <item><term>HeartOfIcebergEnchantment</term><description>719881e400d980f4da1bf7361c1903db</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -2787,7 +2789,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArmyACBonus3AuraAbility</term><description>7963fb8f26574efcb4e0cb35166d4ce9</description></item>
-    /// <item><term>BlessWeaponCast</term><description>de954d4cbf995864ba8662e67a473f93</description></item>
+    /// <item><term>ExplodingArrowsBlueFlameBlastAbility</term><description>9b3bf9206bf9451d81c00d96ef7db7ee</description></item>
     /// <item><term>WavesOfExhaustion</term><description>3e4d3b9a5bd03734d9b053b9067c2f38</description></item>
     /// </list>
     /// </remarks>
@@ -2803,6 +2805,41 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
         ComponentMerge mergeBehavior = ComponentMerge.Fail)
     {
       var component = new HideDCFromTooltip();
+      return AddUniqueComponent(component, mergeBehavior, merge);
+    }
+
+    /// <summary>
+    /// Adds <see cref="AbilityRequirementMountHasAction"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>HippogriffFlyingAttackRiderAbility</term><description>3f9ef42f670d4d409202708cac917e49</description></item>
+    /// <item><term>SableMarineStrongestWingsRiderAbility</term><description>e7dc67631d1446a0b20798d300b8151c</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    public TBuilder AddAbilityRequirementMountHasAction(
+        bool? fullRoundAction = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        bool? moveAction = null,
+        bool? standartAction = null,
+        bool? swiftAction = null)
+    {
+      var component = new AbilityRequirementMountHasAction();
+      component.m_FullRoundAction = fullRoundAction ?? component.m_FullRoundAction;
+      component.m_MoveAction = moveAction ?? component.m_MoveAction;
+      component.m_StandartAction = standartAction ?? component.m_StandartAction;
+      component.m_SwiftAction = swiftAction ?? component.m_SwiftAction;
       return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
@@ -3288,7 +3325,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcanistExploitDimensionalSlideAbility</term><description>e81570b9df7758e4195346340231e6e3</description></item>
-    /// <item><term>DLC5_TrueSithhudJumpAbilityCastHeal</term><description>939f3fb3304d4976bc9cd1c6fc1c4d64</description></item>
+    /// <item><term>DLC5_TrueSithhudJumpAbility</term><description>3a07542b110d450496b73cd9a1aeb23b</description></item>
     /// <item><term>WitchOfTheVeilShroudedStepAbility8</term><description>5713b048d3a24959b7a27eac48e69943</description></item>
     /// </list>
     /// </remarks>
@@ -4555,8 +4592,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteDeath</term><description>7d721be6d74f07f4d952ee8d6f8f44a0</description></item>
-    /// <item><term>FingerOfDeathCustom</term><description>e7b82812e2d1464ea3af48e2c6d889b0</description></item>
-    /// <item><term>Waterfall</term><description>e05a95d3cf386844f98e4710d9a4730b</description></item>
+    /// <item><term>FlameStrike</term><description>f9910c76efc34af41b6e43d5d8752f0f</description></item>
+    /// <item><term>WordOfGodAbility</term><description>96b3f4fd84cd453eb216f4c4ebd4955d</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -4587,7 +4624,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbandonedKeep_AcidTrap</term><description>e7dadeb8b1d78a341bb4357b502da424</description></item>
-    /// <item><term>ExtendedRangeSteamBlastAbility</term><description>2f37688defd32d740be8bfc21b3b00fe</description></item>
+    /// <item><term>ExtendedRangeWaterBlastAbility</term><description>11eba1184c7108846a665d8ca317963f</description></item>
     /// <item><term>Yozz_Ability_DirtyTrickBomb</term><description>5caabe7c38d24e7f905bb6f723d1eccc</description></item>
     /// </list>
     /// </remarks>
@@ -4886,7 +4923,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AngelBringBackTouch</term><description>067035da0186d6e43bb4138f433911ee</description></item>
-    /// <item><term>HagboundWitchVileCurseWeakness</term><description>c13cd0255efa01342a974f279613fe2d</description></item>
+    /// <item><term>Harm</term><description>137af566f68fd9b428e2e12da43c1482</description></item>
     /// <item><term>ZachariusParalyzingTouchAbility</term><description>dbd157bc98c11a341b3b605ad58d5a57</description></item>
     /// </list>
     /// </remarks>
@@ -5347,7 +5384,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChargeAbility</term><description>c78506dd0e14f7c45a599990e4e65038</description></item>
-    /// <item><term>GriffonDeathFromAboveAbility</term><description>4af0f63ebf3f4eb08dade5a8709ff5a5</description></item>
+    /// <item><term>HeavenStrikeAbility</term><description>9f700cb2445649029dcd9e788f142aaa</description></item>
     /// <item><term>WarpriestShieldbearerChannelPositiveHarm</term><description>894e20539c353c74ab2733a056351947</description></item>
     /// </list>
     /// </remarks>
@@ -5425,7 +5462,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbjurationResistanceAcidAbility</term><description>9b415e09847398644ad6e57a9e3ab06a</description></item>
-    /// <item><term>KiAbudantStep</term><description>336a841704b7e2341b51f89fc9491f54</description></item>
+    /// <item><term>KiPoisonCast</term><description>d4b5f47fbe1074d4e9127dd08f21abda</description></item>
     /// <item><term>WordOfGodAbility</term><description>96b3f4fd84cd453eb216f4c4ebd4955d</description></item>
     /// </list>
     /// </remarks>
@@ -5688,7 +5725,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
-    /// <item><term>GeomancyForestAbility8</term><description>818217ce5dde4746afdd17eed7deba02</description></item>
+    /// <item><term>GeomancyForestAbility6</term><description>e11b5d29b5ff4df798083583b338dceb</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -5856,8 +5893,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Archpriest_PossessionAbility</term><description>a3855d55b2304f89b63ebd1a9b1dc144</description></item>
-    /// <item><term>GoldGolemDeathThroes</term><description>61e1b3fdf86a87844b053eb9c4ab9bde</description></item>
+    /// <item><term>1_FirstDeathAbility</term><description>4445d9d1c21141c6a0bb24baf373ef78</description></item>
+    /// <item><term>FungalInfestationAbility</term><description>73f8182ddd684a57a7f9678e516209a3</description></item>
     /// <item><term>ZombieSlashingExplosion</term><description>f6b63adab8b645c8beb9cab170dac9d3</description></item>
     /// </list>
     /// </remarks>
@@ -6228,7 +6265,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbsoluteOrderApproach</term><description>d5f853d35d58c104eaa7eab50c25de39</description></item>
-    /// <item><term>PolymorphElementalAir</term><description>c5e2e73f089c76f42a34ae829aa2d4ce</description></item>
+    /// <item><term>PolymorphAnimal</term><description>963be80e4c1b3734ab6b276659d834c4</description></item>
     /// <item><term>WordOfGodAbility</term><description>96b3f4fd84cd453eb216f4c4ebd4955d</description></item>
     /// </list>
     /// </remarks>
@@ -6414,7 +6451,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonSecondLevelAbility</term><description>d87bd4bfc3e50af4ea1d9be5b4735ea1</description></item>
-    /// <item><term>NocticulaAspectAbility</term><description>b968988d6c0e830458fd49efbfb86202</description></item>
+    /// <item><term>PeerThroughEndurance</term><description>9f0f0233dc0d43239afa77dbb3f3b948</description></item>
     /// <item><term>WordOfGodAbility</term><description>96b3f4fd84cd453eb216f4c4ebd4955d</description></item>
     /// </list>
     /// </remarks>
@@ -6736,8 +6773,8 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DarkLurkerBladeFromShadowsAbility</term><description>6f0e5b1ae2b54453b02471698c57d88d</description></item>
-    /// <item><term>DarkLurkerBladeFromShadowsFullAttackAbility</term><description>89cfcf9bf8cf41a3ac69846e28933bed</description></item>
     /// <item><term>EmergencySwapAbility</term><description>b50ca9b5d6292fb42b8eab8e5d64842d</description></item>
+    /// <item><term>HippogriffFlyingAttackRiderAbility</term><description>3f9ef42f670d4d409202708cac917e49</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -6771,7 +6808,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>FeintAbility</term><description>1bb6f0b196aa457ba80bdb312dc64952</description></item>
+    /// <item><term>DragonDemand</term><description>8af93e330e1642298c88ec6080e5de12</description></item>
     /// <item><term>HideousLaughter</term><description>fd4d9fd7f87575d47aafe2a64a6e2d8d</description></item>
     /// <item><term>HideousLaughterTiefling</term><description>ae9e3a143e40f20419aa2b1ec92e2e06</description></item>
     /// </list>
@@ -6970,7 +7007,7 @@ namespace BlueprintCore.Blueprints.Configurators.UnitLogic.Abilities
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ChronomancyAbility</term><description>e87e2932aecd47238dd153d921f4b2ab</description></item>
-    /// <item><term>TacticalLeaderBattleAcumenDesctruction</term><description>78136f6d645c693448304022dd6d0dd8</description></item>
+    /// <item><term>SplitTimelineAbility</term><description>0835111f90a94f959228bd55b42f584d</description></item>
     /// <item><term>TacticalLeaderBattleAcumenSmiting</term><description>43f1d29da0bd6d74ba158d5983711be1</description></item>
     /// </list>
     /// </remarks>

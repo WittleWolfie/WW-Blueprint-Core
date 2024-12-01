@@ -577,6 +577,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SarkorisDirgeEnchantment = "e02dedda1d5248b3aa9016f918722c2e";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SavamelekhSpineEnchantment = "ad5f40720af64b9a943bfabf8d3bb878";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> SaviourEnchantment = "4235ec0877a7e2f4bac610202681a7e3";
+    public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScalykindBlessingFangPoisonEnchantment = "120a4b1d2e1b40ae81557556a563d159";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScarecrowFearTouch = "436316d7c48c396418a8b2a91ec8f7ec";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScepterImmunity = "8eb9d1c94b1e4894a88c228aa71b79e5";
     public static readonly Blueprint<BlueprintReference<BlueprintWeaponEnchantment>> ScimitarOfDawnEnchantment = "49e401c362897e8449645b53d582641d";
@@ -1305,6 +1306,7 @@ namespace BlueprintCore.Blueprints.References
           SarkorisDirgeEnchantment,
           SavamelekhSpineEnchantment,
           SaviourEnchantment,
+          ScalykindBlessingFangPoisonEnchantment,
           ScarecrowFearTouch,
           ScepterImmunity,
           ScimitarOfDawnEnchantment,

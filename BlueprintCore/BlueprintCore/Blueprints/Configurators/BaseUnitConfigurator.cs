@@ -1833,7 +1833,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>00_FindEchoLair</term><description>876fc5d40aa5d8b47ac0138cf0a680ae</description></item>
-    /// <item><term>DLC3_CR16_BabauElite</term><description>e3f4366b69cd47dc8a9c23518b670b4a</description></item>
+    /// <item><term>DLC3_CR16_FaerieDragonHungryMagicSummon</term><description>1f238fcbd1bb41cfbc35729a2d7c0d2c</description></item>
     /// <item><term>Ziforian_normal</term><description>7ef2998dbeb7fda43a47ce842f4d142d</description></item>
     /// </list>
     /// </remarks>
@@ -2231,7 +2231,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DLC1_BlindCarver_Wintersun</term><description>c209cd1dfa02401eb66f190f0f5675ad</description></item>
-    /// <item><term>DLC3_VendorInPort_tier1_original</term><description>8c6deb543cd54d309fe1ef66eb7cc68f</description></item>
+    /// <item><term>DLC3_VendorInPort_tier1_original_potions</term><description>bdb8de4454914a0396d3c620bb589c4c</description></item>
     /// <item><term>WarCamp_ScrollVendorYoung</term><description>6b6eb149263959a4c9ea307057a20978</description></item>
     /// </list>
     /// </remarks>
@@ -2273,7 +2273,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Arsinoe</term><description>a609ed9b2205d034bb3bb04d2a255681</description></item>
-    /// <item><term>DLC6_FoodTrader</term><description>c543a086fc2445f8991966c0a86e4b3d</description></item>
+    /// <item><term>DLC6_GnomeWinemaker</term><description>3dc57147ecc64d9aaea15d95d10903aa</description></item>
     /// <item><term>Woljif_NPC</term><description>318127d85d5d41b4d9acea4e2ad1c4a4</description></item>
     /// </list>
     /// </remarks>

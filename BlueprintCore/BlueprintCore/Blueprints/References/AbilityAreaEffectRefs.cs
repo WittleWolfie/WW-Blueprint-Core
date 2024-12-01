@@ -272,6 +272,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> EkpyrosisArea = "8924c25d5dd249029cbe208e5abd7a89";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalAirGreaterWhirlwindArea = "a8fe5d003be628f43b8ad9dcb5cc5d57";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalEngineColdArea = "278318d1cf614ad1b4042151d7dea11a";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalVortexAbilityAreaEffect = "bf1af8858f944001b2f5a7615549bb22";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalWallAcidArea = "2a9cebe780b6130428f3bf4b18270021";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalWallColdArea = "608d84e25f42d6044ba9b96d9f60722a";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> ElementalWallElectricityArea = "2175d68215aa61644ad1d877d4915ece";
@@ -631,6 +632,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WallWaterBlastArea = "bb4ddd5e7d64a4a49ba71fe8275d1552";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WarWispRedAuraAreaEffect = "b97e065fc2e7b0d47b87a8f38b453415";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WebArea = "fd323c05f76390749a8555b13156813d";
+    public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WightBossCommanderAuraAreaEffect = "14ba91a230cb4d6fa487ef7415927763";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildGazeAreaEffect = "04f6b9af9fa6fac479e655f2331b1716";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildLink_ArcherAreaEffect = "21fa9376053aff94dbb2755b252fde30";
     public static readonly Blueprint<BlueprintReference<BlueprintAbilityAreaEffect>> WildLink_MonarchAreaEffect = "a60cb70e99775fe4ba702144ff70d619";
@@ -911,6 +913,7 @@ namespace BlueprintCore.Blueprints.References
           EkpyrosisArea,
           ElementalAirGreaterWhirlwindArea,
           ElementalEngineColdArea,
+          ElementalVortexAbilityAreaEffect,
           ElementalWallAcidArea,
           ElementalWallColdArea,
           ElementalWallElectricityArea,
@@ -1270,6 +1273,7 @@ namespace BlueprintCore.Blueprints.References
           WallWaterBlastArea,
           WarWispRedAuraAreaEffect,
           WebArea,
+          WightBossCommanderAuraAreaEffect,
           WildGazeAreaEffect,
           WildLink_ArcherAreaEffect,
           WildLink_MonarchAreaEffect,

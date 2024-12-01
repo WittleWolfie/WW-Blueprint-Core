@@ -36,6 +36,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BlakemoorGrimoireGood = "275ccbce3db40bc439164d4be4be5c5d";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BlindingBombItem = "845fc50c8eb8e9d4f90acfbc5817e54b";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BloodyMeatItem = "ede78d969190d8844ba0b7b1c3ab5a0e";
+    public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIIStageIncomplete_Item = "36ffbb6229e74a3e9640556050985960";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIIStageItem = "6dbf16bf75b64035b55e1a1d92854acb";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsIIStageItem = "90a63a8227de4a9ea72cb7c597afe382";
     public static readonly Blueprint<BlueprintReference<BlueprintItemEquipmentUsable>> BooksOfDreamsItem = "289842de01a049249f0e921c18bd91a4";
@@ -1246,6 +1247,7 @@ namespace BlueprintCore.Blueprints.References
           BlakemoorGrimoireGood,
           BlindingBombItem,
           BloodyMeatItem,
+          BooksOfDreamsIIIStageIncomplete_Item,
           BooksOfDreamsIIIStageItem,
           BooksOfDreamsIIStageItem,
           BooksOfDreamsItem,

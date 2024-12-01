@@ -58,7 +58,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_FirstKTC_Ch5</term><description>a165ac24237977340b5bfceac10a67a8</description></item>
-    /// <item><term>KTC_Malessa</term><description>ed0ec52c7c9cbcd4c87eaf97195da4a7</description></item>
+    /// <item><term>KTC_Markyll</term><description>5f62cb2e58c073b47a529420b953ec8c</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -150,7 +150,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterNotDate_dialog</term><description>cbe4991d3d5bad14dac33ca4e67ae2ce</description></item>
-    /// <item><term>Answer_0042</term><description>c3eff7b7ee174c5458feea12de3078de</description></item>
+    /// <item><term>Answer_0042</term><description>512791c223017b44188a7f785c26e7c8</description></item>
     /// <item><term>YozzTeleportsToShamirasPalase</term><description>03e68d18fd2a47fc95917ba3f45d720d</description></item>
     /// </list>
     /// </remarks>
@@ -404,7 +404,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[Kerz]_BarkCondition</term><description>59c232c2fa5e7c54baa235fee0e049d6</description></item>
-    /// <item><term>CommandAction</term><description>056996bdf46140ef8673a387ccccea49</description></item>
+    /// <item><term>CommandAction</term><description>d2f944e7194b4990acfa69221125a2d1</description></item>
     /// <item><term>ZanedraInTemple</term><description>0d22fd186d557a049b46c0fb3d623f04</description></item>
     /// </list>
     /// </remarks>
@@ -453,7 +453,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_8</term><description>c3827533bf2b4c6ba276a53dcf826dc7</description></item>
     /// <item><term>PF-217333</term><description>e99f249471e442279e2687a1a5ef5264</description></item>
-    /// <item><term>Stone_FirstTouch_dialogue</term><description>6a5ffbc344124764b096bf21b3662046</description></item>
+    /// <item><term>Ulbrig_KTC_JoiningInDrezen</term><description>cf15af283da744128648fd080eba1b4a</description></item>
     /// </list>
     /// </remarks>
     public static ConditionsBuilder CurrentChapter(
@@ -544,7 +544,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[MainHall] [Tall_DesnaPriest] Final_Bark_Conditions</term><description>7f8be13550ec4db894002cae58c9b811</description></item>
-    /// <item><term>Banter_SeelahArueshalae_banter3</term><description>269f77cc37f7b044296659ce4f97a368</description></item>
+    /// <item><term>Banter_SeelahCamelia_banter3</term><description>c6771ab728dbc8048ac6544c520d757f</description></item>
     /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
     /// </list>
     /// </remarks>
@@ -585,7 +585,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>Cue_0010</term><description>0ab65fc5bbd26e1418f37be70ef0166d</description></item>
+    /// <item><term>Cue_0010</term><description>690c66a7a25c0fa4f86ed3def55aa47b</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -689,7 +689,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Cue_0010</term><description>7113be742a194992b4f27504895bae86</description></item>
+    /// <item><term>Cue_0011</term><description>117e49a3a1c723f4ba906fa311abbfd5</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -875,7 +875,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>!Octavia_Companion_Warrior_Test</term><description>0f5938a10fd0d3644be33747d6d2b11c</description></item>
-    /// <item><term>Cue_0016</term><description>2b0dff5e82ca3254388557c797b5f3e2</description></item>
+    /// <item><term>Cue_0017</term><description>ff4e4a3b7de5327499fa491cc8398ffc</description></item>
     /// <item><term>Ziggurat_ZachariusBeginRitual</term><description>8a020a9f01405ae4fa417500e1efd2e6</description></item>
     /// </list>
     /// </remarks>
@@ -918,7 +918,7 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_Chapter04_Quests</term><description>715233cf827adfe4e8a3e1adf8babad4</description></item>
-    /// <item><term>Cue_0074_PleaseFix</term><description>17e298c6166609e438a721a714e7e7af</description></item>
+    /// <item><term>Cue_0071</term><description>68b586541d285f846b21fb140b485a1a</description></item>
     /// <item><term>TestCrusadeEvent</term><description>c8bcf035a7d947e09386fad55e986753</description></item>
     /// </list>
     /// </remarks>
@@ -1110,8 +1110,8 @@ namespace BlueprintCore.Conditions.Builder.StoryEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>30_HeroicVictory</term><description>a43192eddffb455db6004059811ac92d</description></item>
-    /// <item><term>Cue_0018</term><description>1503b0f31a2f54a43a31248b9ce487c7</description></item>
-    /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
+    /// <item><term>Cue_0019</term><description>3e21e0f399982e74a8cca273b331e5b9</description></item>
+    /// <item><term>ZigguratNoMoreLichTransition</term><description>857ac3ee06be46688c1040033fd2224a</description></item>
     /// </list>
     /// </remarks>
     ///

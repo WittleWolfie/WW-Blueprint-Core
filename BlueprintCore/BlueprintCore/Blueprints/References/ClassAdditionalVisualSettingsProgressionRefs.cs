@@ -18,6 +18,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Aeon_Progression = "b9a8399e2d3341bca4ec30ed4cee05a2";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Angel_Progression = "cf0328444b7e4c04bb4dafe4a6696458";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Azata_Progression = "b115bd9e771540f4934fb82b5c251314";
+    public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> CorruptedDragon_Progression = "fef7cc0d57324a41a43660f28057fdd5";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Demon_Progression = "5cffc56c62114d12ba5ac319660dc2bf";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Devil_Progression = "63e3f149fc024ed8969e6fcb87b1b783";
     public static readonly Blueprint<BlueprintReference<BlueprintClassAdditionalVisualSettingsProgression>> Dragon_Progression = "8cc4bd31616a42c894f4913c6c44e539";
@@ -31,6 +32,7 @@ namespace BlueprintCore.Blueprints.References
           Aeon_Progression,
           Angel_Progression,
           Azata_Progression,
+          CorruptedDragon_Progression,
           Demon_Progression,
           Devil_Progression,
           Dragon_Progression,

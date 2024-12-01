@@ -302,8 +302,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
-    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -375,7 +375,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
     /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
-    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -404,8 +404,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
-    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -435,7 +435,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
     /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
-    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -446,6 +446,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
     /// </param>
     public TBuilder AddDlcStoreNintendo(
+        bool? canMountSwitch = null,
         bool? isFree = null,
         Action<BlueprintComponent, BlueprintComponent>? merge = null,
         ComponentMerge mergeBehavior = ComponentMerge.Fail,
@@ -453,6 +454,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
         uint? nintendoIndex = null)
     {
       var component = new DlcStoreNintendo();
+      component.m_CanMountSwitch = canMountSwitch ?? component.m_CanMountSwitch;
       component.m_IsFree = isFree ?? component.m_IsFree;
       component.m_NintendoId = nintendoId ?? component.m_NintendoId;
       component.m_NintendoIndex = nintendoIndex ?? component.m_NintendoIndex;
@@ -469,7 +471,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
     /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
-    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -501,7 +503,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
     /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
-    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -538,8 +540,8 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
-    /// <item><term>DlcKickstarter</term><description>1bd03396427542699c4cfe4e17961191</description></item>
-    /// <item><term>FreeDlc4</term><description>a9262dad08654d3dbad64476978c0f95</description></item>
+    /// <item><term>DlcKickstarterPremium</term><description>1cf79baad3874b3aaf700b6187c7f0e1</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -569,7 +571,7 @@ namespace BlueprintCore.Blueprints.Configurators.DLC
     /// <listheader>Used by</listheader>
     /// <item><term>Dlc1</term><description>8576a633c8fe4ce78530b55c1f0d14e5</description></item>
     /// <item><term>Dlc4</term><description>35b89606cfe9405085a35b02cf15017f</description></item>
-    /// <item><term>Dlc6</term><description>c2340df3fdaf403baffe824ae7a0a547</description></item>
+    /// <item><term>FreeDlc5</term><description>5510e434b3974f90b99dae681d7c6e9a</description></item>
     /// </list>
     /// </remarks>
     ///

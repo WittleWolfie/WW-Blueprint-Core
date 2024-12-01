@@ -50,8 +50,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>[core++][Melazmera]_SpawnActions</term><description>9a3e4288325998c429b38b024fc710c7</description></item>
-    /// <item><term>Cue_23</term><description>d8acaf3907304658ae50a8c0b09640c8</description></item>
-    /// <item><term>Yozz_SpawnActions</term><description>fd9c741b62d849e8bf451cdf8ad9751d</description></item>
+    /// <item><term>Cue_16</term><description>e45852cad8e949ad96c93fa6c2675089</description></item>
+    /// <item><term>YozzInCapital</term><description>af2acec555d16884a9869e7341255d29</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -211,7 +211,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0167</term><description>9d5968de913adeb4b8e7e8d217747bfa</description></item>
+    /// <item><term>Cue_0166</term><description>dcb79ec38ce47194991c4f71e497d6e9</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -274,7 +274,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0167</term><description>9d5968de913adeb4b8e7e8d217747bfa</description></item>
+    /// <item><term>Cue_0166</term><description>dcb79ec38ce47194991c4f71e497d6e9</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -344,7 +344,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton1_CheckPassedActions</term><description>2a969038211346358597f80d271d9b94</description></item>
-    /// <item><term>Cue_0167</term><description>9d5968de913adeb4b8e7e8d217747bfa</description></item>
+    /// <item><term>Cue_0166</term><description>dcb79ec38ce47194991c4f71e497d6e9</description></item>
     /// <item><term>Ziggurat_PharasmaAttack_Preset</term><description>a13c8eec8c81b054ea12caf6b7584a93</description></item>
     /// </list>
     /// </remarks>
@@ -482,7 +482,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> [ChainedDarknessDeathsnatcher]_SpawnActions</term><description>3054470baa7c450f9ab97f075605e2cc</description></item>
-    /// <item><term>Cue_0003</term><description>47073f3c3c7845242911f926d5d7e511</description></item>
+    /// <item><term>Cue_0009</term><description>cc1ad7cf88f01cc46b7c645e7248f0b8</description></item>
     /// <item><term>ZK_Knowledge</term><description>9adabce8e4fa4cfd8be491a9ea798fd6</description></item>
     /// </list>
     /// </remarks>
@@ -563,7 +563,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0139</term><description>f165187fb9d7f9144a00f9ae7f4cd617</description></item>
-    /// <item><term>DevilExAeon</term><description>1f8f094f7dcf4c6e8ddead6f1900c57b</description></item>
+    /// <item><term>CorruptedDragon</term><description>4c478d59d61a7b042bff9731df6ca60c</description></item>
     /// <item><term>DevilExAzata</term><description>40f5e905f9bf4aedbdb0148ff04f370e</description></item>
     /// </list>
     /// </remarks>
@@ -723,7 +723,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidButton_CheckFailedActions</term><description>f2d080fe523049cea7039b64baeed252</description></item>
-    /// <item><term>Cue_0059</term><description>1e6bfeda8e8ec0549be47610b4379142</description></item>
+    /// <item><term>Cue_0060</term><description>f74a5688dca2e9f4cbe3af9ff8f68c67</description></item>
     /// <item><term>YeribethHall_ResetCipher</term><description>6613c051209b7ef49a3653bc1d87fa36</description></item>
     /// </list>
     /// </remarks>
@@ -842,7 +842,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AfterFinalDIalog_EpicRelief</term><description>2fa48a4ad45a0f64d8f2881ff9802dd8</description></item>
-    /// <item><term>CommandAction5</term><description>41b847c2e494445092d31f0ee49212a7</description></item>
+    /// <item><term>CommandAction5</term><description>906a3581cda44b1ebe6657c85c438b86</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -871,7 +871,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>3Wave</term><description>42617736a4644d68bd471cb05e8e1f9c</description></item>
-    /// <item><term>CommandAction46</term><description>8e3d9e6107ba4dde81d662803b0bbda5</description></item>
+    /// <item><term>CommandAction6</term><description>21ea5a8820c4400f9367c88e4e945aba</description></item>
     /// <item><term>ZK_Knowledge</term><description>9adabce8e4fa4cfd8be491a9ea798fd6</description></item>
     /// </list>
     /// </remarks>
@@ -936,8 +936,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AslynnDreamTheftTargetBuff</term><description>e76f9b440f67406786581018c052f196</description></item>
-    /// <item><term>DLC4_Bhoga_Raise</term><description>d7e73728d23c46a89cfd1678b245f73e</description></item>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>CommandAction1</term><description>dee3bb6f38dc47079404914650e66f4a</description></item>
     /// <item><term>SecondState_Kakuen_takaMediumSpawnBuff</term><description>da87532902ab49a881dafadf5f194dd7</description></item>
     /// </list>
     /// </remarks>
@@ -1013,7 +1013,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2Wave</term><description>4e1dcba08c1e4a89aea4aaa07f8f89ae</description></item>
-    /// <item><term>CommandAction5</term><description>347964d77d724cd9b082bfecd6573fae</description></item>
+    /// <item><term>CommandAction7</term><description>619a592951d242beadc31db8c3daa3c6</description></item>
     /// <item><term>ZachariusEnemyInZiggurat</term><description>63cc30e6086ce1842997d0924677019c</description></item>
     /// </list>
     /// </remarks>
@@ -1079,7 +1079,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>Cue_0019</term><description>8ae08b543e9b29142983a7fec087982c</description></item>
+    /// <item><term>Cue_0005</term><description>4398274ed53e469ebc5311353eac3cb4</description></item>
     /// <item><term>Cue_0035</term><description>62d54f591bc9d3a45b3d5ab50b9fc08d</description></item>
     /// <item><term>Cue_0043</term><description>1f92270b60d2e2b43b58db696e7543bb</description></item>
     /// </list>
@@ -1118,7 +1118,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AirAdventures_BookEvent</term><description>a07f6d1f93531e048928c5c9de328a92</description></item>
-    /// <item><term>CommandAction2</term><description>70cc0e72dc4a484cb2b61b2041257ec5</description></item>
+    /// <item><term>CommandAction2</term><description>efb92b8631e54c20a8053e716ebd6156</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -1133,7 +1133,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
         ActionsBuilder? actionsOnRestEnd = null,
         bool? ignoreCorruption = null,
         bool? immediate = null,
-        bool? restWithCraft = null)
+        bool? restWithCraft = null,
+        NamedParametersContext? storedContext = null)
     {
       var element = ElementTool.Create<FakePartyRest>();
       element.m_ActionsOnRestEnd = actionsOnRestEnd?.Build() ?? element.m_ActionsOnRestEnd;
@@ -1144,6 +1145,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
       element.m_IgnoreCorruption = ignoreCorruption ?? element.m_IgnoreCorruption;
       element.m_Immediate = immediate ?? element.m_Immediate;
       element.m_RestWithCraft = restWithCraft ?? element.m_RestWithCraft;
+      builder.Validate(storedContext);
+      element.m_StoredContext = storedContext ?? element.m_StoredContext;
       return builder.Add(element);
     }
 
@@ -1319,7 +1322,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>BlueprintRoot</term><description>2d77316c72b9ed44f888ceefc2a131f6</description></item>
-    /// <item><term>Cue_0035</term><description>b5ba9fda21184a84ae7ab3d2a2ef08a4</description></item>
+    /// <item><term>Cue_0036</term><description>e8f06ceef3164593995a5a437149f44c</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -1377,7 +1380,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_0015</term><description>72050eac97c4b944f9a99ce16a680f16</description></item>
-    /// <item><term>CommandAction1</term><description>6d9657aaeeea4b51ae0cf77de45f6208</description></item>
+    /// <item><term>CommandAction1</term><description>e28f3bf3aab946f4a4c7e6e209a972e2</description></item>
     /// <item><term>Zacharius_FinalBetrayal_dialogue</term><description>5ec3e47a05de18c46b36f08c8dfbeafb</description></item>
     /// </list>
     /// </remarks>
@@ -1412,8 +1415,8 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_4</term><description>b08d18580c6a4e41b803ca3f48a58c01</description></item>
-    /// <item><term>CommandAction1</term><description>e590e907209f4ce28f2a42121c65142c</description></item>
-    /// <item><term>Woljif_Q3_AbandonedMansion_Default</term><description>7a56583bbe8854d44a0d9fde9ee3acee</description></item>
+    /// <item><term>CommandAction1</term><description>190f1c5b94794e5898960507bf1c1fb0</description></item>
+    /// <item><term>XantirLastCombat</term><description>a885b376ef17bdf4aa1ae37ac6e911f3</description></item>
     /// </list>
     /// </remarks>
     public static ActionsBuilder Kill(
@@ -1575,7 +1578,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AasimarSlaveGirlBarks</term><description>efdea0fb268e5e14391ef8bf672f25e5</description></item>
-    /// <item><term>DLC5_CastShardRemoval_Actions</term><description>059b3a7d44be406ab1a9136da2e03a9f</description></item>
+    /// <item><term>DLC5_Citizen_Barks</term><description>6d2eebfd98e542c98cc8750c1b11defb</description></item>
     /// <item><term>ZiforianBeggar_Actions</term><description>a741a5da0622e434e9e8da521a34e4e6</description></item>
     /// </list>
     /// </remarks>
@@ -1631,9 +1634,9 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AnimalFocusBearBuff</term><description>fa25fec82271c93478194c52a20ce733</description></item>
-    /// <item><term>Cue_16</term><description>00e09633edf44ef7892e62d5bad95e3c</description></item>
-    /// <item><term>Valmallos_Stage2</term><description>511aa03d9a17499d9a6c71e0ab8bd47a</description></item>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>Cue_0020</term><description>ff17516af18666c489aaa3bc1ac64e27</description></item>
+    /// <item><term>YozzInCapital</term><description>af2acec555d16884a9869e7341255d29</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1722,7 +1725,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_5</term><description>824aefd0e65e443eb0fae72746e8fe79</description></item>
-    /// <item><term>CommandAction 3</term><description>ad1739ffd278c424ab47dbdadae28737</description></item>
+    /// <item><term>CommandAction 2</term><description>f6dfab90fb9e45a4f89f87a5dbf97a4c</description></item>
     /// <item><term>DoorBark</term><description>5d43a8c010054c7698e21b5d4b8bfa2d</description></item>
     /// </list>
     /// </remarks>
@@ -1823,7 +1826,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>CommandAction13</term><description>4b67a9d127724a63b7fe572fb344e87f</description></item>
+    /// <item><term>CommandAction13</term><description>2e2035af0c6749f29d818d6aa02a8b20</description></item>
     /// <item><term>ZigguratDeadRomance</term><description>f792eb37f0e41bb4aa23332e892ad6b1</description></item>
     /// </list>
     /// </remarks>
@@ -1911,7 +1914,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Aeon_AxiomitesAndInevitable</term><description>0e9add6a45f445cf8a9f9c71ea2d789d</description></item>
-    /// <item><term>Cue_0003</term><description>ae70486133ea411c8c6b4f75e722174c</description></item>
+    /// <item><term>Cue_0004</term><description>1e532a38ad3040b68cfb3fe375ea3c28</description></item>
     /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
     /// </list>
     /// </remarks>
@@ -2182,7 +2185,7 @@ namespace BlueprintCore.Actions.Builder.BasicEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>c1b6866b5fa94e0a9435eea0d7b4d142</description></item>
-    /// <item><term>CommandAction1</term><description>eb1f71ea67e44124bb9ff3722eb0dc4f</description></item>
+    /// <item><term>CommandAction10</term><description>c07f0002b38d47ccb090915d2339a742</description></item>
     /// <item><term>Sanctum_Part2</term><description>1b5d692d60354586bd7567ad7522dbf1</description></item>
     /// </list>
     /// </remarks>

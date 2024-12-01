@@ -27,6 +27,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> BardSpellbook_Penta = "0b00eedc8dc8421ca277ddc4c44c60b1";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> BloodragerSpellbook = "e19484252c2f80e4a9439b3681b20f00";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ClericSpellbook = "4673d19a0cf2fab4f885cc4d1353da33";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> CorruptedGoldDragonSpellbook = "fb4f8f072e5c4e8dbacd1e4ce1ff2fe5";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> CrossbloodedSpellbook = "cb0be5988031ebe4c947086a1170eacc";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> CrusaderSpellbook = "673d39f7da699aa408cdda6282e7dcc0";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> DemonSpellbook = "e3daa889c72982e45a026f62cc84937d";
@@ -38,6 +39,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> EmpyrealSpellbook = "cb9d75e5cb08572439a6b5cd562297a5";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> ExploiterWizardSpellbook = "d09794fb6f93e4a40929a965b434070d";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> FeyspeakerSpellbook = "c8c471f1f9889e1408347d3c7987b4f1";
+    public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> GoldDragonSpellbook = "614b5ef6df084725aa872d43e0d0cd1e";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> HunterSpellbook = "885cd422aa357e2409146b38bb1fec51";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> InquisitorSpellbook = "57fab75111f377248810ece84193a5a5";
     public static readonly Blueprint<BlueprintReference<BlueprintSpellbook>> LeyLineGuardianWitchSpellbook = "fb4e216b322d3924e9c7041016b46999";
@@ -91,6 +93,7 @@ namespace BlueprintCore.Blueprints.References
           BardSpellbook_Penta,
           BloodragerSpellbook,
           ClericSpellbook,
+          CorruptedGoldDragonSpellbook,
           CrossbloodedSpellbook,
           CrusaderSpellbook,
           DemonSpellbook,
@@ -102,6 +105,7 @@ namespace BlueprintCore.Blueprints.References
           EmpyrealSpellbook,
           ExploiterWizardSpellbook,
           FeyspeakerSpellbook,
+          GoldDragonSpellbook,
           HunterSpellbook,
           InquisitorSpellbook,
           LeyLineGuardianWitchSpellbook,

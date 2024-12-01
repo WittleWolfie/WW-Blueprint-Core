@@ -1255,7 +1255,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>GorumFeature</term><description>8f49a5d8528a82c44b8c117a89f6b68c</description></item>
+    /// <item><term>GoodDomainProgressionSecondary</term><description>efc4219c7894afc438180737adc0b7ac</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1504,7 +1504,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdvancedWeaponTraining1</term><description>3aa4cbdd4af5ba54888b0dc7f07f80c4</description></item>
-    /// <item><term>OracleRevelationBlizzard</term><description>d518226e0f83aaf40aed6466d0ab3fb0</description></item>
+    /// <item><term>MythicStartingClass</term><description>247aa787806d5da4f89cfc3dff0b217f</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -1555,7 +1555,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArcaneTricksterArcanist</term><description>7cab956d45dc51c4ea9e71bba366a250</description></item>
-    /// <item><term>HellknightSigniferThassilonianEvocation</term><description>f8ed1800725b3e74ebb86783dbde933a</description></item>
+    /// <item><term>HellknightSigniferThassilonianIllusion</term><description>444211da5e9592f41a4334825eb7ea2c</description></item>
     /// <item><term>WinterWitchWitchLeyLineGuardian</term><description>56adf819599827f4695395924a060996</description></item>
     /// </list>
     /// </remarks>
@@ -1670,7 +1670,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbundantArcanePool</term><description>8acebba92ada26043873cae5b92cef7b</description></item>
-    /// <item><term>MasterStrike</term><description>72dcf1fb106d5054a81fd804fdc168d3</description></item>
+    /// <item><term>MasterOfAllArchetype</term><description>bd4e70bfb89a452b876713d61b9b8eb2</description></item>
     /// <item><term>WreckingBlowsFeature</term><description>5bccc86dd1f187a4a99f092dc054c755</description></item>
     /// </list>
     /// </remarks>
@@ -1811,7 +1811,7 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AbadarFeature</term><description>6122dacf418611540a3c91e67197ee4e</description></item>
-    /// <item><term>BloodragerAbyssalFeatSelectionGreenrager</term><description>989a6fd870f7c944dac365381a7c7c31</description></item>
+    /// <item><term>BloodragerCelestialFeatSelectionGreenrager</term><description>0c96650e80e712f439c2a4da8a4272d9</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -1871,8 +1871,8 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
     ///
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
-    /// <item><term>AeonMythicClass</term><description>15a85e67b7d69554cab9ed5830d0268e</description></item>
-    /// <item><term>GreenFaithFeature</term><description>99a7a8f13c1300c42878558fa9471e2f</description></item>
+    /// <item><term>AchaekekFeature</term><description>a3189d5b7c4d4d91beaa8bfffac3e38e</description></item>
+    /// <item><term>GreenFaithCameliaFeature</term><description>ca763809e01f4247a3639965364c26cb</description></item>
     /// <item><term>ZonKuthonFeature</term><description>f7eed400baa66a744ad361d4df0e6f1b</description></item>
     /// </list>
     /// </remarks>
@@ -2530,6 +2530,74 @@ namespace BlueprintCore.Blueprints.Configurators.Classes
       component.NoCompanion = noCompanion ?? component.NoCompanion;
       component.Type = type ?? component.Type;
       return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="PrerequisiteAnySpellsInSpellbook"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>SpellSpecialization1</term><description>e69a85f633ae8ca4398abeb6fa11b1fe</description></item>
+    /// <item><term>SpellSpecialization19</term><description>09a6ff29f55dad544b9949702f2ed2c8</description></item>
+    /// <item><term>SpellSpecializationFirst</term><description>f327a765a4353d04f872482ef3e48c35</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="isFeatureSelectionWhiteList">
+    /// <para>
+    /// InfoBox: If checked and BlueprintFeatureSelection &amp;apos;ExceptWhiteListed&amp;apos; checked, &amp;apos;Ignore Prerequisites&amp;apos; will be ignored
+    /// </para>
+    /// </param>
+    /// <param name="merge">
+    /// If mergeBehavior is ComponentMerge.Merge and the component already exists, this expression is called to merge the components.
+    /// </param>
+    /// <param name="mergeBehavior">
+    /// Handling if the component already exists since the component is unique. Defaults to ComponentMerge.Fail.
+    /// </param>
+    /// <param name="shouldHaveSpellText">
+    /// You can pass in the string using a LocalizedString or the Key to a LocalizedString.
+    /// </param>
+    /// <param name="spellSpecializationFeat">
+    /// <para>
+    /// Blueprint of type BlueprintParametrizedFeature. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddPrerequisiteAnySpellsInSpellbook(
+        bool? checkInProgression = null,
+        Prerequisite.GroupType? group = null,
+        bool? hideInUI = null,
+        bool? isFeatureSelectionWhiteList = null,
+        Action<BlueprintComponent, BlueprintComponent>? merge = null,
+        ComponentMerge mergeBehavior = ComponentMerge.Fail,
+        LocalString? shouldHaveSpellText = null,
+        Blueprint<BlueprintParametrizedFeatureReference>? spellSpecializationFeat = null)
+    {
+      var component = new PrerequisiteAnySpellsInSpellbook();
+      component.CheckInProgression = checkInProgression ?? component.CheckInProgression;
+      component.Group = group ?? component.Group;
+      component.HideInUI = hideInUI ?? component.HideInUI;
+      component.IsFeatureSelectionWhiteList = isFeatureSelectionWhiteList ?? component.IsFeatureSelectionWhiteList;
+      component.m_ShouldHaveSpellText = shouldHaveSpellText?.LocalizedString ?? component.m_ShouldHaveSpellText;
+      if (component.m_ShouldHaveSpellText is null)
+      {
+        component.m_ShouldHaveSpellText = Utils.Constants.Empty.String;
+      }
+      component.m_SpellSpecializationFeat = spellSpecializationFeat?.Reference ?? component.m_SpellSpecializationFeat;
+      if (component.m_SpellSpecializationFeat is null)
+      {
+        component.m_SpellSpecializationFeat = BlueprintTool.GetRef<BlueprintParametrizedFeatureReference>(null);
+      }
+      return AddUniqueComponent(component, mergeBehavior, merge);
     }
 
     /// <summary>

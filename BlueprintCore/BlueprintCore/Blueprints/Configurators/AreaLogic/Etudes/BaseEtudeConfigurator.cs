@@ -1201,8 +1201,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>0Prologue</term><description>cee461e88e5d62b4ebdfc1f4cecc13c5</description></item>
-    /// <item><term>KTC_TricksterRankUp3Notification</term><description>49f6aa23feef4f25be41c8144ba87280</description></item>
-    /// <item><term>ZigguratRiot</term><description>5ecb3695c95e4bd4b836a0deac1ecfd7</description></item>
+    /// <item><term>KTC_TricksterRankUp3</term><description>7fe484200d2477c458eb79f6a2410331</description></item>
+    /// <item><term>ZigguratUnderAttackAfterRitual</term><description>9ad4fceef50d9fe4ba346054e812e04c</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeCompleteTrigger(
@@ -1230,7 +1230,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonAutoKingdomDelay</term><description>7e50ed6c545e4fc486680348003de3cd</description></item>
-    /// <item><term>Timer_Before_AzataRankUp_03</term><description>e28667694bbcd2d46a3cb112f90f8502</description></item>
+    /// <item><term>Timer_Before_AzataRankUp_02</term><description>d815fb5a208ce05469d120067f02b3de</description></item>
     /// <item><term>ZigguratDeadRomanceTimer</term><description>587df869a564f7046a48bbf27f017619</description></item>
     /// </list>
     /// </remarks>
@@ -1272,7 +1272,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_DevouredByDarkness</term><description>67d3321ed01a4e58a9ed3e13f94f1d04</description></item>
-    /// <item><term>GreenBarrelKill</term><description>fe42439974f743c8a8d474a90484fab4</description></item>
+    /// <item><term>GreenPuzzleMechanic</term><description>b9ade12b203f92d4ba286bba5e8aa68e</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>
@@ -1849,7 +1849,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_BeforeQuest</term><description>a271248ab27e0be49bbc08a423214a16</description></item>
-    /// <item><term>DLC6_TraderJeweler</term><description>6b53d3013d644a578afa956bd7ce7941</description></item>
+    /// <item><term>ExoticCapitalTraderInCapital</term><description>f5d08d5c41d6b584ca59081039a19f20</description></item>
     /// <item><term>WarCamp_DefaultPeaceful_Outdoor</term><description>27d07416c620e0e48865bd88d74cbb82</description></item>
     /// </list>
     /// </remarks>
@@ -1983,8 +1983,8 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>DeskariHasArrived</term><description>9daf0401427a8e444941bdd1a8c6e301</description></item>
-    /// <item><term>Ending_Legend_OtherPlane</term><description>8983b7ee630d407f94ce0688b30645c1</description></item>
-    /// <item><term>TEST_ReflectionWeather_Blood</term><description>2f823d30aadd44799a6d68ea60221c1e</description></item>
+    /// <item><term>Prologue_Kenabres_Weather</term><description>f7fa92f20aa04f1f8d3a33575bbf3c67</description></item>
+    /// <item><term>WeatherTrickster</term><description>3347811084da4f3fb342e4c17a7c4ccb</description></item>
     /// </list>
     /// </remarks>
     public TBuilder AddEtudeBracketOverrideWeatherProfile(
@@ -2324,7 +2324,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>DLC6_WenduagLabyrinth</term><description>d6534b86b1d34038aaa9be12f8540580</description></item>
+    /// <item><term>Dream_InFire</term><description>b97643e712f2fbb40959de464a357ac6</description></item>
     /// <item><term>WarCamp_GorgoyleAttack</term><description>29990bd61e5e3d84195f4f0d0ae81ec8</description></item>
     /// </list>
     /// </remarks>
@@ -2378,7 +2378,7 @@ namespace BlueprintCore.Blueprints.Configurators.AreaLogic.Etudes
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AreeluLab_InIllusion</term><description>bbe6e346380ca6b4abba758b9b304727</description></item>
-    /// <item><term>DLC6_UlbrigToGarden</term><description>5fa2a8fc5e4d4cb3b56850674a91330f</description></item>
+    /// <item><term>Dream_InFire</term><description>b97643e712f2fbb40959de464a357ac6</description></item>
     /// <item><term>Woljif_AbandonedMansion_CutScenePat</term><description>1bbf7d9eff0f47ea9bc50f2d88ae39fc</description></item>
     /// </list>
     /// </remarks>

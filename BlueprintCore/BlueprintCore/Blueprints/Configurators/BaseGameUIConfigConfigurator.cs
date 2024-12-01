@@ -35,6 +35,7 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.DLC3GameOverWindow = copyFrom.DLC3GameOverWindow;
           bp.DLC3BoonWindow = copyFrom.DLC3BoonWindow;
           bp.DLC3MapWindow = copyFrom.DLC3MapWindow;
+          bp.SpriteLinks = copyFrom.SpriteLinks;
         });
     }
 
@@ -51,6 +52,7 @@ namespace BlueprintCore.Blueprints.Configurators
           bp.DLC3GameOverWindow = copyFrom.DLC3GameOverWindow;
           bp.DLC3BoonWindow = copyFrom.DLC3BoonWindow;
           bp.DLC3MapWindow = copyFrom.DLC3MapWindow;
+          bp.SpriteLinks = copyFrom.SpriteLinks;
         });
     }
 
@@ -130,6 +132,93 @@ namespace BlueprintCore.Blueprints.Configurators
           if (bp.DLC3MapWindow is null) { return; }
           action.Invoke(bp.DLC3MapWindow);
         });
+    }
+
+    /// <summary>
+    /// Sets the value of <see cref="GameUIConfig.SpriteLinks"/>
+    /// </summary>
+    public TBuilder SetSpriteLinks(params GameUIConfig.SpriteNameLink[] spriteLinks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          Validate(spriteLinks);
+          bp.SpriteLinks = spriteLinks.ToList();
+        });
+    }
+
+    /// <summary>
+    /// Adds to the contents of <see cref="GameUIConfig.SpriteLinks"/>
+    /// </summary>
+    public TBuilder AddToSpriteLinks(params GameUIConfig.SpriteNameLink[] spriteLinks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpriteLinks = bp.SpriteLinks ?? new();
+          bp.SpriteLinks.AddRange(spriteLinks);
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="GameUIConfig.SpriteLinks"/>
+    /// </summary>
+    public TBuilder RemoveFromSpriteLinks(params GameUIConfig.SpriteNameLink[] spriteLinks)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.SpriteLinks is null) { return; }
+          bp.SpriteLinks = bp.SpriteLinks.Where(val => !spriteLinks.Contains(val)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes elements from <see cref="GameUIConfig.SpriteLinks"/> that match the provided predicate.
+    /// </summary>
+    public TBuilder RemoveFromSpriteLinks(Func<GameUIConfig.SpriteNameLink, bool> predicate)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.SpriteLinks is null) { return; }
+          bp.SpriteLinks = bp.SpriteLinks.Where(e => !predicate(e)).ToList();
+        });
+    }
+
+    /// <summary>
+    /// Removes all elements from <see cref="GameUIConfig.SpriteLinks"/>
+    /// </summary>
+    public TBuilder ClearSpriteLinks()
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          bp.SpriteLinks = new();
+        });
+    }
+
+    /// <summary>
+    /// Modifies <see cref="GameUIConfig.SpriteLinks"/> by invoking the provided action on each element.
+    /// </summary>
+    public TBuilder ModifySpriteLinks(Action<GameUIConfig.SpriteNameLink> action)
+    {
+      return OnConfigureInternal(
+        bp =>
+        {
+          if (bp.SpriteLinks is null) { return; }
+          bp.SpriteLinks.ForEach(action);
+        });
+    }
+
+    protected override void OnConfigureCompleted()
+    {
+      base.OnConfigureCompleted();
+    
+      if (Blueprint.SpriteLinks is null)
+      {
+        Blueprint.SpriteLinks = new();
+      }
     }
   }
 }

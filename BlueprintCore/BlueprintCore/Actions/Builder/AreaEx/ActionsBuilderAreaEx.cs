@@ -711,7 +711,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term> DLC5_b2_warlord_dialogue </term><description>7044ec8b144e416395eae35d5a2eba82</description></item>
-    /// <item><term>Darkness_DimensionLockCrystall</term><description>9098cbfd345f4b34af4952c1a2efc030</description></item>
+    /// <item><term>Darkness_FirstRunestoneAvailable</term><description>88ca92b4abf84cbe8d80018de61c4a53</description></item>
     /// <item><term>ZigguratUpgradedInside</term><description>e531191d4ecff7b44a18f614b5ec1e1a</description></item>
     /// </list>
     /// </remarks>
@@ -1183,7 +1183,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>d36dcab7631c4ad0b4d71ed4483b1973</description></item>
-    /// <item><term>CommandAction1</term><description>a5240ddbcec74627bcf04abb8b6f86e7</description></item>
+    /// <item><term>CommandAction1</term><description>9df78bb01373451bab52aa8b3e53255a</description></item>
     /// <item><term>Poisons_dmg_zone3</term><description>a98b6c45026a4845b7827c767a832dde</description></item>
     /// </list>
     /// </remarks>
@@ -1399,8 +1399,8 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>2ALR_BlueprintAreaTransition</term><description>caa1a113bb2c18e4bb187348664d4c99</description></item>
-    /// <item><term>Cue_0012</term><description>c0aa3e6a3c985ef4e858a393806ec97c</description></item>
-    /// <item><term>ZigguratNoMoreLich</term><description>ca82ea555e8408c4e8839cdd5079e099</description></item>
+    /// <item><term>Cue_0013</term><description>c6ce8781b9b88ec48bef4f22cab20790</description></item>
+    /// <item><term>ZigguratNoMoreLichTransition</term><description>857ac3ee06be46688c1040033fd2224a</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1452,7 +1452,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>ArenaFinalFight</term><description>131316c1965bfb54e97f6134de6698e1</description></item>
-    /// <item><term>CommandAction</term><description>1cc55e44bdaba1b42b6fe63f61675a75</description></item>
+    /// <item><term>CommandAction</term><description>282c127b428d24446a30dc3398134a99</description></item>
     /// <item><term>WinThirdFight_dialogue</term><description>2038c62fd9e036c4285deb60e2012e19</description></item>
     /// </list>
     /// </remarks>
@@ -1489,7 +1489,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonQ10_EndKTC</term><description>4caf982d4440ee9409b809f10b7796ff</description></item>
-    /// <item><term>CommandAction1</term><description>78e1f3f1e04f46669766183a5377c650</description></item>
+    /// <item><term>CommandAction1</term><description>15759545349b40bdadf17cf4b186bd73</description></item>
     /// <item><term>ZigguratActive</term><description>6716edd224e0d4049a55030f4d01c8ed</description></item>
     /// </list>
     /// </remarks>
@@ -1529,7 +1529,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>CommandAction</term><description>1247182d56f46e9439ae1d9a74085604</description></item>
-    /// <item><term>CommandAction 6</term><description>e8f0a1fd5b83f1247823210eaef5a836</description></item>
+    /// <item><term>CommandAction 6</term><description>5475cc8427334f699e90433437a22857</description></item>
     /// <item><term>TrappedChestGood5_OnDestructionActions</term><description>9a41a80c55a34003b3fa830e5e4a1c9c</description></item>
     /// </list>
     /// </remarks>
@@ -1614,7 +1614,7 @@ namespace BlueprintCore.Actions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>01_GoToCamp</term><description>10d044829fd19a54eb85cae569fc009f</description></item>
-    /// <item><term>Cue_0022</term><description>a05b695416654e84b94a0d24eee59454</description></item>
+    /// <item><term>Cue_0022</term><description>9003ef9f7c809fc49afc7e2dbcafb6b1</description></item>
     /// <item><term>WenduagKTC_WenduagComeNeathholm</term><description>d6793bcea861d3b49857067532fcedc0</description></item>
     /// </list>
     /// </remarks>

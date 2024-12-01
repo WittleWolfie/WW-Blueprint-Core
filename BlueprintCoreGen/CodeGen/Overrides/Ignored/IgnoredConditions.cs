@@ -39,6 +39,7 @@ namespace BlueprintCoreGen.CodeGen.Overrides.Ignored
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CheckLos),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CompanionIsUnconscious),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.CutsceneQueueState),
+        typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.NoOthersCutscenes),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.RomanceLocked),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsExpedition),
         typeof(Kingmaker.Designers.EventConditionActionSystem.Conditions.DungeonIsIslandCurrentFinished),

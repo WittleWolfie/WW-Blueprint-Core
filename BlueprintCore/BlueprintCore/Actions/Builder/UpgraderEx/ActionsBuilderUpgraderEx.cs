@@ -85,8 +85,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-167761</term><description>3d8d382f1c7042e2b9ffe1af00ce2c56</description></item>
-    /// <item><term>PF-354992_DefensiveStance</term><description>8dcbb4fedddc4f308febd605c56779e9</description></item>
-    /// <item><term>PF-516991</term><description>cb0396b0e3654bfc9f537fca514cc9f1</description></item>
+    /// <item><term>PF-389597_UndergroundChemist</term><description>516f856f955547b4b230e1577befc795</description></item>
+    /// <item><term>PF-544187_GoldDragonBreath</term><description>cf94337e2ef548969112ef0aca325a5e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -268,8 +268,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-220021_NegativeEnergyAffinityDhampir</term><description>8d6a65a9774e4cbbbbd71f6547139b1b</description></item>
-    /// <item><term>PF-400743</term><description>8c5f56e6b06641828d1611402f847e5c</description></item>
-    /// <item><term>PF-494907</term><description>c799ee3588b8492e8cc0476fee31a74a</description></item>
+    /// <item><term>PF-402644</term><description>bc8586d9cda14137a66c82b601092132</description></item>
+    /// <item><term>PF-537266_AnimalCompanionRank</term><description>bb2db903aa284c41a273b5b07e96de9e</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -348,7 +348,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-111273</term><description>344ce9c06961426f95c109ce243d8c35</description></item>
-    /// <item><term>PF-350902</term><description>1dd805fe50634941a40a928ba947ce02</description></item>
+    /// <item><term>PF-476668_SenseiFlurryOfBlow</term><description>3fc5aaccc4544c538628df3c0f16fe6c</description></item>
     /// <item><term>PF-96002</term><description>eb741196d9ce49768ca5adac488f65ef</description></item>
     /// </list>
     /// </remarks>
@@ -436,7 +436,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-191269</term><description>90edf140bf514ebaa3fff74c4f576e4d</description></item>
     /// <item><term>PF-440979_LeopardUpgrader</term><description>270cc025b3814600871e3af69ccf60df</description></item>
-    /// <item><term>PF-518666_ArmoredBattlemageArmorTraining</term><description>93c4eed242a1460d8571784d73a9a9d6</description></item>
+    /// <item><term>PF-533484_Loremaster_LivingGrimoire</term><description>1ce1b70c440c43f8a690184268c5ff70</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1033,7 +1033,7 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <listheader>Used by</listheader>
     /// <item><term>PF-358900</term><description>9d2858bae0fe4c8495075117927c15a5</description></item>
     /// <item><term>PF-397133</term><description>8da361c37b9b4cf3a476a2fe532adccf</description></item>
-    /// <item><term>PF-487847</term><description>685b8dc82e8b4131b3155baa846ffe8f</description></item>
+    /// <item><term>PF-525933</term><description>5a36349e76ab4dbb805ebbd9949edcae</description></item>
     /// </list>
     /// </remarks>
     ///
@@ -1152,7 +1152,8 @@ namespace BlueprintCore.Actions.Builder.UpgraderEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>PF-342714</term><description>9628f4a2db9c4a04842e2c9eb1c2e7a6</description></item>
-    /// <item><term>PF-350132</term><description>41516d0e02344c08b5eb7c0e7bd3bc63</description></item>
+    /// <item><term>PF-544187_GoldDragon</term><description>6e44ca0ab517409fa3e41560fa1a4009</description></item>
+    /// <item><term>PF-544187_GoldDragonBreath</term><description>cf94337e2ef548969112ef0aca325a5e</description></item>
     /// </list>
     /// </remarks>
     ///

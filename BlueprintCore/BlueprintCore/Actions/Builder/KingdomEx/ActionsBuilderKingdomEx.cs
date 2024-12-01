@@ -1634,7 +1634,8 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
     /// </param>
     public static ActionsBuilder CreateArmyAsDismissalCompensation(
         this ActionsBuilder builder,
-        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null)
+        Blueprint<BlueprintGlobalMapPoint.Reference>? location = null,
+        bool? random = null)
     {
       var element = ElementTool.Create<CreateArmyAsDismissalCompensation>();
       element.m_Location = location?.Reference ?? element.m_Location;
@@ -1642,6 +1643,7 @@ namespace BlueprintCore.Actions.Builder.KingdomEx
       {
         element.m_Location = BlueprintTool.GetRef<BlueprintGlobalMapPoint.Reference>(null);
       }
+      element.m_Random = random ?? element.m_Random;
       return builder.Add(element);
     }
 

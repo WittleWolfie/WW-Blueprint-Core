@@ -97,7 +97,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeEnemyVisualBuff</term><description>9815f77129674e8e886de2d458ecdf49</description></item>
-    /// <item><term>Cue_53</term><description>51afcdfbe2584ed6a196361bd8cae8fb</description></item>
+    /// <item><term>Cue_64</term><description>0e8be804be2a4a97b102a3f36d21f240</description></item>
     /// <item><term>WoljifQ</term><description>d79f05dbd35b468fa16312f30d61a5e1</description></item>
     /// </list>
     /// </remarks>
@@ -422,7 +422,7 @@ namespace BlueprintCore.Conditions.Builder.AreaEx
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Answer_9</term><description>0b7d208f5f234f9791097f5aa1d5b8d5</description></item>
-    /// <item><term>CommandUnitCastSpell2</term><description>33608356b8364cafa4c9305443372913</description></item>
+    /// <item><term>CommandUnitCastSpell4</term><description>192dd18345944af99cebe2a43c113b81</description></item>
     /// <item><term>WatchPoint_SZWall_FoW</term><description>0f1fdc5a42ea41a4b87da4021e89dabd</description></item>
     /// </list>
     /// </remarks>

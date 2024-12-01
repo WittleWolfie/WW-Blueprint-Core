@@ -314,6 +314,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonbloodShifterRedAbility = "9b6437dff6f945ce831c734fc5717775";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonbloodShifterSilverAbility = "34444997005e40adadb144b0cfcfe086";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonbloodShifterWhiteAbility = "6e98c227c6d84ca89f3183c4d83dac8e";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonLevel2ImmunitiesActivatableAbilityHoly = "47a75b1761704940a69fc3bdc1c56699";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonLevel2ImmunitiesActivatableAbilityUnholy = "616a408c57ba49b39bc71843e1829d18";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DragonStyleToggleAbility = "2c0a8b11e3bb37c4c80c73cc0f706c84";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DravensHatToggleAbility = "2d60b74423b441e78d49dd295115cc03";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> DrovierAnimalAspectGorillaToggleAbility = "1a207c9f7f98ab147bd19084e7e4fd0b";
@@ -814,6 +816,8 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectElephantAbility = "1035bab01a9d420dbb070818afb88215";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectFeyAbility = "343f39876b1c47d2868f06f882cf0cb6";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectFiendAbility = "236c9d277e95407d97b14a1443e9cd47";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectFiendFakeAbility14 = "03dca4011816487eb400ebf6f33d7a47";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectFiendFakeAbility9 = "b2a44e91463d49ec86d08ed75b806ebf";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectGriffonAbility = "482294ea23314b83a251eb36f0feff3c";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectHorseAbility = "5107da0ffa3a4b7bac5fd24f87e7852d";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> ShifterAspectLizardAbility = "22386071787246c597748ae8378d4bc9";
@@ -854,6 +858,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SkillFocusThieveryMythicAbility = "8cf657c7d70765a4ab58c3ab619d181a";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SkillFocusUseMagicDeviceMythicAbility = "32276246f26cff74aa70f449896bec54";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmallDragonAbility = "966b81e9d7c1dd94987a9a8c5b643894";
+    public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmilodonGrabActivatableAbility = "57942450ccf74050b8205f54de1f51d4";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityAdamantite = "2c448ab4135c7c741b6f0f223901f9fa";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityAlignment = "72fe16312b4479145afc6cc6c87cd08f";
     public static readonly Blueprint<BlueprintReference<BlueprintActivatableAbility>> SmitingJudgmentAbilityMagic = "d7e61eb9f0cec5e49bd1b0c428fa98e4";
@@ -1280,6 +1285,8 @@ namespace BlueprintCore.Blueprints.References
           DragonbloodShifterRedAbility,
           DragonbloodShifterSilverAbility,
           DragonbloodShifterWhiteAbility,
+          DragonLevel2ImmunitiesActivatableAbilityHoly,
+          DragonLevel2ImmunitiesActivatableAbilityUnholy,
           DragonStyleToggleAbility,
           DravensHatToggleAbility,
           DrovierAnimalAspectGorillaToggleAbility,
@@ -1780,6 +1787,8 @@ namespace BlueprintCore.Blueprints.References
           ShifterAspectElephantAbility,
           ShifterAspectFeyAbility,
           ShifterAspectFiendAbility,
+          ShifterAspectFiendFakeAbility14,
+          ShifterAspectFiendFakeAbility9,
           ShifterAspectGriffonAbility,
           ShifterAspectHorseAbility,
           ShifterAspectLizardAbility,
@@ -1820,6 +1829,7 @@ namespace BlueprintCore.Blueprints.References
           SkillFocusThieveryMythicAbility,
           SkillFocusUseMagicDeviceMythicAbility,
           SmallDragonAbility,
+          SmilodonGrabActivatableAbility,
           SmitingJudgmentAbilityAdamantite,
           SmitingJudgmentAbilityAlignment,
           SmitingJudgmentAbilityMagic,

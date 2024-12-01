@@ -521,7 +521,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AdaptiveTactics</term><description>e01152417a8ac2248b4f69711b819441</description></item>
-    /// <item><term>HermitKnightBracersFeature</term><description>489fd6aff7ad28d4699718392397fb2e</description></item>
+    /// <item><term>HolyAuraBuff</term><description>a33bf327207a5904d9e38d6a80eb09e2</description></item>
     /// <item><term>ZonKuthonBuff</term><description>83ee9bf48b4249858df8f8ea5fe6ef06</description></item>
     /// </list>
     /// </remarks>
@@ -636,11 +636,16 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AcidMawBuff</term><description>f1a6799b05a40144d9acdbdca1d7c228</description></item>
-    /// <item><term>GreataxeOfFireSquallDamageBuff</term><description>79acc67e537d4ec0963801fe92cd1a6f</description></item>
+    /// <item><term>GlowingScytheEnchantment</term><description>385847ab4a270a64fa00479711995e57</description></item>
     /// <item><term>ZeorisDaggerRing_GoverningAllyBuff</term><description>02680be495534b629d543daa89b47079</description></item>
     /// </list>
     /// </remarks>
     ///
+    /// <param name="actualTargetUnitInCondition">
+    /// <para>
+    /// InfoBox: Use of the unit that is damaged (if disabled, the unit that is the main attack is taken)
+    /// </para>
+    /// </param>
     /// <param name="applyCriticalModifier">
     /// <para>
     /// InfoBox: If enabled, the additional dice damage will inherit critical multiplier from the main damage.
@@ -697,6 +702,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// </para>
     /// </param>
     public TBuilder AdditionalDiceOnAttack(
+        bool? actualTargetUnitInCondition = null,
         bool? allNaturalAndUnarmed = null,
         bool? applyCriticalModifier = null,
         AdditionalDiceOnAttack.WeaponOptions? attackType = null,
@@ -732,6 +738,7 @@ namespace BlueprintCore.Blueprints.Configurators
         Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
     {
       var component = new AdditionalDiceOnAttack();
+      component.ActualTargetUnitInCondition = actualTargetUnitInCondition ?? component.ActualTargetUnitInCondition;
       component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
       component.ApplyCriticalModifier = applyCriticalModifier ?? component.ApplyCriticalModifier;
       component.AttackType = attackType ?? component.AttackType;
@@ -984,6 +991,135 @@ namespace BlueprintCore.Blueprints.Configurators
       var component = new AllAttacksEnhancement();
       component.Bonus = bonus ?? component.Bonus;
       component.Descriptor = descriptor ?? component.Descriptor;
+      return AddComponent(component);
+    }
+
+    /// <summary>
+    /// Adds <see cref="RuleCalculateDamageWithWeaponTrigger"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>ExposeVulnerability</term><description>8ce3c4b3c1ad24f4dbb6cb4c72e1ec53</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="actualTargetUnit">
+    /// <para>
+    /// InfoBox: Use of the unit that is damaged (if disabled, the unit that is the main attack is taken)
+    /// </para>
+    /// </param>
+    /// <param name="weaponBlueprint">
+    /// <para>
+    /// Blueprint of type BlueprintItemWeapon. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="weaponType">
+    /// <para>
+    /// Blueprint of type BlueprintWeaponType. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    public TBuilder AddRuleCalculateDamageWithWeaponTrigger(
+        ActionsBuilder? action = null,
+        bool? actionsOnInitiator = null,
+        bool? actualTargetUnit = null,
+        bool? allNaturalAndUnarmed = null,
+        WeaponCategory? category = null,
+        bool? checkDistance = null,
+        bool? checkPhysicalDamageForm = null,
+        bool? checkWeaponBlueprint = null,
+        bool? checkWeaponCategory = null,
+        bool? checkWeaponGroup = null,
+        bool? checkWeaponRangeType = null,
+        bool? criticalHit = null,
+        PhysicalDamageForm? damageForm = null,
+        bool? damageMoreTargetMaxHP = null,
+        Feet? distanceLessEqual = null,
+        bool? duelistWeapon = null,
+        WeaponFighterGroup? group = null,
+        bool? ignoreAutoHit = null,
+        bool? notCriticalHit = null,
+        bool? notExtraAttack = null,
+        bool? notSneakAttack = null,
+        bool? onAttackOfOpportunity = null,
+        bool? onCharge = null,
+        bool? onlyHit = null,
+        bool? onlyNatural20 = null,
+        bool? onlyOnFirstAttack = null,
+        bool? onlyOnFirstHit = null,
+        bool? onlyOnFullAttack = null,
+        bool? onlySneakAttack = null,
+        bool? onMiss = null,
+        WeaponRangeType? rangeType = null,
+        bool? reduceHPToZero = null,
+        bool? triggerBeforeAttack = null,
+        Blueprint<BlueprintItemWeaponReference>? weaponBlueprint = null,
+        Blueprint<BlueprintWeaponTypeReference>? weaponType = null)
+    {
+      var component = new RuleCalculateDamageWithWeaponTrigger();
+      component.Action = action?.Build() ?? component.Action;
+      if (component.Action is null)
+      {
+        component.Action = Utils.Constants.Empty.Actions;
+      }
+      component.ActionsOnInitiator = actionsOnInitiator ?? component.ActionsOnInitiator;
+      component.ActualTargetUnit = actualTargetUnit ?? component.ActualTargetUnit;
+      component.AllNaturalAndUnarmed = allNaturalAndUnarmed ?? component.AllNaturalAndUnarmed;
+      component.Category = category ?? component.Category;
+      component.CheckDistance = checkDistance ?? component.CheckDistance;
+      component.CheckPhysicalDamageForm = checkPhysicalDamageForm ?? component.CheckPhysicalDamageForm;
+      component.CheckWeaponBlueprint = checkWeaponBlueprint ?? component.CheckWeaponBlueprint;
+      component.CheckWeaponCategory = checkWeaponCategory ?? component.CheckWeaponCategory;
+      component.CheckWeaponGroup = checkWeaponGroup ?? component.CheckWeaponGroup;
+      component.CheckWeaponRangeType = checkWeaponRangeType ?? component.CheckWeaponRangeType;
+      component.CriticalHit = criticalHit ?? component.CriticalHit;
+      component.DamageForm = damageForm ?? component.DamageForm;
+      component.DamageMoreTargetMaxHP = damageMoreTargetMaxHP ?? component.DamageMoreTargetMaxHP;
+      component.DistanceLessEqual = distanceLessEqual ?? component.DistanceLessEqual;
+      component.DuelistWeapon = duelistWeapon ?? component.DuelistWeapon;
+      component.Group = group ?? component.Group;
+      component.IgnoreAutoHit = ignoreAutoHit ?? component.IgnoreAutoHit;
+      component.NotCriticalHit = notCriticalHit ?? component.NotCriticalHit;
+      component.NotExtraAttack = notExtraAttack ?? component.NotExtraAttack;
+      component.NotSneakAttack = notSneakAttack ?? component.NotSneakAttack;
+      component.OnAttackOfOpportunity = onAttackOfOpportunity ?? component.OnAttackOfOpportunity;
+      component.OnCharge = onCharge ?? component.OnCharge;
+      component.OnlyHit = onlyHit ?? component.OnlyHit;
+      component.OnlyNatural20 = onlyNatural20 ?? component.OnlyNatural20;
+      component.OnlyOnFirstAttack = onlyOnFirstAttack ?? component.OnlyOnFirstAttack;
+      component.OnlyOnFirstHit = onlyOnFirstHit ?? component.OnlyOnFirstHit;
+      component.OnlyOnFullAttack = onlyOnFullAttack ?? component.OnlyOnFullAttack;
+      component.OnlySneakAttack = onlySneakAttack ?? component.OnlySneakAttack;
+      component.OnMiss = onMiss ?? component.OnMiss;
+      component.RangeType = rangeType ?? component.RangeType;
+      component.ReduceHPToZero = reduceHPToZero ?? component.ReduceHPToZero;
+      component.TriggerBeforeAttack = triggerBeforeAttack ?? component.TriggerBeforeAttack;
+      component.m_WeaponBlueprint = weaponBlueprint?.Reference ?? component.m_WeaponBlueprint;
+      if (component.m_WeaponBlueprint is null)
+      {
+        component.m_WeaponBlueprint = BlueprintTool.GetRef<BlueprintItemWeaponReference>(null);
+      }
+      component.m_WeaponType = weaponType?.Reference ?? component.m_WeaponType;
+      if (component.m_WeaponType is null)
+      {
+        component.m_WeaponType = BlueprintTool.GetRef<BlueprintWeaponTypeReference>(null);
+      }
       return AddComponent(component);
     }
 
@@ -1530,7 +1666,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>AeonEyeNPCVisualBuff</term><description>cf2f65c16e02826428f32be045f8523d</description></item>
-    /// <item><term>DLC5_TavernAmbienceStates</term><description>b33a9ed5bd144b26af36302cc8a54184</description></item>
+    /// <item><term>DLC5_TavernDefault</term><description>b354ec11d92a4d7480b021ea1a0e9fdd</description></item>
     /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
@@ -1565,7 +1701,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>Abad_state_0</term><description>52edc4f040174899850aaeb0b853b1d8</description></item>
-    /// <item><term>KTC_AbrogailVisit_Notification</term><description>b9fcf9fcd1ac9ca4c95778a2d246c582</description></item>
+    /// <item><term>HideOath</term><description>ca9d1feaeddda7e43bd63b91078a41d4</description></item>
     /// <item><term>ZigguratZachariusInZiggurat</term><description>2844d387f27a0bb468f72603dd15eda2</description></item>
     /// </list>
     /// </remarks>
@@ -2020,7 +2156,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>26!_SadisticGD_Checker_restTrigger</term><description>7bc48a5ec7e240e1a059148777166ba7</description></item>
-    /// <item><term>DLC4_BurningCorpses</term><description>ca6a4ae3f6cc4eb8b031fdff0d1db5d7</description></item>
+    /// <item><term>DLC2_Sv_Catcmb_RstOutOn</term><description>85754732aed2470a8ed7a296166ac66c</description></item>
     /// <item><term>WenduagRomance_BarksAfterSexRepeat</term><description>e3049ea03e2f80a42b5b2dab02c75e78</description></item>
     /// </list>
     /// </remarks>
@@ -2213,7 +2349,7 @@ namespace BlueprintCore.Blueprints.Configurators
     /// <list type="bullet">
     /// <listheader>Used by</listheader>
     /// <item><term>1ArenaCombat</term><description>8e64ed1e12bc30c498402e99c95e75e3</description></item>
-    /// <item><term>DLC6_FinalFight</term><description>986c6ae5c6c246ba9c3f0508e0e563ff</description></item>
+    /// <item><term>DLC6_KenabresForSwarm</term><description>8028479b2d1c491e9f18ac2198f459f7</description></item>
     /// <item><term>ZombiesOnStreets</term><description>ffcf5bca11694784686d9947ed226a88</description></item>
     /// </list>
     /// </remarks>

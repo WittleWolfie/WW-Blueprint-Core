@@ -198,6 +198,7 @@ namespace BlueprintCore.Blueprints.References
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfDisguiseEnchantment = "a222d78bd600dbc45bf42b79844cf7ee";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfEfficientInvisibilityEnchnatment = "5361764e77f641039f9c39afa438b061";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfLoneWolfEnchantment = "1582d0c65dcb4523a6ab61b792da0c1e";
+    public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfMortaEnchantment = "a63cf1a1b7bb45d289fe72feaff0cf55";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfResistance7ExtraEnchantment = "3dda8b22e1124cb8bbd1546636e0e258";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfSacredStudiesEnchantment = "7df1e77c65d44b87a290a4b3aee41683";
     public static readonly Blueprint<BlueprintReference<BlueprintEquipmentEnchantment>> CloakOfSharpFangsEnchantment = "800d2e5571d292e44b1dcf145b407dbe";
@@ -938,6 +939,7 @@ namespace BlueprintCore.Blueprints.References
           CloakOfDisguiseEnchantment,
           CloakOfEfficientInvisibilityEnchnatment,
           CloakOfLoneWolfEnchantment,
+          CloakOfMortaEnchantment,
           CloakOfResistance7ExtraEnchantment,
           CloakOfSacredStudiesEnchantment,
           CloakOfSharpFangsEnchantment,
