@@ -23,6 +23,9 @@ For general usage details see the links below:
 
 ##  Quick-Start
 
+> [!TIP]
+> There's an even better quick-setup script available here: [OwlcatNuGetTemplates](https://github.com/xADDBx/OwlcatNuGetTemplates). **I strongly recommend using this instead of these setup instructions, but I will keep them here for reference.**
+
 If you have an existing mod to which you're integrating BPCore you'll need to go through the [Full Setup](#full-setup). If you're starting a new mod you're in luck, BPCore now has [Project Templates](https://github.com/WittleWolfie/BPCoreTemplate)!
 
 1. Download and install [Visual Studio](https://visualstudio.microsoft.com/vs/), skip if you already have it

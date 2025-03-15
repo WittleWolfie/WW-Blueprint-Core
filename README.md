@@ -207,4 +207,4 @@ BlueprintCore is available as a [NuGet package](https://www.nuget.org/packages/W
 # Interested in modding?
 
 * Check out the [OwlcatModdingWiki](https://github.com/WittleWolfie/OwlcatModdingWiki/wiki).
-* Join us on [Discord](https://discord.com/invite/wotr).
+* Join us on [Discord](https://discord.com/invite/owlcat).
