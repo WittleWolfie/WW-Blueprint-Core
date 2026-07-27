@@ -13,7 +13,7 @@ namespace BlueprintCore.Utils.Validation
     {
       if (string.IsNullOrEmpty(element.name))
       {
-        context.AddError("{0} is missing a name. Create it using ElementTool.Create().", element.GetType().Name);
+        context.AddError(ErrorLevel.Critical, "{0} is missing a name. Create it using ElementTool.Create().", element.GetType().Name);
       }
 
       if (element is DealStatDamage damage)
