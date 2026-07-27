@@ -48,11 +48,11 @@ namespace BlueprintCore.Utils
     /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
     /// automatically done.
     /// </remarks>
-    public static string TagEncyclopediaEntries(string text)
+    public static string TagEncyclopediaEntries(string text, bool autotag=false)
     {
       foreach (var entry in EncyclopediaEntries)
       {
-        text = entry.TagEntry(text);
+        text = entry.TagEntry(text, autotag);
       }
 
       return text;
@@ -84,7 +84,7 @@ namespace BlueprintCore.Utils
         EntryPattern = new Regex($@"{{g\|Encyclopedia:{Entry}}}(?<text>.*?){{/g}}");
       }
 
-      public string TagEntry(string text)
+      public string TagEntry(string text, bool autotag)
       {
         foreach (var pattern in this.Patterns)
         {
@@ -101,6 +101,8 @@ namespace BlueprintCore.Utils
                 continue;
               }
 
+              if (!autotag)
+                break;
               text = context.Preceding + this.WrapTextInEntryTag(match.Value) + context.Following;
               return text; // return after tagging first entry
             }

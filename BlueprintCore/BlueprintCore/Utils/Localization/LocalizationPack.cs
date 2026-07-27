@@ -32,7 +32,7 @@ namespace BlueprintCore.Utils.Localization
     {
       var pack = new LocalizationPack
       {
-        Locale = LocalizationManager.CurrentPack.Locale,
+        Locale = LocalizationManager.CurrentPack!.Locale,
         m_Strings = new Dictionary<string, LocalizationPack.StringEntry>()
       };
 
@@ -61,6 +61,12 @@ namespace BlueprintCore.Utils.Localization
     /// </summary>
     [JsonProperty]
     private readonly bool ProcessTemplates = true;
+    
+    /// <summary>
+    /// Determines if the text will be passed though the tagging system before being added to the current LocalizationPack.
+    /// </summary>
+    [JsonProperty]
+    private readonly bool AutoTemplate = false;
 
     /// <summary>
     /// English Text.
@@ -99,7 +105,7 @@ namespace BlueprintCore.Utils.Localization
     private readonly string esES = "";
 
     /// <summary>
-    /// The LocalizedString representation of the the MultiLocaleString.
+    /// The LocalizedString representation of the MultiLocaleString.
     /// </summary>
     internal LocalizedString LocalizedString
     {
@@ -126,13 +132,11 @@ namespace BlueprintCore.Utils.Localization
     /// </returns>
     internal LocalizationPack.StringEntry StringEntry(Locale locale = Locale.enGB)
     {
-      bool tagEntries = false;
       string result;
       switch (locale)
       {
         case Locale.enGB:
           result = enGB;
-          tagEntries = ProcessTemplates;
           break;
         case Locale.ruRU:
           result = ruRU;
@@ -160,7 +164,7 @@ namespace BlueprintCore.Utils.Localization
 
       return new LocalizationPack.StringEntry
       {
-        Text = tagEntries ? EncyclopediaTool.TagEncyclopediaEntries(result) : result
+        Text = ProcessTemplates ? EncyclopediaTool.TagEncyclopediaEntries(result, AutoTemplate) : result
       };
     }
 
