@@ -48,7 +48,7 @@ namespace BlueprintCore.Utils
     /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
     /// automatically done.
     /// </remarks>
-    public static string TagEncyclopediaEntries(string text, bool autotag=true)
+    public static string TagEncyclopediaEntries(string text, bool autotag)
     {
       foreach (var entry in EncyclopediaEntries)
       {
@@ -56,6 +56,19 @@ namespace BlueprintCore.Utils
       }
 
       return text;
+    }
+    
+    /// <summary>
+    /// Returns <c>text</c> with encyclopedia entry tags (tooltips). (Old method to not break ABI)
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
+    /// automatically done.
+    /// </remarks>
+    public static string TagEncyclopediaEntries(string text)
+    {
+      return TagEncyclopediaEntries(text, true);
     }
 
     /// <summary>
@@ -110,6 +123,12 @@ namespace BlueprintCore.Utils
         }
 
         return text;
+      }
+      
+      // Old method to not break ABI
+      public string TagEntry(string text)
+      {
+        return TagEntry(text, true);
       }
 
       public string UntagEntry(string text)
