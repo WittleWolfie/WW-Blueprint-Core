@@ -59,13 +59,14 @@ namespace BlueprintCore.Utils
     }
     
     /// <summary>
-    /// Returns <c>text</c> with encyclopedia entry tags (tooltips). (Old method to not break ABI)
+    /// Returns <c>text</c> with encyclopedia entry tags (tooltips). 
     /// </summary>
     /// 
     /// <remarks>
     /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
     /// automatically done.
     /// </remarks>
+    [Obsolete("Use TagEncyclopediaEntries(string text, bool autotag) instead")]
     public static string TagEncyclopediaEntries(string text)
     {
       return TagEncyclopediaEntries(text, true);
@@ -125,7 +126,7 @@ namespace BlueprintCore.Utils
         return text;
       }
       
-      // Old method to not break ABI
+      [Obsolete("Use TagEntry(string text, bool autotag) instead")]
       public string TagEntry(string text)
       {
         return TagEntry(text, true);

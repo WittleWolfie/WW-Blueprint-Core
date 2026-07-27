@@ -63,7 +63,7 @@ namespace BlueprintCore.Utils.Localization
     private readonly bool ProcessTemplates = true;
     
     /// <summary>
-    /// Determines if the text will be passed though the tagging system before being added to the current LocalizationPack.
+    /// Determines if the text will be passed though the auto encyclopedia tagging system before being added to the current LocalizationPack.
     /// </summary>
     [JsonProperty]
     private readonly bool AutoTemplate = true;
