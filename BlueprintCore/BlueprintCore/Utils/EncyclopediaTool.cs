@@ -48,7 +48,7 @@ namespace BlueprintCore.Utils
     /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
     /// automatically done.
     /// </remarks>
-    public static string TagEncyclopediaEntries(string text, bool autotag=false)
+    public static string TagEncyclopediaEntries(string text, bool autotag=true)
     {
       foreach (var entry in EncyclopediaEntries)
       {

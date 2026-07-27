@@ -66,7 +66,7 @@ namespace BlueprintCore.Utils.Localization
     /// Determines if the text will be passed though the tagging system before being added to the current LocalizationPack.
     /// </summary>
     [JsonProperty]
-    private readonly bool AutoTemplate = false;
+    private readonly bool AutoTemplate = true;
 
     /// <summary>
     /// English Text.
