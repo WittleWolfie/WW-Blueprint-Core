@@ -48,14 +48,28 @@ namespace BlueprintCore.Utils
     /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
     /// automatically done.
     /// </remarks>
-    public static string TagEncyclopediaEntries(string text)
+    public static string TagEncyclopediaEntries(string text, bool autotag)
     {
       foreach (var entry in EncyclopediaEntries)
       {
-        text = entry.TagEntry(text);
+        text = entry.TagEntry(text, autotag);
       }
 
       return text;
+    }
+    
+    /// <summary>
+    /// Returns <c>text</c> with encyclopedia entry tags (tooltips). 
+    /// </summary>
+    /// 
+    /// <remarks>
+    /// If you create <see cref="Kingmaker.Localization.LocalizedString" /> using <see cref="LocalizationTool"/> this is
+    /// automatically done.
+    /// </remarks>
+    [Obsolete("Use TagEncyclopediaEntries(string text, bool autotag) instead")]
+    public static string TagEncyclopediaEntries(string text)
+    {
+      return TagEncyclopediaEntries(text, true);
     }
 
     /// <summary>
@@ -84,7 +98,7 @@ namespace BlueprintCore.Utils
         EntryPattern = new Regex($@"{{g\|Encyclopedia:{Entry}}}(?<text>.*?){{/g}}");
       }
 
-      public string TagEntry(string text)
+      public string TagEntry(string text, bool autotag)
       {
         foreach (var pattern in this.Patterns)
         {
@@ -101,6 +115,8 @@ namespace BlueprintCore.Utils
                 continue;
               }
 
+              if (!autotag)
+                break;
               text = context.Preceding + this.WrapTextInEntryTag(match.Value) + context.Following;
               return text; // return after tagging first entry
             }
@@ -108,6 +124,12 @@ namespace BlueprintCore.Utils
         }
 
         return text;
+      }
+      
+      [Obsolete("Use TagEntry(string text, bool autotag) instead")]
+      public string TagEntry(string text)
+      {
+        return TagEntry(text, true);
       }
 
       public string UntagEntry(string text)

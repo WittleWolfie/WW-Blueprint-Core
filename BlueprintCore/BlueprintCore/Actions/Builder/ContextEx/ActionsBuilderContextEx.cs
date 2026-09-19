@@ -197,6 +197,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// InfoBox: By default all effects that were created from area effect will be destroyed after area effect ends. Check it on if you want buff to live longer
     /// </para>
     /// </param>
+    [Obsolete("Use ApplyBuffPermanentFixed instead")]
     public static ActionsBuilder ApplyBuffPermanent(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuffReference> buff,
@@ -219,6 +220,63 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.ToCaster = toCaster ?? element.ToCaster;
       element.Permanent = true;
       element.UseDurationSeconds = false;
+      return builder.Add(element);
+    }
+    
+    /// <summary>
+    /// Adds <see cref="ContextActionApplyBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>Heal</term><description>ff8f1534f66559c478448723e16b6624</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="notLinkToAreaEffect">
+    /// <para>
+    /// InfoBox: By default all effects that were created from area effect will be destroyed after area effect ends. Check it on if you want buff to live longer
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ApplyBuffPermanentFixed(
+      this ActionsBuilder builder,
+      Blueprint<BlueprintBuffReference> buff,
+      bool? asChild = null,
+      bool? ignoreParentContext = null,
+      bool? isFromSpell = null,
+      bool? isNotDispelable = null,
+      bool? notLinkToAreaEffect = null,
+      bool? sameDuration = null,
+      bool? toCaster = null)
+    {
+      var element = ElementTool.Create<ContextActionApplyBuff>();
+      element.m_Buff = buff?.Reference;
+      element.AsChild = asChild ?? element.AsChild;
+      element.IgnoreParentContext = ignoreParentContext ?? element.IgnoreParentContext;
+      element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+      element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+      element.NotLinkToAreaEffect = notLinkToAreaEffect ?? element.NotLinkToAreaEffect;
+      element.SameDuration = sameDuration ?? element.SameDuration;
+      element.ToCaster = toCaster ?? element.ToCaster;
+      element.Permanent = true;
+      element.UseDurationSeconds = false;
+      element.DurationValue = new ContextDurationValue() { m_IsExtendable = false };
       return builder.Add(element);
     }
 
@@ -253,6 +311,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
     /// InfoBox: By default all effects that were created from area effect will be destroyed after area effect ends. Check it on if you want buff to live longer
     /// </para>
     /// </param>
+    [Obsolete("Use ApplyBuffWithDurationSecondsFixed instead")]
     public static ActionsBuilder ApplyBuffWithDurationSeconds(
         this ActionsBuilder builder,
         Blueprint<BlueprintBuffReference> buff,
@@ -277,6 +336,69 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.ToCaster = toCaster ?? element.ToCaster;
       element.Permanent = false;
       element.UseDurationSeconds = true;
+      return builder.Add(element);
+    }
+
+    /// <summary>
+    /// Adds <see cref="ContextActionApplyBuff"/>
+    /// </summary>
+    ///
+    /// <remarks>
+    ///
+    /// <list type="bullet">
+    /// <listheader>Used by</listheader>
+    /// <item><term>1_FirstStage_AcidBuff</term><description>6afe27c9a2d64eb890673ff3649dacb3</description></item>
+    /// <item><term>Heal</term><description>ff8f1534f66559c478448723e16b6624</description></item>
+    /// <item><term>ZonKuthonScarHalfHPTriggerBuff</term><description>b5eb1d0094f744889ca22bb4cfc1e648</description></item>
+    /// </list>
+    /// </remarks>
+    ///
+    /// <param name="buff">
+    /// <para>
+    /// Blueprint of type BlueprintBuff. You can pass in the blueprint using:
+    /// <list type ="bullet">
+    ///   <item><term>A blueprint instance</term></item>
+    ///   <item><term>A blueprint reference</term></item>
+    ///   <item><term>A blueprint id as a string, Guid, or BlueprintGuid</term></item>
+    ///   <item><term>A blueprint name registered with <see cref="BlueprintTool">BlueprintTool</see></term></item>
+    /// </list>
+    /// See <see cref="Blueprint{TRef}">Blueprint</see> for more details.
+    /// </para>
+    /// </param>
+    /// <param name="notLinkToAreaEffect">
+    /// <para>
+    /// InfoBox: By default all effects that were created from area effect will be destroyed after area effect ends. Check it on if you want buff to live longer
+    /// </para>
+    /// </param>
+    public static ActionsBuilder ApplyBuffWithDurationSecondsFixed(
+      this ActionsBuilder builder,
+      Blueprint<BlueprintBuffReference> buff,
+      float durationSeconds,
+      bool? asChild = null,
+      bool? ignoreParentContext = null,
+      bool? isFromSpell = null,
+      bool? isNotDispelable = null,
+      bool? notLinkToAreaEffect = null,
+      bool? sameDuration = null,
+      bool? toCaster = null,
+      bool? isExtendable = false)
+    {
+      var element = ElementTool.Create<ContextActionApplyBuff>();
+      element.m_Buff = buff?.Reference;
+      element.DurationSeconds = durationSeconds;
+      element.AsChild = asChild ?? element.AsChild;
+      element.IgnoreParentContext = ignoreParentContext ?? element.IgnoreParentContext;
+      element.IsFromSpell = isFromSpell ?? element.IsFromSpell;
+      element.IsNotDispelable = isNotDispelable ?? element.IsNotDispelable;
+      element.NotLinkToAreaEffect = notLinkToAreaEffect ?? element.NotLinkToAreaEffect;
+      element.SameDuration = sameDuration ?? element.SameDuration;
+      element.ToCaster = toCaster ?? element.ToCaster;
+      element.Permanent = false;
+      element.UseDurationSeconds = true;
+      element.DurationValue = new ContextDurationValue()
+      {
+        m_IsExtendable = isExtendable ?? true
+      };
       return builder.Add(element);
     }
 
@@ -338,7 +460,7 @@ namespace BlueprintCore.Actions.Builder.ContextEx
       element.UseDurationSeconds = false;
       return builder.Add(element);
     }
-
+    
     /// <summary>
     /// Adds <see cref="ContextActionArmorEnchantPool"/>
     /// </summary>

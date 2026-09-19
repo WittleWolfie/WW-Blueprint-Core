@@ -52,7 +52,7 @@ namespace BlueprintCore.Utils.Validation
           && !attrs.Where(attr => attr is AllowMultipleComponentsAttribute).Any()
           && !AllowMultipleComponents.Contains(componentType))
         {
-          context.AddError("Multiple {0} present but only one is allowed.", component);
+          context.AddError(ErrorLevel.Critical, "Multiple {0} present but only one is allowed", component);
         }
         else
         {
@@ -75,7 +75,7 @@ namespace BlueprintCore.Utils.Validation
 
         if (allowedOn.Count > 0 && !componentAllowed)
         {
-          context.AddError("{0} not allowed on {1}", component, blueprintType.Name);
+          context.AddError(ErrorLevel.Critical, "{0} not allowed on {1}", component, blueprintType.Name);
         }
       }
 
@@ -88,7 +88,7 @@ namespace BlueprintCore.Utils.Validation
               .Select(group => group.Key);
       if (duplicateRankTypes.Any())
       {
-        context.AddError(
+        context.AddError(ErrorLevel.Critical,
             "Duplicate ContextRankConfig.m_Type values found, only one of each type is used: {0}",
             string.Join(",", duplicateRankTypes));
       }
@@ -102,7 +102,7 @@ namespace BlueprintCore.Utils.Validation
     {
       if (blueprint.GetComponents<T>().Count() > 1)
       {
-        context.AddError("Multiple {0} components present. Only the first is used.", typeof(T).Name);
+        context.AddError(ErrorLevel.Critical, "Multiple {0} components present. Only the first is used.", typeof(T).Name);
       }
     }
     
@@ -110,10 +110,10 @@ namespace BlueprintCore.Utils.Validation
     private static void Check(BlueprintAbilityAreaEffect areaEffect, ValidationContext context)
     {
       if (areaEffect.Shape == 0)
-        context.AddError("Area effect does not have shape set.");
+        context.AddError(ErrorLevel.Critical, "Area effect does not have shape set.");
 
       if (areaEffect.Size == ZeroFeet && areaEffect.m_SizeInCells == 0)
-        context.AddError("Area effect has no size set and will not affect an area.");
+        context.AddError(ErrorLevel.Critical, "Area effect has no size set and will not affect an area.");
     }
 
     /// <summary>
@@ -123,7 +123,7 @@ namespace BlueprintCore.Utils.Validation
     {
       if (ability.CustomRange > ZeroFeet && !ability.IsRangeCustom)
       {
-        context.AddError("A custom range value is set without AbilityRange.Custom. It is ignored.");
+        context.AddError(ErrorLevel.Critical, "A custom range value is set without AbilityRange.Custom. It is ignored.");
       }
 
       CheckSingleComponent<SpellComponent>(ability, context);
@@ -148,7 +148,7 @@ namespace BlueprintCore.Utils.Validation
       if (ability.GetComponent<AbilityTargetsAroundOnGrid>() != null
         && ability.GetComponent<AbilityAffectLineOnGrid>() != null)
       {
-        context.AddError(
+        context.AddError(ErrorLevel.Critical,
           "AbilityTargetsAroundOnGrid and AbilityAffectLineOnGrid present. AbilityAffectLineOnGrid is ignored.");
       }
 
@@ -157,12 +157,12 @@ namespace BlueprintCore.Utils.Validation
       {
         if (applyEffects[0] is AbilityEffectMiss)
         {
-          context.AddError("AbilityEffectMiss is the first AbilityApplyEffect. It always triggers.");
+          context.AddError(ErrorLevel.Critical, "AbilityEffectMiss is the first AbilityApplyEffect. It always triggers.");
         }
 
         if ((applyEffects.Count == 2 && applyEffects[1] is not AbilityEffectMiss) || applyEffects.Count > 2)
         {
-          context.AddError("Too many AbilityApplyEffect components. Only {0} applies.", applyEffects[0]);
+          context.AddError(ErrorLevel.Critical, "Too many AbilityApplyEffect components. Only {0} applies.", applyEffects[0]);
         }
       }
 
@@ -171,7 +171,7 @@ namespace BlueprintCore.Utils.Validation
         var deliverEffect = ability.GetComponent<AbilityDeliverEffect>();
         if (deliverEffect is null)
         {
-          context.AddError(
+          context.AddError(ErrorLevel.Critical,
             "AbilityEffectMiss requires an AbilityDeliverEffect. " +
             "Use AbilityDeliveredbyWeapon, " +
             "AbilityDeliverClashingRocks, " +
@@ -183,7 +183,7 @@ namespace BlueprintCore.Utils.Validation
           && deliverEffect is not AbilityDeliverProjectile
           && deliverEffect is not AbilityDeliverTouch)
         {
-          context.AddError(
+          context.AddError(ErrorLevel.Critical,
             "AbilityEffectMiss is not compatible with {0}. " +
             "Use AbilityDeliveredbyWeapon, " +
             "AbilityDeliverClashingRocks, " +
@@ -202,7 +202,7 @@ namespace BlueprintCore.Utils.Validation
 
       if (!buff.HasRanks && buff.Ranks > 0)
       {
-        context.AddError("Ranks are specified without StackingType.Rank. Ranks is ignored.");
+        context.AddError(ErrorLevel.Critical, "Ranks are specified without StackingType.Rank. Ranks is ignored.");
       }
     }
 
@@ -222,12 +222,12 @@ namespace BlueprintCore.Utils.Validation
       if (unitProperty.BaseValue == 0
         && unitProperty.OperationOnComponents == BlueprintUnitProperty.MathOperation.Multiply)
       {
-        context.AddError("BaseValue is 0 with MathOperation.Multiply. Resulting value will always be 0.");
+        context.AddError(ErrorLevel.Critical, "BaseValue is 0 with MathOperation.Multiply. Resulting value will always be 0.");
       }
 
       if (unitProperty.GetComponent<PropertyValueGetter>() is null)
       {
-        context.AddError(
+        context.AddError(ErrorLevel.Critical,
           $"No properties specified. Resulting value will always be {unitProperty.BaseValue} (BaseValue).");
       }
     }
