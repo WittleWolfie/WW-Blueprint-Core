@@ -1,5 +1,9 @@
 ﻿# Changelog
 
+## v2.8.7 Release
+
+* PR from CasDragon, blame them
+
 ## v2.8.6 Release
 
 * Update for latest game patch
